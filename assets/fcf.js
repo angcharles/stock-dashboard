@@ -90,9 +90,9 @@
     </div>
 
     <div class="grid fcf-t" style="margin-top:16px">
-      <div class="panel tbl" style="max-height:520px;overflow:auto;padding-top:0">
+      <div class="panel tbl">
         <table>
-          <thead style="position:sticky;top:0;background:var(--panel)"><tr><th>${t("tQ")}</th><th>${t("tEnd")}</th><th>${t("tOcf")}</th><th>${t("tCap")}</th><th>${t("tFcf")}</th><th>${t("tTtm")}</th></tr></thead>
+          <thead><tr><th>${t("tQ")}</th><th>${t("tEnd")}</th><th>${t("tOcf")}</th><th>${t("tCap")}</th><th>${t("tFcf")}</th><th>${t("tTtm")}</th></tr></thead>
           <tbody>${rows.slice().reverse().map(r => `<tr${r[5] ? ' class="guide"' : ""}><td>${r[0]}${r[5] ? " (" + t("est") + ")" : ""}</td><td>${r[1]}</td><td>${m(r[2])}</td><td>${m(-r[3])}</td><td><b class="${r[5] ? "" : cls(r[4])}">${m(r[4])}</b></td><td>${r.ttm == null ? "—" : m(r.ttm)}</td></tr>`).join("")}</tbody>
         </table>
       </div>
