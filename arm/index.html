@@ -109,6 +109,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     <a href="#price" data-i="n_price">Price</a>
     <a href="#revenue" data-i="n_rev">Revenue</a>
     <a href="#annual" data-i="n_ann">Financials</a>
+    <a href="#cashflow" data-i="n_fcf">Cash flow</a>
     <a href="#watch" data-i="n_watch">Watch list</a>
     <a href="#sources" data-i="n_src">Sources</a>
   </nav>
@@ -215,6 +216,8 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     </div>
   </section>
 
+  <section id="cashflow" aria-label="Free cash flow"></section>
+
   <section id="watch">
     <h2 data-i="h_watch">Watch list</h2>
     <p class="sub" data-i="sub_watch">What moves the thesis, sorted by direction.</p>
@@ -273,7 +276,7 @@ const G = ["Q2 FY27","Sep 2026 (guide)",1380,0.47];
 const A = [["FY24",1802,1431],["FY25",2168,1839],["FY26",2610,2310]];
 
 const T = {
- zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_watch:"关注点",n_src:"来源",
+ zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_fcf:"现金流",n_watch:"关注点",n_src:"来源",
   eyebrow:"Arm Holdings plc · 美国存托凭证 · 英国剑桥",
   title:"每颗芯片都收<em>授权费</em>，估值已按完美定价。",
   lede:"Arm 授权 CPU 设计，并对每颗出货芯片收取版税。营收年增逾 20%，毛利率约 97%；但股价约为预期市盈率 90 倍，贝塔值近 3.8。",
@@ -421,5 +424,7 @@ s.text=JSON.stringify({symbol:"NASDAQ:ARM",width:"100%",isTransparent:true,color
 document.querySelector("#tv .tradingview-widget-container").appendChild(s);})();
 </script>
 
+<script src="fcf-data.js"></script>
+<script src="../assets/fcf.js"></script>
 </body>
 </html>

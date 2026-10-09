@@ -110,6 +110,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     <a href="#price" data-i="n_price">Price</a>
     <a href="#revenue" data-i="n_rev">Revenue</a>
     <a href="#annual" data-i="n_ann">Financials</a>
+    <a href="#cashflow" data-i="n_fcf">Cash flow</a>
     <a href="#watch" data-i="n_watch">Watch list</a>
     <a href="#sources" data-i="n_src">Sources</a>
   </nav>
@@ -218,6 +219,8 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     </div>
   </section>
 
+  <section id="cashflow" aria-label="Free cash flow"></section>
+
   <section id="watch">
     <h2 data-i="h_watch">Watch list</h2>
     <p class="sub" data-i="sub_watch">What moves the thesis, sorted by direction.</p>
@@ -279,7 +282,7 @@ const G = ["Q3 2026","(consensus)",27571,28095,17.7];
 const A = [["FY23",82419,6035,8319],["FY24",77070,10086,10534],["FY25",69526,12771,12530]];
 
 const T = {
- zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_watch:"关注点",n_src:"来源",
+ zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_fcf:"现金流",n_watch:"关注点",n_src:"来源",
   eyebrow:"Tesla, Inc. · 普通股 · 美国德州奥斯汀",
   title:"账面是车企，股价押注的是<em>人工智能</em>。",
   lede:"特斯拉约四分之三的营收仍来自卖车，第二季营业利润率仅 1.4%。1.5 万亿美元的市值押注在 Robotaxi、FSD 订阅、Optimus 机器人和储能上，而今年资本开支超过 250 亿美元。",
@@ -431,5 +434,7 @@ s.text=JSON.stringify({symbol:"NASDAQ:TSLA",width:"100%",isTransparent:true,colo
 document.querySelector("#tv .tradingview-widget-container").appendChild(s);})();
 </script>
 
+<script src="fcf-data.js"></script>
+<script src="../assets/fcf.js"></script>
 </body>
 </html>

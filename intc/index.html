@@ -110,6 +110,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     <a href="#price" data-i="n_price">Price</a>
     <a href="#revenue" data-i="n_rev">Revenue</a>
     <a href="#annual" data-i="n_ann">Financials</a>
+    <a href="#cashflow" data-i="n_fcf">Cash flow</a>
     <a href="#watch" data-i="n_watch">Watch list</a>
     <a href="#sources" data-i="n_src">Sources</a>
   </nav>
@@ -219,6 +220,8 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     </div>
   </section>
 
+  <section id="cashflow" aria-label="Free cash flow"></section>
+
   <section id="watch">
     <h2 data-i="h_watch">Watch list</h2>
     <p class="sub" data-i="sub_watch">What moves the thesis, sorted by direction.</p>
@@ -277,7 +280,7 @@ const G = ["Q3 2026","(guide)",16300,13653,42.0,0.38];
 const A = [["FY24",33346,16125,3630],["FY25",32228,16919,3706]];
 
 const T = {
- zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_watch:"关注点",n_src:"来源",
+ zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_fcf:"现金流",n_watch:"关注点",n_src:"来源",
   eyebrow:"Intel Corporation · 普通股 · 美国加州圣克拉拉",
   title:"复苏已体现在业绩上，<em>也体现在股价上</em>。",
   lede:"第二季营收增长 25%，为 2011 年以来最快；AI 推高服务器 CPU 需求，增速快过英特尔的供货能力。股价今年几乎涨了两倍。GAAP 业绩受美国政府持股安排影响而大幅波动，代工业务的客户仍主要是英特尔自己。",
@@ -429,5 +432,7 @@ s.text=JSON.stringify({symbol:"NASDAQ:INTC",width:"100%",isTransparent:true,colo
 document.querySelector("#tv .tradingview-widget-container").appendChild(s);})();
 </script>
 
+<script src="fcf-data.js"></script>
+<script src="../assets/fcf.js"></script>
 </body>
 </html>

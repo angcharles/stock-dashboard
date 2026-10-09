@@ -43,16 +43,18 @@ jobs:
         run: |
           mkdir -p _site/arm/data
           cp index.html .nojekyll _site/
-          cp arm/index.html _site/arm/
+          mkdir -p _site/assets
+          cp assets/*.js _site/assets/
+          cp arm/index.html arm/fcf-data.js _site/arm/
           cp arm/data/*.json _site/arm/data/
           mkdir -p _site/tesla/data
-          cp tesla/index.html _site/tesla/
+          cp tesla/index.html tesla/fcf-data.js _site/tesla/
           cp tesla/data/*.json _site/tesla/data/
           mkdir -p _site/sndk/data
-          cp sndk/index.html _site/sndk/
+          cp sndk/index.html sndk/fcf-data.js _site/sndk/
           cp sndk/data/*.json _site/sndk/data/
           mkdir -p _site/intc/data
-          cp intc/index.html _site/intc/
+          cp intc/index.html intc/fcf-data.js _site/intc/
           cp intc/data/*.json _site/intc/data/
 
       - uses: actions/configure-pages@v5
