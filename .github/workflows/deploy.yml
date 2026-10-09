@@ -37,6 +37,7 @@ jobs:
           node scripts/fetch-quote.mjs ARM arm/data 1y
           node scripts/fetch-quote.mjs TSLA tesla/data 2y
           node scripts/fetch-quote.mjs SNDK sndk/data 2y
+          node scripts/fetch-quote.mjs INTC intc/data 2y
 
       - name: Assemble site
         run: |
@@ -50,6 +51,9 @@ jobs:
           mkdir -p _site/sndk/data
           cp sndk/index.html _site/sndk/
           cp sndk/data/*.json _site/sndk/data/
+          mkdir -p _site/intc/data
+          cp intc/index.html _site/intc/
+          cp intc/data/*.json _site/intc/data/
 
       - uses: actions/configure-pages@v5
 
