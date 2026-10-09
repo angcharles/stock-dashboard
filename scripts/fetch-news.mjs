@@ -17,6 +17,14 @@ const STOCKS = [
   { t: "COHR", q: '"Coherent Corp" OR "Coherent stock" OR "Coherent shares" OR "NYSE:COHR" OR (Coherent earnings)', m: /Coherent|COHR/ },
   { t: "GOOGL", q: '(Alphabet OR Google) (stock OR shares OR GOOGL OR earnings OR Cloud OR Gemini OR antitrust)', m: /Alphabet|Google|GOOGL?\b|Gemini|YouTube|Waymo/ },
   { t: "META", q: '"Meta Platforms" OR (Meta (stock OR shares OR Zuckerberg OR earnings OR Llama))', m: /\bMeta\b|\bMETA\b|Zuckerberg|Instagram|WhatsApp|Facebook/ },
+  { t: "NVDA", q: 'Nvidia (stock OR shares OR NVDA OR earnings OR Blackwell OR Rubin)', m: /Nvidia|NVDA|Jensen Huang|Blackwell|Vera Rubin/i },
+  { t: "ZS", q: 'Zscaler OR "NASDAQ:ZS"', m: /Zscaler|\bZS\b/ },
+  { t: "BE", q: '"Bloom Energy"', m: /Bloom Energy|NYSE:BE/i },
+  { t: "AAOI", q: '"Applied Optoelectronics" OR AAOI', m: /Applied Optoelectronics|AAOI/i },
+  { t: "AMD", q: 'AMD (stock OR shares OR earnings OR Instinct OR EPYC OR "Lisa Su")', m: /\bAMD\b|Advanced Micro|Lisa Su|Instinct|EPYC/ },
+  { t: "MP", q: '"MP Materials" OR "Mountain Pass" rare earth', m: /MP Materials|Mountain Pass/i },
+  { t: "AMZN", q: 'Amazon (stock OR shares OR AMZN OR earnings OR AWS OR Jassy)', m: /Amazon|AMZN|\bAWS\b|Jassy/ },
+  { t: "MSFT", q: 'Microsoft (stock OR shares OR MSFT OR earnings OR Azure OR Copilot)', m: /Microsoft|MSFT|Azure|Nadella|Copilot/ },
 ];
 const OUT = "data/news.json";
 const DAYS = 30, PER_STOCK = 80;

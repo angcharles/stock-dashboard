@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Stock Dashboards</title>
-<meta name="description" content="Investor dashboards for Arm (ARM), Tesla (TSLA), Sandisk (SNDK), Intel (INTC), SpaceX (SPCX), Micron (MU), Lumentum (LITE), Coherent (COHR), Alphabet (GOOGL) and Meta (META).">
+<meta name="description" content="Investor dashboards for Arm (ARM), Tesla (TSLA), Sandisk (SNDK), Intel (INTC), SpaceX (SPCX), Micron (MU), Lumentum (LITE), Coherent (COHR), Alphabet (GOOGL) and Meta (META), NVIDIA (NVDA), Zscaler (ZS), Bloom Energy (BE), Applied Optoelectronics (AAOI), AMD, MP Materials (MP), Amazon (AMZN) and Microsoft (MSFT).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -62,9 +62,17 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
     <a class="card" href="cohr/" data-q="cohr/data/quote.json"><span class="tick">NYSE: COHR</span><div class="name">Coherent</div><p class="desc">Optical transceivers, indium phosphide lasers and industrial lasers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="googl/" data-q="googl/data/quote.json"><span class="tick">NASDAQ: GOOGL</span><div class="name">Alphabet</div><p class="desc">Search, YouTube and a fast-growing Google Cloud.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="meta/" data-q="meta/data/quote.json"><span class="tick">NASDAQ: META</span><div class="name">Meta Platforms</div><p class="desc">Facebook, Instagram and WhatsApp ads funding a huge AI build-out.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="nvda/" data-q="nvda/data/quote.json"><span class="tick">NASDAQ: NVDA</span><div class="name">NVIDIA</div><p class="desc">GPUs and networking at the center of the AI build-out.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="zs/" data-q="zs/data/quote.json"><span class="tick">NASDAQ: ZS</span><div class="name">Zscaler</div><p class="desc">Zero trust cloud security, now including AI security.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="be/" data-q="be/data/quote.json"><span class="tick">NYSE: BE</span><div class="name">Bloom Energy</div><p class="desc">Fuel cells that power AI data centers on site.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="aaoi/" data-q="aaoi/data/quote.json"><span class="tick">NASDAQ: AAOI</span><div class="name">Applied Optoelectronics</div><p class="desc">800G and 1.6T optical transceivers built in Texas.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="amd/" data-q="amd/data/quote.json"><span class="tick">NASDAQ: AMD</span><div class="name">AMD</div><p class="desc">EPYC server CPUs and Instinct AI GPUs.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="mp/" data-q="mp/data/quote.json"><span class="tick">NYSE: MP</span><div class="name">MP Materials</div><p class="desc">US rare earth mining and magnets, with a government price floor.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="amzn/" data-q="amzn/data/quote.json"><span class="tick">NASDAQ: AMZN</span><div class="name">Amazon</div><p class="desc">Retail, ads and AWS, with a huge AI capex plan.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="msft/" data-q="msft/data/quote.json"><span class="tick">NASDAQ: MSFT</span><div class="name">Microsoft</div><p class="desc">Azure, Office and Copilot, still throwing off cash.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
   </div>
   <div class="movers-in" id="moversHere"></div>
-  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META" aria-label="Latest news"></section>
+  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META,NVDA,ZS,BE,AAOI,AMD,MP,AMZN,MSFT" aria-label="Latest news"></section>
   <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
 <aside id="moversR" aria-label="Top movers 4 to 6"></aside>
@@ -80,7 +88,7 @@ document.querySelectorAll("a.card").forEach(async a=>{
   }catch(e){}
 });
 </script>
-<script src="assets/news.js?v=2"></script>
+<script src="assets/news.js?v=3"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 // Movers sit beside the main column on wide screens and under the stock cards otherwise.
@@ -88,6 +96,6 @@ document.querySelectorAll("a.card").forEach(async a=>{
 function place(){if(mq.matches){shell.insertBefore(L,main);shell.appendChild(R);}else{here.appendChild(L);here.appendChild(R);}}
 place();mq.addEventListener("change",place);})();
 </script>
-<script src="assets/movers.js?v=1"></script>
+<script src="assets/movers.js?v=2"></script>
 </body>
 </html>

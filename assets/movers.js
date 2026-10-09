@@ -7,7 +7,8 @@
   const STOCKS = [
     ["arm", "ARM", "Arm Holdings"], ["tesla", "TSLA", "Tesla"], ["sndk", "SNDK", "Sandisk"], ["intc", "INTC", "Intel"],
     ["spcx", "SPCX", "SpaceX"], ["mu", "MU", "Micron"], ["lite", "LITE", "Lumentum"], ["cohr", "COHR", "Coherent"],
-    ["googl", "GOOGL", "Alphabet"], ["meta", "META", "Meta Platforms"]];
+    ["googl", "GOOGL", "Alphabet"], ["meta", "META", "Meta Platforms"],
+    ["nvda", "NVDA", "NVIDIA"], ["zs", "ZS", "Zscaler"], ["be", "BE", "Bloom Energy"], ["aaoi", "AAOI", "Applied Optoelectronics"], ["amd", "AMD", "AMD"], ["mp", "MP", "MP Materials"], ["amzn", "AMZN", "Amazon"], ["msft", "MSFT", "Microsoft"]];
   const SLOTS = [document.getElementById("moversL"), document.getElementById("moversR")];
   if (!SLOTS[0] || !SLOTS[1]) return;
   const IND = [

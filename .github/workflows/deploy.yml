@@ -46,6 +46,14 @@ jobs:
           node scripts/fetch-quote.mjs COHR cohr/data 2y
           node scripts/fetch-quote.mjs GOOGL googl/data 2y
           node scripts/fetch-quote.mjs META meta/data 2y
+          node scripts/fetch-quote.mjs NVDA nvda/data 2y
+          node scripts/fetch-quote.mjs ZS zs/data 2y
+          node scripts/fetch-quote.mjs BE be/data 2y
+          node scripts/fetch-quote.mjs AAOI aaoi/data 2y
+          node scripts/fetch-quote.mjs AMD amd/data 2y
+          node scripts/fetch-quote.mjs MP mp/data 2y
+          node scripts/fetch-quote.mjs AMZN amzn/data 2y
+          node scripts/fetch-quote.mjs MSFT msft/data 2y
 
       - name: Fetch latest news
         run: node scripts/fetch-news.mjs
@@ -87,6 +95,30 @@ jobs:
           mkdir -p _site/meta/data
           cp meta/index.html meta/fcf-data.js _site/meta/
           cp meta/data/*.json _site/meta/data/
+          mkdir -p _site/nvda/data
+          cp nvda/index.html nvda/fcf-data.js _site/nvda/
+          cp nvda/data/*.json _site/nvda/data/
+          mkdir -p _site/zs/data
+          cp zs/index.html zs/fcf-data.js _site/zs/
+          cp zs/data/*.json _site/zs/data/
+          mkdir -p _site/be/data
+          cp be/index.html be/fcf-data.js _site/be/
+          cp be/data/*.json _site/be/data/
+          mkdir -p _site/aaoi/data
+          cp aaoi/index.html aaoi/fcf-data.js _site/aaoi/
+          cp aaoi/data/*.json _site/aaoi/data/
+          mkdir -p _site/amd/data
+          cp amd/index.html amd/fcf-data.js _site/amd/
+          cp amd/data/*.json _site/amd/data/
+          mkdir -p _site/mp/data
+          cp mp/index.html mp/fcf-data.js _site/mp/
+          cp mp/data/*.json _site/mp/data/
+          mkdir -p _site/amzn/data
+          cp amzn/index.html amzn/fcf-data.js _site/amzn/
+          cp amzn/data/*.json _site/amzn/data/
+          mkdir -p _site/msft/data
+          cp msft/index.html msft/fcf-data.js _site/msft/
+          cp msft/data/*.json _site/msft/data/
 
       - uses: actions/configure-pages@v5
 

@@ -33,7 +33,7 @@
   const zh = () => (typeof lang !== "undefined" && lang === "zh");
   const t = k => L[zh() ? "zh" : "en"][k];
   const tx = o => (o && typeof o === "object") ? (zh() ? (o.zh ?? o.en) : o.en) : o;
-  const m = v => (v < 0 ? "−" : "") + Math.abs(Math.round(v)).toLocaleString("en-US");
+  const m = v => { const r = Math.round(v); return (r < 0 ? "−" : "") + Math.abs(r).toLocaleString("en-US"); };
   const b = v => v === 0 ? "$0" : (v < 0 ? "−$" : "$") + (Math.abs(v) >= 1000 ? (Math.abs(v) / 1000).toFixed(Math.abs(v) >= 10000 ? 1 : 2) + "B" : Math.round(Math.abs(v)) + "M");
   const cls = v => v < 0 ? "down" : "up";
 
