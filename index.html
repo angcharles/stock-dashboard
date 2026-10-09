@@ -87,6 +87,10 @@ ol.src{font-size:13px;color:var(--muted);padding-left:20px;columns:2;column-gap:
 ol.src li{break-inside:avoid;margin-bottom:4px}
 footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid var(--line)}
 #tv{min-height:0}
+.live{display:inline-flex;align-items:center;gap:6px;font:500 12px var(--f-mono);color:var(--muted)}
+.live .dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.live.on .dot{background:var(--up);box-shadow:0 0 0 0 var(--up);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--up) 60%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
 @media (max-width:860px){.hero,.grid{grid-template-columns:minmax(0,1fr)}.cal{grid-template-columns:minmax(0,1fr)}nav.sec{display:none}}
 @media (max-width:620px){.wl{grid-template-columns:minmax(0,1fr)}ol.src{columns:1}.chart{height:260px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -98,6 +102,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
   <span class="tick">NASDAQ: ARM</span>
   <span class="bar-px" id="barPx">$275.29</span>
   <span class="chg down" id="barChg">−6.48%</span>
+  <span class="live" id="barLive"><i class="dot"></i><span id="barTime">snapshot</span></span>
   <nav class="sec" aria-label="Sections">
     <a href="#overview" data-i="n_over">Overview</a>
     <a href="#price" data-i="n_price">Price</a>
@@ -120,16 +125,16 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
       <p class="lede" data-i="lede">Arm licenses CPU designs and collects a royalty on each chip shipped. Revenue is growing above 20% a year with ~97% gross margin, while the stock trades near 90× forward earnings and swings with a beta near 3.8.</p>
     </div>
     <div class="pxbox">
-      <div class="eyebrow" data-i="lastclose">Last close · Oct 8, 2026</div>
+      <div class="eyebrow" id="pxLabel">Last close · Oct 8, 2026</div>
       <div class="pxbig" id="pxBig">$275.29</div>
       <div class="chg down" id="pxChg">−19.08 (−6.48%)</div>
-      <div class="pxnote" data-i="pxnote">Intraday Oct 9 (open + 15 min): $269.19. YTD +151.8% · 1Y +61.3%.</div>
+      <div class="pxnote" id="pxNote">YTD +151.8% · 1Y +61.3%</div>
       <div id="tv" style="margin-top:12px"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div></div></div>
     </div>
   </div>
 
   <div class="cells" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px">
-    <div class="cell"><div class="k" data-i="k_mcap">Market cap</div><div class="v">$287.5B</div><div class="s" data-i="s_mcap">ADR basis</div></div>
+    <div class="cell"><div class="k" data-i="k_mcap">Market cap</div><div class="v" id="mcap">$287.5B</div><div class="s" data-i="s_mcap">at current price</div></div>
     <div class="cell"><div class="k" data-i="k_52">52-week range</div><div class="v">$100–453</div><div class="s" data-i="s_52">intraday low / high</div></div>
     <div class="cell"><div class="k" data-i="k_pe">Forward P/E</div><div class="v">~90×</div><div class="s" data-i="s_pe">trailing GAAP ~284×</div></div>
     <div class="cell"><div class="k" data-i="k_ttm">Revenue TTM</div><div class="v">$5.16B</div><div class="s" data-i="s_ttm">+22% YoY</div></div>
@@ -157,7 +162,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
         <div class="cell"><div class="k">RSI 14</div><div class="v">46.7</div><div class="s" data-i="s_rsi">neutral</div></div>
         <div class="cell"><div class="k">ATR 20</div><div class="v">$19.1</div><div class="s" data-i="s_atr">~7% daily range</div></div>
         <div class="cell"><div class="k">Beta</div><div class="v">3.79</div><div class="s" data-i="s_beta">vs. S&amp;P 500</div></div>
-        <div class="cell"><div class="k" data-i="k_dd">From peak</div><div class="v down">−37%</div><div class="s" data-i="s_dd">close vs. Jun 18</div></div>
+        <div class="cell"><div class="k" data-i="k_dd">From peak</div><div class="v down" id="ddv">−37%</div><div class="s" data-i="s_dd">vs. Jun 18 close</div></div>
       </div>
     </div>
   </section>
@@ -246,7 +251,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     </ol>
   </section>
 
-  <footer data-i="foot">Data as of Oct 9, 2026, 21:44 SGT. For information only, not investment advice. Not affiliated with Arm Holdings plc.</footer>
+  <footer><span id="footTime"></span> <span data-i="foot">Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Arm Holdings plc.</span></footer>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -272,9 +277,9 @@ const T = {
   title:"每颗芯片都收<em>授权费</em>，估值已按完美定价。",
   lede:"Arm 授权 CPU 设计，并对每颗出货芯片收取版税。营收年增逾 20%，毛利率约 97%；但股价约为预期市盈率 90 倍，贝塔值近 3.8。",
   lastclose:"最近收盘 · 2026年10月8日",pxnote:"10月9日盘中（开盘后15分钟）：$269.19。年初至今 +151.8% · 一年 +61.3%。",
-  k_mcap:"市值",s_mcap:"按 ADR 计",k_52:"52周区间",s_52:"盘中低 / 高",k_pe:"预期市盈率",s_pe:"GAAP 历史约 284 倍",k_ttm:"近12月营收",s_ttm:"同比 +22%",k_an:"分析师",s_an:"40 位 · 平均目标 $290.71",k_er:"下次财报",s_er:"FY27 第二季，盘后",
+  k_mcap:"市值",s_mcap:"按当前股价",k_52:"52周区间",s_52:"盘中低 / 高",k_pe:"预期市盈率",s_pe:"GAAP 历史约 284 倍",k_ttm:"近12月营收",s_ttm:"同比 +22%",k_an:"分析师",s_an:"40 位 · 平均目标 $290.71",k_er:"下次财报",s_er:"FY27 第二季，盘后",
   h_price:"近12个月股价",sub_price:"每日收盘价与50日均线。股价从1月低点到6月高点约涨了四倍，之后回吐约三分之一。",
-  k_hi:"一年收盘最高",k_lo:"一年收盘最低",s_sma50:"股价在上方",s_sma200:"股价在上方",s_rsi:"中性",s_atr:"日波幅约7%",s_beta:"相对标普500",k_dd:"距高点",s_dd:"收盘较6月18日",
+  k_hi:"一年收盘最高",k_lo:"一年收盘最低",s_sma50:"股价在上方",s_sma200:"股价在上方",s_rsi:"中性",s_atr:"日波幅约7%",s_beta:"相对标普500",k_dd:"距高点",s_dd:"相对6月18日收盘",
   h_rev:"版税与授权收入（按季度）",sub_rev:"版税按每颗出货芯片收取，属经常性收入；授权收入随大额交易时点波动。FY27 第二季为公司指引中值。Arm 财年截至3月31日。",
   l_roy:"版税",l_lic:"授权及其他",l_g:"指引",s_q1:"同比 +22%，Q1 新高",k_roy:"版税",s_roy:"+22% · 数据中心翻倍以上",k_lic:"授权",s_lic:"+23% · 软银 $193M",s_acv:"同比 +13%",k_q2g:"Q2 指引",k_gm:"毛利率",s_gm:"非GAAP",
   t_q:"季度",t_end:"截至",t_tot:"合计",t_yoy:"合计同比",t_eps:"非GAAP每股收益",
@@ -288,7 +293,7 @@ const T = {
   w5h:"美国联邦贸易委员会调查",w5p:"7月29日财报虽优于预期，但因 FTC 调查消息，股价下跌。",
   w6h:"估值与波动",w6p:"预期市盈率近 90 倍，贝塔约 3.8。日均波幅约 $19，仓位控制很重要。",
   h_cal:"日程",c1h:"FY27 第二季财报",c1p:"美股收盘后（新加坡时间11月5日早上）。指引：$1.38B ±$50M，每股 $0.47 ±$0.04。",c2h:"FY27 第三季财报",c2p:"日期未公布；第三季财报通常在2月初。",c3h:"FY27 结束",c3p:"全年业绩通常在5月初公布。",
-  h_src:"来源",foot:"数据截至 2026年10月9日 21:44（新加坡时间）。仅供参考，不构成投资建议。与 Arm Holdings plc 无关联。"}
+  h_src:"来源",foot:"基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 Arm Holdings plc 无关联。"}
 };
 const EN = {};
 document.querySelectorAll("[data-i],[data-ih]").forEach(el=>{const k=el.dataset.i||el.dataset.ih; if(!(k in EN)) EN[k]=el.innerHTML;});
@@ -354,6 +359,59 @@ document.querySelectorAll(".range button").forEach(b=>b.onclick=()=>{range=+b.da
 let sl="en",st="auto";try{sl=localStorage.getItem("arm-lang")||"en";st=localStorage.getItem("arm-theme")||"auto"}catch(e){}
 mode=st;if(st!=="auto")document.documentElement.setAttribute("data-theme",st);
 document.getElementById("themeBtn").textContent=st==="auto"?"◐ Auto":st==="light"?"☀ Light":"☾ Dark";
+
+// ---- live quote: data/quote.json + data/history.json, refreshed by GitHub Actions ----
+const SHARES = 1.068e9; // ADR-equivalent shares, from market cap / price
+let LQ = null;
+const fmt$ = v => "$" + v.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const sgn = v => (v>=0?"+":"−") + Math.abs(v).toFixed(2);
+function renderQuote(){
+  const c = P.c, last = LQ ? LQ.price : c[c.length-1];
+  const prev = LQ ? LQ.prevClose : c[c.length-2];
+  const ch = last - prev, pct = ch / prev * 100, up = ch >= 0;
+  const zh = lang === "zh";
+  ["barPx","pxBig"].forEach(id => document.getElementById(id).textContent = fmt$(last));
+  const bc = document.getElementById("barChg"), pc = document.getElementById("pxChg");
+  bc.textContent = sgn(pct) + "%"; pc.textContent = `${sgn(ch)} (${sgn(pct)}%)`;
+  [bc,pc].forEach(e => { e.classList.toggle("up",up); e.classList.toggle("down",!up); });
+  // YTD vs last close of prior year, 1Y vs first point
+  const yr = String(new Date().getFullYear()); let base = null;
+  for (let i = 0; i < P.d.length; i++) { if (P.d[i] < yr) base = c[i]; }
+  const ytd = base ? (last/base-1)*100 : null, y1 = (last/c[0]-1)*100;
+  const peak = Math.max(...c, last), dd = (last/peak-1)*100;
+  document.getElementById("pxNote").textContent = (ytd!=null ? (zh?"年初至今 ":"YTD ")+sgn(ytd).replace(/\.\d+$/, m=>m.slice(0,2))+"% · " : "") + (zh?"一年 ":"1Y ") + sgn(y1).replace(/\.\d+$/, m=>m.slice(0,2)) + "%";
+  document.getElementById("mcap").textContent = "$" + (last*SHARES/1e9).toFixed(1) + "B";
+  const ddv = document.getElementById("ddv"); ddv.textContent = (dd<0?"−":"") + Math.abs(dd).toFixed(0) + "%";
+  ddv.classList.toggle("down", dd < -0.5);
+  // label + status
+  const t = LQ ? new Date(LQ.time*1000) : null;
+  const sgt = d => d.toLocaleString(zh?"zh-CN":"en-SG",{timeZone:"Asia/Singapore",month:"short",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false});
+  const open = LQ && LQ.state === "REGULAR";
+  document.getElementById("pxLabel").textContent = open ? (zh?"盘中 · 美股交易中":"Intraday · market open") : (zh?"最近收盘":"Last close") + (t ? " · " + t.toLocaleDateString(zh?"zh-CN":"en-US",{timeZone:"America/New_York",month:"short",day:"numeric",year:"numeric"}) : "");
+  const bl = document.getElementById("barLive"); bl.classList.toggle("on", !!open);
+  document.getElementById("barTime").textContent = t ? (open ? (zh?"实时 ":"Live ") : (zh?"收盘 ":"Closed ")) + sgt(t) + " SGT" : (zh?"快照":"snapshot");
+  document.getElementById("footTime").textContent = t ? (zh?"股价更新于 ":"Price updated ") + sgt(t) + " SGT (" + (zh?"约每10分钟刷新":"refreshes about every 10 min") + ")." : "";
+}
+async function loadLive(){
+  try {
+    const bust = "?t=" + Date.now();
+    const [q, hist] = await Promise.all([
+      fetch("data/quote.json"+bust,{cache:"no-store"}).then(r => r.ok ? r.json() : null),
+      fetch("data/history.json"+bust,{cache:"no-store"}).then(r => r.ok ? r.json() : null)]);
+    let changed = false;
+    if (hist && hist.d && hist.d.length > 50 && hist.d[hist.d.length-1] >= P.d[P.d.length-1]) { P.d = hist.d; P.c = hist.c; changed = true; }
+    if (q && q.price) {
+      if (!LQ || q.time !== LQ.time) changed = true;
+      LQ = q;
+      // keep the chart's last point in step with the quote
+      if (q.date) { const i = P.d.indexOf(q.date); if (i >= 0) P.c[i] = q.price; else if (q.date > P.d[P.d.length-1]) { P.d.push(q.date); P.c.push(q.price); } }
+    }
+    if (changed) { renderQuote(); buildCharts(); }
+  } catch (e) { /* stay on embedded snapshot */ }
+}
+const _setLang = setLang; setLang = l => { _setLang(l); renderQuote(); };
+loadLive(); setInterval(loadLive, 60000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) loadLive(); });
 setLang(sl);
 </script>
 <script>
