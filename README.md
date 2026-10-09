@@ -25,6 +25,10 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - The TradingView box under the price is tick-by-tick real time.
 - Fundamentals (revenue, guidance, watch list) are as of Oct 9, 2026 and are edited in each page's HTML.
 
+## Top movers
+- `assets/movers.js` ranks every stock by its latest daily % move and shows the top 6 beside the main page (under the stock cards on smaller screens) as candlestick charts with 5/10/30/100-day moving averages, Parabolic SAR and MACD (12, 26, 9), drawn with TradingView Lightweight Charts. Indicator and range buttons are remembered per browser.
+- `scripts/fetch-quote.mjs` now saves daily open/high/low as well as close in `history.json`.
+
 ## News feed
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.

@@ -15,6 +15,15 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding:48px 16px}
+.shell{display:block}
+.movers-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
+.movers-in aside{min-width:0}
+@media (max-width:760px){.movers-in{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:1500px){
+  .shell{display:grid;grid-template-columns:350px minmax(0,1fr) 350px;gap:24px;max-width:1960px;margin:0 auto;padding:0 16px}
+  .shell>.wrap{max-width:none;margin:0;padding:48px 0;min-width:0}
+  .shell>aside{padding-top:48px;min-width:0}
+}
 .eyebrow{font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 h1{font:700 clamp(30px,5vw,48px)/1.05 var(--f-display);margin:.25em 0 .4em}
 .lede{color:var(--muted);margin:0 0 28px;max-width:60ch}
@@ -36,10 +45,12 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
 </style>
 </head>
 <body>
+<div class="shell">
+<aside id="moversL" aria-label="Top movers 1 to 3"></aside>
 <main class="wrap">
   <div class="eyebrow">Investor dashboards · EN / 中文</div>
   <h1>Stock dashboards</h1>
-  <p class="lede">Price, revenue mix, financials, cash flow, watch list, news and calendar for each stock. Prices refresh about every 10 minutes during US market hours.</p>
+  <p class="lede">Price, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of today's six biggest movers. Prices refresh about every 10 minutes during US market hours.</p>
   <div class="grid">
     <a class="card" href="arm/" data-q="arm/data/quote.json"><span class="tick">NASDAQ: ARM</span><div class="name">Arm Holdings</div><p class="desc">CPU designs and a royalty on every chip shipped.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="tesla/" data-q="tesla/data/quote.json"><span class="tick">NASDAQ: TSLA</span><div class="name">Tesla</div><p class="desc">EVs, energy storage, and the robotaxi and AI bet.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
@@ -52,9 +63,12 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
     <a class="card" href="googl/" data-q="googl/data/quote.json"><span class="tick">NASDAQ: GOOGL</span><div class="name">Alphabet</div><p class="desc">Search, YouTube and a fast-growing Google Cloud.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="meta/" data-q="meta/data/quote.json"><span class="tick">NASDAQ: META</span><div class="name">Meta Platforms</div><p class="desc">Facebook, Instagram and WhatsApp ads funding a huge AI build-out.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
   </div>
+  <div class="movers-in" id="moversHere"></div>
   <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META" aria-label="Latest news"></section>
   <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
+<aside id="moversR" aria-label="Top movers 4 to 6"></aside>
+</div>
 <script>
 document.querySelectorAll("a.card").forEach(async a=>{
   try{
@@ -67,5 +81,13 @@ document.querySelectorAll("a.card").forEach(async a=>{
 });
 </script>
 <script src="assets/news.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+// Movers sit beside the main column on wide screens and under the stock cards otherwise.
+(function(){const L=document.getElementById("moversL"),R=document.getElementById("moversR"),shell=document.querySelector(".shell"),here=document.getElementById("moversHere"),main=shell.querySelector("main"),mq=matchMedia("(min-width:1500px)");
+function place(){if(mq.matches){shell.insertBefore(L,main);shell.appendChild(R);}else{here.appendChild(L);here.appendChild(R);}}
+place();mq.addEventListener("change",place);})();
+</script>
+<script src="assets/movers.js?v=1"></script>
 </body>
 </html>

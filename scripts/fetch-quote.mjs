@@ -44,15 +44,19 @@ async function yahoo() {
         { Accept: "application/json", ...(cookie ? { Cookie: cookie } : {}) });
       const res = (await r.json())?.chart?.result?.[0];
       if (!res) throw new Error("empty result");
-      const ts = res.timestamp || [], cl = res.indicators?.quote?.[0]?.close || [];
-      const d = [], c = [];
+      const qd = res.indicators?.quote?.[0] || {};
+      const ts = res.timestamp || [], cl = qd.close || [], op = qd.open || [], hi = qd.high || [], lo = qd.low || [];
+      const d = [], c = [], o = [], h = [], l = [];
+      const r2 = (v, fb) => +((v ?? fb).toFixed(2));
       ts.forEach((t, i) => {
         if (cl[i] == null) return;
         const day = nyDate(t * 1000);
-        if (d.at(-1) === day) c[c.length - 1] = +cl[i].toFixed(2); else { d.push(day); c.push(+cl[i].toFixed(2)); }
+        const row = [r2(op[i], cl[i]), r2(hi[i], cl[i]), r2(lo[i], cl[i]), r2(cl[i])];
+        if (d.at(-1) === day) { const k = c.length - 1; h[k] = Math.max(h[k], row[1]); l[k] = Math.min(l[k], row[2]); c[k] = row[3]; }
+        else { d.push(day); o.push(row[0]); h.push(row[1]); l.push(row[2]); c.push(row[3]); }
       });
       const m = res.meta;
-      return { hist: { d, c }, quote: { price: m.regularMarketPrice, time: m.regularMarketTime, date: nyDate(m.regularMarketTime * 1000) } };
+      return { hist: { d, c, o, h, l }, quote: { price: m.regularMarketPrice, time: m.regularMarketTime, date: nyDate(m.regularMarketTime * 1000) } };
     } catch (e) { lastErr = e; }
   }
   throw lastErr;
@@ -76,13 +80,14 @@ async function nasdaqHist() {
   const from = new Date(Date.now() - DAYS * 864e5).toISOString().slice(0, 10);
   const j = await (await get(`https://api.nasdaq.com/api/quote/${SYMBOL}/historical?assetclass=stocks&fromdate=${from}&limit=${DAYS}`, NQ)).json();
   const rows = j?.data?.tradesTable?.rows || [];
-  const d = [], c = [];
+  const d = [], c = [], o = [], h = [], l = [];
   rows.slice().reverse().forEach((r) => {
     const [mm, dd, yy] = r.date.split("/");
-    d.push(`${yy}-${mm}-${dd}`); c.push(+num(r.close).toFixed(2));
+    const cl = +num(r.close).toFixed(2), f = (x) => (isFinite(num(x)) ? +num(x).toFixed(2) : cl);
+    d.push(`${yy}-${mm}-${dd}`); c.push(cl); o.push(f(r.open)); h.push(f(r.high)); l.push(f(r.low));
   });
   if (d.length < 50) throw new Error("nasdaq: short history");
-  return { d, c };
+  return { d, c, o, h, l };
 }
 
 // ---------- Stooq ----------
@@ -98,10 +103,11 @@ async function stooqQuote() {
 async function stooqHist() {
   const t = await (await get(`https://stooq.com/q/d/l/?s=${SYMBOL.toLowerCase()}.us&i=d`)).text();
   const lines = t.trim().split(/\r?\n/).slice(1).slice(-Math.ceil(DAYS * 0.70));
-  const d = [], c = [];
-  lines.forEach((l) => { const f = l.split(","); if (f.length > 4 && isFinite(num(f[4]))) { d.push(f[0]); c.push(+num(f[4]).toFixed(2)); } });
+  const d = [], c = [], o = [], h = [], l = [];
+  lines.forEach((ln) => { const f = ln.split(","); if (f.length > 4 && isFinite(num(f[4]))) {
+    d.push(f[0]); c.push(+num(f[4]).toFixed(2)); o.push(+num(f[1]).toFixed(2)); h.push(+num(f[2]).toFixed(2)); l.push(+num(f[3]).toFixed(2)); } });
   if (d.length < 50) throw new Error("stooq: short history");
-  return { d, c };
+  return { d, c, o, h, l };
 }
 
 // ---------- run ----------
@@ -118,9 +124,9 @@ if (!hist) { try { hist = JSON.parse(readFileSync(`${OUT}/history.json`, "utf8")
 
 if (quote && hist) {
   // fold the live price into history and derive the previous close from it
-  const i = hist.d.indexOf(quote.date);
-  if (i >= 0) hist.c[i] = +quote.price.toFixed(2);
-  else if (quote.date > hist.d.at(-1)) { hist.d.push(quote.date); hist.c.push(+quote.price.toFixed(2)); }
+  const i = hist.d.indexOf(quote.date), px = +quote.price.toFixed(2), ohlc = Array.isArray(hist.o) && hist.o.length === hist.c.length;
+  if (i >= 0) { hist.c[i] = px; if (ohlc) { hist.h[i] = Math.max(hist.h[i], px); hist.l[i] = Math.min(hist.l[i], px); } }
+  else if (quote.date > hist.d.at(-1)) { hist.d.push(quote.date); hist.c.push(px); if (ohlc) { hist.o.push(px); hist.h.push(px); hist.l.push(px); } }
   let prevClose = null;
   for (let k = hist.d.length - 1; k >= 0; k--) if (hist.d[k] < quote.date) { prevClose = hist.c[k]; break; }
   const now = Math.floor(Date.now() / 1000);
