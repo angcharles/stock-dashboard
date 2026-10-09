@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Stock Dashboards</title>
-<meta name="description" content="Investor dashboards for Arm Holdings (ARM), Tesla (TSLA), Sandisk (SNDK) and Intel (INTC).">
+<meta name="description" content="Investor dashboards for Arm (ARM), Tesla (TSLA), Sandisk (SNDK), Intel (INTC), SpaceX (SPCX), Micron (MU), Lumentum (LITE), Coherent (COHR), Alphabet (GOOGL) and Meta (META).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -45,9 +45,15 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
     <a class="card" href="tesla/" data-q="tesla/data/quote.json"><span class="tick">NASDAQ: TSLA</span><div class="name">Tesla</div><p class="desc">EVs, energy storage, and the robotaxi and AI bet.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="sndk/" data-q="sndk/data/quote.json"><span class="tick">NASDAQ: SNDK</span><div class="name">Sandisk</div><p class="desc">NAND flash for data centers, devices and consumers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="intc/" data-q="intc/data/quote.json"><span class="tick">NASDAQ: INTC</span><div class="name">Intel</div><p class="desc">PC and server CPUs, plus a foundry business in the making.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="spcx/" data-q="spcx/data/quote.json"><span class="tick">NASDAQ: SPCX</span><div class="name">SpaceX</div><p class="desc">Starlink, launch and the AI compute build-out.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="mu/" data-q="mu/data/quote.json"><span class="tick">NASDAQ: MU</span><div class="name">Micron Technology</div><p class="desc">DRAM, HBM and NAND memory at the heart of AI servers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="lite/" data-q="lite/data/quote.json"><span class="tick">NASDAQ: LITE</span><div class="name">Lumentum</div><p class="desc">Lasers, transceivers and optical switches for AI data centers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="cohr/" data-q="cohr/data/quote.json"><span class="tick">NYSE: COHR</span><div class="name">Coherent</div><p class="desc">Optical transceivers, indium phosphide lasers and industrial lasers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="googl/" data-q="googl/data/quote.json"><span class="tick">NASDAQ: GOOGL</span><div class="name">Alphabet</div><p class="desc">Search, YouTube and a fast-growing Google Cloud.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="meta/" data-q="meta/data/quote.json"><span class="tick">NASDAQ: META</span><div class="name">Meta Platforms</div><p class="desc">Facebook, Instagram and WhatsApp ads funding a huge AI build-out.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
   </div>
-  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC" aria-label="Latest news"></section>
-  <footer>For information only, not investment advice. Not affiliated with Arm Holdings plc, Tesla, Inc., Sandisk Corporation or Intel Corporation.</footer>
+  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META" aria-label="Latest news"></section>
+  <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
 <script>
 document.querySelectorAll("a.card").forEach(async a=>{
@@ -60,6 +66,6 @@ document.querySelectorAll("a.card").forEach(async a=>{
   }catch(e){}
 });
 </script>
-<script src="assets/news.js?v=1"></script>
+<script src="assets/news.js?v=2"></script>
 </body>
 </html>

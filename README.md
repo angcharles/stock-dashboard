@@ -6,6 +6,12 @@ Investor dashboards, EN / 中文, light / dark:
 - **Tesla (TSLA)** — `tesla/index.html` → https://angcharles.github.io/stock-dashboard/tesla/
 - **Sandisk (SNDK)** — `sndk/index.html` → https://angcharles.github.io/stock-dashboard/sndk/
 - **Intel (INTC)** — `intc/index.html` → https://angcharles.github.io/stock-dashboard/intc/
+- **SpaceX (SPCX)** — `spcx/index.html` → https://angcharles.github.io/stock-dashboard/spcx/
+- **Micron (MU)** — `mu/index.html` → https://angcharles.github.io/stock-dashboard/mu/
+- **Lumentum (LITE)** — `lite/index.html` → https://angcharles.github.io/stock-dashboard/lite/
+- **Coherent (COHR)** — `cohr/index.html` → https://angcharles.github.io/stock-dashboard/cohr/
+- **Alphabet (GOOGL)** — `googl/index.html` → https://angcharles.github.io/stock-dashboard/googl/
+- **Meta (META)** — `meta/index.html` → https://angcharles.github.io/stock-dashboard/meta/
 
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
@@ -38,4 +44,6 @@ Note: GitHub pauses scheduled workflows in a repo with no activity for 60 days. 
 For information only, not investment advice. Not affiliated with Arm Holdings plc, Tesla, Inc., Sandisk Corporation or Intel Corporation.
 
 ## Adding a stock
-Copy a stock folder (e.g. `intc/`), edit its `index.html` and seed `data/`, add a fetch line and copy lines to `.github/workflows/deploy.yml`, and add a card to the root `index.html`.
+Newer pages (SPCX, MU, LITE, COHR, GOOGL, META) are generated: edit `specs/<stock>.json` and run `python3 scripts/make-stock-page.py specs/<stock>.json`. Shared code is in `assets/stock-page.js` and `assets/stock.css`; price cells (52-week range, moving averages, RSI, drawdown) are computed from the live price history. For a new stock, copy a spec, generate the page, then add the fetch and copy lines to `.github/workflows/deploy.yml`, a card to the root `index.html`, and an entry to `STOCKS` in `scripts/fetch-news.mjs`.
+
+Older pages: Copy a stock folder (e.g. `intc/`), edit its `index.html` and seed `data/`, add a fetch line and copy lines to `.github/workflows/deploy.yml`, and add a card to the root `index.html`.

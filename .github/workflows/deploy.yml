@@ -40,6 +40,12 @@ jobs:
           node scripts/fetch-quote.mjs TSLA tesla/data 2y
           node scripts/fetch-quote.mjs SNDK sndk/data 2y
           node scripts/fetch-quote.mjs INTC intc/data 2y
+          node scripts/fetch-quote.mjs SPCX spcx/data 1y
+          node scripts/fetch-quote.mjs MU mu/data 2y
+          node scripts/fetch-quote.mjs LITE lite/data 2y
+          node scripts/fetch-quote.mjs COHR cohr/data 2y
+          node scripts/fetch-quote.mjs GOOGL googl/data 2y
+          node scripts/fetch-quote.mjs META meta/data 2y
 
       - name: Fetch latest news
         run: node scripts/fetch-news.mjs
@@ -63,6 +69,24 @@ jobs:
           mkdir -p _site/intc/data
           cp intc/index.html intc/fcf-data.js _site/intc/
           cp intc/data/*.json _site/intc/data/
+          mkdir -p _site/spcx/data
+          cp spcx/index.html spcx/fcf-data.js _site/spcx/
+          cp spcx/data/*.json _site/spcx/data/
+          mkdir -p _site/mu/data
+          cp mu/index.html mu/fcf-data.js _site/mu/
+          cp mu/data/*.json _site/mu/data/
+          mkdir -p _site/lite/data
+          cp lite/index.html lite/fcf-data.js _site/lite/
+          cp lite/data/*.json _site/lite/data/
+          mkdir -p _site/cohr/data
+          cp cohr/index.html cohr/fcf-data.js _site/cohr/
+          cp cohr/data/*.json _site/cohr/data/
+          mkdir -p _site/googl/data
+          cp googl/index.html googl/fcf-data.js _site/googl/
+          cp googl/data/*.json _site/googl/data/
+          mkdir -p _site/meta/data
+          cp meta/index.html meta/fcf-data.js _site/meta/
+          cp meta/data/*.json _site/meta/data/
 
       - uses: actions/configure-pages@v5
 

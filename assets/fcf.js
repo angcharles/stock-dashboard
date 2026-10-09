@@ -39,7 +39,7 @@
 
   // rows: [label, ended, ocf, capex, fcf, isEst]
   const rows = D.hist.map(r => [...r, false]).concat(D.est.map(r => [...r, true]));
-  rows.forEach((r, i) => { r.ttm = i >= 3 ? rows.slice(i - 3, i + 1).reduce((s, x) => s + x[4], 0) : null; });
+  rows.forEach((r, i) => { r.ttm = !D.noTtm && i >= 3 ? rows.slice(i - 3, i + 1).reduce((s, x) => s + x[4], 0) : null; });
   const H = rows.filter(r => !r[5]);
   const lastH = H[H.length - 1];
   const ttm = lastH.ttm;
@@ -66,7 +66,8 @@
         <div class="chart"><canvas id="cFcf" aria-label="${t("h")}"></canvas></div>
       </div>
       <div class="cells">
-        <div class="cell"><div class="k">${t("kTtm")}</div><div class="v ${cls(ttm)}">${b(ttm)}</div><div class="s">${zh() ? "截至 " + lastH[0] : "4 quarters to " + lastH[0]}</div></div>
+        ${D.ttmCell ? `<div class="cell"><div class="k">${tx(D.ttmCell.k)}</div><div class="v ${cls(D.ttmCell.v)}">${b(D.ttmCell.v)}</div><div class="s">${tx(D.ttmCell.s)}</div></div>`
+          : `<div class="cell"><div class="k">${t("kTtm")}</div><div class="v ${cls(ttm)}">${b(ttm)}</div><div class="s">${zh() ? "截至 " + lastH[0] : "4 quarters to " + lastH[0]}</div></div>`}
         <div class="cell"><div class="k">${t("kLast")}</div><div class="v ${cls(lastH[4])}">${b(lastH[4])}</div><div class="s">${lastH[0]} · ${lastH[1]}</div></div>
         <div class="cell"><div class="k">${t("kNext")}</div><div class="v ${cls(next4)}">${b(next4)}</div><div class="s">${t("sNext")} · ${D.est[0][0]}–${D.est[3][0]}</div></div>
         <div class="cell"><div class="k">${tx(D.cash.k)}</div><div class="v">${D.cash.v}</div><div class="s">${tx(D.cash.s)}</div></div>

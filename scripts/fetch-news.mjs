@@ -11,6 +11,12 @@ const STOCKS = [
   { t: "TSLA", q: 'Tesla (stock OR shares OR TSLA OR Musk OR earnings OR deliveries)', m: /Tesla|TSLA|Cybercab|robotaxi|Optimus|Megapack|\bFSD\b/i },
   { t: "SNDK", q: 'Sandisk OR "NASDAQ:SNDK"', m: /Sandisk|SNDK/i },
   { t: "INTC", q: 'Intel (stock OR shares OR INTC OR foundry OR earnings OR chip)', m: /Intel\b|INTC|Lip-Bu Tan|\b18A\b|\b14A\b/i },
+  { t: "SPCX", q: 'SpaceX (stock OR shares OR SPCX OR Starlink OR earnings OR Starship)', m: /SpaceX|SPCX|Starlink|Starship/i },
+  { t: "MU",   q: 'Micron (stock OR shares OR MU OR memory OR HBM OR earnings)', m: /Micron|\bMU\b/ },
+  { t: "LITE", q: 'Lumentum OR "NASDAQ:LITE"', m: /Lumentum|\bLITE\b/ },
+  { t: "COHR", q: '"Coherent Corp" OR "Coherent stock" OR "Coherent shares" OR "NYSE:COHR" OR (Coherent earnings)', m: /Coherent|COHR/ },
+  { t: "GOOGL", q: '(Alphabet OR Google) (stock OR shares OR GOOGL OR earnings OR Cloud OR Gemini OR antitrust)', m: /Alphabet|Google|GOOGL?\b|Gemini|YouTube|Waymo/ },
+  { t: "META", q: '"Meta Platforms" OR (Meta (stock OR shares OR Zuckerberg OR earnings OR Llama))', m: /\bMeta\b|\bMETA\b|Zuckerberg|Instagram|WhatsApp|Facebook/ },
 ];
 const OUT = "data/news.json";
 const DAYS = 30, PER_STOCK = 80;

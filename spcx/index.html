@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SpaceX SPCX Dashboard</title>
+<meta name="description" content="SpaceX (NASDAQ: SPCX) investor dashboard: price, quarterly revenue and margins, free cash flow, watch list, news and calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/stock.css?v=1">
+<style>.chart.rev{height:320px} tr.guide td{color:var(--muted);font-style:italic}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <span class="tick">NASDAQ: SPCX</span>
+  <span class="bar-px" id="barPx">$162.57</span>
+  <span class="chg" id="barChg"></span>
+  <span class="live" id="barLive"><i class="dot"></i><span id="barTime">snapshot</span></span>
+  <nav class="sec" aria-label="Sections">
+    <a href="../" data-i="n_home">All stocks</a>
+    <a href="#overview" data-i="n_over">Overview</a>
+    <a href="#price" data-i="n_price">Price</a>
+    <a href="#revenue" data-i="n_rev">Revenue</a>
+    <a href="#cashflow" data-i="n_fcf">Cash flow</a>
+    <a href="#watch" data-i="n_watch">Watch list</a>
+    <a href="#news" data-i="n_news">News</a>
+    <a href="#sources" data-i="n_src">Sources</a>
+  </nav>
+  <div class="tools">
+    <button class="tg" id="langBtn" type="button" aria-label="Switch language">中文</button>
+    <button class="tg" id="themeBtn" type="button" aria-label="Switch theme">◐ Auto</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="hero" id="overview">
+    <div>
+      <div data-i="eyebrow" class="eyebrow">Space Exploration Technologies Corp. · Class A · Starbase, Texas</div>
+      <h1 data-ih="title">Starlink pays the bills, <em>AI eats the cash</em>.</h1>
+      <p data-i="lede" class="lede">SpaceX listed in June in the largest IPO ever, raising about $86B at $135 a share. Q2 revenue grew 92% to $7.8B. Starlink, with 12M subscribers, makes the profits; the AI segment (the former xAI) grows fastest and spent $15.8B on compute in one quarter. Elon Musk holds about 82% of the votes.</p>
+    </div>
+    <div class="pxbox">
+      <div class="eyebrow" id="pxLabel">Last close · Oct 9, 2026</div>
+      <div class="pxbig" id="pxBig">$162.57</div>
+      <div class="chg" id="pxChg"></div>
+      <div class="pxnote" id="pxNote"></div>
+      <div id="tv" style="margin-top:12px"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div></div></div>
+    </div>
+  </div>
+
+  <div class="cells" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px">
+    <div class="cell"><div class="k"><span data-i="k_mcap">Market cap</span></div><div class="v" id="mcap">$2.14T</div><div class="s"><span data-i="s_mcap">at current price</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_52">52-week range</span></div><div class="v" id="r52">$105–226</div><div class="s"><span data-i="s_52">closing low / high</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_val">Price / sales</span></div><div class="v">~93×</div><div class="s"><span data-i="s_val">on ~$23B trailing revenue</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_ttm">Revenue TTM</span></div><div class="v" id="ttmV"></div><div class="s" id="ttmS"></div></div>
+    <div class="cell"><div class="k"><span data-i="k_an">IPO price</span></div><div class="v">$135</div><div class="s"><span data-i="s_an">Jun 11, 2026 · first close $160.95</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_er">Next earnings</span></div><div class="v">Early Nov</div><div class="s"><span data-i="s_er">Q3 2026 · date not yet announced</span></div></div>
+  </div>
+
+  <section id="price">
+    <h2><span data-i="h_price">Price, last 12 months</span></h2>
+    <p data-i="sub_price" class="sub">Daily closes since the June 12 listing, with the 50-day average. One-year and 200-day figures fill in as history builds.</p>
+    <div class="grid">
+      <div class="panel">
+        <div class="range" role="group" aria-label="Range">
+          <button type="button" data-r="66" aria-pressed="false">3M</button>
+          <button type="button" data-r="128" aria-pressed="false">6M</button>
+          <button type="button" data-r="0" aria-pressed="true">1Y</button>
+        </div>
+        <div class="chart"><canvas id="cPrice" aria-label="SPCX daily close price chart"></canvas></div>
+      </div>
+      <div class="cells">
+        <div class="cell"><div class="k"><span data-i="k_hi">1Y closing high</span></div><div class="v" id="hiV">—</div><div class="s" id="hiS"></div></div>
+        <div class="cell"><div class="k"><span data-i="k_lo">1Y closing low</span></div><div class="v" id="loV">—</div><div class="s" id="loS"></div></div>
+        <div class="cell"><div class="k">SMA 50</div><div class="v" id="s50V">—</div><div class="s" id="s50S"></div></div>
+        <div class="cell"><div class="k">SMA 200</div><div class="v" id="s200V">—</div><div class="s" id="s200S"></div></div>
+        <div class="cell"><div class="k">RSI 14</div><div class="v" id="rsiV">—</div><div class="s" id="rsiS"></div></div>
+        <div class="cell"><div class="k"><span data-i="k_move">Avg daily move</span></div><div class="v" id="mvV">—</div><div class="s"><span data-i="s_move">last 20 sessions</span></div></div>
+        <div class="cell"><div class="k">Beta</div><div class="v">n/a</div><div class="s"><span data-i="s_beta">vs. S&P 500</span></div></div>
+        <div class="cell"><div class="k"><span data-i="k_dd">From peak</span></div><div class="v" id="ddv">—</div><div class="s" id="ddS"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="revenue">
+    <h2><span data-i="h_rev">Revenue and margins, by quarter</span></h2>
+    <p data-i="sub_rev" class="sub">Revenue in US$ millions, with gross margin on the right axis. SpaceX has published quarterly results only for the first two quarters of 2025 and 2026 (in its IPO filing and first 10-Q); full-year 2025 revenue was $18.7B. There is no guidance bar yet.</p>
+    <div class="grid">
+      <div class="panel">
+        <div class="legend"><span><i class="sw" style="background:var(--accent)"></i><span data-i="l_rev">Revenue</span></span><span><i class="sw" style="background:var(--copper);height:3px;vertical-align:3px"></i><span data-i="l_gm">Gross margin (right axis)</span></span><span><i class="sw" style="background:var(--line)"></i><span data-i="l_g">Guidance</span></span></div>
+        <div class="chart rev"><canvas id="cRev" aria-label="Quarterly revenue and gross margin"></canvas></div>
+      </div>
+      <div class="cells"><div class="cell"><div class="k"><span data-i="kc0">Q2 2026</span></div><div class="v">$7.81B</div><div class="s"><span data-i="sc0">+92% YoY · first public report</span></div></div><div class="cell"><div class="k"><span data-i="kc1">Starlink</span></div><div class="v">$4.29B</div><div class="s"><span data-i="sc1">+66% · $1.66B operating income</span></div></div><div class="cell"><div class="k"><span data-i="kc2">AI</span></div><div class="v">$2.56B</div><div class="s"><span data-i="sc2">+247% · −$1.26B operating loss</span></div></div><div class="cell"><div class="k"><span data-i="kc3">Space</span></div><div class="v">$962M</div><div class="s"><span data-i="sc3">+29% · −$542M operating loss</span></div></div><div class="cell"><div class="k"><span data-i="kc4">Adj. EBITDA</span></div><div class="v">$3.54B</div><div class="s"><span data-i="sc4">+191% YoY · 45% margin</span></div></div><div class="cell"><div class="k"><span data-i="kc5">Subscribers</span></div><div class="v">12.0M</div><div class="s"><span data-i="sc5">Starlink, 2× YoY · +1.7M in Q2</span></div></div></div>
+    </div>
+    <div class="panel tbl" style="margin-top:16px">
+      <table>
+        <thead><tr><th><span data-i="t_q">Quarter</span></th><th><span data-i="t_end">Ended</span></th><th><span data-i="t_rev">Revenue, US$M</span></th><th><span data-i="t_yoy">YoY</span></th><th><span data-i="t_gm">Gross margin</span></th><th><span data-i="t_om">Op. margin</span></th><th><span data-i="t_eps">EPS (GAAP)</span></th></tr></thead>
+        <tbody id="qBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="cashflow" aria-label="Free cash flow"></section>
+
+  <section id="watch">
+    <h2><span data-i="h_watch">Watch list</span></h2>
+    <p data-i="sub_watch" class="sub">What moves the thesis, sorted by direction.</p>
+    <div class="wl"><div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w0h">Starlink</h3><p data-i="w0p">Subscribers doubled to 12M with ARPU steady at about $66 a month. Connectivity earns $1.66B a quarter and funds the rest of the company.</p></div></div><div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w1h">Compute leasing</h3><p data-i="w1p">AI revenue jumped 247% on compute deals with Anthropic and Google, with another $6.7B of cloud revenue under contract over six months from October. Management targets a $100B annualized revenue run rate by December.</p></div></div><div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w2h">Capex</h3><p data-i="w2p">Capex was $18.4B in Q2, 2.4× revenue, and the CFO expects similar spending for two more quarters. He says AI compute pays back in under a year; the AI segment still lost $1.26B.</p></div></div><div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w3h">Governance</h3><p data-i="w3p">Musk owns about 42% of the shares but controls about 82% of the votes through super-voting stock. SpaceX is not in the S&P 500.</p></div></div><div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w4h">Launch still loses money</h3><p data-i="w4p">Space revenue of $962M came with a $542M operating loss. Starship progress drives both costs and the long-term story.</p></div></div><div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w5h">Valuation and volatility</h3><p data-i="w5p">About $2.1T of market value on roughly $23B of trailing revenue. The stock has traded between about $105 and $226 since June, so position sizing matters.</p></div></div></div>
+  </section>
+
+  <section id="news" data-src="../data/news.json" data-tickers="SPCX" aria-label="Latest news"></section>
+
+  <section id="calendar">
+    <h2><span data-i="h_cal">Calendar</span></h2>
+    <div class="cal"><div class="item"><div><div class="date">Early Nov 2026</div><h3 data-i="c0h">Q3 2026 earnings</h3><p data-i="c0p">Date not yet announced; Q2 was reported on Aug 4.</p></div></div><div class="item"><div><div class="date">Oct 2026–Mar 2027</div><h3 data-i="c1h">$6.7B cloud contract</h3><p data-i="c1p">Six months of contracted cloud services revenue, starting in October.</p></div></div><div class="item"><div><div class="date">Dec 2026</div><h3 data-i="c2h">$100B run-rate target</h3><p data-i="c2p">Management's goal for annualized revenue run rate by December.</p></div></div></div>
+  </section>
+
+  <section id="sources">
+    <h2><span data-i="h_src">Sources</span></h2>
+    <ol class="src"><li><a href="https://spaceodysseyhub.com/time-machine/moment/2026-06-12-spacex-ipo" target="_blank" rel="noopener">SpaceX IPO: listing details</a></li><li><a href="https://en.wikipedia.org/wiki/Initial_public_offering_of_SpaceX" target="_blank" rel="noopener">Initial public offering of SpaceX (Wikipedia)</a></li><li><a href="https://kurums.com/spacex-first-earnings-report-analysis" target="_blank" rel="noopener">Q2 2026 results and segments</a></li><li><a href="https://tradune.com/earnings/spacex-q2-2026" target="_blank" rel="noopener">Q2 2026 capex and cash</a></li><li><a href="https://www.nextgcomm.com/spacex-q2-earnings/" target="_blank" rel="noopener">Q2 2026 call: capex outlook</a></li><li><a href="https://spaceq.ca/spacex-reports-first-earnings-since-going-public-makes-big-bet-on-ai" target="_blank" rel="noopener">Q2 2026 Starlink and AI detail</a></li><li><a href="https://stockanalysis.com/stocks/spcx/financials/?p=quarterly" target="_blank" rel="noopener">Quarterly income statement (Stock Analysis)</a></li><li><a href="https://finance.yahoo.com/quote/SPCX" target="_blank" rel="noopener">Price and market cap: Yahoo Finance and Financial Modeling Prep, as of Oct 9, 2026</a></li></ol>
+  </section>
+
+  <footer><span id="footTime"></span> <span data-i="foot">Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Space Exploration Technologies Corp..</span></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const KEY = "spcx", SHARES = 13182000000.0, TV = "NASDAQ:SPCX";
+// [quarter, ended, revenue US$M, gross margin %, operating margin %, GAAP EPS]  oldest first
+const Q = [["Q1 2025", "Mar 2025", 4067, 51.76, 1.35, null], ["Q2 2025", "Jun 2025", 4071, 43.95, -19.04, null], ["Q1 2026", "Mar 2026", 4694, 49.13, -41.63, null], ["Q2 2026", "Jun 2026", 7814, 55.27, -1.8, -0.09]];
+// guidance or consensus for the next quarter: [label, revenue US$M, note en, note zh] or null
+const G = null;
+// optional fixed TTM revenue cell when quarters are not consecutive
+const TTM = {"v": "~$23.0B", "en": "FY25 $18.7B + 1H26 growth", "zh": "FY25 187 亿 + 2026 上半年增量"};
+let P = {d:[],c:[]};
+const T = {zh:{"n_home": "全部股票", "n_over": "概览", "n_price": "股价", "n_rev": "营收", "n_fcf": "现金流", "n_watch": "关注点", "n_news": "新闻", "n_src": "来源", "k_mcap": "市值", "s_mcap": "按当前股价", "k_52": "52周区间", "s_52": "收盘低 / 高", "k_ttm": "近12月营收", "k_er": "下次财报", "h_price": "近12个月股价", "k_hi": "一年收盘最高", "k_lo": "一年收盘最低", "k_move": "日均波幅", "s_move": "近20个交易日", "s_beta": "相对标普500", "k_dd": "距高点", "h_rev": "季度营收与利润率", "l_rev": "营收", "l_gm": "毛利率（右轴）", "l_g": "指引", "t_q": "季度", "t_end": "截至", "t_rev": "营收（百万美元）", "t_yoy": "同比", "t_gm": "毛利率", "t_om": "营业利润率", "t_eps": "每股收益（GAAP）", "h_watch": "关注点", "sub_watch": "影响投资逻辑的因素，按方向分类。", "pl_plus": "利好", "pl_watch": "留意", "pl_risk": "风险", "h_cal": "日程", "h_src": "来源", "kc0": "2026 Q2", "sc0": "同比 +92% · 上市后首份财报", "kc1": "星链", "sc1": "+66% · 营业利润 16.6 亿", "kc2": "AI", "sc2": "+247% · 营业亏损 12.6 亿", "kc3": "航天", "sc3": "+29% · 营业亏损 5.42 亿", "kc4": "调整后EBITDA", "sc4": "同比 +191% · 利润率 45%", "kc5": "用户数", "sc5": "星链，同比翻倍 · Q2 新增 170 万", "w0h": "星链", "w0p": "用户翻倍至 1200 万，每用户月均收入稳定在约 $66。连接业务每季营业利润 16.6 亿美元，支撑公司其他业务。", "w1h": "算力租赁", "w1p": "AI 收入因与 Anthropic、Google 的算力合约增长 247%，另有自10月起六个月 67 亿美元云服务收入已签约。管理层目标在12月前达到 1000 亿美元年化收入。", "w2h": "资本开支", "w2p": "第二季资本开支 184 亿美元，为营收 2.4 倍，CFO 预计未来两季相近。他称 AI 算力回本不到一年，但 AI 板块仍亏损 12.6 亿。", "w3h": "公司治理", "w3p": "马斯克持股约 42%，通过超级投票权控制约 82% 投票权。SpaceX 未纳入标普500。", "w4h": "发射业务仍亏损", "w4p": "航天收入 9.62 亿美元，营业亏损 5.42 亿。星舰进展同时决定成本与长期故事。", "w5h": "估值与波动", "w5p": "市值约 2.1 万亿美元，近12月营收约 230 亿。自6月以来股价在约 $105 至 $226 间波动，仓位控制很重要。", "c0h": "2026 第三季财报", "c0p": "日期未公布；第二季财报于8月4日发布。", "c1h": "67 亿美元云合约", "c1p": "自10月起六个月的已签约云服务收入。", "c2h": "1000 亿年化目标", "c2p": "管理层目标：12月前年化收入达 1000 亿美元。", "eyebrow": "SpaceX · A类股 · 德州星港", "title": "星链负责赚钱，<em>AI 负责花钱</em>。", "lede": "SpaceX 于6月以史上最大 IPO 上市，以每股 $135 募资约 860 亿美元。第二季营收增 92% 至 78 亿美元。拥有 1200 万用户的星链贡献利润；AI 板块（原 xAI）增长最快，单季算力投入 158 亿美元。马斯克持有约 82% 投票权。", "k_val": "市销率", "s_val": "按近12月约 230 亿营收", "k_an": "IPO 价格", "s_an": "2026年6月11日 · 首日收盘 $160.95", "s_er": "2026 第三季 · 日期未公布", "sub_price": "自6月12日上市以来的每日收盘价与50日均线。一年期与200日数据将随历史累积补齐。", "sub_rev": "营收单位为百万美元，右轴为毛利率。SpaceX 仅公布了 2025 与 2026 年前两季的季度业绩（来自上市申报及首份10-Q）；2025 全年营收 187 亿美元。暂无指引。", "foot": "基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 Space Exploration Technologies Corp. 无关联。"}};
+</script>
+<script src="../assets/stock-page.js?v=1"></script>
+<script src="fcf-data.js?v=1"></script>
+<script src="../assets/fcf.js?v=3"></script>
+<script src="../assets/news.js?v=2"></script>
+</body>
+</html>
