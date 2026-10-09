@@ -6,10 +6,11 @@
 import { writeFileSync, readFileSync, mkdirSync, appendFileSync } from "node:fs";
 
 const STOCKS = [
-  { t: "ARM",  q: '"Arm Holdings" OR "Arm stock" OR "NASDAQ:ARM"' },
-  { t: "TSLA", q: 'Tesla (stock OR shares OR TSLA OR Musk OR earnings OR deliveries)' },
-  { t: "SNDK", q: 'Sandisk OR "NASDAQ:SNDK"' },
-  { t: "INTC", q: 'Intel (stock OR shares OR INTC OR foundry OR earnings OR chip)' },
+  // m = a headline must match this to be kept (drops loosely related items from ticker feeds)
+  { t: "ARM",  q: '"Arm Holdings" OR "Arm stock" OR "NASDAQ:ARM"', m: /\bArm\b|\bARM\b|Neoverse|SoftBank/ },
+  { t: "TSLA", q: 'Tesla (stock OR shares OR TSLA OR Musk OR earnings OR deliveries)', m: /Tesla|TSLA|Cybercab|robotaxi|Optimus|Megapack|\bFSD\b/i },
+  { t: "SNDK", q: 'Sandisk OR "NASDAQ:SNDK"', m: /Sandisk|SNDK/i },
+  { t: "INTC", q: 'Intel (stock OR shares OR INTC OR foundry OR earnings OR chip)', m: /Intel\b|INTC|Lip-Bu Tan|\b18A\b|\b14A\b/i },
 ];
 const OUT = "data/news.json";
 const DAYS = 30, PER_STOCK = 80;
@@ -55,7 +56,7 @@ for (const s of STOCKS) {
     try { const items = await rss(url, src); got.push(...items); console.log(`${s.t} ${name}: ${items.length}`); }
     catch (e) { console.log(`${s.t} ${name} failed: ${e.message}`); }
   }
-  let items = got;
+  let items = got.filter((x) => s.m.test(x.title));
   if (!items.length) {
     items = (prev.items || []).filter((x) => x.t === s.t && x.ts >= cutoff);
     console.log(`${s.t}: no fresh items, kept ${items.length} previous`);
