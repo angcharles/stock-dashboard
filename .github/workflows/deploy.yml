@@ -34,15 +34,16 @@ jobs:
 
       - name: Fetch latest quotes
         run: |
-          node scripts/fetch-quote.mjs ARM data 1y
+          node scripts/fetch-quote.mjs ARM arm/data 1y
           node scripts/fetch-quote.mjs TSLA tesla/data 2y
           node scripts/fetch-quote.mjs SNDK sndk/data 2y
 
       - name: Assemble site
         run: |
-          mkdir -p _site/data
+          mkdir -p _site/arm/data
           cp index.html .nojekyll _site/
-          cp data/*.json _site/data/
+          cp arm/index.html _site/arm/
+          cp arm/data/*.json _site/arm/data/
           mkdir -p _site/tesla/data
           cp tesla/index.html _site/tesla/
           cp tesla/data/*.json _site/tesla/data/
