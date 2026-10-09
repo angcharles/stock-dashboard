@@ -1,10 +1,10 @@
-# ARM Dashboard
+# Stock Dashboard
 
 Investor dashboards, EN / 中文, light / dark:
 
-- **Arm Holdings (ARM)** — `index.html` → https://angcharles.github.io/arm-dashboard/
-- **Tesla (TSLA)** — `tesla/index.html` → https://angcharles.github.io/arm-dashboard/tesla/
-- **Sandisk (SNDK)** — `sndk/index.html` → https://angcharles.github.io/arm-dashboard/sndk/
+- **Arm Holdings (ARM)** — `index.html` → https://angcharles.github.io/stock-dashboard/
+- **Tesla (TSLA)** — `tesla/index.html` → https://angcharles.github.io/stock-dashboard/tesla/
+- **Sandisk (SNDK)** — `sndk/index.html` → https://angcharles.github.io/stock-dashboard/sndk/
 
 Each page covers price, revenue mix, financials, watch list, calendar and sources.
 
@@ -20,9 +20,9 @@ Each page covers price, revenue mix, financials, watch list, calendar and source
 Note: GitHub pauses scheduled workflows in a repo with no activity for 60 days. Re-enable it from the Actions tab if that happens.
 
 ## Publish on GitHub Pages
-1. Create a public repo named `arm-dashboard`.
+1. Create a public repo named `stock-dashboard`.
 2. Upload everything in this repo.
 3. Settings → Pages → Source: **GitHub Actions**.
-4. Sites appear at `https://angcharles.github.io/arm-dashboard/` `/tesla/` and `/sndk/`.
+4. Sites appear at `https://angcharles.github.io/stock-dashboard/` `/tesla/` and `/sndk/`.
 
 For information only, not investment advice. Not affiliated with Arm Holdings plc, Tesla, Inc. or Sandisk Corporation.
