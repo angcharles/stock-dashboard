@@ -1,10 +1,13 @@
-// Fetches ARM's latest price and 1-year daily closes from Yahoo Finance
-// and writes data/quote.json and data/history.json for the dashboard.
+// Fetches a symbol's latest price and daily closes from Yahoo Finance and writes
+// <outdir>/quote.json and <outdir>/history.json for a dashboard page.
+// Usage: node scripts/fetch-quote.mjs [SYMBOL=ARM] [OUTDIR=data] [RANGE=1y]
 // On any failure it leaves the existing files untouched and exits 0,
 // so a deploy still goes out with the last good data.
 import { writeFileSync, readFileSync } from "node:fs";
 
-const SYMBOL = "ARM";
+const SYMBOL = process.argv[2] || "ARM";
+const OUT = process.argv[3] || "data";
+const RANGE = process.argv[4] || "1y";
 const HOSTS = ["query1.finance.yahoo.com", "query2.finance.yahoo.com"];
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
@@ -28,7 +31,7 @@ const nyDate = (ts) =>
   new Date(ts * 1000).toLocaleDateString("en-CA", { timeZone: "America/New_York" }); // YYYY-MM-DD
 
 try {
-  const daily = await chart("1y", "1d");
+  const daily = await chart(RANGE, "1d");
   const ts = daily.timestamp || [];
   const close = daily.indicators?.quote?.[0]?.close || [];
   const d = [], c = [];
@@ -55,13 +58,13 @@ try {
 
   if (d.length < 50 || !price) throw new Error("not enough data");
 
-  writeFileSync("data/history.json", JSON.stringify({ d, c }));
-  writeFileSync("data/quote.json", JSON.stringify({
+  writeFileSync(`${OUT}/history.json`, JSON.stringify({ d, c }));
+  writeFileSync(`${OUT}/quote.json`, JSON.stringify({
     symbol: SYMBOL, price: +price.toFixed(2), prevClose: +(+prevClose).toFixed(2),
     time, date, state, source: "Yahoo Finance", fetchedAt: now,
   }));
-  console.log(`ARM ${price} (prev ${prevClose}) ${state} @ ${new Date(time * 1000).toISOString()}, ${d.length} daily bars`);
+  console.log(`${SYMBOL} ${price} (prev ${prevClose}) ${state} @ ${new Date(time * 1000).toISOString()}, ${d.length} daily bars`);
 } catch (e) {
   console.warn("Quote fetch failed, keeping existing data:", e.message);
-  try { console.warn("Existing quote:", readFileSync("data/quote.json", "utf8")); } catch {}
+  try { console.warn("Existing quote:", readFileSync(`${OUT}/quote.json`, "utf8")); } catch {}
 }
