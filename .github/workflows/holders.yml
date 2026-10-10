@@ -36,7 +36,14 @@ jobs:
       - name: Build holders.json for every stock
         env:
           SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || 'stock-dashboard/1.0 (github.com/angcharles/stock-dashboard)' }}
-        run: python3 scripts/fetch-holders.py
+        run: |
+          set -o pipefail
+          # stderr also goes to annotations so the result shows on the run summary
+          if python3 scripts/fetch-holders.py 2> holders.log; then
+            grep -E '^  [A-Z]+:|WARNING' holders.log | sed 's/^ */::notice::/' || true
+          else
+            tail -n 15 holders.log | sed 's/^/::error::/'; exit 1
+          fi
 
       - name: Keep only the newest data sets
         run: ls -1t .cache/13f/*.zip 2>/dev/null | tail -n +5 | xargs -r rm -f
