@@ -117,11 +117,13 @@ const [mode, ...pick] = process.argv.slice(2);
 if (!["chain", "iv"].includes(mode)) { console.error("usage: fetch-options.mjs chain|iv [dir ...]"); process.exit(2); }
 const list = STOCKS.filter(([d, t]) => !pick.length || pick.includes(d) || pick.includes(t));
 summary(`### Options: ${mode}`);
+const brief = [];
 for (const [dir, tick] of list) {
   try {
     const msg = await (mode === "chain" ? chain(dir, tick) : iv(dir, tick));
-    console.log(`${tick}: ${msg}`); summary(`- ${tick}: ${msg}`);
+    console.log(`${tick}: ${msg}`); summary(`- ${tick}: ${msg}`); brief.push(`${tick} ${msg.split(",")[0]}`);
   } catch (e) {
-    console.log(`${tick}: skipped (${e.message})`); summary(`- ${tick}: skipped (${e.message})`);
+    console.log(`${tick}: skipped (${e.message})`); summary(`- ${tick}: skipped (${e.message})`); brief.push(`${tick} skipped`);
   }
 }
+if (process.env.GITHUB_ACTIONS) console.log(`::notice title=Options ${mode}::${brief.join(" · ")}`);
