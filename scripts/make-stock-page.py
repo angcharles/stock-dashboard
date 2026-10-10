@@ -181,6 +181,8 @@ def build(spec_path):
 
   <section id="holders" aria-label="Top shareholders"></section>
 
+  <section id="analysts" aria-label="Analyst ratings"></section>
+
   <section id="watch">
     <h2>{ui("h_watch")}</h2>
     {ui("sub_watch", "p", ' class="sub"')}
@@ -221,6 +223,7 @@ const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 <script src="../assets/technicals.js?v=1"></script>
 <script src="../assets/holders.js?v=2"></script>
 <script src="../assets/options.js?v=1"></script>
+<script src="../assets/analysts.js?v=1"></script>
 </body>
 </html>
 """

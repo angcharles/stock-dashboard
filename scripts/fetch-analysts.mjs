@@ -53,7 +53,9 @@ const tidyGrade = (g) => String(g || "").replace(/\s+/g, " ").trim();
 
 function build(tick, res) {
   const cut = Date.now() / 1000 - DAYS * 86400;
-  const hist = (res.upgradeDowngradeHistory?.history || []).filter((h) => h.epochGradeDate >= cut);
+  const all = res.upgradeDowngradeHistory?.history || [];
+  const newest = all.reduce((m, h) => Math.max(m, h.epochGradeDate || 0), 0);
+  const hist = all.filter((h) => h.epochGradeDate >= cut);
   const seen = new Set();
   const actions = [];
   for (const h of hist.sort((a, b) => b.epochGradeDate - a.epochGradeDate)) {
@@ -73,6 +75,8 @@ function build(tick, res) {
       n: raw(f.numberOfAnalystOpinions), rating: raw(f.recommendationMean), key: f.recommendationKey || null, price: raw(f.currentPrice),
     },
     trend, // [period, strong buy, buy, hold, sell, strong sell]
+    // date of the newest firm-level action Yahoo has; set when that feed has gone quiet for 4 months
+    feed_last: newest && newest < Date.now() / 1000 - 120 * 86400 ? new Date(newest * 1000).toISOString().slice(0, 10) : null,
     actions,
   };
 }
