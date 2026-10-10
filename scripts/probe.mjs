@@ -1,12 +1,13 @@
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36";
-const out = (s) => console.log("::notice::" + s.replace(/\n/g," ").slice(0, 1200));
-const base = "https://optioncharts.io";
-const r = await fetch(base + "/options/MU/option-history-iv", { headers: { "User-Agent": UA } }); const t = await r.text();
-const refs = [...new Set([...t.matchAll(/["'](\/async\/[^"']+)["']/g)].map((m) => m[1].replace(/&amp;/g, "&")))];
-out(`${r.status} len=${t.length} refs: ${refs.join(" | ")}`);
-for (const ref of refs.filter((x) => /iv|histor|volat/i.test(x))) {
-  const r2 = await fetch(base + ref, { headers: { "User-Agent": UA, "Accept": "*/*", "X-Requested-With": "XMLHttpRequest" } }); const t2 = await r2.text();
-  out(`${r2.status} ${ref} len=${t2.length} :: ${t2.slice(0, 300)}`);
-  const d = t2.match(/[^\n]{0,80}(\d{4}-\d{2}-\d{2})[^\n]{0,200}/); if (d) out("dates: " + d[0]);
-  const ds = [...t2.matchAll(/\d{4}-\d{2}-\d{2}/g)].map((m) => m[0]); if (ds.length) out(`n dates ${ds.length} first ${ds[0]} last ${ds[ds.length - 1]} min ${ds.slice().sort()[0]}`);
+const out = (s) => console.log("::notice::" + s.replace(/\n/g," ").slice(0, 1500));
+const base = "https://optioncharts.io/async/option_history_iv?ticker=MU&indicators=&period=";
+let first = null;
+for (const p of ["6m", "6M", "1y", "180", "180d", "six_months", "1Y", "3m"]) {
+  const r = await fetch(base + p, { headers: { "User-Agent": UA } }); const t = await r.text();
+  const ds = [...t.matchAll(/\d{4}-\d{2}-\d{2}/g)].map((m) => m[0]).sort();
+  out(`p=${p} ${r.status} len=${t.length} n=${ds.length} min=${ds[0]} max=${ds[ds.length-1]}`);
+  if (!first && ds.length > 30) first = t;
 }
+const r = await fetch(base, { headers: { "User-Agent": UA } }); const t = first || await r.text();
+const k = t.indexOf("2026-10-09"); out("ctx: " + t.slice(Math.max(0, k - 700), k + 500).replace(/\s+/g, " "));
+const per = [...new Set([...t.matchAll(/period=([^&"']*)/g)].map((m) => m[1]))]; out("periods: " + per.join(","));
