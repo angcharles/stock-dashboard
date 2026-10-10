@@ -55,7 +55,7 @@ STOCKS = [
 # words kept in capitals when tidying manager names
 CAPS = {"LLC", "LP", "LLP", "L.P.", "LTD", "PLC", "AG", "SA", "NV", "N.A.", "NA", "AB", "ASA", "AS", "SE", "UBS", "BNP", "BNY",
         "FMR", "TIAA", "CPP", "UK", "US", "USA", "II", "III", "IV", "AQR", "D.E.", "DE", "PNC", "RBC", "TD", "HSBC",
-        "BMO", "CIBC", "ING", "AXA", "DWS", "AMP", "IFM", "ETF", "SSGA", "GQG", "T.", "KKR", "BAMCO", "AGF", "NFJ", "JNL", "PGIM"}
+        "BMO", "CIBC", "ING", "AXA", "DWS", "AMP", "IFM", "ETF", "SSGA", "GQG", "T.", "KKR", "BAMCO", "AGF", "NFJ", "JNL", "PGIM", "SG", "L.L.C.", "LLC.", "ABN", "AMRO", "CIBC", "MUFG", "SMBC", "NN", "DZ", "PIMCO", "ARK", "MFS", "TCW", "UMB"}
 SPECIAL = {"BLACKROCK": "BlackRock", "JPMORGAN": "JPMorgan", "MORGAN": "Morgan", "GOLDMAN": "Goldman", "NORGES": "Norges",
            "MCKINSEY": "McKinsey", "MACKENZIE": "Mackenzie", "INVESCO": "Invesco", "WELLINGTON": "Wellington"}
 
@@ -145,6 +145,10 @@ def tidy(name):
         else:
             words.append(w)
     s = re.sub(r"\s*/[A-Za-z]{2,4}/?\s*$", "", " ".join(words))
+    s = re.sub(r"^UBS Am,? A Distinct Business Unit Of .*$", "UBS Asset Management Americas", s, flags=re.I)
+    s = re.sub(r",? A Distinct Business Unit Of .*$", "", s, flags=re.I)
+    s = re.sub(r"^Price T\.? Rowe", "T. Rowe Price", s)
+    s = re.sub(r"(?<=\S) (Of|And|The|For|De|Du|La)\b", lambda m: " " + m.group(1).lower(), s)
     s = re.sub(r"\bInc\b(?!\.)", "Inc.", s)
     return s.replace(" ,", ",")
 
