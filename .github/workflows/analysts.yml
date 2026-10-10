@@ -1,0 +1,50 @@
+name: Refresh analyst ratings
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Before the US open and after the close, Mon–Fri (UTC)
+    - cron: "40 12 * * 1-5"
+    - cron: "55 21 * * 1-5"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: analysts
+  cancel-in-progress: false
+
+jobs:
+  analysts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch ratings and price targets
+        run: node scripts/fetch-analysts.mjs
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git add */analysts.json
+          if git diff --cached --quiet; then
+            echo "No changes."; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Refresh analyst ratings and price targets"
+          git pull -q --rebase origin main
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

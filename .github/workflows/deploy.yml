@@ -79,6 +79,7 @@ jobs:
             cp -r $d/data _site/$d/
             if [ -f $d/holders.json ]; then cp $d/holders.json _site/$d/; fi
             if [ -f $d/vol.json ]; then cp $d/vol.json _site/$d/; fi
+            if [ -f $d/analysts.json ]; then cp $d/analysts.json _site/$d/; fi
           done
 
       - uses: actions/configure-pages@v5
