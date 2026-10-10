@@ -59,6 +59,12 @@ CAPS = {"LLC", "LP", "LLP", "L.P.", "LTD", "PLC", "AG", "SA", "NV", "N.A.", "NA"
 SPECIAL = {"BLACKROCK": "BlackRock", "JPMORGAN": "JPMorgan", "MORGAN": "Morgan", "GOLDMAN": "Goldman", "NORGES": "Norges",
            "MCKINSEY": "McKinsey", "MACKENZIE": "Mackenzie", "INVESCO": "Invesco", "WELLINGTON": "Wellington"}
 
+# managers that file as several entities (or switched entities) are combined, so a reorganisation
+# does not look like a sale plus a new buyer. Vanguard moved from one filer (Vanguard Group Inc.)
+# to several (Capital Management, Portfolio Management, Fiduciary Trust) in 2026.
+FAMILIES = [(re.compile(r"^VANGUARD\b", re.I), "fam-vanguard", "Vanguard (all filing entities)")]
+MIN_MANAGERS = 25  # a CUSIP found by name needs at least this many holders, or it is likely the wrong listing
+
 
 def log(*a):
     print(*a, file=sys.stderr, flush=True)
@@ -138,7 +144,7 @@ def tidy(name):
             words.append("-".join(x.capitalize() for x in w.split("-")))
         else:
             words.append(w)
-    s = " ".join(words)
+    s = re.sub(r"\s*/[A-Za-z]{2,4}/?\s*$", "", " ".join(words))
     s = re.sub(r"\bInc\b(?!\.)", "Inc.", s)
     return s.replace(" ,", ",")
 
@@ -214,7 +220,24 @@ def load_quarter(q, url, want_cusips, name_res):
         h[1] += val
         issuer.setdefault(c, {}).setdefault(nm, 0)
         issuer[c][nm] += 1
-    return {"held": held, "issuer": issuer, "mgr": mgr, "filers": set(by)}
+    # combine manager families
+    fam = {}
+    for cik, nm in mgr.items():
+        for rx, key, label in FAMILIES:
+            if rx.search(nm or ""):
+                fam[cik] = (key, label)
+    if fam:
+        for c, H in held.items():
+            for cik in [k for k in H if k in fam]:
+                key = fam[cik][0]
+                a = H.pop(cik)
+                b = H.setdefault(key, [0.0, 0.0])
+                b[0] += a[0]
+                b[1] += a[1]
+        for cik, (key, label) in fam.items():
+            mgr[key] = label
+    filers = set(by) | {fam[c][0] for c in by if c in fam}
+    return {"held": held, "issuer": issuer, "mgr": mgr, "filers": filers}
 
 
 def main():
@@ -250,6 +273,9 @@ def main():
             cusip = None
         if not cusip and cands:
             cusip = max(cands, key=lambda c: (len(latest["held"].get(c, {})), cands[c]))
+            if len(latest["held"].get(cusip, {})) < MIN_MANAGERS:
+                log(f"  {tick}: only {len(latest['held'].get(cusip, {}))} managers hold {cusip}; treating as not yet held")
+                cusip = None
         iss = ""
         if cusip and cusip in latest["issuer"]:
             iss = max(latest["issuer"][cusip].items(), key=lambda kv: kv[1])[0]
@@ -265,6 +291,8 @@ def main():
                 return [round(per[i][cik][0]) if cik in per[i] else (0 if cik in data[i]["filers"] else None) for i in range(3)]
 
             def name(cik):
+                if cik.startswith("fam-"):
+                    return next(lab for _, k, lab in FAMILIES if k == cik)
                 for d in reversed(data):
                     if d["mgr"].get(cik):
                         return tidy(d["mgr"][cik])

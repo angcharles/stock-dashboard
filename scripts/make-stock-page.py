@@ -217,7 +217,7 @@ const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 <script src="../assets/fcf.js?v=4"></script>
 <script src="../assets/news.js?v=2"></script>
 <script src="../assets/technicals.js?v=1"></script>
-<script src="../assets/holders.js?v=1"></script>
+<script src="../assets/holders.js?v=2"></script>
 </body>
 </html>
 """

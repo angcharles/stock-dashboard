@@ -27,7 +27,7 @@
       sNew: "New", sAdd: "Added", sCut: "Trimmed", sOut: "Sold out", sHold: "Steady",
       dropH: "Left the top 20 since", noFile: "no filing",
       none: "No 13F holdings yet.", loading: "Loading holders…", fail: "Holder data is not available yet. It is added by the weekly 13F refresh.",
-      note: (f) => `Source: SEC Form 13F data sets, filings through ${f}. 13F covers US institutional managers with over $100M in US-listed equities, reported up to 45 days after each quarter end, so the latest column is a quarter old. It excludes founders, insiders, parent companies, foreign holders not filing 13F and retail investors. Shares are summed across a manager's filing; options are left out. "—" means the manager did not file 13F for that quarter.`,
+      note: (f) => `Source: SEC Form 13F data sets, filings through ${f}. 13F covers US institutional managers with over $100M in US-listed equities, reported up to 45 days after each quarter end, so the latest column is a quarter old. It excludes founders, insiders, parent companies, foreign holders not filing 13F and retail investors. Shares are summed across a manager's filing; options are left out. Vanguard's entities are combined, since it split its single 13F filing into several in 2026. "—" means the manager did not file 13F for that quarter.`,
       tip: (q, s) => `${q}: ${s}`,
     },
     zh: {
@@ -41,7 +41,7 @@
       sNew: "新进", sAdd: "增持", sCut: "减持", sOut: "清仓", sHold: "持平",
       dropH: "跌出前 20 名（自", noFile: "未申报",
       none: "暂无 13F 持股记录。", loading: "正在载入持股数据…", fail: "持股数据尚未生成，将由每周 13F 更新加入。",
-      note: (f) => `来源：美国证交会 Form 13F 数据集，申报截至 ${f}。13F 仅涵盖持有逾 1 亿美元美国上市股票的美国机构投资者，于季末后 45 天内申报，故最新一栏滞后约一个季度。不含创始人、内部人、母公司、无需申报 13F 的外国持有人及散户。同一机构的持股合并计算，不含期权。"—"表示该机构当季未申报 13F。`,
+      note: (f) => `来源：美国证交会 Form 13F 数据集，申报截至 ${f}。13F 仅涵盖持有逾 1 亿美元美国上市股票的美国机构投资者，于季末后 45 天内申报，故最新一栏滞后约一个季度。不含创始人、内部人、母公司、无需申报 13F 的外国持有人及散户。同一机构的持股合并计算，不含期权。先锋（Vanguard）于 2026 年将 13F 拆分为多个实体申报，此处合并计算。"—"表示该机构当季未申报 13F。`,
       tip: (q, s) => `${q}：${s}`,
     },
   };
