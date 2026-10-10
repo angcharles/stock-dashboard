@@ -1,0 +1,17 @@
+const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
+const out = (s) => console.log("::notice::" + s.replace(/\n/g, " ").slice(0, 1800));
+const r = await fetch("https://fc.yahoo.com", { headers: { "User-Agent": UA }, redirect: "manual" });
+const cookie = (r.headers.getSetCookie?.() || []).map((c) => c.split(";")[0]).join("; ");
+const crumb = await (await fetch("https://query2.finance.yahoo.com/v1/test/getcrumb", { headers: { "User-Agent": UA, Cookie: cookie } })).text();
+out(`cookie ${!!cookie} crumb ${crumb.slice(0, 20)}`);
+const u = `https://query2.finance.yahoo.com/v10/finance/quoteSummary/MU?modules=upgradeDowngradeHistory,recommendationTrend,financialData&crumb=${encodeURIComponent(crumb)}`;
+const j = await (await fetch(u, { headers: { "User-Agent": UA, Cookie: cookie } })).json();
+const res = j.quoteSummary?.result?.[0];
+if (!res) out("no result " + JSON.stringify(j).slice(0, 500));
+const h = res?.upgradeDowngradeHistory?.history || [];
+out(`history n=${h.length} first=${JSON.stringify(h[0])}`);
+out(`h[1..3]=${JSON.stringify(h.slice(1, 4))}`);
+out(`oldest=${JSON.stringify(h.at(-1))}`);
+out(`trend=${JSON.stringify(res?.recommendationTrend?.trend)}`);
+const f = res?.financialData || {};
+out(`fin target ${JSON.stringify({ mean: f.targetMeanPrice, hi: f.targetHighPrice, lo: f.targetLowPrice, med: f.targetMedianPrice, n: f.numberOfAnalystOpinions, rec: f.recommendationKey, m: f.recommendationMean })}`);
