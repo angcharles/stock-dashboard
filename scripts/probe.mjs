@@ -1,15 +1,14 @@
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36";
-const out = (s) => console.log("::notice::" + s.replace(/\n/g," ").slice(0, 700));
-const r0 = await fetch("https://www.barchart.com/stocks/quotes/MU/options-history", { headers: { "User-Agent": UA } });
-const ck = r0.headers.getSetCookie ? r0.headers.getSetCookie() : [];
-const jar = ck.map((c) => c.split(";")[0]).join("; ");
-const x = decodeURIComponent((jar.match(/XSRF-TOKEN=([^;]+)/) || [])[1] || "");
-out(`bc page ${r0.status} cookies=${ck.length} xsrf=${x ? "yes" : "no"}`);
-const H = { "User-Agent": UA, "Cookie": jar, "X-XSRF-TOKEN": x, "Accept": "application/json", "Referer": "https://www.barchart.com/stocks/quotes/MU/options-history" };
+const out = (s) => console.log("::notice::" + s.replace(/\n/g," ").slice(0, 600));
 for (const u of [
-  "https://www.barchart.com/proxies/core-api/v1/options-historical/get?symbol=MU&fields=symbol,impliedVolatility,historicVolatility,ivRank,tradeTime&orderBy=tradeTime&orderDir=desc&limit=200&raw=1",
-  "https://www.barchart.com/proxies/core-api/v1/historical/get?symbol=MU&fields=tradeTime,impliedVolatility,historicVolatility30&type=eod&orderBy=tradeTime&orderDir=desc&limit=200&raw=1",
+  "https://marketchameleon.com/Overview/MU/IV/",
+  "https://optioncharts.io/options/MU/volatility-skew",
+  "https://optioncharts.io/async/options_ticker_iv_chart?ticker=MU&period=1y",
+  "https://www.optionistics.com/quotes/stock-quotes/MU",
+  "https://www.alphaquery.com/data/option-statistic-chart?ticker=MU&perType=30-Day&identifier=iv-mean&chartPeriod=1y",
+  "https://www.ivolatility.com/options/MU/NASDAQ/",
 ]) {
-  const r = await fetch(u, { headers: H }); const t = await r.text();
-  out(`${r.status} ${u.split("v1/")[1].slice(0, 40)} len=${t.length} :: ${t.slice(0, 400)}`);
+  try { const r = await fetch(u, { headers: { "User-Agent": UA } }); const t = await r.text();
+    const iv = (t.match(/[^<>]{0,120}(implied vol|IV30|iv_?rank|impliedVolatility)[^<>]{0,160}/i) || [""])[0];
+    out(`${r.status} ${u.slice(8, 70)} len=${t.length} :: ${iv}`); } catch (e) { out(`ERR ${u} ${e}`); }
 }
