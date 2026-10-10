@@ -68,7 +68,7 @@ async function chain(dir, tick) {
   const exps = [...by.keys()].sort().slice(0, MAX_EXP);
   const E = [null, null, null, 0, 0, null, null];
   const out = {
-    symbol: tick, spot: r2(spot), asof: j.timestamp || null, fetched: new Date().toISOString(),
+    symbol: tick, spot: r2(spot), asof: d.last_trade_time || j.timestamp || null, trade_date: String(d.last_trade_time || "").slice(0, 10) || null, fetched: new Date().toISOString(),
     iv30: r2(pctIV(d.iv30)), iv30_change: r2(d.iv30_change), source: "Cboe delayed quotes (15 min)",
     // rows: [strike, call: bid, ask, last, volume, OI, IV %, delta, put: same 7]
     expiries: exps.map((e) => ({ d: e, rows: [...by.get(e).values()].sort((a, b) => a.k - b.k).map((r) => [r.k, ...(r.C || E), ...(r.P || E)]) })),
@@ -99,7 +99,8 @@ async function iv(dir, tick) {
   try {
     const j = await cboe(tick);
     const d = j.data || {};
-    const date = String(j.timestamp || "").slice(0, 10) || new Date().toISOString().slice(0, 10);
+    // the quote's own trading day (the fetch timestamp can fall on a weekend)
+    const date = String(d.last_trade_time || j.timestamp || "").slice(0, 10) || new Date().toISOString().slice(0, 10);
     const v = pctIV(d.iv30);
     if (v) V.cboe = merge(V.cboe, [[date, v]]);
     notes.push(`cboe ${v ? v.toFixed(1) : "n/a"}`);

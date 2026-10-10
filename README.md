@@ -50,6 +50,11 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.
 
+## Options and volatility section
+- `assets/options.js` adds an "Options and volatility" section (and an Options link in the page menu) after the technicals: implied vs. realized volatility over 6 months (IV30, realized 10 and 30-day, and the IV − RV30 spread), summary cells (IV30, RV30, IV ÷ RV, IV rank, expected move, put/call open interest) and an option chain with an expiry picker and strike-range filter. EN / 中文.
+- Chain: `node scripts/fetch-options.mjs chain` pulls Cboe's delayed quotes (15-minute delay; IV and delta are Cboe's) into `<stock>/data/options.json` on every price refresh, trimmed to the next 14 expiries and strikes 60–160% of the price.
+- IV history: `node scripts/fetch-options.mjs iv` runs daily after the close (`.github/workflows/vol.yml`) and adds the day's 30-day IV to `<stock>/vol.json`, which is committed. The history was seeded from alphaquery, which serves about 3 months free (from Jul 10, 2026), so the IV line reaches the full 6 months in January 2027. Realized volatility is computed in the browser from `data/history.json`.
+
 ## Top 20 shareholders section
 - `assets/holders.js` adds a "Top 20 shareholders" section (and a Holders link in the page menu) after the cash flow section on every stock page: the 20 largest institutional holders with their shares at the last three 13F quarter ends (6 months), % of the company, the 6-month change and a status (new / added / trimmed / steady), plus who left the top 20. EN / 中文.
 - Data: `scripts/fetch-holders.py` reads the SEC Form 13F data sets and writes `<stock>/holders.json`. `.github/workflows/holders.yml` runs it every Monday (and on demand from the Actions tab), commits any change and redeploys. A new 13F quarter appears about 45 days after each quarter end.
