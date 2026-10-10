@@ -1,0 +1,22 @@
+name: Price snapshot (temporary)
+on:
+  push:
+    branches: [ta-snapshot]
+permissions:
+  contents: write
+jobs:
+  snap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          mkdir -p snap
+          for s in ARM TSLA SNDK INTC SPCX MU LITE COHR GOOGL META NVDA ZS BE AAOI AMD MP AMZN MSFT MRVL TSM AVGO ROK SKHY 000660.KS; do
+            mkdir -p snap/$s; node scripts/fetch-quote.mjs $s snap/$s 2y || true
+          done
+          ls -la snap/*
+      - run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add snap && git commit -m "snapshot data" && git push origin HEAD:ta-snapshot
