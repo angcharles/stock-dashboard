@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 361.54,
+ "bias": {
+  "en": "Neutral · range trade below the 200-day",
+  "zh": "中性 · 200日均线下方区间震荡"
+ },
+ "read": [
+  {
+   "en": "Broadcom has traded sideways between $336 and $381 for a month and sits 27% below its June high. Price is above the 10 and 30-day averages but below the 200-day ($368) and the falling 100-day ($384), so the medium trend is still down. MACD has been above its signal since Sep 21 but is losing steam, RSI is a neutral 50, and Parabolic SAR is below price at $346.",
+   "zh": "博通一个月来在 $336 至 $381 之间横盘，较 6月高点低 27%。股价位于 10 日与 30 日均线上方，但低于 200 日均线（$368）及下行中的 100 日均线（$384），中期趋势仍向下。MACD 自 9月21日起位于信号线上方但动能减弱，RSI 为中性的 50，抛物线 SAR 在股价下方的 $346。"
+  },
+  {
+   "en": "The Oct 6 rally to $381 failed right under the 100-day average. A close above $368–371 (200-day average, tested five times) would be the first sign of strength; $381–384 is the bigger test. Support is $356 (tested seven times), then $340–346 (SAR and the Sep 24 low).",
+   "zh": "10月6日反弹至 $381，正好在 100 日均线下方受阻。收盘站上 $368–371（200 日均线，五次测试）将是首个转强信号；$381–384 则是更大考验。支撑为 $356（七次测试），其次 $340–346（SAR 与9月24日低点）。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    370,
+    {
+     "en": "200-day average; tested five times ($368–371)",
+     "zh": "200日均线；五次测试（$368–371）"
+    }
+   ],
+   [
+    383,
+    {
+     "en": "Oct 6 high and 100-day average",
+     "zh": "10月6日高点与100日均线"
+    }
+   ],
+   [
+    401,
+    {
+     "en": "July pivot",
+     "zh": "7月转折点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    356,
+    {
+     "en": "Tested seven times",
+     "zh": "七次测试"
+    }
+   ],
+   [
+    342,
+    {
+     "en": "SAR and Sep 24 low ($340–346)",
+     "zh": "SAR 与9月24日低点（$340–346）"
+    }
+   ],
+   [
+    311.5,
+    {
+     "en": "February pivot",
+     "zh": "2月转折点"
+    }
+   ]
+  ]
+ }
+}

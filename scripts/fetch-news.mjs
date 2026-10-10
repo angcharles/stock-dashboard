@@ -25,6 +25,11 @@ const STOCKS = [
   { t: "MP", q: '"MP Materials" OR "Mountain Pass" rare earth', m: /MP Materials|Mountain Pass/i },
   { t: "AMZN", q: 'Amazon (stock OR shares OR AMZN OR earnings OR AWS OR Jassy)', m: /Amazon|AMZN|\bAWS\b|Jassy/ },
   { t: "MSFT", q: 'Microsoft (stock OR shares OR MSFT OR earnings OR Azure OR Copilot)', m: /Microsoft|MSFT|Azure|Nadella|Copilot/ },
+  { t: "MRVL", q: 'Marvell (stock OR shares OR MRVL OR earnings OR "custom silicon" OR optics)', m: /Marvell|MRVL/ },
+  { t: "SKHY", q: '"SK hynix" OR "SK Hynix" OR SKHY', m: /SK ?hynix|SKHY|000660/i },
+  { t: "TSM", q: 'TSMC (stock OR shares OR TSM OR earnings OR revenue OR 2nm OR Arizona)', m: /TSMC|\bTSM\b|Taiwan Semiconductor|C\.C\. Wei/ },
+  { t: "AVGO", q: 'Broadcom (stock OR shares OR AVGO OR earnings OR XPU OR VMware OR "Hock Tan")', m: /Broadcom|AVGO|Hock Tan|VMware/ },
+  { t: "ROK", q: '"Rockwell Automation" OR "NYSE:ROK"', m: /Rockwell Automation|\bROK\b/ },
 ];
 const OUT = "data/news.json";
 const DAYS = 30, PER_STOCK = 80;

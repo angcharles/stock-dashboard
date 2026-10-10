@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 280.5,
+ "bias": {
+  "en": "Neutral · short-term pause in an uptrend",
+  "zh": "中性 · 上升趋势中的短线停顿"
+ },
+ "read": [
+  {
+   "en": "Bloom Energy's medium trend is up: price is above the 30-day ($265) and 100-day ($254) averages, and the 30-day has climbed 9% in two weeks. The short term has stalled. The stock slipped below its 5 and 10-day averages, MACD crossed below its signal on Oct 8, and Parabolic SAR flipped bearish the same day after the Oct 6 push to $301 failed. RSI at 54 is neutral.",
+   "zh": "Bloom Energy 中期趋势向上：股价位于 30 日（$265）与 100 日（$254）均线上方，30 日线两周内上升 9%。短线陷入停顿：股价跌破 5 日和 10 日均线，MACD 于 10月8日下穿信号线，10月6日冲击 $301 失败后抛物线 SAR 同日转空。RSI 54 属中性。"
+  },
+  {
+   "en": "Bulls need a close back above $286–292 (the short averages and Oct 7 high) and then $301–305, which has capped the stock since May. Support is the 30-day average and Oct 8 low at about $265, then $249, a level that has held six times since August. Daily swings near 7% make this a stock for smaller positions.",
+   "zh": "多方需先收盘站回 $286–292（短期均线与10月7日高点），再突破 5月以来压制股价的 $301–305。支撑为 30 日均线及 10月8日低点（约 $265），其次 $249（8月以来六次守住）。日均波幅接近 7%，宜控制仓位。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    289,
+    {
+     "en": "5 and 10-day averages, Oct 7 high",
+     "zh": "5日与10日均线，10月7日高点"
+    }
+   ],
+   [
+    303,
+    {
+     "en": "Oct 6 high; capped the stock since May",
+     "zh": "10月6日高点；5月以来的压力"
+    }
+   ],
+   [
+    323,
+    {
+     "en": "May 22 swing high",
+     "zh": "5月22日波段高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    265,
+    {
+     "en": "30-day average, Oct 8 low",
+     "zh": "30日均线，10月8日低点"
+    }
+   ],
+   [
+    249,
+    {
+     "en": "Held six times since August",
+     "zh": "8月以来六次守住"
+    }
+   ],
+   [
+    229,
+    {
+     "en": "June pivot",
+     "zh": "6月转折点"
+    }
+   ]
+  ]
+ }
+}

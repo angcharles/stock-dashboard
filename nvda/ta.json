@@ -1,0 +1,59 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 229.28,
+ "bias": {
+  "en": "Uptrend · consolidating below the record",
+  "zh": "上升趋势 · 纪录高点下方整理"
+ },
+ "read": [
+  {
+   "en": "NVIDIA set a record $243.37 on Oct 6 and has eased 6% since. The trend structure is still bullish: the 30-day ($225) and 100-day ($214) averages are rising and price is above both, and Parabolic SAR has been below price since Sep 28. Short-term momentum is fading. Price is under the 5 and 10-day averages, RSI cooled from 67 to 53, and the MACD histogram is almost back to zero, so a bearish cross is close.",
+   "zh": "英伟达于 10月6日创下 $243.37 纪录，此后回落 6%。趋势结构仍偏多：30 日（$225）与 100 日（$214）均线上行，股价位于两者之上，抛物线 SAR 自 9月28日起位于股价下方。短线动能减弱：股价低于 5 日和 10 日均线，RSI 由 67 回落至 53，MACD 柱体几乎回到零轴，接近死叉。"
+  },
+  {
+   "en": "The $220–225 zone (30-day average and the SAR level) is the first real support; below it, $215 (tested five times since April) and $208, the 20-day low. On the way up, $233–235 (short averages and September highs) is the first hurdle, then the $243 record.",
+   "zh": "$220–225 区域（30 日均线与 SAR 位置）为首个有效支撑；其下为 $215（4月以来五次测试）及 20 日低点 $208。向上首先面对 $233–235（短期均线与9月高点），然后是 $243 纪录高点。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    235,
+    {
+     "en": "5 and 10-day averages, September highs",
+     "zh": "5日与10日均线，9月高点"
+    }
+   ],
+   [
+    243.4,
+    {
+     "en": "Record high, Oct 6",
+     "zh": "10月6日纪录高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    225,
+    {
+     "en": "30-day average; SAR at $220",
+     "zh": "30日均线；SAR 在 $220"
+    }
+   ],
+   [
+    215,
+    {
+     "en": "Tested five times since April",
+     "zh": "4月以来五次测试"
+    }
+   ],
+   [
+    208,
+    {
+     "en": "20-day low",
+     "zh": "20日低点"
+    }
+   ]
+  ]
+ }
+}

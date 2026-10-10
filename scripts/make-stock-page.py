@@ -155,6 +155,8 @@ def build(spec_path):
     </div>
   </section>
 
+  <section id="technicals" aria-label="Technical analysis"></section>
+
   <section id="revenue">
     <h2>{ui("h_rev")}</h2>
     {tx("sub_rev", S["sub_rev"], "p", ' class="sub"')}
@@ -212,6 +214,7 @@ const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 <script src="fcf-data.js?v=1"></script>
 <script src="../assets/fcf.js?v=4"></script>
 <script src="../assets/news.js?v=2"></script>
+<script src="../assets/technicals.js?v=1"></script>
 </body>
 </html>
 """

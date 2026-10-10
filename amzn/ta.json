@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 262.43,
+ "bias": {
+  "en": "Bullish turn · breaking out of the range",
+  "zh": "转为偏多 · 突破区间"
+ },
+ "read": [
+  {
+   "en": "Amazon closed at $262.43 on Oct 9, its highest close since Aug 28, and above every average on the chart. The 5 and 10-day averages have pulled above the flat 30 and 100-day ones, MACD crossed above its signal on Oct 5 and is strengthening, RSI is 59, and Parabolic SAR has been below price since Oct 2. Daily swings are a modest 2.2%.",
+   "zh": "亚马逊 10月9日收于 $262.43，为 8月28日以来最高收盘，并位于图上所有均线之上。5 日与 10 日均线已升至走平的 30 日与 100 日均线上方，MACD 于 10月5日上穿信号线并增强，RSI 为 59，抛物线 SAR 自 10月2日起位于股价下方。日均波幅仅 2.2%。"
+  },
+  {
+   "en": "Next resistance is $266–268 (the late-August highs); clearing that opens $275–279 and then the Aug 3 high of $287. Support is $257 (tested four times in September), then $252–254 where the 30 and 100-day averages sit together, and $248, the floor of the range since September.",
+   "zh": "下一阻力为 $266–268（8月下旬高点）；突破后看 $275–279，再看 8月3日高点 $287。支撑为 $257（9月四次测试），其次是 30 日与 100 日均线重叠的 $252–254，再次是 9月以来的区间底部 $248。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    267,
+    {
+     "en": "Late-August highs",
+     "zh": "8月下旬高点"
+    }
+   ],
+   [
+    277,
+    {
+     "en": "May highs ($275–279)",
+     "zh": "5月高点（$275–279）"
+    }
+   ],
+   [
+    287.2,
+    {
+     "en": "Aug 3 high",
+     "zh": "8月3日高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    257,
+    {
+     "en": "Tested four times in September",
+     "zh": "9月四次测试"
+    }
+   ],
+   [
+    253,
+    {
+     "en": "30 and 100-day averages",
+     "zh": "30日与100日均线"
+    }
+   ],
+   [
+    248,
+    {
+     "en": "Range floor since September",
+     "zh": "9月以来区间底部"
+    }
+   ]
+  ]
+ }
+}

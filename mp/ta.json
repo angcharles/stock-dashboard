@@ -1,0 +1,59 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 46.14,
+ "bias": {
+  "en": "Bearish trend · trying to base",
+  "zh": "空头趋势 · 尝试筑底"
+ },
+ "read": [
+  {
+   "en": "MP Materials is in a downtrend: price is below the 30-day ($50), 100-day ($53) and 200-day ($57) averages, all of which are falling, and the stock is down 54% from last October's high. MACD has been below its signal since Aug 31, although the histogram is now close to zero. Parabolic SAR flipped bullish on Oct 6 and RSI is 41, so selling pressure has eased without buyers taking control.",
+   "zh": "MP Materials 处于下降趋势：股价低于 30 日（$50）、100 日（$53）和 200 日（$57）均线，三者均在下行，股价较去年10月高点下跌 54%。MACD 自 8月31日起位于信号线下方，但柱体已接近零轴。抛物线 SAR 于 10月6日转多，RSI 为 41，卖压有所缓解，但买方尚未掌控局面。"
+  },
+  {
+   "en": "The stock has been basing between about $44.5 and $49 for two weeks. $44.5 (the Oct 1 low) is the line to hold; below it there is little support until the July low of $37.81. A turn needs closes above $48.7 (the Oct 6 high) and then $50–52, where the 30-day average meets a level that capped nine swings this year.",
+   "zh": "股价两周来在约 $44.5 至 $49 之间筑底。$44.5（10月1日低点）为必守位置；跌破后直到 7月低点 $37.81 前少有支撑。若要转势，需收盘站上 $48.7（10月6日高点），再突破 $50–52，即 30 日均线与今年九次压制股价的位置交汇处。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    48.7,
+    {
+     "en": "Oct 6 high",
+     "zh": "10月6日高点"
+    }
+   ],
+   [
+    51,
+    {
+     "en": "30-day average and a level that capped nine swings ($50–52)",
+     "zh": "30日均线与九次受阻位（$50–52）"
+    }
+   ],
+   [
+    57,
+    {
+     "en": "200-day average, September pivot",
+     "zh": "200日均线，9月转折点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    44.5,
+    {
+     "en": "Oct 1 low, tested twice",
+     "zh": "10月1日低点，两次测试"
+    }
+   ],
+   [
+    37.8,
+    {
+     "en": "July 29 low",
+     "zh": "7月29日低点"
+    }
+   ]
+  ]
+ }
+}

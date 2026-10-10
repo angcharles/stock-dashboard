@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 608.1,
+ "bias": {
+  "en": "Uptrend · cooling after a record",
+  "zh": "上升趋势 · 创纪录后降温"
+ },
+ "read": [
+  {
+   "en": "AMD hit a record $658.52 on Oct 6 and has slipped 8% since. The trend is still strongly up: the 30-day ($560) and 100-day ($520) averages are rising fast and price is well above both. The short-term signals have turned, though. Price fell below the 5 and 10-day averages, MACD crossed below its signal on Oct 9, Parabolic SAR flipped bearish on Oct 8, and RSI dropped from 72 to 57.",
+   "zh": "AMD 于 10月6日创下 $658.52 纪录，此后回落 8%。趋势仍强劲向上：30 日（$560）与 100 日（$520）均线快速上行，股价远高于两者。但短线信号已转弱：股价跌破 5 日和 10 日均线，MACD 于 10月9日下穿信号线，抛物线 SAR 于 10月8日转空，RSI 由 72 降至 57。"
+  },
+  {
+   "en": "The first support is $590, a late-September pivot. Below that, the 30-day average and July highs around $560 are a strong area where a pullback in an uptrend often ends. To get going again AMD needs to reclaim $623–631 (the short averages), then $639 and the $658 record.",
+   "zh": "首个支撑为 9月下旬的转折点 $590。其下，30 日均线与 7月高点（约 $560）是强支撑区，上升趋势中的回调常在此结束。AMD 需重新站上 $623–631（短期均线），再突破 $639 及 $658 纪录高点，才能重拾升势。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    627,
+    {
+     "en": "5 and 10-day averages ($623–631)",
+     "zh": "5日与10日均线（$623–631）"
+    }
+   ],
+   [
+    639,
+    {
+     "en": "Sep 25 high",
+     "zh": "9月25日高点"
+    }
+   ],
+   [
+    658.5,
+    {
+     "en": "Record high, Oct 6",
+     "zh": "10月6日纪录高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    590,
+    {
+     "en": "Late-September pivot",
+     "zh": "9月下旬转折点"
+    }
+   ],
+   [
+    560,
+    {
+     "en": "30-day average and July highs",
+     "zh": "30日均线及7月高点"
+    }
+   ],
+   [
+    525,
+    {
+     "en": "August pivot",
+     "zh": "8月转折点"
+    }
+   ]
+  ]
+ }
+}

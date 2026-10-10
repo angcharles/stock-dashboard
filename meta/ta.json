@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 718.67,
+ "bias": {
+  "en": "Uptrend intact · short-term pullback",
+  "zh": "上升趋势未破 · 短线回调"
+ },
+ "read": [
+  {
+   "en": "Meta is pulling back from its Sep 24 record of $780. The bigger picture is healthy: price is well above the rising 30-day ($683) and 100-day ($621) averages. The short-term signals have rolled over, though. Price is just under the 5 and 10-day averages, MACD has been below its signal since Oct 2 with a widening histogram, and Parabolic SAR has been above price since Sep 28. RSI at 57 has room either way.",
+   "zh": "Meta 正从 9月24日纪录高点 $780 回调。大格局良好：股价远高于上行的 30 日（$683）与 100 日（$621）均线。不过短线信号已转弱：股价略低于 5 日和 10 日均线，MACD 自 10月2日起位于信号线下方且柱体扩大，抛物线 SAR 自 9月28日起位于股价上方。RSI 57，上下皆有空间。"
+  },
+  {
+   "en": "First support is $712–713 (Oct 8 low and a Sep 28 pivot). If that gives way, the 30-day average around $681–683 is the natural place for buyers, with $650 below. To resume the uptrend, Meta needs a close above $728 (5 and 10-day averages) and then $748, the Oct 6 high; the record $780 is the final hurdle.",
+   "zh": "首个支撑为 $712–713（10月8日低点与 9月28日转折点）。若失守，30 日均线（约 $681–683）是买盘的自然位置，其下为 $650。要恢复升势，Meta 需先收盘站上 $728（5 日与 10 日均线），再突破 $748（10月6日高点）；$780 纪录高点为最后关口。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    728,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日与10日均线"
+    }
+   ],
+   [
+    748,
+    {
+     "en": "Oct 6 high",
+     "zh": "10月6日高点"
+    }
+   ],
+   [
+    780,
+    {
+     "en": "Record high, Sep 24",
+     "zh": "9月24日纪录高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    712,
+    {
+     "en": "Oct 8 low, Sep 28 pivot",
+     "zh": "10月8日低点，9月28日转折点"
+    }
+   ],
+   [
+    682,
+    {
+     "en": "30-day average, tested five times",
+     "zh": "30日均线，五次测试"
+    }
+   ],
+   [
+    650,
+    {
+     "en": "February pivot",
+     "zh": "2月转折点"
+    }
+   ]
+  ]
+ }
+}

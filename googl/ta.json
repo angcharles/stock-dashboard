@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 351.66,
+ "bias": {
+  "en": "Neutral to bullish · pressing on the 100-day",
+  "zh": "中性偏多 · 正挑战100日均线"
+ },
+ "read": [
+  {
+   "en": "Alphabet has spent three weeks in a tight $336–364 range. Price is above its 5, 10, 30 and 200-day averages and sits right at the 100-day ($353), which is still edging down. MACD crossed above its signal on Oct 5 and is building, RSI is 56, and Parabolic SAR turned bullish on Oct 8. Volatility is low for this group, at about 2.4% a day.",
+   "zh": "Alphabet 三周来在 $336–364 窄幅区间内运行。股价位于 5 日、10 日、30 日和 200 日均线上方，正处于仍小幅下行的 100 日均线（$353）。MACD 于 10月5日上穿信号线并持续增强，RSI 为 56，抛物线 SAR 于 10月8日转多。日均波幅约 2.4%，在这组股票中偏低。"
+  },
+  {
+   "en": "A close above $356 (the 100-day plus the Oct 8 high) would be the first step; $364 is the top of the range and $378 is a level that capped five rallies in July and August. Support starts at $343–345 (10 and 30-day averages), then $336–339, the bottom of the range and a level tested five times since April.",
+   "zh": "收盘站上 $356（100 日均线与 10月8日高点）是第一步；$364 为区间顶部，$378 为 7、8 月五次压制反弹的位置。支撑首先在 $343–345（10 日与 30 日均线），其次 $336–339，即区间底部，4月以来五次测试。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    356,
+    {
+     "en": "100-day average and Oct 8 high",
+     "zh": "100日均线及10月8日高点"
+    }
+   ],
+   [
+    364,
+    {
+     "en": "Top of the 3-week range",
+     "zh": "三周区间顶部"
+    }
+   ],
+   [
+    378,
+    {
+     "en": "Capped five rallies in Jul–Aug",
+     "zh": "7–8月五次压制反弹"
+    }
+   ]
+  ],
+  "s": [
+   [
+    343,
+    {
+     "en": "10 and 30-day averages",
+     "zh": "10日与30日均线"
+    }
+   ],
+   [
+    338,
+    {
+     "en": "Range floor, tested five times",
+     "zh": "区间底部，五次测试"
+    }
+   ],
+   [
+    328,
+    {
+     "en": "June pivot",
+     "zh": "6月转折点"
+    }
+   ]
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 233.73,
+ "bias": {
+  "en": "Strong bullish · overbought short term",
+  "zh": "强势看多 · 短线超买"
+ },
+ "read": [
+  {
+   "en": "Zscaler is breaking out. It is up 19% in five sessions and 42% in twenty, closed near the high of the day on Oct 9, and has its averages stacked in bullish order with all four rising. MACD crossed up on Oct 7 and is accelerating, and Parabolic SAR has been below price since Oct 6. RSI hit 73, which is overbought: strong trends can stay overbought, but chasing here carries more risk.",
+   "zh": "Zscaler 正在突破。五个交易日上涨 19%，二十个交易日上涨 42%，10月9日收于全日高位附近，四条均线全部上行并呈多头排列。MACD 于 10月7日金叉并加速，抛物线 SAR 自 10月6日起位于股价下方。RSI 达 73，属超买：强势趋势可持续超买，但此时追高风险较大。"
+  },
+  {
+   "en": "Price is now at December 2025 highs ($235), with $250 the next overhead level and $280–293 (last August and September) beyond that. On a pullback, $217 (the Oct 8 close and a January pivot) is first support, then $205–207 (10-day average), then $191–194 (SAR and 30-day average). Holding above $205 keeps the breakout intact.",
+   "zh": "股价已触及 2025年12月高点（$235），上方下一阻力为 $250，再往上是去年8、9月的 $280–293。若回调，首个支撑为 $217（10月8日收盘及1月转折点），其次 $205–207（10 日均线），再次 $191–194（SAR 与 30 日均线）。守住 $205 则突破有效。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    235,
+    {
+     "en": "December 2025 highs",
+     "zh": "2025年12月高点"
+    }
+   ],
+   [
+    250,
+    {
+     "en": "Dec 8, 2025 high",
+     "zh": "2025年12月8日高点"
+    }
+   ],
+   [
+    285,
+    {
+     "en": "Aug–Sep 2025 highs ($280–293)",
+     "zh": "2025年8–9月高点（$280–293）"
+    }
+   ]
+  ],
+  "s": [
+   [
+    217,
+    {
+     "en": "Oct 8 close, January pivot",
+     "zh": "10月8日收盘，1月转折点"
+    }
+   ],
+   [
+    206,
+    {
+     "en": "10-day average",
+     "zh": "10日均线"
+    }
+   ],
+   [
+    193,
+    {
+     "en": "30-day average and SAR",
+     "zh": "30日均线与 SAR"
+    }
+   ]
+  ]
+ }
+}

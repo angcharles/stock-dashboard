@@ -1,0 +1,59 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 1103.35,
+ "bias": {
+  "en": "Bullish trend · extended, momentum fading",
+  "zh": "多头趋势 · 涨幅已大，动能减弱"
+ },
+ "read": [
+  {
+   "en": "Lumentum is in a clean uptrend. The averages are stacked in bullish order (5 > 10 > 30 > 100), all rising, and the stock touched a record $1,143 on Oct 9. Parabolic SAR has been under price since Sep 22. The warning signs are about pace, not direction: the MACD histogram has shrunk for three days, RSI eased from 70 to 63, and the stock is 15% above its 30-day average.",
+   "zh": "Lumentum 处于清晰的上升趋势。均线呈多头排列（5 > 10 > 30 > 100）且全部上行，10月9日盘中创下 $1,143 纪录。抛物线 SAR 自 9月22日起位于股价下方。警示信号关乎速度而非方向：MACD 柱体连续三天收缩，RSI 由 70 回落至 63，股价高出 30 日均线 15%。"
+  },
+  {
+   "en": "With no overhead supply, resistance is the record high and round numbers: $1,143, then $1,200. The first support is the 10-day average near $1,048, which caught the Oct 8 dip. Below that, $1,007 (tested four times in September) and the 30-day average near $957 are where the trend would be properly tested. Daily swings average 6%, so wide stops are needed.",
+   "zh": "上方无套牢盘，阻力为纪录高点与整数关口：$1,143，然后 $1,200。首个支撑为 10 日均线（约 $1,048），10月8日回调即止于此。再往下，$1,007（9月四次测试）与 30 日均线（约 $957）才是真正检验趋势的位置。日均波幅约 6%，止损需设宽。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    1143,
+    {
+     "en": "Record high, Oct 9",
+     "zh": "10月9日纪录高点"
+    }
+   ],
+   [
+    1200,
+    {
+     "en": "Round number",
+     "zh": "整数关口"
+    }
+   ]
+  ],
+  "s": [
+   [
+    1048,
+    {
+     "en": "10-day average; Oct 8 close",
+     "zh": "10日均线；10月8日收盘"
+    }
+   ],
+   [
+    1007,
+    {
+     "en": "Tested four times in September",
+     "zh": "9月四次测试"
+    }
+   ],
+   [
+    957,
+    {
+     "en": "30-day average",
+     "zh": "30日均线"
+    }
+   ]
+  ]
+ }
+}

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Stock Dashboards</title>
-<meta name="description" content="Investor dashboards for Arm (ARM), Tesla (TSLA), Sandisk (SNDK), Intel (INTC), SpaceX (SPCX), Micron (MU), Lumentum (LITE), Coherent (COHR), Alphabet (GOOGL) and Meta (META), NVIDIA (NVDA), Zscaler (ZS), Bloom Energy (BE), Applied Optoelectronics (AAOI), AMD, MP Materials (MP), Amazon (AMZN) and Microsoft (MSFT).">
+<meta name="description" content="Investor dashboards for Arm (ARM), Tesla (TSLA), Sandisk (SNDK), Intel (INTC), SpaceX (SPCX), Micron (MU), Lumentum (LITE), Coherent (COHR), Alphabet (GOOGL) and Meta (META), NVIDIA (NVDA), Zscaler (ZS), Bloom Energy (BE), Applied Optoelectronics (AAOI), AMD, MP Materials (MP), Amazon (AMZN), Microsoft (MSFT), Marvell (MRVL), SK hynix (SKHY), TSMC (TSM), Broadcom (AVGO) and Rockwell Automation (ROK).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -50,7 +50,7 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
 <main class="wrap">
   <div class="eyebrow">Investor dashboards · EN / 中文</div>
   <h1>Stock dashboards</h1>
-  <p class="lede">Price, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of today's six biggest movers. Prices refresh about every 10 minutes during US market hours.</p>
+  <p class="lede">Price, technical analysis, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of today's six biggest movers. Prices refresh about every 10 minutes during US market hours.</p>
   <div class="grid">
     <a class="card" href="arm/" data-q="arm/data/quote.json"><span class="tick">NASDAQ: ARM</span><div class="name">Arm Holdings</div><p class="desc">CPU designs and a royalty on every chip shipped.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="tesla/" data-q="tesla/data/quote.json"><span class="tick">NASDAQ: TSLA</span><div class="name">Tesla</div><p class="desc">EVs, energy storage, and the robotaxi and AI bet.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
@@ -70,9 +70,14 @@ h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
     <a class="card" href="mp/" data-q="mp/data/quote.json"><span class="tick">NYSE: MP</span><div class="name">MP Materials</div><p class="desc">US rare earth mining and magnets, with a government price floor.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="amzn/" data-q="amzn/data/quote.json"><span class="tick">NASDAQ: AMZN</span><div class="name">Amazon</div><p class="desc">Retail, ads and AWS, with a huge AI capex plan.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
     <a class="card" href="msft/" data-q="msft/data/quote.json"><span class="tick">NASDAQ: MSFT</span><div class="name">Microsoft</div><p class="desc">Azure, Office and Copilot, still throwing off cash.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="mrvl/" data-q="mrvl/data/quote.json"><span class="tick">NASDAQ: MRVL</span><div class="name">Marvell Technology</div><p class="desc">Optical DSPs, switches and custom AI chips for data centers.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="skhy/" data-q="skhy/data/quote.json"><span class="tick">NASDAQ: SKHY</span><div class="name">SK hynix</div><p class="desc">The HBM memory leader, now with a Nasdaq ADS.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="tsm/" data-q="tsm/data/quote.json"><span class="tick">NYSE: TSM</span><div class="name">TSMC</div><p class="desc">The foundry that makes nearly every leading AI chip.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="avgo/" data-q="avgo/data/quote.json"><span class="tick">NASDAQ: AVGO</span><div class="name">Broadcom</div><p class="desc">Custom AI accelerators, networking and VMware software.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
+    <a class="card" href="rok/" data-q="rok/data/quote.json"><span class="tick">NYSE: ROK</span><div class="name">Rockwell Automation</div><p class="desc">Factory automation for fabs, data centers and warehouses.</p><span class="px">—</span><span class="chg"></span><div class="go">Open dashboard →</div></a>
   </div>
   <div class="movers-in" id="moversHere"></div>
-  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META,NVDA,ZS,BE,AAOI,AMD,MP,AMZN,MSFT" aria-label="Latest news"></section>
+  <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META,NVDA,ZS,BE,AAOI,AMD,MP,AMZN,MSFT,MRVL,SKHY,TSM,AVGO,ROK" aria-label="Latest news"></section>
   <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
 <aside id="moversR" aria-label="Top movers 4 to 6"></aside>
@@ -96,6 +101,6 @@ document.querySelectorAll("a.card").forEach(async a=>{
 function place(){if(mq.matches){shell.insertBefore(L,main);shell.appendChild(R);}else{here.appendChild(L);here.appendChild(R);}}
 place();mq.addEventListener("change",place);})();
 </script>
-<script src="assets/movers.js?v=2"></script>
+<script src="assets/movers.js?v=3"></script>
 </body>
 </html>

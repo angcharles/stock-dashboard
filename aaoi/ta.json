@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 109.64,
+ "bias": {
+  "en": "Neutral · very volatile, below the 100-day",
+  "zh": "中性 · 波动极大，位于100日均线下方"
+ },
+ "read": [
+  {
+   "en": "Applied Optoelectronics swings about 9% a day on average, so signals flip quickly. It ran from $94 to $131 between mid-September and Oct 6, then gave back 19% in three sessions. Price now sits on its 10-day ($111) and 200-day ($111) averages, above the 30-day ($106) but well below the falling 100-day ($129). MACD is still above its signal but fading, RSI is 50, and Parabolic SAR remains below price at $101.",
+   "zh": "Applied Optoelectronics 日均波幅约 9%，信号转换很快。股价由 9月中旬的 $94 涨至 10月6日的 $131，随后三个交易日回吐 19%。目前位于 10 日（$111）与 200 日（$111）均线上，高于 30 日线（$106），但远低于下行中的 100 日线（$129）。MACD 仍在信号线上方但减弱，RSI 为 50，抛物线 SAR 仍在股价下方的 $101。"
+  },
+  {
+   "en": "The 100-day average and the Oct 6 high ($129–131) are the level that decides whether the rebound becomes a trend; $147 is next. On the downside, $101–102 (SAR and an August pivot) is first support, then the $93–97 area that held three times in September. A close below $93 would put the March lows near $85 back in view.",
+   "zh": "100 日均线与 10月6日高点（$129–131）是判断反弹能否演变为趋势的关键；其上为 $147。下方首个支撑为 $101–102（SAR 与8月转折点），其次是 9月三次守住的 $93–97。若收盘跌破 $93，将重新看向 3月低点 $85 附近。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    118,
+    {
+     "en": "5-day average; March pivot",
+     "zh": "5日均线；3月转折点"
+    }
+   ],
+   [
+    130,
+    {
+     "en": "100-day average and Oct 6 high",
+     "zh": "100日均线及10月6日高点"
+    }
+   ],
+   [
+    147,
+    {
+     "en": "August swing high",
+     "zh": "8月波段高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    101.5,
+    {
+     "en": "SAR and August pivot",
+     "zh": "SAR 与8月转折点"
+    }
+   ],
+   [
+    93.5,
+    {
+     "en": "Held three times in September",
+     "zh": "9月三次守住"
+    }
+   ],
+   [
+    84.6,
+    {
+     "en": "March low",
+     "zh": "3月低点"
+    }
+   ]
+  ]
+ }
+}

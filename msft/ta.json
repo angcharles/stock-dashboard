@@ -1,0 +1,59 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 535.07,
+ "bias": {
+  "en": "Bullish · approaching the record high",
+  "zh": "看多 · 逼近纪录高点"
+ },
+ "read": [
+  {
+   "en": "Microsoft is in a strong recovery, up 53% from the June 25 low of $349 and now 3% below its October 2025 record. Its Oct 9 close was the highest in nearly a year. All four averages are rising and stacked in bullish order, MACD has been above its signal since Oct 1, and Parabolic SAR has stayed below price since Aug 28. RSI at 67 is strong but not yet overbought.",
+   "zh": "微软强势反弹，较 6月25日低点 $349 上涨 53%，距 2025年10月纪录高点仅差 3%。10月9日收盘为近一年最高。四条均线全部上行且呈多头排列，MACD 自 10月1日起位于信号线上方，抛物线 SAR 自 8月28日起一直在股价下方。RSI 67，强势但尚未超买。"
+  },
+  {
+   "en": "The record zone of $553–555 (July and October 2025 highs) is the obvious test; a close above it would leave no overhead supply. Pullbacks should find buyers first at $514–520 (the 10-day average, SAR and an August pivot), then the 30-day average near $507 and $487.",
+   "zh": "$553–555 纪录区间（2025年7月与10月高点）是明显的考验；收盘突破后上方将无套牢盘。回调首先应在 $514–520（10 日均线、SAR 与8月转折点）获得承接，其次为 30 日均线（约 $507）及 $487。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    537,
+    {
+     "en": "20-day high",
+     "zh": "20日高点"
+    }
+   ],
+   [
+    554,
+    {
+     "en": "Record zone, Jul–Oct 2025 ($553–555)",
+     "zh": "纪录区间，2025年7–10月（$553–555）"
+    }
+   ]
+  ],
+  "s": [
+   [
+    517,
+    {
+     "en": "10-day average, SAR, August pivot ($514–520)",
+     "zh": "10日均线、SAR、8月转折点（$514–520）"
+    }
+   ],
+   [
+    507,
+    {
+     "en": "30-day average",
+     "zh": "30日均线"
+    }
+   ],
+   [
+    487,
+    {
+     "en": "Tested four times",
+     "zh": "四次测试"
+    }
+   ]
+  ]
+ }
+}

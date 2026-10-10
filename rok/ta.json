@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 432.59,
+ "bias": {
+  "en": "Neutral · testing support at the 30 and 200-day",
+  "zh": "中性 · 测试30日与200日均线支撑"
+ },
+ "read": [
+  {
+   "en": "Rockwell Automation pulled back 6% from the Oct 6 high of $460 and is now testing the 30-day ($430) and 200-day ($425) averages, which sit close together. It is below the 5, 10 and 100-day averages. MACD is still above its signal but the histogram has shrunk for four days and is close to a bearish cross, Parabolic SAR flipped bearish on Oct 8, and RSI is 48.",
+   "zh": "罗克韦尔自动化从 10月6日高点 $460 回落 6%，正在测试相距很近的 30 日（$430）与 200 日（$425）均线，并位于 5 日、10 日和 100 日均线下方。MACD 仍在信号线上方，但柱体已连续四日收缩，接近死叉；抛物线 SAR 于 10月8日转空，RSI 为 48。"
+  },
+  {
+   "en": "$425–430 is the support that matters; holding it keeps the September uptrend alive. A close below it points to $419, a level that held seven times since August, then $402. Overhead, the 5 and 10-day averages near $441–443 come first, then $449–456 (the 100-day average and a level that capped five swings) and the Oct 6 high at $460.",
+   "zh": "$425–430 是关键支撑；守住则 9月以来的升势延续。若收盘跌破，下看 8月以来七次守住的 $419，再看 $402。上方首先是 5 日与 10 日均线（约 $441–443），然后是 $449–456（100 日均线及五次受阻位）以及 10月6日高点 $460。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    442,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日与10日均线"
+    }
+   ],
+   [
+    452,
+    {
+     "en": "100-day average; capped five swings ($449–456)",
+     "zh": "100日均线；五次受阻（$449–456）"
+    }
+   ],
+   [
+    460,
+    {
+     "en": "Oct 6 high",
+     "zh": "10月6日高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    428,
+    {
+     "en": "30 and 200-day averages ($425–430)",
+     "zh": "30日与200日均线（$425–430）"
+    }
+   ],
+   [
+    419,
+    {
+     "en": "Held seven times since August",
+     "zh": "8月以来七次守住"
+    }
+   ],
+   [
+    402,
+    {
+     "en": "Sep 17 pivot",
+     "zh": "9月17日转折点"
+    }
+   ]
+  ]
+ }
+}

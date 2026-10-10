@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 275.28,
+ "bias": {
+  "en": "Bullish trend · rejected at $300",
+  "zh": "多头趋势 · 在$300受阻"
+ },
+ "read": [
+  {
+   "en": "Marvell's trend is up: the 10, 30 and 100-day averages are rising and price is 12% above the 30-day ($246). The stock is up 46% in three months. The Oct 6 spike to $301 was sold, though, and the short-term signals have softened: Parabolic SAR flipped bearish on Oct 8, the MACD histogram has shrunk for two sessions, and RSI eased from 70 to 61.",
+   "zh": "Marvell 趋势向上：10 日、30 日和 100 日均线均上行，股价高出 30 日均线（$246）12%，三个月上涨 46%。不过 10月6日冲高至 $301 后遭抛售，短线信号转弱：抛物线 SAR 于 10月8日转空，MACD 柱体连续两日收缩，RSI 由 70 回落至 61。"
+  },
+  {
+   "en": "$300–301 (June 30 and Oct 6 highs) is the ceiling; a close above it targets the June peak of $324–330. The first support is $266–268 (the Oct 8 and 9 lows). Below that, $245–255 (30-day average and late-August pivots) is where buyers stepped in during the September run.",
+   "zh": "$300–301（6月30日与10月6日高点）为上方天花板；收盘突破后目标为 6月高点 $324–330。首个支撑为 $266–268（10月8、9日低点）。其下，$245–255（30 日均线与8月下旬转折点）是 9月上涨途中买盘进场的位置。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    286,
+    {
+     "en": "Oct 6–7 closes ($284–287)",
+     "zh": "10月6–7日收盘（$284–287）"
+    }
+   ],
+   [
+    301,
+    {
+     "en": "Jun 30 and Oct 6 highs",
+     "zh": "6月30日与10月6日高点"
+    }
+   ],
+   [
+    330,
+    {
+     "en": "June record high",
+     "zh": "6月纪录高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    267,
+    {
+     "en": "Oct 8–9 lows",
+     "zh": "10月8–9日低点"
+    }
+   ],
+   [
+    246,
+    {
+     "en": "30-day average, Sep 28 pivot",
+     "zh": "30日均线，9月28日转折点"
+    }
+   ],
+   [
+    213,
+    {
+     "en": "July pivot, 20-day low",
+     "zh": "7月转折点，20日低点"
+    }
+   ]
+  ]
+ }
+}

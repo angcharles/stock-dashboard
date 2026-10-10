@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 1029.0,
+ "bias": {
+  "en": "Uptrend intact · short-term range $1,017–1,109",
+  "zh": "上升趋势未破 · 短线区间 $1,017–1,109"
+ },
+ "read": [
+  {
+   "en": "Micron's medium trend is still up: price is above the rising 30-day ($1,017) and 100-day ($969) averages, and the 200-day ($702) is far below. The short term has cooled. Price slipped under the 5 and 10-day averages, MACD crossed below its signal on Oct 6, and Parabolic SAR flipped bearish on Oct 7. RSI at 50 is neutral, so this reads as a pause, not a breakdown.",
+   "zh": "美光中期趋势仍向上：股价位于上行的 30 日（$1,017）与 100 日（$969）均线上方，200 日均线（$702）远在下方。短线降温：股价跌破 5 日与 10 日均线，MACD 于 10月6日下穿信号线，抛物线 SAR 于 10月7日转空。RSI 50 属中性，更像是休整而非破位。"
+  },
+  {
+   "en": "The stock has been stuck between about $1,017 and $1,109 for three weeks. $1,017–1,020 is the 30-day average and a pivot tested four times; a daily close below it opens the 100-day near $969, then $884–903. Sellers have capped rallies at $1,102–1,109 three times; a close above that targets the June record of $1,255.",
+   "zh": "股价已在约 $1,017 至 $1,109 之间徘徊三周。$1,017–1,020 为 30 日均线及四次测试的转折点；若日线收盘跌破，下看 100 日均线（约 $969），再看 $884–903。卖方三次在 $1,102–1,109 压制反弹；收盘突破则目标看 6月纪录高位 $1,255。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    1062,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日与10日均线"
+    }
+   ],
+   [
+    1109,
+    {
+     "en": "Capped three rallies since Sep 25",
+     "zh": "9月25日以来三次压制反弹"
+    }
+   ],
+   [
+    1255,
+    {
+     "en": "June record high",
+     "zh": "6月纪录高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    1017,
+    {
+     "en": "30-day average, tested four times",
+     "zh": "30日均线，四次测试"
+    }
+   ],
+   [
+    969,
+    {
+     "en": "100-day average",
+     "zh": "100日均线"
+    }
+   ],
+   [
+    884,
+    {
+     "en": "Sep 14 low, tested four times",
+     "zh": "9月14日低点，四次测试"
+    }
+   ]
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 312.62,
+ "bias": {
+  "en": "Neutral · range $299–342",
+  "zh": "中性 · 区间 $299–342"
+ },
+ "read": [
+  {
+   "en": "Coherent's signals are mixed. Price is above the 10, 30 and 200-day averages but below the 5-day ($324) and the declining 100-day ($327). MACD crossed bullish on Oct 1 but the histogram has been shrinking for three days, RSI is a neutral 52, and Parabolic SAR is still below price at $287. The Oct 8 drop to $299 was bought quickly, which is a constructive sign.",
+   "zh": "Coherent 信号分歧。股价位于 10 日、30 日和 200 日均线上方，但低于 5 日线（$324）及下行中的 100 日线（$327）。MACD 于 10月1日金叉，但柱体已连续三天收缩，RSI 为中性的 52，抛物线 SAR 仍在股价下方的 $287。10月8日跌至 $299 后迅速被买回，属积极信号。"
+  },
+  {
+   "en": "The stock needs a close above $326–333 (the 100-day average and a level that capped seven swings) to restart its uptrend, with $342 and $364 above. Support is $299–302, which has held five times since May; below that, $279–287 (SAR and a March pivot) and then $260.",
+   "zh": "股价需收盘站上 $326–333（100 日均线及七次受阻位）才能重启升势，上方为 $342 与 $364。支撑在 $299–302，5月以来五次守住；其下为 $279–287（SAR 与3月转折点），再看 $260。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    333,
+    {
+     "en": "100-day average; capped seven swings",
+     "zh": "100日均线；七次受阻"
+    }
+   ],
+   [
+    342,
+    {
+     "en": "20-day high",
+     "zh": "20日高点"
+    }
+   ],
+   [
+    364,
+    {
+     "en": "April swing high",
+     "zh": "4月波段高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    301,
+    {
+     "en": "Held five times since May; Oct 8 low",
+     "zh": "5月以来五次守住；10月8日低点"
+    }
+   ],
+   [
+    283,
+    {
+     "en": "SAR and March pivot ($279–287)",
+     "zh": "SAR 与3月转折点（$279–287）"
+    }
+   ],
+   [
+    260,
+    {
+     "en": "Sep 14 low, tested four times",
+     "zh": "9月14日低点，四次测试"
+    }
+   ]
+  ]
+ }
+}

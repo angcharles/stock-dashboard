@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TSMC TSM Dashboard</title>
+<meta name="description" content="TSMC (NYSE: TSM) investor dashboard: price, quarterly revenue and margins, free cash flow, watch list, news and calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/stock.css?v=2">
+<style>.chart.rev{height:320px} tr.guide td{color:var(--muted);font-style:italic}</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in">
+  <span class="tick">NYSE: TSM</span>
+  <span class="bar-px" id="barPx">$453.31</span>
+  <span class="chg" id="barChg"></span>
+  <span class="live" id="barLive"><i class="dot"></i><span id="barTime">snapshot</span></span>
+  <nav class="sec" aria-label="Sections">
+    <a href="../" data-i="n_home">All stocks</a>
+    <a href="#overview" data-i="n_over">Overview</a>
+    <a href="#price" data-i="n_price">Price</a>
+    <a href="#revenue" data-i="n_rev">Revenue</a>
+    <a href="#cashflow" data-i="n_fcf">Cash flow</a>
+    <a href="#watch" data-i="n_watch">Watch list</a>
+    <a href="#news" data-i="n_news">News</a>
+    <a href="#sources" data-i="n_src">Sources</a>
+  </nav>
+  <div class="tools">
+    <button class="tg" id="langBtn" type="button" aria-label="Switch language">中文</button>
+    <button class="tg" id="themeBtn" type="button" aria-label="Switch theme">◐ Auto</button>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="hero" id="overview">
+    <div>
+      <div data-i="eyebrow" class="eyebrow">Taiwan Semiconductor Manufacturing Co. · ADR (1 ADR = 5 shares) · Hsinchu, Taiwan</div>
+      <h1 data-ih="title">Every leading AI chip goes through <em>one company's fabs</em>.</h1>
+      <p data-i="lede" class="lede">TSMC makes the chips that NVIDIA, Apple, AMD, Broadcom and Marvell design. Revenue in US dollars grew 34% to $40.2B last quarter at a record 67.7% gross margin, and September sales put Q3 at about NT$1.49 trillion, above guidance. The costs are rising too: 2026 capex was raised to $60–64B, and the 2nm ramp and overseas fabs will dilute margins.</p>
+    </div>
+    <div class="pxbox">
+      <div class="eyebrow" id="pxLabel">Last close · Oct 9, 2026</div>
+      <div class="pxbig" id="pxBig">$453.31</div>
+      <div class="chg" id="pxChg"></div>
+      <div class="pxnote" id="pxNote"></div>
+      <div id="tv" style="margin-top:12px"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div></div></div>
+    </div>
+  </div>
+
+  <div class="cells" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px">
+    <div class="cell"><div class="k"><span data-i="k_mcap">Market cap</span></div><div class="v" id="mcap">$2.35T</div><div class="s"><span data-i="s_mcap">at current price</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_52">52-week range</span></div><div class="v" id="r52">$267–487</div><div class="s"><span data-i="s_52">closing low / high</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_val">P/E (forward)</span></div><div class="v">~21×</div><div class="s"><span data-i="s_val">consensus next-year EPS · trailing ~33×</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_ttm">Revenue TTM</span></div><div class="v" id="ttmV"></div><div class="s" id="ttmS"></div></div>
+    <div class="cell"><div class="k"><span data-i="k_an">Q3 2026 guide</span></div><div class="v">$44.6–45.8B</div><div class="s"><span data-i="s_an">GM 65–67% · Sep sales imply ~$46.7B</span></div></div>
+    <div class="cell"><div class="k"><span data-i="k_er">Next earnings</span></div><div class="v">Oct 15</div><div class="s"><span data-i="s_er">Q3 2026 results and Q4 guidance</span></div></div>
+  </div>
+
+  <section id="price">
+    <h2><span data-i="h_price">Price, last 12 months</span></h2>
+    <p data-i="sub_price" class="sub">Daily closes of the NYSE-listed ADR with the 50-day average. Each ADR represents five Taiwan-listed shares.</p>
+    <div class="grid">
+      <div class="panel">
+        <div class="range" role="group" aria-label="Range">
+          <button type="button" data-r="66" aria-pressed="false">3M</button>
+          <button type="button" data-r="128" aria-pressed="false">6M</button>
+          <button type="button" data-r="0" aria-pressed="true">1Y</button>
+        </div>
+        <div class="chart"><canvas id="cPrice" aria-label="TSM daily close price chart"></canvas></div>
+      </div>
+      <div class="cells">
+        <div class="cell"><div class="k"><span data-i="k_hi">1Y closing high</span></div><div class="v" id="hiV">—</div><div class="s" id="hiS"></div></div>
+        <div class="cell"><div class="k"><span data-i="k_lo">1Y closing low</span></div><div class="v" id="loV">—</div><div class="s" id="loS"></div></div>
+        <div class="cell"><div class="k">SMA 50</div><div class="v" id="s50V">—</div><div class="s" id="s50S"></div></div>
+        <div class="cell"><div class="k">SMA 200</div><div class="v" id="s200V">—</div><div class="s" id="s200S"></div></div>
+        <div class="cell"><div class="k">RSI 14</div><div class="v" id="rsiV">—</div><div class="s" id="rsiS"></div></div>
+        <div class="cell"><div class="k"><span data-i="k_move">Avg daily move</span></div><div class="v" id="mvV">—</div><div class="s"><span data-i="s_move">last 20 sessions</span></div></div>
+        <div class="cell"><div class="k">Beta</div><div class="v">1.24</div><div class="s"><span data-i="s_beta">vs. S&P 500</span></div></div>
+        <div class="cell"><div class="k"><span data-i="k_dd">From peak</span></div><div class="v" id="ddv">—</div><div class="s" id="ddS"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technicals" aria-label="Technical analysis"></section>
+
+  <section id="revenue">
+    <h2><span data-i="h_rev">Revenue and margins, by quarter</span></h2>
+    <p data-i="sub_rev" class="sub">Revenue in US$ millions as reported by TSMC, with gross margin on the right axis. EPS is per ADR, converted from NT$ at each quarter's rate. The last bar is the Q3 2026 revenue implied by TSMC's July–September monthly sales.</p>
+    <div class="grid">
+      <div class="panel">
+        <div class="legend"><span><i class="sw" style="background:var(--accent)"></i><span data-i="l_rev">Revenue</span></span><span><i class="sw" style="background:var(--copper);height:3px;vertical-align:3px"></i><span data-i="l_gm">Gross margin (right axis)</span></span><span><i class="sw" style="background:var(--line)"></i><span data-i="l_g">Guidance</span></span></div>
+        <div class="chart rev"><canvas id="cRev" aria-label="Quarterly revenue and gross margin"></canvas></div>
+      </div>
+      <div class="cells"><div class="cell"><div class="k"><span data-i="kc0">Q2 2026</span></div><div class="v">$40.2B</div><div class="s"><span data-i="sc0">+34% YoY in US$ · top of guide</span></div></div><div class="cell"><div class="k"><span data-i="kc1">Gross margin</span></div><div class="v">67.7%</div><div class="s"><span data-i="sc1">record · Q3 guide 65–67%</span></div></div><div class="cell"><div class="k"><span data-i="kc2">HPC share</span></div><div class="v">66%</div><div class="s"><span data-i="sc2">of revenue · +20% QoQ</span></div></div><div class="cell"><div class="k"><span data-i="kc3">3nm + 5nm</span></div><div class="v">63%</div><div class="s"><span data-i="sc3">of wafer revenue · 7nm and below 77%</span></div></div><div class="cell"><div class="k"><span data-i="kc4">Q3 sales (monthly)</span></div><div class="v">NT$1.49T</div><div class="s"><span data-i="sc4">+51% YoY · above guide</span></div></div><div class="cell"><div class="k"><span data-i="kc5">2026 capex</span></div><div class="v">$60–64B</div><div class="s"><span data-i="sc5">raised from $52–56B</span></div></div></div>
+    </div>
+    <div class="panel tbl" style="margin-top:16px">
+      <table>
+        <thead><tr><th><span data-i="t_q">Quarter</span></th><th><span data-i="t_end">Ended</span></th><th><span data-i="t_rev">Revenue, US$M</span></th><th><span data-i="t_yoy">YoY</span></th><th><span data-i="t_gm">Gross margin</span></th><th><span data-i="t_om">Op. margin</span></th><th><span data-i="t_eps">EPS (GAAP)</span></th></tr></thead>
+        <tbody id="qBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="cashflow" aria-label="Free cash flow"></section>
+
+  <section id="watch">
+    <h2><span data-i="h_watch">Watch list</span></h2>
+    <p data-i="sub_watch" class="sub">What moves the thesis, sorted by direction.</p>
+    <div class="wl"><div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w0h">AI demand outruns supply</h3><p data-i="w0p">CEO C.C. Wei called the demand-supply gap very big. Full-year US$ revenue growth was raised to slightly above 40%, and Q3 monthly sales already beat the top of guidance.</p></div></div><div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w1h">Pricing power</h3><p data-i="w1p">Gross margin rose from 58.6% to 67.7% in a year even while overseas fabs were ramping, on cost improvement and high utilization.</p></div></div><div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w2h">2nm and overseas dilution</h3><p data-i="w2p">The 2nm ramp is expected to cut gross margin by 3–4 points in the second half of 2026, and overseas fabs by 2–3 points at first, widening to 3–4 points later.</p></div></div><div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w3h">Capex keeps rising</h3><p data-i="w3p">Capex was raised to $60–64B for 2026, and management said the next three years will be significantly higher than the last three. Q2 capex alone was $15.7B.</p></div></div><div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w4h">Currency</h3><p data-i="w4p">TSMC reports in NT dollars, and the ADR trades in US dollars. Each 1% move in the NT$ shifts gross margin by about 0.4 points.</p></div></div><div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w5h">Geopolitics and tariffs</h3><p data-i="w5p">Most leading-edge capacity is in Taiwan. Cross-strait tension and US chip tariffs are risks that no amount of earnings growth removes.</p></div></div></div>
+  </section>
+
+  <section id="news" data-src="../data/news.json" data-tickers="TSM" aria-label="Latest news"></section>
+
+  <section id="calendar">
+    <h2><span data-i="h_cal">Calendar</span></h2>
+    <div class="cal"><div class="item"><div><div class="date">Oct 15, 2026</div><h3 data-i="c0h">Q3 2026 earnings</h3><p data-i="c0p">Guide: $44.6–45.8B revenue, 65–67% gross margin, 56–58% operating margin. Monthly sales point to about $46.7B.</p></div></div><div class="item"><div><div class="date">Nov 10, 2026</div><h3 data-i="c1h">October sales</h3><p data-i="c1p">TSMC publishes monthly revenue around the 10th of each month.</p></div></div><div class="item"><div><div class="date">Mid-Jan 2027</div><h3 data-i="c2h">Q4 2026 earnings</h3><p data-i="c2p">Full-year results and the 2027 capex budget.</p></div></div></div>
+  </section>
+
+  <section id="sources">
+    <h2><span data-i="h_src">Sources</span></h2>
+    <ol class="src"><li><a href="https://app.marvin-labs.com/agent-result/tsm-2q26-record-results-capex-hike-margin-reset" target="_blank" rel="noopener">Q2 2026 results and Q3 guidance (Marvin Labs)</a></li><li><a href="https://evidinvest.com/blog/tsm-q2-2026-earnings-results-margin-q3-capex-2026-07-16" target="_blank" rel="noopener">Q2 2026 scorecard (Evid Invest)</a></li><li><a href="https://proactiveinvestors.com/companies/news/1095573/tsmc-q2-profit-beats-estimates-ups-spending-as-ai-boom-continues-1095573.html" target="_blank" rel="noopener">Capex raise and margin dilution (Proactive Investors)</a></li><li><a href="https://aiindustrytoday.com/news/tsmc-q3-revenue-surges-51-to-record-nt1-49-trillion-as-ai-demand-accelerates" target="_blank" rel="noopener">September 2026 revenue (AI Industry Today)</a></li><li><a href="https://stockanalysis.com/stocks/tsm/financials/?p=quarterly" target="_blank" rel="noopener">Quarterly income statement in NT$ (Stock Analysis)</a></li><li><a href="https://investor.tsmc.com/english" target="_blank" rel="noopener">TSMC investor relations</a></li><li><a href="https://finance.yahoo.com/quote/TSM" target="_blank" rel="noopener">Price, market cap, beta and analyst targets: Yahoo Finance and Stocklake, as of Oct 9, 2026</a></li></ol>
+  </section>
+
+  <footer><span id="footTime"></span> <span data-i="foot">Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Taiwan Semiconductor Manufacturing Company Limited.</span></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const KEY = "tsm", SHARES = 5186500000.0, TV = "NYSE:TSM";
+// [quarter, ended, revenue US$M, gross margin %, operating margin %, GAAP EPS]  oldest first
+const Q = [["Q3 2021", "Sep 2021", 14880, 51.3, 41.24, 1.08], ["Q4 2021", "Dec 2021", 15740, 52.66, 41.71, 1.12], ["Q1 2022", "Mar 2022", 17570, 55.63, 45.73, 1.4], ["Q2 2022", "Jun 2022", 18160, 59.06, 49.07, 1.55], ["Q3 2022", "Sep 2022", 20230, 60.43, 50.61, 1.79], ["Q4 2022", "Dec 2022", 19930, 62.22, 51.96, 1.67], ["Q1 2023", "Mar 2023", 16720, 56.33, 45.46, 1.31], ["Q2 2023", "Jun 2023", 15680, 54.11, 42.0, 1.14], ["Q3 2023", "Sep 2023", 17280, 54.26, 41.71, 1.29], ["Q4 2023", "Dec 2023", 19620, 53.04, 41.6, 1.52], ["Q1 2024", "Mar 2024", 18870, 53.07, 42.02, 1.39], ["Q2 2024", "Jun 2024", 20820, 53.17, 42.55, 1.48], ["Q3 2024", "Sep 2024", 23500, 57.83, 47.49, 1.94], ["Q4 2024", "Dec 2024", 26880, 59.0, 49.02, 2.15], ["Q1 2025", "Mar 2025", 25530, 58.79, 48.5, 2.12], ["Q2 2025", "Jun 2025", 30070, 58.62, 49.63, 2.47], ["Q3 2025", "Sep 2025", 33100, 59.45, 50.58, 2.92], ["Q4 2025", "Dec 2025", 33730, 62.33, 53.92, 3.02], ["Q1 2026", "Mar 2026", 35900, 66.25, 58.1, 3.49], ["Q2 2026", "Jun 2026", 40200, 67.72, 60.34, 4.31]];
+// guidance or consensus for the next quarter: [label, revenue US$M, note en, note zh] or null
+const G = ["Q3 2026e", 46710, "Sep 2026 \u00b7 from monthly sales; results Oct 15", "2026\u5e749\u6708 \u00b7 \u4f9d\u6708\u5ea6\u8425\u6536\uff1b10\u670815\u65e5\u516c\u5e03\u4e1a\u7ee9"];
+// optional fixed TTM revenue cell when quarters are not consecutive
+const TTM = null;
+let P = {d:[],c:[]};
+const T = {zh:{"n_home": "全部股票", "n_over": "概览", "n_price": "股价", "n_rev": "营收", "n_fcf": "现金流", "n_watch": "关注点", "n_news": "新闻", "n_src": "来源", "k_mcap": "市值", "s_mcap": "按当前股价", "k_52": "52周区间", "s_52": "收盘低 / 高", "k_ttm": "近12月营收", "k_er": "下次财报", "h_price": "近12个月股价", "k_hi": "一年收盘最高", "k_lo": "一年收盘最低", "k_move": "日均波幅", "s_move": "近20个交易日", "s_beta": "相对标普500", "k_dd": "距高点", "h_rev": "季度营收与利润率", "l_rev": "营收", "l_gm": "毛利率（右轴）", "l_g": "指引", "t_q": "季度", "t_end": "截至", "t_rev": "营收（百万美元）", "t_yoy": "同比", "t_gm": "毛利率", "t_om": "营业利润率", "t_eps": "每股收益（GAAP）", "h_watch": "关注点", "sub_watch": "影响投资逻辑的因素，按方向分类。", "pl_plus": "利好", "pl_watch": "留意", "pl_risk": "风险", "h_cal": "日程", "h_src": "来源", "kc0": "2026 Q2", "sc0": "美元计同比 +34% · 达指引上限", "kc1": "毛利率", "sc1": "创纪录 · Q3 指引 65–67%", "kc2": "高性能计算占比", "sc2": "营收占比 · 环比 +20%", "kc3": "3纳米 + 5纳米", "sc3": "晶圆营收占比 · 7纳米及以下 77%", "kc4": "Q3 营收（月报）", "sc4": "同比 +51% · 高于指引", "kc5": "2026 资本开支", "sc5": "由 520–560 亿上调", "w0h": "AI 需求超过供给", "w0p": "CEO 魏哲家称供需缺口非常大。全年美元营收增长指引上调至略高于 40%，Q3 月度营收已超出指引上限。", "w1h": "定价能力", "w1p": "即使海外工厂在爬坡，毛利率一年内仍由 58.6% 升至 67.7%，得益于成本改善与高稼动率。", "w2h": "2纳米与海外稀释", "w2p": "2 纳米放量预计令 2026 下半年毛利率下降 3–4 个百分点，海外工厂初期拖累 2–3 个百分点，后期扩大至 3–4 个百分点。", "w3h": "资本开支持续上升", "w3p": "2026 年资本开支上调至 600–640 亿美元，管理层表示未来三年将显著高于过去三年。仅 Q2 资本开支就达 157 亿美元。", "w4h": "汇率", "w4p": "台积电以新台币报告，ADR 以美元交易。新台币每变动 1%，毛利率约变动 0.4 个百分点。", "w5h": "地缘政治与关税", "w5p": "大部分先进产能位于台湾。两岸紧张局势与美国芯片关税属于盈利增长无法消除的风险。", "c0h": "2026 第三季财报", "c0p": "指引：营收 446–458 亿美元，毛利率 65–67%，营业利润率 56–58%。月度营收显示约 467 亿。", "c1h": "10月营收", "c1p": "台积电约在每月10日公布月度营收。", "c2h": "2026 第四季财报", "c2p": "全年业绩及 2027 年资本开支预算。", "eyebrow": "台积电 · 美国存托凭证（1 ADR = 5 股）· 台湾新竹", "title": "每颗领先的 AI 芯片，<em>都出自同一家晶圆厂</em>。", "lede": "台积电代工英伟达、苹果、AMD、博通和迈威尔设计的芯片。上季美元营收增长 34% 至 402 亿美元，毛利率创纪录达 67.7%；9月营收显示 Q3 约 1.49 万亿新台币，高于指引。成本亦在上升：2026 年资本开支上调至 600–640 亿美元，2 纳米放量与海外工厂将摊薄毛利率。", "k_val": "市盈率（预期）", "s_val": "一致预期下年每股收益 · 历史约 33 倍", "k_an": "2026 Q3 指引", "s_an": "毛利率 65–67% · 9月营收显示约 467 亿", "s_er": "2026 Q3 业绩及 Q4 指引", "sub_price": "纽交所 ADR 每日收盘价与50日均线。每份 ADR 代表五股台湾上市股票。", "sub_rev": "营收单位为百万美元（按台积电公布的美元数字），右轴为毛利率。每股收益按每份 ADR 计算，以各季汇率由新台币换算。最后一根柱为台积电 7–9 月月度营收所示的 2026 年第三季营收。", "foot": "基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与台湾积体电路制造股份有限公司无关联。"}};
+</script>
+<script src="../assets/stock-page.js?v=1"></script>
+<script src="fcf-data.js?v=1"></script>
+<script src="../assets/fcf.js?v=4"></script>
+<script src="../assets/news.js?v=2"></script>
+<script src="../assets/technicals.js?v=1"></script>
+</body>
+</html>

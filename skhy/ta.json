@@ -1,0 +1,142 @@
+{
+ "defaultSeries": 1,
+ "series": [
+  {
+   "src": "data/history.json",
+   "cur": "$",
+   "label": {
+    "en": "SKHY · Nasdaq ($)",
+    "zh": "SKHY · 纳斯达克（美元）"
+   },
+   "asof": "Oct 9, 2026",
+   "close": 169.03,
+   "bias": {
+    "en": "Short-term bearish · young chart",
+    "zh": "短线偏空 · 上市时间短"
+   },
+   "read": [
+    {
+     "en": "The Nasdaq ADS has only 65 sessions of history since its July listing, so the 100-day average is not available. It fell 13% in five sessions and closed below its 5, 10 and 30-day averages. MACD has been below its signal since Sep 28 with a widening histogram, Parabolic SAR turned bearish on Oct 7, and RSI is 42.",
+     "zh": "纳斯达克 ADS 自 7月上市仅 65 个交易日，尚无 100 日均线。五个交易日下跌 13%，收盘跌破 5 日、10 日和 30 日均线。MACD 自 9月28日起位于信号线下方且柱体扩大，抛物线 SAR 于 10月7日转空，RSI 为 42。"
+    },
+    {
+     "en": "Resistance is $177–181 (the 30-day average and July–September pivots), then $196–200 (September highs). Support is $160, a July pivot, then $151.5 and $146. Switch to the Seoul listing above for the longer trend.",
+     "zh": "阻力在 $177–181（30 日均线及7–9月转折点），其次 $196–200（9月高点）。支撑为 7月转折点 $160，其下 $151.5 与 $146。如需观察更长周期趋势，可切换至上方的首尔上市股票。"
+    }
+   ],
+   "levels": {
+    "r": [
+     [
+      179,
+      {
+       "en": "30-day average, Jul–Sep pivots ($177–181)",
+       "zh": "30日均线，7–9月转折点（$177–181）"
+      }
+     ],
+     [
+      198,
+      {
+       "en": "September highs ($196–200)",
+       "zh": "9月高点（$196–200）"
+      }
+     ]
+    ],
+    "s": [
+     [
+      160,
+      {
+       "en": "July pivot",
+       "zh": "7月转折点"
+      }
+     ],
+     [
+      151.5,
+      {
+       "en": "Aug 24 pivot",
+       "zh": "8月24日转折点"
+      }
+     ],
+     [
+      145.6,
+      {
+       "en": "July 17 pivot",
+       "zh": "7月17日转折点"
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "src": "data/krx/history.json",
+   "cur": "₩",
+   "label": {
+    "en": "000660 · Seoul (₩)",
+    "zh": "000660 · 首尔（韩元）"
+   },
+   "asof": "Oct 8, 2026",
+   "close": 1681000,
+   "bias": {
+    "en": "Short-term bearish · below the 100-day",
+    "zh": "短线偏空 · 位于100日均线下方"
+   },
+   "read": [
+    {
+     "en": "In Seoul, SK Hynix closed at ₩1,681,000 on Oct 8 (the market was shut on Oct 9 for Hangul Day). It is 44% below the June 24 record of ₩2,987,000 and down 23% over three months. Price is below the 5, 10 and 30-day averages and the 100-day (₩1,936,000), though the 200-day (₩1,441,000) is still rising. MACD crossed down on Oct 5, Parabolic SAR has been above price since Sep 28, and RSI is 44.",
+     "zh": "首尔市场方面，SK 海力士 10月8日收于 ₩1,681,000（10月9日韩文节休市）。股价较 6月24日纪录高点 ₩2,987,000 低 44%，三个月下跌 23%。股价位于 5 日、10 日、30 日均线及 100 日均线（₩1,936,000）下方，但 200 日均线（₩1,441,000）仍在上行。MACD 于 10月5日死叉，抛物线 SAR 自 9月28日起位于股价上方，RSI 为 44。"
+    },
+    {
+     "en": "The stock is at the bottom of its 20-day range (₩1,671,000). Losing that level points to ₩1,558,000 (the Sep 2 low) and then the 200-day average near ₩1,441,000. A recovery needs a close back above ₩1,752,000 (30-day average), then ₩1,837,000, which capped five swings in September.",
+     "zh": "股价处于 20 日区间底部（₩1,671,000）。若失守，下看 ₩1,558,000（9月2日低点），再看 200 日均线（约 ₩1,441,000）。若要回升，需先收盘站回 ₩1,752,000（30 日均线），再突破 9月五次受阻的 ₩1,837,000。"
+    }
+   ],
+   "levels": {
+    "r": [
+     [
+      1752000,
+      {
+       "en": "30-day average",
+       "zh": "30日均线"
+      }
+     ],
+     [
+      1837000,
+      {
+       "en": "Capped five swings in September",
+       "zh": "9月五次受阻"
+      }
+     ],
+     [
+      1936000,
+      {
+       "en": "100-day average and 20-day high",
+       "zh": "100日均线与20日高点"
+      }
+     ]
+    ],
+    "s": [
+     [
+      1671000,
+      {
+       "en": "20-day low",
+       "zh": "20日低点"
+      }
+     ],
+     [
+      1558000,
+      {
+       "en": "Sep 2 low",
+       "zh": "9月2日低点"
+      }
+     ],
+     [
+      1441000,
+      {
+       "en": "200-day average",
+       "zh": "200日均线"
+      }
+     ]
+    ]
+   }
+  }
+ ]
+}

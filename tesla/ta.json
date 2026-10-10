@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 382.7,
+ "bias": {
+  "en": "Short-term bullish · testing major resistance",
+  "zh": "短线偏多 · 测试重要阻力"
+ },
+ "read": [
+  {
+   "en": "Tesla has climbed back above its 5, 10, 30 and 100-day averages, with the 5-day leading. MACD crossed above its signal on Oct 6 and the histogram is still growing, RSI is 60, and Parabolic SAR flipped bullish on Oct 5. The 30-day average has turned up, but the 100-day is still edging lower and price remains just under the 200-day average ($391).",
+   "zh": "特斯拉已重新站上 5 日、10 日、30 日和 100 日均线，5 日线领先。MACD 于 10月6日上穿信号线，柱体仍在放大，RSI 为 60，抛物线 SAR 于 10月5日转为看多。30 日均线已拐头向上，但 100 日均线仍小幅下行，股价仍略低于 200 日均线（$391）。"
+  },
+  {
+   "en": "The key zone is $388–391. Price has stalled near $388 eight times since March, and the 200-day average sits just above it. A daily close above $391 would be the first since early July and would target $418 and then $438. Failure here keeps Tesla in its $342–388 range; first support is the 30-day average and June pivot near $366, then $354.",
+   "zh": "关键区域在 $388–391。自3月以来股价八次在 $388 附近受阻，200 日均线就在其上方。若日线收盘站上 $391，将是7月初以来首次，目标看 $418，再看 $438。若在此受阻，特斯拉仍将运行于 $342–388 区间；首个支撑为 30 日均线及6月转折点（约 $366），其次 $354。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    391,
+    {
+     "en": "$388 cap (8 touches since March) plus the 200-day average",
+     "zh": "$388 压力（3月以来八次触及）及200日均线"
+    }
+   ],
+   [
+    418,
+    {
+     "en": "January highs",
+     "zh": "1月高点"
+    }
+   ],
+   [
+    438,
+    {
+     "en": "May swing high",
+     "zh": "5月波段高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    366,
+    {
+     "en": "30-day average and June pivot",
+     "zh": "30日均线及6月转折点"
+    }
+   ],
+   [
+    354,
+    {
+     "en": "Sep 15 low",
+     "zh": "9月15日低点"
+    }
+   ],
+   [
+    342,
+    {
+     "en": "Sep 30 low, bottom of the range",
+     "zh": "9月30日低点，区间底部"
+    }
+   ]
+  ]
+ }
+}

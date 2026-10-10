@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 266.28,
+ "bias": {
+  "en": "Short-term bearish · medium-term range $238–337",
+  "zh": "短线偏空 · 中期区间 $238–337"
+ },
+ "read": [
+  {
+   "en": "Arm fell 13% in five sessions, from about $303 to $266, and closed below its 5, 10 and 30-day averages. The 100-day average ($297) now sits overhead and is flat to falling, while the 200-day ($220) is still well below and rising. MACD crossed below its signal line on Oct 7 and the histogram is widening, RSI has slipped to 44, and Parabolic SAR has been above price since Sep 28. Momentum points down for now.",
+   "zh": "Arm 五个交易日下跌 13%，由约 $303 跌至 $266，收盘跌破 5 日、10 日和 30 日均线。100 日均线（$297）压在上方且走平偏下，200 日均线（$220）仍远在下方并上行。MACD 于 10月7日下穿信号线且柱体扩大，RSI 回落至 44，抛物线 SAR 自 9月28日起位于股价上方。短线动能向下。"
+  },
+  {
+   "en": "The stock is still inside the $238–337 range it has traded in for a month, and 41% below the June high of $453. The first test is $238, which held five times since July. A daily close below it would open $222 and then $200. Bulls need a close back above the 30-day average near $276 to stabilize, and above $298 (the 100-day) to turn the trend back up.",
+   "zh": "股价仍处于近一个月的 $238–337 区间内，较6月高点 $453 低 41%。首先要看 $238，该位置自7月以来五度守住；若收盘跌破，下看 $222，再看 $200。多方需重新站上 30 日均线（约 $276）才能企稳，站上 $298（100 日均线）才算趋势转强。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    276,
+    {
+     "en": "30-day average; Oct 8 breakdown level",
+     "zh": "30日均线；10月8日破位处"
+    }
+   ],
+   [
+    298,
+    {
+     "en": "100-day average and early-October closes",
+     "zh": "100日均线及10月初收盘区"
+    }
+   ],
+   [
+    337,
+    {
+     "en": "Sep 23 swing high, top of the 20-day range",
+     "zh": "9月23日波段高点，20日区间顶部"
+    }
+   ]
+  ],
+  "s": [
+   [
+    238,
+    {
+     "en": "Tested five times since July; 20-day low",
+     "zh": "7月以来五次测试；20日低点"
+    }
+   ],
+   [
+    222,
+    {
+     "en": "Sep 3 low",
+     "zh": "9月3日低点"
+    }
+   ],
+   [
+    201,
+    {
+     "en": "May swing low and round number",
+     "zh": "5月波段低点及整数关口"
+    }
+   ]
+  ]
+ }
+}

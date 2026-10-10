@@ -20,6 +20,11 @@ Investor dashboards, EN / 中文, light / dark:
 - **MP Materials (MP)** — `mp/index.html` → https://angcharles.github.io/stock-dashboard/mp/
 - **Amazon (AMZN)** — `amzn/index.html` → https://angcharles.github.io/stock-dashboard/amzn/
 - **Microsoft (MSFT)** — `msft/index.html` → https://angcharles.github.io/stock-dashboard/msft/
+- **Marvell (MRVL)** — `mrvl/index.html` → https://angcharles.github.io/stock-dashboard/mrvl/
+- **SK hynix (SKHY)** — `skhy/index.html` → https://angcharles.github.io/stock-dashboard/skhy/
+- **TSMC (TSM)** — `tsm/index.html` → https://angcharles.github.io/stock-dashboard/tsm/
+- **Broadcom (AVGO)** — `avgo/index.html` → https://angcharles.github.io/stock-dashboard/avgo/
+- **Rockwell Automation (ROK)** — `rok/index.html` → https://angcharles.github.io/stock-dashboard/rok/
 
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
@@ -32,6 +37,10 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - Each page reloads its quote every minute, so the price, change, market cap, YTD and chart update without a refresh.
 - The TradingView box under the price is tick-by-tick real time.
 - Fundamentals (revenue, guidance, watch list) are as of Oct 9, 2026 and are edited in each page's HTML.
+
+## Technical analysis section
+- `assets/technicals.js` adds a "Technical analysis" section (and a Technicals link in the page menu) to every stock page: interactive daily candlesticks with SMA 5/10/30/100, Parabolic SAR (0.02, 0.2) and the key levels, MACD (12, 26, 9) and RSI (14) panes, ranges 1M–2Y, and a live signal table with a bullish/bearish count. It draws from `data/history.json`, so it updates with each price refresh.
+- The written read and support/resistance levels live in `<stock>/ta.json` (EN and 中文, dated). Refresh them by hand when the chart has moved enough to change the levels. SK hynix's `ta.json` has two series (Nasdaq ADS and the Seoul listing, `skhy/data/krx/history.json`), shown with a toggle.
 
 ## Top movers
 - `assets/movers.js` ranks every stock by its latest daily % move and shows the top 6 beside the main page (under the stock cards on smaller screens) as candlestick charts with 5/10/30/100-day moving averages, Parabolic SAR and MACD (12, 26, 9), drawn with TradingView Lightweight Charts. Indicator and range buttons are remembered per browser.
@@ -56,6 +65,6 @@ Note: GitHub pauses scheduled workflows in a repo with no activity for 60 days. 
 For information only, not investment advice. Not affiliated with Arm Holdings plc, Tesla, Inc., Sandisk Corporation or Intel Corporation.
 
 ## Adding a stock
-Newer pages (SPCX, MU, LITE, COHR, GOOGL, META, NVDA, ZS, BE, AAOI, AMD, MP, AMZN, MSFT) are generated: edit `specs/<stock>.json` and run `python3 scripts/make-stock-page.py specs/<stock>.json`. Shared code is in `assets/stock-page.js` and `assets/stock.css`; price cells (52-week range, moving averages, RSI, drawdown) are computed from the live price history. For a new stock, copy a spec, generate the page, then add the fetch and copy lines to `.github/workflows/deploy.yml`, a card to the root `index.html`, and an entry to `STOCKS` in `scripts/fetch-news.mjs`.
+Newer pages (SPCX, MU, LITE, COHR, GOOGL, META, NVDA, ZS, BE, AAOI, AMD, MP, AMZN, MSFT, MRVL, SKHY, TSM, AVGO, ROK) are generated: edit `specs/<stock>.json` and run `python3 scripts/make-stock-page.py specs/<stock>.json`. Shared code is in `assets/stock-page.js` and `assets/stock.css`; price cells (52-week range, moving averages, RSI, drawdown) are computed from the live price history. For a new stock, copy a spec, generate the page, then write `<stock>/ta.json`, add the fetch line and the folder name in the copy loop of `.github/workflows/deploy.yml`, a card to the root `index.html`, an entry to `STOCKS` in `scripts/fetch-news.mjs` and `assets/movers.js`. TSMC and SK hynix figures are converted to US$ from NT$ and won at each quarter's rate (see the specs).
 
 Older pages: Copy a stock folder (e.g. `intc/`), edit its `index.html` and seed `data/`, add a fetch line and copy lines to `.github/workflows/deploy.yml`, and add a card to the root `index.html`.
