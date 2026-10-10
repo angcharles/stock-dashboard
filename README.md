@@ -52,7 +52,7 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 
 ## Options and volatility section
 - `assets/options.js` adds an "Options and volatility" section (and an Options link in the page menu) after the technicals: implied vs. realized volatility over 6 months (IV30, realized 10 and 30-day, and the IV − RV30 spread), summary cells (IV30, RV30, IV ÷ RV, IV rank, expected move, put/call open interest) and an option chain with an expiry picker and strike-range filter. EN / 中文.
-- Chain: `node scripts/fetch-options.mjs chain` pulls Cboe's delayed quotes (15-minute delay; IV and delta are Cboe's) into `<stock>/data/options.json` on every price refresh, trimmed to the next 14 expiries and strikes 60–160% of the price.
+- Chain: `node scripts/fetch-options.mjs chain` pulls Cboe's delayed quotes (15-minute delay; IV and delta are Cboe's) into `<stock>/data/options.json` on every price refresh, trimmed to the nearest 6 expiries plus the monthlies out to about 13 months and strikes 60–160% of the price.
 - IV history: `node scripts/fetch-options.mjs iv` runs daily after the close (`.github/workflows/vol.yml`) and adds the day's 30-day IV to `<stock>/vol.json`, which is committed. The history was seeded from alphaquery, which serves about 3 months free (from Jul 10, 2026), so the IV line reaches the full 6 months in January 2027. Realized volatility is computed in the browser from `data/history.json`.
 
 ## Top 20 shareholders section

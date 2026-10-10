@@ -2,7 +2,7 @@
 //
 //   node scripts/fetch-options.mjs chain [dir ...]
 //     Option chain from Cboe's delayed quotes (15-minute delay, IV and greeks by Cboe), trimmed to
-//     the next 14 expiries within ~13 months and strikes from 60% to 160% of the share price.
+//     the nearest 6 expiries plus the monthlies out to ~13 months (18 at most) and strikes from 60% to 160% of the share price.
 //     Writes <dir>/data/options.json. Run by the deploy workflow on every price refresh (no commit).
 //
 //   node scripts/fetch-options.mjs iv [dir ...]
@@ -22,7 +22,7 @@ const STOCKS = [
   ["mrvl", "MRVL"], ["skhy", "SKHY"], ["tsm", "TSM"], ["avgo", "AVGO"], ["rok", "ROK"],
 ];
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
-const MAX_EXP = 14, MAX_DAYS = 400, LO = 0.6, HI = 1.6;
+const MAX_EXP = 18, MAX_DAYS = 400, LO = 0.6, HI = 1.6;
 const summary = (s) => { if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, s + "\n"); };
 const r4 = (x) => (x == null || !isFinite(x) ? null : Math.round(x * 1e4) / 1e4);
 const r2 = (x) => (x == null || !isFinite(x) ? null : Math.round(x * 100) / 100);
@@ -65,7 +65,10 @@ async function chain(dir, tick) {
     row[m[3]] = [r2(o.bid), r2(o.ask), r2(o.last_trade_price), o.volume || 0, o.open_interest || 0, r2(pctIV(o.iv)), r4(o.delta)];
     by.get(exp).set(k, row);
   }
-  const exps = [...by.keys()].sort().slice(0, MAX_EXP);
+  // nearest 6 expiries (dailies and weeklies), then the monthly (3rd Friday) ones further out
+  const isMonthly = (e) => { const x = new Date(e + "T12:00:00Z"); return x.getUTCDay() === 5 && x.getUTCDate() >= 15 && x.getUTCDate() <= 21; };
+  const all = [...by.keys()].sort();
+  const exps = [...new Set([...all.slice(0, 6), ...all.filter(isMonthly)])].sort().slice(0, MAX_EXP);
   const E = [null, null, null, 0, 0, null, null];
   const out = {
     symbol: tick, spot: r2(spot), asof: d.last_trade_time || j.timestamp || null, trade_date: String(d.last_trade_time || "").slice(0, 10) || null, fetched: new Date().toISOString(),
