@@ -1,0 +1,67 @@
+name: Refresh top shareholders (13F)
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Weekly, Monday 02:15 UTC. The SEC posts a new 13F data set each quarter;
+    # weeks with nothing new end without a commit.
+    - cron: "15 2 * * 1"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: holders
+  cancel-in-progress: false
+
+jobs:
+  holders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Restore 13F downloads
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/13f
+          key: 13f-${{ github.run_id }}
+          restore-keys: 13f-
+
+      - name: Build holders.json for every stock
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || 'stock-dashboard/1.0 (github.com/angcharles/stock-dashboard)' }}
+        run: python3 scripts/fetch-holders.py
+
+      - name: Keep only the newest data sets
+        run: ls -1t .cache/13f/*.zip 2>/dev/null | tail -n +5 | xargs -r rm -f
+
+      - name: Save 13F downloads
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/13f
+          key: 13f-${{ github.run_id }}
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git add */holders.json
+          if git diff --cached --quiet; then
+            echo "No new holdings data."; git reset -q; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Refresh top 20 shareholders from SEC 13F data"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

@@ -74,6 +74,7 @@ jobs:
             mkdir -p _site/$d
             cp $d/index.html $d/fcf-data.js $d/ta.json _site/$d/
             cp -r $d/data _site/$d/
+            if [ -f $d/holders.json ]; then cp $d/holders.json _site/$d/; fi
           done
 
       - uses: actions/configure-pages@v5
