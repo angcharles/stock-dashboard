@@ -93,7 +93,8 @@
   #holders .drop b{color:var(--ink);font-weight:500}
   #holders .hd-note{font-size:12px;color:var(--muted);margin:12px 0 0;max-width:100ch;line-height:1.55}
   #holders .hd-extra{font-size:13.5px;margin:0 0 14px;padding:10px 12px;border-left:3px solid var(--copper);background:var(--copper-soft);border-radius:0 6px 6px 0;max-width:100ch}
-  @media (max-width:640px){#holders td.nm{min-width:140px}}
+  #holders td.nm,#holders th.nm{position:sticky;left:0;background:var(--panel);z-index:1}
+  @media (max-width:640px){#holders td.nm{min-width:128px;max-width:150px;font-size:12.5px}#holders td.rk,#holders th.rk{display:none}}
   `;
   document.head.appendChild(st);
 

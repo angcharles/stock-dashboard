@@ -50,6 +50,12 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.
 
+## Top 20 shareholders section
+- `assets/holders.js` adds a "Top 20 shareholders" section (and a Holders link in the page menu) after the cash flow section on every stock page: the 20 largest institutional holders with their shares at the last three 13F quarter ends (6 months), % of the company, the 6-month change and a status (new / added / trimmed / steady), plus who left the top 20. EN / 中文.
+- Data: `scripts/fetch-holders.py` reads the SEC Form 13F data sets and writes `<stock>/holders.json`. `.github/workflows/holders.yml` runs it every Monday (and on demand from the Actions tab), commits any change and redeploys. A new 13F quarter appears about 45 days after each quarter end.
+- The SEC asks automated downloads to identify a contact. Set it once under Settings → Secrets and variables → Actions → Variables as `SEC_USER_AGENT` (e.g. `stock-dashboard you@example.com`).
+- 13F covers US institutional managers only: founders, parent companies (SoftBank in Arm), foreign holders and retail are not included. CUSIPs are listed in the script; a new stock needs a line in `STOCKS` there.
+
 ## Free cash flow section
 - `assets/fcf.js` renders the "Free cash flow, by quarter" section (chart, quarterly table, estimates, cash in/out analysis, cash bridge) into `<section id="cashflow">` on each page, in EN / 中文.
 - Each stock's numbers and text live in `<stock>/fcf-data.js` (`hist` = reported quarters, `est` = estimates, as [quarter, ended, operating CF, capex, FCF] in US$M). After each earnings report, move the reported quarter from `est` to `hist` and roll the estimates forward.
