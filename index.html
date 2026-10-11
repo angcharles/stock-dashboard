@@ -55,11 +55,11 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
 </head>
 <body>
 <div class="shell">
-<aside id="moversL" aria-label="Top movers 1 to 3"></aside>
+<aside id="moversL" aria-label="Top 5 gainers"></aside>
 <main class="wrap">
   <div class="eyebrow">Investor dashboards · EN / 中文</div>
   <h1>Stock dashboards</h1>
-  <p class="lede">Price, technical analysis, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of today's six biggest movers. Prices refresh about every 10 minutes during US market hours.</p>
+  <p class="lede">Price, technical analysis, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of the latest session's five biggest gainers (left) and five biggest losers (right). Prices refresh about every 10 minutes during US market hours.</p>
   <h2 class="rank-h">Most to least bullish</h2>
   <p class="sub">Ranked by Claude as of Oct 11, 2026, weighing the latest results and guidance, estimate momentum, the price trend and analyst upside. A judgment call, not advice; it changes as the facts do.</p>
   <div class="grid">
@@ -96,7 +96,7 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
   <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META,NVDA,ZS,BE,AAOI,AMD,MP,AMZN,MSFT,MRVL,SKHY,TSM,AVGO,ROK,AMAT,ASML,PLTR,GLW,TER" aria-label="Latest news"></section>
   <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
-<aside id="moversR" aria-label="Top movers 4 to 6"></aside>
+<aside id="moversR" aria-label="Top 5 losers"></aside>
 </div>
 <script>
 document.querySelectorAll("a.card").forEach(async a=>{
@@ -117,6 +117,6 @@ document.querySelectorAll("a.card").forEach(async a=>{
 function place(){if(mq.matches){shell.insertBefore(L,main);shell.appendChild(R);}else{here.appendChild(L);here.appendChild(R);}}
 place();mq.addEventListener("change",place);})();
 </script>
-<script src="assets/movers.js?v=3"></script>
+<script src="assets/movers.js?v=4"></script>
 </body>
 </html>

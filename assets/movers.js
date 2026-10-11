@@ -1,8 +1,10 @@
 /* Top movers panel for the main page.
    Ranks every stock on the site by the size of its latest daily move (quote.json price vs previous close),
-   then draws the top 6 as interactive candlestick charts: SMA 5/10/30/100, Parabolic SAR and MACD (12, 26, 9).
+   then draws the 5 biggest gainers (left, #moversL) and the 5 biggest losers (right, #moversR) of the latest session
+   as interactive candlestick charts: SMA 5/10/30/100, Parabolic SAR and MACD (12, 26, 9).
    Uses TradingView Lightweight Charts (loaded by the page). Data: <dir>/data/quote.json and history.json,
-   refreshed by the GitHub Action. Cards go into #moversL and #moversR (3 each). */
+   refreshed by the GitHub Action (every 10 minutes in US market hours, then the closing print), so the lists
+   follow each trading day and hold the last session's moves outside market hours. */
 (function () {
   const STOCKS = [
     ["arm", "ARM", "Arm Holdings"], ["tesla", "TSLA", "Tesla"], ["sndk", "SNDK", "Sandisk"], ["intc", "INTC", "Intel"],
@@ -87,7 +89,9 @@
       if (!q || !q.price || !q.prevClose) return null;
       return { dir, t, name, q, pct: (q.price / q.prevClose - 1) * 100 };
     }));
-    return rows.filter(Boolean).sort((a, b) => Math.abs(b.pct) - Math.abs(a.pct)).slice(0, 6);
+    const all = rows.filter(Boolean).sort((a, b) => b.pct - a.pct);
+    const n = Math.min(5, Math.floor(all.length / 2));
+    return { gain: all.slice(0, n), lose: all.slice(-n).reverse() };
   }
 
   // ---------- cards ----------
@@ -96,14 +100,19 @@
 
   function destroy() { cards.forEach((c) => { c.main && c.main.remove(); c.sub && c.sub.remove(); }); cards = []; }
 
-  async function build(top) {
+  async function build(sets) {
     destroy();
-    SLOTS.forEach((s, i) => s.innerHTML = `<div class="mv-h"><span>Top movers · ${i === 0 ? "1–3" : "4–6"}</span><span>${i === 0 ? "biggest daily % move" : "candles · MA · SAR · MACD"}</span></div>`);
+    const q0 = sets.gain[0] && sets.gain[0].q, M = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const ds = q0 && (q0.date || (q0.time ? new Date(q0.time * 1000).toISOString().slice(0, 10) : ""));
+    const asof = ds ? `${M[+ds.slice(5, 7) - 1]} ${+ds.slice(8, 10)}` : "";
+    SLOTS[0].innerHTML = `<div class="mv-h"><span class="up">Top 5 gainers</span><span>${asof ? "session " + asof : "latest session"}</span></div>`;
+    SLOTS[1].innerHTML = `<div class="mv-h"><span class="down">Top 5 losers</span><span>${asof ? "session " + asof : "latest session"}</span></div>`;
+    const top = [...sets.gain.map((s, i) => ({ s, slot: SLOTS[0], r: i + 1 })), ...sets.lose.map((s, i) => ({ s, slot: SLOTS[1], r: i + 1 }))];
     for (let k = 0; k < top.length; k++) {
-      const s = top[k], slot = SLOTS[k < 3 ? 0 : 1];
+      const { s, slot, r } = top[k];
       const el = document.createElement("div"); el.className = "mv";
       const up = s.pct >= 0;
-      el.innerHTML = `<div class="mv-top"><span class="mv-rank">#${k + 1}</span><a href="${s.dir}/"><span class="tick">${s.t}</span></a><a class="mv-name" href="${s.dir}/">${s.name}</a>
+      el.innerHTML = `<div class="mv-top"><span class="mv-rank">#${r}</span><a href="${s.dir}/"><span class="tick">${s.t}</span></a><a class="mv-name" href="${s.dir}/">${s.name}</a>
         <span class="mv-px">$${fmt(s.q.price)}</span><span class="mv-chg ${up ? "up" : "down"}">${up ? "+" : "−"}${Math.abs(s.pct).toFixed(2)}%</span></div>
         <div class="mv-ohlc"></div><div class="mv-main"></div><div class="mv-macd"></div>
         <div class="mv-ctl">${RANGES.map(([l, n]) => `<button type="button" class="rg" data-n="${n}" aria-pressed="${n === rangeN}">${l}</button>`).join("")}<span class="mv-sep"></span>
@@ -179,8 +188,8 @@
 
   async function refresh() {
     const top = await load();
-    if (!top.length) { SLOTS.forEach((s) => s.innerHTML = ""); return; }
-    const key = top.map((x) => x.t + x.q.time).join("|");
+    if (!top.gain.length) { SLOTS.forEach((s) => s.innerHTML = ""); return; }
+    const key = [...top.gain, ...top.lose].map((x) => x.t + x.q.time + x.pct.toFixed(2)).join("|");
     if (key === lastKey) return; lastKey = key;
     build(top);
   }
