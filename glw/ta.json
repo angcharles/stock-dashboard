@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 156.68,
+ "bias": {
+  "en": "Neutral · sitting on the 20, 30 and 50-day averages",
+  "zh": "中性 · 位于20日、30日与50日均线之上"
+ },
+ "read": [
+  {
+   "en": "Corning has calmed down after a wild summer: a $255 close on Jun 29, $124 on Jul 29, and mostly $143–170 since. It now sits on the 20, 30 and 50-day averages, which have bunched together at about $155, just above the 200-day ($152) and below the 100-day ($169). It is a little under the 5 and 10-day averages ($159–160). MACD is above its signal but the histogram has shrunk for three days, RSI is 50 and the Oct 8 drop of 6% erased most of the early-October gain.",
+   "zh": "康宁在剧烈波动的夏季后趋于平静：6月29日收盘 $255，7月29日 $124，此后大多在 $143–170 之间。目前位于聚拢在约 $155 的 20 日、30 日与 50 日均线之上，略高于 200 日均线（$152），低于 100 日均线（$169）；略低于 5 日与 10 日均线（$159–160）。MACD 在信号线上方，但柱体已连续三日收缩；RSI 为 50；10月8日下跌 6%，抹去了10月初的大部分涨幅。"
+  },
+  {
+   "en": "$152–155 is the support that matters: the averages cluster plus the Oct 8 low near $151. A close below points to $143–144, where September's selloff stopped. Overhead, $160 (5-day average) comes first, then $164–166, which capped closes in September and early October, and $170–171, the Oct 6 and Sep 9 highs next to the 100-day average. The Oct 27 earnings report is likely to decide which way it breaks.",
+   "zh": "$152–155 是关键支撑：均线密集区加上10月8日约 $151 的低点。若收盘跌破，下看 9月抛售止步的 $143–144。上方首先是 $160（5日均线），然后是 9月及10月初收盘受阻的 $164–166，以及靠近 100 日均线的 $170–171（10月6日与9月9日高点）。10月27日财报很可能决定突破方向。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    160,
+    {
+     "en": "5 and 10-day averages ($159–160)",
+     "zh": "5日与10日均线（$159–160）"
+    }
+   ],
+   [
+    166,
+    {
+     "en": "Capped closes Sep 8–11 and Oct 2 ($164–166)",
+     "zh": "9月8–11日及10月2日收盘受阻（$164–166）"
+    }
+   ],
+   [
+    171,
+    {
+     "en": "Oct 6 and Sep 9 highs; 100-day average $169",
+     "zh": "10月6日与9月9日高点；100日均线 $169"
+    }
+   ]
+  ],
+  "s": [
+   [
+    155,
+    {
+     "en": "20, 30 and 50-day averages",
+     "zh": "20日、30日与50日均线"
+    }
+   ],
+   [
+    152,
+    {
+     "en": "200-day average; Oct 8 low $151",
+     "zh": "200日均线；10月8日低点 $151"
+    }
+   ],
+   [
+    143,
+    {
+     "en": "Sep 14–16 closes ($143.6–144.2)",
+     "zh": "9月14–16日收盘（$143.6–144.2）"
+    }
+   ]
+  ]
+ }
+}

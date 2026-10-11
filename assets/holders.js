@@ -51,6 +51,7 @@
     TSM: { en: "Covers holders of the NYSE-listed ADRs only (1 ADR = 5 Taiwan shares), not the Taiwan-listed shares.", zh: "仅涵盖纽交所 ADR 持有人（1 ADR = 5 股台股），不含台湾上市股份。" },
     SKHY: { en: "The Nasdaq ADS listed in July 2026, after the latest 13F quarter end, so the first filings with it are due by mid-November 2026.", zh: "纳斯达克 ADS 于 2026 年 7 月上市，晚于最近一个 13F 季末，首批相关申报将于 2026 年 11 月中旬前提交。" },
     SPCX: { en: "SpaceX listed on June 12, 2026, so June 30 is the first quarter end with 13F holdings; there is no earlier quarter to compare yet.", zh: "SpaceX 于 2026 年 6 月 12 日上市，6 月 30 日是首个有 13F 持股的季末，尚无更早季度可比较。" },
+    ASML: { en: "Covers US institutional holders that file 13F only; most of ASML's shares are held in Europe through Euronext Amsterdam, so this list is a slice of the register.", zh: "仅涵盖申报 13F 的美国机构；ASML 大部分股份经阿姆斯特丹泛欧交易所由欧洲投资者持有，本表仅为股东名册的一部分。" },
     TSLA: { en: "Elon Musk's personal stake is not in 13F data.", zh: "马斯克个人持股不在 13F 数据中。" },
     SNDK: { en: "Sandisk began trading in February 2025 after its separation from Western Digital.", zh: "闪迪于 2025 年 2 月自西部数据分拆后上市。" },
   };

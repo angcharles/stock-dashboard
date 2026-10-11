@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 1780.34,
+ "bias": {
+  "en": "Neutral · momentum fading into Oct 14 results",
+  "zh": "中性 · 10月14日财报前动能减弱"
+ },
+ "read": [
+  {
+   "en": "ASML closed at $1,780 on Oct 9, 4.7% below the Oct 2 closing high of $1,867. It is under the 5 and 10-day averages ($1,810–1,814) but above the 20, 30, 50 and 100-day averages, which are bunched at $1,729–1,745, and well above the 200-day ($1,562). MACD is still above its signal line, but the gap shrank from 20 to under 3 in five sessions, so a bearish cross is close. RSI is 52.",
+   "zh": "阿斯麦 10月9日收于 $1,780，较 10月2日收盘高点 $1,867 低 4.7%。股价位于 5 日与 10 日均线（$1,810–1,814）下方，但高于聚集在 $1,729–1,745 的 20、30、50 和 100 日均线，并远高于 200 日均线（$1,562）。MACD 仍在信号线上方，但差距五个交易日内由 20 缩至不足 3，接近死叉。RSI 为 52。"
+  },
+  {
+   "en": "The Oct 14 results will likely set the direction; the stock fell 15% in the two weeks after the July report. The $1,729–1,745 band of averages is the first support, then the Sep 3 low at $1,646 and the Sep 14 low at $1,575. Overhead, the short averages near $1,812 come first, then the Oct 2 high of $1,867 and the record close of $1,989 from Jun 30.",
+   "zh": "10月14日财报可能决定方向；7月财报后两周股价曾下跌 15%。$1,729–1,745 的均线密集区是第一支撑，其下为 9月3日低点 $1,646 和 9月14日低点 $1,575。上方首先是约 $1,812 的短期均线，然后是 10月2日高点 $1,867 及 6月30日的历史收盘高点 $1,989。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    1812,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日与10日均线"
+    }
+   ],
+   [
+    1867,
+    {
+     "en": "Oct 2 closing high",
+     "zh": "10月2日收盘高点"
+    }
+   ],
+   [
+    1989,
+    {
+     "en": "Record close, Jun 30",
+     "zh": "6月30日历史收盘高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    1740,
+    {
+     "en": "20, 30, 50 and 100-day averages ($1,729–1,745)",
+     "zh": "20、30、50与100日均线（$1,729–1,745）"
+    }
+   ],
+   [
+    1646,
+    {
+     "en": "Sep 3 low",
+     "zh": "9月3日低点"
+    }
+   ],
+   [
+    1575,
+    {
+     "en": "Sep 14 low",
+     "zh": "9月14日低点"
+    }
+   ]
+  ]
+ }
+}

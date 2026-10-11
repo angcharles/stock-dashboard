@@ -9,7 +9,8 @@
     ["spcx", "SPCX", "SpaceX"], ["mu", "MU", "Micron"], ["lite", "LITE", "Lumentum"], ["cohr", "COHR", "Coherent"],
     ["googl", "GOOGL", "Alphabet"], ["meta", "META", "Meta Platforms"],
     ["nvda", "NVDA", "NVIDIA"], ["zs", "ZS", "Zscaler"], ["be", "BE", "Bloom Energy"], ["aaoi", "AAOI", "Applied Optoelectronics"], ["amd", "AMD", "AMD"], ["mp", "MP", "MP Materials"], ["amzn", "AMZN", "Amazon"], ["msft", "MSFT", "Microsoft"],
-    ["mrvl", "MRVL", "Marvell"], ["skhy", "SKHY", "SK hynix"], ["tsm", "TSM", "TSMC"], ["avgo", "AVGO", "Broadcom"], ["rok", "ROK", "Rockwell Automation"]];
+    ["mrvl", "MRVL", "Marvell"], ["skhy", "SKHY", "SK hynix"], ["tsm", "TSM", "TSMC"], ["avgo", "AVGO", "Broadcom"], ["rok", "ROK", "Rockwell Automation"],
+    ["amat", "AMAT", "Applied Materials"], ["asml", "ASML", "ASML"], ["pltr", "PLTR", "Palantir"], ["glw", "GLW", "Corning"], ["ter", "TER", "Teradyne"]];
   const SLOTS = [document.getElementById("moversL"), document.getElementById("moversR")];
   if (!SLOTS[0] || !SLOTS[1]) return;
   const IND = [

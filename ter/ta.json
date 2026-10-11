@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 402.68,
+ "bias": {
+  "en": "Neutral · pullback after the Oct 2 high, above the 30, 50 and 100-day",
+  "zh": "中性 · 10月2日高点后回调，位于30、50及100日均线上方"
+ },
+ "read": [
+  {
+   "en": "Teradyne fell 10% from its Oct 2 close of $449 and now sits below the 5 and 10-day averages ($416–418) but above the 20-day ($392) and a cluster of the 30, 50 and 100-day averages near $381–383. MACD is still just above its signal line, but the histogram has shrunk for four days and is close to a bearish cross. RSI is 53, so the stock is neither stretched nor oversold.",
+   "zh": "泰瑞达由 10月2日收盘 $449 回落 10%，目前位于 5 日与 10 日均线（$416–418）下方，但在 20 日均线（$392）及约 $381–383 的 30、50、100 日均线密集区上方。MACD 仍略高于信号线，但柱体已连续四日收缩，接近死叉。RSI 为 53，既不过热也未超卖。"
+  },
+  {
+   "en": "First support is $389, the Oct 8 low and a September pivot. Below that, the $381–383 average cluster matters most; a close under it would point back to the mid-September low near $329. Overhead, $416 comes first, then $444–452 where the Aug 17 and Oct 2 highs both stalled, and then the June record near $484–488. Earnings in late October can move the stock well beyond these levels.",
+   "zh": "首个支撑为 $389，即 10月8日低点及 9月转折位。其下 $381–383 的均线密集区最关键；若收盘跌破，下看 9月中旬低点约 $329。上方先看 $416，再看 8月17日与 10月2日两度受阻的 $444–452，然后是 6月纪录高位约 $484–488。10月下旬的财报可能令股价大幅越过这些价位。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    416,
+    {
+     "en": "5 and 10-day averages; Oct 1 close",
+     "zh": "5日与10日均线；10月1日收盘"
+    }
+   ],
+   [
+    449,
+    {
+     "en": "Aug 17 and Oct 2 highs ($444–452)",
+     "zh": "8月17日与10月2日高点（$444–452）"
+    }
+   ],
+   [
+    484,
+    {
+     "en": "Jun 30 record close",
+     "zh": "6月30日收盘纪录"
+    }
+   ]
+  ],
+  "s": [
+   [
+    389,
+    {
+     "en": "Oct 8 low; Sep 23 pivot",
+     "zh": "10月8日低点；9月23日转折位"
+    }
+   ],
+   [
+    382,
+    {
+     "en": "30, 50 and 100-day averages ($381–383)",
+     "zh": "30、50、100日均线（$381–383）"
+    }
+   ],
+   [
+    329,
+    {
+     "en": "Mid-September low",
+     "zh": "9月中旬低点"
+    }
+   ]
+  ]
+ }
+}

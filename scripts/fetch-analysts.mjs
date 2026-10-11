@@ -17,6 +17,7 @@ const STOCKS = [
   ["lite", "LITE"], ["cohr", "COHR"], ["googl", "GOOGL"], ["meta", "META"], ["nvda", "NVDA"], ["zs", "ZS"],
   ["be", "BE"], ["aaoi", "AAOI"], ["amd", "AMD"], ["mp", "MP"], ["amzn", "AMZN"], ["msft", "MSFT"],
   ["mrvl", "MRVL"], ["skhy", "SKHY"], ["tsm", "TSM"], ["avgo", "AVGO"], ["rok", "ROK"],
+  ["amat", "AMAT"], ["asml", "ASML"], ["pltr", "PLTR"], ["glw", "GLW"], ["ter", "TER"],
 ];
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const DAYS = 366;

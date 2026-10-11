@@ -25,6 +25,11 @@ Investor dashboards, EN / 中文, light / dark:
 - **TSMC (TSM)** — `tsm/index.html` → https://angcharles.github.io/stock-dashboard/tsm/
 - **Broadcom (AVGO)** — `avgo/index.html` → https://angcharles.github.io/stock-dashboard/avgo/
 - **Rockwell Automation (ROK)** — `rok/index.html` → https://angcharles.github.io/stock-dashboard/rok/
+- **Applied Materials (AMAT)** — `amat/index.html` → https://angcharles.github.io/stock-dashboard/amat/
+- **ASML (ASML)** — `asml/index.html` → https://angcharles.github.io/stock-dashboard/asml/
+- **Palantir (PLTR)** — `pltr/index.html` → https://angcharles.github.io/stock-dashboard/pltr/
+- **Corning (GLW)** — `glw/index.html` → https://angcharles.github.io/stock-dashboard/glw/
+- **Teradyne (TER)** — `ter/index.html` → https://angcharles.github.io/stock-dashboard/ter/
 
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
@@ -80,6 +85,6 @@ Note: GitHub pauses scheduled workflows in a repo with no activity for 60 days. 
 For information only, not investment advice. Not affiliated with Arm Holdings plc, Tesla, Inc., Sandisk Corporation or Intel Corporation.
 
 ## Adding a stock
-Newer pages (SPCX, MU, LITE, COHR, GOOGL, META, NVDA, ZS, BE, AAOI, AMD, MP, AMZN, MSFT, MRVL, SKHY, TSM, AVGO, ROK) are generated: edit `specs/<stock>.json` and run `python3 scripts/make-stock-page.py specs/<stock>.json`. Shared code is in `assets/stock-page.js` and `assets/stock.css`; price cells (52-week range, moving averages, RSI, drawdown) are computed from the live price history. For a new stock, copy a spec, generate the page, then write `<stock>/ta.json`, add the fetch line and the folder name in the copy loop of `.github/workflows/deploy.yml`, a card to the root `index.html`, an entry to `STOCKS` in `scripts/fetch-news.mjs` and `assets/movers.js`. TSMC and SK hynix figures are converted to US$ from NT$ and won at each quarter's rate (see the specs).
+Newer pages (SPCX, MU, LITE, COHR, GOOGL, META, NVDA, ZS, BE, AAOI, AMD, MP, AMZN, MSFT, MRVL, SKHY, TSM, AVGO, ROK, AMAT, ASML, PLTR, GLW, TER) are generated: edit `specs/<stock>.json` and run `python3 scripts/make-stock-page.py specs/<stock>.json`. Shared code is in `assets/stock-page.js` and `assets/stock.css`; price cells (52-week range, moving averages, RSI, drawdown) are computed from the live price history. For a new stock, copy a spec, generate the page, then write `<stock>/ta.json`, add the fetch line and the folder name in the copy loop of `.github/workflows/deploy.yml`, a card to the root `index.html`, an entry to `STOCKS` in `scripts/fetch-news.mjs` and `assets/movers.js`. TSMC and SK hynix figures are converted to US$ from NT$ and won at each quarter's rate (see the specs).
 
 Older pages: Copy a stock folder (e.g. `intc/`), edit its `index.html` and seed `data/`, add a fetch line and copy lines to `.github/workflows/deploy.yml`, and add a card to the root `index.html`.

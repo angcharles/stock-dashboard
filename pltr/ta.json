@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 209.05,
+ "bias": {
+  "en": "Bullish trend · at a record, overbought",
+  "zh": "多头趋势 · 创纪录，超买"
+ },
+ "read": [
+  {
+   "en": "Palantir closed at a record $209.05 on Oct 9, up 5% on the day and above the old $207.18 closing high from Nov 3, 2025. The averages are stacked in bullish order (5-day $197 > 10-day $192 > 30-day $183 > 100-day $154), and MACD is above its signal with the histogram widening for three days. The stretch is the warning: RSI is 76, and the stock is 14% above its 30-day average.",
+   "zh": "Palantir 于 10月9日以 $209.05 创收盘纪录，当日上涨 5%，超越 2025年11月3日 $207.18 的旧收盘高点。均线呈多头排列（5 日 $197 > 10 日 $192 > 30 日 $183 > 100 日 $154），MACD 位于信号线上方，柱体连续三日放大。警示在于涨幅过大：RSI 为 76，股价高出 30 日均线 14%。"
+  },
+  {
+   "en": "There is no overhead supply, so resistance is the Oct 9 intraday record of $209.58 and then round numbers at $220 and $230. First support is the 5-day average and Oct 8 close near $197–199. Below that, $192–194 (10-day average, Sep 24 high and the Oct 6–7 closes) and the 30-day average near $183 are where the rally would be properly tested. The stock moves about $6 a day on average, so expect wide swings around the Nov 2 report.",
+   "zh": "上方无套牢盘，阻力为 10月9日盘中纪录 $209.58，其后为 $220 与 $230 整数关口。首个支撑为 5 日均线与 10月8日收盘（约 $197–199）。再往下，$192–194（10 日均线、9月24日高点及 10月6–7日收盘）与约 $183 的 30 日均线才是真正检验涨势的位置。日均波幅约 $6，11月2日财报前后波动可能较大。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    209.6,
+    {
+     "en": "Record high, Oct 9",
+     "zh": "10月9日纪录高点"
+    }
+   ],
+   [
+    220,
+    {
+     "en": "Round number",
+     "zh": "整数关口"
+    }
+   ],
+   [
+    230,
+    {
+     "en": "Round number; Goldman's new target",
+     "zh": "整数关口；高盛新目标价"
+    }
+   ]
+  ],
+  "s": [
+   [
+    197,
+    {
+     "en": "5-day average; Oct 8 close $198.78",
+     "zh": "5日均线；10月8日收盘 $198.78"
+    }
+   ],
+   [
+    192,
+    {
+     "en": "10-day average, Sep 24 high, Oct 6–7 closes ($192–195)",
+     "zh": "10日均线、9月24日高点、10月6–7日收盘（$192–195）"
+    }
+   ],
+   [
+    183,
+    {
+     "en": "30-day average; Sep 21–22 closes",
+     "zh": "30日均线；9月21–22日收盘"
+    }
+   ]
+  ]
+ }
+}

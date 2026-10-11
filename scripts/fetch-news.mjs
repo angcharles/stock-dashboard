@@ -30,6 +30,11 @@ const STOCKS = [
   { t: "TSM", q: 'TSMC (stock OR shares OR TSM OR earnings OR revenue OR 2nm OR Arizona)', m: /TSMC|\bTSM\b|Taiwan Semiconductor|C\.C\. Wei/ },
   { t: "AVGO", q: 'Broadcom (stock OR shares OR AVGO OR earnings OR XPU OR VMware OR "Hock Tan")', m: /Broadcom|AVGO|Hock Tan|VMware/ },
   { t: "ROK", q: '"Rockwell Automation" OR "NYSE:ROK"', m: /Rockwell Automation|\bROK\b/ },
+  { t: "AMAT", q: '"Applied Materials" OR "NASDAQ:AMAT"', m: /Applied Materials|\bAMAT\b/ },
+  { t: "ASML", q: 'ASML (stock OR shares OR earnings OR EUV OR lithography OR Fouquet)', m: /\bASML\b|Fouquet|EUV/ },
+  { t: "PLTR", q: 'Palantir (stock OR shares OR PLTR OR earnings OR AIP OR Karp)', m: /Palantir|PLTR|Alex Karp/ },
+  { t: "GLW", q: '"Corning Inc" OR "Corning Incorporated" OR "NYSE:GLW" OR (Corning fiber)', m: /Corning|\bGLW\b/ },
+  { t: "TER", q: 'Teradyne OR "NASDAQ:TER" OR "Universal Robots"', m: /Teradyne|\bTER\b|Universal Robots/ },
 ];
 const OUT = "data/news.json";
 const DAYS = 30, PER_STOCK = 80;

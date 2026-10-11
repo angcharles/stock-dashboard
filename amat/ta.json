@@ -1,0 +1,66 @@
+{
+ "asof": "Oct 9, 2026",
+ "close": 507.03,
+ "bias": {
+  "en": "Neutral · pulling back after the October bounce",
+  "zh": "中性 · 10月反弹后回落"
+ },
+ "read": [
+  {
+   "en": "Applied Materials has slipped 6.5% from the Oct 5 close of $542 and now sits just below its 5, 10 and 100-day averages ($516–522). It remains above the 30-day ($474), 50-day ($490) and 200-day ($434). MACD is still above its signal line, but the histogram has shrunk for four days in a row, and RSI has cooled from 70 to 55.",
+   "zh": "应用材料自 10月5日收盘价 $542 回落 6.5%，现略低于 5 日、10 日与 100 日均线（$516–522），仍高于 30 日（$474）、50 日（$490）和 200 日（$434）均线。MACD 仍在信号线上方，但柱体已连续四日收缩，RSI 由 70 降至 55。"
+  },
+  {
+   "en": "The first test is the 50-day near $490; holding it keeps the September rebound intact. Below that, $472–474 (the 30-day and a late-September shelf) and then $436, a low hit on Jul 29 and again on Sep 3. Overhead, $516–522 must be reclaimed first, then $542–548, which capped rallies in August and October.",
+   "zh": "首先测试约 $490 的 50 日均线；守住则 9月以来的反弹未破。跌破则看 $472–474（30 日均线及 9月下旬平台），再看 7月29日与 9月3日两度触及的低点 $436。上方需先收复 $516–522，然后是 8月与 10月两度压制反弹的 $542–548。"
+  }
+ ],
+ "levels": {
+  "r": [
+   [
+    519,
+    {
+     "en": "5, 10 and 100-day averages ($516–522)",
+     "zh": "5日、10日与100日均线（$516–522）"
+    }
+   ],
+   [
+    545,
+    {
+     "en": "Capped rallies in Aug and Oct ($542–548)",
+     "zh": "8月与10月反弹受阻（$542–548）"
+    }
+   ],
+   [
+    565,
+    {
+     "en": "Jul 21 rebound high",
+     "zh": "7月21日反弹高点"
+    }
+   ]
+  ],
+  "s": [
+   [
+    490,
+    {
+     "en": "50-day average",
+     "zh": "50日均线"
+    }
+   ],
+   [
+    474,
+    {
+     "en": "30-day average and late-Sep shelf",
+     "zh": "30日均线及9月下旬平台"
+    }
+   ],
+   [
+    436,
+    {
+     "en": "Jul 29 and Sep 3 lows",
+     "zh": "7月29日与9月3日低点"
+    }
+   ]
+  ]
+ }
+}
