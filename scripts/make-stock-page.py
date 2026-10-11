@@ -224,6 +224,7 @@ const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 <script src="../assets/holders.js?v=3"></script>
 <script src="../assets/options.js?v=1"></script>
 <script src="../assets/analysts.js?v=1"></script>
+<script src="../assets/mgmt.js?v=1"></script>
 </body>
 </html>
 """

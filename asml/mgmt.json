@@ -1,0 +1,63 @@
+{
+ "ticker": "ASML",
+ "asof": "2026-10-11",
+ "quarter": {
+  "en": "Q2 2026",
+  "zh": "2026年第二季"
+ },
+ "reported": "2026-07-15",
+ "timing": "bmo",
+ "pre_close": 1775.28,
+ "react": {
+  "date": "2026-07-15",
+  "close": 1828.88,
+  "pct": 3.0
+ },
+ "since": {
+  "date": "2026-10-09",
+  "close": 1780.34,
+  "pct": 0.3
+ },
+ "review": {
+  "en": [
+   "Sales of €9.3B (+21%) and net income of €2.92B beat forecasts, and gross margin of 54.0% topped the 51.9% consensus, helped by service revenue. ASML raised its 2026 sales outlook to €43–45B with 54–56% gross margin. CEO Christophe Fouquet cited continued very strong demand from logic and memory makers; ASML will add about 30% to low-NA EUV and DUV immersion capacity for 2027 and is studying another 30% for 2028. CFO Roger Dassen said the 2027 mix shifts to newer, higher-priced EUV models.",
+   "Shares rose as much as 7.8% before closing up 3.0%, and added 3.5% after hours. The gains did not last: the late-July selloff in AI hardware drove the stock down to $1,551 on Jul 29, about 13% below the pre-report close. Since then it has swung with AI sentiment, dipping again on the mid-September slowdown warnings, and it sits roughly flat with where it was before the report, ahead of Q3 results on Oct 14."
+  ],
+  "zh": [
+   "销售额 93 亿欧元（+21%）、净利润 29.2 亿欧元，均超预期；在服务收入带动下毛利率 54.0%，高于 51.9% 的预期。ASML 将 2026 年销售展望上调至 430–450 亿欧元，毛利率 54–56%。CEO 傅恪礼（Christophe Fouquet）指出逻辑与存储客户需求持续强劲；2027 年低数值孔径 EUV 与 DUV 浸润式产能将扩大约 30%，并研究 2028 年再扩 30%。CFO 罗杰·达森表示 2027 年产品组合将转向更新、单价更高的 EUV 机型。",
+   "股价盘中一度上涨 7.8%，收涨 3.0%，盘后再涨 3.5%。涨幅未能维持：7 月下旬 AI 硬件抛售令股价在 7 月 29 日跌至 1,551 美元，较财报前收盘低约 13%。此后随 AI 情绪起伏，9 月中旬放缓警告时再度下挫，目前与财报前大致持平，第三季财报将于 10 月 14 日公布。"
+  ]
+ },
+ "ceo": {
+  "name": {
+   "en": "Christophe Fouquet",
+   "zh": "傅恪礼"
+  },
+  "since": "2024",
+  "bio": {
+   "en": "CEO since April 2024. Joined ASML in 2008 and ran its EUV business, the machines only ASML can make, after earlier roles at KLA and Applied Materials.",
+   "zh": "2024 年 4 月起任 CEO。2008 年加入 ASML，曾执掌只有 ASML 能制造的 EUV 业务，此前在科磊和应用材料任职。"
+  }
+ },
+ "cfo": {
+  "name": {
+   "en": "Roger Dassen",
+   "zh": "罗杰·达森"
+  },
+  "since": "2018",
+  "bio": {
+   "en": "CFO since 2018. Spent more than three decades at Deloitte in senior audit and leadership roles before joining ASML.",
+   "zh": "2018 年起任 CFO。加入 ASML 前在德勤工作三十多年，担任审计与管理要职。"
+  }
+ },
+ "sources": [
+  {
+   "t": "Q2 2026 results (Investing.com)",
+   "u": "https://www.investing.com/news/earnings/asml-q2-outlook-tops-on-ai-chip-demand-lifts-fullyear-forecast-4792148"
+  },
+  {
+   "t": "Q2 2026 call transcript",
+   "u": "https://fool.com/earnings/call-transcripts/2026/07/15/asml-asml-q2-2026-earnings-call-transcript"
+  }
+ ]
+}

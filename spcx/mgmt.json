@@ -1,0 +1,67 @@
+{
+ "ticker": "SPCX",
+ "asof": "2026-10-11",
+ "quarter": {
+  "en": "Q2 2026 (first report as a public company)",
+  "zh": "2026年第二季（上市后首份财报）"
+ },
+ "reported": "2026-08-04",
+ "timing": "amc",
+ "pre_close": 125.33,
+ "react": {
+  "date": "2026-08-05",
+  "close": 108.27,
+  "pct": -13.6
+ },
+ "since": {
+  "date": "2026-10-09",
+  "close": 162.57,
+  "pct": 29.7
+ },
+ "review": {
+  "en": [
+   "Revenue rose 92% to $7.81B, well above the $6.93B consensus, the net loss narrowed to $541M and adjusted EBITDA nearly tripled to $3.5B. Starlink brought in $4.29B, the AI segment (the former xAI) $2.56B and Space $962M. The shock was capex of $18.4B, almost double Q1, mostly for AI compute, with similar spending flagged for the next two quarters. CFO Bret Johnsen said AI compute pays back in under a year, cited $6.7B of new cloud contracts starting in October, and pointed to $100B of cash.",
+   "Shares rose 9.4% into the report, then fell 13.6% the next day to $108.27, about 20% below the $135 IPO price, as the capex bill and an imminent lockup expiry spooked investors. Funds that had sold ahead of the lockup then bought back: the stock gained 6% on Aug 6 and 16% on Aug 7, and it now trades well above the pre-report close."
+  ],
+  "zh": [
+   "营收增长 92% 至 78.1 亿美元，远超 69.3 亿美元的预期；净亏损收窄至 5.41 亿美元，经调整 EBITDA 增至近三倍的 35 亿美元。星链贡献 42.9 亿美元，AI 业务（原 xAI）25.6 亿美元，航天业务 9.62 亿美元。令人意外的是资本开支高达 184 亿美元，几乎是第一季的两倍，主要用于 AI 算力，且未来两个季度将维持类似水平。CFO 布雷特·约翰森表示 AI 算力投资回收期不到一年，并提到 10 月起陆续确认的 67 亿美元新云服务合同，以及 1,000 亿美元现金。",
+   "财报前股价上涨 9.4%，次日下跌 13.6% 至 108.27 美元，较 135 美元的 IPO 价低约 20%，资本开支规模与即将到期的禁售期令投资者担忧。禁售期前做空的资金随后回补：8 月 6 日上涨 6%，8 月 7 日再涨 16%，目前股价明显高于财报前收盘。"
+  ]
+ },
+ "ceo": {
+  "name": {
+   "en": "Elon Musk",
+   "zh": "埃隆·马斯克"
+  },
+  "since": "2002",
+  "bio": {
+   "en": "Founded SpaceX in 2002 to make life multiplanetary; it now leads in rocket launches and runs Starlink. Merged in his AI company xAI in February 2026, took SpaceX public in June in the largest IPO ever, and controls about 82% of the votes. Also Tesla's CEO.",
+   "zh": "2002 年创立 SpaceX，目标是让人类成为多星球物种；公司如今在火箭发射领域领先并运营星链。2026 年 2 月并入其 AI 公司 xAI，6 月完成史上最大 IPO，掌握约 82% 投票权。同时担任特斯拉 CEO。"
+  }
+ },
+ "cfo": {
+  "name": {
+   "en": "Bret Johnsen",
+   "zh": "布雷特·约翰森"
+  },
+  "since": "2011",
+  "bio": {
+   "en": "SpaceX CFO since 2011, after nearly a decade in finance at Broadcom, where he rose from controller roles. Ran the xAI merger and the June 2026 IPO, and now manages a balance sheet with about $100B of cash.",
+   "zh": "2011 年起任 SpaceX CFO，此前在博通财务部门工作近十年，从多个业务的财务主管做起。主导了 xAI 合并与 2026 年 6 月 IPO，现管理约 1,000 亿美元现金的资产负债表。"
+  }
+ },
+ "sources": [
+  {
+   "t": "Q2 2026 results (Guardian)",
+   "u": "https://www.theguardian.com/science/2026/aug/04/spacex-first-earnings-report"
+  },
+  {
+   "t": "Capex and payback (CNBC)",
+   "u": "https://cnbc.com/2026/08/04/spacex-ai-spending-unnerves-wall-street-despite-promising-quick-payoff.html"
+  },
+  {
+   "t": "Lockup rally (Fortune)",
+   "u": "https://fortune.com/2026/08/07/why-did-spacex-stock-rise-after-selloff"
+  }
+ ]
+}
