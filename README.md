@@ -33,6 +33,9 @@ Investor dashboards, EN / 中文, light / dark:
 
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
+## Ranking on the main page
+- The stock cards on `index.html` are ordered from most to least bullish (Claude's judgment as of Oct 11, 2026), with a rank, a tier (Bullish / Constructive / Neutral / Cautious) and a one-line reason on each card. Re-rank by reordering the cards and editing the `rk` and `why` lines.
+
 ## How the live price works
 - A GitHub Action (`.github/workflows/deploy.yml`) runs every 10 minutes during US market hours, fetches each symbol's quote and daily closes from Yahoo Finance (`scripts/fetch-quote.mjs SYMBOL OUTDIR RANGE`), and redeploys the site. No commits are made.
   - ARM → `arm/data/quote.json`, `arm/data/history.json`
