@@ -3,7 +3,8 @@
    the holders section). For each tranche it shows the shares released, their market value at the live
    price (data/quote.json), and the tranche as a % of average daily volume (20-session average from the
    "v" array in data/history.json, falling back to the figure in unlocks.json). Status (released / next /
-   upcoming) is worked out from today's New York date. Refreshes the price every minute.
+   upcoming) is worked out from today's New York date. A Chart.js timeline above the table plots every
+   tranche (released and upcoming) as shares, market value or days of volume, with cumulative % unlocked. Refreshes the price every minute.
    EN / 中文 follows <html lang>. Edit unlocks.json when a results date is announced. */
 (function () {
   let host = document.getElementById("unlocks");
@@ -29,6 +30,10 @@
       price: (p, d) => `Values at $${p} (${d}).`,
       note: "Share counts are the \"up to\" figures in the IPO prospectus; holders need not sell, so these are ceilings on new supply, not forecasts of selling. Earnings-linked tranches release on the second full trading day after results, and their dates here are estimates until SpaceX announces them. The extended group excludes Musk.",
       src: "Sources", asof: (d) => `Schedule checked ${d}.`, loading: "Loading unlock schedule…", fail: "Unlock schedule is not available.",
+      cH: "Unlock timeline: released and upcoming", mSh: "Shares", mVal: "Market value", mDays: "Days of volume",
+      lPast: "Released", lFut: "Upcoming", lEst: "Upcoming, date estimated", lMusk: "Elon Musk", lCum: "Cumulative unlocked, % of shares out. (right)",
+      today: "Today", clip: "bar cut off", tSh: "Shares", tVal: "Value", tAdv: "Of avg daily volume", tCum: "Cumulative unlocked",
+      yAx: { sh: "Shares (M)", val: "US$ B", days: "Trading days" },
     },
     zh: {
       nav: "解禁", h: "股份解禁时间表",
@@ -43,6 +48,10 @@
       price: (p, d) => `市值按 $${p}（${d}）计算。`,
       note: "股数为招股书中的「最多」数量；持有人不一定出售，因此代表新增可售供给上限，而非抛售预测。与财报挂钩的批次在财报后第二个完整交易日解禁，公布前此处日期为估计。延长组不含马斯克。",
       src: "资料来源", asof: (d) => `时间表核对于 ${d}。`, loading: "载入解禁时间表…", fail: "暂无解禁时间表。",
+      cH: "解禁时间轴：已解禁与待解禁", mSh: "股数", mVal: "市值", mDays: "成交天数",
+      lPast: "已解禁", lFut: "待解禁", lEst: "待解禁（日期为估计）", lMusk: "马斯克", lCum: "累计解禁占总股本（右轴）",
+      today: "今天", clip: "柱体已截断", tSh: "股数", tVal: "市值", tAdv: "占日均成交量", tCum: "累计解禁",
+      yAx: { sh: "股数（百万）", val: "十亿美元", days: "交易日" },
     },
   };
   const lang = () => (document.documentElement.lang || "en").startsWith("zh") ? "zh" : "en";
@@ -77,6 +86,14 @@
   #unlocks .ul-note{font-size:12px;color:var(--muted);margin:10px 0 0}
   #unlocks .ul-note a{color:var(--muted)}
   #unlocks .tbl{overflow-x:auto}
+  #unlocks .ul-chart{position:relative;height:340px}
+  #unlocks .ul-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;margin-bottom:8px}
+  #unlocks .ul-head h3{margin:0;font:700 15px/1.3 var(--f-display)}
+  #unlocks .ul-head .range{margin:0}
+  #unlocks .legend{margin:0 0 6px}
+  #unlocks .sw.est{background:transparent !important;border:1.5px dashed var(--accent)}
+  #unlocks .sw.ln{height:3px;vertical-align:3px}
+  @media (max-width:620px){#unlocks .ul-chart{height:330px}}
   #unlocks td.ev,#unlocks th.ev{text-align:left;white-space:normal;min-width:220px}
   #unlocks td.stc,#unlocks th.stc{text-align:left}
   @media (max-width:860px){#unlocks .ul-cells{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -94,7 +111,15 @@
     a.textContent = t("nav");
   }
 
-  let D = null, Q = null, H = null, failed = false;
+  let D = null, Q = null, H = null, failed = false, chart = null;
+  let mode = "sh"; try { mode = localStorage.getItem("unlocks-mode") || "sh"; } catch (e) {}
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const alpha = (c, a) => {
+    const m = c.match(/^#([0-9a-f]{6})$/i); if (!m) return c;
+    const n = parseInt(m[1], 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`;
+  };
+  const shortD = (s) => { const [y, m, d] = s.split("-").map(Number); return lang() === "zh" ? `${m}月${d}日` : `${MON[m - 1]} ${d}`; };
+  const estD = (r) => { const e = tx(r.est).replace(/\s*\((est\.)\)|（估）/g, ""); return "~" + e.replace(/ 20\d\d$/, "").replace(/^20\d\d 年 /, ""); };
 
   function px() {
     if (Q && Q.price) return { p: Q.price, d: Q.date, live: true };
@@ -107,6 +132,103 @@
       if (vv.length >= 10) return { v: vv.reduce((s, x) => s + x, 0) / vv.length, d: dd[0], live: true };
     }
     return D ? { v: D.fallback.adv, d: D.fallback.adv_date, live: false } : null;
+  }
+
+  function drawChart(rows, now, P, A, OUT) {
+    const cv = host.querySelector("#ulChart");
+    if (chart) { chart.destroy(); chart = null; }
+    if (!cv || !window.Chart) return;
+    const live = rows.filter((r) => !r.skip);
+    // one column per date; Musk and the extended group share Jun 14, 2027
+    const cols = [];
+    live.forEach((r) => { const c = cols.find((x) => x.date === r.date); c ? c.items.push(r) : cols.push({ date: r.date, items: [r] }); });
+    const metric = (r) => mode === "val" ? r.shares * 1e6 * P.p / 1e9 : mode === "days" ? r.shares * 1e6 / A.v : r.shares;
+    const tot = cols.map((c) => c.items.reduce((s, r) => s + metric(r), 0));
+    const sorted = tot.slice().sort((a, b) => b - a);
+    const nice = (v) => { const e = Math.pow(10, Math.floor(Math.log10(v))), f = v / e; return (f <= 1 ? 1 : f <= 1.5 ? 1.5 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 3 ? 3 : f <= 4 ? 4 : f <= 5 ? 5 : f <= 6 ? 6 : f <= 8 ? 8 : 10) * e; };
+    const cap = sorted[0] > sorted[1] * 2.2 ? nice(sorted[1] * 1.3) : null; // keep Musk's block from flattening the rest
+    const narrow = cv.parentElement.clientWidth < 560;
+    const ACC = css("--accent") || "#0b6fb8", COP = css("--copper") || "#b4622d", SL = css("--slate") || "#7d8a9c", INK = css("--ink"), MUT = css("--muted"), LN = css("--line");
+    const isMusk = (r) => r.group === "musk";
+    const fill = (r) => r.date <= now ? alpha(SL, .55) : isMusk(r) ? COP : r.fixed ? ACC : alpha(ACC, .18);
+    const edge = (r) => r.date <= now ? alpha(SL, .55) : isMusk(r) ? COP : ACC;
+    // stacked datasets: layer 0 = first item at each date, layer 1 = second
+    const layers = [0, 1].map((k) => ({
+      type: "bar", yAxisID: "y", stack: "s", order: 2,
+      data: cols.map((c) => { const r = c.items[k]; if (!r) return null; const v = metric(r); if (!cap) return v; const below = k ? metric(c.items[0]) : 0; return Math.max(0, Math.min(v, cap - below)); }),
+      backgroundColor: cols.map((c) => c.items[k] ? fill(c.items[k]) : "transparent"),
+      borderColor: cols.map((c) => c.items[k] ? edge(c.items[k]) : "transparent"),
+      borderWidth: cols.map((c) => c.items[k] && !c.items[k].fixed && c.items[k].date > now ? 1.5 : 0),
+      borderDash: [4, 3], borderSkipped: false, borderRadius: 3, maxBarThickness: 46,
+    }));
+    let run = 0;
+    const cum = cols.map((c) => { run += c.items.reduce((s, r) => s + r.shares, 0); return run * 1e6 / OUT * 100; });
+    const line = { type: "line", yAxisID: "y2", order: 1, data: cum, borderColor: INK, backgroundColor: INK, borderWidth: 2, pointRadius: 3, tension: 0, stepped: false,
+      segment: { borderDash: (ctx) => cols[ctx.p1DataIndex].date > now ? [5, 4] : undefined } };
+    const firstFuture = cols.findIndex((c) => c.date > now);
+    const labels = cols.map((c) => { const r = c.items[0]; const y = "'" + c.date.slice(2, 4); const d = r.fixed ? shortD(c.date) : estD(r); return narrow ? d + " " + y : [d, y]; });
+    const fmt = (v) => mode === "val" ? (v >= 1000 ? `$${(v / 1000).toFixed(2)}T` : `$${v.toFixed(0)}B`) : mode === "days" ? v.toFixed(v < 10 ? 1 : 0) + "d" : shares(v);
+    const overlay = {
+      id: "ulOverlay",
+      afterDatasetsDraw(c) {
+        const { ctx, chartArea: a, scales: { x, y } } = c;
+        ctx.save();
+        if (firstFuture > 0) { // today divider
+          const xx = (x.getPixelForValue(firstFuture - 1) + x.getPixelForValue(firstFuture)) / 2;
+          ctx.strokeStyle = MUT; ctx.setLineDash([3, 3]); ctx.beginPath(); ctx.moveTo(xx, a.top); ctx.lineTo(xx, a.bottom); ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = MUT; ctx.font = "600 11px " + (css("--f-mono") || "monospace"); ctx.textAlign = "center"; ctx.fillText(narrow ? "▸" : t("today") + " ▸", xx, a.top + 10);
+        }
+        ctx.font = "600 10.5px " + (css("--f-mono") || "monospace"); ctx.textAlign = "center";
+        cols.forEach((col, i) => { // value on top of each bar; clipped bars get a break mark
+          const px = x.getPixelForValue(i), v = tot[i], shown = cap ? Math.min(v, cap) : v, py = y.getPixelForValue(shown);
+          if (cap && v > cap) {
+            ctx.fillStyle = css("--panel") || "#fff"; ctx.fillRect(px - 16, py + 10, 32, 5);
+            ctx.fillStyle = COP; ctx.fillText(fmt(v) + " ↑", px, py - 5);
+          } else if (!narrow) {
+            ctx.lineWidth = 3; ctx.strokeStyle = css("--panel") || "#fff"; ctx.lineJoin = "round"; ctx.strokeText(fmt(v), px, py - 5);
+            ctx.fillStyle = col.date <= now ? MUT : INK; ctx.fillText(fmt(v), px, py - 5);
+          }
+        });
+        ctx.restore();
+      },
+    };
+    chart = new Chart(cv, {
+      data: { labels, datasets: [...layers, line] },
+      plugins: [overlay],
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: false,
+        layout: { padding: { top: 18 } },
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            filter: (it) => it.datasetIndex === 0,
+            callbacks: {
+              title: (it) => { const c = cols[it[0].dataIndex]; const r = c.items[0]; return (r.fixed ? fd(c.date) : tx(r.est)) + " · " + (c.date <= now ? t("sRel") : t("sUp")); },
+              label: () => null,
+              afterBody: (it) => {
+                const c = cols[it[0].dataIndex], out = [];
+                c.items.forEach((r) => {
+                  const sh = r.shares * 1e6;
+                  out.push(tx(r));
+                  out.push(`  ${t("tSh")}: ${shares(r.shares)} · ${t("tVal")}: ${money(sh * P.p)}`);
+                  out.push(`  ${t("tAdv")}: ${pctS(sh / A.v * 100)} (${t("days")((sh / A.v).toFixed(1))})`);
+                });
+                out.push(`${t("tCum")}: ${pctS(cum[it[0].dataIndex])}`);
+                return out;
+              },
+            },
+          },
+        },
+        scales: {
+          x: { stacked: true, grid: { display: false }, border: { color: LN }, ticks: { color: MUT, autoSkip: false, maxRotation: narrow ? 90 : 0, minRotation: narrow ? 90 : 0, font: { size: narrow ? 9.5 : 10.5 } } },
+          y: { stacked: true, beginAtZero: true, max: cap || undefined, grid: { color: alpha(LN.startsWith("#") ? LN : "#d9dee5", .7) }, border: { display: false },
+               title: { display: !narrow, text: t("yAx")[mode], color: MUT, font: { size: 11 } },
+               ticks: { color: MUT, maxTicksLimit: 6, callback: (v) => mode === "sh" ? (v >= 1000 ? (v / 1000) + "B" : v + "M") : mode === "val" ? "$" + v + "B" : v + "d" } },
+          y2: { position: "right", min: 0, max: 100, grid: { display: false }, border: { display: false }, ticks: { color: MUT, stepSize: 25, callback: (v) => v + "%" } },
+        },
+      },
+    });
   }
 
   function render() {
@@ -154,11 +276,29 @@
         <div class="cell"><div class="k">${t("k26")}</div><div class="v">${shares(rest26)}</div><div class="s">${t("k26S")(money(rest26 * 1e6 * P.p))}</div></div>
         <div class="cell"><div class="k">${t("kAdv")}</div><div class="v">${shares(A.v / 1e6)}</div><div class="s">${t("kAdvS")(ADV_N, fd(A.d), A.live)}</div></div>
       </div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="ul-head"><h3>${t("cH")}</h3>
+          <div class="range" role="group" aria-label="Measure">
+            <button type="button" data-m="sh" aria-pressed="${mode === "sh"}">${t("mSh")}</button>
+            <button type="button" data-m="val" aria-pressed="${mode === "val"}">${t("mVal")}</button>
+            <button type="button" data-m="days" aria-pressed="${mode === "days"}">${t("mDays")}</button>
+          </div></div>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--slate);opacity:.55"></i>${t("lPast")}</span>
+          <span><i class="sw" style="background:var(--accent)"></i>${t("lFut")}</span>
+          <span><i class="sw est"></i>${t("lEst")}</span>
+          <span><i class="sw" style="background:var(--copper)"></i>${t("lMusk")}</span>
+          <span><i class="sw ln" style="background:var(--ink)"></i>${t("lCum")}</span>
+        </div>
+        <div class="ul-chart"><canvas id="ulChart" aria-label="${t("cH")}"></canvas></div>
+      </div>
       <div class="panel tbl"><table>
         <thead><tr><th>${t("date")}</th><th class="ev">${t("ev")}</th><th class="num">${t("sh")}</th><th class="num hide-sm">${t("out")}</th><th class="num">${t("val")}</th><th class="num">${t("adv")}</th><th class="stc">${t("st")}</th></tr></thead>
         <tbody>${body}</tbody>
       </table></div>
       <p class="ul-note">${t("price")(P.p.toFixed(2), fd(P.d))} ${t("note")} ${t("asof")(fd(D.asof))}${srcs ? " " + t("src") + (lang() === "zh" ? "：" : ": ") + srcs : ""}</p>`;
+    host.querySelectorAll("[data-m]").forEach((b) => b.onclick = () => { mode = b.dataset.m; try { localStorage.setItem("unlocks-mode", mode); } catch (e) {} render(); });
+    drawChart(rows, now, P, A, OUT);
   }
 
   async function loadLive() {
@@ -178,5 +318,6 @@
     .catch(() => { failed = true; render(); });
   loadLive();
   setInterval(() => { if (!document.hidden) loadLive(); }, 60e3);
-  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  new MutationObserver(() => { if (D) render(); else render(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "data-theme"] });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (D) render(); });
 })();
