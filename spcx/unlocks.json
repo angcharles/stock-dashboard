@@ -1,0 +1,48 @@
+{
+  "asof": "2026-10-11",
+  "ipo": "2026-06-12",
+  "ipo_price": 135,
+  "fallback": { "price": 162.57, "price_date": "2026-10-09", "adv": 95460000, "adv_date": "2026-10-09" },
+  "groups": {
+    "std": { "en": "180-day lock-up", "zh": "180 天禁售" },
+    "ext": { "en": "Extended lock-up", "zh": "延长禁售" },
+    "musk": { "en": "Elon Musk", "zh": "马斯克" }
+  },
+  "tranches": [
+    { "date": "2026-08-06", "group": "std", "shares": 911.5, "fixed": true,
+      "en": "Q2 results + 2 trading days · 20%", "zh": "Q2 财报后第 2 个交易日 · 20%" },
+    { "date": "2026-08-06", "group": "std", "shares": 455.8, "fixed": true, "skip": true,
+      "en": "Price-trigger bonus · 10% (needed $175.50 close on 5 of 10 days; missed, rolled into Dec 8)",
+      "zh": "股价触发额外解禁 · 10%（需 10 日中 5 日收盘 ≥ $175.50；未触发，并入 12 月 8 日）" },
+    { "date": "2026-08-20", "group": "std", "shares": 319.0, "fixed": true, "en": "Day 70 · 7%", "zh": "第 70 天 · 7%" },
+    { "date": "2026-09-09", "group": "std", "shares": 319.0, "fixed": true, "en": "Day 90 · 7%", "zh": "第 90 天 · 7%" },
+    { "date": "2026-09-10", "group": "std", "shares": 59.1, "fixed": true, "en": "Day 91 · Rule 144 affiliates", "zh": "第 91 天 · Rule 144 关联人" },
+    { "date": "2026-09-24", "group": "std", "shares": 328.4, "fixed": true, "en": "Day 105 · 7%", "zh": "第 105 天 · 7%" },
+    { "date": "2026-10-09", "group": "std", "shares": 328.4, "fixed": true, "en": "Day 120 · 7%", "zh": "第 120 天 · 7%" },
+    { "date": "2026-10-26", "group": "std", "shares": 328.4, "fixed": true,
+      "en": "Day 135 · 7% (Oct 24 is a Saturday; first trading day Oct 26)", "zh": "第 135 天 · 7%（10 月 24 日为周六，首个交易日 10 月 26 日）" },
+    { "date": "2026-11-06", "group": "std", "shares": 1300.0, "fixed": false, "est": { "en": "Early Nov (est.)", "zh": "11 月初（估）" },
+      "en": "Q3 results + 2 trading days · 28% (results date not yet announced)", "zh": "Q3 财报后第 2 个交易日 · 28%（财报日期未公布）" },
+    { "date": "2026-12-08", "group": "std", "shares": 797.6, "fixed": true,
+      "en": "Day 180 · 180-day lock-up ends (remaining 17%)", "zh": "第 180 天 · 180 天禁售结束（剩余 17%）" },
+    { "date": "2027-02-10", "group": "ext", "shares": 351.9, "fixed": false, "est": { "en": "Feb 2027 (est.)", "zh": "2027 年 2 月（估）" },
+      "en": "Q4 2026 results + 2 trading days · 20% of extended block", "zh": "2026 Q4 财报后第 2 个交易日 · 延长组 20%" },
+    { "date": "2027-03-18", "group": "ext", "shares": 176.0, "fixed": true, "en": "Day 280 · 10% of extended block", "zh": "第 280 天 · 延长组 10%" },
+    { "date": "2027-05-07", "group": "ext", "shares": 351.9, "fixed": false, "est": { "en": "May 2027 (est.)", "zh": "2027 年 5 月（估）" },
+      "en": "Q1 2027 results + 2 trading days · 20% of extended block", "zh": "2027 Q1 财报后第 2 个交易日 · 延长组 20%" },
+    { "date": "2027-05-17", "group": "ext", "shares": 176.0, "fixed": true, "en": "Day 340 · 10% of extended block", "zh": "第 340 天 · 延长组 10%" },
+    { "date": "2027-06-14", "group": "ext", "shares": 351.9, "fixed": true,
+      "en": "Day 366 · 20% of extended block (Jun 12 is a Saturday)", "zh": "第 366 天 · 延长组 20%（6 月 12 日为周六）" },
+    { "date": "2027-06-14", "group": "musk", "shares": 6400.0, "fixed": true,
+      "en": "Day 366 · Musk's ~6.4B shares, no early release (Jun 12 is a Saturday)", "zh": "第 366 天 · 马斯克约 64 亿股，无提前解禁（6 月 12 日为周六）" },
+    { "date": "2027-08-06", "group": "ext", "shares": 351.9, "fixed": false, "est": { "en": "Aug 2027 (est.)", "zh": "2027 年 8 月（估）" },
+      "en": "Q2 2027 results + 2 trading days · last 20% of extended block", "zh": "2027 Q2 财报后第 2 个交易日 · 延长组最后 20%" }
+  ],
+  "sources": [
+    { "t": "SpaceX Form 424(b)(4) prospectus, Lock-up Agreements (SEC)", "u": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026042639/spaceexplorationtechnologi.htm" },
+    { "t": "SPCX lock-up calendar (The Financial Sciences)", "u": "https://thefinancialsciences.com/spacex-lockup-calendar" },
+    { "t": "Musk can't sell until June 2027 (Motley Fool)", "u": "https://www.fool.com/investing/2026/08/16/elon-musk-cant-sell-spacex-stock-until-june-2027-b/" },
+    { "t": "SPCX lock-up schedule, every date (Pure Power Picks)", "u": "https://purepowerpicks.com/spacex-lockup-schedule/" },
+    { "t": "Day 90 and day 91 tranches (FinanceFeeds)", "u": "https://financefeeds.com/spacex-spcx-lockup-september-9-319-million-shares" }
+  ]
+}
