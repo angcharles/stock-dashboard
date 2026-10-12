@@ -36,7 +36,9 @@
    ["2025-12-24", "AMZN", "Sell", "20,000 shares", "$1M–5M", "20033725"],
    ["2025-12-24", "NVDA", "Sell", "20,000 shares", "$1M–5M", "20033725"]
   ],
-  "reviewed_filings": ["20033725", "20034836", "20035143"],
+  "reviewed_filings": ["20033725", "20034836", "20035143", "20035553"],
+  "latest_filing": "Latest filing (Oct 2, 2026, #20035553): a $500K–1M real-estate LLC investment, no stock trades.",
+  "filing_year": "2026",
   "filing_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{id}.pdf"
  },
  "thiel": {

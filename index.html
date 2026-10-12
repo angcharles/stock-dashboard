@@ -55,7 +55,7 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
 </head>
 <body>
 <div class="shell">
-<aside id="moversL" aria-label="Top 5 gainers"></aside>
+<aside id="sideL" aria-label="Top gainers and the Pelosi portfolio"><div id="moversL"></div><div id="pfL"></div></aside>
 <main class="wrap">
   <div class="eyebrow">Investor dashboards · EN / 中文</div>
   <h1>Stock dashboards</h1>
@@ -96,7 +96,7 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
   <section id="news" data-src="data/news.json" data-tickers="ARM,TSLA,SNDK,INTC,SPCX,MU,LITE,COHR,GOOGL,META,NVDA,ZS,BE,AAOI,AMD,MP,AMZN,MSFT,MRVL,SKHY,TSM,AVGO,ROK,AMAT,ASML,PLTR,GLW,TER" aria-label="Latest news"></section>
   <footer>For information only, not investment advice. Not affiliated with any company shown.</footer>
 </main>
-<aside id="moversR" aria-label="Top 5 losers"></aside>
+<aside id="sideR" aria-label="Top losers and the Thiel portfolio"><div id="moversR"></div><div id="pfR"></div></aside>
 </div>
 <script>
 document.querySelectorAll("a.card").forEach(async a=>{
@@ -113,10 +113,11 @@ document.querySelectorAll("a.card").forEach(async a=>{
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 // Movers sit beside the main column on wide screens and under the stock cards otherwise.
-(function(){const L=document.getElementById("moversL"),R=document.getElementById("moversR"),shell=document.querySelector(".shell"),here=document.getElementById("moversHere"),main=shell.querySelector("main"),mq=matchMedia("(min-width:1500px)");
+(function(){const L=document.getElementById("sideL"),R=document.getElementById("sideR"),shell=document.querySelector(".shell"),here=document.getElementById("moversHere"),main=shell.querySelector("main"),mq=matchMedia("(min-width:1500px)");
 function place(){if(mq.matches){shell.insertBefore(L,main);shell.appendChild(R);}else{here.appendChild(L);here.appendChild(R);}}
 place();mq.addEventListener("change",place);})();
 </script>
 <script src="assets/movers.js?v=4"></script>
+<script src="assets/portfolios.js?v=1"></script>
 </body>
 </html>

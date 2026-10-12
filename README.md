@@ -55,6 +55,11 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `assets/movers.js` shows the latest session's 5 biggest gainers on the left of the main page and the 5 biggest losers on the right (under the stock cards on smaller screens), each as a candlestick chart with 5/10/30/100-day moving averages, Parabolic SAR and MACD (12, 26, 9), drawn with TradingView Lightweight Charts. The lists re-rank with every price refresh (every 10 minutes in US market hours plus the closing print), so they follow each trading day and hold the last session outside market hours. Indicator and range buttons are remembered per browser.
 - `scripts/fetch-quote.mjs` saves daily open/high/low as well as close in `history.json`.
 
+## Pelosi and Thiel portfolios (main page)
+- `assets/portfolios.js` adds two panels under the top movers: Nancy Pelosi's household portfolio on the left and Peter Thiel's (Thiel Macro LLC) on the right, each with a performance chart vs the S&P 500 (SPY), a holdings table and notes.
+- Holdings live in `data/portfolios.json`. Pelosi: estimated weights (Pelosi Tracker) plus every 2026 stock/option row from her House periodic transaction reports; the return is a model (fixed weights, rebalanced daily). Thiel: exact share counts from the latest 13F (CIK 1562087), marked to market since the quarter end.
+- `scripts/build-portfolios.py` runs in `.github/workflows/ta-data.yml` after each US close: it fetches prices for every holding and SPY, writes `data/portfolios-perf.json`, and checks SEC EDGAR and the House Clerk index for new filings. A new filing shows a "review pending" flag on the panel until `data/portfolios.json` is updated (the daily Claude scheduled task does this).
+
 ## News feed
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.
