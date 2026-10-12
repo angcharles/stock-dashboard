@@ -73,7 +73,7 @@ jobs:
       - name: Fetch prices for the Pelosi and Thiel panels
         run: |
           for t in SPY $(python3 -c "import json;c=json.load(open('data/portfolios.json'));print(' '.join(sorted({h[0] for k in ('pelosi','thiel') for h in c[k]['holdings']})))"); do
-            node scripts/fetch-quote.mjs $t pf-data/$t 1y
+            mkdir -p pf-data/$t && node scripts/fetch-quote.mjs $t pf-data/$t 1y
           done
 
       - name: Build portfolio performance and check for new filings
