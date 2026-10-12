@@ -1,57 +1,64 @@
 {
- "asof": "Oct 9, 2026",
- "close": 1103.35,
+ "asof": "Oct 12, 2026",
+ "close": 995.41,
  "bias": {
-  "en": "Bullish trend · extended, momentum fading",
-  "zh": "多头趋势 · 涨幅已大，动能减弱"
+  "en": "Uptrend under pressure · sharp reversal from a record",
+  "zh": "上升趋势受压 · 纪录高点后急跌"
  },
  "read": [
   {
-   "en": "Lumentum is in a clean uptrend. The averages are stacked in bullish order (5 > 10 > 30 > 100), all rising, and the stock touched a record $1,143 on Oct 9. Parabolic SAR has been under price since Sep 22. The warning signs are about pace, not direction: the MACD histogram has shrunk for three days, RSI eased from 70 to 63, and the stock is 15% above its 30-day average.",
-   "zh": "Lumentum 处于清晰的上升趋势。均线呈多头排列（5 > 10 > 30 > 100）且全部上行，10月9日盘中创下 $1,143 纪录。抛物线 SAR 自 9月22日起位于股价下方。警示信号关乎速度而非方向：MACD 柱体连续三天收缩，RSI 由 70 回落至 63，股价高出 30 日均线 15%。"
+   "en": "Lumentum fell 9.8% on Oct 12 to $995.41 on heavier volume, a sharp reversal from Friday's record high of $1,143. It dropped below its 5 and 10-day averages ($1,056–1,078) but stays above the rising 30-day ($961), 100-day ($876) and 200-day ($767). Parabolic SAR flipped bearish, the MACD histogram has fallen from 18 to 3 so a bearish cross is close, and RSI is 51.",
+   "zh": "Lumentum 10月12日放量下跌 9.8%，收于 $995.41，较上周五 $1,143 的纪录高点急速反转。股价跌破 5 日和 10 日均线（$1,056–1,078），但仍高于上行的 30 日（$961）、100 日（$876）和 200 日均线（$767）。抛物线 SAR 转空，MACD 柱体由 18 降至 3，接近死叉，RSI 为 51。"
   },
   {
-   "en": "With no overhead supply, resistance is the record high and round numbers: $1,143, then $1,200. The first support is the 10-day average near $1,048, which caught the Oct 8 dip. Below that, $1,007 (tested four times in September) and the 30-day average near $957 are where the trend would be properly tested. Daily swings average 6%, so wide stops are needed.",
-   "zh": "上方无套牢盘，阻力为纪录高点与整数关口：$1,143，然后 $1,200。首个支撑为 10 日均线（约 $1,048），10月8日回调即止于此。再往下，$1,007（9月四次测试）与 30 日均线（约 $957）才是真正检验趋势的位置。日均波幅约 6%，止损需设宽。"
+   "en": "Both supports from the last read broke: $1,048 and the $1,007 shelf tested four times in September (intraday low $980). The 30-day average at $961 is the next test, then $881 (Sep 28 low) and $832. Resistance is now $1,007, then the 5 and 10-day averages near $1,056–1,078 and the $1,143 record.",
+   "zh": "上次解读中的两个支撑均已失守：$1,048 及 9月四次测试的 $1,007 平台（盘中低点 $980）。下一测试为 $961 的 30 日均线，其次 $881（9月28日低点）和 $832。阻力现为 $1,007，其次约 $1,056–1,078 的 5 日和 10 日均线，以及 $1,143 纪录高点。"
   }
  ],
  "levels": {
   "r": [
    [
-    1143,
+    1007,
     {
-     "en": "Record high, Oct 9",
-     "zh": "10月9日纪录高点"
+     "en": "September shelf, now resistance",
+     "zh": "9月平台，转为阻力"
     }
    ],
    [
-    1200,
+    1060,
     {
-     "en": "Round number",
-     "zh": "整数关口"
+     "en": "5 and 10-day averages ($1,056–1,078)",
+     "zh": "5日和10日均线（$1,056–1,078）"
+    }
+   ],
+   [
+    1143,
+    {
+     "en": "Record high, Oct 9",
+     "zh": "纪录高点，10月9日"
     }
    ]
   ],
   "s": [
    [
-    1048,
-    {
-     "en": "10-day average; Oct 8 close",
-     "zh": "10日均线；10月8日收盘"
-    }
-   ],
-   [
-    1007,
-    {
-     "en": "Tested four times in September",
-     "zh": "9月四次测试"
-    }
-   ],
-   [
-    957,
+    961,
     {
      "en": "30-day average",
      "zh": "30日均线"
+    }
+   ],
+   [
+    881,
+    {
+     "en": "Sep 28 low",
+     "zh": "9月28日低点"
+    }
+   ],
+   [
+    832,
+    {
+     "en": "Sep 15 low",
+     "zh": "9月15日低点"
     }
    ]
   ]

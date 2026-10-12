@@ -1,61 +1,61 @@
 {
- "asof": "Oct 9, 2026",
- "close": 1780.34,
+ "asof": "Oct 12, 2026",
+ "close": 1750.24,
  "bias": {
-  "en": "Neutral · momentum fading into Oct 14 results",
-  "zh": "中性 · 10月14日财报前动能减弱"
+  "en": "Neutral · on the 30 and 100-day averages before results",
+  "zh": "中性 · 业绩前站在 30 日与 100 日均线上"
  },
  "read": [
   {
-   "en": "ASML closed at $1,780 on Oct 9, 4.7% below the Oct 2 closing high of $1,867. It is under the 5 and 10-day averages ($1,810–1,814) but above the 20, 30, 50 and 100-day averages, which are bunched at $1,729–1,745, and well above the 200-day ($1,562). MACD is still above its signal line, but the gap shrank from 20 to under 3 in five sessions, so a bearish cross is close. RSI is 52.",
-   "zh": "阿斯麦 10月9日收于 $1,780，较 10月2日收盘高点 $1,867 低 4.7%。股价位于 5 日与 10 日均线（$1,810–1,814）下方，但高于聚集在 $1,729–1,745 的 20、30、50 和 100 日均线，并远高于 200 日均线（$1,562）。MACD 仍在信号线上方，但差距五个交易日内由 20 缩至不足 3，接近死叉。RSI 为 52。"
+   "en": "ASML eased 1.7% on Oct 12 to $1,750, closing at the day's low and 6% below its Oct 5 close. It is under its 5 and 10-day averages ($1,788–1,812) but sitting right on the 30-day ($1,731) and 100-day ($1,746), with the 200-day ($1,565) rising. MACD crossed below its signal on Oct 12, RSI is 49, and Parabolic SAR is still bullish but only 1.5% below price ($1,725).",
+   "zh": "阿斯麦 10月12日下跌 1.7%，收于 $1,750，收在当日最低，较 10月5日收盘价下跌 6%。股价位于 5 日和 10 日均线（$1,788–1,812）下方，但正站在 30 日（$1,731）和 100 日（$1,746）均线上，200 日均线（$1,565）向上。MACD 于 10月12日下穿信号线，RSI 为 49，抛物线 SAR 仍看多，但仅在股价下方 1.5%（$1,725）。"
   },
   {
-   "en": "The Oct 14 results will likely set the direction; the stock fell 15% in the two weeks after the July report. The $1,729–1,745 band of averages is the first support, then the Sep 3 low at $1,646 and the Sep 14 low at $1,575. Overhead, the short averages near $1,812 come first, then the Oct 2 high of $1,867 and the record close of $1,989 from Jun 30.",
-   "zh": "10月14日财报可能决定方向；7月财报后两周股价曾下跌 15%。$1,729–1,745 的均线密集区是第一支撑，其下为 9月3日低点 $1,646 和 9月14日低点 $1,575。上方首先是约 $1,812 的短期均线，然后是 10月2日高点 $1,867 及 6月30日的历史收盘高点 $1,989。"
+   "en": "The $1,725–1,746 band (30 and 100-day averages plus SAR) decides the short-term trend going into results; a close below it points to $1,619 (Sep 3 low), then $1,573. Resistance is the 5 and 10-day averages at $1,788–1,812, then the Oct 2 high of $1,873.50 and the $2,000 record.",
+   "zh": "$1,725–1,746 区间（30 日、100 日均线及 SAR）决定业绩前的短线走势；若收盘跌破，下看 $1,619（9月3日低点），再看 $1,573。阻力为 $1,788–1,812 的 5 日和 10 日均线，其次 10月2日高点 $1,873.50 及 $2,000 纪录高点。"
   }
  ],
  "levels": {
   "r": [
    [
-    1812,
+    1800,
     {
-     "en": "5 and 10-day averages",
-     "zh": "5日与10日均线"
+     "en": "5 and 10-day averages ($1,788–1,812)",
+     "zh": "5日和10日均线（$1,788–1,812）"
     }
    ],
    [
-    1867,
+    1873.5,
     {
-     "en": "Oct 2 closing high",
-     "zh": "10月2日收盘高点"
+     "en": "Oct 2 high",
+     "zh": "10月2日高点"
     }
    ],
    [
-    1989,
+    2000,
     {
-     "en": "Record close, Jun 30",
-     "zh": "6月30日历史收盘高点"
+     "en": "Record high, Jun 30",
+     "zh": "纪录高点，6月30日"
     }
    ]
   ],
   "s": [
    [
-    1740,
+    1735,
     {
-     "en": "20, 30, 50 and 100-day averages ($1,729–1,745)",
-     "zh": "20、30、50与100日均线（$1,729–1,745）"
+     "en": "30 and 100-day averages, SAR ($1,725–1,746)",
+     "zh": "30日、100日均线及SAR（$1,725–1,746）"
     }
    ],
    [
-    1646,
+    1619,
     {
      "en": "Sep 3 low",
      "zh": "9月3日低点"
     }
    ],
    [
-    1575,
+    1573,
     {
      "en": "Sep 14 low",
      "zh": "9月14日低点"

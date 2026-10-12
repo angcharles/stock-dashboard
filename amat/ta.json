@@ -1,54 +1,54 @@
 {
- "asof": "Oct 9, 2026",
- "close": 507.03,
+ "asof": "Oct 12, 2026",
+ "close": 497.53,
  "bias": {
-  "en": "Neutral · pulling back after the October bounce",
-  "zh": "中性 · 10月反弹后回落"
+  "en": "Neutral · pullback testing the $490s",
+  "zh": "中性 · 回调测试 $490 一带"
  },
  "read": [
   {
-   "en": "Applied Materials has slipped 6.5% from the Oct 5 close of $542 and now sits just below its 5, 10 and 100-day averages ($516–522). It remains above the 30-day ($474), 50-day ($490) and 200-day ($434). MACD is still above its signal line, but the histogram has shrunk for four days in a row, and RSI has cooled from 70 to 55.",
-   "zh": "应用材料自 10月5日收盘价 $542 回落 6.5%，现略低于 5 日、10 日与 100 日均线（$516–522），仍高于 30 日（$474）、50 日（$490）和 200 日（$434）均线。MACD 仍在信号线上方，但柱体已连续四日收缩，RSI 由 70 降至 55。"
+   "en": "Applied Materials slipped 1.9% on Oct 12 to $497.53, down 8% in five sessions. It is below its 5, 10 and 100-day averages ($513–520) but still above the 30-day ($475) and the rising 200-day ($436). Parabolic SAR has been bearish since Oct 8, and the MACD histogram has shrunk from 8.6 to 1.6 in three sessions, so a bearish cross is near. RSI is 51.",
+   "zh": "应用材料 10月12日下跌 1.9%，收于 $497.53，五个交易日下跌 8%。股价位于 5 日、10 日和 100 日均线（$513–520）下方，但仍高于 30 日均线（$475）及上行的 200 日均线（$436）。抛物线 SAR 自 10月8日起看空，MACD 柱体三个交易日内由 8.6 缩至 1.6，接近死叉。RSI 为 51。"
   },
   {
-   "en": "The first test is the 50-day near $490; holding it keeps the September rebound intact. Below that, $472–474 (the 30-day and a late-September shelf) and then $436, a low hit on Jul 29 and again on Sep 3. Overhead, $516–522 must be reclaimed first, then $542–548, which capped rallies in August and October.",
-   "zh": "首先测试约 $490 的 50 日均线；守住则 9月以来的反弹未破。跌破则看 $472–474（30 日均线及 9月下旬平台），再看 7月29日与 9月3日两度触及的低点 $436。上方需先收复 $516–522，然后是 8月与 10月两度压制反弹的 $542–548。"
+   "en": "The Oct 12 low of $492 is the first support; below it the 30-day average and late-September shelf near $475 matter most, then $436 (Jul 29 pivot). Overhead, the cluster of averages at $513–520 is the first hurdle, then $542–548, which capped rallies in August and on Oct 2.",
+   "zh": "10月12日低点 $492 为第一支撑；跌破则关注约 $475 的 30 日均线及9月下旬平台，其次是 $436（7月29日转折点）。上方首个阻碍为 $513–520 的均线密集区，其次 $542–548，该区域曾在8月和10月2日压制反弹。"
   }
  ],
  "levels": {
   "r": [
    [
-    519,
+    516,
     {
-     "en": "5, 10 and 100-day averages ($516–522)",
-     "zh": "5日、10日与100日均线（$516–522）"
+     "en": "5, 10 and 100-day averages ($513–520)",
+     "zh": "5日、10日和100日均线（$513–520）"
     }
    ],
    [
     545,
     {
-     "en": "Capped rallies in Aug and Oct ($542–548)",
-     "zh": "8月与10月反弹受阻（$542–548）"
+     "en": "Capped rallies in Aug and on Oct 2 ($542–548)",
+     "zh": "8月及10月2日反弹受阻区（$542–548）"
     }
    ],
    [
-    565,
+    564,
     {
-     "en": "Jul 21 rebound high",
-     "zh": "7月21日反弹高点"
+     "en": "Aug 13 swing high",
+     "zh": "8月13日波段高点"
     }
    ]
   ],
   "s": [
    [
-    490,
+    492,
     {
-     "en": "50-day average",
-     "zh": "50日均线"
+     "en": "Oct 12 low",
+     "zh": "10月12日低点"
     }
    ],
    [
-    474,
+    475,
     {
      "en": "30-day average and late-Sep shelf",
      "zh": "30日均线及9月下旬平台"
@@ -57,8 +57,8 @@
    [
     436,
     {
-     "en": "Jul 29 and Sep 3 lows",
-     "zh": "7月29日与9月3日低点"
+     "en": "Jul 29 pivot",
+     "zh": "7月29日转折点"
     }
    ]
   ]

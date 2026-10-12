@@ -1,27 +1,34 @@
 {
- "asof": "Oct 9, 2026",
- "close": 1029.0,
+ "asof": "Oct 12, 2026",
+ "close": 989.04,
  "bias": {
-  "en": "Uptrend intact · short-term range $1,017–1,109",
-  "zh": "上升趋势未破 · 短线区间 $1,017–1,109"
+  "en": "Short-term bearish · testing the 100-day average",
+  "zh": "短线偏空 · 测试 100 日均线"
  },
  "read": [
   {
-   "en": "Micron's medium trend is still up: price is above the rising 30-day ($1,017) and 100-day ($969) averages, and the 200-day ($702) is far below. The short term has cooled. Price slipped under the 5 and 10-day averages, MACD crossed below its signal on Oct 6, and Parabolic SAR flipped bearish on Oct 7. RSI at 50 is neutral, so this reads as a pause, not a breakdown.",
-   "zh": "美光中期趋势仍向上：股价位于上行的 30 日（$1,017）与 100 日（$969）均线上方，200 日均线（$702）远在下方。短线降温：股价跌破 5 日与 10 日均线，MACD 于 10月6日下穿信号线，抛物线 SAR 于 10月7日转空。RSI 50 属中性，更像是休整而非破位。"
+   "en": "Micron fell 3.9% on Oct 12 to $989.04, closing below its 30-day average ($1,019) and the $1,017 support from the last read. It is also under the 5 and 10-day averages ($1,037–1,055) but still above the 100-day ($972) and the rising 200-day ($705). MACD has been below its signal since Oct 6 with a widening histogram, Parabolic SAR has been bearish since Oct 7, and RSI is 45.",
+   "zh": "美光 10月12日下跌 3.9%，收于 $989.04，收盘跌破 30 日均线（$1,019）及上次解读中的 $1,017 支撑。股价同时位于 5 日和 10 日均线（$1,037–1,055）下方，但仍高于 100 日（$972）和上行的 200 日均线（$705）。MACD 自 10月6日起位于信号线下方且柱体扩大，抛物线 SAR 自 10月7日起看空，RSI 为 45。"
   },
   {
-   "en": "The stock has been stuck between about $1,017 and $1,109 for three weeks. $1,017–1,020 is the 30-day average and a pivot tested four times; a daily close below it opens the 100-day near $969, then $884–903. Sellers have capped rallies at $1,102–1,109 three times; a close above that targets the June record of $1,255.",
-   "zh": "股价已在约 $1,017 至 $1,109 之间徘徊三周。$1,017–1,020 为 30 日均线及四次测试的转折点；若日线收盘跌破，下看 100 日均线（约 $969），再看 $884–903。卖方三次在 $1,102–1,109 压制反弹；收盘突破则目标看 6月纪录高位 $1,255。"
+   "en": "The 100-day average at $972 (Oct 12 low $978.50) is the key test. Below it, $903 (Sep 14 low) and $888 (Aug 24 low) are next. Resistance is the 30-day average near $1,019, then $1,037–1,055 (5 and 10-day averages) and $1,109, which capped three rallies since Sep 25.",
+   "zh": "$972 的 100 日均线（10月12日低点 $978.50）是关键测试。若跌破，下看 $903（9月14日低点）和 $888（8月24日低点）。阻力为约 $1,019 的 30 日均线，其次 $1,037–1,055（5 日和 10 日均线），以及 9月25日以来三次压制反弹的 $1,109。"
   }
  ],
  "levels": {
   "r": [
    [
-    1062,
+    1019,
     {
-     "en": "5 and 10-day averages",
-     "zh": "5日与10日均线"
+     "en": "30-day average; former support",
+     "zh": "30日均线；原支撑"
+    }
+   ],
+   [
+    1046,
+    {
+     "en": "5 and 10-day averages ($1,037–1,055)",
+     "zh": "5日和10日均线（$1,037–1,055）"
     }
    ],
    [
@@ -30,35 +37,28 @@
      "en": "Capped three rallies since Sep 25",
      "zh": "9月25日以来三次压制反弹"
     }
-   ],
-   [
-    1255,
-    {
-     "en": "June record high",
-     "zh": "6月纪录高点"
-    }
    ]
   ],
   "s": [
    [
-    1017,
+    972,
     {
-     "en": "30-day average, tested four times",
-     "zh": "30日均线，四次测试"
+     "en": "100-day average; Oct 12 low $978.5",
+     "zh": "100日均线；10月12日低点 $978.5"
     }
    ],
    [
-    969,
+    903,
     {
-     "en": "100-day average",
-     "zh": "100日均线"
+     "en": "Sep 14 low",
+     "zh": "9月14日低点"
     }
    ],
    [
-    884,
+    888,
     {
-     "en": "Sep 14 low, tested four times",
-     "zh": "9月14日低点，四次测试"
+     "en": "Aug 24 low",
+     "zh": "8月24日低点"
     }
    ]
   ]

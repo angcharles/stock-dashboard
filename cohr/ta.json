@@ -1,64 +1,64 @@
 {
- "asof": "Oct 9, 2026",
- "close": 312.62,
+ "asof": "Oct 12, 2026",
+ "close": 288.02,
  "bias": {
-  "en": "Neutral · range $299–342",
-  "zh": "中性 · 区间 $299–342"
+  "en": "Bearish turn · broke the $301 floor",
+  "zh": "转弱 · 跌破 $301 底部"
  },
  "read": [
   {
-   "en": "Coherent's signals are mixed. Price is above the 10, 30 and 200-day averages but below the 5-day ($324) and the declining 100-day ($327). MACD crossed bullish on Oct 1 but the histogram has been shrinking for three days, RSI is a neutral 52, and Parabolic SAR is still below price at $287. The Oct 8 drop to $299 was bought quickly, which is a constructive sign.",
-   "zh": "Coherent 信号分歧。股价位于 10 日、30 日和 200 日均线上方，但低于 5 日线（$324）及下行中的 100 日线（$327）。MACD 于 10月1日金叉，但柱体已连续三天收缩，RSI 为中性的 52，抛物线 SAR 仍在股价下方的 $287。10月8日跌至 $299 后迅速被买回，属积极信号。"
+   "en": "Coherent fell 7.9% on Oct 12 to $288.02, down 14% in five sessions, and broke below the $301 floor that had held five times since May. It is under the 5 and 10-day averages ($315), the 30-day ($299), the 200-day ($293) and the 100-day ($326). MACD crossed below its signal and Parabolic SAR flipped bearish on Oct 12; RSI is 45.",
+   "zh": "Coherent 10月12日下跌 7.9%，收于 $288.02，五个交易日下跌 14%，跌破自 5月以来五次守住的 $301 底部。股价位于 5 日和 10 日均线（$315）、30 日（$299）、200 日（$293）和 100 日均线（$326）下方。MACD 于 10月12日下穿信号线，抛物线 SAR 同日转空；RSI 为 45。"
   },
   {
-   "en": "The stock needs a close above $326–333 (the 100-day average and a level that capped seven swings) to restart its uptrend, with $342 and $364 above. Support is $299–302, which has held five times since May; below that, $279–287 (SAR and a March pivot) and then $260.",
-   "zh": "股价需收盘站上 $326–333（100 日均线及七次受阻位）才能重启升势，上方为 $342 与 $364。支撑在 $299–302，5月以来五次守住；其下为 $279–287（SAR 与3月转折点），再看 $260。"
+   "en": "The day's low of $284 is first support, then the Sep 28 low at $276 and the Sep 3 low at $255. The old floor at $293–301 (200 and 30-day averages) is now resistance; above it, the 5 and 10-day averages near $315 and the Oct 5 high of $342.",
+   "zh": "当日低点 $284 为第一支撑，其次 9月28日低点 $276 和 9月3日低点 $255。原先的底部 $293–301（200 日和 30 日均线）已转为阻力；其上为约 $315 的 5 日和 10 日均线，以及 10月5日高点 $342。"
   }
  ],
  "levels": {
   "r": [
    [
-    333,
+    299,
     {
-     "en": "100-day average; capped seven swings",
-     "zh": "100日均线；七次受阻"
+     "en": "30 and 200-day averages; old $301 floor ($293–301)",
+     "zh": "30日和200日均线；原 $301 底部（$293–301）"
+    }
+   ],
+   [
+    315,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日和10日均线"
     }
    ],
    [
     342,
     {
-     "en": "20-day high",
-     "zh": "20日高点"
-    }
-   ],
-   [
-    364,
-    {
-     "en": "April swing high",
-     "zh": "4月波段高点"
+     "en": "Oct 5 high; top of the range",
+     "zh": "10月5日高点；区间顶部"
     }
    ]
   ],
   "s": [
    [
-    301,
+    284,
     {
-     "en": "Held five times since May; Oct 8 low",
-     "zh": "5月以来五次守住；10月8日低点"
+     "en": "Oct 12 low",
+     "zh": "10月12日低点"
     }
    ],
    [
-    283,
+    276,
     {
-     "en": "SAR and March pivot ($279–287)",
-     "zh": "SAR 与3月转折点（$279–287）"
+     "en": "Sep 28 low",
+     "zh": "9月28日低点"
     }
    ],
    [
-    260,
+    255,
     {
-     "en": "Sep 14 low, tested four times",
-     "zh": "9月14日低点，四次测试"
+     "en": "Sep 3 low",
+     "zh": "9月3日低点"
     }
    ]
   ]

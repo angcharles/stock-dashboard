@@ -1,64 +1,64 @@
 {
- "asof": "Oct 9, 2026",
- "close": 1581.82,
+ "asof": "Oct 12, 2026",
+ "close": 1487.33,
  "bias": {
-  "en": "Short-term bearish · sitting on support",
-  "zh": "短线偏空 · 位于支撑位"
+  "en": "Short-term bearish · testing the $1,465–1,475 floor",
+  "zh": "短线偏空 · 测试 $1,465–1,475 底部"
  },
  "read": [
   {
-   "en": "Sandisk has lost 8% in five sessions and closed below all four of its short and medium averages, with the 30 and 100-day both near $1,650–1,675. MACD has been below its signal since Oct 2 and the gap is widening, RSI is 44, and Parabolic SAR turned bearish on Oct 6. The stock is 33% off its June peak of $2,354, though still far above the 200-day average ($1,182).",
-   "zh": "闪迪五个交易日下跌 8%，收盘跌破全部四条中短期均线，30 日和 100 日均线均在 $1,650–1,675 附近。MACD 自 10月2日起位于信号线下方且差距扩大，RSI 为 44，抛物线 SAR 于 10月6日转空。股价较6月高点 $2,354 回落 33%，但仍远高于 200 日均线（$1,182）。"
+   "en": "Sandisk fell 6% on Oct 12 to $1,487, down 13% in five sessions, and closed below the Sep 16 low of $1,504. It is under its 5-day ($1,606), 10 and 30-day ($1,671–1,674) and 100-day ($1,649) averages, though still above the rising 200-day ($1,188). MACD is below its signal and zero line with a widening histogram, Parabolic SAR has been bearish since Oct 6, and RSI is 39.",
+   "zh": "闪迪 10月12日下跌 6%，收于 $1,487，五个交易日下跌 13%，收盘跌破 9月16日低点 $1,504。股价位于 5 日（$1,606）、10 日与 30 日（$1,671–1,674）及 100 日均线（$1,649）下方，但仍高于上行的 200 日均线（$1,188）。MACD 位于信号线及零轴下方且柱体扩大，抛物线 SAR 自 10月6日起看空，RSI 为 39。"
   },
   {
-   "en": "The $1,470–1,505 zone is the line to watch: it is the 20-day low and a level that held five times since June. Holding it keeps the stock in a sideways range; a close below it targets $1,300, the July low. On the upside, sellers have defended $1,650–1,675 (the 30 and 100-day averages) and $1,853, which capped five rallies in September.",
-   "zh": "需关注 $1,470–1,505 区域：这是 20 日低点，也是6月以来五次守住的位置。守住则维持横盘；收盘跌破则下看 $1,300（7月低点）。上方，卖方在 $1,650–1,675（30 日与 100 日均线）及 $1,853（9月五次反弹受阻处）设防。"
+   "en": "The day's low of $1,464 tested the $1,473 floor that has held five times since June. A close below it would target $1,417 (Aug 24 low), then $1,325 (Jul 17 low). Resistance is $1,504, then the 5-day average near $1,606 and $1,649–1,674 (10, 30 and 100-day averages).",
+   "zh": "当日低点 $1,464 测试了自 6月以来五次守住的 $1,473 底部。若收盘跌破，目标看 $1,417（8月24日低点），再看 $1,325（7月17日低点）。阻力为 $1,504，其次约 $1,606 的 5 日均线，以及 $1,649–1,674（10 日、30 日和 100 日均线）。"
   }
  ],
  "levels": {
   "r": [
    [
+    1504,
+    {
+     "en": "Sep 16 low, now resistance",
+     "zh": "9月16日低点，转为阻力"
+    }
+   ],
+   [
+    1606,
+    {
+     "en": "5-day average",
+     "zh": "5日均线"
+    }
+   ],
+   [
     1660,
     {
-     "en": "30 and 100-day averages",
-     "zh": "30日与100日均线"
-    }
-   ],
-   [
-    1853,
-    {
-     "en": "Capped five rallies in September",
-     "zh": "9月五次反弹受阻"
-    }
-   ],
-   [
-    1909,
-    {
-     "en": "Top of the 20-day range",
-     "zh": "20日区间顶部"
+     "en": "10, 30 and 100-day averages ($1,649–1,674)",
+     "zh": "10日、30日和100日均线（$1,649–1,674）"
     }
    ]
   ],
   "s": [
    [
-    1504,
-    {
-     "en": "20-day low",
-     "zh": "20日低点"
-    }
-   ],
-   [
     1473,
     {
-     "en": "Held five times since June",
-     "zh": "6月以来五次守住"
+     "en": "Held five times since June; Oct 12 low $1,464",
+     "zh": "6月以来五次守住；10月12日低点 $1,464"
     }
    ],
    [
-    1301,
+    1417,
     {
-     "en": "July low",
-     "zh": "7月低点"
+     "en": "Aug 24 low",
+     "zh": "8月24日低点"
+    }
+   ],
+   [
+    1325,
+    {
+     "en": "Jul 17 low",
+     "zh": "7月17日低点"
     }
    ]
   ]

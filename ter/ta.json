@@ -1,64 +1,64 @@
 {
- "asof": "Oct 9, 2026",
- "close": 402.68,
+ "asof": "Oct 12, 2026",
+ "close": 383.85,
  "bias": {
-  "en": "Neutral · pullback after the Oct 2 high, above the 30, 50 and 100-day",
-  "zh": "中性 · 10月2日高点后回调，位于30、50及100日均线上方"
+  "en": "Neutral · pullback onto the 30 and 100-day averages",
+  "zh": "中性 · 回调至 30 日与 100 日均线"
  },
  "read": [
   {
-   "en": "Teradyne fell 10% from its Oct 2 close of $449 and now sits below the 5 and 10-day averages ($416–418) but above the 20-day ($392) and a cluster of the 30, 50 and 100-day averages near $381–383. MACD is still just above its signal line, but the histogram has shrunk for four days and is close to a bearish cross. RSI is 53, so the stock is neither stretched nor oversold.",
-   "zh": "泰瑞达由 10月2日收盘 $449 回落 10%，目前位于 5 日与 10 日均线（$416–418）下方，但在 20 日均线（$392）及约 $381–383 的 30、50、100 日均线密集区上方。MACD 仍略高于信号线，但柱体已连续四日收缩，接近死叉。RSI 为 53，既不过热也未超卖。"
+   "en": "Teradyne fell 4.7% on Oct 12 to $383.85, down 14% in five sessions. The day's low of $381.83 landed exactly on the 30 and 100-day averages ($381.8), with the 200-day ($342) rising below. It is under the 5 and 10-day averages ($405–414). MACD crossed below its signal on Oct 12, Parabolic SAR has been bearish since Oct 8, and RSI is 47.",
+   "zh": "泰瑞达 10月12日下跌 4.7%，收于 $383.85，五个交易日下跌 14%。当日低点 $381.83 恰好落在 30 日和 100 日均线（$381.8）上，下方 200 日均线（$342）向上。股价位于 5 日和 10 日均线（$405–414）下方。MACD 于 10月12日下穿信号线，抛物线 SAR 自 10月8日起看空，RSI 为 47。"
   },
   {
-   "en": "First support is $389, the Oct 8 low and a September pivot. Below that, the $381–383 average cluster matters most; a close under it would point back to the mid-September low near $329. Overhead, $416 comes first, then $444–452 where the Aug 17 and Oct 2 highs both stalled, and then the June record near $484–488. Earnings in late October can move the stock well beyond these levels.",
-   "zh": "首个支撑为 $389，即 10月8日低点及 9月转折位。其下 $381–383 的均线密集区最关键；若收盘跌破，下看 9月中旬低点约 $329。上方先看 $416，再看 8月17日与 10月2日两度受阻的 $444–452，然后是 6月纪录高位约 $484–488。10月下旬的财报可能令股价大幅越过这些价位。"
+   "en": "The $382 band is the key test; a close below it points to the 200-day near $342, then $326 (September lows). The $389 support from the last read is now first resistance, then $405–414 (5 and 10-day averages, Oct 9 high) and $444–452.",
+   "zh": "$382 区域为关键测试；若收盘跌破，下看约 $342 的 200 日均线，再看 $326（9月低点）。上次解读中的 $389 支撑现为第一阻力，其次 $405–414（5 日和 10 日均线、10月9日高点）及 $444–452。"
   }
  ],
  "levels": {
   "r": [
    [
-    416,
+    389,
     {
-     "en": "5 and 10-day averages; Oct 1 close",
-     "zh": "5日与10日均线；10月1日收盘"
+     "en": "Oct 8 low; Sep 23 pivot",
+     "zh": "10月8日低点；9月23日转折点"
+    }
+   ],
+   [
+    410,
+    {
+     "en": "5 and 10-day averages, Oct 9 high ($405–414)",
+     "zh": "5日和10日均线、10月9日高点（$405–414）"
     }
    ],
    [
     449,
     {
      "en": "Aug 17 and Oct 2 highs ($444–452)",
-     "zh": "8月17日与10月2日高点（$444–452）"
-    }
-   ],
-   [
-    484,
-    {
-     "en": "Jun 30 record close",
-     "zh": "6月30日收盘纪录"
+     "zh": "8月17日及10月2日高点（$444–452）"
     }
    ]
   ],
   "s": [
    [
-    389,
-    {
-     "en": "Oct 8 low; Sep 23 pivot",
-     "zh": "10月8日低点；9月23日转折位"
-    }
-   ],
-   [
     382,
     {
-     "en": "30, 50 and 100-day averages ($381–383)",
-     "zh": "30、50、100日均线（$381–383）"
+     "en": "30 and 100-day averages; Oct 12 low",
+     "zh": "30日和100日均线；10月12日低点"
     }
    ],
    [
-    329,
+    342,
     {
-     "en": "Mid-September low",
-     "zh": "9月中旬低点"
+     "en": "200-day average",
+     "zh": "200日均线"
+    }
+   ],
+   [
+    326,
+    {
+     "en": "September lows",
+     "zh": "9月低点"
     }
    ]
   ]

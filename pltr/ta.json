@@ -1,27 +1,27 @@
 {
- "asof": "Oct 9, 2026",
- "close": 209.05,
+ "asof": "Oct 12, 2026",
+ "close": 209,
  "bias": {
   "en": "Bullish trend · at a record, overbought",
-  "zh": "多头趋势 · 创纪录，超买"
+  "zh": "上升趋势 · 处于纪录高位，超买"
  },
  "read": [
   {
-   "en": "Palantir closed at a record $209.05 on Oct 9, up 5% on the day and above the old $207.18 closing high from Nov 3, 2025. The averages are stacked in bullish order (5-day $197 > 10-day $192 > 30-day $183 > 100-day $154), and MACD is above its signal with the histogram widening for three days. The stretch is the warning: RSI is 76, and the stock is 14% above its 30-day average.",
-   "zh": "Palantir 于 10月9日以 $209.05 创收盘纪录，当日上涨 5%，超越 2025年11月3日 $207.18 的旧收盘高点。均线呈多头排列（5 日 $197 > 10 日 $192 > 30 日 $183 > 100 日 $154），MACD 位于信号线上方，柱体连续三日放大。警示在于涨幅过大：RSI 为 76，股价高出 30 日均线 14%。"
+   "en": "Palantir closed flat at $209.00 on Oct 12 after setting a new record of $212.94 intraday. It is up 10% in five sessions and 21% in 20, and above all its averages, all rising: 5-day ($200.6), 10-day ($194.5), 30-day ($184), 100-day ($155) and 200-day ($152). MACD has been above its signal since Oct 6 with a growing histogram, Parabolic SAR has been bullish since Sep 21, and RSI is 76.",
+   "zh": "Palantir 10月12日盘中创下 $212.94 新纪录后收平于 $209.00。五个交易日上涨 10%，20 个交易日上涨 21%，股价位于全部均线上方且均线均向上：5 日（$200.6）、10 日（$194.5）、30 日（$184）、100 日（$155）和 200 日（$152）。MACD 自 10月6日起位于信号线上方且柱体放大，抛物线 SAR 自 9月21日起看多，RSI 为 76。"
   },
   {
-   "en": "There is no overhead supply, so resistance is the Oct 9 intraday record of $209.58 and then round numbers at $220 and $230. First support is the 5-day average and Oct 8 close near $197–199. Below that, $192–194 (10-day average, Sep 24 high and the Oct 6–7 closes) and the 30-day average near $183 are where the rally would be properly tested. The stock moves about $6 a day on average, so expect wide swings around the Nov 2 report.",
-   "zh": "上方无套牢盘，阻力为 10月9日盘中纪录 $209.58，其后为 $220 与 $230 整数关口。首个支撑为 5 日均线与 10月8日收盘（约 $197–199）。再往下，$192–194（10 日均线、9月24日高点及 10月6–7日收盘）与约 $183 的 30 日均线才是真正检验涨势的位置。日均波幅约 $6，11月2日财报前后波动可能较大。"
+   "en": "With RSI at 76 and price 14% above the 30-day average, the trend is strong but stretched, and the close well off the high hints at hesitation. A close above $213 targets $220 and then $230. Support is the 5-day average near $200.6 (Oct 8 high $204.4 above it), then $194.5 (10-day average, Sep 24 high) and SAR at $189.6.",
+   "zh": "RSI 为 76，股价高于 30 日均线 14%，趋势强劲但已偏离较远，收盘明显低于高点显示多方迟疑。若收盘站上 $213，目标看 $220，再看 $230。支撑为约 $200.6 的 5 日均线（其上为 10月8日高点 $204.4），其次 $194.5（10 日均线、9月24日高点）及 $189.6 的 SAR。"
   }
  ],
  "levels": {
   "r": [
    [
-    209.6,
+    213,
     {
-     "en": "Record high, Oct 9",
-     "zh": "10月9日纪录高点"
+     "en": "Record high, Oct 12",
+     "zh": "纪录高点，10月12日"
     }
    ],
    [
@@ -41,24 +41,24 @@
   ],
   "s": [
    [
-    197,
+    200.6,
     {
-     "en": "5-day average; Oct 8 close $198.78",
-     "zh": "5日均线；10月8日收盘 $198.78"
+     "en": "5-day average; Oct 8 high $204.4",
+     "zh": "5日均线；10月8日高点 $204.4"
     }
    ],
    [
-    192,
+    194.5,
     {
-     "en": "10-day average, Sep 24 high, Oct 6–7 closes ($192–195)",
-     "zh": "10日均线、9月24日高点、10月6–7日收盘（$192–195）"
+     "en": "10-day average, Sep 24 high",
+     "zh": "10日均线、9月24日高点"
     }
    ],
    [
-    183,
+    189.6,
     {
-     "en": "30-day average; Sep 21–22 closes",
-     "zh": "30日均线；9月21–22日收盘"
+     "en": "Parabolic SAR",
+     "zh": "抛物线 SAR"
     }
    ]
   ]

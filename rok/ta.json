@@ -1,34 +1,34 @@
 {
- "asof": "Oct 9, 2026",
- "close": 432.59,
+ "asof": "Oct 12, 2026",
+ "close": 433.97,
  "bias": {
-  "en": "Neutral · testing support at the 30 and 200-day",
-  "zh": "中性 · 测试30日与200日均线支撑"
+  "en": "Neutral · holding the 30 and 200-day averages",
+  "zh": "中性 · 守住 30 日与 200 日均线"
  },
  "read": [
   {
-   "en": "Rockwell Automation pulled back 6% from the Oct 6 high of $460 and is now testing the 30-day ($430) and 200-day ($425) averages, which sit close together. It is below the 5, 10 and 100-day averages. MACD is still above its signal but the histogram has shrunk for four days and is close to a bearish cross, Parabolic SAR flipped bearish on Oct 8, and RSI is 48.",
-   "zh": "罗克韦尔自动化从 10月6日高点 $460 回落 6%，正在测试相距很近的 30 日（$430）与 200 日（$425）均线，并位于 5 日、10 日和 100 日均线下方。MACD 仍在信号线上方，但柱体已连续四日收缩，接近死叉；抛物线 SAR 于 10月8日转空，RSI 为 48。"
+   "en": "Rockwell edged up 0.3% on Oct 12 to $433.97, holding above its 30-day ($430) and 200-day ($425) averages after the Oct 8 dip to $426. It is below the 5 and 10-day averages ($439–441) and the 100-day ($449). The MACD histogram has shrunk to almost zero, so a bearish cross is close, Parabolic SAR has been bearish since Oct 8, and RSI is 49.",
+   "zh": "罗克韦尔 10月12日小涨 0.3%，收于 $433.97，在 10月8日下探 $426 后守在 30 日（$430）和 200 日均线（$425）上方。股价位于 5 日和 10 日均线（$439–441）及 100 日均线（$449）下方。MACD 柱体已缩至接近零，即将死叉，抛物线 SAR 自 10月8日起看空，RSI 为 49。"
   },
   {
-   "en": "$425–430 is the support that matters; holding it keeps the September uptrend alive. A close below it points to $419, a level that held seven times since August, then $402. Overhead, the 5 and 10-day averages near $441–443 come first, then $449–456 (the 100-day average and a level that capped five swings) and the Oct 6 high at $460.",
-   "zh": "$425–430 是关键支撑；守住则 9月以来的升势延续。若收盘跌破，下看 8月以来七次守住的 $419，再看 $402。上方首先是 5 日与 10 日均线（约 $441–443），然后是 $449–456（100 日均线及五次受阻位）以及 10月6日高点 $460。"
+   "en": "Support is $425–430 (30 and 200-day averages, Oct 8 low), then $407 (Sep 17 low) and $396. Resistance is $439–441, then $449–456, where the 100-day average sits and five swings have stalled, and the Oct 6 high of $460.",
+   "zh": "支撑为 $425–430（30 日和 200 日均线、10月8日低点），其次 $407（9月17日低点）和 $396。阻力为 $439–441，其次 $449–456（100 日均线所在、五次波段受阻），以及 10月6日高点 $460。"
   }
  ],
  "levels": {
   "r": [
    [
-    442,
+    440,
     {
-     "en": "5 and 10-day averages",
-     "zh": "5日与10日均线"
+     "en": "5 and 10-day averages ($439–441)",
+     "zh": "5日和10日均线（$439–441）"
     }
    ],
    [
     452,
     {
      "en": "100-day average; capped five swings ($449–456)",
-     "zh": "100日均线；五次受阻（$449–456）"
+     "zh": "100日均线；五次波段受阻（$449–456）"
     }
    ],
    [
@@ -41,24 +41,24 @@
   ],
   "s": [
    [
-    428,
+    427,
     {
-     "en": "30 and 200-day averages ($425–430)",
-     "zh": "30日与200日均线（$425–430）"
+     "en": "30 and 200-day averages, Oct 8 low ($425–430)",
+     "zh": "30日和200日均线、10月8日低点（$425–430）"
     }
    ],
    [
-    419,
+    407,
     {
-     "en": "Held seven times since August",
-     "zh": "8月以来七次守住"
+     "en": "Sep 17 low",
+     "zh": "9月17日低点"
     }
    ],
    [
-    402,
+    396,
     {
-     "en": "Sep 17 pivot",
-     "zh": "9月17日转折点"
+     "en": "Apr 29 pivot",
+     "zh": "4月29日转折点"
     }
    ]
   ]

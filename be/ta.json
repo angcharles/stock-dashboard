@@ -1,57 +1,50 @@
 {
- "asof": "Oct 9, 2026",
- "close": 280.5,
+ "asof": "Oct 12, 2026",
+ "close": 262.28,
  "bias": {
-  "en": "Neutral · short-term pause in an uptrend",
-  "zh": "中性 · 上升趋势中的短线停顿"
+  "en": "Neutral to bearish · lost the 30-day average",
+  "zh": "中性偏空 · 跌破 30 日均线"
  },
  "read": [
   {
-   "en": "Bloom Energy's medium trend is up: price is above the 30-day ($265) and 100-day ($254) averages, and the 30-day has climbed 9% in two weeks. The short term has stalled. The stock slipped below its 5 and 10-day averages, MACD crossed below its signal on Oct 8, and Parabolic SAR flipped bearish the same day after the Oct 6 push to $301 failed. RSI at 54 is neutral.",
-   "zh": "Bloom Energy 中期趋势向上：股价位于 30 日（$265）与 100 日（$254）均线上方，30 日线两周内上升 9%。短线陷入停顿：股价跌破 5 日和 10 日均线，MACD 于 10月8日下穿信号线，10月6日冲击 $301 失败后抛物线 SAR 同日转空。RSI 54 属中性。"
+   "en": "Bloom Energy fell 6.5% on Oct 12 to $262.28, closing under its 30-day average ($267) for the first time since late September. It is also below the 5 and 10-day averages ($281–282) but above the rising 100-day ($254) and 200-day ($213). MACD has been below its signal since Oct 8, Parabolic SAR turned bearish the same day, and RSI is 48.",
+   "zh": "Bloom Energy 10月12日下跌 6.5%，收于 $262.28，自 9月下旬以来首次收在 30 日均线（$267）下方。股价同时位于 5 日和 10 日均线（$281–282）下方，但仍高于上行的 100 日（$254）和 200 日均线（$213）。MACD 自 10月8日起位于信号线下方，抛物线 SAR 同日转空，RSI 为 48。"
   },
   {
-   "en": "Bulls need a close back above $286–292 (the short averages and Oct 7 high) and then $301–305, which has capped the stock since May. Support is the 30-day average and Oct 8 low at about $265, then $249, a level that has held six times since August. Daily swings near 7% make this a stock for smaller positions.",
-   "zh": "多方需先收盘站回 $286–292（短期均线与10月7日高点），再突破 5月以来压制股价的 $301–305。支撑为 30 日均线及 10月8日低点（约 $265），其次 $249（8月以来六次守住）。日均波幅接近 7%，宜控制仓位。"
+   "en": "The $265 support (Oct 8 low) broke intraday to $257.78. Next is $251–254 (Sep 24 low and 100-day average), then the June pivot at $229 and $197.5 (Sep 1 low). Resistance is the 30-day average at $267, then $280–282 (5 and 10-day averages, Oct 9 close) and $300–303, which has capped the stock since May.",
+   "zh": "$265 支撑（10月8日低点）盘中失守，低见 $257.78。下一支撑为 $251–254（9月24日低点及 100 日均线），其次 6月转折点 $229 及 $197.5（9月1日低点）。阻力为 $267 的 30 日均线，其次 $280–282（5 日、10 日均线及 10月9日收盘价），以及自 5月以来压制股价的 $300–303。"
   }
  ],
  "levels": {
   "r": [
    [
-    289,
+    267,
     {
-     "en": "5 and 10-day averages, Oct 7 high",
-     "zh": "5日与10日均线，10月7日高点"
+     "en": "30-day average",
+     "zh": "30日均线"
+    }
+   ],
+   [
+    281,
+    {
+     "en": "5 and 10-day averages, Oct 9 close ($280–282)",
+     "zh": "5日和10日均线、10月9日收盘价（$280–282）"
     }
    ],
    [
     303,
     {
-     "en": "Oct 6 high; capped the stock since May",
-     "zh": "10月6日高点；5月以来的压力"
-    }
-   ],
-   [
-    323,
-    {
-     "en": "May 22 swing high",
-     "zh": "5月22日波段高点"
+     "en": "Sep 29 and Oct 6 highs; capped since May",
+     "zh": "9月29日及10月6日高点；5月以来压力"
     }
    ]
   ],
   "s": [
    [
-    265,
+    252,
     {
-     "en": "30-day average, Oct 8 low",
-     "zh": "30日均线，10月8日低点"
-    }
-   ],
-   [
-    249,
-    {
-     "en": "Held six times since August",
-     "zh": "8月以来六次守住"
+     "en": "Sep 24 low and 100-day average ($251–254)",
+     "zh": "9月24日低点及100日均线（$251–254）"
     }
    ],
    [
@@ -59,6 +52,13 @@
     {
      "en": "June pivot",
      "zh": "6月转折点"
+    }
+   ],
+   [
+    197.5,
+    {
+     "en": "Sep 1 low",
+     "zh": "9月1日低点"
     }
    ]
   ]

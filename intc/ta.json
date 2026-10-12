@@ -1,27 +1,34 @@
 {
- "asof": "Oct 9, 2026",
- "close": 104.7,
+ "asof": "Oct 12, 2026",
+ "close": 101.35,
  "bias": {
-  "en": "Short-term bearish · trend still up on a 200-day view",
-  "zh": "短线偏空 · 200日视角仍向上"
+  "en": "Short-term bearish · testing $100",
+  "zh": "短线偏空 · 测试 $100"
  },
  "read": [
   {
-   "en": "Intel dropped 12% in five sessions and closed below its 5, 10, 30 and 100-day averages; the 30 and 100-day sit together at $108. MACD crossed down on Oct 5 and the histogram keeps falling, RSI is 43, and Parabolic SAR has been above price since Oct 5. The longer trend is intact: the 200-day average is $83 and rising, and the stock is up 177% over the year.",
-   "zh": "英特尔五个交易日下跌 12%，收盘跌破 5、10、30 和 100 日均线；30 日与 100 日均线同在 $108。MACD 于 10月5日下穿，柱体持续走弱，RSI 为 43，抛物线 SAR 自 10月5日起位于股价上方。长期趋势未破：200 日均线为 $83 并上行，股价一年上涨 177%。"
+   "en": "Intel fell 3.2% on Oct 12 to $101.35, its fourth loss in five sessions and 13% below the Oct 5 close. It is below its 5, 10, 30 and 100-day averages (the last two both near $108), though still 22% above the rising 200-day ($83). MACD has been below its signal since Oct 5 with a widening histogram, Parabolic SAR has been bearish since the same day, and RSI is 40.",
+   "zh": "英特尔 10月12日下跌 3.2%，收于 $101.35，五个交易日中第四次下跌，较 10月5日收盘价下跌 13%。股价位于 5 日、10 日、30 日和 100 日均线（后两者均约 $108）下方，但仍高于上行的 200 日均线（$83）22%。MACD 自 10月5日起位于信号线下方且柱体扩大，抛物线 SAR 同日转空，RSI 为 40。"
   },
   {
-   "en": "The $107–108 area (both averages plus an August pivot) is now resistance; Intel needs to close back above it to repair the damage, with $114 and $127 above. Support is thin until the $94.5–98 zone, where the stock bounced three times in August and September. A break there would put the 200-day average back in play.",
-   "zh": "$107–108（两条均线叠加8月转折点）已转为阻力，英特尔需收盘重新站上方能修复走势，上方依次为 $114 与 $127。下方支撑较弱，直到 $94.5–98 区域（8、9月三度反弹处）。若跌破，将重新考验 200 日均线。"
+   "en": "The May pivot at $102.4 gave way (low $100.71), so $100 is the line to watch, then $98.3 (June pivot) and $94.5 (September low). The broken $102.4–104.7 area is now first resistance, then the 30 and 100-day averages near $108 and $114 (Sep 29 swing high).",
+   "zh": "5月转折点 $102.4 已失守（低点 $100.71），需关注 $100，其次 $98.3（6月转折点）和 $94.5（9月低点）。已跌破的 $102.4–104.7 区域成为第一阻力，其上为约 $108 的 30 日和 100 日均线，以及 $114（9月29日波段高点）。"
   }
  ],
  "levels": {
   "r": [
    [
+    104,
+    {
+     "en": "Former support ($102.4–104.7)",
+     "zh": "原支撑（$102.4–104.7）"
+    }
+   ],
+   [
     108,
     {
-     "en": "30 and 100-day averages, August pivot",
-     "zh": "30日与100日均线，8月转折点"
+     "en": "30 and 100-day averages",
+     "zh": "30日和100日均线"
     }
    ],
    [
@@ -30,23 +37,9 @@
      "en": "Sep 29 swing high",
      "zh": "9月29日波段高点"
     }
-   ],
-   [
-    127,
-    {
-     "en": "Sep 24 high, tested three times",
-     "zh": "9月24日高点，三次测试"
-    }
    ]
   ],
   "s": [
-   [
-    102.4,
-    {
-     "en": "May pivot, Oct 9 low area",
-     "zh": "5月转折点，10月9日低点附近"
-    }
-   ],
    [
     98.3,
     {
@@ -57,8 +50,15 @@
    [
     94.5,
     {
-     "en": "20-day low, three bounces",
-     "zh": "20日低点，三次反弹"
+     "en": "September low",
+     "zh": "9月低点"
+    }
+   ],
+   [
+    85,
+    {
+     "en": "Aug 24 low",
+     "zh": "8月24日低点"
     }
    ]
   ]

@@ -1,64 +1,64 @@
 {
- "asof": "Oct 9, 2026",
- "close": 608.1,
+ "asof": "Oct 12, 2026",
+ "close": 594.24,
  "bias": {
-  "en": "Uptrend · cooling after a record",
-  "zh": "上升趋势 · 创纪录后降温"
+  "en": "Uptrend · pullback toward the 30-day",
+  "zh": "上升趋势 · 回调靠近 30 日均线"
  },
  "read": [
   {
-   "en": "AMD hit a record $658.52 on Oct 6 and has slipped 8% since. The trend is still strongly up: the 30-day ($560) and 100-day ($520) averages are rising fast and price is well above both. The short-term signals have turned, though. Price fell below the 5 and 10-day averages, MACD crossed below its signal on Oct 9, Parabolic SAR flipped bearish on Oct 8, and RSI dropped from 72 to 57.",
-   "zh": "AMD 于 10月6日创下 $658.52 纪录，此后回落 8%。趋势仍强劲向上：30 日（$560）与 100 日（$520）均线快速上行，股价远高于两者。但短线信号已转弱：股价跌破 5 日和 10 日均线，MACD 于 10月9日下穿信号线，抛物线 SAR 于 10月8日转空，RSI 由 72 降至 57。"
+   "en": "AMD fell 2.3% on Oct 12 to $594.24, 10% below its Oct 6 record of $658.52. It has dropped under its 5 and 10-day averages ($622–624) but stays well above the 30-day ($564), 100-day ($522) and 200-day ($387), all rising. MACD crossed below its signal on Oct 9 (still above zero), Parabolic SAR turned bearish on Oct 8, and RSI is 53.",
+   "zh": "AMD 10月12日下跌 2.3%，收于 $594.24，较 10月6日纪录高点 $658.52 回落 10%。股价已跌破 5 日和 10 日均线（$622–624），但仍远高于 30 日（$564）、100 日（$522）和 200 日（$387）均线，且均线均在上行。MACD 于 10月9日下穿信号线（仍在零轴上方），抛物线 SAR 于 10月8日转空，RSI 为 53。"
   },
   {
-   "en": "The first support is $590, a late-September pivot. Below that, the 30-day average and July highs around $560 are a strong area where a pullback in an uptrend often ends. To get going again AMD needs to reclaim $623–631 (the short averages), then $639 and the $658 record.",
-   "zh": "首个支撑为 9月下旬的转折点 $590。其下，30 日均线与 7月高点（约 $560）是强支撑区，上升趋势中的回调常在此结束。AMD 需重新站上 $623–631（短期均线），再突破 $639 及 $658 纪录高点，才能重拾升势。"
+   "en": "The late-September pivot at $586–590 held on Oct 12 (low $586.54). A close below it opens the 30-day average at $564, then $525 near the 100-day. Resistance is the 5 and 10-day averages at $622–624, then the Oct 6–7 closes at $646–649 and the $658.5 record.",
+   "zh": "9月下旬转折点 $586–590 在 10月12日守住（低点 $586.54）。若收盘跌破，下看 $564 的 30 日均线，再看 100 日均线附近的 $525。阻力为 $622–624 的 5 日和 10 日均线，其次 10月6–7日收盘价 $646–649 及 $658.5 纪录高点。"
   }
  ],
  "levels": {
   "r": [
    [
-    627,
+    623,
     {
-     "en": "5 and 10-day averages ($623–631)",
-     "zh": "5日与10日均线（$623–631）"
+     "en": "5 and 10-day averages ($622–624)",
+     "zh": "5日和10日均线（$622–624）"
     }
    ],
    [
-    639,
+    648,
     {
-     "en": "Sep 25 high",
-     "zh": "9月25日高点"
+     "en": "Oct 6–7 closes ($646–649)",
+     "zh": "10月6–7日收盘价（$646–649）"
     }
    ],
    [
     658.5,
     {
      "en": "Record high, Oct 6",
-     "zh": "10月6日纪录高点"
+     "zh": "纪录高点，10月6日"
     }
    ]
   ],
   "s": [
    [
-    590,
+    588,
     {
-     "en": "Late-September pivot",
-     "zh": "9月下旬转折点"
+     "en": "Late-September pivot; Oct 12 low $586.5",
+     "zh": "9月下旬转折点；10月12日低点 $586.5"
     }
    ],
    [
-    560,
+    564,
     {
-     "en": "30-day average and July highs",
-     "zh": "30日均线及7月高点"
+     "en": "30-day average",
+     "zh": "30日均线"
     }
    ],
    [
     525,
     {
-     "en": "August pivot",
-     "zh": "8月转折点"
+     "en": "August pivot; 100-day average $522",
+     "zh": "8月转折点；100日均线 $522"
     }
    ]
   ]

@@ -8,29 +8,36 @@
     "en": "SKHY · Nasdaq ($)",
     "zh": "SKHY · 纳斯达克（美元）"
    },
-   "asof": "Oct 9, 2026",
-   "close": 169.03,
+   "asof": "Oct 12, 2026",
+   "close": 162.23,
    "bias": {
-    "en": "Short-term bearish · young chart",
-    "zh": "短线偏空 · 上市时间短"
+    "en": "Short-term bearish · nearing the $160 pivot",
+    "zh": "短线偏空 · 逼近 $160 转折点"
    },
    "read": [
     {
-     "en": "The Nasdaq ADS has only 65 sessions of history since its July listing, so the 100-day average is not available. It fell 13% in five sessions and closed below its 5, 10 and 30-day averages. MACD has been below its signal since Sep 28 with a widening histogram, Parabolic SAR turned bearish on Oct 7, and RSI is 42.",
-     "zh": "纳斯达克 ADS 自 7月上市仅 65 个交易日，尚无 100 日均线。五个交易日下跌 13%，收盘跌破 5 日、10 日和 30 日均线。MACD 自 9月28日起位于信号线下方且柱体扩大，抛物线 SAR 于 10月7日转空，RSI 为 42。"
+     "en": "The Nasdaq ADS fell 4% on Oct 12 to $162.23, down 17% in five sessions, and has only 66 sessions of history, so there is no 100-day average yet. It is below its 5-day ($172.5) and its 10 and 30-day averages (both near $181). MACD has been below its signal since Sep 28 and is now below zero, Parabolic SAR has been bearish since Oct 7, and RSI is 39.",
+     "zh": "纳斯达克 ADS 10月12日下跌 4%，收于 $162.23，五个交易日下跌 17%，上市仅 66 个交易日，尚无 100 日均线。股价位于 5 日均线（$172.5）以及 10 日和 30 日均线（均约 $181）下方。MACD 自 9月28日起位于信号线下方，现已跌破零轴，抛物线 SAR 自 10月7日起看空，RSI 为 39。"
     },
     {
-     "en": "Resistance is $177–181 (the 30-day average and July–September pivots), then $196–200 (September highs). Support is $160, a July pivot, then $151.5 and $146. Switch to the Seoul listing above for the longer trend.",
-     "zh": "阻力在 $177–181（30 日均线及7–9月转折点），其次 $196–200（9月高点）。支撑为 7月转折点 $160，其下 $151.5 与 $146。如需观察更长周期趋势，可切换至上方的首尔上市股票。"
+     "en": "The July pivot at $160 is the next test, then $151.5 (Aug 24 pivot) and $145.6; the July low of $124.80 is the floor of its short history. Resistance is the 5-day average near $172.5 (Oct 8 high $177 above), then $181 (10 and 30-day averages) and the September highs at $196–200. Switch to the Seoul listing above for the longer trend.",
+     "zh": "下一测试为 7月转折点 $160，其次 $151.5（8月24日转折点）和 $145.6；7月低点 $124.80 为其短暂历史的底部。阻力为约 $172.5 的 5 日均线（其上为 10月8日高点 $177），其次 $181（10 日和 30 日均线）及 9月高点 $196–200。如需观察更长周期趋势，可切换至上方的首尔上市股票。"
     }
    ],
    "levels": {
     "r": [
      [
-      179,
+      172.5,
       {
-       "en": "30-day average, Jul–Sep pivots ($177–181)",
-       "zh": "30日均线，7–9月转折点（$177–181）"
+       "en": "5-day average; Oct 8 high $177",
+       "zh": "5日均线；10月8日高点 $177"
+      }
+     ],
+     [
+      181,
+      {
+       "en": "10 and 30-day averages",
+       "zh": "10日和30日均线"
       }
      ],
      [
@@ -73,26 +80,33 @@
     "en": "000660 · Seoul (₩)",
     "zh": "000660 · 首尔（韩元）"
    },
-   "asof": "Oct 8, 2026",
-   "close": 1681000,
+   "asof": "Oct 12, 2026",
+   "close": 1605000,
    "bias": {
-    "en": "Short-term bearish · below the 100-day",
-    "zh": "短线偏空 · 位于100日均线下方"
+    "en": "Bearish · broke the September low",
+    "zh": "偏空 · 跌破 9 月低点"
    },
    "read": [
     {
-     "en": "In Seoul, SK Hynix closed at ₩1,681,000 on Oct 8 (the market was shut on Oct 9 for Hangul Day). It is 44% below the June 24 record of ₩2,987,000 and down 23% over three months. Price is below the 5, 10 and 30-day averages and the 100-day (₩1,936,000), though the 200-day (₩1,441,000) is still rising. MACD crossed down on Oct 5, Parabolic SAR has been above price since Sep 28, and RSI is 44.",
-     "zh": "首尔市场方面，SK 海力士 10月8日收于 ₩1,681,000（10月9日韩文节休市）。股价较 6月24日纪录高点 ₩2,987,000 低 44%，三个月下跌 23%。股价位于 5 日、10 日、30 日均线及 100 日均线（₩1,936,000）下方，但 200 日均线（₩1,441,000）仍在上行。MACD 于 10月5日死叉，抛物线 SAR 自 9月28日起位于股价上方，RSI 为 44。"
+     "en": "SK hynix closed at ₩1,605,000 in Seoul on Oct 12, down 12% over its last five sessions and 46% below the June record. It broke the Sep 14 low of ₩1,671,000 and is below its 5, 10 and 30-day averages (₩1.72–1.76 million) and the falling 100-day (₩1.94 million), holding only above the 200-day (₩1.44 million). MACD is below its signal and zero line, Parabolic SAR has been bearish since Sep 28, and RSI is 39.",
+     "zh": "SK 海力士 10月12日在首尔收于 ₩1,605,000，近五个交易日下跌 12%，较 6月纪录高点低 46%。股价跌破 9月14日低点 ₩1,671,000，位于 5 日、10 日和 30 日均线（₩172万–176万）及下行的 100 日均线（₩194万）下方，仅守在 200 日均线（₩144万）之上。MACD 位于信号线及零轴下方，抛物线 SAR 自 9月28日起看空，RSI 为 39。"
     },
     {
-     "en": "The stock is at the bottom of its 20-day range (₩1,671,000). Losing that level points to ₩1,558,000 (the Sep 2 low) and then the 200-day average near ₩1,441,000. A recovery needs a close back above ₩1,752,000 (30-day average), then ₩1,837,000, which capped five swings in September.",
-     "zh": "股价处于 20 日区间底部（₩1,671,000）。若失守，下看 ₩1,558,000（9月2日低点），再看 200 日均线（约 ₩1,441,000）。若要回升，需先收盘站回 ₩1,752,000（30 日均线），再突破 9月五次受阻的 ₩1,837,000。"
+     "en": "Next support is the Sep 2 low of ₩1,558,000, then the 200-day average near ₩1,441,000 and the Aug 10 low of ₩1,373,000. The broken ₩1,671,000 level is first resistance, then the 30-day average near ₩1,749,000 and ₩1,837,000, which capped five swings in September.",
+     "zh": "下一支撑为 9月2日低点 ₩1,558,000，其次约 ₩1,441,000 的 200 日均线及 8月10日低点 ₩1,373,000。已跌破的 ₩1,671,000 为第一阻力，其次约 ₩1,749,000 的 30 日均线，以及 9月五次压制波段的 ₩1,837,000。"
     }
    ],
    "levels": {
     "r": [
      [
-      1752000,
+      1671000,
+      {
+       "en": "Sep 14 low, now resistance",
+       "zh": "9月14日低点，转为阻力"
+      }
+     ],
+     [
+      1749000,
       {
        "en": "30-day average",
        "zh": "30日均线"
@@ -102,25 +116,11 @@
       1837000,
       {
        "en": "Capped five swings in September",
-       "zh": "9月五次受阻"
-      }
-     ],
-     [
-      1936000,
-      {
-       "en": "100-day average and 20-day high",
-       "zh": "100日均线与20日高点"
+       "zh": "9月五次压制波段"
       }
      ]
     ],
     "s": [
-     [
-      1671000,
-      {
-       "en": "20-day low",
-       "zh": "20日低点"
-      }
-     ],
      [
       1558000,
       {
@@ -133,6 +133,13 @@
       {
        "en": "200-day average",
        "zh": "200日均线"
+      }
+     ],
+     [
+      1373000,
+      {
+       "en": "Aug 10 low",
+       "zh": "8月10日低点"
       }
      ]
     ]
