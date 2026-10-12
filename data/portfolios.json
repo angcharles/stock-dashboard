@@ -1,0 +1,63 @@
+{
+ "pelosi": {
+  "title": "Nancy Pelosi household",
+  "basis": "Estimated weights, STOCK Act filings",
+  "last_stock_filing": "2026-08-21",
+  "weights_source": {"name": "Pelosi Tracker", "url": "https://pelositracker.app/portfolios/nancy-pelosi", "asof": "2026-10-13"},
+  "note": "Trades are Paul Pelosi's (owner code SP). Filings give value bands, not exact sizes, so weights are third-party estimates (call options counted as stock exposure) and the return is a model: today's weights applied to daily prices, not the household's actual P&L. Excludes AllianceBernstein units, private funds and real estate.",
+  "holdings": [
+   ["NVDA", "NVIDIA", 15], ["BE", "Bloom Energy", 13], ["GOOGL", "Alphabet", 13], ["AVGO", "Broadcom", 12],
+   ["PANW", "Palo Alto Networks", 7], ["INTC", "Intel", 6], ["VST", "Vistra", 6], ["CRWD", "CrowdStrike", 6],
+   ["AMZN", "Amazon", 5], ["TEM", "Tempus AI", 4], ["AAPL", "Apple", 3], ["MSFT", "Microsoft", 3],
+   ["TSLA", "Tesla", 3], ["UBER", "Uber", 1]
+  ],
+  "trades": [
+   ["2026-07-28", "BE", "Buy", "100 calls, $100 strike, Jun 2027", "$500K–1M", "20035143"],
+   ["2026-07-28", "BE", "Buy", "5,000 shares", "$500K–1M", "20035143"],
+   ["2026-07-24", "BE", "Buy", "100 calls, $100 strike, Jun 2027", "$1M–5M", "20035143"],
+   ["2026-07-24", "BE", "Buy", "10,000 shares", "$1M–5M", "20035143"],
+   ["2026-07-24", "INTC", "Buy", "10,000 shares", "$500K–1M", "20035143"],
+   ["2026-07-24", "INTC", "Buy", "50 calls, $50 strike, Jun 2027", "$250K–500K", "20035143"],
+   ["2026-05-29", "INTC", "Buy", "200 calls, $50 strike, Mar 2027", "$1M–5M", "20034836"],
+   ["2026-05-29", "UBER", "Buy", "200 calls, $50 strike, Mar 2027", "$500K–1M", "20034836"],
+   ["2026-01-16", "AB", "Buy", "25,000 units", "$1M–5M", "20033725"],
+   ["2026-01-16", "GOOGL", "Exercise", "50 calls (5,000 shares)", "$500K–1M", "20033725"],
+   ["2026-01-16", "AMZN", "Exercise", "50 calls (5,000 shares)", "$500K–1M", "20033725"],
+   ["2026-01-16", "NVDA", "Exercise", "50 calls (5,000 shares)", "$250K–500K", "20033725"],
+   ["2026-01-16", "VST", "Exercise", "50 calls (5,000 shares)", "$100K–250K", "20033725"],
+   ["2026-01-16", "TEM", "Exercise", "50 calls (5,000 shares)", "$50K–100K", "20033725"],
+   ["2025-12-30", "GOOGL", "Buy", "20 calls, Jan 2027", "$250K–500K", "20033725"],
+   ["2025-12-30", "AAPL", "Buy", "20 calls, Jan 2027", "$250K–500K", "20033725"],
+   ["2025-12-30", "NVDA", "Buy", "20 calls, Jan 2027", "$100K–250K", "20033725"],
+   ["2025-12-30", "AMZN", "Buy", "20 calls, Jan 2027", "$100K–250K", "20033725"],
+   ["2025-12-30", "DIS", "Sell", "10,000 shares", "$1M–5M", "20033725"],
+   ["2025-12-30", "PYPL", "Sell", "5,000 shares", "$250K–500K", "20033725"],
+   ["2025-12-24", "AAPL", "Sell", "45,000 shares", "$5M–25M", "20033725"],
+   ["2025-12-24", "AMZN", "Sell", "20,000 shares", "$1M–5M", "20033725"],
+   ["2025-12-24", "NVDA", "Sell", "20,000 shares", "$1M–5M", "20033725"]
+  ],
+  "reviewed_filings": ["20033725", "20034836", "20035143"],
+  "filing_url": "https://disclosures-clerk.house.gov/public_disc/ptr-pdfs/{year}/{id}.pdf"
+ },
+ "thiel": {
+  "title": "Peter Thiel · Thiel Macro LLC",
+  "basis": "13F holdings, exact share counts",
+  "cik": 1562087,
+  "accession": "0001315863-26-000593",
+  "period": "2026-06-30",
+  "filed": "2026-08-14",
+  "next_due": "2026-11-16",
+  "note": "13F lists US-listed long positions at quarter end only, filed up to 45 days later; it omits shorts, cash, non-US holdings and Founders Fund. Values now are the filed share counts at today's prices; the fund may have traded since.",
+  "holdings": [
+   ["AMZN", "Amazon", 495000, 117978300],
+   ["VIST", "Vista Energy (ADS)", 1189792, 75908730],
+   ["VST", "Vistra", 372755, 59130126],
+   ["AEP", "American Electric Power", 308617, 42221892],
+   ["DTE", "DTE Energy", 264450, 40294247],
+   ["FE", "FirstEnergy", 839319, 39901225],
+   ["CMS", "CMS Energy", 517124, 39559986],
+   ["XE", "X-Energy", 200000, 3672000]
+  ],
+  "previous": "No 13F holdings at Dec 31, 2025 or Mar 31, 2026; all eight positions are new this quarter."
+ }
+}

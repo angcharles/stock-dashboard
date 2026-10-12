@@ -11,6 +11,8 @@ on:
     paths:
       - .github/workflows/ta-data.yml
       - scripts/ta-snapshot.py
+      - scripts/build-portfolios.py
+      - data/portfolios.json
   schedule:
     # 21:25 UTC = 5:25pm EDT / 4:25pm EST, Mon–Fri (after the close either way)
     - cron: "25 21 * * 1-5"
@@ -68,9 +70,20 @@ jobs:
       - name: Build indicator snapshot
         run: python3 scripts/ta-snapshot.py
 
+      - name: Fetch prices for the Pelosi and Thiel panels
+        run: |
+          for t in SPY $(python3 -c "import json;c=json.load(open('data/portfolios.json'));print(' '.join(sorted({h[0] for k in ('pelosi','thiel') for h in c[k]['holdings']})))"); do
+            node scripts/fetch-quote.mjs $t pf-data/$t 1y
+          done
+
+      - name: Build portfolio performance and check for new filings
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
+        run: python3 scripts/build-portfolios.py pf-data
+
       - name: Commit if changed
         run: |
-          git add */data/history.json skhy/data/krx/history.json data/ta-snapshot.json
+          git add */data/history.json skhy/data/krx/history.json data/ta-snapshot.json data/portfolios-perf.json
           if git diff --cached --quiet; then echo "No change."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
