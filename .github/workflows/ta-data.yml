@@ -1,0 +1,79 @@
+name: Save daily prices for the technical read
+
+# After each US close, saves every stock's daily OHLC history to the repo and
+# writes data/ta-snapshot.json (indicators, swing levels, written-level checks),
+# so the daily technical-read refresh can work from the committed data.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/ta-data.yml
+      - scripts/ta-snapshot.py
+  schedule:
+    # 21:25 UTC = 5:25pm EDT / 4:25pm EST, Mon–Fri (after the close either way)
+    - cron: "25 21 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ta-data
+  cancel-in-progress: false
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch daily history
+        run: |
+          node scripts/fetch-quote.mjs ARM arm/data 2y
+          node scripts/fetch-quote.mjs TSLA tesla/data 2y
+          node scripts/fetch-quote.mjs SNDK sndk/data 2y
+          node scripts/fetch-quote.mjs INTC intc/data 2y
+          node scripts/fetch-quote.mjs SPCX spcx/data 2y
+          node scripts/fetch-quote.mjs MU mu/data 2y
+          node scripts/fetch-quote.mjs LITE lite/data 2y
+          node scripts/fetch-quote.mjs COHR cohr/data 2y
+          node scripts/fetch-quote.mjs GOOGL googl/data 2y
+          node scripts/fetch-quote.mjs META meta/data 2y
+          node scripts/fetch-quote.mjs NVDA nvda/data 2y
+          node scripts/fetch-quote.mjs ZS zs/data 2y
+          node scripts/fetch-quote.mjs BE be/data 2y
+          node scripts/fetch-quote.mjs AAOI aaoi/data 2y
+          node scripts/fetch-quote.mjs AMD amd/data 2y
+          node scripts/fetch-quote.mjs MP mp/data 2y
+          node scripts/fetch-quote.mjs AMZN amzn/data 2y
+          node scripts/fetch-quote.mjs MSFT msft/data 2y
+          node scripts/fetch-quote.mjs MRVL mrvl/data 2y
+          node scripts/fetch-quote.mjs SKHY skhy/data 2y
+          node scripts/fetch-quote.mjs 000660.KS skhy/data/krx 2y
+          node scripts/fetch-quote.mjs TSM tsm/data 2y
+          node scripts/fetch-quote.mjs AVGO avgo/data 2y
+          node scripts/fetch-quote.mjs ROK rok/data 2y
+          node scripts/fetch-quote.mjs AMAT amat/data 2y
+          node scripts/fetch-quote.mjs ASML asml/data 2y
+          node scripts/fetch-quote.mjs PLTR pltr/data 2y
+          node scripts/fetch-quote.mjs GLW glw/data 2y
+          node scripts/fetch-quote.mjs TER ter/data 2y
+
+      - name: Build indicator snapshot
+        run: python3 scripts/ta-snapshot.py
+
+      - name: Commit if changed
+        run: |
+          git add */data/history.json skhy/data/krx/history.json data/ta-snapshot.json
+          if git diff --cached --quiet; then echo "No change."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Save daily prices for the technical read"
+          git pull -q --rebase origin main
+          git push
