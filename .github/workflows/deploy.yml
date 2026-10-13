@@ -80,6 +80,9 @@ jobs:
           node scripts/fetch-macro.mjs || echo "macro fetch failed; using the committed files"
           node scripts/fetch-news.mjs macro || echo "macro news failed"
 
+      - name: Fetch FX rates
+        run: node scripts/fetch-fx.mjs || echo "fx fetch failed; using the committed file"
+
       - name: Assemble site
         run: |
           mkdir -p _site/data _site/assets
@@ -88,6 +91,8 @@ jobs:
           cp data/portfolios.json _site/data/
           cp data/macro.json data/macro-cal.json data/macro-news.json _site/data/
           mkdir -p _site/macro && cp macro/index.html _site/macro/
+          cp data/fx.json _site/data/
+          mkdir -p _site/fx && cp fx/index.html _site/fx/
           if [ -f data/portfolios-perf.json ]; then cp data/portfolios-perf.json _site/data/; fi
           cp assets/*.js assets/*.css _site/assets/
           for d in arm tesla sndk intc spcx mu lite cohr googl meta nvda zs be aaoi amd mp amzn msft mrvl skhy tsm avgo rok amat asml pltr glw ter; do
