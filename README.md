@@ -66,8 +66,8 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `.github/workflows/deploy.yml` refreshes every 15 minutes outside regular hours on weekdays (Mon 00:00 to Fri 23:45 UTC), on top of the 10-minute refresh during the session.
 
 ## Macro page (`macro/`, "Macro" tab on the main page)
-- Tiles, a history chart and the yield curve for WTI crude, gold, silver and the 2/5/10/30-year Treasury yields; the economic calendar; macro news. Rendered by `assets/macro.js` (news by `assets/news.js` with `data-src="../data/macro-news.json"`).
-- `scripts/fetch-macro.mjs` (run in the deploy workflow) writes `data/macro.json`: live quotes from CNBC's quote service (Tradeweb yields, CME/COMEX front-month futures; Yahoo as fallback), one year of daily closes from Yahoo (futures) and the US Treasury daily par yield curve (yields). It also writes `data/macro-cal.json` from the Forex Factory weekly calendar (this week and next; forecast and previous).
+- Tiles, a daily candlestick chart (SMA 5/10/30/100, Parabolic SAR, MACD and RSI panes, each toggleable) and the yield curve for WTI crude, gold, silver and the 2/5/10/30-year Treasury yields; the economic calendar; macro news. Rendered by `assets/macro.js` (news by `assets/news.js` with `data-src="../data/macro-news.json"`).
+- `scripts/fetch-macro.mjs` (run in the deploy workflow) writes `data/macro.json`: live quotes from CNBC's quote service (Tradeweb yields, CME/COMEX front-month futures; Yahoo as fallback), about 400 daily OHLC bars from CNBC (Yahoo, then the US Treasury par yield curve with closes only, as fallbacks). It also writes `data/macro-cal.json` from the Forex Factory weekly calendar (this week and next; forecast and previous).
 - `node scripts/fetch-news.mjs macro` writes `data/macro-news.json` (14 days; topics OIL, GOLD, SILVER, RATES, FED, ECON).
 - The committed `data/macro*.json` files are empty placeholders; each deploy fills them, and a failed source falls back to them.
 

@@ -50,7 +50,7 @@ async function cnbc() {
   return out;
 }
 let cookie = "", crumb = "";
-async function yahooChart(sym, range = "1y") {
+async function yahooChart(sym, range = "2y") {
   if (!crumb) {
     try {
       const r = await fetch("https://fc.yahoo.com", { headers: { "User-Agent": UA }, redirect: "manual", signal: AbortSignal.timeout(10000) });
@@ -62,19 +62,39 @@ async function yahooChart(sym, range = "1y") {
   const r = await get(`https://query2.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?range=${range}&interval=1d${q}`, { Accept: "application/json", ...(cookie ? { Cookie: cookie } : {}) });
   const res = (await r.json())?.chart?.result?.[0];
   if (!res) throw new Error("yahoo: empty");
-  const ts = res.timestamp || [], cl = res.indicators?.quote?.[0]?.close || [];
-  const d = [], c = [];
-  ts.forEach((t, i) => { if (cl[i] == null) return; const day = nyDate(t * 1000); const v = +cl[i].toFixed(4);
-    if (d.at(-1) === day) c[c.length - 1] = v; else { d.push(day); c.push(v); } });
+  const qd = res.indicators?.quote?.[0] || {}, ts = res.timestamp || [], cl = qd.close || [];
+  const d = [], o = [], h = [], l = [], c = [], r4 = (v, fb) => +((v ?? fb).toFixed(4));
+  ts.forEach((t, i) => { if (cl[i] == null) return; const day = nyDate(t * 1000);
+    const row = [r4(qd.open?.[i], cl[i]), r4(qd.high?.[i], cl[i]), r4(qd.low?.[i], cl[i]), r4(cl[i])];
+    if (d.at(-1) === day) { const k = c.length - 1; h[k] = Math.max(h[k], row[1]); l[k] = Math.min(l[k], row[2]); c[k] = row[3]; }
+    else { d.push(day); o.push(row[0]); h.push(row[1]); l.push(row[2]); c.push(row[3]); } });
   const m = res.meta || {};
-  return { hist: { d, c }, quote: { price: m.regularMarketPrice, prevClose: null, time: m.regularMarketTime, src: "Yahoo Finance", realtime: false } };
+  return { hist: { d, o, h, l, c }, quote: { price: m.regularMarketPrice, prevClose: null, time: m.regularMarketTime, src: "Yahoo Finance", realtime: false } };
+}
+
+// ---------- CNBC daily OHLC bars (same feed as the live quotes) ----------
+async function cnbcBars(sym) {
+  const j = await (await get(`https://ts-api.cnbc.com/harmony/app/charts/1Y.json?symbol=${encodeURIComponent(sym)}`, { Accept: "application/json" })).json();
+  const bars = j?.barData?.priceBars || [];
+  const d = [], o = [], h = [], l = [], c = [];
+  for (const b of bars) {
+    const cl = num(b.close); if (!isFinite(cl)) continue;
+    const t = String(b.tradeTime || ""), day = t.length >= 8 ? `${t.slice(0, 4)}-${t.slice(4, 6)}-${t.slice(6, 8)}` : nyDate(b.tradeTimeinMills);
+    const op = num(b.open), hi = num(b.high), lo = num(b.low);
+    const O = isFinite(op) ? op : cl, H = Math.max(isFinite(hi) ? hi : cl, O, cl), L = Math.min(isFinite(lo) ? lo : cl, O, cl);
+    if (d.at(-1) === day) { const k = c.length - 1; h[k] = Math.max(h[k], H); l[k] = Math.min(l[k], L); c[k] = cl; }
+    else { d.push(day); o.push(O); h.push(H); l.push(L); c.push(cl); }
+  }
+  if (d.length < 120) throw new Error(`cnbc bars: only ${d.length}`);
+  const k = Math.max(0, d.length - 400);   // ~1.5 years, enough for the 100-day average over a 1-year view
+  return { d: d.slice(k), o: o.slice(k), h: h.slice(k), l: l.slice(k), c: c.slice(k) };
 }
 
 // ---------- Treasury par yield curve (official daily) ----------
 async function treasury() {
   const y = new Date().getUTCFullYear(), rows = [];
-  for (const yr of [y - 1, y]) {
-    const t = await (await get(`https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/${yr}/all?type=daily_treasury_yield_curve&field_tdr_date_value=${yr}&page&_format=csv`)).text();
+  for (const yr of [y - 2, y - 1, y]) {
+    let t; try { t = await (await get(`https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/${yr}/all?type=daily_treasury_yield_curve&field_tdr_date_value=${yr}&page&_format=csv`)).text(); } catch (e) { log(`Treasury ${yr} failed:`, e.message); continue; }
     const lines = t.trim().split(/\r?\n/), head = lines[0].split(",").map((h) => h.replace(/"/g, "").trim());
     for (const ln of lines.slice(1)) {
       const f = ln.split(","), [mm, dd, yy] = f[0].split("/");
@@ -84,7 +104,7 @@ async function treasury() {
     }
   }
   rows.sort((a, b) => (a.d < b.d ? -1 : 1));
-  const cutoff = new Date(Date.now() - 372 * 864e5).toISOString().slice(0, 10);
+  const cutoff = new Date(Date.now() - 560 * 864e5).toISOString().slice(0, 10);
   return rows.filter((r) => r.d >= cutoff);
 }
 
@@ -97,15 +117,16 @@ const items = [];
 for (const ins of INSTR) {
   const old = prevBy[ins.k] || {};
   let hist = null, quote = live[ins.cnbc] || null, hSrc = "";
-  if (ins.kind === "yield" && tsy && tsy.length > 100) {
+  try { hist = await cnbcBars(ins.cnbc); hSrc = "CNBC daily bars"; } catch (e) { log(ins.k, "cnbc bars failed:", e.message); }
+  if (!hist && ins.kind === "yield" && tsy && tsy.length > 100) {
     const d = [], c = [];
     for (const r of tsy) if (isFinite(r[ins.tsy])) { d.push(r.d); c.push(r[ins.tsy]); }
-    hist = { d, c }; hSrc = "US Treasury";
+    hist = { d, o: c, h: c, l: c, c }; hSrc = "US Treasury (closes only)";
   }
   if ((!hist || !quote) && ins.yahoo) {
     try {
       const y = await yahooChart(ins.yahoo);
-      if (!hist && y.hist.d.length > 100) { hist = y.hist; hSrc = "Yahoo Finance"; }
+      if (!hist && y.hist.d.length > 100) { const k = Math.max(0, y.hist.d.length - 400); hist = Object.fromEntries(Object.entries(y.hist).map(([n, a]) => [n, a.slice(k)])); hSrc = "Yahoo Finance"; }
       if (!quote && y.quote.price) quote = y.quote;
     } catch (e) { log(ins.k, "yahoo failed:", e.message); }
   }
