@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds data/portfolios-perf.json for the Pelosi and Druckenmiller panels on the main page.
+"""Builds data/portfolios-perf.json for the Pelosi, Trump, Druckenmiller and Thiel panels on the main page.
 
 Inputs
   data/portfolios.json         holdings, weights, trades (edited when a new filing lands)
@@ -7,10 +7,10 @@ Inputs
 Output
   data/portfolios-perf.json    daily performance, per-holding prices/returns, and a check for new filings
 
-Pelosi: a model portfolio with fixed estimated weights, rebalanced daily (sum of weight x daily return).
-Druckenmiller: the 13F share counts (call rows at their underlying shares) marked to each day's close
+Pelosi, Trump (MODELS): model portfolios with fixed estimated weights, rebalanced daily (sum of weight x daily return).
+Druckenmiller, Thiel (F13): the 13F share counts (call rows at their underlying shares) marked to each day's close
 since the quarter end.
-New-filing check: SEC EDGAR submissions (Duquesne Family Office 13F-HR) and the House Clerk's yearly
+New-filing check: SEC EDGAR submissions (each 13F filer's latest 13F-HR) and the House Clerk's yearly
 financial-disclosure index (Pelosi periodic transaction reports). Network errors are recorded, not fatal.
 
 Usage: python3 scripts/build-portfolios.py <pricedir>
@@ -62,67 +62,79 @@ def at(s, d):
     return s[i]
 
 
-S = {t: series(t) for t in {"SPY", *[h[0] for h in CFG["pelosi"]["holdings"]], *[h[0] for h in CFG["druck"]["holdings"]]}}
+MODELS = [k for k in ("pelosi", "trump") if k in CFG]
+F13 = [k for k in ("druck", "thiel") if k in CFG]
+S = {t: series(t) for t in {"SPY", *[h[0] for k in MODELS + F13 for h in CFG[k]["holdings"]]}}
 spy_s = S["SPY"]
 out = {"updated": int(time.time()), "session": last, "missing": []}
 
-# ---------- Pelosi: fixed-weight model ----------
-P = CFG["pelosi"]
-W = {t: w for t, _, w in P["holdings"]}
-idx, lvl = [], 100.0
-for i, d in enumerate(dates):
-    if i:
-        num = den = 0.0
-        for t, w in W.items():
-            a, b = S[t][i - 1], S[t][i]
-            if a and b:
-                num += w * (b / a - 1); den += w
-        lvl *= 1 + (num / den if den else 0)
-    idx.append(lvl)
+# ---------- Pelosi, Trump: fixed-weight models ----------
 start6 = max(0, len(dates) - 128)
-filing = P["last_stock_filing"]
-ph = []
-for t, name, w in P["holdings"]:
-    s = S[t]
-    if s[-1] is None:
-        out["missing"].append(t)
-    ph.append({"t": t, "n": name, "w": r(w / sum(W.values()) * 100, 1), "px": r(s[-1]),
-               "d1": r(pct(s[-1], s[-2]) if len(s) > 1 else None), "ytd": r(pct(s[-1], at(s, year0))),
-               "sf": r(pct(s[-1], at(s, filing)))})
-out["pelosi"] = {
-    "dates": dates[start6:], "idx": [r(x, 3) for x in idx[start6:]], "spy": [r(x, 2) for x in spy_s[start6:]],
-    "stats": {"d1": r(pct(idx[-1], idx[-2])), "sf": r(pct(idx[-1], at(idx, filing))), "ytd": r(pct(idx[-1], at(idx, year0))),
-              "y1": r(pct(idx[-1], idx[0])),
-              "spy_d1": r(pct(spy_s[-1], spy_s[-2])), "spy_sf": r(pct(spy_s[-1], at(spy_s, filing))),
-              "spy_ytd": r(pct(spy_s[-1], at(spy_s, year0))), "spy_y1": r(pct(spy_s[-1], spy_s[0]))},
-    "holdings": ph}
 
-# ---------- Druckenmiller: 13F shares marked to market ----------
-T = CFG["druck"]
-q = T["period"]
-i0 = max(i for i, d in enumerate(dates) if d <= q)
-val = []
-for i in range(i0, len(dates)):
-    tot = 0.0
-    for t, _, sh, v13, *_ in T["holdings"]:
-        px = S[t][i]
-        tot += sh * px if px else v13  # before a first print, hold the filed value
-    val.append(tot)
-th, tot_now = [], val[-1]
-for t, name, sh, v13, *kind in T["holdings"]:
-    s = S[t]
-    px = s[-1]
-    if px is None and t not in out["missing"]:
-        out["missing"].append(t)
-    v = sh * px if px else v13
-    th.append({"t": t, "n": name, "sh": sh, **({"call": 1} if kind and kind[0] == "call" else {}), "px": r(px), "v": round(v), "w": r(v / tot_now * 100, 1),
-               "d1": r(pct(s[-1], s[-2])), "sq": r(pct(px, s[i0]) if px and s[i0] else pct(v, v13))})
-th.sort(key=lambda x: -x["v"])
-out["druck"] = {"dates": dates[i0:], "val": [round(x) for x in val], "spy": [r(x) for x in spy_s[i0:]],
-                "stats": {"now": round(tot_now), "filed": sum(h[3] for h in T["holdings"]), "sq": r(pct(val[-1], val[0])),
-                          "d1": r(pct(val[-1], val[-2])) if len(val) > 1 else None, "spy_sq": r(pct(spy_s[-1], spy_s[i0])),
-                          "spy_d1": r(pct(spy_s[-1], spy_s[-2]))},
-                "holdings": th}
+
+def model(P):
+    W = {t: w for t, _, w in P["holdings"]}
+    idx, lvl = [], 100.0
+    for i, d in enumerate(dates):
+        if i:
+            num = den = 0.0
+            for t, w in W.items():
+                a, b = S[t][i - 1], S[t][i]
+                if a and b:
+                    num += w * (b / a - 1); den += w
+            lvl *= 1 + (num / den if den else 0)
+        idx.append(lvl)
+    filing = P["last_stock_filing"]
+    ph = []
+    for t, name, w in P["holdings"]:
+        s = S[t]
+        if s[-1] is None and t not in out["missing"]:
+            out["missing"].append(t)
+        ph.append({"t": t, "n": name, "w": r(w / sum(W.values()) * 100, 1), "px": r(s[-1]),
+                   "d1": r(pct(s[-1], s[-2]) if len(s) > 1 else None), "ytd": r(pct(s[-1], at(s, year0))),
+                   "sf": r(pct(s[-1], at(s, filing)))})
+    return {
+        "dates": dates[start6:], "idx": [r(x, 3) for x in idx[start6:]], "spy": [r(x, 2) for x in spy_s[start6:]],
+        "stats": {"d1": r(pct(idx[-1], idx[-2])), "sf": r(pct(idx[-1], at(idx, filing))), "ytd": r(pct(idx[-1], at(idx, year0))),
+                  "y1": r(pct(idx[-1], idx[0])),
+                  "spy_d1": r(pct(spy_s[-1], spy_s[-2])), "spy_sf": r(pct(spy_s[-1], at(spy_s, filing))),
+                  "spy_ytd": r(pct(spy_s[-1], at(spy_s, year0))), "spy_y1": r(pct(spy_s[-1], spy_s[0]))},
+        "holdings": ph}
+
+
+for k in MODELS:
+    out[k] = model(CFG[k])
+
+# ---------- Druckenmiller, Thiel: 13F shares marked to market ----------
+def thirteen_f(T):
+    q = T["period"]
+    i0 = max(i for i, d in enumerate(dates) if d <= q)
+    val = []
+    for i in range(i0, len(dates)):
+        tot = 0.0
+        for t, _, sh, v13, *_ in T["holdings"]:
+            px = S[t][i]
+            tot += sh * px if px else v13  # before a first print, hold the filed value
+        val.append(tot)
+    th, tot_now = [], val[-1]
+    for t, name, sh, v13, *kind in T["holdings"]:
+        s = S[t]
+        px = s[-1]
+        if px is None and t not in out["missing"]:
+            out["missing"].append(t)
+        v = sh * px if px else v13
+        th.append({"t": t, "n": name, "sh": sh, **({"call": 1} if kind and kind[0] == "call" else {}), "px": r(px), "v": round(v), "w": r(v / tot_now * 100, 1),
+                   "d1": r(pct(s[-1], s[-2])), "sq": r(pct(px, s[i0]) if px and s[i0] else pct(v, v13))})
+    th.sort(key=lambda x: -x["v"])
+    return {"dates": dates[i0:], "val": [round(x) for x in val], "spy": [r(x) for x in spy_s[i0:]],
+            "stats": {"now": round(tot_now), "filed": sum(h[3] for h in T["holdings"]), "sq": r(pct(val[-1], val[0])),
+                      "d1": r(pct(val[-1], val[-2])) if len(val) > 1 else None, "spy_sq": r(pct(spy_s[-1], spy_s[i0])),
+                      "spy_d1": r(pct(spy_s[-1], spy_s[-2]))},
+            "holdings": th}
+
+
+for k in F13:
+    out[k] = thirteen_f(CFG[k])
 
 # ---------- new-filing check ----------
 UA = os.environ.get("SEC_USER_AGENT") or "stock-dashboard admin@example.com"
@@ -135,14 +147,17 @@ def get(url, ua=UA):
 
 
 fl = {}
-try:
-    j = json.loads(get(f"https://data.sec.gov/submissions/CIK{T['cik']:010d}.json"))
-    rc = j["filings"]["recent"]
-    k = next(i for i, f in enumerate(rc["form"]) if f.startswith("13F-HR"))
-    fl["druck"] = {"accession": rc["accessionNumber"][k], "form": rc["form"][k], "period": rc["reportDate"][k],
+for key in F13:
+    T = CFG[key]
+    try:
+        j = json.loads(get(f"https://data.sec.gov/submissions/CIK{T['cik']:010d}.json"))
+        rc = j["filings"]["recent"]
+        k = next(i for i, f in enumerate(rc["form"]) if f.startswith("13F-HR"))
+        fl[key] = {"accession": rc["accessionNumber"][k], "form": rc["form"][k], "period": rc["reportDate"][k],
                    "filed": rc["filingDate"][k], "new": rc["accessionNumber"][k] != T["accession"]}
-except Exception as e:
-    fl["druck"] = {"error": str(e)[:200]}
+    except Exception as e:
+        fl[key] = {"error": str(e)[:200]}
+P = CFG["pelosi"]
 try:
     yr = int(last[:4])
     ptr = []
@@ -161,5 +176,5 @@ except Exception as e:
 out["filings"] = fl
 
 json.dump(out, open(os.path.join(ROOT, "data", "portfolios-perf.json"), "w"), separators=(",", ":"))
-print(json.dumps({"session": last, "pelosi": out["pelosi"]["stats"], "druck": out["druck"]["stats"],
+print(json.dumps({"session": last, **{k: out[k]["stats"] for k in MODELS + F13},
                   "missing": out["missing"], "filings": fl}, indent=1))

@@ -1,13 +1,15 @@
-/* Pelosi and Druckenmiller portfolio panels for the main page, under the top movers:
-   #pfL — Nancy Pelosi household (estimated weights from STOCK Act filings, model performance vs S&P 500)
-   #pfR — Stanley Druckenmiller / Duquesne Family Office (13F share counts marked to market since the quarter end;
+/* Portfolio panels for the main page, under the top movers:
+   #pfL  — Nancy Pelosi household (estimated weights from STOCK Act filings, model performance vs S&P 500)
+   #pfL2 — Donald Trump personal stock book (estimated weights from OGE filings, same model format as Pelosi)
+   #pfR  — Stanley Druckenmiller / Duquesne Family Office (13F share counts marked to market since the quarter end;
           call rows at their underlying shares; weight = share of total reported value)
+   #pfR2 — Peter Thiel / Thiel Macro LLC (13F, same format as Druckenmiller)
    Data: data/portfolios.json (holdings, trades, notes; edited when a filing lands) and
    data/portfolios-perf.json (built after each US close by scripts/build-portfolios.py in the ta-data workflow).
    Charts use TradingView Lightweight Charts, already loaded by the page. */
 (function () {
-  const L = document.getElementById("pfL"), R = document.getElementById("pfR");
-  if (!L || !R) return;
+  const $ = (id) => document.getElementById(id);
+  if (!$("pfL") && !$("pfR")) return;
   const PAGES = { NVDA: "nvda", BE: "be", GOOGL: "googl", AVGO: "avgo", INTC: "intc", AMZN: "amzn", MSFT: "msft", TSLA: "tesla",
     ARM: "arm", MU: "mu", AMD: "amd", META: "meta", PLTR: "pltr", TSM: "tsm", SNDK: "sndk", AAOI: "aaoi", AMAT: "amat",
     ASML: "asml", COHR: "cohr", GLW: "glw", LITE: "lite", MP: "mp", MRVL: "mrvl", ROK: "rok", SKHY: "skhy", SPCX: "spcx", TER: "ter", ZS: "zs" };
@@ -76,13 +78,14 @@
     charts.push(c);
   }
 
-  function pelosi(cfg, p, fl) {
+  function model(el, label, cfg, p, fl) {
+    if (!el) return;
     const s = p.stats, f = cfg.last_stock_filing, trades = cfg.trades || [];
     const pend = fl && fl.unreviewed && fl.unreviewed.length ? `<div class="pf-flag">New filing ${esc(fl.unreviewed[0].filed)} · review pending</div>` : "";
-    L.innerHTML = `<section class="pf" aria-label="Nancy Pelosi portfolio"><div class="mv-h"><span>Pelosi portfolio</span><span>close ${fmtD(p.dates.at(-1))}</span></div>
+    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>close ${fmtD(p.dates.at(-1))}</span></div>
     <div class="pf-card">
       <h3 class="pf-who">${esc(cfg.title)}</h3>
-      <div class="pf-sub">${esc(cfg.basis)} · last stock filing ${fmtD(f, true)}</div>
+      <div class="pf-sub">${esc(cfg.basis)} · ${cfg.since_text ? esc(cfg.since_text) : "last stock filing " + fmtD(f, true)}</div>
       ${pend}
       <div class="pf-cells">${cell("Today", s.d1, "S&P " + sg(s.spy_d1))}${cell("Since " + fmtD(f), s.sf, "S&P " + sg(s.spy_sf))}${cell("YTD (model)", s.ytd, "S&P " + sg(s.spy_ytd))}</div>
       <div class="pf-leg"><span><i style="background:var(--accent)"></i>Model portfolio</span><span><i style="background:var(--muted)"></i>S&amp;P 500 (SPY)</span><span>6 months</span></div>
@@ -90,22 +93,23 @@
       <table><thead><tr><th>Stock</th><th>Weight</th><th>Price</th><th>Day</th><th>YTD</th></tr></thead><tbody>
       ${p.holdings.map((h) => `<tr><td>${tick(h.t)}<small>${esc(h.n)}</small></td><td>${h.w.toFixed(0)}%<span class="bar" style="width:${Math.min(100, h.w * 5)}%"></span></td><td>${usd(h.px)}</td><td class="${cl(h.d1)}">${sg(h.d1)}</td><td class="${cl(h.ytd)}">${sg(h.ytd, 0)}</td></tr>`).join("")}
       </tbody></table>
-      <details><summary>Disclosed trades (${trades.length})</summary>
+      <details><summary>${esc(cfg.trades_label || "Disclosed trades")} (${trades.length})</summary>
       ${trades.map(([d, t, ty, what, band, id, yr]) => `<div class="pf-tr"><span class="d">${fmtD(d, d.slice(0, 4) !== p.dates.at(-1).slice(0, 4))}</span><span class="k ${ty === "Sell" ? "down" : ty === "Buy" ? "up" : ""}">${esc(t)}</span>
         <span class="x">${esc(ty)} · ${esc(what)} · ${esc(band)} <a href="${cfg.filing_url.replace("{year}", yr || cfg.filing_year).replace("{id}", id)}" target="_blank" rel="noopener">filing</a></span></div>`).join("")}
       </details>
-      <p class="pf-note">${cfg.latest_filing ? esc(cfg.latest_filing) + " " : ""}${esc(cfg.note)} Weights: <a href="${cfg.weights_source.url}" target="_blank" rel="noopener">${esc(cfg.weights_source.name)}</a>. Trades: House Clerk filings.</p>
+      <p class="pf-note">${cfg.latest_filing ? esc(cfg.latest_filing) + " " : ""}${esc(cfg.note)} Weights: <a href="${cfg.weights_source.url}" target="_blank" rel="noopener">${esc(cfg.weights_source.name)}</a>. ${esc(cfg.trades_source || "Trades: House Clerk filings.")}</p>
     </div></section>`;
-    chart(L.querySelector(".pf-chart"), p.dates, p.idx, p.spy);
+    chart(el.querySelector(".pf-chart"), p.dates, p.idx, p.spy);
   }
 
-  function druck(cfg, t, fl) {
+  function thirteenF(el, label, cfg, t, fl) {
+    if (!el) return;
     const s = t.stats, TOP = 15;
     const pend = fl && fl.new ? `<div class="pf-flag">New 13F filed ${esc(fl.filed)} (period ${esc(fl.period)}) · update pending</div>` : "";
     const row = (h) => `<tr><td>${tick(h.t)}${h.call ? ' <span class="pf-call">calls</span>' : ""}<small>${esc(h.n)}</small></td><td>${(h.sh / 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })}K</td><td>${mil(h.v)}</td><td>${h.w.toFixed(1)}%<span class="bar" style="width:${Math.min(100, h.w * 5)}%"></span></td><td class="${cl(h.sq)}">${sg(h.sq)}</td></tr>`;
     const head = `<thead><tr><th>Stock</th><th>Shares</th><th>Value</th><th>Weight</th><th>Since Q</th></tr></thead>`;
     const rest = t.holdings.slice(TOP), restW = rest.reduce((a, h) => a + h.w, 0);
-    R.innerHTML = `<section class="pf" aria-label="Stanley Druckenmiller portfolio"><div class="mv-h"><span>Druckenmiller portfolio</span><span>close ${fmtD(t.dates.at(-1))}</span></div>
+    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>close ${fmtD(t.dates.at(-1))}</span></div>
     <div class="pf-card">
       <h3 class="pf-who">${esc(cfg.title)}</h3>
       <div class="pf-sub">${esc(cfg.basis)} · as of ${fmtD(cfg.period, true)}, filed ${fmtD(cfg.filed)} · ${t.holdings.length} positions</div>
@@ -117,7 +121,7 @@
       ${rest.length ? `<details><summary>Other ${rest.length} positions (${restW.toFixed(1)}%)</summary><table>${head}<tbody>${rest.map(row).join("")}</tbody></table></details>` : ""}
       <p class="pf-note">${esc(cfg.previous)} ${esc(cfg.note)} Next 13F due by ${fmtD(cfg.next_due, true)}. Source: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${cfg.cik}&type=13F-HR" target="_blank" rel="noopener">SEC EDGAR</a>.</p>
     </div></section>`;
-    chart(R.querySelector(".pf-chart"), t.dates, t.val, t.spy);
+    chart(el.querySelector(".pf-chart"), t.dates, t.val, t.spy);
   }
 
   // Before the data workflow has priced a new 13F, show it at the filed values.
@@ -131,7 +135,9 @@
     const [cfg, perf] = await Promise.all([getJSON("data/portfolios.json"), getJSON("data/portfolios-perf.json")]);
     if (!cfg || !perf) return;
     const fl = perf.filings || {};
-    if (perf.pelosi) pelosi(cfg.pelosi, perf.pelosi, fl.pelosi);
-    if (cfg.druck) druck(cfg.druck, perf.druck || filed(cfg.druck), fl.druck);
+    if (cfg.pelosi && perf.pelosi) model($("pfL"), "Pelosi", cfg.pelosi, perf.pelosi, fl.pelosi);
+    if (cfg.trump && perf.trump) model($("pfL2"), "Trump", cfg.trump, perf.trump, fl.trump);
+    if (cfg.druck) thirteenF($("pfR"), "Druckenmiller", cfg.druck, perf.druck || filed(cfg.druck), fl.druck);
+    if (cfg.thiel) thirteenF($("pfR2"), "Thiel", cfg.thiel, perf.thiel || filed(cfg.thiel), fl.thiel);
   })();
 })();
