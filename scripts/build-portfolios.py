@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds data/portfolios-perf.json for the Pelosi and Thiel panels on the main page.
+"""Builds data/portfolios-perf.json for the Pelosi and Druckenmiller panels on the main page.
 
 Inputs
   data/portfolios.json         holdings, weights, trades (edited when a new filing lands)
@@ -8,8 +8,9 @@ Output
   data/portfolios-perf.json    daily performance, per-holding prices/returns, and a check for new filings
 
 Pelosi: a model portfolio with fixed estimated weights, rebalanced daily (sum of weight x daily return).
-Thiel: the 13F share counts marked to each day's close since the quarter end.
-New-filing check: SEC EDGAR submissions (Thiel Macro 13F-HR) and the House Clerk's yearly
+Druckenmiller: the 13F share counts (call rows at their underlying shares) marked to each day's close
+since the quarter end.
+New-filing check: SEC EDGAR submissions (Duquesne Family Office 13F-HR) and the House Clerk's yearly
 financial-disclosure index (Pelosi periodic transaction reports). Network errors are recorded, not fatal.
 
 Usage: python3 scripts/build-portfolios.py <pricedir>
@@ -61,7 +62,7 @@ def at(s, d):
     return s[i]
 
 
-S = {t: series(t) for t in {"SPY", *[h[0] for h in CFG["pelosi"]["holdings"]], *[h[0] for h in CFG["thiel"]["holdings"]]}}
+S = {t: series(t) for t in {"SPY", *[h[0] for h in CFG["pelosi"]["holdings"]], *[h[0] for h in CFG["druck"]["holdings"]]}}
 spy_s = S["SPY"]
 out = {"updated": int(time.time()), "session": last, "missing": []}
 
@@ -96,28 +97,28 @@ out["pelosi"] = {
               "spy_ytd": r(pct(spy_s[-1], at(spy_s, year0))), "spy_y1": r(pct(spy_s[-1], spy_s[0]))},
     "holdings": ph}
 
-# ---------- Thiel: 13F shares marked to market ----------
-T = CFG["thiel"]
+# ---------- Druckenmiller: 13F shares marked to market ----------
+T = CFG["druck"]
 q = T["period"]
 i0 = max(i for i, d in enumerate(dates) if d <= q)
 val = []
 for i in range(i0, len(dates)):
     tot = 0.0
-    for t, _, sh, v13 in T["holdings"]:
+    for t, _, sh, v13, *_ in T["holdings"]:
         px = S[t][i]
         tot += sh * px if px else v13  # before a first print, hold the filed value
     val.append(tot)
 th, tot_now = [], val[-1]
-for t, name, sh, v13 in T["holdings"]:
+for t, name, sh, v13, *kind in T["holdings"]:
     s = S[t]
     px = s[-1]
-    if px is None:
+    if px is None and t not in out["missing"]:
         out["missing"].append(t)
     v = sh * px if px else v13
-    th.append({"t": t, "n": name, "sh": sh, "px": r(px), "v": round(v), "w": r(v / tot_now * 100, 1),
+    th.append({"t": t, "n": name, "sh": sh, **({"call": 1} if kind and kind[0] == "call" else {}), "px": r(px), "v": round(v), "w": r(v / tot_now * 100, 1),
                "d1": r(pct(s[-1], s[-2])), "sq": r(pct(px, s[i0]) if px and s[i0] else pct(v, v13))})
 th.sort(key=lambda x: -x["v"])
-out["thiel"] = {"dates": dates[i0:], "val": [round(x) for x in val], "spy": [r(x) for x in spy_s[i0:]],
+out["druck"] = {"dates": dates[i0:], "val": [round(x) for x in val], "spy": [r(x) for x in spy_s[i0:]],
                 "stats": {"now": round(tot_now), "filed": sum(h[3] for h in T["holdings"]), "sq": r(pct(val[-1], val[0])),
                           "d1": r(pct(val[-1], val[-2])) if len(val) > 1 else None, "spy_sq": r(pct(spy_s[-1], spy_s[i0])),
                           "spy_d1": r(pct(spy_s[-1], spy_s[-2]))},
@@ -138,10 +139,10 @@ try:
     j = json.loads(get(f"https://data.sec.gov/submissions/CIK{T['cik']:010d}.json"))
     rc = j["filings"]["recent"]
     k = next(i for i, f in enumerate(rc["form"]) if f.startswith("13F-HR"))
-    fl["thiel"] = {"accession": rc["accessionNumber"][k], "form": rc["form"][k], "period": rc["reportDate"][k],
+    fl["druck"] = {"accession": rc["accessionNumber"][k], "form": rc["form"][k], "period": rc["reportDate"][k],
                    "filed": rc["filingDate"][k], "new": rc["accessionNumber"][k] != T["accession"]}
 except Exception as e:
-    fl["thiel"] = {"error": str(e)[:200]}
+    fl["druck"] = {"error": str(e)[:200]}
 try:
     yr = int(last[:4])
     ptr = []
@@ -160,5 +161,5 @@ except Exception as e:
 out["filings"] = fl
 
 json.dump(out, open(os.path.join(ROOT, "data", "portfolios-perf.json"), "w"), separators=(",", ":"))
-print(json.dumps({"session": last, "pelosi": out["pelosi"]["stats"], "thiel": out["thiel"]["stats"],
+print(json.dumps({"session": last, "pelosi": out["pelosi"]["stats"], "druck": out["druck"]["stats"],
                   "missing": out["missing"], "filings": fl}, indent=1))

@@ -70,9 +70,9 @@ jobs:
       - name: Build indicator snapshot
         run: python3 scripts/ta-snapshot.py
 
-      - name: Fetch prices for the Pelosi and Thiel panels
+      - name: Fetch prices for the Pelosi and Druckenmiller panels
         run: |
-          for t in SPY $(python3 -c "import json;c=json.load(open('data/portfolios.json'));print(' '.join(sorted({h[0] for k in ('pelosi','thiel') for h in c[k]['holdings']})))"); do
+          for t in SPY $(python3 -c "import json;c=json.load(open('data/portfolios.json'));print(' '.join(sorted({h[0] for k in ('pelosi','druck') for h in c[k]['holdings']})))"); do
             mkdir -p pf-data/$t && node scripts/fetch-quote.mjs $t pf-data/$t 1y
           done
 

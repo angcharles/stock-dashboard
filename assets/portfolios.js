@@ -1,6 +1,7 @@
-/* Pelosi and Thiel portfolio panels for the main page, under the top movers:
+/* Pelosi and Druckenmiller portfolio panels for the main page, under the top movers:
    #pfL — Nancy Pelosi household (estimated weights from STOCK Act filings, model performance vs S&P 500)
-   #pfR — Peter Thiel / Thiel Macro LLC (13F share counts marked to market since the quarter end)
+   #pfR — Stanley Druckenmiller / Duquesne Family Office (13F share counts marked to market since the quarter end;
+          call rows at their underlying shares; weight = share of total reported value)
    Data: data/portfolios.json (holdings, trades, notes; edited when a filing lands) and
    data/portfolios-perf.json (built after each US close by scripts/build-portfolios.py in the ta-data workflow).
    Charts use TradingView Lightweight Charts, already loaded by the page. */
@@ -8,7 +9,8 @@
   const L = document.getElementById("pfL"), R = document.getElementById("pfR");
   if (!L || !R) return;
   const PAGES = { NVDA: "nvda", BE: "be", GOOGL: "googl", AVGO: "avgo", INTC: "intc", AMZN: "amzn", MSFT: "msft", TSLA: "tesla",
-    ARM: "arm", MU: "mu", AMD: "amd", META: "meta", PLTR: "pltr", TSM: "tsm" };
+    ARM: "arm", MU: "mu", AMD: "amd", META: "meta", PLTR: "pltr", TSM: "tsm", SNDK: "sndk", AAOI: "aaoi", AMAT: "amat",
+    ASML: "asml", COHR: "cohr", GLW: "glw", LITE: "lite", MP: "mp", MRVL: "mrvl", ROK: "rok", SKHY: "skhy", SPCX: "spcx", TER: "ter", ZS: "zs" };
 
   const st = document.createElement("style");
   st.textContent = `
@@ -41,6 +43,8 @@
   .pf-tr .x a{color:var(--muted);font-size:10.5px}
   .pf-note{font-size:11px;line-height:1.45;color:var(--muted);margin:10px 0 0}
   .pf-note a{color:var(--muted)}
+  .pf-call{font:600 9px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 3px;margin-left:3px}
+  .pf details table{margin-top:6px}
   .pf-flag{font:600 11px var(--f-mono);color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:4px 7px;margin:0 0 10px}
   `;
   document.head.appendChild(st);
@@ -49,7 +53,7 @@
   const sg = (x, d = 1) => { if (x == null) return "–"; const v = +x.toFixed(d); return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d) + "%"; };
   const cl = (x) => x == null ? "" : x >= 0 ? "up" : "down";
   const usd = (x) => x == null ? "–" : "$" + x.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  const mil = (x) => "$" + (x / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 }) + "M";
+  const mil = (x) => x >= 1e9 ? "$" + (x / 1e9).toFixed(2) + "B" : "$" + (x / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 }) + "M";
   const fmtD = (iso, y) => { const [Y, M, D] = iso.split("-").map(Number); return new Date(Date.UTC(Y, M - 1, D)).toLocaleDateString("en-US", { month: "short", day: "numeric", ...(y ? { year: "numeric" } : {}), timeZone: "UTC" }); };
   const tick = (t) => PAGES[t] ? `<a href="${PAGES[t]}/">${esc(t)}</a>` : esc(t);
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -95,20 +99,22 @@
     chart(L.querySelector(".pf-chart"), p.dates, p.idx, p.spy);
   }
 
-  function thiel(cfg, t, fl) {
-    const s = t.stats;
+  function druck(cfg, t, fl) {
+    const s = t.stats, TOP = 15;
     const pend = fl && fl.new ? `<div class="pf-flag">New 13F filed ${esc(fl.filed)} (period ${esc(fl.period)}) · update pending</div>` : "";
-    R.innerHTML = `<section class="pf" aria-label="Peter Thiel portfolio"><div class="mv-h"><span>Thiel portfolio</span><span>close ${fmtD(t.dates.at(-1))}</span></div>
+    const row = (h) => `<tr><td>${tick(h.t)}${h.call ? ' <span class="pf-call">calls</span>' : ""}<small>${esc(h.n)}</small></td><td>${(h.sh / 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })}K</td><td>${mil(h.v)}</td><td>${h.w.toFixed(1)}%<span class="bar" style="width:${Math.min(100, h.w * 5)}%"></span></td><td class="${cl(h.sq)}">${sg(h.sq)}</td></tr>`;
+    const head = `<thead><tr><th>Stock</th><th>Shares</th><th>Value</th><th>Weight</th><th>Since Q</th></tr></thead>`;
+    const rest = t.holdings.slice(TOP), restW = rest.reduce((a, h) => a + h.w, 0);
+    R.innerHTML = `<section class="pf" aria-label="Stanley Druckenmiller portfolio"><div class="mv-h"><span>Druckenmiller portfolio</span><span>close ${fmtD(t.dates.at(-1))}</span></div>
     <div class="pf-card">
       <h3 class="pf-who">${esc(cfg.title)}</h3>
-      <div class="pf-sub">${esc(cfg.basis)} · as of ${fmtD(cfg.period, true)}, filed ${fmtD(cfg.filed)}</div>
+      <div class="pf-sub">${esc(cfg.basis)} · as of ${fmtD(cfg.period, true)}, filed ${fmtD(cfg.filed)} · ${t.holdings.length} positions</div>
       ${pend}
       <div class="pf-cells"><div class="pf-cell"><b>Value now</b><span>${mil(s.now)}</span><i>filed ${mil(s.filed)}</i></div>${cell("Since " + fmtD(cfg.period), s.sq, "S&P " + sg(s.spy_sq))}${cell("Today", s.d1, "S&P " + sg(s.spy_d1))}</div>
       <div class="pf-leg"><span><i style="background:var(--accent)"></i>13F holdings</span><span><i style="background:var(--muted)"></i>S&amp;P 500 (SPY)</span><span>since ${fmtD(cfg.period)}</span></div>
       <div class="pf-chart"></div>
-      <table><thead><tr><th>Stock</th><th>Shares</th><th>Value</th><th>Weight</th><th>Since Q</th></tr></thead><tbody>
-      ${t.holdings.map((h) => `<tr><td>${tick(h.t)}<small>${esc(h.n)}</small></td><td>${(h.sh / 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })}K</td><td>${mil(h.v)}</td><td>${h.w.toFixed(0)}%<span class="bar" style="width:${Math.min(100, h.w * 3.5)}%"></span></td><td class="${cl(h.sq)}">${sg(h.sq)}</td></tr>`).join("")}
-      </tbody></table>
+      <table>${head}<tbody>${t.holdings.slice(0, TOP).map(row).join("")}</tbody></table>
+      ${rest.length ? `<details><summary>Other ${rest.length} positions (${restW.toFixed(1)}%)</summary><table>${head}<tbody>${rest.map(row).join("")}</tbody></table></details>` : ""}
       <p class="pf-note">${esc(cfg.previous)} ${esc(cfg.note)} Next 13F due by ${fmtD(cfg.next_due, true)}. Source: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${cfg.cik}&type=13F-HR" target="_blank" rel="noopener">SEC EDGAR</a>.</p>
     </div></section>`;
     chart(R.querySelector(".pf-chart"), t.dates, t.val, t.spy);
@@ -119,6 +125,6 @@
     if (!cfg || !perf) return;
     const fl = perf.filings || {};
     if (perf.pelosi) pelosi(cfg.pelosi, perf.pelosi, fl.pelosi);
-    if (perf.thiel) thiel(cfg.thiel, perf.thiel, fl.thiel);
+    if (perf.druck && cfg.druck) druck(cfg.druck, perf.druck, fl.druck);
   })();
 })();
