@@ -123,6 +123,22 @@
     1,
     2,
     3
+   ],
+   "ry": [
+    {
+     "y": "FY27e",
+     "p": "Jul 2026–Jun 2027",
+     "v": 390.8,
+     "g": 17.8,
+     "s": "Consensus"
+    },
+    {
+     "y": "FY28e",
+     "p": "Jul 2027–Jun 2028",
+     "v": 467.2,
+     "g": 19.5,
+     "s": "Consensus"
+    }
    ]
   },
   {
@@ -237,6 +253,22 @@
     6,
     7,
     2
+   ],
+   "ry": [
+    {
+     "y": "2026e",
+     "p": "Calendar 2026",
+     "v": 828.7,
+     "g": 15.6,
+     "s": "Consensus"
+    },
+    {
+     "y": "2027e",
+     "p": "Calendar 2027",
+     "v": 950.8,
+     "g": 14.7,
+     "s": "Consensus"
+    }
    ]
   },
   {
@@ -356,6 +388,22 @@
     10,
     11,
     2
+   ],
+   "ry": [
+    {
+     "y": "2026e",
+     "p": "Calendar 2026",
+     "v": 498.3,
+     "g": 23.7,
+     "s": "Consensus"
+    },
+    {
+     "y": "2027e",
+     "p": "Calendar 2027",
+     "v": 616.9,
+     "g": 23.8,
+     "s": "Consensus"
+    }
    ]
   },
   {
@@ -444,6 +492,22 @@
     13,
     14,
     15
+   ],
+   "ry": [
+    {
+     "y": "2026e",
+     "p": "Calendar 2026",
+     "v": 254.1,
+     "g": 26.4,
+     "s": "Consensus"
+    },
+    {
+     "y": "2027e",
+     "p": "Calendar 2027",
+     "v": 305.7,
+     "g": 20.3,
+     "s": "Consensus"
+    }
    ]
   },
   {
@@ -539,6 +603,22 @@
     16,
     17,
     18
+   ],
+   "ry": [
+    {
+     "y": "FY27e",
+     "p": "Jun 2026–May 2027",
+     "v": 90.5,
+     "g": 34.3,
+     "s": "Consensus; company guides at least $90B"
+    },
+    {
+     "y": "FY28e",
+     "p": "Jun 2027–May 2028",
+     "v": 131.5,
+     "g": 45.3,
+     "s": "Consensus"
+    }
    ]
   },
   {
@@ -604,28 +684,28 @@
    },
    "fc": {
     "y": [
+     "FY26",
      "FY27e",
-     "FY28e",
-     "—"
+     "FY28e"
     ],
     "rows": [
      {
-      "n": "AI Cloud, Sep-26 quarter",
+      "n": "Total revenue",
       "v": [
-       "~$8.8B",
-       "—",
-       "—"
+       "$148.4B",
+       "~$162B",
+       "~$182B"
       ],
-      "s": "Jefferies/Citi RMB60.5B, +50–52%"
+      "s": "FY26 actual; FY27 consensus (RMB1.12T); FY28 est. at ~12% growth"
      },
      {
-      "n": "Cloud revenue growth",
+      "n": "Cloud revenue",
       "v": [
-       "~50%",
-       ">50%",
-       "—"
+       "$22.9B",
+       "~$34.8B",
+       "~$54.7B"
       ],
-      "s": "Jefferies"
+      "s": "Est. from BofA growth of 52% (FY27) and 57% (FY28)"
      }
     ]
    },
@@ -633,7 +713,25 @@
    "src": [
     19,
     20,
-    21
+    21,
+    45,
+    46
+   ],
+   "ry": [
+    {
+     "y": "FY27e",
+     "p": "Apr 2026–Mar 2027",
+     "v": 162.3,
+     "g": 9.4,
+     "s": "Consensus ~RMB1.12T"
+    },
+    {
+     "y": "FY28e",
+     "p": "Apr 2027–Mar 2028",
+     "v": 181.8,
+     "g": 12.0,
+     "s": "Est.: consensus FY27 grown at the ~12% a year consensus path"
+    }
    ]
   },
   {
@@ -1405,6 +1503,14 @@
   {
    "t": "AlphaPilot: Goldman sees $1.2T hyperscaler capex in 2027",
    "u": "https://alphapilot.tech/discover/ai-capex-2027-goldman-sees-hyperscaler-spending-soaring-to-1-2-trillion"
+  },
+  {
+   "t": "TIKR: Alibaba consensus revenue for fiscal 2027",
+   "u": "https://tikr.com/blog/alibaba-stock-is-down-nearly-27-in-2026-as-earnings-keep-missing-estimates-heres-what-the-next-report-has-to-show"
+  },
+  {
+   "t": "Business Insider: BofA forecasts Alibaba cloud growth",
+   "u": "https://markets.businessinsider.com/news/stocks/alibaba-stock-rises-over-4-as-bank-of-america-says-earnings-inflection-is-underpriced-1036613992"
   }
  ],
  "chipSrc": [

@@ -51,6 +51,17 @@
     $("capexNote").innerHTML = "Midpoint of each company's guidance; fiscal years differ (see each card). Not on the chart: " + none + ".";
   }
 
+  // Grouped bars: this year's and next year's revenue for each hyperscaler.
+  function revChart() {
+    const rows = D.companies.filter((c) => c.ry);
+    const max = Math.max(...rows.map((c) => c.ry[1].v));
+    $("revYears").innerHTML = rows.map((c) => `<div class="brow two-b">
+        <div class="bl"><span>${esc(c.name)}</span></div>
+        <div class="bt2">${c.ry.map((r, i) => `<div class="bt"><i class="${i ? "nx" : "nw"}" style="width:${(r.v / max * 100).toFixed(2)}%"></i></div>`).join("")}</div>
+        <div class="bv">${c.ry.map((r) => `<div>${money(r.v)} <span>${esc(r.y)} +${r.g.toFixed(0)}%</span></div>`).join("")}</div>
+      </div>`).join("");
+  }
+
   function filters() {
     const opts = [{ id: "all", n: "All" }].concat(D.groups);
     $("flt").innerHTML = opts.map((g) => `<button type="button" data-g="${g.id}" aria-pressed="${g.id === flt}">${esc(g.n)}</button>`).join("");
@@ -89,6 +100,7 @@
         <h3>${esc(c.name)}</h3>
         <p class="desc">${esc(c.blurb)}</p>
       </header>
+      ${c.ry ? `<div class="ry">${c.ry.map((r, i) => `<div><b>${i ? "Next year" : "This year"} · ${esc(r.y)}</b><span>${money(r.v)}</span><em class="up">+${r.g.toFixed(0)}%</em><small>${esc(r.p)} · ${esc(r.s)}</small></div>`).join("")}</div>` : ""}
       <div class="kv">
         <div><b>Power</b><span>${c.gw.now != null ? gw(c.gw.now) : "n/d"}</span><small>${esc(c.gw.nowT)}</small></div>
         <div><b>Target</b><span>${c.gw.tgt != null ? gw(c.gw.tgt) : "n/d"}</span><small>${esc(c.gw.tgtT)}</small></div>
@@ -123,6 +135,6 @@
     D = d;
     $("asof").textContent = d.asofText;
     $("dnote").textContent = d.note;
-    tiles(); powerChart(); capexChart(); filters(); cards(); chipTables(); sources();
+    tiles(); revChart(); powerChart(); capexChart(); filters(); cards(); chipTables(); sources();
   }).catch(() => { $("cards").innerHTML = '<p class="note">Could not load data/datacenter.json.</p>'; });
 })();
