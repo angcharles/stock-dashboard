@@ -1,0 +1,65 @@
+name: Price heartbeat
+
+# GitHub's `schedule` trigger is best-effort and was firing only 2-6 times a day instead of
+# ~110, so pre-market / after-hours / overnight prices went stale until something else deployed.
+# This job keeps its own clock instead: it stays alive for ~5h40m, dispatches the deploy workflow
+# every 10 min in regular hours, 15 min in pre/after/overnight, hourly on weekends, then hands over
+# to a fresh copy of itself. workflow_dispatch from GITHUB_TOKEN is allowed to start new runs.
+# The 2-hourly cron is only a safety net to restart the chain if it ever breaks.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/heartbeat.yml]
+  schedule:
+    - cron: "17 */2 * * *"
+
+permissions:
+  actions: write
+  contents: read
+
+# Never cancel a running heartbeat; extra triggers wait as a single pending run.
+concurrency:
+  group: heartbeat
+  cancel-in-progress: false
+
+jobs:
+  beat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Dispatch deploys on a steady clock
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          end=$(( $(date +%s) + 340*60 ))
+          last=0
+          while [ "$(date +%s)" -lt "$end" ]; do
+            dow=$(TZ=America/New_York date +%u)          # 1=Mon .. 7=Sun
+            hm=$(TZ=America/New_York date +%H%M)
+            m=$(( 10#${hm:0:2} * 60 + 10#${hm:2:2} ))     # minutes since midnight ET
+            if { [ "$dow" -eq 5 ] && [ "$m" -ge 1200 ]; } || [ "$dow" -eq 6 ] || { [ "$dow" -eq 7 ] && [ "$m" -lt 1200 ]; }; then
+              gap=3600                                   # weekend: news only
+            elif [ "$m" -ge 570 ] && [ "$m" -lt 960 ]; then
+              gap=600                                    # regular session
+            else
+              gap=900                                    # pre-market, after-hours, overnight
+            fi
+            now=$(date +%s)
+            if [ $(( now - last )) -ge "$gap" ]; then
+              if gh workflow run deploy.yml -R "$REPO" --ref main; then
+                echo "$(TZ=America/New_York date '+%a %H:%M ET') deploy dispatched (every $((gap/60)) min)"
+                last=$now
+              else
+                echo "dispatch failed; retrying next minute"
+              fi
+            fi
+            sleep 60
+          done
+
+      - name: Hand over to the next heartbeat
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run heartbeat.yml -R "${{ github.repository }}" --ref main
