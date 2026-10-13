@@ -1,5 +1,6 @@
 // Macro page data: crude oil, gold, silver and the 2/5/10/30-year Treasury yields, plus an economic calendar.
-// Writes data/macro.json (live quote + 1 year of daily closes per instrument) and data/macro-cal.json.
+// Writes data/macro.json (live quote, about 1 year of daily bars and ~10 days of 30-minute bars per instrument)
+// and data/macro-cal.json.
 // Sources
 //   Live quotes: CNBC quote service (Tradeweb yields, CME/COMEX front-month futures), then Yahoo Finance.
 //   History: Yahoo daily closes for the futures; US Treasury daily par yield curve for the yields
@@ -90,6 +91,44 @@ async function cnbcBars(sym) {
   return { d: d.slice(k), o: o.slice(k), h: h.slice(k), l: l.slice(k), c: c.slice(k) };
 }
 
+// ---------- intraday bars for the 1-week chart (30-minute candles, about the last 10 days) ----------
+// CNBC 5-day chart first (same feed as the quotes), then Yahoo 30-minute bars for one month (more warm-up
+// for the indicators). Returns { t: [unix seconds], o, h, l, c } or null.
+function bucket30(rows) {
+  const t = [], o = [], h = [], l = [], c = [], r4 = (v) => +v.toFixed(4);
+  for (const [ts, O, H, L, C] of rows.sort((a, b) => a[0] - b[0])) {
+    if (![ts, O, H, L, C].every(isFinite)) continue;
+    const b = Math.floor(ts / 1800) * 1800;
+    if (t.at(-1) === b) { const k = c.length - 1; h[k] = Math.max(h[k], r4(H)); l[k] = Math.min(l[k], r4(L)); c[k] = r4(C); }
+    else { t.push(b); o.push(r4(O)); h.push(r4(Math.max(H, O, C))); l.push(r4(Math.min(L, O, C))); c.push(r4(C)); }
+  }
+  const from = (t.at(-1) || 0) - 12 * 86400, k = t.findIndex((x) => x >= from);
+  return t.length ? { t: t.slice(k), o: o.slice(k), h: h.slice(k), l: l.slice(k), c: c.slice(k) } : null;
+}
+async function intraday(ins) {
+  try {
+    const j = await (await get(`https://ts-api.cnbc.com/harmony/app/charts/5D.json?symbol=${encodeURIComponent(ins.cnbc)}`, { Accept: "application/json" })).json();
+    const rows = (j?.barData?.priceBars || []).map((b) => {
+      const cl = num(b.close), op = num(b.open), hi = num(b.high), lo = num(b.low), ms = num(b.tradeTimeinMills);
+      return [Math.floor(ms / 1000), isFinite(op) ? op : cl, isFinite(hi) ? hi : cl, isFinite(lo) ? lo : cl, cl];
+    });
+    const b = bucket30(rows);
+    if (b && b.t.length >= 40) return { bars: b, src: "CNBC 30-minute bars" };
+    log(ins.k, "cnbc intraday: only", b ? b.t.length : 0);
+  } catch (e) { log(ins.k, "cnbc intraday failed:", e.message); }
+  if (ins.yahoo) {
+    try {
+      const q = crumb ? `&crumb=${encodeURIComponent(crumb)}` : "";
+      const r = await get(`https://query2.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ins.yahoo)}?range=1mo&interval=30m${q}`, { Accept: "application/json", ...(cookie ? { Cookie: cookie } : {}) });
+      const res = (await r.json())?.chart?.result?.[0], qd = res?.indicators?.quote?.[0] || {};
+      const rows = (res?.timestamp || []).map((ts, i) => [ts, qd.open?.[i] ?? qd.close?.[i], qd.high?.[i] ?? qd.close?.[i], qd.low?.[i] ?? qd.close?.[i], qd.close?.[i]]).filter((x) => x[4] != null);
+      const b = bucket30(rows);
+      if (b && b.t.length >= 40) return { bars: b, src: "Yahoo Finance 30-minute bars" };
+    } catch (e) { log(ins.k, "yahoo intraday failed:", e.message); }
+  }
+  return null;
+}
+
 // ---------- Treasury par yield curve (official daily) ----------
 async function treasury() {
   const y = new Date().getUTCFullYear(), rows = [];
@@ -136,6 +175,8 @@ for (const ins of INSTR) {
   if (!hist) { hist = old.hist || { d: [], c: [] }; hSrc = old.hsrc || "previous file"; }
   if (!quote) { quote = old.price != null ? { price: old.price, prevClose: old.prev, time: old.time, src: old.src, realtime: false, contract: old.contract } : null; }
   if (!quote) { log(ins.k, "no data"); continue; }
+  let intra = await intraday(ins);
+  if (!intra && old.intra && old.intra.t && old.intra.t.length) intra = { bars: old.intra, src: old.isrc || "previous file" };
   // previous close: from the quote, else the last daily close before the quote's own date
   let prevClose = quote.prevClose ?? null;
   if (prevClose == null && hist.c.length > 1) { const qd = nyDate(quote.time * 1000); prevClose = hist.d.at(-1) >= qd ? hist.c.at(-2) : hist.c.at(-1); }
@@ -143,9 +184,10 @@ for (const ins of INSTR) {
   const it = { k: ins.k, name: ins.name, short: ins.short, unit: ins.unit, kind: ins.kind, price: +quote.price.toFixed(ins.kind === "yield" ? 3 : 2),
     prev: prevClose, chg: chg == null ? null : +chg.toFixed(ins.kind === "yield" ? 3 : 2),
     pct: chg == null || !prevClose ? null : +((chg / prevClose) * 100).toFixed(2),
-    time: quote.time, realtime: !!quote.realtime, src: quote.src, contract: quote.contract || null, hsrc: hSrc, hist };
+    time: quote.time, realtime: !!quote.realtime, src: quote.src, contract: quote.contract || null, hsrc: hSrc, hist,
+    ...(intra ? { intra: intra.bars, isrc: intra.src } : {}) };
   items.push(it);
-  log(ins.k, it.price, it.chg, it.src, `${hist.d.length} bars (${hSrc})`);
+  log(ins.k, it.price, it.chg, it.src, `${hist.d.length} bars (${hSrc})`, intra ? `${intra.bars.t.length} intraday (${intra.src})` : "no intraday");
   summary(`- ${ins.short}: ${it.price}${ins.unit === "%" ? "%" : ""} (${it.chg >= 0 ? "+" : ""}${it.chg}) · ${it.src} · history ${hSrc}`);
 }
 mkdirSync("data", { recursive: true });
