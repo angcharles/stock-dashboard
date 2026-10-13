@@ -1,4 +1,5 @@
-// Macro page data: crude oil, gold, silver and the 2/5/10/30-year Treasury yields, plus an economic calendar.
+// Macro page data: crude oil, gold, silver, the 2/5/10/30-year US Treasury, German Bund and French OAT yields,
+// plus an economic calendar.
 // Writes data/macro.json (live quote, about 1 year of daily bars and ~10 days of 30-minute bars per instrument)
 // and data/macro-cal.json.
 // Sources
@@ -29,6 +30,9 @@ const INSTR = [
   { k: "us5y", name: "US 5-year Treasury yield", short: "5Y yield", unit: "%", kind: "yield", cnbc: "US5Y", tsy: "5 Yr", yahoo: "^FVX" },
   { k: "us10y", name: "US 10-year Treasury yield", short: "10Y yield", unit: "%", kind: "yield", cnbc: "US10Y", tsy: "10 Yr", yahoo: "^TNX" },
   { k: "us30y", name: "US 30-year Treasury yield", short: "30Y yield", unit: "%", kind: "yield", cnbc: "US30Y", tsy: "30 Yr", yahoo: "^TYX" },
+  // German Bunds and French OATs: CNBC (Tradeweb) quotes and daily bars only; on failure the previous file's values are kept
+  ...[2, 5, 10, 30].map((y) => ({ k: `de${y}y`, name: `German ${y}-year Bund yield`, short: `Bund ${y}Y`, unit: "%", kind: "yield", grp: "de", cnbc: `DE${y}Y-DE` })),
+  ...[2, 5, 10, 30].map((y) => ({ k: `fr${y}y`, name: `French ${y}-year OAT yield`, short: `OAT ${y}Y`, unit: "%", kind: "yield", grp: "fr", cnbc: `FR${y}Y-FR` })),
 ];
 
 let prev = { items: [] };
@@ -181,7 +185,7 @@ for (const ins of INSTR) {
   let prevClose = quote.prevClose ?? null;
   if (prevClose == null && hist.c.length > 1) { const qd = nyDate(quote.time * 1000); prevClose = hist.d.at(-1) >= qd ? hist.c.at(-2) : hist.c.at(-1); }
   const chg = prevClose != null ? quote.price - prevClose : null;
-  const it = { k: ins.k, name: ins.name, short: ins.short, unit: ins.unit, kind: ins.kind, price: +quote.price.toFixed(ins.kind === "yield" ? 3 : 2),
+  const it = { k: ins.k, name: ins.name, short: ins.short, unit: ins.unit, kind: ins.kind, grp: ins.grp || (ins.kind === "yield" ? "us" : "cmd"), price: +quote.price.toFixed(ins.kind === "yield" ? 3 : 2),
     prev: prevClose, chg: chg == null ? null : +chg.toFixed(ins.kind === "yield" ? 3 : 2),
     pct: chg == null || !prevClose ? null : +((chg / prevClose) * 100).toFixed(2),
     time: quote.time, realtime: !!quote.realtime, src: quote.src, contract: quote.contract || null, hsrc: hSrc, hist,

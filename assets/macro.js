@@ -1,4 +1,4 @@
-/* Macro page: tiles for crude oil, gold, silver and the 2/5/10/30-year Treasury yields; an interactive chart
+/* Macro page: tiles for crude oil, gold, silver and the 2/5/10/30-year US Treasury, German Bund and French OAT yields; an interactive chart
    for the selected one (1W on 30-minute bars, 1M to 1Y on daily bars) with indicators, reversal-signal markers,
    key levels, a computed technical read and a reversal-signal table; the yield curve vs 1 month and 1 year ago, and the economic calendar.
    Data: data/macro.json and data/macro-cal.json, built by scripts/fetch-macro.mjs in the deploy workflow.
@@ -90,8 +90,13 @@
       }).join("");
       host.querySelectorAll(".tile").forEach((b) => b.onclick = () => { sel = b.dataset.k; try { localStorage.setItem("macro-sel", sel); } catch (e) {} tiles(); chart(); });
     };
+    const g = (x) => x.grp || (isY(x) ? "us" : "cmd");
     put($("tC"), M.items.filter((x) => !isY(x)));
-    put($("tY"), M.items.filter(isY));
+    [["tY", "us"], ["tDE", "de"], ["tFR", "fr"]].forEach(([id, k]) => {
+      const L = M.items.filter((x) => isY(x) && g(x) === k), el = $(id);
+      el.hidden = el.previousElementSibling.hidden = !L.length;
+      if (L.length) put(el, L);
+    });
   }
 
   // ---------- more indicators: Bollinger Bands, stochastic, ATR ----------
@@ -456,7 +461,7 @@
     const ratio = scored.length ? bulls / scored.length : 0.5, bias = ratio >= 0.65 ? "bull" : ratio <= 0.35 ? "bear" : "neut";
     const biasTxt = Y ? (bias === "bull" ? "Yield trend: rising" : bias === "bear" ? "Yield trend: falling" : "Yield trend: sideways") : (bias === "bull" ? "Technical bias: bullish" : bias === "bear" ? "Technical bias: bearish" : "Technical bias: neutral");
     const L = levels(B, from, rv, av);
-    const nm = x.short.toLowerCase().includes("yield") ? `the ${x.short}` : x.short.toLowerCase();
+    const nm = isY(x) ? `the ${x.short}${/yield/i.test(x.short) ? "" : " yield"}` : x.short.toLowerCase();
     const p1 = `Over this ${tf} window ${nm} has moved ${Y ? sgn((px - first) * 100, 0) + " bp" : sgn((px / first - 1) * 100, 1) + "%"}, from ${f(first)} to ${f(px)}, trading between ${f(lo)} and ${f(hi)}; it sits ${pos.toFixed(0)}% of the way up that range. `
       + (trend === "bull" ? `Price is above its 30 and 100-${ub} averages` : trend === "bear" ? `Price is below its 30 and 100-${ub} averages` : `Price is caught between its 30 and 100-${ub} averages`)
       + (stack === "bull" ? " and the averages are stacked in rising order, a clean uptrend." : stack === "bear" ? " and the averages are stacked in falling order, a clean downtrend." : ", with the averages tangled, so the trend is not clean.");
@@ -474,7 +479,7 @@
     $("taRead").innerHTML = `<div class="asof">Technical read · ${tf} · ${u} · ${esc(B.lab(n))}</div>
       <span class="bias pill p-${bias}">${biasTxt} · ${bulls} of ${scored.length}</span>
       <p>${esc(p1)}</p><p>${esc(p2)}</p><p>${esc(p3)}</p>
-      <p class="note">Generated from the indicators on this page, not a forecast or investment advice.${Y ? " Rising yields mean falling Treasury prices." : ""}</p>`;
+      <p class="note">Generated from the indicators on this page, not a forecast or investment advice.${Y ? " Rising yields mean falling bond prices." : ""}</p>`;
     const lr = (cls, labl, q) => `<tr><td><span class="lt ${cls}">${labl}</span>${f(q.p)}</td><td class="${q.p >= px ? "up" : "down"}">${Y ? sgn((q.p - px) * 100, 0) + " bp" : sgn((q.p / px - 1) * 100, 1) + "%"}</td><td>${esc(q.k)}${q.n > 1 ? ` · ${q.n} touches` : ""} · ${esc(B.short(q.i))}</td></tr>`;
     $("taLvl").innerHTML = `<h3>Key levels</h3><table class="lvl"><thead><tr><th>Level</th><th>From price</th><th>Basis</th></tr></thead><tbody>
       ${L.R.slice().reverse().map((q, i, a) => lr("r", "R" + (a.length - i), q)).join("")}
@@ -522,43 +527,71 @@
   $("chart").addEventListener("dblclick", () => { if (C && cur) C.main.timeScale().setVisibleLogicalRange(viewRange()); });
   $("chart").addEventListener("mouseleave", hideTip);
 
-  let cv = null, cvS = [];
+  // ---------- yield curves: US, Germany, France, or all three today ----------
+  const CV = [["us", "US Treasuries", "us"], ["de", "German Bunds", "de"], ["fr", "French OATs", "fr"], ["all", "All", ""]];
+  let cv = null, cvS = [], cvSel = "us";
+  try { cvSel = localStorage.getItem("macro-curve") || cvSel; } catch (e) {}
+  function curveSet(pre) { return ["2y", "5y", "10y", "30y"].map((t) => M.items.find((i) => i.k === pre + t)); }
   function curve() {
-    const Y = ["us2y", "us5y", "us10y", "us30y"].map((k) => M.items.find((i) => i.k === k)).filter(Boolean);
-    if (Y.length < 4) { $("curve").closest("section").hidden = true; return; }
+    const have = CV.filter(([k]) => k === "all" ? CV.slice(0, 3).filter(([q]) => curveSet(q).every(Boolean)).length > 1 : curveSet(k).every(Boolean));
+    if (!have.length) { $("curve").closest("section").hidden = true; return; }
+    $("curve").closest("section").hidden = false;
+    if (!have.find(([k]) => k === cvSel)) cvSel = have[0][0];
+    const sw = $("cvSel");
+    sw.innerHTML = have.map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === cvSel}">${l}</button>`).join("");
+    sw.querySelectorAll("button").forEach((b) => b.onclick = () => { cvSel = b.dataset.k; try { localStorage.setItem("macro-curve", cvSel); } catch (e) {} curve(); });
     const lab = ["2Y", "5Y", "10Y", "30Y"], yrs = [2, 5, 10, 30];
-    const now = Y.map((x) => nth(series(x).c, -1)), m1 = Y.map((x) => at(series(x), 30)), y1 = Y.map((x) => at(series(x), 365));
-    const rows = [["Now", now, css("--accent"), 2], ["1 month ago", m1, css("--muted"), 1], ["1 year ago", y1, "#d97706", 1]];
+    const last = (x) => nth(series(x).c, -1);
+    let rows, tab;
+    const bp = (a, b) => a == null || b == null ? "–" : sgn((a - b) * 100, 0) + " bp";
+    if (cvSel === "all") {
+      const cols = { us: css("--accent"), de: "#d97706", fr: "#7c3aed" };
+      const sets = CV.slice(0, 3).filter(([k]) => curveSet(k).every(Boolean)).map(([k, l]) => [k, l, curveSet(k).map(last)]);
+      rows = sets.map(([k, l, v]) => [l, v, cols[k], 2]);
+      const by = Object.fromEntries(sets.map(([k, , v]) => [k, v]));
+      const cell = (v) => v == null ? "–" : v.toFixed(2) + "%";
+      tab = `<table class="ctab"><thead><tr><th></th>${sets.map(([k]) => `<th>${{ us: "US", de: "Bund", fr: "OAT" }[k]}</th>`).join("")}${by.fr && by.de ? "<th>OAT–Bund</th>" : ""}${by.us && by.de ? "<th>UST–Bund</th>" : ""}</tr></thead><tbody>
+        ${lab.map((l, i) => `<tr><td>${l}</td>${sets.map(([, , v]) => `<td>${cell(v[i])}</td>`).join("")}${by.fr && by.de ? `<td>${bp(by.fr[i], by.de[i])}</td>` : ""}${by.us && by.de ? `<td>${bp(by.us[i], by.de[i])}</td>` : ""}</tr>`).join("")}
+        <tr><td>10Y–2Y</td>${sets.map(([, , v]) => `<td class="${v[2] - v[0] < 0 ? "down" : ""}">${bp(v[2], v[0])}</td>`).join("")}${by.fr && by.de ? "<td></td>" : ""}${by.us && by.de ? "<td></td>" : ""}</tr></tbody></table>
+        <p class="note">Today's curves side by side. OAT–Bund is France's spread over Germany, a gauge of French credit and political risk; UST–Bund is the US premium over Germany.</p>`;
+    } else {
+      const Y = curveSet(cvSel), now = Y.map(last), m1 = Y.map((x) => at(series(x), 30)), y1 = Y.map((x) => at(series(x), 365));
+      rows = [["Now", now, css("--accent"), 2], ["1 month ago", m1, css("--muted"), 1], ["1 year ago", y1, "#d97706", 1]];
+      const sp = (v) => v.some((z) => z == null) ? [null, null] : [v[2] - v[0], v[3] - v[2]];
+      const [s1, s2] = sp(now), [m1a, m1b] = sp(m1), [y1a, y1b] = sp(y1);
+      // spread over Bunds for the French curve
+      const de = cvSel === "fr" && curveSet("de").every(Boolean) ? curveSet("de") : null;
+      const d10 = de ? [last(de[2]), at(series(de[2]), 30), at(series(de[2]), 365)] : null;
+      tab = `<table class="ctab"><thead><tr><th></th><th>Now</th><th>1M chg</th><th>1Y chg</th></tr></thead><tbody>
+        ${Y.map((x, i) => `<tr><td>${lab[i]}</td><td>${now[i].toFixed(2)}%</td><td>${bp(now[i], m1[i])}</td><td>${bp(now[i], y1[i])}</td></tr>`).join("")}
+        <tr><td>10Y–2Y</td><td class="${s1 < 0 ? "down" : ""}">${s1 == null ? "–" : sgn(s1 * 100, 0) + " bp"}</td><td>${bp(s1, m1a)}</td><td>${bp(s1, y1a)}</td></tr>
+        <tr><td>30Y–10Y</td><td>${s2 == null ? "–" : sgn(s2 * 100, 0) + " bp"}</td><td>${bp(s2, m1b)}</td><td>${bp(s2, y1b)}</td></tr>
+        ${d10 ? (() => { const n0 = now[2] - d10[0], n1 = m1[2] != null && d10[1] != null ? m1[2] - d10[1] : null, n2 = y1[2] != null && d10[2] != null ? y1[2] - d10[2] : null; return `<tr><td>OAT–Bund 10Y</td><td>${sgn(n0 * 100, 0)} bp</td><td>${bp(n0, n1)}</td><td>${bp(n0, n2)}</td></tr>`; })() : ""}</tbody></table>
+        <p class="note">Curve points use the latest quote; 1-month and 1-year values are daily closes from the same history as the chart.</p>`;
+    }
     if (window.LightweightCharts) {
-      // years-to-maturity on a time axis: use fake daily timestamps so spacing is proportional to maturity
+      // years-to-maturity on a time axis: fake timestamps so spacing is proportional to maturity
       const T = (y) => 86400 * 30 * y;
       if (!cv) cv = LightweightCharts.createChart($("curve"), { autoSize: true, layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono"), fontSize: 11 },
         grid: { vertLines: { visible: false }, horzLines: { color: css("--line") } }, rightPriceScale: { borderVisible: false },
         timeScale: { borderVisible: false, tickMarkFormatter: (t) => { const i = yrs.findIndex((y) => T(y) === t); return i >= 0 ? lab[i] : ""; } },
         localization: { locale: "en-US", timeFormatter: (t) => { const i = yrs.findIndex((y) => T(y) === t); return i >= 0 ? lab[i] : ""; } },
         handleScroll: false, handleScale: false });
-      cvS.forEach((s) => cv.removeSeries(s)); cvS = [];
+      cvS.forEach((q) => cv.removeSeries(q)); cvS = [];
       for (const [, v, col, w] of rows.slice().reverse()) {
         if (v.some((z) => z == null)) continue;
-        const s = cv.addLineSeries({ color: col, lineWidth: w, priceFormat: { type: "custom", formatter: (z) => z.toFixed(2) + "%" }, lastValueVisible: false, priceLineVisible: false, pointMarkersVisible: true });
-        s.setData(yrs.map((y, i) => ({ time: T(y), value: v[i] }))); cvS.push(s);
+        const q = cv.addLineSeries({ color: col, lineWidth: w, priceFormat: { type: "custom", formatter: (z) => z.toFixed(2) + "%" }, lastValueVisible: false, priceLineVisible: false, pointMarkersVisible: true });
+        q.setData(yrs.map((y, i) => ({ time: T(y), value: v[i] }))); cvS.push(q);
       }
       cv.timeScale().fitContent();
     }
     $("cvLeg").innerHTML = rows.map(([n, , col, w]) => `<span><i style="background:${col};height:${w + 1}px"></i>${n}</span>`).join("");
-    const bp = (a, b) => a == null || b == null ? "–" : sgn((a - b) * 100, 0) + " bp";
-    const sp = (v) => v.some((z) => z == null) ? [null, null] : [v[2] - v[0], v[3] - v[2]];
-    const [s1, s2] = sp(now), [m1a, m1b] = sp(m1), [y1a, y1b] = sp(y1);
-    $("cvTab").innerHTML = `<table class="ctab"><thead><tr><th></th><th>Now</th><th>1M chg</th><th>1Y chg</th></tr></thead><tbody>
-      ${Y.map((x, i) => `<tr><td>${lab[i]}</td><td>${now[i].toFixed(2)}%</td><td>${bp(now[i], m1[i])}</td><td>${bp(now[i], y1[i])}</td></tr>`).join("")}
-      <tr><td>10Y–2Y</td><td class="${s1 < 0 ? "down" : ""}">${s1 == null ? "–" : sgn(s1 * 100, 0) + " bp"}</td><td>${bp(s1, m1a)}</td><td>${bp(s1, y1a)}</td></tr>
-      <tr><td>30Y–10Y</td><td>${s2 == null ? "–" : sgn(s2 * 100, 0) + " bp"}</td><td>${bp(s2, m1b)}</td><td>${bp(s2, y1b)}</td></tr></tbody></table>
-      <p class="note">Curve points use the latest quote; 1-month and 1-year values are daily closes from the same history as the chart.</p>`;
+    $("cvTab").innerHTML = tab;
   }
 
   let calShown = 0;
   function calendar() {
-    const host = $("cal"), f = document.querySelector(".flt");
+    const host = $("cal"), f = $("calFlt");
     const F = [["us", "US"], ["high", "High impact, all"], ["all", "All"]];
     f.innerHTML = F.map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === calFilter}">${l}</button>`).join("");
     f.querySelectorAll("button").forEach((b) => b.onclick = () => { calFilter = b.dataset.k; try { localStorage.setItem("macro-cal", calFilter); } catch (e) {} calShown = 0; calendar(); });
