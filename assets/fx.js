@@ -8,6 +8,7 @@
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const isY = () => false;
+  const CCYN = { USD: "US dollar", EUR: "euro", GBP: "pound", AUD: "Australian dollar", JPY: "yen", CHF: "Swiss franc", CAD: "Canadian dollar", CNH: "offshore yuan", HKD: "Hong Kong dollar", SGD: "Singapore dollar", KRW: "won", IDR: "rupiah", INR: "rupee" };
   const dp = (x) => (x && x.dp != null ? x.dp : 4);
   const fx = (x, v) => v.toLocaleString("en-US", { minimumFractionDigits: dp(x), maximumFractionDigits: dp(x) });
   const nth = (a, i) => a[a.length + i]; // a.at(i) for negative i, for older browsers
@@ -91,7 +92,9 @@
       }).join("");
       host.querySelectorAll(".tile").forEach((b) => b.onclick = () => { sel = b.dataset.k; try { localStorage.setItem("fx-sel", sel); } catch (e) {} tiles(); chart(); });
     };
-    put($("tC"), M.items);
+    const host = $("tC"), groups = [...new Set(M.items.map((x) => x.g || "Pairs"))];
+    host.innerHTML = groups.map((g, i) => `<div class="grp">${esc(g)}</div><div class="tiles" id="tg${i}"></div>`).join("");
+    groups.forEach((g, i) => put($("tg" + i), M.items.filter((x) => (x.g || "Pairs") === g)));
   }
 
   const IND = [["ma5", "MA 5", "#d97706"], ["ma10", "MA 10", "#7c3aed"], ["ma30", "MA 30", "#0d9488"], ["ma100", "MA 100", "#64748b"], ["sar", "SAR", "#0b6fb8"], ["macd", "MACD", ""], ["rsi", "RSI", ""]];
@@ -176,14 +179,14 @@
       <div>RSI 14<span class="${rv >= 70 ? "down" : rv <= 30 ? "up" : ""}">${rv == null ? "–" : rv.toFixed(0)}${rv >= 70 ? " overbought" : rv <= 30 ? " oversold" : ""}</span></div>
       <div>MACD<span class="${mm >= ms ? "up" : "down"}">${mm == null || ms == null ? "–" : mm >= ms ? "Above signal" : "Below signal"}</span></div>
       <div>Parabolic SAR<span class="${st ? "up" : "down"}">${sv == null ? "–" : (st ? "Up · " : "Down · ") + fmtV(x, sv)}</span></div>`;
-    $("chNote").textContent = `Quote: ${x.src}${x.realtime ? " (real time)" : " (may be delayed)"}, ${sgt(x.time)} SGT. History: ${x.hsrc}, daily bars${S.d.length ? " from " + fmtD(S.d[from]) : ""}; today's bar includes the latest quote. Indicators: simple moving averages (5, 10, 30, 100 days), Parabolic SAR (0.02, 0.2), MACD (12, 26, 9), RSI 14.${flat ? " This history has closes only, so candles show the close." : ""} ${x.k.startsWith("usd") ? `A rising ${x.short} means a stronger US dollar.` : `A rising ${x.short} means a weaker US dollar.`} FX trades around the clock on weekdays; daily bars roll at 5pm New York time.`;
+    $("chNote").textContent = `Quote: ${x.src}${x.realtime ? " (real time)" : " (may be delayed)"}, ${sgt(x.time)} SGT. History: ${x.hsrc}, daily bars${S.d.length ? " from " + fmtD(S.d[from]) : ""}; today's bar includes the latest quote. Indicators: simple moving averages (5, 10, 30, 100 days), Parabolic SAR (0.02, 0.2), MACD (12, 26, 9), RSI 14.${flat ? " This history has closes only, so candles show the close." : ""} A rising ${x.short} means a stronger ${CCYN[x.short.slice(0, 3)] || x.short.slice(0, 3)} against the ${CCYN[x.short.slice(4)] || x.short.slice(4)}. FX trades around the clock on weekdays; daily bars roll at 5pm New York time.`;
   }
 
   let calShown = 0;
   function calendar() {
     const host = $("cal"), f = document.querySelector(".flt");
     const F = [["fx", "These currencies"], ["high", "High impact, these currencies"], ["all", "All"]];
-    const CCY = ["USD", "EUR", "AUD", "CNY", "JPY", "All"];
+    const CCY = ["USD", "EUR", "GBP", "AUD", "CAD", "CHF", "CNY", "JPY", "All"];
     f.innerHTML = F.map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === calFilter}">${l}</button>`).join("");
     f.querySelectorAll("button").forEach((b) => b.onclick = () => { calFilter = b.dataset.k; try { localStorage.setItem("fx-cal", calFilter); } catch (e) {} calShown = 0; calendar(); });
     if (!CAL || !CAL.events) { host.innerHTML = `<p class="sub">The calendar could not be loaded right now.</p>`; return; }

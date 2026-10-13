@@ -45,10 +45,23 @@ const MACRO = [
   { t: "FED", q: '("Federal Reserve" OR FOMC OR "Fed chair" OR "rate cut" OR "rate hike" OR "Fed officials")', y: "", m: /\bFed\b|Federal Reserve|FOMC|rate (cut|hike)|interest rates?/i },
   { t: "ECON", q: '(CPI OR inflation OR "jobs report" OR payrolls OR GDP OR "retail sales" OR PMI OR "jobless claims") US economy', y: "", m: /inflation|\bCPI\b|\bPCE\b|\bPPI\b|jobs|payroll|unemployment|jobless|\bGDP\b|retail sales|\bPMI\b|economy|recession|consumer/i },
 ];
-const MODE = process.argv[2] === "macro" ? "macro" : "stocks";
+// `node scripts/fetch-news.mjs fx` builds data/fx-news.json for the FX page.
+const FX = [
+  { t: "USD", q: '("US dollar" OR "dollar index" OR DXY OR greenback) (forex OR currency OR currencies OR traders)', y: "DX-Y.NYB", m: /dollar|\bDXY\b|greenback|\bUSD\b|forex|currenc/i },
+  { t: "EUR", q: '(euro OR EUR/USD OR "EUR/JPY" OR ECB OR Lagarde) (currency OR forex OR dollar OR yen)', y: "EURUSD=X", m: /\beuro\b|EUR\/|\bECB\b|Lagarde/i },
+  { t: "GBP", q: '(sterling OR "British pound" OR "GBP/USD" OR "Bank of England") (currency OR forex OR dollar)', y: "GBPUSD=X", m: /sterling|\bpound\b|GBP|Bank of England|\bBoE\b/i },
+  { t: "JPY", q: '(yen OR "USD/JPY" OR "Bank of Japan" OR BOJ OR intervention) (currency OR forex OR dollar)', y: "JPY=X", m: /\byen\b|JPY|Bank of Japan|\bBOJ\b/i },
+  { t: "CNY", q: '(yuan OR renminbi OR "offshore yuan" OR CNH OR PBOC OR "yuan fixing") (currency OR forex OR dollar)', y: "CNH=X", m: /yuan|renminbi|\bCNH\b|\bCNY\b|PBOC|People's Bank/i },
+  { t: "ASIA", q: '("Singapore dollar" OR MAS OR "Korean won" OR "Indonesian rupiah" OR "Indian rupee" OR "Hong Kong dollar" OR "Asian currencies")', y: "SGD=X", m: /Singapore dollar|\bMAS\b|\bwon\b|rupiah|rupee|Hong Kong dollar|HKMA|Asian currenc|\bSGD\b|\bKRW\b|\bINR\b|\bIDR\b|\bHKD\b|Bank Indonesia|Reserve Bank of India|\bRBI\b/i },
+  { t: "AUD", q: '("Australian dollar" OR Aussie OR "AUD/USD" OR RBA) (currency OR forex OR dollar)', y: "AUDUSD=X", m: /Australian dollar|Aussie|\bRBA\b|\bAUD\b/i },
+  { t: "CAD", q: '("Canadian dollar" OR loonie OR "USD/CAD" OR "Bank of Canada") (currency OR forex OR dollar)', y: "CAD=X", m: /Canadian dollar|loonie|Bank of Canada|\bCAD\b/i },
+  { t: "CHF", q: '("Swiss franc" OR "USD/CHF" OR SNB OR "Swiss National Bank") (currency OR forex OR dollar)', y: "CHF=X", m: /Swiss franc|\bfranc\b|\bSNB\b|Swiss National Bank|\bCHF\b/i },
+];
+const MODE = ["macro", "fx"].includes(process.argv[2]) ? process.argv[2] : "stocks";
 if (MODE === "macro") { STOCKS.length = 0; STOCKS.push(...MACRO); }
-const OUT = MODE === "macro" ? "data/macro-news.json" : "data/news.json";
-const DAYS = MODE === "macro" ? 14 : 30, PER_STOCK = MODE === "macro" ? 60 : 80;
+if (MODE === "fx") { STOCKS.length = 0; STOCKS.push(...FX); }
+const OUT = MODE === "macro" ? "data/macro-news.json" : MODE === "fx" ? "data/fx-news.json" : "data/news.json";
+const DAYS = MODE === "stocks" ? 30 : 14, PER_STOCK = MODE === "stocks" ? 80 : 60;
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const cutoff = Date.now() - DAYS * 864e5;
 const summary = (s) => { if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, s + "\n"); };

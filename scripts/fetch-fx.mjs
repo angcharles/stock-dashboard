@@ -20,14 +20,21 @@ async function get(url, headers = {}) {
 
 // dp = decimals shown on the page
 const PAIRS = [
-  { k: "eurusd", name: "Euro / US dollar", short: "EUR/USD", dp: 4, cnbc: "EUR=", yahoo: "EURUSD=X" },
-  { k: "audusd", name: "Australian dollar / US dollar", short: "AUD/USD", dp: 4, cnbc: "AUD=", yahoo: "AUDUSD=X" },
-  { k: "usdcnh", name: "US dollar / offshore yuan", short: "USD/CNH", dp: 4, cnbc: "CNH=", yahoo: "CNH=X" },
-  { k: "usdsgd", name: "US dollar / Singapore dollar", short: "USD/SGD", dp: 4, cnbc: "SGD=", yahoo: "SGD=X" },
-  { k: "usdjpy", name: "US dollar / Japanese yen", short: "USD/JPY", dp: 2, cnbc: "JPY=", yahoo: "JPY=X" },
-  { k: "usdkrw", name: "US dollar / Korean won", short: "USD/KRW", dp: 2, cnbc: "KRW=", yahoo: "KRW=X" },
-  { k: "usdidr", name: "US dollar / Indonesian rupiah", short: "USD/IDR", dp: 0, cnbc: "IDR=", yahoo: "IDR=X" },
-  { k: "usdinr", name: "US dollar / Indian rupee", short: "USD/INR", dp: 3, cnbc: "INR=", yahoo: "INR=X" },
+  { k: "eurusd", g: "Majors", name: "Euro / US dollar", short: "EUR/USD", dp: 4, cnbc: "EUR=", yahoo: "EURUSD=X" },
+  { k: "gbpusd", g: "Majors", name: "British pound / US dollar", short: "GBP/USD", dp: 4, cnbc: "GBP=", yahoo: "GBPUSD=X" },
+  { k: "audusd", g: "Majors", name: "Australian dollar / US dollar", short: "AUD/USD", dp: 4, cnbc: "AUD=", yahoo: "AUDUSD=X" },
+  { k: "usdjpy", g: "Majors", name: "US dollar / Japanese yen", short: "USD/JPY", dp: 2, cnbc: "JPY=", yahoo: "JPY=X" },
+  { k: "usdchf", g: "Majors", name: "US dollar / Swiss franc", short: "USD/CHF", dp: 4, cnbc: "CHF=", yahoo: "CHF=X" },
+  { k: "usdcad", g: "Majors", name: "US dollar / Canadian dollar", short: "USD/CAD", dp: 4, cnbc: "CAD=", yahoo: "CAD=X" },
+  { k: "usdcnh", g: "Asia", name: "US dollar / offshore yuan", short: "USD/CNH", dp: 4, cnbc: "CNH=", yahoo: "CNH=X" },
+  { k: "usdhkd", g: "Asia", name: "US dollar / Hong Kong dollar", short: "USD/HKD", dp: 4, cnbc: "HKD=", yahoo: "HKD=X" },
+  { k: "usdsgd", g: "Asia", name: "US dollar / Singapore dollar", short: "USD/SGD", dp: 4, cnbc: "SGD=", yahoo: "SGD=X" },
+  { k: "usdkrw", g: "Asia", name: "US dollar / Korean won", short: "USD/KRW", dp: 2, cnbc: "KRW=", yahoo: "KRW=X" },
+  { k: "usdidr", g: "Asia", name: "US dollar / Indonesian rupiah", short: "USD/IDR", dp: 0, cnbc: "IDR=", yahoo: "IDR=X" },
+  { k: "usdinr", g: "Asia", name: "US dollar / Indian rupee", short: "USD/INR", dp: 3, cnbc: "INR=", yahoo: "INR=X" },
+  // crosses: if no source quotes them directly, they are calculated from the two dollar pairs
+  { k: "eurjpy", g: "Crosses", name: "Euro / Japanese yen", short: "EUR/JPY", dp: 2, cnbc: "EURJPY=", yahoo: "EURJPY=X", calc: ["eurusd", "*", "usdjpy"] },
+  { k: "cnhjpy", g: "Crosses", name: "Offshore yuan / Japanese yen", short: "CNH/JPY", dp: 3, cnbc: "CNHJPY=", yahoo: "CNHJPY=X", calc: ["usdjpy", "/", "usdcnh"] },
 ];
 const r6 = (v) => +(+v).toPrecision(7);
 
@@ -108,6 +115,24 @@ let live = {};
 try { live = await cnbc(); log("CNBC:", Object.keys(live).join(", ") || "(none)"); } catch (e) { log("CNBC failed:", e.message); }
 
 const items = [];
+// Cross rate from two pairs already fetched this run, e.g. EUR/JPY = EUR/USD x USD/JPY. Daily bars line up by date;
+// highs and lows are approximate (the two legs' extremes need not happen at the same moment).
+function cross([a, op, b]) {
+  const A = items.find((x) => x.k === a), B = items.find((x) => x.k === b);
+  if (!A || !B || !A.hist.d.length || !B.hist.d.length) return null;
+  const f = op === "*" ? (x, y) => x * y : (x, y) => x / y;
+  const bi = new Map(B.hist.d.map((d, i) => [d, i]));
+  const H = { d: [], o: [], h: [], l: [], c: [] };
+  A.hist.d.forEach((d, i) => {
+    const j = bi.get(d); if (j == null) return;
+    const O = f(A.hist.o[i], B.hist.o[j]), C = f(A.hist.c[i], B.hist.c[j]);
+    const hi = op === "*" ? f(A.hist.h[i], B.hist.h[j]) : f(A.hist.h[i], B.hist.l[j]);
+    const lo = op === "*" ? f(A.hist.l[i], B.hist.l[j]) : f(A.hist.l[i], B.hist.h[j]);
+    H.d.push(d); H.o.push(r6(O)); H.c.push(r6(C)); H.h.push(r6(Math.max(hi, O, C))); H.l.push(r6(Math.min(lo, O, C)));
+  });
+  return { hist: H.d.length > 100 ? H : null, hsrc: `calculated from ${A.short} and ${B.short}`,
+    quote: { price: f(A.price, B.price), prevClose: A.prev && B.prev ? f(A.prev, B.prev) : null, time: Math.min(A.time, B.time), realtime: A.realtime && B.realtime, src: `calculated (${A.src})` } };
+}
 for (const P of PAIRS) {
   const old = prevBy[P.k] || {};
   let hist = null, quote = live[P.cnbc] || null, hSrc = "";
@@ -119,13 +144,17 @@ for (const P of PAIRS) {
       if (!quote && y.quote) quote = y.quote;
     } catch (e) { log(P.k, "yahoo failed:", e.message); }
   }
+  if ((!hist || !quote) && P.calc) {
+    const c = cross(P.calc);
+    if (c) { if (!hist) { hist = c.hist; hSrc = c.hsrc; } if (!quote) quote = c.quote; }
+  }
   if (!hist) { hist = old.hist || { d: [], o: [], h: [], l: [], c: [] }; hSrc = old.hsrc || "previous file"; }
   if (!quote && old.price != null) quote = { price: old.price, prevClose: old.prev, time: old.time, src: old.src, realtime: false };
   if (!quote) { log(P.k, "no data"); continue; }
   let prevClose = quote.prevClose ?? null;
   if (prevClose == null && hist.c.length > 1) { const qd = fxDay(quote.time * 1000); prevClose = hist.d.at(-1) >= qd ? hist.c.at(-2) : hist.c.at(-1); }
   const chg = prevClose != null ? quote.price - prevClose : null;
-  const it = { k: P.k, name: P.name, short: P.short, dp: P.dp, price: r6(quote.price), prev: prevClose == null ? null : r6(prevClose),
+  const it = { k: P.k, g: P.g, name: P.name, short: P.short, dp: P.dp, price: r6(quote.price), prev: prevClose == null ? null : r6(prevClose),
     chg: chg == null ? null : r6(chg), pct: chg == null || !prevClose ? null : +((chg / prevClose) * 100).toFixed(2),
     time: quote.time, realtime: !!quote.realtime, src: quote.src, hsrc: hSrc, hist };
   items.push(it);

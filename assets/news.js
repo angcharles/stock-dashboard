@@ -49,6 +49,7 @@
 
   let data = null, err = false, filter = "ALL", shown = PAGE;
   try { filter = (MULTI && localStorage.getItem("news-filter")) || "ALL"; } catch (e) {}
+  if (filter !== "ALL" && !TICKERS.includes(filter)) filter = "ALL"; // saved on another page with different chips
   if (!MULTI) filter = TICKERS[0];
   if (filter !== "ALL" && !TICKERS.includes(filter)) filter = "ALL";
 
