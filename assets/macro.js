@@ -5,9 +5,10 @@
 (function () {
   const TZ = "Asia/Singapore";
   const $ = (id) => document.getElementById(id);
-  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const isY = (x) => x.kind === "yield";
+  const nth = (a, i) => a[a.length + i]; // a.at(i) for negative i, for older browsers
   const fmtV = (x, v) => v == null ? "–" : isY(x) ? v.toFixed(3) + "%" : "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const sgn = (v, d) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
   const chgTxt = (x, chg, pct) => chg == null ? "–" : isY(x) ? `${sgn(chg * 100, 1)} bp` : `${sgn(chg, 2)} (${sgn(pct, 2)}%)`;
@@ -21,7 +22,7 @@
     const d = x.hist.d.slice(), c = x.hist.c.slice();
     if (x.price != null && x.time) {
       const day = new Date(x.time * 1000).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
-      if (d.length && d.at(-1) === day) c[c.length - 1] = x.price; else if (!d.length || day > d.at(-1)) { d.push(day); c.push(x.price); }
+      if (d.length && nth(d, -1) === day) c[c.length - 1] = x.price; else if (!d.length || day > nth(d, -1)) { d.push(day); c.push(x.price); }
     }
     return { d, c };
   }
@@ -31,7 +32,7 @@
     const c = s.c.slice(-66); if (c.length < 2) return "";
     const lo = Math.min(...c), hi = Math.max(...c), w = 200, h = 34, k = hi - lo || 1;
     const pts = c.map((v, i) => `${(i / (c.length - 1) * w).toFixed(1)},${(h - 2 - (v - lo) / k * (h - 4)).toFixed(1)}`).join(" ");
-    const col = c.at(-1) >= c[0] ? "var(--up)" : "var(--down)";
+    const col = nth(c, -1) >= c[0] ? "var(--up)" : "var(--down)";
     return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;
   }
 
@@ -67,7 +68,7 @@
       line.setData(d.map((t, i) => ({ time: t, value: c[i] })));
       ch.timeScale().fitContent();
     }
-    const hi = Math.max(...c), lo = Math.min(...c), first = c[0], last = c.at(-1);
+    const hi = Math.max(...c), lo = Math.min(...c), first = c[0], last = nth(c, -1);
     const ch1m = at(s, 30), ch1y = at(s, 365);
     const delta = (a) => a == null ? "–" : isY(x) ? sgn((last - a) * 100, 0) + " bp" : sgn((last / a - 1) * 100, 1) + "%";
     $("stats").innerHTML = `<div>Last<span>${fmtV(x, last)}</span></div><div>1 month<span>${delta(ch1m)}</span></div><div>1 year<span>${delta(ch1y)}</span></div>
@@ -80,7 +81,7 @@
     const Y = ["us2y", "us5y", "us10y", "us30y"].map((k) => M.items.find((i) => i.k === k)).filter(Boolean);
     if (Y.length < 4) { $("curve").closest("section").hidden = true; return; }
     const lab = ["2Y", "5Y", "10Y", "30Y"], yrs = [2, 5, 10, 30];
-    const now = Y.map((x) => series(x).c.at(-1)), m1 = Y.map((x) => at(series(x), 30)), y1 = Y.map((x) => at(series(x), 365));
+    const now = Y.map((x) => nth(series(x).c, -1)), m1 = Y.map((x) => at(series(x), 30)), y1 = Y.map((x) => at(series(x), 365));
     const rows = [["Now", now, css("--accent"), 2], ["1 month ago", m1, css("--muted"), 1], ["1 year ago", y1, "#d97706", 1]];
     if (window.LightweightCharts) {
       // years-to-maturity on a time axis: use fake daily timestamps so spacing is proportional to maturity
