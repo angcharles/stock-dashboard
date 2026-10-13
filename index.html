@@ -35,6 +35,7 @@ a.card:hover,a.card:focus-visible{border-color:var(--accent);outline:none}
 .desc{color:var(--muted);font-size:13.5px;margin:0 0 14px}
 .px{font:600 26px var(--f-mono);font-variant-numeric:tabular-nums}
 .chg{font:500 13px var(--f-mono);margin-left:8px}
+.xp{font:500 12px var(--f-mono);font-variant-numeric:tabular-nums;margin-top:4px}.xp b{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
 .up{color:var(--up)}.down{color:var(--down)}
 .go{font:500 12px var(--f-mono);color:var(--accent);margin-top:10px}
 footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
@@ -59,7 +60,7 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
 <main class="wrap">
   <div class="eyebrow">Investor dashboards · EN / 中文</div>
   <h1>Stock dashboards</h1>
-  <p class="lede">Price, technical analysis, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of the latest session's five biggest gainers (left) and five biggest losers (right). Prices refresh about every 10 minutes during US market hours.</p>
+  <p class="lede">Price, technical analysis, revenue, cash flow, watch list, news and calendar for each stock, plus live charts of the latest session's five biggest gainers (left) and five biggest losers (right). Prices refresh about every 10 minutes during US market hours; outside them each card also shows the pre-market or after-hours price, refreshed about every 15 minutes.</p>
   <h2 class="rank-h">Most to least bullish</h2>
   <p class="sub">Ranked by Claude as of Oct 11, 2026, weighing the latest results and guidance, estimate momentum, the price trend and analyst upside. A judgment call, not advice; it changes as the facts do.</p>
   <div class="grid">
@@ -99,15 +100,26 @@ a.card.t-bull .rk{color:var(--up)}a.card.t-cau .rk{color:var(--down)}
 <aside id="sideR" aria-label="Top losers and the Druckenmiller portfolio"><div id="moversR"></div><div id="pfR"></div></aside>
 </div>
 <script>
-document.querySelectorAll("a.card").forEach(async a=>{
+// Card prices: last regular-session price and change, plus the extended-hours price
+// (pre-market / after-hours / overnight) from quote.json "ext" when the market is closed.
+const EXT={pre:"Pre-market",post:"After-hours",overnight:"Overnight"};
+async function cardPx(a){
   try{
     const q=await fetch(a.dataset.q+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null);
     if(!q||!q.price)return;
-    const pct=(q.price/q.prevClose-1)*100, up=pct>=0;
-    a.querySelector(".px").textContent="$"+q.price.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+    const pct=(q.price/q.prevClose-1)*100, up=pct>=0, m=x=>"$"+x.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+    a.querySelector(".px").textContent=m(q.price);
     const c=a.querySelector(".chg");c.textContent=(up?"+":"−")+Math.abs(pct).toFixed(2)+"%";c.className="chg "+(up?"up":"down");
+    let x=a.querySelector(".xp");if(!x){x=document.createElement("div");x.className="xp";c.insertAdjacentElement("afterend",x);}
+    const e=q.ext, fresh=e&&q.state!=="REGULAR"&&Date.now()/1000-e.time<72000;
+    x.hidden=!fresh;
+    if(fresh){const eu=e.chg>=0;x.innerHTML=`<b>${EXT[e.session]||e.session}</b> ${m(e.price)} <span class="${eu?"up":"down"}">${eu?"+":"−"}${Math.abs(e.chg).toFixed(2)}%</span>`;}
   }catch(e){}
-});
+}
+const cards=[...document.querySelectorAll("a.card")];
+const refresh=()=>cards.forEach(cardPx);
+refresh();setInterval(refresh,60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)refresh();});
 </script>
 <script src="assets/news.js?v=3"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
