@@ -17,12 +17,22 @@
   let M = null, CAL = null, sel = "oil", rangeN = 252, calFilter = "us";
   try { sel = localStorage.getItem("macro-sel") || sel; rangeN = +localStorage.getItem("macro-range") || rangeN; calFilter = localStorage.getItem("macro-cal") || calFilter; } catch (e) {}
 
+  // Trading date a quote belongs to: futures and Treasuries start the next session at 6pm New York time,
+  // so a quote after 18:00 ET (or on a weekend) counts toward the next weekday's bar.
+  function sessionDay(ts) {
+    const p = {}; new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" })
+      .formatToParts(new Date(ts * 1000)).forEach((q) => { p[q.type] = q.value; });
+    const d = new Date(Date.UTC(+p.year, +p.month - 1, +p.day));
+    if (+p.hour >= 18) d.setUTCDate(d.getUTCDate() + 1);
+    while (d.getUTCDay() === 0 || d.getUTCDay() === 6) d.setUTCDate(d.getUTCDate() + 1);
+    return d.toISOString().slice(0, 10);
+  }
   // daily OHLC with the live price folded into today's bar (older files may hold closes only)
   function series(x) {
     const H = x.hist, d = H.d.slice(), c = H.c.slice();
     const o = (H.o || H.c).slice(), h = (H.h || H.c).slice(), l = (H.l || H.c).slice();
     if (x.price != null && x.time) {
-      const day = new Date(x.time * 1000).toLocaleDateString("en-CA", { timeZone: "America/New_York" }), p = x.price;
+      const day = sessionDay(x.time), p = x.price;
       if (d.length && nth(d, -1) === day) { const k = c.length - 1; c[k] = p; h[k] = Math.max(h[k], p); l[k] = Math.min(l[k], p); }
       else if (!d.length || day > nth(d, -1)) { const pc = c.length ? nth(c, -1) : p; d.push(day); o.push(pc); h.push(Math.max(pc, p)); l.push(Math.min(pc, p)); c.push(p); }
     }
