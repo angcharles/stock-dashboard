@@ -60,6 +60,11 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - Holdings live in `data/portfolios.json`. Pelosi: estimated weights (Pelosi Tracker) plus every 2026 stock/option row from her House periodic transaction reports; the return is a model (fixed weights, rebalanced daily). Druckenmiller (`druck`): exact share counts from the latest 13F (CIK 1536411) as `[ticker, name, shares, value]`, with a fifth field `"call"` on call-option rows (valued at the underlying shares, as filed), marked to market since the quarter end. Weight = each row's share of the total marked value; the panel lists the top 15 and folds the rest under "Other positions".
 - `scripts/build-portfolios.py` runs in `.github/workflows/ta-data.yml` after each US close: it fetches prices for every holding and SPY, writes `data/portfolios-perf.json`, and checks SEC EDGAR and the House Clerk index for new filings. A new filing shows a "review pending" flag on the panel until `data/portfolios.json` is updated (the daily Claude scheduled task does this).
 
+## Extended-hours (24-hour) price
+- `scripts/fetch-quote.mjs` adds `ext` to each `data/quote.json` when the regular session is closed: `{session: pre|post|overnight, price, time, chg (% vs last regular price), source}`, from Yahoo's quote (pre/post/overnight fields), then Yahoo's intraday chart with pre/post bars, then Nasdaq. Only a trade newer than the regular price and under 20 hours old is kept.
+- `assets/ext-hours.js` (loaded by every stock page) shows it under the big price and as a chip in the top bar, in EN / 中文, and hides it during regular hours.
+- `.github/workflows/deploy.yml` refreshes every 15 minutes outside regular hours on weekdays (Mon 00:00 to Fri 23:45 UTC), on top of the 10-minute refresh during the session.
+
 ## News feed
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.

@@ -29,8 +29,8 @@ async function get(url, headers = {}) {
 }
 
 // ---------- Yahoo ----------
+let cookie = "", crumb = "";
 async function yahoo() {
-  let cookie = "", crumb = "";
   try {
     const r = await fetch("https://fc.yahoo.com", { headers: { "User-Agent": UA }, redirect: "manual", signal: AbortSignal.timeout(10000) });
     cookie = (r.headers.getSetCookie?.() || []).map((c) => c.split(";")[0]).join("; ");
@@ -61,6 +61,57 @@ async function yahoo() {
     } catch (e) { lastErr = e; }
   }
   throw lastErr;
+}
+
+// ---------- Extended hours (pre-market, after-hours, overnight 24-hour session) ----------
+// Session from New York clock time: 04:00-09:30 pre, 16:00-20:00 post, 20:00-04:00 overnight.
+const nyMin = (ms) => { const t = new Date(new Date(ms).toLocaleString("en-US", { timeZone: "America/New_York" })); return t.getHours() * 60 + t.getMinutes(); };
+const sessionAt = (ms) => { const m = nyMin(ms); return m >= 240 && m < 570 ? "pre" : m >= 960 && m < 1200 ? "post" : m >= 570 && m < 960 ? "regular" : "overnight"; };
+// Yahoo quote: pre/post fields plus overnight fields where Yahoo provides them.
+async function yahooExt() {
+  const q = crumb ? `&crumb=${encodeURIComponent(crumb)}` : "";
+  const r = await get(`https://query2.finance.yahoo.com/v7/finance/quote?symbols=${SYMBOL}${q}`, { Accept: "application/json", ...(cookie ? { Cookie: cookie } : {}) });
+  const x = (await r.json())?.quoteResponse?.result?.[0];
+  if (!x) throw new Error("yahoo quote: empty");
+  log("yahoo quote fields:", Object.keys(x).filter((k) => /market|overnight/i.test(k)).join(","), "state:", x.marketState);
+  const c = [];
+  for (const [k, sess] of [["preMarket", "pre"], ["postMarket", "post"], ["overnightMarket", "overnight"]]) {
+    const px = x[k + "Price"], t = x[k + "Time"];
+    if (px && t) c.push({ session: sess, price: px, time: t });
+  }
+  if (!c.length) throw new Error("yahoo quote: no extended fields");
+  return { ...c.sort((a, b) => b.time - a.time)[0], src: "Yahoo" };
+}
+// Yahoo intraday chart with pre/post bars: the latest bar outside the regular session.
+async function yahooExtChart() {
+  const q = crumb ? `&crumb=${encodeURIComponent(crumb)}` : "";
+  const r = await get(`https://query2.finance.yahoo.com/v8/finance/chart/${SYMBOL}?range=2d&interval=5m&includePrePost=true${q}`, { Accept: "application/json", ...(cookie ? { Cookie: cookie } : {}) });
+  const res = (await r.json())?.chart?.result?.[0];
+  const ts = res?.timestamp || [], cl = res?.indicators?.quote?.[0]?.close || [];
+  for (let i = ts.length - 1; i >= 0; i--) if (cl[i] != null) {
+    const sess = sessionAt(ts[i] * 1000);
+    if (sess === "regular") throw new Error("yahoo chart: latest bar is regular session");
+    return { session: sess, price: cl[i], time: ts[i] + 300, src: "Yahoo chart" };
+  }
+  throw new Error("yahoo chart: no bars");
+}
+// Nasdaq: primaryData carries the pre-market / after-hours trade outside the regular session.
+async function nasdaqExt() {
+  const j = await (await get(`https://api.nasdaq.com/api/quote/${SYMBOL}/info?assetclass=stocks`, NQ)).json();
+  const p = j?.data?.primaryData, st = String(j?.data?.marketStatus || "");
+  const price = num(p?.lastSalePrice);
+  if (!isFinite(price) || !/pre|after|post|overnight/i.test(st + " " + (p?.lastTradeTimestamp || ""))) throw new Error("nasdaq: not in extended hours");
+  const stamp = (p?.lastTradeTimestamp || "").replace(/^.*?(\w{3} \d{1,2}, \d{4}.*?)( ET)?$/, "$1");
+  const parsed = Date.parse(stamp + " GMT-0400");
+  const time = isFinite(parsed) ? Math.floor(parsed / 1000) : Math.floor(Date.now() / 1000);
+  return { session: /pre/i.test(st) ? "pre" : /overnight/i.test(st) ? "overnight" : "post", price, time, src: "Nasdaq" };
+}
+async function extended(regTime) {
+  for (const [name, fn] of [["Yahoo quote", yahooExt], ["Yahoo chart", yahooExtChart], ["Nasdaq", nasdaqExt]]) {
+    try { const e = await fn(); if (e.time > regTime) return e; log(name, "extended price not newer than the regular quote"); }
+    catch (e) { log(name, "extended failed:", e.message); }
+  }
+  return null;
 }
 
 // ---------- Nasdaq ----------
@@ -135,10 +186,17 @@ if (quote && hist) {
   const now = Math.floor(Date.now() / 1000);
   const out = { symbol: SYMBOL, price: +quote.price.toFixed(2), prevClose, time: quote.time, date: quote.date,
     state: isOpenNow() && quote.date === nyDate(Date.now()) ? "REGULAR" : "CLOSED", source: qSrc, historySource: hSrc, fetchedAt: now };
+  // Extended-hours price, only when it is newer than the regular-session price and less than 20 hours old.
+  if (out.state !== "REGULAR") {
+    const e = await extended(out.time);
+    if (e && now - e.time < 72000) {
+      out.ext = { session: e.session, price: +e.price.toFixed(2), time: e.time, chg: +((e.price / out.price - 1) * 100).toFixed(2), source: e.src };
+    }
+  }
   writeFileSync(`${OUT}/history.json`, JSON.stringify(hist));
   writeFileSync(`${OUT}/quote.json`, JSON.stringify(out));
   log(SYMBOL, "OK", JSON.stringify(out), `${hist.d.length} daily bars`);
-  summary(`### ${SYMBOL} $${out.price} (prev $${prevClose}) · ${out.state}\nQuote: ${qSrc} · History: ${hSrc} · ${hist.d.length} bars`);
+  summary(`### ${SYMBOL} $${out.price} (prev $${prevClose}) · ${out.state}${out.ext ? ` · ${out.ext.session} $${out.ext.price} (${out.ext.chg}%, ${out.ext.source})` : ""}\nQuote: ${qSrc} · History: ${hSrc} · ${hist.d.length} bars`);
 } else {
   log(SYMBOL, "all sources failed; keeping existing data.");
   summary(`### ⚠️ ${SYMBOL}: all quote sources failed — deployed with previous data`);

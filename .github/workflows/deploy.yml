@@ -12,6 +12,9 @@ on:
   schedule:
     # Every 10 minutes across US market hours (covers both EDT and EST), Mon–Fri, UTC
     - cron: "*/10 13-20 * * 1-5"
+    # Every 15 minutes outside regular hours for pre-market, after-hours and overnight (24-hour) prices:
+    # Mon 00:00 UTC (Sun 8pm ET overnight open) through Sat 00:45 UTC (Fri after-hours close)
+    - cron: "*/15 0-12,21-23 * * 1-5"
     # One run after the close to lock in the closing price
     - cron: "20 21 * * 1-5"
     # Hourly, every day, to refresh the news feed (also covers weekends)
