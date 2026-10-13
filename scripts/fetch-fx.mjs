@@ -144,9 +144,10 @@ for (const P of PAIRS) {
       if (!quote && y.quote) quote = y.quote;
     } catch (e) { log(P.k, "yahoo failed:", e.message); }
   }
-  if ((!hist || !quote) && P.calc) {
+  // a cross with no direct CNBC quote uses the rate calculated from the two live CNBC legs (Yahoo's is delayed)
+  if (P.calc && (!hist || !quote || quote.src !== "CNBC")) {
     const c = cross(P.calc);
-    if (c) { if (!hist) { hist = c.hist; hSrc = c.hsrc; } if (!quote) quote = c.quote; }
+    if (c) { if (!hist) { hist = c.hist; hSrc = c.hsrc; } if (!quote || (quote.src !== "CNBC" && c.quote.realtime)) quote = c.quote; }
   }
   if (!hist) { hist = old.hist || { d: [], o: [], h: [], l: [], c: [] }; hSrc = old.hsrc || "previous file"; }
   if (!quote && old.price != null) quote = { price: old.price, prevClose: old.prev, time: old.time, src: old.src, realtime: false };
