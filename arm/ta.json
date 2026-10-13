@@ -1,24 +1,31 @@
 {
- "asof": "Oct 12, 2026",
- "close": 255.24,
+ "asof": "Oct 13, 2026",
+ "close": 255.39,
  "bias": {
-  "en": "Short-term bearish · heading toward $238 support",
-  "zh": "短线偏空 · 向 $238 支撑靠近"
+  "en": "Short-term bearish · holding above $238 support",
+  "zh": "短线偏空 · 守在 $238 支撑上方"
  },
  "read": [
   {
-   "en": "Arm fell 4.1% on Oct 12 to $255.24, its fifth straight loss and 16% below the Oct 5 close. It is below its 5, 10, 30 ($276) and 100-day ($297) averages, holding only above the 200-day ($221). MACD has been below its signal since Oct 7 with a widening histogram, Parabolic SAR has been bearish since Sep 28, and RSI is 41.",
-   "zh": "Arm 10月12日下跌 4.1%，收于 $255.24，连跌五日，较 10月5日收盘价下跌 16%。股价位于 5 日、10 日、30 日（$276）和 100 日（$297）均线下方，仅守在 200 日均线（$221）之上。MACD 自 10月7日起位于信号线下方且柱体扩大，抛物线 SAR 自 9月28日起看空，RSI 为 41。"
+   "en": "Arm closed little changed on Oct 13 at $255.39 after recovering from an intraday low of $243.60. It remains below its falling 5-day ($269.3) and 10-day ($284.2) averages, the 30-day ($276.6) and the 100-day ($297.4), and above the 200-day ($221.6). MACD has been below its signal since Oct 7 and is now below zero, Parabolic SAR has been bearish since Sep 28 ($317), and RSI is 41.",
+   "zh": "Arm 10月13日盘中跌至 $243.60 后回升，收盘基本持平于 $255.39。股价仍位于下行的 5 日（$269.3）和 10 日均线（$284.2）、30 日（$276.6）及 100 日均线（$297.4）下方，并在 200 日均线（$221.6）上方。MACD 自 10月7日起位于信号线下方，现已跌破零轴，抛物线 SAR 自 9月28日起看空（$317），RSI 为 41。"
   },
   {
-   "en": "The next test is $238, which has held five times since July. Below it, $221–225 (200-day average and Sep 3 low) is the last major support before $201. A bounce would first meet the 30-day average and Oct 8 breakdown level at $276, then the 100-day near $298; the medium-term range runs $238–337.",
-   "zh": "下一测试位为 $238，该位置自 7月以来五次守住。若跌破，$221–225（200 日均线及 9月3日低点）是 $201 之前最后的重要支撑。若反弹，首先遇到 $276 的 30 日均线及 10月8日破位处，其次约 $298 的 100 日均线；中期区间为 $238–337。"
+   "en": "The intraday bounce from $243.60 came just above $238 support, which has held five times since July. Below it are $222 (200-day average and Sep 3 low) and $201 (May swing low). Resistance is the 5-day average near $269, then $276.6 (30-day average) and $298 (100-day). A close below $238 would open $222.",
+   "zh": "盘中自 $243.60 的反弹发生在 $238 支撑上方不远处，该支撑 7月以来已五次守住。其下为 $222（200 日均线及 9月3日低点）和 $201（5月波段低点）。阻力为约 $269 的 5 日均线，其次 $276.6（30 日均线）和 $298（100 日均线）。若收盘跌破 $238，下一目标看 $222。"
   }
  ],
  "levels": {
   "r": [
    [
-    276,
+    269,
+    {
+     "en": "5-day average",
+     "zh": "5日均线"
+    }
+   ],
+   [
+    277,
     {
      "en": "30-day average; Oct 8 breakdown level",
      "zh": "30日均线；10月8日破位处"
@@ -29,13 +36,6 @@
     {
      "en": "100-day average and early-October closes",
      "zh": "100日均线及10月初收盘价"
-    }
-   ],
-   [
-    337,
-    {
-     "en": "Sep 23 swing high, top of the range",
-     "zh": "9月23日波段高点，区间顶部"
     }
    ]
   ],
@@ -50,8 +50,8 @@
    [
     222,
     {
-     "en": "200-day average ($221) and Sep 3 low",
-     "zh": "200日均线（$221）及9月3日低点"
+     "en": "200-day average ($221.6) and Sep 3 low",
+     "zh": "200日均线（$221.6）及9月3日低点"
     }
    ],
    [

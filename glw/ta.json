@@ -1,27 +1,27 @@
 {
- "asof": "Oct 12, 2026",
- "close": 147.28,
+ "asof": "Oct 13, 2026",
+ "close": 148.54,
  "bias": {
-  "en": "Bearish turn · below the 200-day average",
-  "zh": "转弱 · 跌破 200 日均线"
+  "en": "Bearish turn · held the September lows",
+  "zh": "转为偏空 · 守住 9 月低点"
  },
  "read": [
   {
-   "en": "Corning fell 6% on Oct 12 to $147.28 and is now below all its averages: the 200-day ($152.6), 30-day ($155), 5 and 10-day ($158–159) and 100-day ($169). MACD crossed below its signal and Parabolic SAR flipped bearish on the day; RSI is 44. The $152–155 support band from the last read has given way.",
-   "zh": "康宁 10月12日下跌 6%，收于 $147.28，已跌破全部均线：200 日（$152.6）、30 日（$155）、5 日和 10 日（$158–159）以及 100 日（$169）。MACD 当日下穿信号线，抛物线 SAR 同日转空；RSI 为 44。上次解读中的 $152–155 支撑区已失守。"
+   "en": "Corning rose 0.9% on Oct 13 to $148.54 after an intraday low of $141.35. It is below all its averages: the 200-day ($152.9), 5-day ($153.7), 30-day ($155.1), 10-day ($157.5) and falling 100-day ($168.7). MACD crossed below its signal on Oct 12 and is below zero, Parabolic SAR has been bearish since Oct 12 ($170.1), and RSI is 45.",
+   "zh": "康宁 10月13日盘中跌至 $141.35 后回升，上涨 0.9% 收于 $148.54。股价位于所有均线下方：200 日（$152.9）、5 日（$153.7）、30 日（$155.1）、10 日（$157.5）以及下行的 100 日均线（$168.7）。MACD 于 10月12日下穿信号线并位于零轴下方，抛物线 SAR 自 10月12日起看空（$170.1），RSI 为 45。"
   },
   {
-   "en": "Next support is the mid-September lows at $142–144, then $139 (Sep 3 low); below that there is little until $114.50 (Jul 28 low). The broken 200-day average at $152.6 and the 30-day at $155 are now resistance, with the 5 and 10-day averages near $159 above.",
-   "zh": "下一支撑为 9月中旬低点 $142–144，其次 $139（9月3日低点）；再往下直到 $114.50（7月28日低点）都缺乏支撑。已跌破的 $152.6（200 日均线）和 $155（30 日均线）转为阻力，其上为约 $159 的 5 日和 10 日均线。"
+   "en": "The day's low dipped under the mid-September lows ($142–144) before the stock recovered, so that support held on a closing basis. Resistance is $153–154 (200 and 5-day averages), then $155 (30-day) and $157.5 (10-day). Support is $141.4 (Oct 13 low), then $139 (Sep 3 low) and $114.5 (Jul 28 low). A close above $155 would ease the bearish turn.",
+   "zh": "当日低点一度跌破 9月中旬低点（$142–144），随后回升，该支撑收盘守住。阻力为 $153–154（200 日和 5 日均线），其次 $155（30 日均线）和 $157.5（10 日均线）。支撑为 $141.4（10月13日低点），其次 $139（9月3日低点）和 $114.5（7月28日低点）。若收盘站上 $155，偏空格局将有所缓解。"
   }
  ],
  "levels": {
   "r": [
    [
-    152.6,
+    153,
     {
-     "en": "200-day average; former support",
-     "zh": "200日均线；原支撑"
+     "en": "200 and 5-day averages ($152.9–153.7)",
+     "zh": "200日和5日均线（$152.9–153.7）"
     }
    ],
    [
@@ -32,19 +32,19 @@
     }
    ],
    [
-    159,
+    157.5,
     {
-     "en": "5 and 10-day averages ($158–159)",
-     "zh": "5日和10日均线（$158–159）"
+     "en": "10-day average",
+     "zh": "10日均线"
     }
    ]
   ],
   "s": [
    [
-    143,
+    141.4,
     {
-     "en": "Mid-September lows ($142–144)",
-     "zh": "9月中旬低点（$142–144）"
+     "en": "Oct 13 low; mid-Sep lows $142–144",
+     "zh": "10月13日低点；9月中旬低点 $142–144"
     }
    ],
    [

@@ -1,34 +1,34 @@
 {
- "asof": "Oct 12, 2026",
- "close": 444.35,
+ "asof": "Oct 13, 2026",
+ "close": 445.12,
  "bias": {
-  "en": "Uptrend · pullback reaching the 30-day average",
-  "zh": "上升趋势 · 回调触及 30 日均线"
+  "en": "Uptrend · holding the 30-day average",
+  "zh": "上升趋势 · 守住 30 日均线"
  },
  "read": [
   {
-   "en": "TSMC fell 2% on Oct 12 to $444.35, closing at the day's low and 9% below the Oct 5 record of $487.47. It is below its 5 and 10-day averages ($462–464) and sitting just above the 30-day ($442.7), with the 100-day ($429) and 200-day ($392.5) rising. MACD crossed below its signal on Oct 9, Parabolic SAR has been bearish since Oct 8, and RSI is 48.",
-   "zh": "台积电 10月12日下跌 2%，收于 $444.35，收在当日最低，较 10月5日 $487.47 的纪录高点回落 9%。股价位于 5 日和 10 日均线（$462–464）下方，略高于 30 日均线（$442.7），100 日（$429）和 200 日均线（$392.5）向上。MACD 于 10月9日下穿信号线，抛物线 SAR 自 10月8日起看空，RSI 为 48。"
+   "en": "TSMC edged up 0.2% on Oct 13 to $445.12 after a low of $437.40. It is holding just above its 30-day average ($443.7) and above the 100-day ($429.7) and 200-day ($393.2), but below the 5-day ($454.6) and 10-day ($462.9). MACD has been below its signal since Oct 9 and is above zero, Parabolic SAR has been bearish since Oct 8 ($482.8), and RSI is 48.",
+   "zh": "台积电 10月13日小涨 0.2%，收于 $445.12，盘中低点 $437.40。股价守在 30 日均线（$443.7）略上方，并位于 100 日（$429.7）和 200 日均线（$393.2）上方，但低于 5 日（$454.6）和 10 日均线（$462.9）。MACD 自 10月9日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月8日起看空（$482.8），RSI 为 48。"
   },
   {
-   "en": "The $450 support from the last read broke, leaving the 30-day average at $442.7 as the line to hold. Below it are $429 (100-day average, Aug 27 high) and $412.5 (Sep 15 low). Resistance is $450–453, then $462–464 (5 and 10-day averages) and the $487.5 record.",
-   "zh": "上次解读中的 $450 支撑已失守，$442.7 的 30 日均线成为需守住的关键。其下为 $429（100 日均线、8月27日高点）和 $412.5（9月15日低点）。阻力为 $450–453，其次 $462–464（5 日和 10 日均线）及 $487.5 纪录高点。"
+   "en": "The 30-day average was pierced intraday but held on the close. Resistance is $452–455 (former $450 support and 5-day average), then $463 (10-day) and the $487.5 record. Support is $437–444 (30-day average and Oct 13 low), then $429 (100-day average, Aug 27 high) and $412.5 (Sep 15 low). A close below $437 would open $429.",
+   "zh": "30 日均线盘中被跌破，但收盘守住。阻力为 $452–455（原 $450 支撑及 5 日均线），其次 $463（10 日均线）和 $487.5 纪录高点。支撑为 $437–444（30 日均线及 10月13日低点），其次 $429（100 日均线、8月27日高点）和 $412.5（9月15日低点）。若收盘跌破 $437，下一目标看 $429。"
   }
  ],
  "levels": {
   "r": [
    [
-    452,
+    453,
     {
-     "en": "Former $450 support; Oct 9 close $453",
-     "zh": "原 $450 支撑；10月9日收盘价 $453"
+     "en": "Former $450 support; 5-day average $454.6",
+     "zh": "原 $450 支撑；5日均线 $454.6"
     }
    ],
    [
     463,
     {
-     "en": "5 and 10-day averages",
-     "zh": "5日和10日均线"
+     "en": "10-day average",
+     "zh": "10日均线"
     }
    ],
    [
@@ -41,10 +41,10 @@
   ],
   "s": [
    [
-    442.7,
+    440,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "30-day average and Oct 13 low ($437–444)",
+     "zh": "30日均线及10月13日低点（$437–444）"
     }
    ],
    [

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 265.86,
+ "asof": "Oct 13, 2026",
+ "close": 268.73,
  "bias": {
-  "en": "Uptrend · pulling back after the $300 rejection",
-  "zh": "上升趋势 · $300 受阻后回调"
+  "en": "Uptrend · rebound off the 30-day average",
+  "zh": "上升趋势 · 自 30 日均线附近反弹"
  },
  "read": [
   {
-   "en": "Marvell fell 3.4% on Oct 12 to $265.86, below its 5 and 10-day averages ($273–278) and the $267 support from the last read. The bigger trend is still up: it is 7% above the 30-day ($247) and well above the 100-day ($239) and 200-day ($173). MACD dipped just below its signal on Oct 12, Parabolic SAR has been bearish since Oct 8, and RSI is 55.",
-   "zh": "Marvell 10月12日下跌 3.4%，收于 $265.86，跌破 5 日和 10 日均线（$273–278）以及上次解读中的 $267 支撑。大趋势仍向上：股价高于 30 日均线（$247）7%，并远高于 100 日（$239）和 200 日均线（$173）。MACD 于 10月12日刚刚下穿信号线，抛物线 SAR 自 10月8日起看空，RSI 为 55。"
+   "en": "Marvell rose 1.1% on Oct 13 to $268.73 after an intraday low of $248.45, near its 30-day average ($249.2). It is just below its 5 and 10-day averages ($273.8 and $273.2) and above the 30-day, 100-day ($239.6) and 200-day ($173.6). MACD crossed below its signal on Oct 12 and is above zero, Parabolic SAR has been bearish since Oct 8 ($298.3), and RSI is 57.",
+   "zh": "Marvell 10月13日盘中跌至 $248.45，接近 30 日均线（$249.2），随后回升，上涨 1.1% 收于 $268.73。股价略低于 5 日和 10 日均线（$273.8 和 $273.2），并位于 30 日、100 日（$239.6）和 200 日均线（$173.6）上方。MACD 于 10月12日下穿信号线，仍在零轴上方，抛物线 SAR 自 10月8日起看空（$298.3），RSI 为 57。"
   },
   {
-   "en": "Next support is $255 (the Aug 27 high), then the 30-day average at $247 and $200.6 (Sep 1 low). Resistance is $273–278 (5 and 10-day averages, Oct 8–9 closes), then $284–287 and the $301 high from Oct 6 and Jun 30.",
-   "zh": "下一支撑为 $255（8月27日高点），其次 $247 的 30 日均线及 $200.6（9月1日低点）。阻力为 $273–278（5 日和 10 日均线、10月8–9日收盘价），其次 $284–287，以及 10月6日与 6月30日的 $301 高点。"
+   "en": "The dip went through $255 support intraday, bounced off the 30-day zone and closed back above it. Resistance is $273–275 (5 and 10-day averages), then $286 (Oct 6–7 closes) and $301 (Jun 30 and Oct 6 highs). Support is $255, then $248–249 (Oct 13 low and 30-day average) and $200.6 (Sep 1 low). A close above $275 would target $286.",
+   "zh": "盘中回落跌破 $255 支撑，在 30 日均线区域获得支撑后反弹，收盘重回其上方。阻力为 $273–275（5 日和 10 日均线），其次 $286（10月6–7日收盘价）和 $301（6月30日及 10月6日高点）。支撑为 $255，其次 $248–249（10月13日低点及 30 日均线）和 $200.6（9月1日低点）。若收盘站上 $275，目标看 $286。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     275,
     {
-     "en": "5 and 10-day averages; Oct 8–9 closes ($273–278)",
-     "zh": "5日和10日均线；10月8–9日收盘价（$273–278）"
+     "en": "5 and 10-day averages ($273–275)",
+     "zh": "5日和10日均线（$273–275）"
     }
    ],
    [
@@ -48,10 +48,10 @@
     }
    ],
    [
-    247,
+    249,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "30-day average; Oct 13 low $248.5",
+     "zh": "30日均线；10月13日低点 $248.5"
     }
    ],
    [

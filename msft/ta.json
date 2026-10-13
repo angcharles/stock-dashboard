@@ -1,22 +1,29 @@
 {
- "asof": "Oct 12, 2026",
- "close": 541.15,
+ "asof": "Oct 13, 2026",
+ "close": 543.45,
  "bias": {
-  "en": "Bullish · RSI at 70, nearing the record",
-  "zh": "看多 · RSI 达 70，逼近纪录高点"
+  "en": "Bullish · overbought, just below the record",
+  "zh": "偏多 · 超买，紧贴纪录高点"
  },
  "read": [
   {
-   "en": "Microsoft rose 1.1% on Oct 12 to $541.15, its second straight gain, and closed above the $537 resistance from the last read. It is above all its averages, all rising: 5-day ($532), 10-day ($524), 30-day ($508), 100-day ($451) and 200-day ($434). MACD has been above its signal since Oct 1, Parabolic SAR has been bullish since Aug 28 ($516.5), and RSI is 70, the overbought line.",
-   "zh": "微软 10月12日上涨 1.1%，收于 $541.15，连涨两日，收盘站上上次解读中的 $537 阻力。股价位于全部均线上方且均线均向上：5 日（$532）、10 日（$524）、30 日（$508）、100 日（$451）和 200 日（$434）。MACD 自 10月1日起位于信号线上方，抛物线 SAR 自 8月28日起看多（$516.5），RSI 为 70，处于超买线。"
+   "en": "Microsoft rose 0.4% on Oct 13 to $543.45 after touching $551.15, close to its October 2025 record. It is above all its rising averages: the 5-day ($534.4), 10-day ($527.0), 30-day ($508.9), 100-day ($451.9) and 200-day ($434.6). MACD has been above its signal since Oct 1, Parabolic SAR has been bullish since Aug 28 ($520.7), and RSI is 71, overbought.",
+   "zh": "微软 10月13日盘中触及 $551.15，接近 2025年10月的纪录高点，收涨 0.4% 至 $543.45。股价位于所有上行均线上方：5 日（$534.4）、10 日（$527.0）、30 日（$508.9）、100 日（$451.9）和 200 日均线（$434.6）。MACD 自 10月1日起位于信号线上方，抛物线 SAR 自 8月28日起看多（$520.7），RSI 为 71，处于超买。"
   },
   {
-   "en": "The record zone at $553–555 (Oct 28, 2025 high) is 2% away and is the main test; with RSI at 70, a pause there would be normal. Support is $537 (old resistance), then the 10-day average near $524 and the 30-day near $508; SAR at $516.5 sits between them.",
-   "zh": "$553–555 纪录区（2025年10月28日高点）仅 2% 之遥，是主要考验；RSI 已达 70，在此暂歇属正常。支撑为 $537（原阻力），其次约 $524 的 10 日均线和约 $508 的 30 日均线；$516.5 的 SAR 位于两者之间。"
+   "en": "The record zone at $553–555 is still the test after the day's high stopped short of it. A close above $555 would put Microsoft at a new record with no chart resistance overhead. Support is $537 (prior resistance, Oct 9 high), then $527–534 (5 and 10-day averages) and $521 (Parabolic SAR); the 30-day average ($509) is deeper support.",
+   "zh": "当日高点未能触及 $553–555 纪录区，该区域仍是关键考验。若收盘站上 $555，微软将创新高，上方再无图形阻力。支撑为 $537（原阻力，10月9日高点），其次 $527–534（5 日和 10 日均线）和 $521（抛物线 SAR）；30 日均线（$509）为更深一层支撑。"
   }
  ],
  "levels": {
   "r": [
+   [
+    551,
+    {
+     "en": "Oct 13 high",
+     "zh": "10月13日高点"
+    }
+   ],
    [
     554,
     {
@@ -34,17 +41,17 @@
     }
    ],
    [
-    524,
+    530,
     {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "5 and 10-day averages ($527–534)",
+     "zh": "5日和10日均线（$527–534）"
     }
    ],
    [
-    508,
+    521,
     {
-     "en": "30-day average; SAR $516.5 above",
-     "zh": "30日均线；其上 SAR $516.5"
+     "en": "Parabolic SAR; 30-day average $509 below",
+     "zh": "抛物线 SAR；其下为30日均线 $509"
     }
    ]
   ]

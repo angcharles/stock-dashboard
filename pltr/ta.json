@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 209,
+ "asof": "Oct 13, 2026",
+ "close": 208.67,
  "bias": {
-  "en": "Bullish trend · at a record, overbought",
-  "zh": "上升趋势 · 处于纪录高位，超买"
+  "en": "Bullish trend · overbought, pausing under the record",
+  "zh": "多头趋势 · 超买，于纪录高点下方整理"
  },
  "read": [
   {
-   "en": "Palantir closed flat at $209.00 on Oct 12 after setting a new record of $212.94 intraday. It is up 10% in five sessions and 21% in 20, and above all its averages, all rising: 5-day ($200.6), 10-day ($194.5), 30-day ($184), 100-day ($155) and 200-day ($152). MACD has been above its signal since Oct 6 with a growing histogram, Parabolic SAR has been bullish since Sep 21, and RSI is 76.",
-   "zh": "Palantir 10月12日盘中创下 $212.94 新纪录后收平于 $209.00。五个交易日上涨 10%，20 个交易日上涨 21%，股价位于全部均线上方且均线均向上：5 日（$200.6）、10 日（$194.5）、30 日（$184）、100 日（$155）和 200 日（$152）。MACD 自 10月6日起位于信号线上方且柱体放大，抛物线 SAR 自 9月21日起看多，RSI 为 76。"
+   "en": "Palantir eased 0.2% on Oct 13 to $208.67, holding just under the Oct 12 record of $212.94. It is above all its rising averages: the 5-day ($203.9), 10-day ($196.7), 30-day ($184.6), 100-day ($155.4) and 200-day ($152.5). MACD has been above its signal since Oct 6, Parabolic SAR has been bullish since Sep 21 ($193.3), and RSI is 76, overbought.",
+   "zh": "Palantir 10月13日小跌 0.2%，收于 $208.67，紧贴 10月12日创下的 $212.94 纪录高点。股价位于所有上行均线上方：5 日（$203.9）、10 日（$196.7）、30 日（$184.6）、100 日（$155.4）和 200 日均线（$152.5）。MACD 自 10月6日起位于信号线上方，抛物线 SAR 自 9月21日起看多（$193.3），RSI 为 76，处于超买。"
   },
   {
-   "en": "With RSI at 76 and price 14% above the 30-day average, the trend is strong but stretched, and the close well off the high hints at hesitation. A close above $213 targets $220 and then $230. Support is the 5-day average near $200.6 (Oct 8 high $204.4 above it), then $194.5 (10-day average, Sep 24 high) and SAR at $189.6.",
-   "zh": "RSI 为 76，股价高于 30 日均线 14%，趋势强劲但已偏离较远，收盘明显低于高点显示多方迟疑。若收盘站上 $213，目标看 $220，再看 $230。支撑为约 $200.6 的 5 日均线（其上为 10月8日高点 $204.4），其次 $194.5（10 日均线、9月24日高点）及 $189.6 的 SAR。"
+   "en": "Nothing broke: the stock paused below the $213 record. A close above it would target the round numbers at $220, then $230. Support is $204 (5-day average and Oct 8 high), then $197 (10-day average) and $193 (Parabolic SAR), with the Sep 24 high at $194.7 just above the SAR.",
+   "zh": "关键位均未被突破：股价在 $213 纪录高点下方整理。若收盘站上该位置，目标看整数关口 $220，再看 $230。支撑为 $204（5 日均线及 10月8日高点），其次 $197（10 日均线）和 $193（抛物线 SAR），9月24日高点 $194.7 位于 SAR 略上方。"
   }
  ],
  "levels": {
@@ -34,31 +34,31 @@
    [
     230,
     {
-     "en": "Round number; Goldman's new target",
-     "zh": "整数关口；高盛新目标价"
+     "en": "Round number",
+     "zh": "整数关口"
     }
    ]
   ],
   "s": [
    [
-    200.6,
+    204,
     {
      "en": "5-day average; Oct 8 high $204.4",
      "zh": "5日均线；10月8日高点 $204.4"
     }
    ],
    [
-    194.5,
+    197,
     {
-     "en": "10-day average, Sep 24 high",
-     "zh": "10日均线、9月24日高点"
+     "en": "10-day average",
+     "zh": "10日均线"
     }
    ],
    [
-    189.6,
+    193,
     {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "Parabolic SAR; Sep 24 high $194.7",
+     "zh": "抛物线 SAR；9月24日高点 $194.7"
     }
    ]
   ]

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 1487.33,
+ "asof": "Oct 13, 2026",
+ "close": 1482.33,
  "bias": {
-  "en": "Short-term bearish · testing the $1,465–1,475 floor",
-  "zh": "短线偏空 · 测试 $1,465–1,475 底部"
+  "en": "Short-term bearish · $1,465–1,475 floor held on the close",
+  "zh": "短线偏空 · $1,465–1,475 底部收盘守住"
  },
  "read": [
   {
-   "en": "Sandisk fell 6% on Oct 12 to $1,487, down 13% in five sessions, and closed below the Sep 16 low of $1,504. It is under its 5-day ($1,606), 10 and 30-day ($1,671–1,674) and 100-day ($1,649) averages, though still above the rising 200-day ($1,188). MACD is below its signal and zero line with a widening histogram, Parabolic SAR has been bearish since Oct 6, and RSI is 39.",
-   "zh": "闪迪 10月12日下跌 6%，收于 $1,487，五个交易日下跌 13%，收盘跌破 9月16日低点 $1,504。股价位于 5 日（$1,606）、10 日与 30 日（$1,671–1,674）及 100 日均线（$1,649）下方，但仍高于上行的 200 日均线（$1,188）。MACD 位于信号线及零轴下方且柱体扩大，抛物线 SAR 自 10月6日起看空，RSI 为 39。"
+   "en": "Sandisk slipped 0.3% on Oct 13 to $1,482.33 after a deep intraday drop to $1,403.16. It is below its 5-day ($1,571), 10-day ($1,647), 100-day ($1,649) and 30-day ($1,671) averages, and above the 200-day ($1,194). MACD has been below its signal since Oct 2 and is below zero, Parabolic SAR has been bearish since Oct 6 ($1,812), and RSI is 38.",
+   "zh": "闪迪 10月13日盘中大幅下探至 $1,403.16，收盘小跌 0.3% 至 $1,482.33。股价位于 5 日（$1,571）、10 日（$1,647）、100 日（$1,649）和 30 日均线（$1,671）下方，并在 200 日均线（$1,194）上方。MACD 自 10月2日起位于信号线下方并在零轴之下，抛物线 SAR 自 10月6日起看空（$1,812），RSI 为 38。"
   },
   {
-   "en": "The day's low of $1,464 tested the $1,473 floor that has held five times since June. A close below it would target $1,417 (Aug 24 low), then $1,325 (Jul 17 low). Resistance is $1,504, then the 5-day average near $1,606 and $1,649–1,674 (10, 30 and 100-day averages).",
-   "zh": "当日低点 $1,464 测试了自 6月以来五次守住的 $1,473 底部。若收盘跌破，目标看 $1,417（8月24日低点），再看 $1,325（7月17日低点）。阻力为 $1,504，其次约 $1,606 的 5 日均线，以及 $1,649–1,674（10 日、30 日和 100 日均线）。"
+   "en": "The $1,465–1,475 floor, held since June, was broken intraday and the low briefly undercut the Aug 24 low ($1,417), but the close was back above the floor. Resistance is $1,504 (Sep 16 low), then $1,571 (5-day average) and $1,647–1,671 (10, 100 and 30-day averages). A close below $1,465 would open $1,403, then $1,325.",
+   "zh": "6月以来守住的 $1,465–1,475 底部盘中被跌破，低点一度跌破 8月24日低点（$1,417），但收盘重回底部上方。阻力为 $1,504（9月16日低点），其次 $1,571（5 日均线）及 $1,647–1,671（10 日、100 日和 30 日均线）。若收盘跌破 $1,465，下一目标看 $1,403，再看 $1,325。"
   }
  ],
  "levels": {
@@ -25,7 +25,7 @@
     }
    ],
    [
-    1606,
+    1571,
     {
      "en": "5-day average",
      "zh": "5日均线"
@@ -34,8 +34,8 @@
    [
     1660,
     {
-     "en": "10, 30 and 100-day averages ($1,649–1,674)",
-     "zh": "10日、30日和100日均线（$1,649–1,674）"
+     "en": "10, 100 and 30-day averages ($1,647–1,671)",
+     "zh": "10日、100日和30日均线（$1,647–1,671）"
     }
    ]
   ],
@@ -43,15 +43,15 @@
    [
     1473,
     {
-     "en": "Held five times since June; Oct 12 low $1,464",
-     "zh": "6月以来五次守住；10月12日低点 $1,464"
+     "en": "Held on closes since June ($1,465–1,475)",
+     "zh": "6月以来收盘均守住（$1,465–1,475）"
     }
    ],
    [
-    1417,
+    1403,
     {
-     "en": "Aug 24 low",
-     "zh": "8月24日低点"
+     "en": "Oct 13 low",
+     "zh": "10月13日低点"
     }
    ],
    [

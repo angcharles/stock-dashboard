@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 433.97,
+ "asof": "Oct 13, 2026",
+ "close": 432.29,
  "bias": {
-  "en": "Neutral · holding the 30 and 200-day averages",
-  "zh": "中性 · 守住 30 日与 200 日均线"
+  "en": "Neutral · MACD turned down, averages holding",
+  "zh": "中性 · MACD 转弱，均线支撑仍在"
  },
  "read": [
   {
-   "en": "Rockwell edged up 0.3% on Oct 12 to $433.97, holding above its 30-day ($430) and 200-day ($425) averages after the Oct 8 dip to $426. It is below the 5 and 10-day averages ($439–441) and the 100-day ($449). The MACD histogram has shrunk to almost zero, so a bearish cross is close, Parabolic SAR has been bearish since Oct 8, and RSI is 49.",
-   "zh": "罗克韦尔 10月12日小涨 0.3%，收于 $433.97，在 10月8日下探 $426 后守在 30 日（$430）和 200 日均线（$425）上方。股价位于 5 日和 10 日均线（$439–441）及 100 日均线（$449）下方。MACD 柱体已缩至接近零，即将死叉，抛物线 SAR 自 10月8日起看空，RSI 为 49。"
+   "en": "Rockwell slipped 0.4% on Oct 13 to $432.29 after a low of $426.17. It holds above its 30-day ($430.5) and 200-day ($425.3) averages, but is below the 5-day ($435.0), 10-day ($441.3) and falling 100-day ($449.1). MACD crossed below its signal on Oct 13 and is above zero, Parabolic SAR has been bearish since Oct 8 ($458), and RSI is 47.",
+   "zh": "罗克韦尔 10月13日下跌 0.4%，收于 $432.29，盘中低点 $426.17。股价守在 30 日（$430.5）和 200 日均线（$425.3）上方，但位于 5 日（$435.0）、10 日（$441.3）及下行的 100 日均线（$449.1）下方。MACD 于 10月13日下穿信号线，仍在零轴上方，抛物线 SAR 自 10月8日起看空（$458），RSI 为 47。"
   },
   {
-   "en": "Support is $425–430 (30 and 200-day averages, Oct 8 low), then $407 (Sep 17 low) and $396. Resistance is $439–441, then $449–456, where the 100-day average sits and five swings have stalled, and the Oct 6 high of $460.",
-   "zh": "支撑为 $425–430（30 日和 200 日均线、10月8日低点），其次 $407（9月17日低点）和 $396。阻力为 $439–441，其次 $449–456（100 日均线所在、五次波段受阻），以及 10月6日高点 $460。"
+   "en": "The $425–430 support (30 and 200-day averages, Oct 8 low) held again, but the MACD cross adds pressure. Resistance is $435–441 (5 and 10-day averages), then $452 (100-day, capped five swings) and $460 (Oct 6 high). Below $425, the next supports are $407 (Sep 17 low) and $396 (Apr 29 pivot).",
+   "zh": "$425–430 支撑（30 日和 200 日均线、10月8日低点）再次守住，但 MACD 下穿信号线增加了压力。阻力为 $435–441（5 日和 10 日均线），其次 $452（100 日均线，五次波段受阻）和 $460（10月6日高点）。若跌破 $425，下一支撑为 $407（9月17日低点）和 $396（4月29日转折点）。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     440,
     {
-     "en": "5 and 10-day averages ($439–441)",
-     "zh": "5日和10日均线（$439–441）"
+     "en": "5 and 10-day averages ($435–441)",
+     "zh": "5日和10日均线（$435–441）"
     }
    ],
    [
@@ -43,8 +43,8 @@
    [
     427,
     {
-     "en": "30 and 200-day averages, Oct 8 low ($425–430)",
-     "zh": "30日和200日均线、10月8日低点（$425–430）"
+     "en": "30 and 200-day averages, Oct 8 and 13 lows ($425–430)",
+     "zh": "30日和200日均线、10月8日及13日低点（$425–430）"
     }
    ],
    [

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 995.41,
+ "asof": "Oct 13, 2026",
+ "close": 987.99,
  "bias": {
-  "en": "Uptrend under pressure · sharp reversal from a record",
-  "zh": "上升趋势受压 · 纪录高点后急跌"
+  "en": "Uptrend under pressure · MACD turned down",
+  "zh": "上升趋势承压 · MACD 转弱"
  },
  "read": [
   {
-   "en": "Lumentum fell 9.8% on Oct 12 to $995.41 on heavier volume, a sharp reversal from Friday's record high of $1,143. It dropped below its 5 and 10-day averages ($1,056–1,078) but stays above the rising 30-day ($961), 100-day ($876) and 200-day ($767). Parabolic SAR flipped bearish, the MACD histogram has fallen from 18 to 3 so a bearish cross is close, and RSI is 51.",
-   "zh": "Lumentum 10月12日放量下跌 9.8%，收于 $995.41，较上周五 $1,143 的纪录高点急速反转。股价跌破 5 日和 10 日均线（$1,056–1,078），但仍高于上行的 30 日（$961）、100 日（$876）和 200 日均线（$767）。抛物线 SAR 转空，MACD 柱体由 18 降至 3，接近死叉，RSI 为 51。"
+   "en": "Lumentum slipped 0.7% on Oct 13 to $987.99 after a low of $952.01, and is down 13% in five sessions. It is below its 5-day ($1,049) and 10-day ($1,057) averages and above the 30-day ($963.1), 100-day ($877.3) and 200-day ($770.2). MACD crossed below its signal on Oct 13 and remains above zero, Parabolic SAR has been bearish since Oct 12 ($1,143), and RSI is 50.",
+   "zh": "Lumentum 10月13日下跌 0.7%，收于 $987.99，盘中低点 $952.01，五个交易日下跌 13%。股价位于 5 日（$1,049）和 10 日均线（$1,057）下方，并在 30 日（$963.1）、100 日（$877.3）和 200 日均线（$770.2）上方。MACD 于 10月13日下穿信号线，仍在零轴上方，抛物线 SAR 自 10月12日起看空（$1,143），RSI 为 50。"
   },
   {
-   "en": "Both supports from the last read broke: $1,048 and the $1,007 shelf tested four times in September (intraday low $980). The 30-day average at $961 is the next test, then $881 (Sep 28 low) and $832. Resistance is now $1,007, then the 5 and 10-day averages near $1,056–1,078 and the $1,143 record.",
-   "zh": "上次解读中的两个支撑均已失守：$1,048 及 9月四次测试的 $1,007 平台（盘中低点 $980）。下一测试为 $961 的 30 日均线，其次 $881（9月28日低点）和 $832。阻力现为 $1,007，其次约 $1,056–1,078 的 5 日和 10 日均线，以及 $1,143 纪录高点。"
+   "en": "The pullback is now confirmed on MACD, and the intraday low tested the 30-day zone without closing below it. Resistance is $1,007 (September shelf), then $1,049–1,057 (5 and 10-day averages) and the $1,143 record. Support is $952–963 (Oct 13 low and 30-day average), then $881 (Sep 28 low) and $832 (Sep 15 low). A close below $952 would open $881.",
+   "zh": "MACD 已确认此轮回调，盘中低点测试 30 日均线区域但收盘未跌破。阻力为 $1,007（9月平台），其次 $1,049–1,057（5 日和 10 日均线）及 $1,143 纪录高点。支撑为 $952–963（10月13日低点及 30 日均线），其次 $881（9月28日低点）和 $832（9月15日低点）。若收盘跌破 $952，下一目标看 $881。"
   }
  ],
  "levels": {
@@ -25,10 +25,10 @@
     }
    ],
    [
-    1060,
+    1053,
     {
-     "en": "5 and 10-day averages ($1,056–1,078)",
-     "zh": "5日和10日均线（$1,056–1,078）"
+     "en": "5 and 10-day averages ($1,049–1,057)",
+     "zh": "5日和10日均线（$1,049–1,057）"
     }
    ],
    [
@@ -41,10 +41,10 @@
   ],
   "s": [
    [
-    961,
+    958,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "30-day average and Oct 13 low ($952–963)",
+     "zh": "30日均线及10月13日低点（$952–963）"
     }
    ],
    [

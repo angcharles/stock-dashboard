@@ -1,34 +1,27 @@
 {
- "asof": "Oct 12, 2026",
- "close": 742.96,
+ "asof": "Oct 13, 2026",
+ "close": 762.5,
  "bias": {
-  "en": "Uptrend intact · rebounding toward $748",
-  "zh": "上升趋势完好 · 反弹靠近 $748"
+  "en": "Uptrend · broke out above $750",
+  "zh": "上升趋势 · 突破 $750"
  },
  "read": [
   {
-   "en": "Meta rose 3.4% on Oct 12 to $742.96 on above-average volume, back above its 5 and 10-day averages ($729–730) and well above the 30-day ($689), 100-day ($623) and 200-day ($631). MACD is still below its signal, but the histogram has started to narrow. Parabolic SAR remains bearish at $765, and RSI is 62.",
-   "zh": "Meta 10月12日放量上涨 3.4%，收于 $742.96，重新站上 5 日和 10 日均线（$729–730），并远高于 30 日（$689）、100 日（$623）和 200 日均线（$631）。MACD 仍在信号线下方，但柱体已开始收窄。抛物线 SAR 仍看空于 $765，RSI 为 62。"
+   "en": "Meta rose 2.6% on Oct 13 to $762.50, its second straight gain, after a high of $771.27. It is above all its averages: the 5 and 10-day ($733.3 and $732.6), the 30-day ($694.9), 200-day ($631.0) and 100-day ($624.4). MACD is still below its signal (since Oct 2) but the histogram is narrowing toward a bullish cross, Parabolic SAR flipped bullish on Oct 13 ($711.7), and RSI is 66.",
+   "zh": "Meta 10月13日上涨 2.6%，收于 $762.50，连续第二日上涨，盘中高点 $771.27。股价位于所有均线上方：5 日和 10 日（$733.3 和 $732.6）、30 日（$694.9）、200 日（$631.0）及 100 日均线（$624.4）。MACD 仍位于信号线下方（自 10月2日起），但柱状图收窄、趋近金叉，抛物线 SAR 于 10月13日转为看多（$711.7），RSI 为 66。"
   },
   {
-   "en": "The rally pushed through the $728 resistance from the last read but stalled at $752 intraday, just above the Oct 6 high of $748. A close above $752 would bring SAR ($765) into play and then the $780 record. Support is $729–730 (5 and 10-day averages), then $712 (Oct 8 low) and the 30-day average near $689.",
-   "zh": "此轮反弹突破了上次解读中的 $728 阻力，但盘中在 $752 受阻，略高于 10月6日高点 $748。若收盘站上 $752，将挑战 SAR（$765），再看 $780 纪录高点。支撑为 $729–730（5 日和 10 日均线），其次 $712（10月8日低点）及约 $689 的 30 日均线。"
+   "en": "The $748–752 resistance (Oct 6 and Oct 12 highs) gave way and now serves as first support. The next resistance is $771 (Oct 13 high), then the $780 record from Sep 24; a close above $780 would put the stock at a new high. Support is $750, then $733 (5 and 10-day averages) and $712 (Oct 8 low and SAR).",
+   "zh": "$748–752 阻力（10月6日及 10月12日高点）被突破，现转为第一支撑。下一阻力为 $771（10月13日高点），其次为 9月24日创下的 $780 纪录高点；若收盘站上 $780，股价将创新高。支撑为 $750，其次 $733（5 日和 10 日均线）和 $712（10月8日低点及 SAR）。"
   }
  ],
  "levels": {
   "r": [
    [
-    750,
+    771,
     {
-     "en": "Oct 6 high $748; Oct 12 high $752",
-     "zh": "10月6日高点 $748；10月12日高点 $752"
-    }
-   ],
-   [
-    765,
-    {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "Oct 13 high",
+     "zh": "10月13日高点"
     }
    ],
    [
@@ -41,24 +34,24 @@
   ],
   "s": [
    [
-    730,
+    750,
     {
-     "en": "5 and 10-day averages ($729–730)",
-     "zh": "5日和10日均线（$729–730）"
+     "en": "Oct 6 and Oct 12 highs ($748–752), now support",
+     "zh": "10月6日及10月12日高点（$748–752），转为支撑"
+    }
+   ],
+   [
+    733,
+    {
+     "en": "5 and 10-day averages",
+     "zh": "5日和10日均线"
     }
    ],
    [
     712,
     {
-     "en": "Oct 8 low",
-     "zh": "10月8日低点"
-    }
-   ],
-   [
-    689,
-    {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "Oct 8 low; Parabolic SAR",
+     "zh": "10月8日低点；抛物线 SAR"
     }
    ]
   ]

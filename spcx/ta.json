@@ -1,22 +1,29 @@
 {
- "asof": "Oct 12, 2026",
- "close": 163.42,
+ "asof": "Oct 13, 2026",
+ "close": 156.54,
  "bias": {
-  "en": "Short-term bullish · momentum cooling",
-  "zh": "短线偏多 · 动能降温"
+  "en": "Neutral · lost $160, testing the 30-day",
+  "zh": "中性 · 失守 $160，测试 30 日均线"
  },
  "read": [
   {
-   "en": "SpaceX edged up 0.5% on Oct 12 to $163.42. It is just below its 5-day average ($165) but above the 10-day ($160.4) and 30-day ($152.5); there is no 100-day average yet. MACD is still above its signal, but the histogram has faded from 1.8 to 0.7. Parabolic SAR has been bullish since Oct 2 ($153), and RSI is 59.",
-   "zh": "SpaceX 10月12日小涨 0.5%，收于 $163.42。股价略低于 5 日均线（$165），但高于 10 日（$160.4）和 30 日均线（$152.5）；尚无 100 日均线。MACD 仍在信号线上方，但柱体由 1.8 降至 0.7。抛物线 SAR 自 10月2日起看多（$153），RSI 为 59。"
+   "en": "SpaceX fell 4.2% on Oct 13 to $156.54; with 85 sessions of history it has no 100 or 200-day averages yet. It dropped below its 5-day ($162.1) and 10-day ($161.2) averages and holds above the 30-day ($153.0). MACD is still above its signal (since Oct 5) but the histogram has faded to almost zero, Parabolic SAR has been bullish since Oct 2 ($154.6), and RSI is 52.",
+   "zh": "SpaceX 10月13日下跌 4.2%，收于 $156.54；上市仅 85 个交易日，尚无 100 日和 200 日均线。股价跌破 5 日（$162.1）和 10 日均线（$161.2），守在 30 日均线（$153.0）上方。MACD 仍位于信号线上方（自 10月5日起），但柱状图已收窄至接近零，抛物线 SAR 自 10月2日起看多（$154.6），RSI 为 52。"
   },
   {
-   "en": "Rallies stalled at $167–168 on Oct 7 and Oct 12. A close above that reopens $176 (Jun 30 and Oct 6 highs), then the $185–192 mid-June gap. Support is $160 (Oct 8–9 lows, 10-day average), then $152.5–153 (30-day average and SAR) and $145 (Sep 28 low).",
-   "zh": "10月7日和 10月12日的反弹均在 $167–168 受阻。若收盘站上该区域，可再看 $176（6月30日及10月6日高点），其次 6月中旬缺口 $185–192。支撑为 $160（10月8–9日低点、10 日均线），其次 $152.5–153（30 日均线及 SAR）和 $145（9月28日低点）。"
+   "en": "The close broke the $160 support (Oct 8–9 lows and 10-day average), which becomes first resistance. Above it are $167.5 (Oct 7 and 12 highs) and $176 (Jun 30 and Oct 6 highs). Support is $153–154.6 (30-day average and SAR), then $145 (Sep 28 low). A close below $154.6 would flip the SAR bearish; below $153 opens $145.",
+   "zh": "收盘跌破 $160 支撑（10月8–9日低点及 10 日均线），该位置转为第一阻力。其上为 $167.5（10月7日及 12日高点）和 $176（6月30日及 10月6日高点）。支撑为 $153–154.6（30 日均线及 SAR），其次 $145（9月28日低点）。若收盘跌破 $154.6，SAR 将转为看空；跌破 $153 则打开至 $145 的空间。"
   }
  ],
  "levels": {
   "r": [
+   [
+    161.5,
+    {
+     "en": "5 and 10-day averages; Oct 8–9 lows $160",
+     "zh": "5日和10日均线；10月8–9日低点 $160"
+    }
+   ],
    [
     167.5,
     {
@@ -30,28 +37,14 @@
      "en": "Jun 30 and Oct 6 highs",
      "zh": "6月30日及10月6日高点"
     }
-   ],
-   [
-    190,
-    {
-     "en": "Mid-June gap area ($185–192)",
-     "zh": "6月中旬缺口区（$185–192）"
-    }
    ]
   ],
   "s": [
    [
-    160,
+    154,
     {
-     "en": "Oct 8–9 lows; 10-day average",
-     "zh": "10月8–9日低点；10日均线"
-    }
-   ],
-   [
-    153,
-    {
-     "en": "30-day average and SAR ($152.5–153)",
-     "zh": "30日均线及SAR（$152.5–153）"
+     "en": "30-day average and SAR ($153–154.6)",
+     "zh": "30日均线及SAR（$153–154.6）"
     }
    ],
    [
@@ -59,6 +52,13 @@
     {
      "en": "Sep 28 low",
      "zh": "9月28日低点"
+    }
+   ],
+   [
+    143,
+    {
+     "en": "Sep 15 low",
+     "zh": "9月15日低点"
     }
    ]
   ]

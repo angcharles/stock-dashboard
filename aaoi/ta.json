@@ -1,24 +1,24 @@
 {
- "asof": "Oct 12, 2026",
- "close": 100.68,
+ "asof": "Oct 13, 2026",
+ "close": 97.78,
  "bias": {
-  "en": "Bearish turn · below all its averages",
-  "zh": "转弱 · 跌破全部均线"
+  "en": "Bearish · back at the September floor",
+  "zh": "偏空 · 回到 9 月底部"
  },
  "read": [
   {
-   "en": "AAOI fell 8% on Oct 12 to $100.68 and is down 17% in five sessions. It now sits below every average: the 30-day ($105.6), 200-day ($111.3) and 100-day ($128.6). Parabolic SAR flipped bearish on the day. MACD is still just above its signal, but the histogram shrank from 3.5 to 0.5 in three sessions, so a bearish cross is close; RSI is 45.",
-   "zh": "AAOI 于 10月12日下跌 8%，收于 $100.68，五个交易日累计下跌 17%。股价已跌破全部均线：30 日（$105.6）、200 日（$111.3）和 100 日（$128.6）。抛物线 SAR 当日转为看空。MACD 仍略高于信号线，但柱体三个交易日内从 3.5 缩至 0.5，即将死叉；RSI 为 45。"
+   "en": "AAOI fell 2.9% on Oct 13 to $97.78 and is down 25% in five sessions. It is below every average: the 5-day ($107.3), 10-day ($111.0), 30-day ($105.3, now turning lower), 200-day ($111.6) and falling 100-day ($128.0). MACD crossed below its signal on Oct 13 and is below zero, Parabolic SAR has been bearish since Oct 12 ($130.5), and RSI is 43.",
+   "zh": "AAOI 于 10月13日下跌 2.9%，收于 $97.78，五个交易日下跌 25%。股价位于所有均线下方：5 日（$107.3）、10 日（$111.0）、30 日（$105.3，已开始拐头向下）、200 日（$111.6）以及下行的 100 日均线（$128.0）。MACD 于 10月13日下穿信号线并位于零轴下方，抛物线 SAR 自 10月12日起看空（$130.5），RSI 为 43。"
   },
   {
-   "en": "The $101.5 August pivot gave way intraday (low $99.22). Next is the September floor at $93.6–97, then $84.6 (March low) and $76 (Jul 29 low). To repair the chart AAOI needs to reclaim the 30-day average near $106, then the 200-day at $111; the 5 and 10-day averages ($111–114) and the Oct 9 high ($117) sit just above.",
-   "zh": "8月转折点 $101.5 盘中失守（低点 $99.22）。下一支撑为9月底部 $93.6–97，其下为 $84.6（3月低点）和 $76（7月29日低点）。要修复图形，需先收复约 $106 的 30 日均线，再站上 $111 的 200 日均线；5 日和 10 日均线（$111–114）及 10月9日高点（$117）就在其上方。"
+   "en": "The day's low of $95.08 brought the September floor ($93.6–97) back into play; it has held three times. Below it are $84.6 (March low) and $76 (Jul 29 swing low). Resistance is the 30-day average near $105.3, then $111–117 (200 and 10-day averages, Oct 9 high) and $130 (Oct 6 high and SAR). A close below $93.5 would open $84.6.",
+   "zh": "当日低点 $95.08 使 9月底部（$93.6–97）再度受到考验，该区域已三次守住。其下为 $84.6（3月低点）和 $76（7月29日波段低点）。阻力为约 $105.3 的 30 日均线，其次 $111–117（200 日和 10 日均线、10月9日高点）及 $130（10月6日高点及 SAR）。若收盘跌破 $93.5，下一目标看 $84.6。"
   }
  ],
  "levels": {
   "r": [
    [
-    106,
+    105.3,
     {
      "en": "30-day average; Oct 12 high $106.4",
      "zh": "30日均线；10月12日高点 $106.4"
@@ -27,15 +27,15 @@
    [
     117,
     {
-     "en": "Oct 9 high; 200, 5 and 10-day averages ($111–114) below",
-     "zh": "10月9日高点；其下为200日、5日和10日均线（$111–114）"
+     "en": "Oct 9 high; 200 and 10-day averages ($111–112) below",
+     "zh": "10月9日高点；其下为200日和10日均线（$111–112）"
     }
    ],
    [
     130,
     {
-     "en": "Oct 6 high; 100-day average $129",
-     "zh": "10月6日高点；100日均线 $129"
+     "en": "Oct 6 high; SAR $130.5, 100-day average $128",
+     "zh": "10月6日高点；SAR $130.5，100日均线 $128"
     }
    ]
   ],

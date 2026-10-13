@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 259.53,
+ "asof": "Oct 13, 2026",
+ "close": 258.58,
  "bias": {
-  "en": "Bullish turn · pressing the top of the range",
-  "zh": "转强 · 挑战区间上沿"
+  "en": "Bullish · capped at the top of the range",
+  "zh": "偏多 · 受制于区间上沿"
  },
  "read": [
   {
-   "en": "Amazon eased 1.1% on Oct 12 to $259.53 after touching $263.70, but is up 3% over five sessions and sits above all its averages. The 30 and 100-day averages have converged near $253, and the 200-day ($242) is rising. MACD has been above its signal since Oct 5 with a growing histogram, Parabolic SAR has been bullish since Oct 2 ($249), and RSI is 56.",
-   "zh": "亚马逊 10月12日盘中触及 $263.70 后回落 1.1%，收于 $259.53，但五个交易日累计上涨 3%，股价位于全部均线上方。30 日和 100 日均线在约 $253 处汇合，200 日均线（$242）向上。MACD 自 10月5日起位于信号线上方且柱体放大，抛物线 SAR 自 10月2日起看多（$249），RSI 为 56。"
+   "en": "Amazon slipped 0.4% on Oct 13 to $258.58 on light volume, after a high of $262.83 stopped short of the Oct 12 top. It sits on its 5-day average ($258.9) and above the 10-day ($255.1), the slightly falling 30 and 100-day ($253.5 and $252.7) and the 200-day ($242.4). MACD has been above its signal since Oct 5, Parabolic SAR has been bullish since Oct 2 ($251), and RSI is 54.",
+   "zh": "亚马逊 10月13日缩量下跌 0.4%，收于 $258.58，盘中高点 $262.83 未能触及 10月12日高点。股价位于 5 日均线（$258.9）附近，并在 10 日（$255.1）、小幅下行的 30 日和 100 日（$253.5 和 $252.7）以及 200 日均线（$242.4）上方。MACD 自 10月5日起位于信号线上方，抛物线 SAR 自 10月2日起看多（$251），RSI 为 54。"
   },
   {
-   "en": "Price is testing the top of its September–October range. A close above the Oct 12 high of $263.70 would target $267.60 (Aug 28 high), then $287 (Aug 3 high). Support is $257 (tested four times in September), then the 30 and 100-day averages near $253 and the range floor at $244–249.",
-   "zh": "股价正测试 9–10 月区间上沿。若收盘站上 10月12日高点 $263.70，目标看 $267.60（8月28日高点），再看 $287（8月3日高点）。支撑为 $257（9月四次测试），其次约 $253 的 30 日与 100 日均线，以及 $244–249 的区间底部。"
+   "en": "Nothing broke: $263.7, the Oct 12 high and top of the Sep–Oct range, capped the move again. Above it are $267.6 (Aug 28 swing high) and $287.2 (Aug 3 high). Support is $257, tested four times in September, then $253 (30 and 100-day averages) and $248–251 (SAR and range floor). A close above $263.7 would target $267.6.",
+   "zh": "关键位均未失守：10月12日高点、即 9–10月区间上沿 $263.7 再次压制涨势。其上为 $267.6（8月28日波段高点）和 $287.2（8月3日高点）。支撑为 9月四次测试的 $257，其次 $253（30 日和 100 日均线）及 $248–251（SAR 及区间底部）。若收盘站上 $263.7，目标看 $267.6。"
   }
  ],
  "levels": {
@@ -57,8 +57,8 @@
    [
     248,
     {
-     "en": "SAR and range floor ($244–249)",
-     "zh": "SAR 及区间底部（$244–249）"
+     "en": "SAR and range floor ($244–251)",
+     "zh": "SAR 及区间底部（$244–251）"
     }
    ]
   ]

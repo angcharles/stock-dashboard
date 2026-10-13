@@ -1,18 +1,18 @@
 {
- "asof": "Oct 12, 2026",
- "close": 378.03,
+ "asof": "Oct 13, 2026",
+ "close": 375.23,
  "bias": {
-  "en": "Short-term bullish · capped at $388 again",
-  "zh": "短线偏多 · 再次受阻于 $388"
+  "en": "Short-term bullish · drifting under the $388 cap",
+  "zh": "短线偏多 · 在 $388 压力下方回落"
  },
  "read": [
   {
-   "en": "Tesla slipped 1.2% on Oct 12 to $378.03 on light volume after another failure at $388 on Oct 9 (high $388.56). It holds above its 10-day ($370.5), 30-day ($367.6) and 100-day ($373.4) averages, though the 100-day is still edging lower, and remains below the falling 200-day ($390). MACD has been above its signal since Oct 6, Parabolic SAR has been bullish since Oct 5 ($353), and RSI is 56.",
-   "zh": "特斯拉 10月9日再次在 $388 受阻（高点 $388.56）后，10月12日缩量下跌 1.2%，收于 $378.03。股价守在 10 日（$370.5）、30 日（$367.6）和 100 日均线（$373.4）上方，但 100 日均线仍小幅下行，股价仍低于下行的 200 日均线（$390）。MACD 自 10月6日起位于信号线上方，抛物线 SAR 自 10月5日起看多（$353），RSI 为 56。"
+   "en": "Tesla slipped 0.7% on Oct 13 to $375.23 on light volume, down again after the Oct 9 failure at $388. It holds above its 10-day ($372.8), 100-day ($373.0, edging lower) and 30-day ($367.8) averages, just under the 5-day ($377.8) and below the falling 200-day ($389.5). MACD has been above its signal since Oct 6 but is fading, Parabolic SAR has been bullish since Oct 5 ($355), and RSI is 54.",
+   "zh": "特斯拉 10月9日在 $388 受阻后，10月13日缩量下跌 0.7%，收于 $375.23，为连续第二个下跌日。股价守在 10 日（$372.8）、100 日（$373.0，仍小幅下行）和 30 日均线（$367.8）上方，略低于 5 日均线（$377.8），并位于下行的 200 日均线（$389.5）下方。MACD 自 10月6日起位于信号线上方，柱状图收窄，抛物线 SAR 自 10月5日起看多（$355），RSI 为 54。"
   },
   {
-   "en": "The key zone is still $388–391: the repeated cap since March plus the 200-day average. A daily close above $391 would target $418, then $438. Support is $367–373 (10, 30 and 100-day averages), then $354 (Sep 15 low) and $346 (Sep 30 low, bottom of the range).",
-   "zh": "关键区域仍为 $388–391：3月以来多次受阻的上限加上 200 日均线。若日线收盘站上 $391，目标看 $418，再看 $438。支撑为 $367–373（10 日、30 日和 100 日均线），其次 $354（9月15日低点）和 $346（9月30日低点，区间底部）。"
+   "en": "Nothing broke: the key zone is still $388–391, the repeated cap since March plus the 200-day average. A daily close above $391 would target $418, then $438. Support is $367–373 (10, 30 and 100-day averages), then $354 (Sep 15 low) and $346 (Sep 30 low, bottom of the range).",
+   "zh": "关键位均未失守：关键区域仍为 $388–391，即 3月以来多次受阻的上限加上 200 日均线。若日线收盘站上 $391，目标看 $418，再看 $438。支撑为 $367–373（10 日、30 日和 100 日均线），其次 $354（9月15日低点）和 $346（9月30日低点，区间底部）。"
   }
  ],
  "levels": {
