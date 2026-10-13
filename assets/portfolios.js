@@ -120,11 +120,18 @@
     chart(R.querySelector(".pf-chart"), t.dates, t.val, t.spy);
   }
 
+  // Before the data workflow has priced a new 13F, show it at the filed values.
+  function filed(c) {
+    const tot = c.holdings.reduce((a, h) => a + h[3], 0);
+    return { dates: [c.period], val: [tot], spy: [null], stats: { now: tot, filed: tot, sq: null, d1: null, spy_sq: null, spy_d1: null },
+      holdings: c.holdings.map(([t, n, sh, v, k]) => ({ t, n, sh, v, w: v / tot * 100, sq: null, ...(k === "call" ? { call: 1 } : {}) })) };
+  }
+
   (async function () {
     const [cfg, perf] = await Promise.all([getJSON("data/portfolios.json"), getJSON("data/portfolios-perf.json")]);
     if (!cfg || !perf) return;
     const fl = perf.filings || {};
     if (perf.pelosi) pelosi(cfg.pelosi, perf.pelosi, fl.pelosi);
-    if (perf.druck && cfg.druck) druck(cfg.druck, perf.druck, fl.druck);
+    if (cfg.druck) druck(cfg.druck, perf.druck || filed(cfg.druck), fl.druck);
   })();
 })();

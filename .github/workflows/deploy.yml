@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # The data workflow commits with the Actions token, which does not trigger a push run,
+  # so republish whenever it finishes (otherwise new portfolio data waits for the next cron).
+  workflow_run:
+    workflows: ["Save daily prices for the technical read"]
+    types: [completed]
   schedule:
     # Every 10 minutes across US market hours (covers both EDT and EST), Mon–Fri, UTC
     - cron: "*/10 13-20 * * 1-5"
