@@ -15,7 +15,7 @@
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 48px}
-.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:0 0 28px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);margin:0 0 28px}
 .tabs a{font:600 13px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
 .tabs a:hover,.tabs a:focus-visible{color:var(--accent);outline:none}
@@ -90,7 +90,7 @@ footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border
 </head>
 <body>
 <main class="wrap">
-  <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="./" aria-current="page">Macro</a><a href="../fx/">FX</a></nav>
+  <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="./" aria-current="page">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a></nav>
   <div class="eyebrow">Commodities · Treasury yields · Calendar · News</div>
   <h1>Macro</h1>
   <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year Treasury yields, with the economic calendar and macro headlines. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Futures quotes can be delayed by the exchange.</p>

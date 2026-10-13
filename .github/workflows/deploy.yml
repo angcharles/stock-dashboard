@@ -95,6 +95,8 @@ jobs:
           mkdir -p _site/macro && cp macro/index.html _site/macro/
           cp data/fx.json data/fx-news.json _site/data/
           mkdir -p _site/fx && cp fx/index.html _site/fx/
+          cp data/datacenter.json _site/data/
+          mkdir -p _site/datacenter && cp datacenter/index.html _site/datacenter/
           if [ -f data/portfolios-perf.json ]; then cp data/portfolios-perf.json _site/data/; fi
           cp assets/*.js assets/*.css _site/assets/
           for d in arm tesla sndk intc spcx mu lite cohr googl meta nvda zs be aaoi amd mp amzn msft mrvl skhy tsm avgo rok amat asml pltr glw ter; do
