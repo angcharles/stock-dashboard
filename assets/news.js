@@ -16,6 +16,8 @@
           fail: "暂时无法载入新闻。", today: "今天", yday: "昨天", note: "标题经 Google News 与 Yahoo Finance 链接至原始媒体，标题为英文。" }
   };
   const zh = () => (typeof lang !== "undefined" && lang === "zh");
+  if (host.dataset.h) L.en.h = host.dataset.h;
+  if (host.dataset.sub) L.en.sub = host.dataset.sub;
   const t = (k) => L[zh() ? "zh" : "en"][k];
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const TZ = "Asia/Singapore";
@@ -68,7 +70,7 @@
     host.innerHTML = `
       <h2>${t("h")}</h2>
       <p class="sub">${t("sub")}${upd ? " " + upd + "." : ""}</p>
-      ${MULTI ? `<div class="nchips" role="group" aria-label="Filter by stock">${["ALL", ...TICKERS].map((k) => {
+      ${MULTI ? `<div class="nchips" role="group" aria-label="Filter headlines">${["ALL", ...TICKERS].map((k) => {
           const n = data ? data.items.filter((x) => k === "ALL" ? TICKERS.includes(x.t) : x.t === k).length : 0;
           return `<button type="button" data-k="${k}" aria-pressed="${k === filter}">${k === "ALL" ? t("all") : k} · ${n}</button>`; }).join("")}</div>` : ""}
       ${err ? `<p class="sub">${t("fail")}</p>` : items.length ? `<div class="nlist">${rows}</div>` : `<p class="sub">${data ? t("none") : "…"}</p>`}

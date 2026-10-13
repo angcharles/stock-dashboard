@@ -65,6 +65,12 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `assets/ext-hours.js` (loaded by every stock page) shows it under the big price and as a chip in the top bar, in EN / 中文, and hides it during regular hours.
 - `.github/workflows/deploy.yml` refreshes every 15 minutes outside regular hours on weekdays (Mon 00:00 to Fri 23:45 UTC), on top of the 10-minute refresh during the session.
 
+## Macro page (`macro/`, "Macro" tab on the main page)
+- Tiles, a history chart and the yield curve for WTI crude, gold, silver and the 2/5/10/30-year Treasury yields; the economic calendar; macro news. Rendered by `assets/macro.js` (news by `assets/news.js` with `data-src="../data/macro-news.json"`).
+- `scripts/fetch-macro.mjs` (run in the deploy workflow) writes `data/macro.json`: live quotes from CNBC's quote service (Tradeweb yields, CME/COMEX front-month futures; Yahoo as fallback), one year of daily closes from Yahoo (futures) and the US Treasury daily par yield curve (yields). It also writes `data/macro-cal.json` from the Forex Factory weekly calendar (this week and next; forecast and previous).
+- `node scripts/fetch-news.mjs macro` writes `data/macro-news.json` (14 days; topics OIL, GOLD, SILVER, RATES, FED, ECON).
+- The committed `data/macro*.json` files are empty placeholders; each deploy fills them, and a failed source falls back to them.
+
 ## News feed
 - `scripts/fetch-news.mjs` pulls the last 30 days of headlines for every stock from Google News RSS and Yahoo Finance RSS and writes `data/news.json` (newest first, up to 80 per stock, duplicates removed). The Action runs it every hour, every day, plus on every price refresh.
 - `assets/news.js` shows the feed on the main page (with filter chips per stock) and on each stock page (that stock only). To add a stock, add it to `STOCKS` in the script and to `data-tickers` on the main page.

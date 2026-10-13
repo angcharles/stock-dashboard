@@ -80,12 +80,19 @@ jobs:
       - name: Fetch latest news
         run: node scripts/fetch-news.mjs
 
+      - name: Fetch macro prices, calendar and news
+        run: |
+          node scripts/fetch-macro.mjs || echo "macro fetch failed; using the committed files"
+          node scripts/fetch-news.mjs macro || echo "macro news failed"
+
       - name: Assemble site
         run: |
           mkdir -p _site/data _site/assets
           cp index.html .nojekyll _site/
           cp data/news.json _site/data/
           cp data/portfolios.json _site/data/
+          cp data/macro.json data/macro-cal.json data/macro-news.json _site/data/
+          mkdir -p _site/macro && cp macro/index.html _site/macro/
           if [ -f data/portfolios-perf.json ]; then cp data/portfolios-perf.json _site/data/; fi
           cp assets/*.js assets/*.css _site/assets/
           for d in arm tesla sndk intc spcx mu lite cohr googl meta nvda zs be aaoi amd mp amzn msft mrvl skhy tsm avgo rok amat asml pltr glw ter; do

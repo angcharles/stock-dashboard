@@ -36,8 +36,19 @@ const STOCKS = [
   { t: "GLW", q: '"Corning Inc" OR "Corning Incorporated" OR "NYSE:GLW" OR (Corning fiber)', m: /Corning|\bGLW\b/ },
   { t: "TER", q: 'Teradyne OR "NASDAQ:TER" OR "Universal Robots"', m: /Teradyne|\bTER\b|Universal Robots/ },
 ];
-const OUT = "data/news.json";
-const DAYS = 30, PER_STOCK = 80;
+// `node scripts/fetch-news.mjs macro` builds data/macro-news.json for the Macro page instead.
+const MACRO = [
+  { t: "OIL", q: '("oil prices" OR "crude oil" OR OPEC OR Brent OR WTI)', y: "CL=F", m: /\boil\b|crude|OPEC|Brent|WTI|petroleum|barrel/i },
+  { t: "GOLD", q: '("gold price" OR "gold prices" OR "gold futures" OR bullion)', y: "GC=F", m: /\bgold\b|bullion/i },
+  { t: "SILVER", q: '("silver price" OR "silver prices" OR "silver futures")', y: "SI=F", m: /\bsilver\b/i },
+  { t: "RATES", q: '("Treasury yields" OR "bond yields" OR "10-year yield" OR "2-year yield" OR "Treasury auction" OR "bond market")', y: "^TNX", m: /yield|Treasur|\bbonds?\b|auction/i },
+  { t: "FED", q: '("Federal Reserve" OR FOMC OR "Fed chair" OR "rate cut" OR "rate hike" OR "Fed officials")', y: "", m: /\bFed\b|Federal Reserve|FOMC|rate (cut|hike)|interest rates?/i },
+  { t: "ECON", q: '(CPI OR inflation OR "jobs report" OR payrolls OR GDP OR "retail sales" OR PMI OR "jobless claims") US economy', y: "", m: /inflation|\bCPI\b|\bPCE\b|\bPPI\b|jobs|payroll|unemployment|jobless|\bGDP\b|retail sales|\bPMI\b|economy|recession|consumer/i },
+];
+const MODE = process.argv[2] === "macro" ? "macro" : "stocks";
+if (MODE === "macro") { STOCKS.length = 0; STOCKS.push(...MACRO); }
+const OUT = MODE === "macro" ? "data/macro-news.json" : "data/news.json";
+const DAYS = MODE === "macro" ? 14 : 30, PER_STOCK = MODE === "macro" ? 60 : 80;
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const cutoff = Date.now() - DAYS * 864e5;
 const summary = (s) => { if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, s + "\n"); };
@@ -73,9 +84,9 @@ const all = [];
 for (const s of STOCKS) {
   const got = [];
   const tries = [
-    ["google", `https://news.google.com/rss/search?q=${encodeURIComponent(s.q + " when:30d")}&hl=en-US&gl=US&ceid=US:en`, ""],
-    ["yahoo", `https://feeds.finance.yahoo.com/rss/2.0/headline?s=${s.t}&region=US&lang=en-US`, "Yahoo Finance"],
-  ];
+    ["google", `https://news.google.com/rss/search?q=${encodeURIComponent(s.q + ` when:${DAYS}d`)}&hl=en-US&gl=US&ceid=US:en`, ""],
+    ["yahoo", `https://feeds.finance.yahoo.com/rss/2.0/headline?s=${encodeURIComponent(s.y ?? s.t)}&region=US&lang=en-US`, "Yahoo Finance"],
+  ].filter(([n]) => n !== "yahoo" || (s.y ?? s.t));
   for (const [name, url, src] of tries) {
     try { const items = await rss(url, src); got.push(...items); console.log(`${s.t} ${name}: ${items.length}`); }
     catch (e) { console.log(`${s.t} ${name} failed: ${e.message}`); }
