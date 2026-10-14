@@ -1,0 +1,39 @@
+name: Debug fedwatch (temporary)
+on:
+  push:
+    branches: [debug-fedwatch]
+    paths: [.github/workflows/debug-fedwatch.yml, scripts/fetch-fedwatch.mjs]
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Probe
+        run: |
+          mkdir -p debug
+          node scripts/fetch-fedwatch.mjs > debug/fedwatch.log 2>&1 || true
+          cp data/fedwatch.json debug/ 2>/dev/null || echo "no file" >> debug/fedwatch.log
+          cat > /tmp/probe.mjs <<'JS'
+          const UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
+          const r0=await fetch("https://fc.yahoo.com",{headers:{"User-Agent":UA},redirect:"manual"});
+          const ck=(r0.headers.getSetCookie?.()||[]).map(c=>c.split(";")[0]).join("; ");
+          console.log("cookie?",!!ck);
+          let crumb="";try{crumb=await (await fetch("https://query2.finance.yahoo.com/v1/test/getcrumb",{headers:{"User-Agent":UA,Cookie:ck}})).text();}catch(e){console.log(e.message)}
+          console.log("crumb",crumb.slice(0,20));
+          for (const s of ["ZQV26.CBT","ZQX26.CBT","ZQZ26.CBT","ZQF27.CBT","ZQH27.CBT","ZQ=F"]) {
+            const r=await fetch(`https://query2.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=1mo&interval=1d&crumb=${encodeURIComponent(crumb)}`,{headers:{"User-Agent":UA,Cookie:ck}});
+            const j=await r.json().catch(()=>null);const res=j?.chart?.result?.[0];
+            if(!res){console.log(s,r.status,JSON.stringify(j?.chart?.error));continue}
+            const ts=res.timestamp||[],cl=res.indicators.quote[0].close;
+            console.log(s,"meta",res.meta.regularMarketPrice,new Date(res.meta.regularMarketTime*1000).toISOString(),"last bars",ts.slice(-6).map((t,i)=>new Date(t*1000).toISOString().slice(0,16)+"="+cl[cl.length-6+i]).join(" "));
+          }
+          JS
+          node /tmp/probe.mjs > debug/probe.log 2>&1 || true
+      - name: Save
+        run: |
+          git config user.name "debug"; git config user.email "debug@users.noreply.github.com"
+          git add -f debug; git commit -m "debug output" -q; git push -q
