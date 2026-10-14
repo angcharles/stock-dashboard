@@ -13,13 +13,18 @@ since the quarter end.
 New-filing check: SEC EDGAR submissions (each 13F filer's latest 13F-HR) and the House Clerk's yearly
 financial-disclosure index (Pelosi periodic transaction reports). Network errors are recorded, not fatal.
 
-Usage: python3 scripts/build-portfolios.py <pricedir>
+Usage: python3 scripts/build-portfolios.py <pricedir> [--no-filings]
+  --no-filings  skip the SEC / House Clerk check and keep the filing flags from the existing
+                data/portfolios-perf.json (used by the 10-minute live refresh in deploy.yml)
 """
 import io, json, os, sys, time, urllib.request, zipfile, datetime as dt
 import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PRICES = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "pf-data")
+ARGS = [a for a in sys.argv[1:] if not a.startswith("--")]
+NO_FILINGS = "--no-filings" in sys.argv
+PRICES = ARGS[0] if ARGS else os.path.join(ROOT, "pf-data")
+PERF = os.path.join(ROOT, "data", "portfolios-perf.json")
 CFG = json.load(open(os.path.join(ROOT, "data", "portfolios.json")))
 
 
@@ -67,6 +72,12 @@ F13 = [k for k in ("druck", "thiel") if k in CFG]
 S = {t: series(t) for t in {"SPY", *[h[0] for k in MODELS + F13 for h in CFG[k]["holdings"]]}}
 spy_s = S["SPY"]
 out = {"updated": int(time.time()), "session": last, "missing": []}
+# Live state from SPY's quote: REGULAR while the US session is open, so the panels can say "live".
+try:
+    sq = json.load(open(os.path.join(PRICES, "SPY", "quote.json")))
+    out["state"], out["asof"] = sq.get("state"), sq.get("time")
+except Exception:
+    pass
 
 # ---------- Pelosi, Trump: fixed-weight models ----------
 start6 = max(0, len(dates) - 128)
@@ -147,7 +158,12 @@ def get(url, ua=UA):
 
 
 fl = {}
-for key in F13:
+if NO_FILINGS:
+    try:
+        fl = json.load(open(PERF)).get("filings", {})
+    except Exception:
+        fl = {}
+for key in ([] if NO_FILINGS else F13):
     T = CFG[key]
     try:
         j = json.loads(get(f"https://data.sec.gov/submissions/CIK{T['cik']:010d}.json"))
@@ -159,6 +175,8 @@ for key in F13:
         fl[key] = {"error": str(e)[:200]}
 P = CFG["pelosi"]
 try:
+    if NO_FILINGS:
+        raise StopIteration
     yr = int(last[:4])
     ptr = []
     for y in (yr - 1, yr):
@@ -171,10 +189,12 @@ try:
                 ptr.append({"id": g("DocID"), "filed": g("FilingDate"), "year": y})
     ptr.sort(key=lambda x: dt.datetime.strptime(x["filed"], "%m/%d/%Y"), reverse=True)
     fl["pelosi"] = {"latest": ptr[:5], "unreviewed": [p for p in ptr if p["year"] >= 2026 and p["id"] not in P["reviewed_filings"]]}
+except StopIteration:
+    pass
 except Exception as e:
     fl["pelosi"] = {"error": str(e)[:200]}
 out["filings"] = fl
 
-json.dump(out, open(os.path.join(ROOT, "data", "portfolios-perf.json"), "w"), separators=(",", ":"))
+json.dump(out, open(PERF, "w"), separators=(",", ":"))
 print(json.dumps({"session": last, **{k: out[k]["stats"] for k in MODELS + F13},
                   "missing": out["missing"], "filings": fl}, indent=1))

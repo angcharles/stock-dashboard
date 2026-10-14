@@ -5,7 +5,8 @@
           call rows at their underlying shares; weight = share of total reported value)
    #pfR2 — Peter Thiel / Thiel Macro LLC (13F, same format as Druckenmiller)
    Data: data/portfolios.json (holdings, trades, notes; edited when a filing lands) and
-   data/portfolios-perf.json (built after each US close by scripts/build-portfolios.py in the ta-data workflow).
+   data/portfolios-perf.json (rebuilt with live prices on every price refresh by deploy.yml, plus the after-close
+   build with the filing check in the ta-data workflow). The panels reload it every minute.
    Charts use TradingView Lightweight Charts, already loaded by the page. */
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -62,6 +63,10 @@
   const cell = (label, val, sub) => `<div class="pf-cell"><b>${label}</b><span class="${cl(val)}">${sg(val)}</span><i>${sub}</i></div>`;
   async function getJSON(u) { try { const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; } }
 
+  // Header stamp: "live 10:42 ET" while the US session is open, otherwise the last close.
+  let STAMP = "";
+  const stamp = (p, dates) => STAMP || "close " + fmtD(dates.at(-1));
+
   const charts = [];
   function chart(box, dates, a, b) {
     if (!window.LightweightCharts || !dates || dates.length < 2) { box.style.display = "none"; return; }
@@ -82,7 +87,7 @@
     if (!el) return;
     const s = p.stats, f = cfg.last_stock_filing, trades = cfg.trades || [];
     const pend = fl && fl.unreviewed && fl.unreviewed.length ? `<div class="pf-flag">New filing ${esc(fl.unreviewed[0].filed)} · review pending</div>` : "";
-    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>close ${fmtD(p.dates.at(-1))}</span></div>
+    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>${stamp(perfAll, p.dates)}</span></div>
     <div class="pf-card">
       <h3 class="pf-who">${esc(cfg.title)}</h3>
       <div class="pf-sub">${esc(cfg.basis)} · ${cfg.since_text ? esc(cfg.since_text) : "last stock filing " + fmtD(f, true)}</div>
@@ -109,7 +114,7 @@
     const row = (h) => `<tr><td>${tick(h.t)}${h.call ? ' <span class="pf-call">calls</span>' : ""}<small>${esc(h.n)}</small></td><td>${(h.sh / 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })}K</td><td>${mil(h.v)}</td><td>${h.w.toFixed(1)}%<span class="bar" style="width:${Math.min(100, h.w * 5)}%"></span></td><td class="${cl(h.sq)}">${sg(h.sq)}</td></tr>`;
     const head = `<thead><tr><th>Stock</th><th>Shares</th><th>Value</th><th>Weight</th><th>Since Q</th></tr></thead>`;
     const rest = t.holdings.slice(TOP), restW = rest.reduce((a, h) => a + h.w, 0);
-    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>close ${fmtD(t.dates.at(-1))}</span></div>
+    el.innerHTML = `<section class="pf" aria-label="${esc(cfg.title)} portfolio"><div class="mv-h"><span>${esc(label)} portfolio</span><span>${stamp(perfAll, t.dates)}</span></div>
     <div class="pf-card">
       <h3 class="pf-who">${esc(cfg.title)}</h3>
       <div class="pf-sub">${esc(cfg.basis)} · as of ${fmtD(cfg.period, true)}, filed ${fmtD(cfg.filed)} · ${t.holdings.length} positions</div>
@@ -131,13 +136,21 @@
       holdings: c.holdings.map(([t, n, sh, v, k]) => ({ t, n, sh, v, w: v / tot * 100, sq: null, ...(k === "call" ? { call: 1 } : {}) })) };
   }
 
-  (async function () {
+  let perfAll = null, lastUpd = null;
+  async function load() {
     const [cfg, perf] = await Promise.all([getJSON("data/portfolios.json"), getJSON("data/portfolios-perf.json")]);
-    if (!cfg || !perf) return;
+    if (!cfg || !perf || perf.updated === lastUpd) return;
+    lastUpd = perf.updated; perfAll = perf;
+    STAMP = perf.state === "REGULAR" && perf.asof
+      ? "live " + new Date(perf.asof * 1000).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET"
+      : "";
+    charts.splice(0).forEach((c) => { try { c.remove(); } catch (e) {} });
     const fl = perf.filings || {};
     if (cfg.pelosi && perf.pelosi) model($("pfL"), "Pelosi", cfg.pelosi, perf.pelosi, fl.pelosi);
     if (cfg.trump && perf.trump) model($("pfL2"), "Trump", cfg.trump, perf.trump, fl.trump);
     if (cfg.druck) thirteenF($("pfR"), "Druckenmiller", cfg.druck, perf.druck || filed(cfg.druck), fl.druck);
     if (cfg.thiel) thirteenF($("pfR2"), "Thiel", cfg.thiel, perf.thiel || filed(cfg.thiel), fl.thiel);
-  })();
+  }
+  load();
+  setInterval(load, 60000);
 })();

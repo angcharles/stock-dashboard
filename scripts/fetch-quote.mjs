@@ -187,7 +187,7 @@ if (quote && hist) {
   const out = { symbol: SYMBOL, price: +quote.price.toFixed(2), prevClose, time: quote.time, date: quote.date,
     state: isOpenNow() && quote.date === nyDate(Date.now()) ? "REGULAR" : "CLOSED", source: qSrc, historySource: hSrc, fetchedAt: now };
   // Extended-hours price, only when it is newer than the regular-session price and less than 20 hours old.
-  if (out.state !== "REGULAR") {
+  if (out.state !== "REGULAR" && !process.env.NO_EXT) {
     const e = await extended(out.time);
     if (e && now - e.time < 72000) {
       out.ext = { session: e.session, price: +e.price.toFixed(2), time: e.time, chg: +((e.price / out.price - 1) * 100).toFixed(2), source: e.src };
