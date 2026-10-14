@@ -78,6 +78,7 @@ jobs:
       - name: Fetch macro prices, calendar and news
         run: |
           node scripts/fetch-macro.mjs || echo "macro fetch failed; using the committed files"
+          node scripts/fetch-fedwatch.mjs || echo "fed funds fetch failed; using the committed file"
           node scripts/fetch-news.mjs macro || echo "macro news failed"
 
       - name: Fetch FX rates
@@ -92,6 +93,7 @@ jobs:
           cp data/news.json _site/data/
           cp data/portfolios.json _site/data/
           cp data/macro.json data/macro-cal.json data/macro-news.json _site/data/
+          if [ -f data/fedwatch.json ]; then cp data/fedwatch.json _site/data/; fi
           mkdir -p _site/macro && cp macro/index.html _site/macro/
           cp data/fx.json data/fx-news.json _site/data/
           mkdir -p _site/fx && cp fx/index.html _site/fx/

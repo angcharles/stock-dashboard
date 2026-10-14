@@ -142,6 +142,47 @@ section{margin-top:40px}
 .rvh{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:default;border-bottom:1px solid var(--line)}
 .rvh:hover{background:none}
 @media (max-width:620px){.rvr{grid-template-columns:96px 70px minmax(0,1fr)}.rvr .px{display:none}}
+.fed-top{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between;margin:0 0 12px}
+.fed-top .lbl{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.fed-top .rng{align-items:center}
+#fedKpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 14px}
+#fedKpi div{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0}
+#fedKpi b{display:block;font:600 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#fedKpi span{display:block;font:600 21px var(--f-mono);font-variant-numeric:tabular-nums;margin:4px 0 2px}
+#fedKpi small{display:block;font:500 12px var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+#fedKpi em,.fed em{font-style:normal}
+.fedg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.fedg{grid-template-columns:minmax(0,1fr)}}
+#fedChart{position:relative;min-height:250px}
+#fedChart svg{display:block;width:100%;height:auto}
+#fedChart .fx{font:500 10.5px var(--f-mono);fill:var(--muted)}
+#fedChart .fx.sel{fill:var(--ink);font-weight:600}
+#fedChart .fx.yr{font-size:9.5px;letter-spacing:.06em}
+#fedChart .hit{cursor:pointer}
+.fb-now{fill:var(--accent)}
+.fb-then{fill:var(--muted);opacity:.45}
+.leg i.sw,.sw{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:5px}
+.sw.now{background:var(--accent)}.sw.then{background:var(--muted);opacity:.45}
+#fedTip{min-width:200px}
+#fedTip .g3{display:grid;grid-template-columns:auto 1fr 1fr;gap:0 10px}
+#fedTip .g3 span:not(:first-child){text-align:right}
+#fedTip .g3 span:nth-child(3n+1){color:var(--muted)}
+#fedTip .h{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+#fedTip .mut{color:var(--muted)}
+.pr{display:grid;grid-template-columns:118px minmax(0,1fr) 112px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.pr.cur .pk{color:var(--accent)}
+.pk{font:600 12.5px var(--f-mono);font-variant-numeric:tabular-nums}
+.pk small,.pv small{display:block;font:500 11px var(--f-mono);color:var(--muted)}
+.pb{position:relative;height:14px;background:color-mix(in srgb,var(--line) 45%,transparent);border-radius:3px}
+.pb i{position:absolute;left:0;border-radius:0 4px 4px 0}
+.pb i.now{top:0;bottom:0;background:var(--accent)}
+.pb i.then{bottom:-5px;height:3px;background:var(--muted);border-radius:2px}
+.pv{font:600 13px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.ftab tr[data-d]{cursor:pointer}
+.ftab td,.ftab th{white-space:nowrap}
+@media (max-width:560px){.pr{grid-template-columns:96px minmax(0,1fr) 104px}}
+.ftab tr[data-d]:hover td,.ftab tr.on td{background:var(--accent-soft)}
+#fedTab{overflow-x:auto;margin-top:16px}
 footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -149,9 +190,9 @@ footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border
 <body>
 <main class="wrap">
   <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="./" aria-current="page">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a></nav>
-  <div class="eyebrow">Commodities · Treasuries · Bunds · OATs · Technicals · Calendar · News</div>
+  <div class="eyebrow">Commodities · Treasuries · Bunds · OATs · Fed pricing · Technicals · Calendar · News</div>
   <h1>Macro</h1>
-  <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, the economic calendar and macro headlines. Click a tile to chart it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Futures quotes can be delayed by the exchange.</p>
+  <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, Fed funds futures pricing for every FOMC meeting, the economic calendar and macro headlines. Click a tile to chart it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Futures quotes can be delayed by the exchange.</p>
 
   <div class="grp">Commodities</div>
   <div class="tiles" id="tC"></div>
@@ -214,6 +255,24 @@ footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border
     <div class="panel curve"><div><div id="curve"></div><div class="leg" id="cvLeg"></div></div><div id="cvTab"></div></div>
   </section>
 
+  <section id="fedSec" class="fed" aria-labelledby="fedH">
+    <h2 id="fedH">Fed funds: what's priced</h2>
+    <p class="sub">Futures-implied fed funds rate after each FOMC meeting, how many basis points of hikes are priced, and the probability of each target range. Compare with 1 day, 1 week, 2 weeks or 1 month ago to see how far pricing has moved. Hover a meeting for details, click it for its probabilities.</p>
+    <div id="fedKpi"></div>
+    <div class="panel">
+      <div class="fed-top">
+        <div class="rng" role="group" aria-label="Compare with"><span class="lbl">Compare with</span><span id="fedLb" class="rng"></span></div>
+        <div class="rng" role="group" aria-label="Chart view" id="fedView"></div>
+      </div>
+      <div class="fedg">
+        <div><div class="cwrap"><div id="fedChart"></div><div class="tip" id="fedTip" hidden></div></div><div class="leg" id="fedLeg"></div></div>
+        <div id="fedProb"></div>
+      </div>
+      <div id="fedTab"></div>
+      <p class="note" id="fedNote"></p>
+    </div>
+  </section>
+
   <section aria-labelledby="calH">
     <h2 id="calH">Economic calendar</h2>
     <p class="sub" id="calSub">This week and next, in Singapore time. Dots mark expected market impact (red high, orange medium, yellow low).</p>
@@ -229,6 +288,7 @@ footer{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border
 
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script src="../assets/macro.js?v=6"></script>
+<script src="../assets/fedwatch.js?v=1"></script>
 <script src="../assets/news.js?v=5"></script>
 </body>
 </html>
