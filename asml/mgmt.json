@@ -1,31 +1,31 @@
 {
  "ticker": "ASML",
- "asof": "2026-10-11",
+ "asof": "2026-10-15",
  "quarter": {
-  "en": "Q2 2026",
-  "zh": "2026年第二季"
+  "en": "Q3 2026",
+  "zh": "2026年第三季"
  },
- "reported": "2026-07-15",
+ "reported": "2026-10-14",
  "timing": "bmo",
- "pre_close": 1775.28,
+ "pre_close": 1717.76,
  "react": {
-  "date": "2026-07-15",
-  "close": 1828.88,
-  "pct": 3.0
+  "date": "2026-10-14",
+  "close": 1650.0,
+  "pct": -3.9
  },
  "since": {
-  "date": "2026-10-13",
-  "close": 1717.76,
-  "pct": -3.2
+  "date": "2026-10-14",
+  "close": 1650,
+  "pct": -3.9
  },
  "review": {
   "en": [
-   "Sales of €9.3B (+21%) and net income of €2.92B beat forecasts, and gross margin of 54.0% topped the 51.9% consensus, helped by service revenue. ASML raised its 2026 sales outlook to €43–45B with 54–56% gross margin. CEO Christophe Fouquet cited continued very strong demand from logic and memory makers; ASML will add about 30% to low-NA EUV and DUV immersion capacity for 2027 and is studying another 30% for 2028. CFO Roger Dassen said the 2027 mix shifts to newer, higher-priced EUV models.",
-   "Shares rose as much as 7.8% before closing up 3.0%, and added 3.5% after hours. The gains did not last: the late-July selloff in AI hardware drove the stock down to $1,551 on Jul 29, about 13% below the pre-report close. Since then it has swung with AI sentiment, dipping again on the mid-September slowdown warnings, and it sits roughly flat with where it was before the report, ahead of Q3 results on Oct 14."
+   "Record sales of €11.7B (+55%) came near the top of guidance but a touch below the LSEG consensus of €11.85B; EPS of €12.95 beat easily, lifted by a ~€0.5B gain on the Mistral AI stake. Upgrade demand pushed installed-base sales to €3.3B and gross margin to a record 57.5%. Q4 guidance is €14.2–15.2B and the 2026 outlook rose to €44–45B at ~56% margin. CEO Christophe Fouquet said planned supply will not meet 2027–28 demand, with customers eyeing 2029–30 slots, so ASML is studying capacity beyond the extra 30% eyed for 2028.",
+   "The US shares had already dropped 1.9% on Oct 13 in a chip selloff. After mixed overnight trading and early gains in Amsterdam, they briefly rose above the prior close, then faded to finish the first session down 3.9% at $1,650, near the day's low, on heavy volume. Analysts said the raised outlook only caught up with expectations and wanted more detail on 2027 and the 2028 capacity plan, while a widening semiconductor selloff over valuations and AI-spending doubts hit the group."
   ],
   "zh": [
-   "销售额 93 亿欧元（+21%）、净利润 29.2 亿欧元，均超预期；在服务收入带动下毛利率 54.0%，高于 51.9% 的预期。ASML 将 2026 年销售展望上调至 430–450 亿欧元，毛利率 54–56%。CEO 傅恪礼（Christophe Fouquet）指出逻辑与存储客户需求持续强劲；2027 年低数值孔径 EUV 与 DUV 浸润式产能将扩大约 30%，并研究 2028 年再扩 30%。CFO 罗杰·达森表示 2027 年产品组合将转向更新、单价更高的 EUV 机型。",
-   "股价盘中一度上涨 7.8%，收涨 3.0%，盘后再涨 3.5%。涨幅未能维持：7 月下旬 AI 硬件抛售令股价在 7 月 29 日跌至 1,551 美元，较财报前收盘低约 13%。此后随 AI 情绪起伏，9 月中旬放缓警告时再度下挫，目前与财报前大致持平，第三季财报将于 10 月 14 日公布。"
+   "销售额创纪录达 117 亿欧元（+55%），接近指引上限，但略低于 LSEG 统计的 118.5 亿欧元预期；每股收益 12.95 欧元大幅超预期，其中包含 Mistral AI 持股约 5 亿欧元的估值收益。升级需求推动装机基础业务销售额达 33 亿欧元，毛利率创纪录达 57.5%。第四季指引为 142–152 亿欧元，2026 年展望上调至 440–450 亿欧元，毛利率约 56%。CEO 傅恪礼表示，按现有计划的供应无法满足 2027–28 年需求，已有客户询问 2029–30 年的交货档期，因此 ASML 正研究在 2028 年原拟再扩 30% 的基础上进一步扩产。",
+   "美股 ADR 在 10 月 13 日芯片股抛售中已下跌 1.9%。财报公布后隔夜交易涨跌互现，阿姆斯特丹早盘走高；美股盘中一度升穿前收盘价，随后回落，首个交易日收跌 3.9% 至 1,650 美元，接近当日低点，成交量放大。分析师认为上调后的展望只是追上市场预期，并希望看到更多关于 2027 年及 2028 年扩产计划的细节；与此同时，围绕估值与 AI 支出的疑虑令半导体板块抛售扩大，拖累整个板块。"
   ]
  },
  "ceo": {
@@ -52,12 +52,16 @@
  },
  "sources": [
   {
-   "t": "Q2 2026 results (Investing.com)",
-   "u": "https://www.investing.com/news/earnings/asml-q2-outlook-tops-on-ai-chip-demand-lifts-fullyear-forecast-4792148"
+   "t": "Q3 2026 results release",
+   "u": "https://finance.yahoo.com/markets/stocks/articles/asml-reports-11-7-billion-050000954.html"
   },
   {
-   "t": "Q2 2026 call transcript",
-   "u": "https://fool.com/earnings/call-transcripts/2026/07/15/asml-asml-q2-2026-earnings-call-transcript"
+   "t": "Q3 2026 call transcript",
+   "u": "https://investing.com/news/transcripts/earnings-call-transcript-asml-posts-q3-2026-profit-beat-on-record-demand-93CH-4949583"
+  },
+  {
+   "t": "Reaction (MarketWatch)",
+   "u": "https://morningstar.com/news/marketwatch/2026101485/chip-bellwether-asml-says-customers-are-already-asking-to-place-orders-for-2030"
   }
  ]
 }
