@@ -96,8 +96,9 @@ jobs:
       - name: Fetch macro prices, calendar and news
         run: |
           node scripts/fetch-macro.mjs || echo "macro fetch failed; using the committed files"
-          node scripts/fetch-fedwatch.mjs || echo "fed funds fetch failed; using the committed file"
           node scripts/fetch-news.mjs macro || echo "macro news failed"
+          # after the calendar and macro news, which it reads for the "How pricing moved" chart
+          node scripts/fetch-fedwatch.mjs || echo "fed funds fetch failed; republishing the last good file"
 
       - name: Fetch FX rates
         run: |

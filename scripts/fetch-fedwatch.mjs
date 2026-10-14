@@ -12,7 +12,12 @@
 //   a probability tree, giving the probability of each target range after every meeting.
 // Sources: Yahoo Finance daily bars for each ZQ contract; FRED (EFFR, DFEDTARL, DFEDTARU) for the
 // effective rate and target range, with the New York Fed API and known values as fallbacks.
-// Anything that fails keeps the previous file's snapshots.
+// Anything that fails keeps the previous file's snapshots. The deploy job does not commit this file, so when
+// there is no local copy the previous one is read back from the published site (GitHub Pages) instead;
+// without that, a run where Yahoo throttled the fetch published nothing or only part of the curve.
+// Also writes `events`: scheduled US data releases (data/macro-cal.json), Fed / economy / rates headlines
+// (data/macro-news.json plus a 45-day Google News search) for the "How pricing moved" chart. Events are
+// merged with the previous file's, so the history grows beyond the 14 days the other feeds keep.
 // Usage: node scripts/fetch-fedwatch.mjs
 import { writeFileSync, readFileSync, mkdirSync, appendFileSync } from "node:fs";
 
@@ -83,7 +88,17 @@ export function snapshot(date, prices, r0, lower) {
 
 // ---------- fetching ----------
 let cookie = "", crumb = "";
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// one retry with a fresh crumb: deploy runs this after ~100 other Yahoo calls and the odd 401/429 is common
 async function yahooDaily(sym) {
+  try { return await yahooOnce(sym); }
+  catch (e) {
+    if (/HTTP 404/.test(e.message)) throw e; // expired contract, retrying will not help
+    crumb = ""; cookie = ""; await sleep(2500);
+    return yahooOnce(sym);
+  }
+}
+async function yahooOnce(sym) {
   if (!crumb) {
     try {
       const r = await fetch("https://fc.yahoo.com", { headers: { "User-Agent": UA }, redirect: "manual", signal: AbortSignal.timeout(10000) });
@@ -140,9 +155,72 @@ function policyOn(date, rows) {
   return { effr, lower };
 }
 
+// The previous file: the local copy, else the copy on the published site.
+async function previous() {
+  try { return JSON.parse(readFileSync("data/fedwatch.json", "utf8")); } catch {}
+  const repo = process.env.GITHUB_REPOSITORY || "angcharles/stock-dashboard", [owner, name] = repo.split("/");
+  const url = process.env.FEDWATCH_PREV_URL || `https://${owner.toLowerCase()}.github.io/${name}/data/fedwatch.json`;
+  try {
+    const j = await (await get(`${url}?t=${Date.now()}`, { Accept: "application/json" })).json();
+    log(`previous file from the site: ${j.snapshots?.length || 0} snapshots, ${j.events?.length || 0} events`);
+    return j;
+  } catch (e) { log("previous file from the site failed:", e.message); return { snapshots: [] }; }
+}
+
+// ---------- events for the history chart ----------
+const FEDRX = /\bFed\b|Federal Reserve|FOMC|fed funds|rate (cut|hike)s?|\bhikes?\b|Fed (chair|governor|official|president)|Beige Book|dot plot/i;
+const RELEVANT = /\bFed\b|Federal Reserve|FOMC|fed funds|rate (cut|hike)|inflation|\bCPI\b|\bPCE\b|\bPPI\b|payrolls?|jobs report|unemployment|jobless|\bGDP\b|retail sales|\bISM\b|\bPMI\b|Treasury yields?|bond yields?|\byields?\b|tariff|shutdown|wage/i;
+const ekey = (t) => t.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim().slice(0, 70);
+function decode(s = "") {
+  return s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n)).replace(/&amp;/g, "&").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+}
+async function googleNews(q) {
+  const xml = await (await get(`https://news.google.com/rss/search?q=${encodeURIComponent(q)}&hl=en-US&gl=US&ceid=US:en`, { Accept: "application/rss+xml,application/xml" })).text();
+  const tag = (it, n) => { const m = it.match(new RegExp(`<${n}[^>]*>([\\s\\S]*?)</${n}>`)); return m ? decode(m[1]) : ""; };
+  return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, it]) => {
+    let t = tag(it, "title"); const src = tag(it, "source");
+    if (src && t.endsWith(" - " + src)) t = t.slice(0, -(src.length + 3));
+    return { title: t, url: tag(it, "link"), src, ts: Date.parse(tag(it, "pubDate")) };
+  }).filter((x) => x.title && x.ts);
+}
+async function events(prev, cutMs) {
+  const out = [], now = Date.now();
+  // scheduled US releases and Fed events that have happened (Forex Factory calendar)
+  try {
+    const cal = JSON.parse(readFileSync("data/macro-cal.json", "utf8"));
+    for (const e of cal.events || []) {
+      if (e.c !== "USD" || !/High|Medium/.test(e.imp || "") || !e.ts || e.ts * 1000 > now) continue;
+      out.push({ ts: e.ts * 1000, k: "cal", t: e.t, imp: e.imp, a: e.act || "", f: e.fc || "", p: e.pv || "", fed: FEDRX.test(e.t) || /Powell|FOMC|Fed /.test(e.t) });
+    }
+  } catch (e) { log("calendar events:", e.message); }
+  // headlines already fetched for the Macro page
+  try {
+    const n = JSON.parse(readFileSync("data/macro-news.json", "utf8"));
+    for (const x of n.items || []) if (["FED", "ECON", "RATES"].includes(x.t) && RELEVANT.test(x.title))
+      out.push({ ts: x.ts, k: "news", t: x.title, u: x.url, s: x.src, fed: FEDRX.test(x.title) });
+  } catch (e) { log("macro news events:", e.message); }
+  // a longer Fed search so the chart has headlines for its whole window
+  for (const q of ['("Federal Reserve" OR FOMC OR "Fed officials" OR "Fed chair" OR "rate hike" OR "fed funds futures") when:45d',
+                   '(CPI OR inflation OR "jobs report" OR payrolls OR "retail sales" OR PCE) "rate hike" OR Fed when:45d']) {
+    try {
+      const got = await googleNews(q); let k = 0;
+      for (const x of got) if (RELEVANT.test(x.title)) { out.push({ ts: x.ts, k: "news", t: x.title, u: x.url, s: x.src, fed: FEDRX.test(x.title) }); k++; }
+      log(`google news: ${k}/${got.length} kept`);
+    } catch (e) { log("google news failed:", e.message); }
+  }
+  // merge with earlier runs, newest copy wins, one per headline per day
+  const seen = new Set(), all = [];
+  for (const e of [...out, ...(prev.events || [])].sort((a, b) => b.ts - a.ts)) {
+    if (!(e.ts >= cutMs) || e.ts > now + 36e5) continue;
+    const k = e.k + "|" + nyDate(e.ts) + "|" + ekey(e.t);
+    if (seen.has(k)) continue; seen.add(k); all.push(e);
+  }
+  return all.slice(0, 900);
+}
+
 async function main() {
-  let prev = { snapshots: [] };
-  try { prev = JSON.parse(readFileSync("data/fedwatch.json", "utf8")); } catch {}
+  const prev = await previous();
   const today = nyDate(Date.now());
   // contracts from ~6 weeks ago through the month after the last listed meeting
   const months = [];
@@ -163,18 +241,29 @@ async function main() {
     const s = snapshot(d, prices, effr, lower);
     if (s.meetings.length >= 2) snaps.push(s);
   }
-  // keep earlier snapshots from the previous file that this run could not rebuild
-  const have = new Set(snaps.map((s) => s.d)), cut = nyDate(Date.now() - 45 * 864e5);
-  for (const s of prev.snapshots || []) if (!have.has(s.d) && s.d >= cut) snaps.push(s);
-  snaps.sort((a, b) => (a.d < b.d ? -1 : 1));
-  if (!snaps.length) { log("no snapshots; keeping the previous file"); return; }
-  const now = snaps.at(-1);
+  // keep earlier snapshots from the previous file that this run could not rebuild, and never let a
+  // partial fetch (some contracts throttled) replace a day that had the full curve
+  const cut = nyDate(Date.now() - 45 * 864e5), byD = new Map(snaps.map((s) => [s.d, s]));
+  let keptPrev = 0;
+  for (const s of prev.snapshots || []) {
+    if (s.d < cut) continue;
+    const n = byD.get(s.d);
+    if (!n || n.meetings.length < s.meetings.length) { byD.set(s.d, s); keptPrev++; }
+  }
+  const all = [...byD.values()].sort((a, b) => (a.d < b.d ? -1 : 1));
+  if (!all.length) { log("no snapshots and no previous file; nothing to write"); return; }
+  const fresh = ok > 0 && snaps.length > 0;
+  if (!fresh) log("no fresh futures data; republishing the previous snapshots");
+  const ev = await events(prev, Date.parse(all[0].d + "T00:00:00Z") - 3 * 864e5);
+  const now = all.at(-1);
   mkdirSync("data", { recursive: true });
-  writeFileSync("data/fedwatch.json", JSON.stringify({ updated: Math.floor(Date.now() / 1000), quoteTime: latest || null,
-    source: "CBOT 30-day fed funds futures via Yahoo Finance; EFFR and target range from FRED / New York Fed", snapshots: snaps }));
+  writeFileSync("data/fedwatch.json", JSON.stringify({ updated: fresh ? Math.floor(Date.now() / 1000) : prev.updated || Math.floor(Date.now() / 1000),
+    checked: Math.floor(Date.now() / 1000), quoteTime: fresh ? latest || null : prev.quoteTime || null, stale: !fresh,
+    source: "CBOT 30-day fed funds futures via Yahoo Finance; EFFR and target range from FRED / New York Fed", snapshots: all, events: ev }));
+  log(`kept ${keptPrev} snapshots from the previous file; ${ev.length} events`);
   const nm = now.meetings[0];
-  log(`snapshots: ${snaps.length}, latest ${now.d}; next ${nm?.d} implied ${nm?.rate} (${nm?.move}bp)`);
-  summary(`- Fed funds: ${snaps.length} daily snapshots, latest ${now.d}; next meeting ${nm?.d} ${nm?.move >= 0 ? "+" : ""}${nm?.move}bp priced`);
+  log(`snapshots: ${all.length}, latest ${now.d}; next ${nm?.d} implied ${nm?.rate} (${nm?.move}bp)`);
+  summary(`- Fed funds: ${all.length} daily snapshots${fresh ? "" : " (STALE: no fresh futures)"}, latest ${now.d}; next meeting ${nm?.d} ${nm?.move >= 0 ? "+" : ""}${nm?.move}bp priced`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) await main();
