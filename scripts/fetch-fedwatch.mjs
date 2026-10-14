@@ -56,6 +56,15 @@ export function snapshot(date, prices, r0, lower) {
     let after = null, how = "";
     if (!meetingMonths.has(nx) && prices[nx] != null) { after = 100 - prices[nx]; how = "next"; }
     else if (prices[m] != null && N - d > 0) { after = (N * (100 - prices[m]) - d * before) / (N - d); how = "same"; }
+    else if (prices[m] == null && prices[nx] != null) {
+      // meeting month's contract has expired off the feed: solve from the next month, whose own meeting
+      // outcome comes from the month after it (when that month has no meeting)
+      const m2 = FOMC.find((x) => ym(x) === nx), n3 = addMonth(nx), N2 = daysIn(nx);
+      if (m2 && !meetingMonths.has(n3) && prices[n3] != null) {
+        const d2 = +m2.slice(8, 10), a2 = 100 - prices[n3];
+        after = (N2 * (100 - prices[nx]) - (N2 - d2) * a2) / d2; how = "back";
+      }
+    }
     if (after == null || !isFinite(after) || after < -1 || after > 15) break;
     const steps = (after - before) / 0.25, lo = Math.floor(steps), fr = steps - lo;
     const nd = new Map();
@@ -120,6 +129,8 @@ async function policy() {
 }
 // policy on a date: the latest known row on or before it, else the KNOWN table
 function policyOn(date, rows) {
+  // on a meeting day the futures settle already reflects the decision, which takes effect the next day
+  if (FOMC.includes(date)) date = new Date(Date.parse(date + "T12:00:00Z") + 864e5).toISOString().slice(0, 10);
   const keys = Object.keys(rows).filter((k) => k <= date && isFinite(rows[k].effr)).sort();
   const known = KNOWN.filter((k) => k[0] <= date).at(-1) || KNOWN[0];
   let lower = known[1], effr = known[3];
