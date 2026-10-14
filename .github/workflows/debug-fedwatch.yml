@@ -33,7 +33,14 @@ jobs:
           }
           JS
           node /tmp/probe.mjs > debug/probe.log 2>&1 || true
+      - name: Live site
+        run: |
+          curl -sS "https://angcharles.github.io/stock-dashboard/data/fedwatch.json?t=$(date +%s)" -o debug/live-fedwatch.json -w "%{http_code}\n" > debug/live.log 2>&1 || true
+          curl -sSI "https://angcharles.github.io/stock-dashboard/data/fedwatch.json" >> debug/live.log 2>&1 || true
+          curl -sS "https://angcharles.github.io/stock-dashboard/macro/" | grep -o 'fedwatch[^"]*' >> debug/live.log || true
+          curl -sS "https://angcharles.github.io/stock-dashboard/data/macro-news.json" -o debug/live-macro-news.json || true
+          curl -sS "https://angcharles.github.io/stock-dashboard/data/macro-cal.json" -o debug/live-macro-cal.json || true
       - name: Save
         run: |
           git config user.name "debug"; git config user.email "debug@users.noreply.github.com"
-          git add -f debug; git commit -m "debug output" -q; git push -q
+          git add -f debug; git commit -m "debug output 2" -q; git push -q

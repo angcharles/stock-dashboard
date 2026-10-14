@@ -1,6 +1,0 @@
-ZQQ26.CBT failed: HTTP 404 https://query2.finance.yahoo.com/v8/finance/chart/ZQQ26.CBT
-ZQU26.CBT failed: HTTP 404 https://query2.finance.yahoo.com/v8/finance/chart/ZQU26.CBT
-contracts with data: 16/18
-FRED failed: The operation was aborted due to timeout
-NY Fed rows: 60
-snapshots: 32, latest 2026-10-14; next 2026-10-28 implied 3.955 (7.5bp)
