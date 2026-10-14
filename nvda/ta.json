@@ -1,52 +1,45 @@
 {
- "asof": "Oct 13, 2026",
- "close": 228.52,
+ "asof": "Oct 14, 2026",
+ "close": 221.3,
  "bias": {
-  "en": "Uptrend · holding the 30-day average",
-  "zh": "上升趋势 · 守住 30 日均线"
+  "en": "Uptrend under pressure · lost the 30-day average",
+  "zh": "上升趋势承压 · 失守 30 日均线"
  },
  "read": [
   {
-   "en": "Nvidia rose 1.0% on Oct 13 to $228.52 after a low of $223.06, holding above its 30-day average ($225.9) and the 100 and 200-day ($214.4 and $202.5). It sits below the 5-day ($230.4) and 10-day ($232.3). MACD crossed below its signal on Oct 12 and is above zero, Parabolic SAR flipped bearish on Oct 13 ($243.4, the record high), and RSI is 52.",
-   "zh": "英伟达 10月13日上涨 1.0%，收于 $228.52，盘中低点 $223.06，守在 30 日均线（$225.9）以及 100 日和 200 日均线（$214.4 和 $202.5）上方。股价位于 5 日（$230.4）和 10 日均线（$232.3）下方。MACD 于 10月12日下穿信号线，仍在零轴上方，抛物线 SAR 于 10月13日转为看空（$243.4，即纪录高点），RSI 为 52。"
+   "en": "Nvidia fell 3.2% on Oct 14 to $221.30. It is below its 5-day ($227.2), 10-day ($231.6) and 30-day ($226.0) averages and above the rising 100-day ($214.5) and 200-day ($202.7). MACD has been below its signal since Oct 12 and is still above zero, Parabolic SAR has been bearish since Oct 13 ($243.0), and RSI is 44.",
+   "zh": "英伟达 10月14日下跌 3.2%，收于 $221.30。股价位于 5 日（$227.2）、10 日（$231.6）和 30 日均线（$226.0）下方，并在上行的 100 日（$214.5）和 200 日均线（$202.7）上方。MACD 自 10月12日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月13日起看空（$243.0），RSI 为 44。"
   },
   {
-   "en": "The 30-day test held again: the low stayed inside the $222–226 support zone. Resistance is $230–232.5 (5 and 10-day averages), then $236 (September highs) and $243.4 (record, now the SAR). Support is $223–226 (30-day average and Oct 13 low), then $214.5 (100-day average, tested five times since April). A close below $223 would open $214.5.",
-   "zh": "30 日均线再次经受住考验：盘中低点仍在 $222–226 支撑区内。阻力为 $230–232.5（5 日和 10 日均线），其次 $236（9月高点）和 $243.4（纪录高点，现为 SAR 位置）。支撑为 $223–226（30 日均线及 10月13日低点），其次 $214.5（100 日均线，4月以来五次测试）。若收盘跌破 $223，下一目标看 $214.5。"
+   "en": "The $223–226 support (30-day average, Oct 13 low) broke on the close; the day's low was $219.64. That zone is now first resistance, then $231.6 (10-day) and $243 (Oct 6 record and SAR). Support is $214.5 (tested five times since April, 100-day average), then $207–209 (Aug 24 and Sep 14 lows) and $202.7 (200-day). A close below $214 would open $208.",
+   "zh": "$223–226 支撑（30 日均线、10月13日低点）收盘失守；当日低点 $219.64。该区域现为第一阻力，其次 $231.6（10 日均线）和 $243（10月6日纪录高点及 SAR）。支撑为 $214.5（4月以来五次测试、100 日均线），其次 $207–209（8月24日及 9月14日低点）和 $202.7（200 日均线）。若收盘跌破 $214，下一目标看 $208。"
   }
  ],
  "levels": {
   "r": [
    [
-    232.5,
-    {
-     "en": "5 and 10-day averages ($230–232)",
-     "zh": "5日和10日均线（$230–232）"
-    }
-   ],
-   [
-    236,
-    {
-     "en": "September highs and Oct 7 close ($234–237)",
-     "zh": "9月高点及10月7日收盘价（$234–237）"
-    }
-   ],
-   [
-    243.4,
-    {
-     "en": "Record high, Oct 6; Parabolic SAR",
-     "zh": "纪录高点，10月6日；抛物线 SAR"
-    }
-   ]
-  ],
-  "s": [
-   [
-    224,
+    225,
     {
      "en": "30-day average and Oct 13 low ($223–226)",
      "zh": "30日均线及10月13日低点（$223–226）"
     }
    ],
+   [
+    231.6,
+    {
+     "en": "10-day average; 5-day $227 below",
+     "zh": "10日均线；其下为5日均线 $227"
+    }
+   ],
+   [
+    243,
+    {
+     "en": "Record high, Oct 6; Parabolic SAR",
+     "zh": "10月6日纪录高点；抛物线SAR"
+    }
+   ]
+  ],
+  "s": [
    [
     214.5,
     {
@@ -55,10 +48,17 @@
     }
    ],
    [
-    207,
+    208,
     {
-     "en": "Aug 24 low",
-     "zh": "8月24日低点"
+     "en": "Aug 24 and Sep 14 lows ($207–209)",
+     "zh": "8月24日及9月14日低点（$207–209）"
+    }
+   ],
+   [
+    202.7,
+    {
+     "en": "200-day average",
+     "zh": "200日均线"
     }
    ]
   ]

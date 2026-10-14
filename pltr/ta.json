@@ -1,27 +1,34 @@
 {
- "asof": "Oct 13, 2026",
- "close": 208.67,
+ "asof": "Oct 14, 2026",
+ "close": 200.97,
  "bias": {
-  "en": "Bullish trend · overbought, pausing under the record",
-  "zh": "多头趋势 · 超买，于纪录高点下方整理"
+  "en": "Bullish trend · pulling back toward the 10-day",
+  "zh": "上升趋势 · 回调至 10 日均线附近"
  },
  "read": [
   {
-   "en": "Palantir eased 0.2% on Oct 13 to $208.67, holding just under the Oct 12 record of $212.94. It is above all its rising averages: the 5-day ($203.9), 10-day ($196.7), 30-day ($184.6), 100-day ($155.4) and 200-day ($152.5). MACD has been above its signal since Oct 6, Parabolic SAR has been bullish since Sep 21 ($193.3), and RSI is 76, overbought.",
-   "zh": "Palantir 10月13日小跌 0.2%，收于 $208.67，紧贴 10月12日创下的 $212.94 纪录高点。股价位于所有上行均线上方：5 日（$203.9）、10 日（$196.7）、30 日（$184.6）、100 日（$155.4）和 200 日均线（$152.5）。MACD 自 10月6日起位于信号线上方，抛物线 SAR 自 9月21日起看多（$193.3），RSI 为 76，处于超买。"
+   "en": "Palantir fell 3.7% on Oct 14 to $200.97, a second straight decline since the Oct 12 record high of $212.94. It slipped below its 5-day average ($205.3) and is above the 10-day ($198.1), 30-day ($185.3), 100-day ($156.1) and 200-day ($152.5), all rising. MACD is above its signal (since Oct 6) but the histogram is narrowing, Parabolic SAR has been bullish since Sep 21 ($196.5), and RSI is 63.",
+   "zh": "Palantir 10月14日下跌 3.7%，收于 $200.97，为 10月12日创下 $212.94 纪录高点后连续第二个下跌日。股价跌破 5 日均线（$205.3），并在均上行的 10 日（$198.1）、30 日（$185.3）、100 日（$156.1）和 200 日均线（$152.5）上方。MACD 位于信号线上方（自 10月6日起），但柱状图收窄，抛物线 SAR 自 9月21日起看多（$196.5），RSI 为 63。"
   },
   {
-   "en": "Nothing broke: the stock paused below the $213 record. A close above it would target the round numbers at $220, then $230. Support is $204 (5-day average and Oct 8 high), then $197 (10-day average) and $193 (Parabolic SAR), with the Sep 24 high at $194.7 just above the SAR.",
-   "zh": "关键位均未被突破：股价在 $213 纪录高点下方整理。若收盘站上该位置，目标看整数关口 $220，再看 $230。支撑为 $204（5 日均线及 10月8日高点），其次 $197（10 日均线）和 $193（抛物线 SAR），9月24日高点 $194.7 位于 SAR 略上方。"
+   "en": "The $204 support (5-day average, Oct 8 high) broke and turns into resistance, with the $213 record above it. The day's low was $199.74. Support is $196.5–198 (10-day average and SAR), then $193–195 (Sep 24 high) and $185 (30-day average). A close below $196.5 would flip the SAR bearish and open $193; a close above $213 would be a new record.",
+   "zh": "$204 支撑（5 日均线、10月8日高点）失守，转为阻力，其上为 $213 纪录高点。当日低点 $199.74。支撑为 $196.5–198（10 日均线及 SAR），其次 $193–195（9月24日高点）和 $185（30 日均线）。若收盘跌破 $196.5，SAR 将转为看空并打开至 $193 的空间；收盘站上 $213 则创纪录新高。"
   }
  ],
  "levels": {
   "r": [
    [
+    205,
+    {
+     "en": "5-day average; Oct 8 high $204.4",
+     "zh": "5日均线；10月8日高点 $204.4"
+    }
+   ],
+   [
     213,
     {
      "en": "Record high, Oct 12",
-     "zh": "纪录高点，10月12日"
+     "zh": "10月12日纪录高点"
     }
    ],
    [
@@ -30,35 +37,28 @@
      "en": "Round number",
      "zh": "整数关口"
     }
-   ],
-   [
-    230,
-    {
-     "en": "Round number",
-     "zh": "整数关口"
-    }
    ]
   ],
   "s": [
    [
-    204,
-    {
-     "en": "5-day average; Oct 8 high $204.4",
-     "zh": "5日均线；10月8日高点 $204.4"
-    }
-   ],
-   [
     197,
     {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "10-day average and SAR ($196.5–198)",
+     "zh": "10日均线及SAR（$196.5–198）"
     }
    ],
    [
     193,
     {
-     "en": "Parabolic SAR; Sep 24 high $194.7",
-     "zh": "抛物线 SAR；9月24日高点 $194.7"
+     "en": "Sep 24 high $194.7",
+     "zh": "9月24日高点 $194.7"
+    }
+   ],
+   [
+    185,
+    {
+     "en": "30-day average",
+     "zh": "30日均线"
     }
    ]
   ]

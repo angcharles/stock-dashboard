@@ -1,22 +1,29 @@
 {
- "asof": "Oct 13, 2026",
- "close": 228.66,
+ "asof": "Oct 14, 2026",
+ "close": 220.79,
  "bias": {
-  "en": "Strong bullish · capped at the December highs again",
-  "zh": "强势偏多 · 再次受阻于 12 月高点"
+  "en": "Bullish · pulling back from the December highs",
+  "zh": "偏多 · 自去年 12 月高点回落"
  },
  "read": [
   {
-   "en": "Zscaler rose 1.3% on Oct 13 to $228.66 after a high of $235.36. It is above all its averages: the 5-day ($223.7), 10-day ($212.7), 30-day ($196.4), 100-day ($165.2) and the still-falling 200-day ($166.0). MACD has been above its signal since Oct 7, Parabolic SAR has been bullish since Oct 6 ($198.8), and RSI is 67.",
-   "zh": "Zscaler 10月13日盘中触及 $235.36，收涨 1.3% 至 $228.66。股价位于所有均线上方：5 日（$223.7）、10 日（$212.7）、30 日（$196.4）、100 日（$165.2）以及仍在下行的 200 日均线（$166.0）。MACD 自 10月7日起位于信号线上方，抛物线 SAR 自 10月6日起看多（$198.8），RSI 为 67。"
+   "en": "Zscaler fell 3.4% on Oct 14 to $220.79. It slipped below its 5-day average ($225.2) and is above the 10-day ($214.9), 30-day ($197.8), 100-day ($165.7) and 200-day ($166.0, edging lower). MACD has been above its signal since Oct 7 with a narrowing histogram, Parabolic SAR has been bullish since Oct 6 ($202.7), and RSI is 61.",
+   "zh": "Zscaler 10月14日下跌 3.4%，收于 $220.79。股价跌破 5 日均线（$225.2），并在 10 日（$214.9）、30 日（$197.8）、100 日（$165.7）和 200 日均线（$166.0，小幅下行）上方。MACD 自 10月7日起位于信号线上方，柱状图收窄，抛物线 SAR 自 10月6日起看多（$202.7），RSI 为 61。"
   },
   {
-   "en": "The December 2025 highs at $235–237 capped the stock again, a second rejection in two sessions. A close above $237 would target $250 (Dec 8, 2025 high), then $285. Support is $224 (5-day average and Oct 13 low), then $213 (10-day average) and $196–199 (30-day average and SAR).",
-   "zh": "2025年12月高点 $235–237 再次压制股价，两个交易日内第二次受阻。若收盘站上 $237，目标看 $250（2025年12月8日高点），再看 $285。支撑为 $224（5 日均线及 10月13日低点），其次 $213（10 日均线）和 $196–199（30 日均线及 SAR）。"
+   "en": "The $224 support (5-day average, Oct 13 low) broke, with a day's low of $220.08, and turns into resistance; above it the $235–237 December 2025 highs still cap, then $250. Support is $215–217 (10-day average, Sep 24 high), then $203 (SAR) and $198 (30-day average). A close below $215 would open $203; a close above $237 would target $250.",
+   "zh": "$224 支撑（5 日均线、10月13日低点）失守，当日低点 $220.08，该位置转为阻力；其上 2025年12月的 $235–237 高点仍构成压制，再往上为 $250。支撑为 $215–217（10 日均线、9月24日高点），其次 $203（SAR）和 $198（30 日均线）。若收盘跌破 $215，下一目标看 $203；收盘站上 $237 则目标看 $250。"
   }
  ],
  "levels": {
   "r": [
+   [
+    225,
+    {
+     "en": "5-day average; Oct 13 low $223.75",
+     "zh": "5日均线；10月13日低点 $223.75"
+    }
+   ],
    [
     237,
     {
@@ -30,35 +37,28 @@
      "en": "Dec 8, 2025 high",
      "zh": "2025年12月8日高点"
     }
-   ],
-   [
-    285,
-    {
-     "en": "Aug–Sep 2025 highs ($280–293)",
-     "zh": "2025年8–9月高点（$280–293）"
-    }
    ]
   ],
   "s": [
    [
-    224,
+    215,
     {
-     "en": "5-day average; Oct 13 low $223.75",
-     "zh": "5日均线；10月13日低点 $223.75"
+     "en": "10-day average; Sep 24 high $217",
+     "zh": "10日均线；9月24日高点 $217"
     }
    ],
    [
-    213,
+    203,
     {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "Parabolic SAR",
+     "zh": "抛物线SAR"
     }
    ],
    [
-    197,
+    198,
     {
-     "en": "30-day average and SAR ($196–199)",
-     "zh": "30日均线及SAR（$196–199）"
+     "en": "30-day average",
+     "zh": "30日均线"
     }
    ]
   ]

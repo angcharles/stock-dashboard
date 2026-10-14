@@ -1,64 +1,64 @@
 {
- "asof": "Oct 13, 2026",
- "close": 289.98,
+ "asof": "Oct 14, 2026",
+ "close": 263.32,
  "bias": {
-  "en": "Bearish · held the late-September low",
-  "zh": "偏空 · 守住 9 月下旬低点"
+  "en": "Bearish · broke the late-September low",
+  "zh": "偏空 · 跌破 9 月下旬低点"
  },
  "read": [
   {
-   "en": "Coherent rose 0.7% on Oct 13 to $289.98 after an intraday low of $273.93. It is below its 200-day ($293.6), 30-day ($299.0), 5-day ($305.5) and 10-day ($314.4) averages and the falling 100-day ($325.3). MACD crossed below its signal on Oct 12 and is still above zero, Parabolic SAR has been bearish since Oct 12 ($340.6), and RSI is 46.",
-   "zh": "Coherent 10月13日盘中跌至 $273.93 后回升，上涨 0.7% 收于 $289.98。股价位于 200 日（$293.6）、30 日（$299.0）、5 日（$305.5）和 10 日均线（$314.4）以及下行的 100 日均线（$325.3）下方。MACD 于 10月12日下穿信号线，仍在零轴上方，抛物线 SAR 自 10月12日起看空（$340.6），RSI 为 46。"
+   "en": "Coherent fell 9.2% on Oct 14 to $263.32 and is down 21% in five sessions. It is below its 5-day ($291.3), 10-day ($311.9), 30-day ($298.7) and 200-day ($294.0) averages and the falling 100-day ($324.2). MACD has been below its signal since Oct 12 and is below zero, Parabolic SAR has been bearish since Oct 12 ($337.9), and RSI is 39.",
+   "zh": "Coherent 10月14日下跌 9.2%，收于 $263.32，五个交易日下跌 21%。股价位于 5 日（$291.3）、10 日（$311.9）、30 日（$298.7）和 200 日均线（$294.0）以及下行的 100 日均线（$324.2）下方。MACD 自 10月12日起位于信号线下方并在零轴之下，抛物线 SAR 自 10月12日起看空（$337.9），RSI 为 39。"
   },
   {
-   "en": "The intraday low briefly undercut the Oct 12 low ($284.1) and the Sep 28 low ($275.8), but the close recovered above both. Resistance is $294–301 (200 and 30-day averages and the old $301 floor), then $314 (10-day average) and $342 (Oct 5 high). Support is $284, then $274–276 and $255 (Sep 3 low). A close below $274 would open $255.",
-   "zh": "盘中低点一度跌破 10月12日低点（$284.1）和 9月28日低点（$275.8），但收盘重回两者上方。阻力为 $294–301（200 日和 30 日均线及原 $301 底部），其次 $314（10 日均线）和 $342（10月5日高点）。支撑为 $284，其次 $274–276 和 $255（9月3日低点）。若收盘跌破 $274，下一目标看 $255。"
+   "en": "Both supports gave way: the Oct 12 low ($284) and the $274–276 Sep 28/Oct 13 lows, which now act as resistance with the 5-day average ($291) above. The day's low of $261.9 tested the Aug 24 low ($262.6). Below it are $255 (Sep 3 and Jul 17 lows) and $221 (Jul 29 low). A close below $255 would open $221.",
+   "zh": "两个支撑均已失守：10月12日低点（$284）和 9月28日/10月13日的 $274–276 低点，现转为阻力，其上为 5 日均线（$291）。当日低点 $261.9 测试了 8月24日低点（$262.6）。其下为 $255（9月3日及 7月17日低点）和 $221（7月29日低点）。若收盘跌破 $255，下一目标看 $221。"
   }
  ],
  "levels": {
   "r": [
    [
+    276,
+    {
+     "en": "Sep 28 and Oct 13 lows, now resistance",
+     "zh": "9月28日及10月13日低点，转为阻力"
+    }
+   ],
+   [
+    291,
+    {
+     "en": "5-day average; Oct 12–13 closes $288–290",
+     "zh": "5日均线；10月12–13日收盘价 $288–290"
+    }
+   ],
+   [
     297,
     {
-     "en": "200 and 30-day averages; old $301 floor ($294–301)",
-     "zh": "200日和30日均线；原 $301 底部（$294–301）"
-    }
-   ],
-   [
-    314,
-    {
-     "en": "10-day average; 5-day $305.5 below",
-     "zh": "10日均线；其下为5日均线 $305.5"
-    }
-   ],
-   [
-    342,
-    {
-     "en": "Oct 5 high; top of the range",
-     "zh": "10月5日高点；区间顶部"
+     "en": "200 and 30-day averages ($294–299)",
+     "zh": "200日和30日均线（$294–299）"
     }
    ]
   ],
   "s": [
    [
-    284,
+    262,
     {
-     "en": "Oct 12 low",
-     "zh": "10月12日低点"
-    }
-   ],
-   [
-    275,
-    {
-     "en": "Oct 13 and Sep 28 lows ($274–276)",
-     "zh": "10月13日及9月28日低点（$274–276）"
+     "en": "Aug 24 low; Oct 14 low $261.9",
+     "zh": "8月24日低点；10月14日低点 $261.9"
     }
    ],
    [
     255,
     {
-     "en": "Sep 3 low",
-     "zh": "9月3日低点"
+     "en": "Sep 3 and Jul 17 lows",
+     "zh": "9月3日及7月17日低点"
+    }
+   ],
+   [
+    221,
+    {
+     "en": "Jul 29 low",
+     "zh": "7月29日低点"
     }
    ]
   ]
