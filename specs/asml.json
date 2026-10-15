@@ -6,10 +6,10 @@
  "shares": 384100000.0,
  "beta": "1.30",
  "snapshot": {
-  "price": "$1,780.34",
-  "date": "Oct 9, 2026",
-  "mcap": "$684B",
-  "range": "$935–1,989"
+  "price": "$1,657.44",
+  "date": "Oct 15, 2026",
+  "mcap": "$637B",
+  "range": "$967–1,989"
  },
  "eyebrow": {
   "en": "ASML Holding N.V. · NASDAQ-listed shares (1 ADR = 1 share) · Veldhoven, Netherlands",
@@ -20,36 +20,36 @@
   "zh": "全球唯一一家制造<em>印刷 AI 芯片机器</em>的公司。"
  },
  "lede": {
-  "en": "ASML is the only maker of EUV lithography machines, the tools needed to print the most advanced chips. Sales rose 21% to €9.3B (about $10.8B) last quarter, and the 2026 guide was raised to €43–45B as memory and logic makers add capacity for AI. The catches: China is still about a fifth of sales and faces tighter US export rules, and the stock trades at about 55 times trailing earnings.",
-  "zh": "阿斯麦是全球唯一的 EUV 光刻机制造商，最先进的芯片都需要这种设备来印刷。上季销售增长 21% 至 93 亿欧元（约 108 亿美元），存储和逻辑芯片厂商为 AI 扩产，2026 年指引上调至 430–450 亿欧元。隐忧在于：中国仍约占销售的五分之一，并面临更严格的美国出口管制；股价约为过去十二个月盈利的 55 倍。"
+  "en": "ASML is the only maker of EUV lithography machines, the tools needed to print the most advanced chips. Sales rose 55% to a record €11.7B (about $13.4B) last quarter, and management says planned supply will not meet customer demand in 2027 or 2028. The catches: China is still about a fifth of sales and faces tighter US export rules, and the stock trades at about 41 times trailing earnings, flattered by a one-off gain.",
+  "zh": "阿斯麦是全球唯一的 EUV 光刻机制造商，最先进的芯片都需要这种设备来印刷。上季销售增长 55% 至创纪录的 117 亿欧元（约 134 亿美元），管理层表示按现有计划的供应无法满足 2027 和 2028 年的客户需求。隐忧在于：中国仍约占销售的五分之一，并面临更严格的美国出口管制；股价约为过去十二个月盈利的 41 倍，且盈利含一次性收益。"
  },
  "valuation": {
   "k": {
    "en": "P/E (trailing)",
    "zh": "市盈率（历史）"
   },
-  "v": "~55×",
+  "v": "~41×",
   "s": {
-   "en": "TTM EPS ~$32 · forward ~31×",
-   "zh": "过去四季每股收益约 $32 · 预期约 31 倍"
+   "en": "TTM EPS ~$40.6 · forward ~27×",
+   "zh": "过去四季每股收益约 $40.6 · 预期约 27 倍"
   }
  },
  "analysts": {
   "k": {
-   "en": "Q3 2026 guide",
-   "zh": "2026 Q3 指引"
+   "en": "Q4 2026 guide",
+   "zh": "2026 Q4 指引"
   },
-  "v": "€11.0–12.0B",
+  "v": "€14.2–15.2B",
   "s": {
-   "en": "~$12.7–13.8B · GM 55–57% · FY €43–45B",
-   "zh": "约 127–138 亿美元 · 毛利率 55–57% · 全年 430–450 亿欧元"
+   "en": "~$15.9–17.0B · GM ~57% · FY €44–45B",
+   "zh": "约 159–170 亿美元 · 毛利率约 57% · 全年 440–450 亿欧元"
   }
  },
  "earnings": {
-  "v": "Oct 14",
+  "v": "Late Jan",
   "s": {
-   "en": "Q3 2026 results · before the US open",
-   "zh": "2026 Q3 业绩 · 美股开盘前"
+   "en": "Q4 2026 results · date not yet confirmed",
+   "zh": "2026 Q4 业绩 · 日期尚未确认"
   }
  },
  "sub_price": {
@@ -57,19 +57,19 @@
   "zh": "纳斯达克上市股份每日收盘价与50日均线。每份 ADR 即一股普通股。阿斯麦自6月以来收盘价在约 $1,550 至 $1,990 之间。"
  },
  "sub_rev": {
-  "en": "Revenue in US$ millions, with GAAP gross margin on the right axis. ASML reports in euros on a calendar year; each quarter is converted at that quarter's average EUR/USD rate (from about 1.01 in Q3 2022 to about 1.16–1.17 in 2025–26), so part of the dollar growth since 2025 is the stronger euro. EPS is per share (1 ADR = 1 share), converted the same way. The last bar is the midpoint of the €11.0–12.0B Q3 2026 guide at about 1.15 $/€.",
-  "zh": "营收单位为百万美元，右轴为 GAAP 毛利率。阿斯麦以欧元报告、财年为自然年；各季度按当季平均欧元兑美元汇率换算（由 2022 Q3 约 1.01 至 2025–26 年约 1.16–1.17），因此 2025 年以来的美元增长部分来自欧元走强。每股收益按每股计算（1 ADR = 1 股），同样换算。最后一根柱为 2026 Q3 指引 110–120 亿欧元的中值，按约 1.15 美元/欧元换算。"
+  "en": "Revenue in US$ millions, with GAAP gross margin on the right axis. ASML reports in euros on a calendar year; each quarter is converted at that quarter's average EUR/USD rate (from about 1.01 in Q3 2022 to about 1.15–1.17 in 2025–26), so part of the dollar growth since 2025 is the stronger euro. EPS is per share (1 ADR = 1 share), converted the same way. The last bar is the midpoint of the €14.2–15.2B Q4 2026 guide at about 1.12 $/€.",
+  "zh": "营收单位为百万美元，右轴为 GAAP 毛利率。阿斯麦以欧元报告、财年为自然年；各季度按当季平均欧元兑美元汇率换算（由 2022 Q3 约 1.01 至 2025–26 年约 1.15–1.17），因此 2025 年以来的美元增长部分来自欧元走强。每股收益按每股计算（1 ADR = 1 股），同样换算。最后一根柱为 2026 Q4 指引 142–152 亿欧元的中值，按约 1.12 美元/欧元换算。"
  },
  "rev_cells": [
   {
    "k": {
-    "en": "Q2 2026",
-    "zh": "2026 Q2"
+    "en": "Q3 2026",
+    "zh": "2026 Q3"
    },
-   "v": "$10.8B",
+   "v": "$13.4B",
    "s": {
-    "en": "€9.33B · +21% YoY · above guide",
-    "zh": "93.3 亿欧元 · 同比 +21% · 高于指引"
+    "en": "€11.66B · +55% YoY · near top of guide",
+    "zh": "116.6 亿欧元 · 同比 +55% · 接近指引上限"
    }
   },
   {
@@ -77,10 +77,10 @@
     "en": "EUV systems",
     "zh": "EUV 系统"
    },
-   "v": "$4.4B",
+   "v": "$4.7B",
    "s": {
-    "en": "€3.8B · 16 units incl. 1 High NA · ~€230M each (est.)",
-    "zh": "38 亿欧元 · 16 台含 1 台 High NA · 每台约 2.3 亿欧元（估）"
+    "en": "€4.1B · 49% of system sales · incl. 1 High NA",
+    "zh": "41 亿欧元 · 占系统销售 49% · 含 1 台 High NA"
    }
   },
   {
@@ -88,10 +88,10 @@
     "en": "Installed base",
     "zh": "装机服务"
    },
-   "v": "$3.2B",
+   "v": "$3.8B",
    "s": {
-    "en": "€2.76B · ~€300M above guide on upgrades",
-    "zh": "27.6 亿欧元 · 升级带动，高于指引约 3 亿"
+    "en": "€3.29B · ~€400M above guide on upgrades",
+    "zh": "32.9 亿欧元 · 升级带动，高于指引约 4 亿"
    }
   },
   {
@@ -99,10 +99,10 @@
     "en": "China share",
     "zh": "中国占比"
    },
-   "v": "14%",
+   "v": "23%",
    "s": {
-    "en": "of system sales · 19% in Q1, 36% in Q4 25",
-    "zh": "系统销售占比 · Q1 为 19%，2025 Q4 为 36%"
+    "en": "of system sales · 14% in Q2 · ~20% of FY sales",
+    "zh": "系统销售占比 · Q2 为 14% · 约占全年销售 20%"
    }
   },
   {
@@ -112,8 +112,8 @@
    },
    "v": "n/a",
    "s": {
-    "en": "no longer reported · last €13.2B (Q4 25), backlog €38.8B",
-    "zh": "已停止披露 · 最后一次 132 亿欧元（2025 Q4），积压 388 亿"
+    "en": "not reported · order book up every quarter in 2026",
+    "zh": "不再披露 · 2026 年订单逐季增长"
    }
   },
   {
@@ -121,10 +121,10 @@
     "en": "EPS (diluted)",
     "zh": "每股收益（摊薄）"
    },
-   "v": "$8.81",
+   "v": "$14.90",
    "s": {
-    "en": "€7.58 · +28% YoY · GM 54.0%",
-    "zh": "7.58 欧元 · 同比 +28% · 毛利率 54.0%"
+    "en": "€12.95 · +136% YoY · incl. ~€0.5B Mistral gain",
+    "zh": "12.95 欧元 · 同比 +136% · 含约 5 亿欧元 Mistral 收益"
    }
   }
  ],
@@ -132,12 +132,12 @@
   {
    "kind": "plus",
    "h": {
-    "en": "2027 nearly sold out",
-    "zh": "2027 年产能几近售罄"
+    "en": "Demand outruns supply",
+    "zh": "需求超过供应"
    },
    "p": {
-    "en": "Management says 2027 low-NA EUV output is close to fully covered by orders. ASML plans about 30% more EUV (from ~65 to ~85 units) and immersion DUV capacity (from ~130) in 2027.",
-    "zh": "管理层表示 2027 年低数值孔径 EUV 产出已接近被订单全部覆盖。阿斯麦计划 2027 年将 EUV（由约 65 台增至约 85 台）及浸没式 DUV（约 130 台起）产能各提高约 30%。"
+    "en": "Management now expects planned supply to fall short of demand in both 2027 and 2028, and some customers want to place orders for 2029–30. ASML is adding about 30% EUV and DUV capacity in 2027 and is studying more than the 30% planned for 2028.",
+    "zh": "管理层现预计按计划的供应在 2027 和 2028 年都无法满足需求，部分客户希望下 2029–30 年的订单。阿斯麦 2027 年将 EUV 与 DUV 产能提高约 30%，并研究在 2028 年原定 30% 的基础上进一步扩产。"
    }
   },
   {
@@ -147,8 +147,8 @@
     "zh": "升级与定价"
    },
    "p": {
-    "en": "Installed base sales of €2.76B beat guidance by about €300M as customers paid for productivity upgrades. Service and upgrade sales should grow more than 30% this year, and management says it has more room on pricing.",
-    "zh": "客户为提升产能购买升级，装机服务销售 27.6 亿欧元，高于指引约 3 亿。今年服务与升级销售预计增长超过 30%，管理层称定价空间更大。"
+    "en": "Installed base sales of €3.29B beat guidance by about €400M as customers bought productivity upgrades, lifting gross margin to a record 57.5%. Installed base sales should grow about 50% this year.",
+    "zh": "客户购买提升产能的升级，装机服务销售 32.9 亿欧元，高于指引约 4 亿，推动毛利率创纪录达 57.5%。今年装机服务销售预计增长约 50%。"
    }
   },
   {
@@ -158,19 +158,19 @@
     "zh": "不再公布订单"
    },
    "p": {
-    "en": "ASML stopped reporting quarterly orders in 2026. The last figure was a record €13.2B in Q4 2025, with a €38.8B backlog, so the market now leans on what management says about 2027 and 2028.",
-    "zh": "阿斯麦自 2026 年起停止披露季度订单。最后一次为 2025 Q4 创纪录的 132 亿欧元，积压订单 388 亿欧元，因此市场只能依赖管理层对 2027 与 2028 年的表述。"
+    "en": "ASML stopped reporting quarterly orders in 2026; the last figure was €13.2B in Q4 2025. Management says order momentum has risen every quarter this year, and Q3 free cash flow of €11.4B shows large down payments arrived.",
+    "zh": "阿斯麦自 2026 年起停止披露季度订单，最后一次为 2025 Q4 的 132 亿欧元。管理层称今年订单势头逐季增强，Q3 自由现金流 114 亿欧元显示已收到大额预付款。"
    }
   },
   {
    "kind": "watch",
    "h": {
-    "en": "A big Q3 step-up",
-    "zh": "Q3 大幅跃升"
+    "en": "A big Q4",
+    "zh": "Q4 大幅跃升"
    },
    "p": {
-    "en": "The €11.0–12.0B Q3 guide is about 53% above last year's €7.5B at the midpoint, with gross margin of 55–57%. Analysts expect about $13.2B of revenue.",
-    "zh": "Q3 指引 110–120 亿欧元，中值较去年同期 75 亿欧元高约 53%，毛利率 55–57%。分析师预期营收约 132 亿美元。"
+    "en": "The €14.2–15.2B Q4 guide is about 51% above last year's €9.7B at the midpoint, with gross margin around 57%. LSEG consensus had been €14.19B, and the 2026 range narrowed to €44–45B.",
+    "zh": "Q4 指引 142–152 亿欧元，中值较去年同期 97 亿欧元高约 51%，毛利率约 57%。LSEG 一致预期为 141.9 亿欧元，2026 年区间收窄至 440–450 亿欧元。"
    }
   },
   {
@@ -180,8 +180,8 @@
     "zh": "中国与 MATCH 法案"
    },
    "p": {
-    "en": "China fell to 14% of Q2 system sales but is still about 20% of full-year sales. The proposed US MATCH Act would block immersion DUV sales to China and could limit servicing there.",
-    "zh": "中国在 Q2 系统销售中的占比降至 14%，但仍约占全年销售的 20%。拟议中的美国 MATCH 法案将禁止向中国出售浸没式 DUV，并可能限制在华服务。"
+    "en": "China was 23% of Q3 system sales (14% in Q2) and should be about 20% of full-year sales. The proposed US MATCH Act would block immersion DUV sales to China and could limit servicing there.",
+    "zh": "中国占 Q3 系统销售的 23%（Q2 为 14%），预计约占全年销售 20%。拟议中的美国 MATCH 法案将禁止向中国出售浸没式 DUV，并可能限制在华服务。"
    }
   },
   {
@@ -191,23 +191,12 @@
     "zh": "估值"
    },
    "p": {
-    "en": "At about 55 times trailing earnings the stock prices in strong growth. It fell 15% in the two weeks after the July report even though guidance was raised.",
-    "zh": "按历史盈利约 55 倍，股价已反映强劲增长。7月财报即使上调指引，股价在随后两周仍下跌 15%。"
+    "en": "At about 41 times trailing earnings (27 forward) the stock prices in strong growth. It fell 3.9% on results day even though the Q4 guide beat, and sits about 17% below its 52-week high.",
+    "zh": "按历史盈利约 41 倍（预期约 27 倍），股价已反映强劲增长。即使 Q4 指引超预期，财报当日仍下跌 3.9%，目前较 52 周高点低约 17%。"
    }
   }
  ],
  "calendar": [
-  {
-   "date": "Oct 14, 2026",
-   "h": {
-    "en": "Q3 2026 earnings",
-    "zh": "2026 第三季财报"
-   },
-   "p": {
-    "en": "Before the US open. Guide: €11.0–12.0B sales, 55–57% gross margin. Analysts expect about $13.2B revenue and EPS of about $12.1–12.5; first comments on 2027.",
-    "zh": "美股开盘前公布。指引：销售 110–120 亿欧元，毛利率 55–57%。分析师预期营收约 132 亿美元、每股收益约 $12.1–12.5；将首次评论 2027 年。"
-   }
-  },
   {
    "date": "Oct 27, 2026",
    "h": {
@@ -215,8 +204,8 @@
     "zh": "中期股息（纳斯达克除息日）"
    },
    "p": {
-    "en": "The dividend is announced with results on Oct 14 and paid Nov 4. The last interim dividend was €1.88 per share.",
-    "zh": "股息于 10月14日随业绩公布，11月4日派发。上次中期股息为每股 1.88 欧元。"
+    "en": "€1.88 per share, announced with Q3 results on Oct 14 and paid Nov 4.",
+    "zh": "每股 1.88 欧元，已于 10月14日随 Q3 业绩公布，11月4日派发。"
    }
   },
   {
@@ -226,44 +215,44 @@
     "zh": "2026 第四季财报"
    },
    "p": {
-    "en": "Full-year results and the 2027 outlook. MarketScreener lists Jan 26; ASML has not confirmed the date.",
-    "zh": "全年业绩及 2027 年展望。MarketScreener 列为 1月26日，阿斯麦尚未确认。"
+    "en": "Full-year results and the 2027 outlook, including any update on 2028 capacity. Guide: €14.2–15.2B sales, ~57% gross margin. ASML has not confirmed the date.",
+    "zh": "全年业绩及 2027 年展望，或更新 2028 年产能计划。指引：销售 142–152 亿欧元，毛利率约 57%。阿斯麦尚未确认日期。"
    }
   }
  ],
  "sources": [
   [
-   "Q2 2026 results and Q3 guidance (ASML)",
-   "https://asml.com/en/news/press-releases/2026/q2-2026-financial-results"
+   "Q3 2026 results and Q4 guidance (ASML)",
+   "https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026"
   ],
   [
-   "Q2 2026 investor call transcript (ASML)",
-   "https://ourbrand.asml.com/asset/1fd3908a-0381-47b5-9b69-a3094f656651/2026_07_15-ASML-Transcript-investor-call-Q2-2026.pdf"
+   "Q3 2026 earnings call transcript (Motley Fool)",
+   "https://fool.com/earnings/call-transcripts/2026/10/14/asml-asml-q3-2026-earnings-call-transcript"
   ],
   [
-   "Q2 2026 shipments by technology and region (Investing.com)",
-   "https://investing.com/news/company-news/asml-q2-2026-slides-strong-beat-drives-raised-fullyear-outlook-93CH-4793729"
+   "Q3 2026 slides: mix, regions and cash flow (Investing.com)",
+   "https://investing.com/news/company-news/asml-q3-2026-slides-record-results-but-shares-fall-on-valuation-93CH-4948137"
   ],
   [
-   "End of bookings disclosure (Long Yield)",
-   "https://longyield.substack.com/p/asml-clears-the-bar-then-raises-its"
+   "Q4 guide vs LSEG consensus (Reuters)",
+   "https://wtaq.com/2026/10/14/asml-forecasts-q4-sales-above-expectations-on-ai-chip-demand"
   ],
   [
-   "Q3 2026 date and consensus (Zacks)",
-   "https://zacks.com/stock/news/3003931/asmls-q3-earnings-coming-up-how-should-you-play-the-stock"
+   "Q3 2026 vs estimates (Zacks)",
+   "https://zacks.com/stock/news/3006983/asml-q3-earnings-beat-on-strong-upgrade-demand-revenues-miss"
   ],
   [
    "Quarterly income statement in euros (Stock Analysis)",
    "https://stockanalysis.com/stocks/asml/financials/?p=quarterly"
   ],
   [
-   "Price, market cap, beta and analyst targets: Yahoo Finance and Stocklake; EUR/USD averages: FMP, as of Oct 9, 2026",
+   "Price, market cap, forward P/E and 52-week range: Stocklake; EUR/USD averages: FMP, as of Oct 15, 2026",
    "https://finance.yahoo.com/quote/ASML"
   ]
  ],
  "foot": {
-  "en": "Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with ASML Holding N.V.",
-  "zh": "基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 ASML Holding N.V. 无关联。"
+  "en": "Fundamentals as of Oct 15, 2026 (Q3 2026 results). For information only, not investment advice. Not affiliated with ASML Holding N.V.",
+  "zh": "基本面数据截至 2026年10月15日（2026 年第三季业绩）。仅供参考，不构成投资建议。与 ASML Holding N.V. 无关联。"
  },
  "quarters": [
   [
@@ -425,27 +414,28 @@
    53.98,
    37.05,
    8.81
+  ],
+  [
+   "Q3 2026",
+   "Sep 2026",
+   13417,
+   57.5,
+   44.4,
+   14.9
   ]
  ],
  "guide": [
-  "Q3 2026e",
-  13232,
-  "Sep 2026 · €11.0–12.0B guide midpoint at ~1.15 $/€",
-  "2026年9月 · 110–120 亿欧元指引中值，按约 1.15 美元/欧元换算"
+  "Q4 2026e",
+  16460,
+  "Dec 2026 · €14.2–15.2B guide midpoint at ~1.12 $/€",
+  "2026年12月 · 142–152 亿欧元指引中值，按约 1.12 美元/欧元换算"
  ],
  "fcf": {
   "sub": {
-   "en": "Free cash flow is operating cash flow minus capital spending, converted from euros to US$ millions at each quarter's average EUR/USD rate, for the 20 quarters from Q3 2021 to Q2 2026. Shaded bars and italic rows are estimates.",
-   "zh": "自由现金流 = 经营现金流 − 资本开支，按各季平均欧元兑美元汇率换算为百万美元，涵盖 2021 Q3 至 2026 Q2 共 20 个季度。浅色柱与斜体行为估算。"
+   "en": "Free cash flow is operating cash flow minus capital spending, converted from euros to US$ millions at each quarter's average EUR/USD rate, for the 20 quarters from Q4 2021 to Q3 2026. Shaded bars and italic rows are estimates.",
+   "zh": "自由现金流 = 经营现金流 − 资本开支，按各季平均欧元兑美元汇率换算为百万美元，涵盖 2021 Q4 至 2026 Q3 共 20 个季度。浅色柱与斜体行为估算。"
   },
   "hist": [
-   [
-    "Q3 2021",
-    "Sep 2021",
-    2123,
-    232,
-    1891
-   ],
    [
     "Q4 2021",
     "Dec 2021",
@@ -578,36 +568,43 @@
     1979,
     348,
     1631
+   ],
+   [
+    "Q3 2026",
+    "Sep 2026",
+    13574,
+    514,
+    13060
    ]
   ],
   "est": [
    [
-    "Q3 2026",
-    "Sep 2026",
-    2300,
-    460,
-    1840
-   ],
-   [
     "Q4 2026",
     "Dec 2026",
-    11500,
+    6700,
     600,
-    10900
+    6100
    ],
    [
     "Q1 2027",
     "Mar 2027",
-    -1500,
-    500,
-    -2000
+    -1000,
+    550,
+    -1550
    ],
    [
     "Q2 2027",
     "Jun 2027",
-    2500,
-    500,
-    2000
+    3000,
+    550,
+    2450
+   ],
+   [
+    "Q3 2027",
+    "Sep 2027",
+    4000,
+    600,
+    3400
    ]
   ],
   "cash": {
@@ -615,20 +612,20 @@
     "en": "Cash & short-term inv.",
     "zh": "现金及短期投资"
    },
-   "v": "$8.7B",
+   "v": "$14.4B",
    "s": {
-    "en": "€7.58B · Jun 30, 2026 · debt ~$2.3B",
-    "zh": "75.8 亿欧元 · 2026年6月30日 · 债务约 23 亿美元"
+    "en": "€12.74B · Sep 30, 2026 · after €4.1B Q3 buyback",
+    "zh": "127.4 亿欧元 · 2026年9月30日 · Q3 回购 41 亿欧元后"
    }
   },
   "read": [
    {
-    "en": "ASML's cash flow is lumpy because customers pay large down payments on new orders, mostly in the fourth quarter. Free cash flow was $9.4B in Q4 2024 and $12.8B in Q4 2025, while Q1 is often negative (−$3.0B in Q1 2026). The last four quarters add up to about $11.7B.",
-    "zh": "阿斯麦现金流波动大，因为客户为新订单支付大额预付款，且多集中在第四季。2024 Q4 与 2025 Q4 自由现金流分别为 94 亿和 128 亿美元，而第一季常为负（2026 Q1 为 −30 亿）。近四季合计约 117 亿美元。"
+    "en": "ASML's cash flow is lumpy because customers pay large down payments on new orders. This year they came early: Q3 free cash flow was a record €11.4B (about $13.1B) on €11.8B of operating cash flow, after −$3.0B in Q1. The last four quarters add up to about $24.4B.",
+    "zh": "阿斯麦现金流波动大，因为客户为新订单支付大额预付款。今年预付款来得较早：Q3 经营现金流 118 亿欧元，自由现金流创纪录达 114 亿欧元（约 131 亿美元），而 Q1 为 −30 亿美元。近四季合计约 244 亿美元。"
    },
    {
-    "en": "My base case takes Q3 sales from the €11.0–12.0B guide, assumes another large Q4 inflow from 2027 down payments (management says 2027 EUV is nearly fully booked), a negative Q1 as in past years, and capex of $450–600M a quarter as capacity is added. That gives about $12.7B over four quarters at about 1.15 $/€. The swing factors are the timing of down payments and the euro.",
-    "zh": "我的基准情景以 110–120 亿欧元指引推算 Q3 销售，假设 Q4 再有一笔来自 2027 年订单预付款的大额流入（管理层称 2027 年 EUV 已接近订满），Q1 如往年为负，扩产期间资本开支每季 4.5–6 亿美元。按约 1.15 美元/欧元计，四季自由现金流约 127 亿美元。变数在于预付款的时点与欧元汇率。"
+    "en": "My base case takes Q4 sales from the €14.2–15.2B guide but assumes a smaller Q4 inflow than in past years because part of the 2027 down payments arrived in Q3, a negative Q1 as usual, and capex of $550–600M a quarter as capacity is added. That gives about $10.4B over four quarters at about 1.12 $/€. The swing factors are the timing of down payments and the euro.",
+    "zh": "我的基准情景以 142–152 亿欧元指引推算 Q4 销售，但因部分 2027 年预付款已在 Q3 入账，假设 Q4 流入少于往年；Q1 如往常为负；扩产期间资本开支每季 5.5–6 亿美元。按约 1.12 美元/欧元计，四季自由现金流约 104 亿美元。变数在于预付款的时点与欧元汇率。"
    }
   ],
   "out": [
@@ -638,8 +635,8 @@
      "zh": "回购"
     },
     "p": {
-     "en": "A €12B program runs to 2028. ASML bought €2.2B in the first half, and the pace rose to roughly €400M a week from late July.",
-     "zh": "120 亿欧元回购计划执行至 2028 年。上半年回购 22 亿欧元，7月下旬起节奏升至每周约 4 亿欧元。"
+     "en": "A €12B program runs to 2028. ASML bought about €4.1B in Q3 alone, bringing the 2026 total to about €6.3B.",
+     "zh": "120 亿欧元回购计划执行至 2028 年。仅 Q3 便回购约 41 亿欧元，2026 年累计约 63 亿欧元。"
     }
    },
    {
@@ -658,8 +655,8 @@
      "zh": "产能"
     },
     "p": {
-     "en": "Capex has run at $350–750M a quarter. Adding about 30% EUV and DUV capacity for 2027 should push it higher.",
-     "zh": "资本开支每季约 3.5–7.5 亿美元。为 2027 年增加约 30% 的 EUV 和 DUV 产能，将推高这一数字。"
+     "en": "Capex was €447M in Q3. Adding about 30% EUV and DUV capacity for 2027, and possibly more for 2028, should push it higher.",
+     "zh": "Q3 资本开支 4.47 亿欧元。为 2027 年增加约 30% 的 EUV 和 DUV 产能，2028 年可能更多，将推高这一数字。"
     }
    }
   ],
@@ -670,8 +667,8 @@
      "zh": "预付款"
     },
     "p": {
-     "en": "Customers prepay for tools months ahead, which is why Q4 cash inflows are so large.",
-     "zh": "客户提前数月预付设备款，因此第四季现金流入特别大。"
+     "en": "Customers prepay for tools months ahead; with orders rising each quarter, much of it landed in Q3.",
+     "zh": "客户提前数月预付设备款；随订单逐季增长，大部分在 Q3 入账。"
     }
    },
    {
@@ -680,8 +677,8 @@
      "zh": "利润率提升"
     },
     "p": {
-     "en": "Gross margin of 54.0% in Q2, guided to 55–57% in Q3, on volume and upgrade mix.",
-     "zh": "Q2 毛利率 54.0%，Q3 指引 55–57%，受规模与升级业务组合带动。"
+     "en": "Gross margin hit a record 57.5% in Q3 and is guided to about 57% in Q4, on volume and upgrade mix.",
+     "zh": "Q3 毛利率创纪录达 57.5%，Q4 指引约 57%，受规模与升级业务组合带动。"
     }
    },
    {
@@ -690,52 +687,52 @@
      "zh": "升级业务"
     },
     "p": {
-     "en": "High-margin service and upgrade sales are expected to grow more than 30% this year.",
-     "zh": "高利润的服务与升级销售预计今年增长超过 30%。"
+     "en": "High-margin installed base sales are expected to grow about 50% this year.",
+     "zh": "高利润的装机服务销售预计今年增长约 50%。"
     }
    }
   ],
   "bridge": [
    [
     {
-     "en": "Cash & short-term inv., Jun 2026",
-     "zh": "2026年6月现金及短期投资"
+     "en": "Cash & short-term inv., Sep 2026",
+     "zh": "2026年9月现金及短期投资"
     },
-    8660
+    14430
    ],
    [
     {
      "en": "Free cash flow, 4 quarters (est.)",
      "zh": "4季自由现金流（估）"
     },
-    12740
+    10400
    ],
    [
     {
      "en": "Dividends (est.)",
      "zh": "股息（估）"
     },
-    -3700
+    -3600
    ],
    [
     {
      "en": "Buybacks (est.)",
      "zh": "回购（估）"
     },
-    -7500
+    -5600
    ]
   ],
   "bridgeEnd": {
-   "en": "Cash & short-term inv., Jun 2027 (est.)",
-   "zh": "2027年6月现金及短期投资（估）"
+   "en": "Cash & short-term inv., Sep 2027 (est.)",
+   "zh": "2027年9月现金及短期投资（估）"
   },
   "bridgeNote": {
-   "en": "Starting cash converted at the Jun 30 rate (~1.14 $/€). Q4 down payments can move cash by several billion, and the buyback figure is my estimate from the recent pace.",
-   "zh": "期初现金按 6月30日汇率（约 1.14 美元/欧元）换算。第四季预付款可使现金变动数十亿，回购金额为根据近期节奏的估算。"
+   "en": "Starting cash converted at the Sep 30 rate (~1.13 $/€). Down payments can move cash by several billion in a quarter, and the buyback figure is my estimate for finishing most of the €12B program.",
+   "zh": "期初现金按 9月30日汇率（约 1.13 美元/欧元）换算。预付款可使单季现金变动数十亿，回购金额为按完成 120 亿欧元计划大部分所作的估算。"
   },
   "extraNote": {
-   "en": "Converted from euros at each quarter's average EUR/USD rate (for example 1.05 in Q1 2025 and 1.16 in Q2 2026).",
-   "zh": "按各季平均欧元兑美元汇率由欧元换算（例如 2025 Q1 为 1.05，2026 Q2 为 1.16）。"
+   "en": "Converted from euros at each quarter's average EUR/USD rate (for example 1.05 in Q1 2025 and 1.15 in Q3 2026).",
+   "zh": "按各季平均欧元兑美元汇率由欧元换算（例如 2025 Q1 为 1.05，2026 Q3 为 1.15）。"
   },
   "src": [
    [
@@ -743,12 +740,12 @@
     "https://stockanalysis.com/stocks/asml/financials/cash-flow-statement/?p=quarterly"
    ],
    [
-    "Share buyback program (ASML)",
-    "https://asml.com/en/investors/why-invest-in-asml/share-buyback"
+    "Q3 2026 operating cash flow, capex and free cash flow (Investing.com)",
+    "https://investing.com/news/company-news/asml-q3-2026-slides-record-results-but-shares-fall-on-valuation-93CH-4948137"
    ],
    [
-    "Q2 2026 cash, buybacks and dividend (ASML)",
-    "https://asml.com/en/news/press-releases/2026/q2-2026-financial-results"
+    "Q3 2026 cash, buybacks and dividend (ASML)",
+    "https://investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026"
    ]
   ]
  }

@@ -1,31 +1,31 @@
 {
  "ticker": "TSM",
- "asof": "2026-10-11",
+ "asof": "2026-10-16",
  "quarter": {
-  "en": "Q2 2026",
-  "zh": "2026年第二季"
+  "en": "Q3 2026",
+  "zh": "2026年第三季"
  },
- "reported": "2026-07-16",
+ "reported": "2026-10-15",
  "timing": "bmo",
- "pre_close": 419.48,
+ "pre_close": 430.0,
  "react": {
-  "date": "2026-07-16",
-  "close": 409.74,
-  "pct": -2.3
+  "date": "2026-10-15",
+  "close": 422.25,
+  "pct": -1.8
  },
  "since": {
-  "date": "2026-10-14",
-  "close": 430,
-  "pct": 2.5
+  "date": "2026-10-15",
+  "close": 422.25,
+  "pct": -1.8
  },
  "review": {
   "en": [
-   "Revenue of $40.2B (+34% in dollars) hit the top of guidance, and gross margin of 67.7% and operating margin of 60.3% both beat the guided ranges; net profit rose 77%, helped by a one-off gain on Vanguard shares. The Q3 guide is $44.6–45.8B, with gross margin easing to 65–67% as 2nm and overseas fabs ramp. TSMC raised its full-year growth outlook and lifted 2026 capex to $60–64B, and CFO Wendell Huang said capex over the next three years will be even more significantly higher than the past three.",
-   "The ADR fell 2.3% on the day and about 5% by the next close, as the bigger capex bill and softer Q3 margins outweighed the beat. Late-July's chip selloff took it to $375 on Jul 29, about 11% below the pre-report close. It then climbed steadily as AI demand held up, reaching a high near $486 in early October, and remains about 8% above the pre-report level."
+   "Revenue of $46.7B (+41% in dollars) beat the top of guidance and EPS of $4.60 per ADR topped the ~$4.42 consensus. HPC grew 22% QoQ to 68% of sales and 2nm reached 8% of wafer revenue, while gross margin eased to 66.4% on the 2nm ramp. The Q4 guide of $52.3–54.3B is well above the ~$51.2B consensus, and 2026 growth rose to ~44%. C.C. Wei said AI demand is still far above supply but planning for 2027 is prudent as consumer markets weaken; capex stays $60–64B.",
+   "The ADR had already fallen 3.4% to $430 on Oct 14 as a global chip selloff over AI financing costs and hot inflation data deepened. On Oct 15 it gapped down to $415 and touched $407 as Korean chip stocks crashed and Wei's cautious 2027 remark weighed on the sector, then recovered as the selloff eased to close down 1.8% at $422.25. CFO Wendell Huang's warning that overseas-fab margin dilution will widen to 3–4% also tempered the beat."
   ],
   "zh": [
-   "营收 402 亿美元（以美元计 +34%）达到指引上限，毛利率 67.7%、营业利润率 60.3% 均高于指引区间；净利润增长 77%，部分得益于出售世界先进股票的一次性收益。第三季指引营收 446–458 亿美元，毛利率因 2 纳米和海外晶圆厂爬坡降至 65–67%。台积电上调全年增长展望，并将 2026 年资本开支提高至 600–640 亿美元；CFO 黄仁昭表示未来三年资本开支将比过去三年「更显著」增加。",
-   "ADR 当天下跌 2.3%，次日收盘累计跌约 5%，资本开支上调和第三季毛利率走低盖过了亮眼业绩。7 月下旬芯片股抛售令其在 7 月 29 日跌至 375 美元，较财报前收盘低约 11%。之后随 AI 需求稳健稳步回升，10 月初升至约 486 美元的高位，目前仍较财报前高约 8%。"
+   "营收 467 亿美元（以美元计 +41%）高于指引上限，每份 ADR 收益 4.60 美元高于约 4.42 美元的一致预期。高性能计算环比增长 22%，占营收 68%；2 纳米占晶圆营收 8%，毛利率因 2 纳米爬坡降至 66.4%。第四季营收指引 523–543 亿美元，明显高于约 512 亿美元的市场预期，2026 年增长展望上调至约 44%。魏哲家表示 AI 需求仍远高于供应能力，但因消费类市场转弱，对 2027 年规划审慎；资本开支维持 600–640 亿美元。",
+   "在对 AI 融资成本的担忧和高于预期的通胀数据引发的全球芯片股抛售中，ADR 于 10 月 14 日已下跌 3.4% 至 430 美元。10 月 15 日跳空低开至 415 美元，盘中一度跌至 407 美元，韩国芯片股暴跌以及魏哲家对 2027 年的审慎表态拖累板块；随后抛压缓和，收盘跌 1.8% 至 422.25 美元。CFO 黄仁昭警告海外晶圆厂对毛利率的稀释将扩大至 3–4 个百分点，也削弱了业绩超预期的效果。"
   ]
  },
  "ceo": {
@@ -52,12 +52,16 @@
  },
  "sources": [
   {
-   "t": "Q2 2026 call transcript",
-   "u": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-08/3e494f0c14dd0890f897aa044415e21d93486cc4/TSMC%202Q26%20Transcript.pdf"
+   "t": "Q3 2026 results release (SEC filing)",
+   "u": "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm"
   },
   {
-   "t": "Q2 2026 recap (Trader Central)",
-   "u": "https://traderc.com/tsmc-q2-2026-earnings-recap"
+   "t": "Q3 2026 call transcript",
+   "u": "https://fool.com/earnings/call-transcripts/2026/10/15/tsmc-tsm-q3-2026-earnings-call-transcript"
+  },
+  {
+   "t": "Reaction (MarketWatch)",
+   "u": "https://morningstar.com/news/marketwatch/2026101589/tsmc-ceo-sees-no-sign-of-a-slowdown-as-chip-foundry-reports-record-profit"
   }
  ]
 }
