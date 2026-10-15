@@ -4,6 +4,9 @@
    - Everything is interactive: click a borrower or a maturity bar to filter the bond table; sort any column;
      filter by borrower, type, currency, maturity and text; switch between one row per bond and one row per deal;
      download the filtered rows as CSV.
+   - Each bond shows an estimated yield to maturity, its week- and month-to-date change and the borrower's 5-year CDS:
+     live government yield for the bond's currency and maturity (data/curves.json, refreshed on every deploy by
+     scripts/fetch-curves.mjs) plus the borrower's credit spread from dated dealer quotes in ai-debt.json "mkt".
    Data: data/ai-debt.json (edited by hand when a new deal prices). Non-USD amounts are converted at the live
    rates in data/fx.json (FX tab), falling back to the rates in ai-debt.json. */
 (function () {
@@ -96,13 +99,19 @@
   #aidebt .caret{display:inline-block;width:12px;color:var(--muted);transition:transform .15s}
   #aidebt tr.open .caret{transform:rotate(90deg)}
   #aidebt .xnote{font-size:12px;color:var(--muted);margin:8px 0 0}
+  #aidebt .ad-tab td.up{color:var(--up)}#aidebt .ad-tab td.dn{color:var(--down)}
+  #aidebt .ad-tab th[title]{cursor:help}
+  #aidebt details.adm{margin:10px 0 0;font-size:12px;color:var(--muted)}
+  #aidebt details.adm summary{cursor:pointer;font:600 11px var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+  #aidebt details.adm ul{margin:6px 0 0;padding-left:18px}#aidebt details.adm li{margin:3px 0}
+  #aidebt details.adm a{color:var(--muted)}
   #aidebt .xnote a{color:var(--muted)}
   @media (max-width:620px){#aidebt .ad-act{margin-left:0}#aidebt input[type=search]{width:100%}}
   @media (prefers-reduced-motion:reduce){#aidebt .mw-c i{transition:none}}`;
   document.head.appendChild(st);
 
   /* ---------- data ---------- */
-  let D, FX = {}, ROWS = [], G = {};
+  let D, FX = {}, ROWS = [], G = {}, CV = null;
   const toUSD = (amt, cur) => amt * (FX[cur] || 1) / 1000; // millions local -> US$ billions
   const parseMat = (m) => {
     const r = /^(\d{4})-(\d{4})$/.exec(m); if (r) return { y: null, range: [+r[1], +r[2]] };
@@ -127,6 +136,64 @@
         sk: (r.y || r.range[0]) * 100 + (r.mo || 0) });
     }));
   }
+
+  /* ---------- market: estimated yield, WTD/MTD change, CDS ---------- */
+  const TEN = [2, 5, 10, 30];
+  const nyDay = (d) => d.toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+  const REF = (() => {
+    const today = nyDay(NOW), [y, m, dd] = today.split("-").map(Number);
+    const wd = new Date(Date.UTC(y, m - 1, dd)).getUTCDay(), mon = new Date(Date.UTC(y, m - 1, dd - ((wd + 6) % 7)));
+    return { wk: mon.toISOString().slice(0, 10), mo: `${y}-${String(m).padStart(2, "0")}-01` }; // last close strictly before these
+  })();
+  const lastBefore = (arr, day, incl) => { let v = null; for (const [d, x] of arr) { if (incl ? d <= day : d < day) v = x; else break; } return v; };
+  // government yield (%) for a currency at T years; date = null for now, else the close on or before that day
+  function govt(cur, T, date, before) {
+    const c = CV && CV.cur && CV.cur[cur], snap = D.mkt.govtSnap[cur] || {};
+    const pts = [];
+    TEN.forEach((t) => {
+      const s = c && c[t];
+      let v = null;
+      if (date) { if (s && s.d && s.d.length && s.d[0][0] <= date) v = lastBefore(s.d, date, !before); }
+      else v = s ? s.now : snap[t] ?? null;
+      if (v != null) pts.push([t, v]);
+    });
+    if (!pts.length) return null;
+    return interp(pts, T);
+  }
+  function interp(pts, T) {
+    if (T <= pts[0][0]) return pts[0][1];
+    for (let i = 1; i < pts.length; i++) if (T <= pts[i][0]) { const [a, va] = pts[i - 1], [b, vb] = pts[i]; return va + (vb - va) * (T - a) / (b - a); }
+    return pts[pts.length - 1][1];
+  }
+  const shift = (M, date) => { const sh = (M && M.sh) || []; if (!sh.length) return 0; if (!date) return sh[sh.length - 1][1]; let v = sh[0][1]; for (const [d, x] of sh) if (d <= date) v = x; return v; };
+  const yrsBetween = (a, r) => { const t = new Date(r.y, (r.mo || 7) - 1, 15); return (t - a) / 31557600000; };
+  function prepMkt() {
+    ROWS.forEach((r) => {
+      r.ytm = r.wtd = r.mtd = null; r.cds = null;
+      const M = D.mkt && D.mkt.iss[r.d.g]; if (!M) return;
+      r.cds = M.cds ? M.cds.v : null;
+      if (r.cn == null || r.d.kind === "cv" || r.yl == null || r.yl <= 0) return;
+      let spr = null;
+      if (M.mode === "curve") spr = interp((M.sprCur && M.sprCur[r.cur]) || M.spr, r.yl);
+      else {
+        const pd = r.d.priced.length === 7 ? r.d.priced + "-15" : r.d.priced;
+        const gi = govt(r.cur, yrsBetween(new Date(pd), r.m), pd);
+        const issue = gi != null ? r.cn * 100 - gi * 100 : (M.flat != null ? M.flat - (shift(M, null) - shift(M, pd)) : r.cn * 100 - (govt(r.cur, r.yl, null) || 0) * 100);
+        spr = issue + shift(M, null) - shift(M, pd);
+        r.issSpr = gi != null;
+      }
+      const g0 = govt(r.cur, r.yl, null); if (g0 == null) return;
+      r.spr = spr; r.ytm = g0 + spr / 100;
+      const chg = (day) => { const g1 = govt(r.cur, r.yl, day, true); return g1 == null ? null : (g0 - g1) * 100 + shift(M, null) - shift(M, prevDay(day)); };
+      r.wtd = chg(REF.wk); r.mtd = chg(REF.mo);
+    });
+  }
+  const prevDay = (day) => { const t = new Date(day + "T12:00:00Z"); t.setUTCDate(t.getUTCDate() - 1); return t.toISOString().slice(0, 10); };
+  const pct = (v) => v == null ? "–" : v.toFixed(2) + "%";
+  const bp = (v) => v == null ? "–" : (v > 0.5 ? "+" : v < -0.5 ? "−" : "") + Math.abs(v).toFixed(0);
+  const bpCls = (v) => v == null || Math.abs(v) < 0.5 ? "" : v > 0 ? "dn" : "up"; // higher yield = lower price
+  const cdsH = (g) => { const M = D.mkt && D.mkt.iss[g]; return M && M.cds ? `<span title="5-year CDS quoted ${pricedLabel(M.cds.d)}">${M.cds.v.toFixed(0)}</span>` : "–"; };
+  const wavg = (rs, k) => { const x = rs.filter((r) => r[k] != null), w = x.reduce((a, r) => a + r.usd, 0); return w ? x.reduce((a, r) => a + r[k] * r.usd, 0) / w : null; };
 
   /* ---------- state ---------- */
   const S = { by: store("ad-by") || "g", groups: new Set((store("ad-groups") || "").split(",").filter(Boolean)), type: store("ad-type") || "all",
@@ -172,6 +239,7 @@
       <div class="ad-f" id="adF"></div>
       <p class="ad-cnt" id="adCnt" aria-live="polite"></p>
       <div class="ad-wrap"><table class="ad-tab" id="adTab"></table></div>
+      <details class="adm" id="adMkt"></details>
       <p class="xnote" id="adScope"></p>
     </div>`;
   const $ = (id) => document.getElementById(id);
@@ -201,19 +269,21 @@
       const ys = rs.filter((r) => r.m.y).map((r) => r.m.y);
       const next = rs.filter((r) => r.m.y).sort((a, b) => a.sk - b.sk)[0];
       return { g, n: rs.length, usd, cpn: w ? fx.reduce((a, r) => a + r.cn * r.usd, 0) / w : null, lo: Math.min(...ys), hi: Math.max(...ys), next,
+        ytm: wavg(rs, "ytm"), cds: D.mkt && D.mkt.iss[g.id] && D.mkt.iss[g.id].cds ? D.mkt.iss[g.id].cds.v : null,
         rating: (rs.find((r) => r.d.rating && r.d.kind !== "cv") || {}).d?.rating || "" };
     });
     const tot = agg.reduce((a, x) => a + x.usd, 0), max = Math.max(...agg.map((x) => x.usd));
-    agg.sort((a, b) => issSort === "cpn" ? (b.cpn || 0) - (a.cpn || 0) : issSort === "next" ? a.next.sk - b.next.sk : b.usd - a.usd);
+    agg.sort((a, b) => issSort === "cpn" ? (b.cpn || 0) - (a.cpn || 0) : issSort === "ytm" ? (b.ytm || 0) - (a.ytm || 0) : issSort === "cds" ? (b.cds ?? -1) - (a.cds ?? -1) : issSort === "next" ? a.next.sk - b.next.sk : b.usd - a.usd);
     const th = (k, n) => `<th${issSort === k ? ' aria-sort="descending"' : ""}><button type="button" data-s="${k}">${n}${issSort === k ? " ▾" : ""}</button></th>`;
-    $("adIss").innerHTML = `<table class="ad-tab"><thead><tr><th>Borrower</th>${th("usd", "Amount")}${th("cpn", "Avg cpn")}<th>Matures</th>${th("next", "Next due")}</tr></thead><tbody>
+    $("adIss").innerHTML = `<table class="ad-tab"><thead><tr><th>Borrower</th>${th("usd", "Amount")}${th("cpn", "Avg cpn")}${th("ytm", "Yield")}${th("cds", "5Y CDS")}${th("next", "Next due")}</tr></thead><tbody>
       ${agg.map((x) => `<tr class="adck${S.groups.size === 1 && S.groups.has(x.g.id) ? " on" : ""}" tabindex="0" data-g="${x.g.id}" aria-label="Show only ${esc(x.g.n)} bonds">
-        <td><span class="sw" style="background:${G[x.g.id].col}"></span>${esc(x.g.n)}<small>${x.n} bonds${x.rating ? " · " + esc(x.rating) : ""}</small></td>
+        <td><span class="sw" style="background:${G[x.g.id].col}"></span>${esc(x.g.n)}<small>${x.n} bonds, ${x.lo}–${x.hi}${x.rating ? " · " + esc(x.rating) : ""}</small></td>
         <td>${bn(x.usd)}<small>${(x.usd / tot * 100).toFixed(0)}%</small><span class="shr" style="width:${(x.usd / max * 100).toFixed(1)}%"></span></td>
         <td>${x.cpn == null ? "–" : x.cpn.toFixed(2) + "%"}</td>
-        <td>${x.lo}–${x.hi}</td>
+        <td>${pct(x.ytm)}</td>
+        <td>${cdsH(x.g.id)}</td>
         <td>${matLabel(x.next.m)}<small>${bn(ROWS.filter((r) => r.d.g === x.g.id && r.m.y === x.next.m.y).reduce((a, r) => a + r.usd, 0))}</small></td></tr>`).join("")}
-      </tbody><tfoot><tr><td>Total</td><td>${bn(tot)}</td><td></td><td></td><td></td></tr></tfoot></table>`;
+      </tbody><tfoot><tr><td>Total</td><td>${bn(tot)}</td><td></td><td>${pct(wavg(ROWS, "ytm"))}</td><td></td><td></td></tr></tfoot></table>`;
   }
   $("adIss").addEventListener("click", (e) => {
     const s = e.target.closest("button[data-s]"); if (s) { issSort = s.dataset.s; issuers(); return; }
@@ -308,13 +378,17 @@
 
   const COLS_B = [
     { k: "iss", n: "Borrower", v: (r) => r.d.iss, h: (r) => `<span class="sw" style="background:${G[r.d.g].col}"></span>${esc(r.d.iss)}${r.d.backer ? `<small>for ${esc(r.d.backer)}</small>` : ""}` },
-    { k: "name", n: "Bond", l: 1, v: (r) => r.name, h: (r) => r.d.note ? `<span title="${esc(r.d.note)}">${esc(r.name)}</span>` : esc(r.name) },
+    { k: "name", n: "Bond", l: 1, f: (rs) => rs.length + " bonds", v: (r) => r.name, h: (r) => r.d.note ? `<span title="${esc(r.d.note)}">${esc(r.name)}</span>` : esc(r.name) },
     { k: "cur", n: "Cur", v: (r) => r.cur },
     { k: "amt", n: "Size", v: (r) => r.amt, h: (r) => local(r.amt, r.cur) },
-    { k: "usd", n: "US$", v: (r) => r.usd, h: (r) => bn(r.usd) },
-    { k: "cpn", n: "Coupon", v: (r) => r.cn ?? -1, h: (r) => cpnLabel(r.cpn) },
+    { k: "usd", n: "US$", v: (r) => r.usd, h: (r) => bn(r.usd), f: (rs) => bn(rs.reduce((a, r) => a + r.usd, 0)) },
+    { k: "cpn", n: "Coupon", v: (r) => r.cn ?? -1, h: (r) => cpnLabel(r.cpn), f: (rs) => { const w = wavg(rs, "cn"); return w == null ? "" : "avg " + w.toFixed(2) + "%"; } },
     { k: "mat", n: "Matures", v: (r) => r.sk, h: (r) => matLabel(r.m) },
     { k: "yl", n: "Years left", v: (r) => r.yl ?? 999, h: (r) => r.yl == null ? "–" : r.yl.toFixed(1) },
+    { k: "ytm", n: "YTM", t: "Estimated yield to maturity: live government yield for the currency and maturity plus the borrower's credit spread (see How the yields are estimated)", v: (r) => r.ytm ?? -1, h: (r) => pct(r.ytm), f: (rs) => pct(wavg(rs, "ytm")) },
+    { k: "wtd", n: "WTD Δ", t: "Change in yield since last Friday's close, basis points", v: (r) => r.wtd ?? -1e9, h: (r) => bp(r.wtd), c: (r) => bpCls(r.wtd), f: (rs) => bp(wavg(rs, "wtd")) },
+    { k: "mtd", n: "MTD Δ", t: "Change in yield since the last close of last month, basis points", v: (r) => r.mtd ?? -1e9, h: (r) => bp(r.mtd), c: (r) => bpCls(r.mtd), f: (rs) => bp(wavg(rs, "mtd")) },
+    { k: "cds", n: "5Y CDS", t: "Borrower's 5-year credit default swap, basis points a year (date of the quote below)", v: (r) => r.cds ?? -1, h: (r) => cdsH(r.d.g) },
     { k: "pr", n: "Priced", v: (r) => r.d.priced, h: (r) => pricedLabel(r.d.priced) },
     { k: "kind", n: "Type", v: (r) => r.d.kind, h: (r) => `<span class="tag ${r.d.kind}" title="${KIND[r.d.kind]}">${KS[r.d.kind]}</span>` },
   ];
@@ -325,7 +399,7 @@
       const usd = x.rs.reduce((a, r) => a + r.usd, 0), amt = x.rs.reduce((a, r) => a + r.amt, 0), fx = x.rs.filter((r) => r.cn != null);
       const ys = x.rs.map((r) => r.m.y || r.m.range[1]).concat(x.rs.filter((r) => r.m.range).map((r) => r.m.range[0]));
       const cs = fx.map((r) => r.cn);
-      return { d: x.d, rs: x.rs, usd, amt, n: x.rs.length, lo: Math.min(...ys), hi: Math.max(...ys),
+      return { d: x.d, rs: x.rs, usd, amt, n: x.rs.length, ytm: wavg(x.rs, "ytm"), wtd: wavg(x.rs, "wtd"), mtd: wavg(x.rs, "mtd"), cds: x.rs[0].cds, lo: Math.min(...ys), hi: Math.max(...ys),
         cpn: fx.length ? fx.reduce((a, r) => a + r.cn * r.usd, 0) / fx.reduce((a, r) => a + r.usd, 0) : null, clo: cs.length ? Math.min(...cs) : null, chi: cs.length ? Math.max(...cs) : null };
     });
   }
@@ -334,12 +408,17 @@
     { k: "pr", n: "Priced", v: (x) => x.d.priced, h: (x) => pricedLabel(x.d.priced) },
     { k: "cur", n: "Cur", v: (x) => x.d.cur },
     { k: "amt", n: "Size", v: (x) => x.amt, h: (x) => local(x.amt, x.d.cur) },
-    { k: "usd", n: "US$", v: (x) => x.usd, h: (x) => bn(x.usd) },
-    { k: "n", n: "Bonds", v: (x) => x.n },
+    { k: "usd", n: "US$", v: (x) => x.usd, h: (x) => bn(x.usd), f: (rs) => bn(rs.reduce((a, r) => a + r.usd, 0)) },
+    { k: "n", n: "Bonds", v: (x) => x.n, f: (rs) => rs.length },
     { k: "mat", n: "Maturities", v: (x) => x.lo, h: (x) => x.lo === x.hi ? x.lo : `${x.lo}–${x.hi}` },
-    { k: "cpn", n: "Coupons", v: (x) => x.cpn ?? -1, h: (x) => x.clo == null ? cpnLabel(x.rs[0].cpn) : x.clo === x.chi ? x.clo.toFixed(3).replace(/0$/, "") + "%" : `${x.clo.toFixed(2)}–${x.chi.toFixed(2)}%` },
+    { k: "cpn", n: "Coupons", f: (rs) => { const w = wavg(rs, "cn"); return w == null ? "" : "avg " + w.toFixed(2) + "%"; }, v: (x) => x.cpn ?? -1, h: (x) => x.clo == null ? cpnLabel(x.rs[0].cpn) : x.clo === x.chi ? x.clo.toFixed(3).replace(/0$/, "") + "%" : `${x.clo.toFixed(2)}–${x.chi.toFixed(2)}%` },
+    { k: "ytm", n: "YTM", t: "Estimated yield to maturity, average of the deal's bonds weighted by size", v: (x) => x.ytm ?? -1, h: (x) => pct(x.ytm), f: (rs) => pct(wavg(rs, "ytm")) },
+    { k: "wtd", n: "WTD Δ", t: "Change in yield since last Friday's close, basis points", v: (x) => x.wtd ?? -1e9, h: (x) => bp(x.wtd), c: (x) => bpCls(x.wtd), f: (rs) => bp(wavg(rs, "wtd")) },
+    { k: "mtd", n: "MTD Δ", t: "Change in yield since the last close of last month, basis points", v: (x) => x.mtd ?? -1e9, h: (x) => bp(x.mtd), c: (x) => bpCls(x.mtd), f: (rs) => bp(wavg(rs, "mtd")) },
+    { k: "cds", n: "5Y CDS", t: "Borrower's 5-year credit default swap, basis points a year", v: (x) => x.cds ?? -1, h: (x) => cdsH(x.d.g) },
     { k: "kind", n: "Type", v: (x) => x.d.kind, h: (x) => `<span class="tag ${x.d.kind}" title="${KIND[x.d.kind]}">${KS[x.d.kind]}</span>${x.d.rating ? `<small>${esc(x.d.rating)}</small>` : ""}` },
   ];
+  const td = (c, x) => { const cl = [c.l ? "l" : "", c.c ? c.c(x) : ""].filter(Boolean).join(" "); return `<td${cl ? ` class="${cl}"` : ""}>${c.h ? c.h(x) : esc(c.v(x))}</td>`; };
   function table() {
     const rows = filtered(), deal = S.view === "deal";
     const cols = deal ? COLS_D : COLS_B;
@@ -349,18 +428,16 @@
     list.sort((a, b) => { const x = col.v(a), y = col.v(b); return (x < y ? -1 : x > y ? 1 : 0) * S.dir || (b.usd - a.usd); });
     const tot = rows.reduce((a, r) => a + r.usd, 0), fx = rows.filter((r) => r.cn != null), w = fx.reduce((a, r) => a + r.usd, 0);
     const wc = w ? fx.reduce((a, r) => a + r.cn * r.usd, 0) / w : null;
-    const thead = `<thead><tr>${cols.map((c) => `<th${c.k === S.sort ? ` aria-sort="${S.dir > 0 ? "ascending" : "descending"}"` : ""}${c.l ? ' style="text-align:left"' : ""}><button type="button" data-s="${c.k}">${c.n}${c.k === S.sort ? (S.dir > 0 ? " ▴" : " ▾") : ""}</button></th>`).join("")}</tr></thead>`;
+    const thead = `<thead><tr>${cols.map((c) => `<th${c.t ? ` title="${esc(c.t)}"` : ""}${c.k === S.sort ? ` aria-sort="${S.dir > 0 ? "ascending" : "descending"}"` : ""}${c.l ? ' style="text-align:left"' : ""}><button type="button" data-s="${c.k}">${c.n}${c.k === S.sort ? (S.dir > 0 ? " ▴" : " ▾") : ""}</button></th>`).join("")}</tr></thead>`;
     const body = deal
       ? list.map((x) => {
           const open = S.open.has(x.d.id);
-          return `<tr class="adck${open ? " open" : ""}" tabindex="0" data-d="${x.d.id}" aria-expanded="${open}">${cols.map((c) => `<td${c.l ? ' class="l"' : ""}>${c.h ? c.h(x) : esc(c.v(x))}</td>`).join("")}</tr>`
-            + (open ? `<tr class="dx"><td colspan="${cols.length}">${x.d.note ? esc(x.d.note) : ""}<table>${x.rs.sort((a, b) => a.sk - b.sk).map((r) => `<tr><td>${esc(r.name)}</td><td>${local(r.amt, r.cur)}</td><td>${bn(r.usd)}</td><td>${cpnLabel(r.cpn)}</td><td>${matLabel(r.m)}</td></tr>`).join("")}</table>
+          return `<tr class="adck${open ? " open" : ""}" tabindex="0" data-d="${x.d.id}" aria-expanded="${open}">${cols.map((c) => td(c, x)).join("")}</tr>`
+            + (open ? `<tr class="dx"><td colspan="${cols.length}">${x.d.note ? esc(x.d.note) : ""}<table>${x.rs.sort((a, b) => a.sk - b.sk).map((r) => `<tr><td>${esc(r.name)}</td><td>${local(r.amt, r.cur)}</td><td>${bn(r.usd)}</td><td>${cpnLabel(r.cpn)}</td><td>${matLabel(r.m)}</td><td>${r.ytm == null ? "" : "YTM " + pct(r.ytm)}</td><td>${r.wtd == null ? "" : "WTD " + bp(r.wtd)}</td><td>${r.mtd == null ? "" : "MTD " + bp(r.mtd)}</td></tr>`).join("")}</table>
               Sources: ${x.d.src.map((i) => `<a href="${esc(D.sources[i].u)}" target="_blank" rel="noopener">${esc(D.sources[i].t)}</a>`).join(" · ")}</td></tr>` : "");
         }).join("")
-      : list.map((r) => `<tr>${cols.map((c) => `<td${c.l ? ' class="l"' : ""}>${c.h ? c.h(r) : esc(c.v(r))}</td>`).join("")}</tr>`).join("");
-    const foot = `<tfoot><tr><td>Total</td>${deal
-      ? `<td></td><td></td><td></td><td>${bn(tot)}</td><td>${rows.length}</td><td></td><td>${wc == null ? "" : "avg " + wc.toFixed(2) + "%"}</td><td></td>`
-      : `<td class="l">${rows.length} bonds</td><td></td><td></td><td>${bn(tot)}</td><td>${wc == null ? "" : "avg " + wc.toFixed(2) + "%"}</td><td></td><td></td><td></td><td></td>`}</tr></tfoot>`;
+      : list.map((r) => `<tr>${cols.map((c) => td(c, r)).join("")}</tr>`).join("");
+    const foot = `<tfoot><tr>${cols.map((c, i) => `<td${c.l ? ' class="l"' : ""}>${i === 0 ? "Total" : c.f ? c.f(rows) : ""}</td>`).join("")}</tr></tfoot>`;
     $("adTab").innerHTML = thead + `<tbody>${body || `<tr><td colspan="${cols.length}">No bonds match these filters.</td></tr>`}</tbody>` + foot;
     const active = [S.groups.size ? [...S.groups].map((g) => G[g].n).join(", ") : "", S.type !== "all" ? TYPES.find((t) => t.v === S.type).n : "", S.cur !== "all" ? S.cur : "",
       S.bucket ? "maturing " + S.bucket.n : S.range !== "all" ? RANGES.find((r) => r.v === S.range).n.toLowerCase() : "", S.q ? `"${S.q}"` : ""].filter(Boolean);
@@ -368,7 +445,7 @@
   }
   $("adTab").addEventListener("click", (e) => {
     const s = e.target.closest("th button[data-s]");
-    if (s) { const k = s.dataset.s; if (S.sort === k) S.dir = -S.dir; else { S.sort = k; S.dir = ["usd", "amt", "cpn", "n", "pr"].includes(k) ? -1 : 1; } table(); return; }
+    if (s) { const k = s.dataset.s; if (S.sort === k) S.dir = -S.dir; else { S.sort = k; S.dir = ["usd", "amt", "cpn", "n", "pr", "ytm", "wtd", "mtd", "cds"].includes(k) ? -1 : 1; } table(); return; }
     if (e.target.closest("a")) return;
     const tr = e.target.closest("tr[data-d]"); if (!tr) return;
     const id = tr.dataset.d; if (S.open.has(id)) S.open.delete(id); else S.open.add(id); table();
@@ -383,11 +460,21 @@
   function csv() {
     const rows = filtered().sort((a, b) => a.sk - b.sk);
     const q = (v) => /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v;
-    const lines = [["Borrower", "Backer", "Group", "Bond", "Currency", "Amount (local, millions)", "US$ billions", "Coupon", "Maturity", "Years left", "Priced", "Type", "Rating"]]
-      .concat(rows.map((r) => [r.d.iss, r.d.backer, G[r.d.g].n, r.name, r.cur, r.amt, r.usd.toFixed(3), cpnLabel(r.cpn), matLabel(r.m), r.yl == null ? "" : r.yl.toFixed(1), r.d.priced, KIND[r.d.kind], r.d.rating]));
+    const n2 = (v, k) => v == null ? "" : v.toFixed(k);
+    const lines = [["Borrower", "Backer", "Group", "Bond", "Currency", "Amount (local, millions)", "US$ billions", "Coupon", "Maturity", "Years left", "YTM % (est.)", "WTD change bp", "MTD change bp", "5Y CDS bp", "Priced", "Type", "Rating"]]
+      .concat(rows.map((r) => [r.d.iss, r.d.backer, G[r.d.g].n, r.name, r.cur, r.amt, r.usd.toFixed(3), cpnLabel(r.cpn), matLabel(r.m), r.yl == null ? "" : r.yl.toFixed(1), n2(r.ytm, 3), n2(r.wtd, 1), n2(r.mtd, 1), r.cds ?? "", r.d.priced, KIND[r.d.kind], r.d.rating]));
     const blob = new Blob([lines.map((l) => l.map(q).join(",")).join("\n")], { type: "text/csv" });
     const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `ai-debt-${D.asof}.csv`;
     document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  }
+
+  function mktNote() {
+    if (!D.mkt) return;
+    const live = CV ? `Government yields are live from ${esc(CV.src || "CNBC")}, updated ${new Date(CV.updated * 1000).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })}.`
+      : `Live government yields did not load, so yields use the ${pricedLabel(D.mkt.govtSnap.asof)} snapshot and week/month changes are blank.`;
+    const items = D.groups.map((g) => { const M = D.mkt.iss[g.id]; if (!M) return "";
+      return `<li><b>${esc(g.n)}</b>: ${esc(M.how)} ${M.cds ? `5Y CDS ${M.cds.v}bp (${pricedLabel(M.cds.d)}).` : "No CDS trades."} ${(M.src || []).map((i) => `<a href="${esc(D.sources[i].u)}" target="_blank" rel="noopener" title="${esc(D.sources[i].t)}">[src]</a>`).join(" ")}</li>`; }).join("");
+    $("adMkt").innerHTML = `<summary>How the yields are estimated</summary><p>${esc(D.mkt.note)} ${live} Week-to-date compares with the close before ${pricedLabel(REF.wk)}, month-to-date with the close before ${pricedLabel(REF.mo)}.</p><ul>${items}</ul>`;
   }
 
   function save() { store("ad-by", S.by); store("ad-groups", [...S.groups].join(",")); store("ad-type", S.type); store("ad-view", S.view); }
@@ -395,7 +482,8 @@
 
   (async function () {
     const get = async (u) => { try { const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? r.json() : null; } catch (e) { return null; } };
-    const [d, fx] = await Promise.all([get("../data/ai-debt.json"), get("../data/fx.json")]);
+    const [d, fx, cv] = await Promise.all([get("../data/ai-debt.json"), get("../data/fx.json"), get("../data/curves.json")]);
+    CV = cv && cv.cur ? cv : null;
     if (!d) { host.innerHTML += `<p class="note">The AI debt data did not load.</p>`; return; }
     D = d; FX = Object.assign({}, D.fxFallback);
     let live = false;
@@ -408,7 +496,7 @@
     if (it.usdcad) FX.CAD = 1 / it.usdcad;
     G = {}; D.groups.forEach((g, i) => { G[g.id] = Object.assign({ i, col: `var(--g${i + 1})` }, g); });
     S.groups.forEach((g) => { if (!G[g]) S.groups.delete(g); });
-    build(); cells(); renderAll();
+    build(); prepMkt(); cells(); renderAll(); mktNote();
     $("adScope").innerHTML = `${esc(D.scope)} ${live ? "Non-US-dollar bonds are converted to US$ at today's rates from the FX tab." : "Non-US-dollar bonds are converted at the fallback rates in the data file."} Amounts are at issue; prices in the market have moved since. Figures as of ${esc(D.asofText)}.`;
     const ol = document.getElementById("srcList");
     if (ol) ol.insertAdjacentHTML("beforeend", D.sources.map((s) => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a> (AI debt)</li>`).join(""));

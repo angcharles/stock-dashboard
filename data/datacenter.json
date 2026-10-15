@@ -139,7 +139,35 @@
      "g": 19.5,
      "s": "Consensus"
     }
-   ]
+   ],
+   "bk": {
+    "v": 678,
+    "t": "Commercial RPO",
+    "asof": "Jun 30, 2026",
+    "note": "~30% turns into revenue within 12 months; up 84% y/y, or 25% excluding OpenAI.",
+    "cl": [
+     {
+      "n": "OpenAI",
+      "v": "~45% of RPO",
+      "s": "Incremental $250B Azure commitment (Oct 2025)"
+     },
+     {
+      "n": "Anthropic",
+      "v": "$30B",
+      "s": "Azure compute, up to 1 GW"
+     },
+     {
+      "n": "Enterprise",
+      "v": "rest",
+      "s": "Microsoft 365, Azure and Dynamics contracts"
+     }
+    ],
+    "src": [
+     47,
+     48,
+     49
+    ]
+   }
   },
   {
    "id": "amzn",
@@ -269,7 +297,35 @@
      "g": 14.7,
      "s": "Consensus"
     }
-   ]
+   ],
+   "bk": {
+    "v": 496,
+    "t": "AWS backlog",
+    "asof": "Jun 30, 2026",
+    "note": "About 2.5× a year earlier and double the $244B at the start of 2026.",
+    "cl": [
+     {
+      "n": "Anthropic",
+      "v": ">$100B",
+      "s": "10 years; up to 5 GW of Trainium"
+     },
+     {
+      "n": "OpenAI",
+      "v": "multi-GW",
+      "s": "~2 GW of Trainium plus the $38B deal of Nov 2025"
+     },
+     {
+      "n": "Enterprise",
+      "v": "rest",
+      "s": "Multi-year AWS commitments"
+     }
+    ],
+    "src": [
+     50,
+     51,
+     52
+    ]
+   }
   },
   {
    "id": "googl",
@@ -404,7 +460,39 @@
      "g": 23.8,
      "s": "Consensus"
     }
-   ]
+   ],
+   "bk": {
+    "v": 514,
+    "t": "Google Cloud backlog",
+    "asof": "Jun 30, 2026",
+    "note": "Up more than $50B in the quarter.",
+    "cl": [
+     {
+      "n": "Anthropic",
+      "v": "~$200B",
+      "s": "Over 40% of the backlog; TPUs"
+     },
+     {
+      "n": "Meta",
+      "v": ">$10B",
+      "s": "Six-year cloud deal (Aug 2025)"
+     },
+     {
+      "n": "OpenAI",
+      "v": "n/d",
+      "s": "Capacity deal since 2025"
+     },
+     {
+      "n": "Enterprise",
+      "v": "rest",
+      "s": "Gemini Enterprise, GCP"
+     }
+    ],
+    "src": [
+     53,
+     54
+    ]
+   }
   },
   {
    "id": "meta",
@@ -508,7 +596,42 @@
      "g": 20.3,
      "s": "Consensus"
     }
-   ]
+   ],
+   "bk": {
+    "v": null,
+    "t": "Buyer, not a seller",
+    "asof": "",
+    "note": "Meta has no cloud backlog; it buys capacity. Its biggest commitments to other providers are listed instead.",
+    "buyer": true,
+    "cl": [
+     {
+      "n": "CoreWeave",
+      "v": "~$35.2B",
+      "s": "Two agreements to 2032"
+     },
+     {
+      "n": "Nebius",
+      "v": "$27B",
+      "s": "Five years"
+     },
+     {
+      "n": "Google Cloud",
+      "v": ">$10B",
+      "s": "Six years"
+     },
+     {
+      "n": "Oracle",
+      "v": "n/d",
+      "s": "AI cloud contract"
+     }
+    ],
+    "src": [
+     58,
+     60,
+     54,
+     57
+    ]
+   }
   },
   {
    "id": "orcl",
@@ -619,7 +742,40 @@
      "g": 45.3,
      "s": "Consensus"
     }
-   ]
+   ],
+   "bk": {
+    "v": 664,
+    "t": "Remaining performance obligations",
+    "asof": "Aug 31, 2026",
+    "note": "Up $209B y/y; new contracts mostly prepaid or bring-your-own-hardware, recognized from FY28.",
+    "cl": [
+     {
+      "n": "OpenAI",
+      "v": "~half",
+      "s": "Stargate sites (Abilene, Michigan, New Mexico, Wisconsin)"
+     },
+     {
+      "n": "Meta",
+      "v": "n/d",
+      "s": "Named as a new AI cloud customer"
+     },
+     {
+      "n": "xAI",
+      "v": "n/d",
+      "s": "Named as a new AI cloud customer"
+     },
+     {
+      "n": "Nvidia, AMD",
+      "v": "n/d",
+      "s": "Named as new AI cloud customers"
+     }
+    ],
+    "src": [
+     55,
+     56,
+     57
+    ]
+   }
   },
   {
    "id": "baba",
@@ -732,7 +888,28 @@
      "g": 12.0,
      "s": "Est.: consensus FY27 grown at the ~12% a year consensus path"
     }
-   ]
+   ],
+   "bk": {
+    "v": null,
+    "t": "Not disclosed",
+    "asof": "",
+    "note": "Alibaba does not report a cloud backlog. AI Cloud revenue grew 45% in the June quarter, with external customers also up 45%.",
+    "cl": [
+     {
+      "n": "External enterprises",
+      "v": "n/d",
+      "s": "No customer named"
+     },
+     {
+      "n": "Alibaba group units",
+      "v": "n/d",
+      "s": "Taobao, Qwen apps"
+     }
+    ],
+    "src": [
+     64
+    ]
+   }
   },
   {
    "id": "crwv",
@@ -811,7 +988,44 @@
     22,
     23,
     24
-   ]
+   ],
+   "bk": {
+    "v": 104.2,
+    "t": "Revenue backlog",
+    "asof": "Jun 30, 2026",
+    "note": "Excludes $25B+ of commitments signed early in Q3.",
+    "cl": [
+     {
+      "n": "Meta",
+      "v": "~$35.2B",
+      "s": "Two agreements, to Dec 2032"
+     },
+     {
+      "n": "OpenAI",
+      "v": "~$22.4B",
+      "s": "Three deals in 2025"
+     },
+     {
+      "n": "Microsoft",
+      "v": "n/d",
+      "s": "~67% of 2025 revenue"
+     },
+     {
+      "n": "Jane Street",
+      "v": "$6B",
+      "s": "Apr 2026"
+     },
+     {
+      "n": "Anthropic",
+      "v": "n/d",
+      "s": "Multi-year"
+     }
+    ],
+    "src": [
+     58,
+     59
+    ]
+   }
   },
   {
    "id": "nbis",
@@ -890,7 +1104,39 @@
     25,
     26,
     27
-   ]
+   ],
+   "bk": {
+    "v": 48,
+    "t": "Signed contracts (sum of disclosed deals)",
+    "asof": "Aug 2026",
+    "note": "Nebius does not publish one backlog figure; reports range from $37.5B to $50B+. Capacity booked through 2027.",
+    "cl": [
+     {
+      "n": "Meta",
+      "v": "$27B",
+      "s": "Five years ($12B + $15B flexible)"
+     },
+     {
+      "n": "Microsoft",
+      "v": "$17.4–19.4B",
+      "s": "Five years, from Sep 2025"
+     },
+     {
+      "n": "Reflection, Cohere",
+      "v": "~$1B+ each",
+      "s": "Q2 2026"
+     },
+     {
+      "n": "US AI lab, quant firm",
+      "v": "~$1B+ each",
+      "s": "Q2 2026, unnamed"
+     }
+    ],
+    "src": [
+     60,
+     61
+    ]
+   }
   },
   {
    "id": "spcx",
@@ -1150,7 +1396,28 @@
     35,
     36,
     37
-   ]
+   ],
+   "bk": {
+    "v": null,
+    "t": "Record, $ not disclosed",
+    "asof": "Jun 30, 2026",
+    "note": "Equinix says its backlog of sold-but-not-installed space is a record; Q2 annualized gross bookings were $424M (+23% y/y).",
+    "cl": [
+     {
+      "n": "Hyperscalers via xScale",
+      "v": "n/d",
+      "s": "134 MW of xScale leases signed in Q2"
+     },
+     {
+      "n": "Enterprises",
+      "v": "n/d",
+      "s": "Retail colocation and interconnection"
+     }
+    ],
+    "src": [
+     63
+    ]
+   }
   },
   {
    "id": "dlr",
@@ -1214,7 +1481,29 @@
     38,
     39,
     40
-   ]
+   ],
+   "bk": {
+    "v": 1.9,
+    "t": "Signed-not-commenced leases (annual rent)",
+    "asof": "Jun 30, 2026",
+    "rent": true,
+    "note": "$1.9B a year of rent at 100% share ($1.4B Digital Realty's share), plus two hyperscale leases worth $410M a year signed in July.",
+    "cl": [
+     {
+      "n": "Hyperscalers",
+      "v": "n/d",
+      "s": "Not named; July leases $410M/yr"
+     },
+     {
+      "n": "Enterprises",
+      "v": "n/d",
+      "s": "0–1 MW plus interconnection"
+     }
+    ],
+    "src": [
+     62
+    ]
+   }
   }
  ],
  "chipPrices": [
@@ -1511,6 +1800,78 @@
   {
    "t": "Business Insider: BofA forecasts Alibaba cloud growth",
    "u": "https://markets.businessinsider.com/news/stocks/alibaba-stock-rises-over-4-as-bank-of-america-says-earnings-inflection-is-underpriced-1036613992"
+  },
+  {
+   "t": "Motley Fool/Nasdaq: Microsoft commercial RPO $678B, ~30% due within 12 months (FY26 Q4)",
+   "u": "https://nasdaq.com/articles/microsoft-has-678-billion-revenue-already-under-contract-thats-more-2-years-sales"
+  },
+  {
+   "t": "Lapaas: 45% of Microsoft's commercial RPO tied to OpenAI (Jan 2026)",
+   "u": "https://voice.lapaas.com/microsoft-openai-commercial-backlog-45-percent-2026?amp=1"
+  },
+  {
+   "t": "Windows Forum: Anthropic's $30B Azure compute commitment",
+   "u": "https://windowsforum.com/windows-news.4/microsoft-ai-backlog-surges-as-openai-concentration-rises-and-maia-200-debuts.399328"
+  },
+  {
+   "t": "Amazon Q2 2026 earnings call: AWS backlog $496B; multi-GW Trainium commitments from Anthropic and OpenAI",
+   "u": "https://fool.com/earnings/call-transcripts/2026/08/07/amazon-amzn-q2-2026-earnings-call-transcript"
+  },
+  {
+   "t": "Second Talent: Anthropic committed more than $100B to AWS over ten years (Apr 2026)",
+   "u": "https://secondtalent.com/resources/aws-statistics"
+  },
+  {
+   "t": "Edgen: Trainium commitments, OpenAI ~2 GW and Anthropic up to 5 GW",
+   "u": "https://edgen.pre.edgen.tech/news/post/amazon-aws-backlog-hits-496-billion-as-ai-demand-surges"
+  },
+  {
+   "t": "Agentic Brew: Google Cloud backlog $514B at end of Q2 2026, up from ~$460B",
+   "u": "https://agenticbrew.ai/news/8df1dac9-31ce-48ce-b03a-71a158a18847/alphabet-q2-2026-earnings-record-profit-driven-by-anthropic-and-spacex-stake-gains"
+  },
+  {
+   "t": "AI2 Work: Anthropic's ~$200B Google Cloud deal is over 40% of Google's cloud backlog",
+   "u": "https://ai2.work/blog/half-of-big-tech-s-2-trillion-cloud-backlog-traces-to-two-ai-labs"
+  },
+  {
+   "t": "Oracle Q1 FY27 earnings call: RPO $664B, up $209B y/y",
+   "u": "https://fool.com/earnings/call-transcripts/2026/09/11/oracle-orcl-q1-2027-earnings-call-transcript"
+  },
+  {
+   "t": "ERP Today: roughly half of Oracle's $664B backlog tied to OpenAI",
+   "u": "https://erp.today/oracle-q1-fy27-results-664b-backlog-ai-contracts/"
+  },
+  {
+   "t": "The Robotics Media: Oracle named OpenAI, xAI, Meta, Nvidia and AMD as AI cloud customers (Q1 FY27)",
+   "u": "https://theroboticsmedia.com/article/oracle-q1-fy27-19-billion-revenue-30-billion-ai-cloud-contracts-638-billion-rpo-september-10-2026"
+  },
+  {
+   "t": "AI Expert: CoreWeave backlog $104B at Jun 30; Meta ~$35.2B, OpenAI ~$22.4B, Jane Street $6B, Anthropic",
+   "u": "https://aiexpert.news/en/article/coreweave-revenue-doubles-on-ai-infra-boom-crwv-stock-pops-12"
+  },
+  {
+   "t": "Market Daily: CoreWeave Q2 2026, $104.2B backlog plus $25B+ signed early in Q3",
+   "u": "https://marketdaily.com/coreweave-q2-2026-earnings-revenue-doubles-ai-backlog-104-billion"
+  },
+  {
+   "t": "Yahoo Finance: Nebius contracts, Meta $27B five-year and Microsoft $17.4–19.4B",
+   "u": "https://finance.yahoo.com/technology/ai/articles/nebius-captures-pure-play-ai-144515797.html"
+  },
+  {
+   "t": "CCIR Research: Nebius Q2 2026 four deals above $1B each (Reflection, Cohere, a US AI lab, a quant firm)",
+   "u": "https://ccir.io/research/two-order-books"
+  },
+  {
+   "t": "Digital Realty Q2 2026 results: record $1.9B backlog of signed-not-commenced annual rent",
+   "u": "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-second-quarter-2026-results"
+  },
+  {
+   "t": "Equinix Q2 2026 earnings call: record backlog, $424M annualized gross bookings",
+   "u": "https://fool.com/earnings/call-transcripts/2026/08/07/equinix-eqix-q2-2026-earnings-call-transcript"
+  },
+  {
+   "t": "Alibaba June quarter 2026 results: AI Cloud revenue +45%, external customers +45%",
+   "u": "https://secure.businesswire.com/news/home/20260818525201/en/Alibaba-Group-Announces-June-Quarter-2026-Results"
   }
  ],
  "chipSrc": [
@@ -1543,5 +1904,6 @@
    "s": "vs ~$4M for GB300 NVL72 (Morgan Stanley)",
    "src": 41
   }
- ]
+ ],
+ "bkAsof": "Oct 15, 2026"
 }

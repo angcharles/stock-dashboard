@@ -193,6 +193,58 @@
     });
     const none = D.companies.filter((c) => c.capexV == null).map((c) => `${esc(c.name)}: ${esc(c.capexT)}`).join(" · ");
     $("capexNote").innerHTML = "Midpoint of each company's guidance; fiscal years differ (see each card). “Capex ÷ revenue” compares it with the latest full-year revenue. Not on the chart: " + none + ".";
+    backlog();
+  }
+
+  // Contract backlog (RPO) and named clients for the companies on the capex chart
+  function backlog() {
+    if (!document.getElementById("bkStyle")) {
+      const st = document.createElement("style"); st.id = "bkStyle";
+      st.textContent = `.bkp{margin-top:14px}.bkh{font:600 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+      .bkw{overflow-x:auto}.bkt{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+      .bkt th{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+      .bkt th.n,.bkt td.n{text-align:right}
+      .bkt td{padding:8px;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);vertical-align:top}
+      .bkt td.n{font:600 13px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+      .bkt td small{display:block;font:400 11.5px var(--f-body,inherit);color:var(--muted);white-space:normal}
+      .bkt td.bkn{font-weight:600;min-width:120px}.bkt td.bkn small{font-weight:400}
+      .bkt tr.bkr{cursor:pointer}.bkt tr.bkr:hover,.bkt tr.bkr:focus-visible{background:color-mix(in srgb,var(--accent-soft,#e8f0fe) 70%,transparent);outline:none}
+      .bkt .bb{display:block;height:4px;border-radius:2px;background:var(--accent,#2a78d6);opacity:.6;margin:5px 0 0 auto}
+      .bkt ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+      .bkt li{display:grid;grid-template-columns:150px 105px 1fr;gap:0 10px;align-items:baseline}
+      .bkt li b{font-weight:600}.bkt li span{font:500 12px var(--f-mono);white-space:nowrap}.bkt li em{font-style:normal;font-size:12px;color:var(--muted)}
+      .bkt .buy{display:inline-block;font:600 9.5px var(--f-mono);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);color:var(--muted);border-radius:3px;padding:1px 4px;margin-bottom:4px}
+      @media (max-width:620px){.bkt{min-width:0}.bkt thead{display:none}.bkt,.bkt tbody{display:block}.bkt tr{display:grid;grid-template-columns:1fr auto auto;gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--line)}.bkt td{border:0;padding:0}.bkt td:last-child{grid-column:1/-1;margin-top:6px}.bkt li{grid-template-columns:1fr auto;gap:0 8px}.bkt li em{grid-column:1/-1}}`;
+      document.head.appendChild(st);
+    }
+    const list = D.companies.filter((c) => c.bk);
+    const host = $("bkTab");
+    let srt = store("dc-bk-sort") || "v";
+    const ratio = (c) => c.bk.v != null && !c.bk.rent && c.capexV ? c.bk.v / c.capexV : null;
+    const max = Math.max(...list.filter((c) => !c.bk.rent).map((c) => c.bk.v || 0));
+    function render() {
+      const rows = list.slice().sort((a, b) => srt === "az" ? a.name.localeCompare(b.name)
+        : srt === "x" ? (ratio(b) ?? -1) - (ratio(a) ?? -1)
+        : ((b.bk.rent ? 0 : b.bk.v) ?? -1) - ((a.bk.rent ? 0 : a.bk.v) ?? -1));
+      host.innerHTML = `<div class="ctl">${ctlRow("bk", "Sort", segBtns("Sort backlog table", [{ v: "v", n: "Largest backlog" }, { v: "x", n: "Backlog ÷ capex" }, { v: "az", n: "A–Z" }], srt))}</div>
+        <div class="bkw"><table class="bkt"><thead><tr><th>Company</th><th class="n">Backlog</th><th class="n" title="Backlog divided by this year's capex guidance">÷ Capex</th><th>Biggest clients</th></tr></thead><tbody>${rows.map((c) => {
+          const b = c.bk, x = ratio(c);
+          const val = b.v == null ? `<td class="n">—<small>${esc(b.t)}</small></td>`
+            : `<td class="n">${money(b.v)}${b.rent ? "/yr" : ""}<small>${esc(b.t)}${b.asof ? " · " + esc(b.asof) : ""}</small>${b.rent ? "" : `<span class="bb" style="width:${(b.v / max * 100).toFixed(1)}%"></span>`}</td>`;
+          return `<tr class="bkr" tabindex="0" data-id="${esc(c.id)}" aria-label="Open the ${esc(c.name)} card">
+            <td class="bkn">${esc(c.name)}<small>${esc(c.ticker)}</small></td>${val}
+            <td class="n">${x == null ? "—" : x.toFixed(1) + "×"}</td>
+            <td>${b.buyer ? `<span class="buy">Commitments it has made</span>` : ""}<ul>${b.cl.map((k) => `<li><b>${esc(k.n)}</b><span>${esc(k.v)}</span><em>${esc(k.s)}</em></li>`).join("")}</ul><small>${esc(b.note)} ${b.src.map((i) => `<a href="${esc(D.sources[i].u)}" target="_blank" rel="noopener" title="${esc(D.sources[i].t)}">[src]</a>`).join(" ")}</small></td></tr>`;
+        }).join("")}</tbody></table></div>`;
+    }
+    render();
+    host.onclick = (e) => {
+      const btn = e.target.closest(".seg button"); if (btn) { srt = btn.dataset.v; store("dc-bk-sort", srt); render(); return; }
+      if (e.target.closest("a")) return;
+      const tr = e.target.closest("tr[data-id]"); if (tr) jumpTo(tr.dataset.id);
+    };
+    host.onkeydown = (e) => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("tr[data-id]")) { e.preventDefault(); jumpTo(e.target.dataset.id); } };
+    $("bkNote").innerHTML = "Backlog is contracted revenue not yet recognized (remaining performance obligations), from each company's latest quarterly report; it is total contract value except Digital Realty, which reports annual rent on signed leases that have not started. “n/d” means the amount is not disclosed. Client amounts are reported contract values, not shares of the backlog, and can span several years. Hyperscalers report again in late October.";
   }
 
   function filters() {

@@ -105,6 +105,9 @@ jobs:
           node scripts/fetch-fx.mjs || echo "fx fetch failed; using the committed file"
           node scripts/fetch-news.mjs fx || echo "fx news failed"
 
+      - name: Fetch government bond curves (AI debt yields)
+        run: node scripts/fetch-curves.mjs || echo "curves fetch failed; using the committed file"
+
       - name: Assemble site
         run: |
           mkdir -p _site/data _site/assets
@@ -117,6 +120,7 @@ jobs:
           cp data/fx.json data/fx-news.json _site/data/
           mkdir -p _site/fx && cp fx/index.html _site/fx/
           cp data/datacenter.json data/ai-debt.json _site/data/
+          if [ -f data/curves.json ]; then cp data/curves.json _site/data/; fi
           mkdir -p _site/datacenter && cp datacenter/index.html _site/datacenter/
           mkdir -p _site/robotics && cp robotics/index.html _site/robotics/
           if [ -f data/portfolios-perf.json ]; then cp data/portfolios-perf.json _site/data/; fi
