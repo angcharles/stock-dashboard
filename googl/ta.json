@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 347.64,
+ "asof": "Oct 15, 2026",
+ "close": 349.22,
  "bias": {
-  "en": "Neutral · rejected at $359, back in the range",
-  "zh": "中性 · 在 $359 受阻，回到区间内"
+  "en": "Neutral · holding the averages under $352",
+  "zh": "中性 · 守住均线，受制于 $352"
  },
  "read": [
   {
-   "en": "Alphabet fell 1.7% on Oct 14 to $347.64 after an early push to $359.40 faded. It closed below its 5-day ($350.8), 10-day ($348.1) and falling 100-day ($351.7) averages, and above the 30-day ($344.4) and 200-day ($340.6). MACD is still above its signal (since Oct 5) with a narrowing histogram, Parabolic SAR has been bullish since Oct 8 ($337.6), and RSI is 51.",
-   "zh": "Alphabet 10月14日早盘冲高至 $359.40 后回落，下跌 1.7%，收于 $347.64。股价收于 5 日（$350.8）、10 日（$348.1）和下行的 100 日均线（$351.7）下方，并在 30 日（$344.4）和 200 日均线（$340.6）上方。MACD 仍位于信号线上方（自 10月5日起），柱状图收窄，抛物线 SAR 自 10月8日起看多（$337.6），RSI 为 51。"
+   "en": "Alphabet rose 0.5% on Oct 15 to $349.22 after dipping to $340.61. It closed just above its 10-day ($349.2), above the 30-day ($344.8) and 200-day ($340.8), and below the 5-day ($351.0) and falling 100-day ($351.4). MACD is still above its signal (since Oct 5) but the histogram is narrowing toward a cross, Parabolic SAR has been bullish since Oct 8 ($338.9), and RSI is 53.",
+   "zh": "Alphabet 10月15日盘中下探 $340.61 后回升，上涨 0.5%，收于 $349.22。股价收于 10 日均线（$349.2）略上方，位于 30 日（$344.8）和 200 日均线（$340.8）上方，并在 5 日（$351.0）和下行的 100 日均线（$351.4）下方。MACD 仍位于信号线上方（自 10月5日起），但柱状图收窄、接近交叉，抛物线 SAR 自 10月8日起看多（$338.9），RSI 为 53。"
   },
   {
-   "en": "The break above $358.6 did not hold and the $352 support (100 and 5-day averages) gave way, so that zone is now first resistance, then $359.4 (Oct 13–14 highs) and $364 (Sep 22 high). The day's low of $346.34 held the $344–348 zone (10 and 30-day averages). Below it are $337.5 (SAR) and $327.7 (Sep 10 low). A close above $359.4 would target $364.",
-   "zh": "突破 $358.6 未能守住，$352 支撑（100 日和 5 日均线）失守，该区域现为第一阻力，其次 $359.4（10月13–14日高点）和 $364（9月22日高点）。当日低点 $346.34 守住 $344–348 区域（10 日和 30 日均线）。其下为 $337.5（SAR）和 $327.7（9月10日低点）。若收盘站上 $359.4，目标看 $364。"
+   "en": "Little changed versus the previous read: the dip briefly undercut the $344–349 average zone but the close recovered it, and the $352 cap (100 and 5-day averages, Oct 15 high $352.13) held. Above it are $359.4 (Oct 13–14 highs) and $364 (Sep 22 high). Support is $345, then $339–341 (SAR and 200-day average) and $327.7 (Sep 10 low). A close above $352 would target $359.4.",
+   "zh": "较上次解读变化不大：盘中回落一度跌破 $344–349 均线区域，但收盘收复，$352 压力（100 日和 5 日均线、10月15日高点 $352.13）未被突破。其上为 $359.4（10月13–14日高点）和 $364（9月22日高点）。支撑为 $345，其次 $339–341（SAR 及 200 日均线）和 $327.7（9月10日低点）。若收盘站上 $352，目标看 $359.4。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     352,
     {
-     "en": "100 and 5-day averages ($351–352)",
-     "zh": "100日和5日均线（$351–352）"
+     "en": "100 and 5-day averages; Oct 15 high $352.1",
+     "zh": "100日和5日均线；10月15日高点 $352.1"
     }
    ],
    [
@@ -41,17 +41,17 @@
   ],
   "s": [
    [
-    346,
+    345,
     {
-     "en": "10 and 30-day averages ($344–348)",
-     "zh": "10日和30日均线（$344–348）"
+     "en": "30 and 10-day averages ($344.8–349.2)",
+     "zh": "30日和10日均线（$344.8–349.2）"
     }
    ],
    [
-    337.5,
+    339,
     {
-     "en": "SAR; Oct 1 low $335.5",
-     "zh": "SAR；10月1日低点 $335.5"
+     "en": "SAR $338.9; 200-day average $340.8",
+     "zh": "SAR $338.9；200日均线 $340.8"
     }
    ],
    [

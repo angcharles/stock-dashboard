@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 254.08,
+ "asof": "Oct 15, 2026",
+ "close": 254.76,
  "bias": {
-  "en": "Neutral · back on the 30 and 100-day averages",
-  "zh": "中性 · 回到 30 日和 100 日均线"
+  "en": "Neutral · holding the 30 and 100-day averages",
+  "zh": "中性 · 守在 30 日和 100 日均线上方"
  },
  "read": [
   {
-   "en": "Amazon fell 1.7% on Oct 14 to $254.08. It slipped below its 5-day ($257.7) and 10-day ($255.6) averages and is holding just above the 30-day ($253.4) and 100-day ($252.5), both edging lower, and the 200-day ($242.5). MACD is still above its signal (since Oct 5) but the histogram is narrowing, Parabolic SAR has been bullish since Oct 2 ($252.6), and RSI is 49.",
-   "zh": "亚马逊 10月14日下跌 1.7%，收于 $254.08。股价跌破 5 日（$257.7）和 10 日均线（$255.6），守在均小幅下行的 30 日（$253.4）和 100 日均线（$252.5）以及 200 日均线（$242.5）上方。MACD 仍位于信号线上方（自 10月5日起），但柱状图收窄，抛物线 SAR 自 10月2日起看多（$252.6），RSI 为 49。"
+   "en": "Amazon rose 0.3% on Oct 15 to $254.76 after dipping to $248.65 intraday. It is below its rising 5-day ($257.9) and 10-day ($256.3) averages and just above the 30-day ($253.4) and 100-day ($252.4), both edging lower, and the 200-day ($242.6). MACD is still above its signal (since Oct 5) and above zero, but the histogram is narrowing; Parabolic SAR flipped bearish on Oct 15 ($263.7), and RSI is 50.",
+   "zh": "亚马逊 10月15日上涨 0.3%，收于 $254.76，盘中曾跌至 $248.65。股价位于上行的 5 日（$257.9）和 10 日均线（$256.3）下方，略高于均小幅下行的 30 日（$253.4）和 100 日均线（$252.4），以及 200 日均线（$242.6）。MACD 仍位于信号线上方（自 10月5日起）并在零轴之上，但柱状图收窄；抛物线 SAR 于 10月15日翻空（$263.7），RSI 为 50。"
   },
   {
-   "en": "The close broke the $257 support tested four times in September, which turns into first resistance, then $263.7 (Oct 12 high, top of the range) and $267.6. The day's low of $252.66 held the $252.5–253.4 zone (30 and 100-day averages, SAR). A close below $252.5 would flip the SAR bearish and open $244–245 (Sep 16 and 28 lows).",
-   "zh": "收盘跌破 9月四次测试的 $257 支撑，该位置转为第一阻力，其上为 $263.7（10月12日高点，区间上沿）和 $267.6。当日低点 $252.66 守住 $252.5–253.4 区域（30 日和 100 日均线、SAR）。若收盘跌破 $252.5，SAR 将转为看空，并打开至 $244–245（9月16日和 28日低点）的空间。"
+   "en": "The intraday drop below $252.5 flipped the SAR bearish, but the close recovered above the 30 and 100-day averages. Resistance is $256–258 (5 and 10-day averages, the September cap), then $263.7 (Oct 12 high and SAR) and $267.6. Support is $252.4–253.4, then $248.7 (Oct 15 low) and $244–245 (Sep 16 and 28 lows). A close below $252.4 would open $244–245.",
+   "zh": "盘中跌破 $252.5 使 SAR 翻空，但收盘重回 30 日和 100 日均线上方。阻力为 $256–258（5 日和 10 日均线、9月压力位），其次 $263.7（10月12日高点及 SAR）和 $267.6。支撑为 $252.4–253.4，其次 $248.7（10月15日低点）和 $244–245（9月16日和 28日低点）。若收盘跌破 $252.4，将打开至 $244–245 的空间。"
   }
  ],
  "levels": {
@@ -20,15 +20,15 @@
    [
     257.5,
     {
-     "en": "Tested four times in September; 5-day average $257.7",
-     "zh": "9月四次测试；5日均线 $257.7"
+     "en": "Tested four times in September; 5 and 10-day averages ($256.3–257.9)",
+     "zh": "9月四次测试；5日和10日均线（$256.3–257.9）"
     }
    ],
    [
     263.7,
     {
-     "en": "Oct 12 high, top of the Sep–Oct range",
-     "zh": "10月12日高点，9–10月区间上沿"
+     "en": "Oct 12 high, top of the Sep–Oct range; SAR",
+     "zh": "10月12日高点，9–10月区间上沿；SAR"
     }
    ],
    [
@@ -43,22 +43,22 @@
    [
     252.5,
     {
-     "en": "30 and 100-day averages and SAR ($252.5–253.4)",
-     "zh": "30日和100日均线及SAR（$252.5–253.4）"
+     "en": "30 and 100-day averages ($252.4–253.4)",
+     "zh": "30日和100日均线（$252.4–253.4）"
+    }
+   ],
+   [
+    248.7,
+    {
+     "en": "Oct 15 low",
+     "zh": "10月15日低点"
     }
    ],
    [
     244.5,
     {
-     "en": "Sep 16 and Sep 28 lows; 200-day average $242.5 below",
-     "zh": "9月16日及9月28日低点；其下为200日均线 $242.5"
-    }
-   ],
-   [
-    226,
-    {
-     "en": "Jul 29 low",
-     "zh": "7月29日低点"
+     "en": "Sep 16 and Sep 28 lows; 200-day average $242.6 below",
+     "zh": "9月16日及9月28日低点；其下为200日均线 $242.6"
     }
    ]
   ]

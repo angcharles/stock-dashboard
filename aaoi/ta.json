@@ -1,57 +1,57 @@
 {
- "asof": "Oct 14, 2026",
- "close": 86.22,
+ "asof": "Oct 15, 2026",
+ "close": 83.73,
  "bias": {
-  "en": "Bearish · broke the September floor",
-  "zh": "偏空 · 跌破 9 月底部"
+  "en": "Bearish · lost the March low",
+  "zh": "偏空 · 跌破 3 月低点"
  },
  "read": [
   {
-   "en": "AAOI fell 11.8% on Oct 14 to $86.22 on heavy volume and is down 30% in five sessions. It is below every average: the 5-day ($100.0), 10-day ($109.7), falling 30-day ($104.7), 200-day ($111.8) and falling 100-day ($127.1). MACD has been below its signal since Oct 13 and is below zero, Parabolic SAR has been bearish since Oct 12 ($129.1), and RSI is 37.",
-   "zh": "AAOI 10月14日放量下跌 11.8%，收于 $86.22，五个交易日下跌 30%。股价位于所有均线下方：5 日（$100.0）、10 日（$109.7）、下行的 30 日（$104.7）、200 日（$111.8）以及下行的 100 日均线（$127.1）。MACD 自 10月13日起位于信号线下方并在零轴之下，抛物线 SAR 自 10月12日起看空（$129.1），RSI 为 37。"
+   "en": "AAOI fell 2.9% on Oct 15 to $83.73 on heavy volume after trading as low as $76.21. It is below every average: the 5-day ($95.6), 10-day ($107.4), falling 30-day ($104.1), rising 200-day ($112.0) and falling 100-day ($126.1). MACD has been below its signal since Oct 13, below zero with a widening histogram; Parabolic SAR has been bearish since Oct 12 ($126.5), and RSI is 36.",
+   "zh": "AAOI 10月15日放量下跌 2.9%，收于 $83.73，盘中最低至 $76.21。股价位于所有均线下方：5 日（$95.6）、10 日（$107.4）、下行的 30 日（$104.1）、上行的 200 日（$112.0）以及下行的 100 日均线（$126.1）。MACD 自 10月13日起位于信号线下方，在零轴之下且柱状图扩大；抛物线 SAR 自 10月12日起看空（$126.5），RSI 为 36。"
   },
   {
-   "en": "The September floor ($93.6–97), which had held three times, broke on the close and is now first resistance; the day's low was $85.75. Next support is $84.6 (March low), then $76 (Jul 29 swing low). Above the floor, resistance is $100 (5-day average) and $105 (30-day average). A close below $84.6 would open $76.",
-   "zh": "此前三次守住的 9月底部（$93.6–97）收盘失守，现转为第一阻力；当日低点 $85.75。下一支撑为 $84.6（3月低点），其次 $76（7月29日波段低点）。底部区域之上，阻力为 $100（5 日均线）和 $105（30 日均线）。若收盘跌破 $84.6，下一目标看 $76。"
+   "en": "The close broke the $84.6 March low, now first resistance (day's high $85.02); above it are the September floor ($93.6–97) with the 5-day average, then $104 (30-day average). The intraday drop stopped just above the $76 Jul 29 low. Support is $78.6 (Mar 31 low), then $76. A close below $76 would break the July low; a close above $85 would reopen $94.",
+   "zh": "收盘跌破 $84.6 的 3月低点，该位置转为第一阻力，当日高点为 $85.02；其上为 9月底部（$93.6–97）及 5 日均线，其次 $104（30 日均线）。盘中跌势止于 7月29日低点 $76 上方。支撑为 $78.6（3月31日低点），其次 $76。若收盘跌破 $76，将跌破 7月低点；若收盘回到 $85 上方，将重新打开至 $94 的空间。"
   }
  ],
  "levels": {
   "r": [
    [
+    85,
+    {
+     "en": "March low, now resistance; Oct 15 high $85.02",
+     "zh": "3月低点，转为阻力；10月15日高点 $85.02"
+    }
+   ],
+   [
     94,
     {
-     "en": "September floor, now resistance ($93.6–97)",
-     "zh": "9月底部，转为阻力（$93.6–97）"
+     "en": "September floor ($93.6–97); 5-day average $95.6",
+     "zh": "9月底部（$93.6–97）；5日均线 $95.6"
     }
    ],
    [
-    100,
+    104,
     {
-     "en": "5-day average",
-     "zh": "5日均线"
-    }
-   ],
-   [
-    105,
-    {
-     "en": "30-day average; Oct 12 high $106.4",
-     "zh": "30日均线；10月12日高点 $106.4"
+     "en": "30-day average",
+     "zh": "30日均线"
     }
    ]
   ],
   "s": [
    [
-    84.6,
+    78.6,
     {
-     "en": "March low; Oct 14 low $85.75",
-     "zh": "3月低点；10月14日低点 $85.75"
+     "en": "Mar 31 low",
+     "zh": "3月31日低点"
     }
    ],
    [
     76,
     {
-     "en": "Jul 29 swing low",
-     "zh": "7月29日波段低点"
+     "en": "Jul 29 swing low; Oct 15 low $76.21",
+     "zh": "7月29日波段低点；10月15日低点 $76.21"
     }
    ]
   ]

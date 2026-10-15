@@ -1,57 +1,57 @@
 {
- "asof": "Oct 14, 2026",
- "close": 570.82,
+ "asof": "Oct 15, 2026",
+ "close": 562.23,
  "bias": {
-  "en": "Uptrend under pressure · slipping under the 30-day",
-  "zh": "上升趋势承压 · 跌至 30 日均线下方"
+  "en": "Uptrend under pressure · lost the 30-day average",
+  "zh": "上升趋势承压 · 跌破 30 日均线"
  },
  "read": [
   {
-   "en": "AMD fell 5.7% on Oct 14 to $570.82 and is down 12% in five sessions. It is below its 5-day ($599.9) and 10-day ($617.6) averages and just under the rising 30-day ($572.3), while staying above the 100-day ($524.5) and 200-day ($391.0). MACD has been below its signal since Oct 9 with a widening histogram, still above zero; Parabolic SAR has been bearish since Oct 8 ($645.0), and RSI is 47.",
-   "zh": "AMD 10月14日下跌 5.7%，收于 $570.82，五个交易日下跌 12%。股价位于 5 日（$599.9）和 10 日均线（$617.6）下方，略低于上行的 30 日均线（$572.3），但仍在 100 日（$524.5）和 200 日均线（$391.0）上方。MACD 自 10月9日起位于信号线下方，柱状图扩大，仍在零轴之上；抛物线 SAR 自 10月8日起看空（$645.0），RSI 为 47。"
+   "en": "AMD fell 1.5% on Oct 15 to $562.23 on above-average volume, recovering from an intraday low of $530.09. It is below its 5-day ($588.2), 10-day ($612.3) and rising 30-day ($575.8) averages but above the 100-day ($525.5) and 200-day ($392.7). MACD has been below its signal since Oct 9 with a widening histogram, still above zero; Parabolic SAR has been bearish since Oct 8 ($637.2), and RSI is 44.5.",
+   "zh": "AMD 10月15日在成交量高于平均的情况下下跌 1.5%，收于 $562.23，盘中从 $530.09 低点回升。股价位于 5 日（$588.2）、10 日（$612.3）和上行的 30 日均线（$575.8）下方，但在 100 日（$525.5）和 200 日均线（$392.7）上方。MACD 自 10月9日起位于信号线下方，柱状图扩大，仍在零轴之上；抛物线 SAR 自 10月8日起看空（$637.2），RSI 为 44.5。"
   },
   {
-   "en": "The $588 late-September pivot broke and is now first resistance, with the 5-day average at $600 and the 10-day at $618 above it. The close sits on the $567–572 zone (30-day average, Oct 13–14 lows). Below it, support is $525 (August pivot and 100-day average), then $495–498 (late-June and early-July lows). A close below $567 would open $525.",
-   "zh": "$588 的 9月下旬转折点失守，现转为第一阻力，其上为 $600 的 5 日均线和 $618 的 10 日均线。收盘位于 $567–572 区域（30 日均线、10月13–14日低点）。其下支撑为 $525（8月转折点及 100 日均线），其次 $495–498（6月下旬及 7月初低点）。若收盘跌破 $567，下一目标看 $525。"
+   "en": "The $567–572 zone (30-day average, Oct 13–14 lows) broke on the close and now caps at $567–576, with the late-September pivot at $588–590 above. The intraday drop held $530, just above the 100-day average. Support is $530 (Oct 15 low), then $525 (August pivot, 100-day) and $495–498. A close below $525 would open $497; a close above $576 would target $590.",
+   "zh": "$567–572 区域（30 日均线、10月13–14日低点）收盘失守，现于 $567–576 形成压制，其上为 $588–590 的 9月下旬转折点。盘中跌势守在 $530，略高于 100 日均线。支撑为 $530（10月15日低点），其次 $525（8月转折点、100 日均线）和 $495–498。若收盘跌破 $525，下一目标看 $497；若收盘站上 $576，目标看 $590。"
   }
  ],
  "levels": {
   "r": [
    [
+    568,
+    {
+     "en": "Oct 14 low and Oct 15 high ($567–568.6), former support",
+     "zh": "10月14日低点及10月15日高点（$567–568.6），原支撑"
+    }
+   ],
+   [
+    576,
+    {
+     "en": "30-day average",
+     "zh": "30日均线"
+    }
+   ],
+   [
     590,
     {
-     "en": "Late-September pivot; Oct 14 high $591.9",
-     "zh": "9月下旬转折点；10月14日高点 $591.9"
-    }
-   ],
-   [
-    600,
-    {
-     "en": "5-day average",
-     "zh": "5日均线"
-    }
-   ],
-   [
-    618,
-    {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "Late-September pivot; 5-day average $588.2",
+     "zh": "9月下旬转折点；5日均线 $588.2"
     }
    ]
   ],
   "s": [
    [
-    569,
+    530,
     {
-     "en": "30-day average and Oct 13–14 lows ($567–572)",
-     "zh": "30日均线及10月13–14日低点（$567–572）"
+     "en": "Oct 15 low",
+     "zh": "10月15日低点"
     }
    ],
    [
     525,
     {
-     "en": "August pivot; 100-day average $524.5",
-     "zh": "8月转折点；100日均线 $524.5"
+     "en": "August pivot; 100-day average $525.5",
+     "zh": "8月转折点；100日均线 $525.5"
     }
    ],
    [

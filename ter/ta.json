@@ -1,50 +1,50 @@
 {
- "asof": "Oct 14, 2026",
- "close": 359.44,
+ "asof": "Oct 15, 2026",
+ "close": 343.21,
  "bias": {
-  "en": "Bearish · broke the Oct 13 low",
-  "zh": "偏空 · 跌破 10 月 13 日低点"
+  "en": "Bearish · closed below the 200-day average",
+  "zh": "偏空 · 收于 200 日均线下方"
  },
  "read": [
   {
-   "en": "Teradyne fell 5.5% on Oct 14 to $359.44 on heavy volume and is down 13% in five sessions. It is below its 5-day ($385.0), 10-day ($407.6), 30-day ($383.6) and 100-day ($382.3) averages and above the 200-day ($343.3). MACD has been below its signal since Oct 12 and is still above zero, Parabolic SAR has been bearish since Oct 8 ($441.6), and RSI is 40.",
-   "zh": "泰瑞达 10月14日放量下跌 5.5%，收于 $359.44，五个交易日下跌 13%。股价位于 5 日（$385.0）、10 日（$407.6）、30 日（$383.6）和 100 日均线（$382.3）下方，并在 200 日均线（$343.3）上方。MACD 自 10月12日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月8日起看空（$441.6），RSI 为 40。"
+   "en": "Teradyne fell 4.5% on Oct 15 to $343.21 on heavy volume and is down 14% in five sessions. It closed just below the rising 200-day average ($344.1) and below its 5-day ($373.9), 10-day ($400.4), 30-day ($383.7) and 100-day ($382.1) averages. MACD has been below its signal since Oct 12 and has slipped below zero, Parabolic SAR has been bearish since Oct 8 ($434.7), and RSI is 37.",
+   "zh": "泰瑞达 10月15日放量下跌 4.5%，收于 $343.21，五个交易日下跌 14%。股价收于上行的 200 日均线（$344.1）略下方，并位于 5 日（$373.9）、10 日（$400.4）、30 日（$383.7）和 100 日均线（$382.1）下方。MACD 自 10月12日起位于信号线下方，现已跌破零轴，抛物线 SAR 自 10月8日起看空（$434.7），RSI 为 37。"
   },
   {
-   "en": "The Oct 13 low ($362.6) broke, with a day's low of $354.74, and is now first resistance, then $382–385 (30, 100 and 5-day averages) and $408 (10-day). Support is $343 (200-day average; Jun 9 low $340.3), then $326 (September lows) and $297–301 (late-July lows). A close below $340 would open $326.",
-   "zh": "10月13日低点（$362.6）失守，当日低点 $354.74，该位置现为第一阻力，其次 $382–385（30 日、100 日和 5 日均线）和 $408（10 日均线）。支撑为 $343（200 日均线；6月9日低点 $340.3），其次 $326（9月低点）和 $297–301（7月下旬低点）。若收盘跌破 $340，下一目标看 $326。"
+   "en": "The 200-day average gave way on the close after the day's low of $331.89 undercut the Jun 9 low ($340.3). Resistance is $344–345 (200-day average, day's high), then $359–363 (Oct 14 close, Oct 13 low) and $374 (5-day). Support is $331.9 (Oct 15 low), then $326 (September lows) and $297–301 (late-July lows). A close below $326 would open $301.",
+   "zh": "200 日均线收盘失守，当日低点 $331.89 跌破 6月9日低点（$340.3）。阻力为 $344–345（200 日均线、当日高点），其次 $359–363（10月14日收盘价、10月13日低点）和 $374（5 日均线）。支撑为 $331.9（10月15日低点），其次 $326（9月低点）和 $297–301（7月下旬低点）。若收盘跌破 $326，下一目标看 $301。"
   }
  ],
  "levels": {
   "r": [
    [
+    345,
+    {
+     "en": "200-day average $344.1; Oct 15 high $344.9",
+     "zh": "200日均线 $344.1；10月15日高点 $344.9"
+    }
+   ],
+   [
     363,
     {
-     "en": "Oct 13 low; Oct 14 high $371.7",
-     "zh": "10月13日低点；10月14日高点 $371.7"
+     "en": "Oct 13 low; Oct 14 close $359.4",
+     "zh": "10月13日低点；10月14日收盘价 $359.4"
     }
    ],
    [
-    384,
+    374,
     {
-     "en": "30, 100 and 5-day averages ($382–385)",
-     "zh": "30日、100日和5日均线（$382–385）"
-    }
-   ],
-   [
-    408,
-    {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "5-day average",
+     "zh": "5日均线"
     }
    ]
   ],
   "s": [
    [
-    343,
+    331.9,
     {
-     "en": "200-day average; Jun 9 low $340.3",
-     "zh": "200日均线；6月9日低点 $340.3"
+     "en": "Oct 15 low",
+     "zh": "10月15日低点"
     }
    ],
    [

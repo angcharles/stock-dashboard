@@ -1,27 +1,27 @@
 {
- "asof": "Oct 14, 2026",
- "close": 533.69,
+ "asof": "Oct 15, 2026",
+ "close": 539.44,
  "bias": {
-  "en": "Bullish · pulled back from the record zone",
-  "zh": "偏多 · 自纪录区域回落"
+  "en": "Bullish · back above $537",
+  "zh": "偏多 · 重回 $537 上方"
  },
  "read": [
   {
-   "en": "Microsoft fell 1.8% on Oct 14 to $533.69 after reaching $545.74. It is just under its 5-day average ($535.2) and above the 10-day ($529.1), 30-day ($510.0), 100-day ($453.1) and 200-day ($434.8), all rising. MACD has been above its signal since Oct 1 with a slowly narrowing histogram, Parabolic SAR has been bullish since Aug 28 ($526.2), and RSI is 62.",
-   "zh": "微软 10月14日触及 $545.74 后回落，下跌 1.8%，收于 $533.69。股价略低于 5 日均线（$535.2），并在均上行的 10 日（$529.1）、30 日（$510.0）、100 日（$453.1）和 200 日均线（$434.8）上方。MACD 自 10月1日起位于信号线上方，柱状图缓慢收窄，抛物线 SAR 自 8月28日起看多（$526.2），RSI 为 62。"
+   "en": "Microsoft rose 1.1% on Oct 15 to $539.44 after trading between $531.22 and $541.13. It moved back just above its 5-day average ($538.6) and stays above the 10-day ($531.7), 30-day ($511.4), 100-day ($454.3) and 200-day ($435.0), all rising. MACD has been above its signal since Oct 1 and is above zero, but the histogram is narrowing, Parabolic SAR has been bullish since Aug 28 ($530.7), and RSI is 65.",
+   "zh": "微软 10月15日上涨 1.1%，收于 $539.44，当日区间 $531.22–541.13。股价重回 5 日均线（$538.6）略上方，并保持在均上行的 10 日（$531.7）、30 日（$511.4）、100 日（$454.3）和 200 日均线（$435.0）上方。MACD 自 10月1日起位于信号线上方并在零轴之上，但柱状图收窄，抛物线 SAR 自 8月28日起看多（$530.7），RSI 为 65。"
   },
   {
-   "en": "The close slipped back below $537 (Oct 9 high), which returns to resistance, ahead of $551 (Oct 13 high) and the $553–555 record zone from October 2025. Support is $529 (10-day average; day's low $532.5), then $526 (SAR) and $510 (30-day average). A close below $526 would flip the SAR bearish; a close above $555 would be a new record.",
-   "zh": "收盘跌回 $537（10月9日高点）下方，该位置重新成为阻力，其上为 $551（10月13日高点）和 2025年10月的 $553–555 纪录区域。支撑为 $529（10 日均线；当日低点 $532.5），其次 $526（SAR）和 $510（30 日均线）。若收盘跌破 $526，SAR 将转为看空；收盘站上 $555 则创纪录新高。"
+   "en": "The close reclaimed $537 (Oct 9 high), which turns back into support. Resistance is $541–543 (Oct 12 and 15 highs), then $551 (Oct 13 high) and the $553–555 record zone from October 2025. Support is $537, then $530.7–531.7 (SAR, 10-day average; day's low $531.2) and $511 (30-day). A close below $530.7 would flip the SAR bearish; a close above $555 would be a new record.",
+   "zh": "收盘收复 $537（10月9日高点），该位置重新转为支撑。阻力为 $541–543（10月12日及 15日高点），其次 $551（10月13日高点）和 2025年10月的 $553–555 纪录区域。支撑为 $537，其次 $530.7–531.7（SAR、10 日均线；当日低点 $531.2）和 $511（30 日均线）。若收盘跌破 $530.7，SAR 将转为看空；收盘站上 $555 则创纪录新高。"
   }
  ],
  "levels": {
   "r": [
    [
-    537,
+    542,
     {
-     "en": "Oct 9 high, back to resistance",
-     "zh": "10月9日高点，重新成为阻力"
+     "en": "Oct 12 and 15 highs ($541–543)",
+     "zh": "10月12日及15日高点（$541–543）"
     }
    ],
    [
@@ -41,21 +41,21 @@
   ],
   "s": [
    [
-    529,
+    537,
     {
-     "en": "10-day average; Oct 14 low $532.5",
-     "zh": "10日均线；10月14日低点 $532.5"
+     "en": "Oct 9 high, back to support; 5-day $538.6",
+     "zh": "10月9日高点，重新成为支撑；5日均线 $538.6"
     }
    ],
    [
-    526,
+    531,
     {
-     "en": "Parabolic SAR",
-     "zh": "抛物线SAR"
+     "en": "10-day average and Parabolic SAR ($530.7–531.7)",
+     "zh": "10日均线及抛物线SAR（$530.7–531.7）"
     }
    ],
    [
-    510,
+    511.4,
     {
      "en": "30-day average",
      "zh": "30日均线"

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 367.16,
+ "asof": "Oct 15, 2026",
+ "close": 362.44,
  "bias": {
-  "en": "Neutral · slipped under the average cluster",
-  "zh": "中性 · 跌破均线密集区"
+  "en": "Neutral turning bearish · SAR flipped",
+  "zh": "中性转弱 · SAR 翻空"
  },
  "read": [
   {
-   "en": "Tesla fell 2.2% on Oct 14 to $367.16, its third straight decline since the Oct 9 failure at $388. It slipped just under the 30-day ($368.2) and below the 100-day ($372.5, edging lower), 10-day ($374.0) and 5-day ($375.6) averages, and the falling 200-day ($389.0). MACD crossed just below its signal on Oct 14 and is above zero, Parabolic SAR has been bullish since Oct 5 ($357.2), and RSI is 49.",
-   "zh": "特斯拉自 10月9日在 $388 受阻后连续第三日下跌，10月14日下跌 2.2%，收于 $367.16。股价略跌破 30 日均线（$368.2），并位于 100 日（$372.5，小幅下行）、10 日（$374.0）和 5 日均线（$375.6）以及下行的 200 日均线（$389.0）下方。MACD 于 10月14日小幅下穿信号线，仍在零轴之上，抛物线 SAR 自 10月5日起看多（$357.2），RSI 为 49。"
+   "en": "Tesla fell 1.3% on Oct 15 to $362.44, its fourth straight decline since the Oct 9 failure at $388. It is below the 30-day ($368.4), 100-day ($371.9, falling), 5-day ($373.1) and 10-day ($374.8) averages and the falling 200-day ($388.5). MACD has been below its signal since Oct 14 and is above zero, Parabolic SAR flipped bearish on Oct 15 ($388.56), and RSI is 46.5.",
+   "zh": "特斯拉自 10月9日在 $388 受阻后连续第四日下跌，10月15日下跌 1.3%，收于 $362.44。股价位于 30 日（$368.4）、100 日（$371.9，下行）、5 日（$373.1）和 10 日均线（$374.8）以及下行的 200 日均线（$388.5）下方。MACD 自 10月14日起位于信号线下方，仍在零轴之上，抛物线 SAR 于 10月15日转为看空（$388.56），RSI 为 46.5。"
   },
   {
-   "en": "The $367–373 average cluster that was support gave way on the close (day's low $363.82) and now caps at $368–376. The key resistance is still $388–391, the repeated cap since March plus the 200-day average. Support is $357 (SAR), then $354 (Sep 15 low) and $346 (Sep 30 low, bottom of the range). A close below $357 would flip the SAR and open $346–354.",
-   "zh": "此前作为支撑的 $367–373 均线密集区收盘失守（当日低点 $363.82），现于 $368–376 形成压制。关键阻力仍为 $388–391，即 3月以来多次受阻的上限加上 200 日均线。支撑为 $357（SAR），其次 $354（9月15日低点）和 $346（9月30日低点，区间底部）。若收盘跌破 $357，SAR 将翻空，并打开至 $346–354 的空间。"
+   "en": "The day's low of $355.23 pierced the $357 SAR, flipping it bearish at the Oct 9 high, but the close held above the $354 Sep 15 low. Resistance is $368–375 (the averages), then $388–391 (cap since March, 200-day average, SAR) and $418 (January highs). Support is $354, then $346 (Sep 30 low, range bottom). A close below $346 would open $337 (Apr 7 low).",
+   "zh": "当日低点 $355.23 跌破 $357 的 SAR，使其在 10月9日高点处转为看空，但收盘守在 $354 的 9月15日低点之上。阻力为 $368–375（各均线），其次 $388–391（3月以来的上限、200 日均线、SAR）和 $418（1月高点）。支撑为 $354，其次 $346（9月30日低点，区间底部）。若收盘跌破 $346，下一目标看 $337（4月7日低点）。"
   }
  ],
  "levels": {
@@ -20,15 +20,15 @@
    [
     372,
     {
-     "en": "30, 100, 10 and 5-day averages ($368–376)",
-     "zh": "30日、100日、10日和5日均线（$368–376）"
+     "en": "30, 100, 5 and 10-day averages ($368–375)",
+     "zh": "30日、100日、5日和10日均线（$368–375）"
     }
    ],
    [
-    391,
+    389,
     {
-     "en": "$388 cap since March plus the 200-day average",
-     "zh": "3月以来 $388 压力及200日均线"
+     "en": "$388 cap since March plus the 200-day average and SAR",
+     "zh": "3月以来 $388 压力及200日均线、SAR"
     }
    ],
    [
@@ -41,17 +41,10 @@
   ],
   "s": [
    [
-    357,
-    {
-     "en": "Parabolic SAR",
-     "zh": "抛物线SAR"
-    }
-   ],
-   [
     354,
     {
-     "en": "Sep 15 low",
-     "zh": "9月15日低点"
+     "en": "Sep 15 low; Oct 15 low $355.2",
+     "zh": "9月15日低点；10月15日低点 $355.2"
     }
    ],
    [
@@ -59,6 +52,13 @@
     {
      "en": "Sep 30 low, bottom of the range",
      "zh": "9月30日低点，区间底部"
+    }
+   ],
+   [
+    337,
+    {
+     "en": "Apr 7 low",
+     "zh": "4月7日低点"
     }
    ]
   ]

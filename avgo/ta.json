@@ -1,27 +1,34 @@
 {
- "asof": "Oct 14, 2026",
- "close": 346.25,
+ "asof": "Oct 15, 2026",
+ "close": 344.33,
  "bias": {
-  "en": "Bearish · below the 30-day, MACD near a cross",
-  "zh": "偏空 · 跌破 30 日均线，MACD 接近死叉"
+  "en": "Bearish · MACD crossed down, on $343 support",
+  "zh": "偏空 · MACD 下穿，位于 $343 支撑"
  },
  "read": [
   {
-   "en": "Broadcom fell 3.1% on Oct 14 to $346.25. It is below its 5-day ($356.0), 10-day ($359.4) and falling 30-day ($356.7) averages, the 200-day ($368.3) and the falling 100-day ($382.0). MACD is still above its signal (since Sep 21) but the histogram has shrunk to almost zero and the MACD is below zero; Parabolic SAR has been bearish since Oct 13 ($380.2), and RSI is 42.",
-   "zh": "博通 10月14日下跌 3.1%，收于 $346.25。股价位于 5 日（$356.0）、10 日（$359.4）和下行的 30 日均线（$356.7）下方，也低于 200 日（$368.3）和下行的 100 日均线（$382.0）。MACD 仍位于信号线上方（自 9月21日起），但柱状图已收窄至接近零，MACD 在零轴之下；抛物线 SAR 自 10月13日起看空（$380.2），RSI 为 42。"
+   "en": "Broadcom fell 0.6% on Oct 15 to $344.33 after an intraday low of $334.61. It is below its 5-day ($352.8), 10-day ($359.4) and falling 30-day ($356.0) averages, the 200-day ($368.3) and the falling 100-day ($381.3). MACD crossed below its signal on Oct 15 and is below zero; Parabolic SAR has been bearish since Oct 13 ($378.7), and RSI is 41.",
+   "zh": "博通 10月15日下跌 0.6%，收于 $344.33，盘中低点为 $334.61。股价位于 5 日（$352.8）、10 日（$359.4）和下行的 30 日均线（$356.0）下方，也低于 200 日（$368.3）和下行的 100 日均线（$381.3）。MACD 于 10月15日下穿信号线，在零轴之下；抛物线 SAR 自 10月13日起看空（$378.7），RSI 为 41。"
   },
   {
-   "en": "It lost the 30-day average and closed below the $348 Oct 13 low; the day's low of $342.82 held just above the Oct 1 low ($343.3). Below $343, support is $336 (Sep 16 low), then $311.5 (February pivot). Resistance is $356–359 (5, 10 and 30-day averages), then $368–371 (200-day, tested five times). A close below $336 would open $311.5.",
-   "zh": "股价失守 30 日均线，收于 10月13日低点 $348 下方；当日低点 $342.82 守在 10月1日低点（$343.3）上方。$343 之下，支撑为 $336（9月16日低点），其次 $311.5（2月转折点）。阻力为 $356–359（5 日、10 日和 30 日均线），其次 $368–371（200 日均线，五次测试）。若收盘跌破 $336，下一目标看 $311.5。"
+   "en": "The MACD cross flagged in the previous read has happened. The day's low briefly undercut the $336 Sep 16 low, but the close held just above the $343 Oct 1 low. Resistance is $353–354 (5-day average, Oct 14 high), then $356–359 (10 and 30-day averages) and $368–371 (200-day). Support is $343, then $335–336 and $311.5 (February pivot). A close below $335 would open $311.5.",
+   "zh": "前次解读提到的 MACD 交叉已经出现。当日低点一度跌破 9月16日低点 $336，但收盘守在 10月1日低点 $343 上方。阻力为 $353–354（5 日均线、10月14日高点），其次 $356–359（10 日和 30 日均线）和 $368–371（200 日均线）。支撑为 $343，其次 $335–336 和 $311.5（2月转折点）。若收盘跌破 $335，下一目标看 $311.5。"
   }
  ],
  "levels": {
   "r": [
    [
+    354,
+    {
+     "en": "5-day average and Oct 14 high ($352.8–354.3)",
+     "zh": "5日均线及10月14日高点（$352.8–354.3）"
+    }
+   ],
+   [
     357,
     {
-     "en": "5, 10 and 30-day averages ($356–359)",
-     "zh": "5日、10日和30日均线（$356–359）"
+     "en": "10 and 30-day averages ($356–359)",
+     "zh": "10日和30日均线（$356–359）"
     }
    ],
    [
@@ -30,28 +37,21 @@
      "en": "200-day average; tested five times ($368–371)",
      "zh": "200日均线；五次测试（$368–371）"
     }
-   ],
-   [
-    382,
-    {
-     "en": "100-day average; Oct 6 high and SAR $380",
-     "zh": "100日均线；10月6日高点及SAR $380"
-    }
    ]
   ],
   "s": [
    [
     343,
     {
-     "en": "Oct 1 and Oct 14 lows ($342.8–343.3)",
-     "zh": "10月1日及10月14日低点（$342.8–343.3）"
+     "en": "Oct 1 low ($343.3)",
+     "zh": "10月1日低点（$343.3）"
     }
    ],
    [
-    336,
+    335,
     {
-     "en": "Sep 16 low",
-     "zh": "9月16日低点"
+     "en": "Sep 16 and Oct 15 lows ($334.6–335.8)",
+     "zh": "9月16日及10月15日低点（$334.6–335.8）"
     }
    ],
    [

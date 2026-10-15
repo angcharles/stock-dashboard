@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 1650,
+ "asof": "Oct 15, 2026",
+ "close": 1657.44,
  "bias": {
-  "en": "Bearish · broke the Oct 13 low",
-  "zh": "偏空 · 跌破 10 月 13 日低点"
+  "en": "Bearish · back above the Sep 3 low",
+  "zh": "偏空 · 回到 9 月 3 日低点上方"
  },
  "read": [
   {
-   "en": "ASML fell 3.9% on Oct 14 to $1,650 on twice its usual volume, after failing at $1,734.5 near the 30-day average. It is below its 5-day ($1,733.6), 10-day ($1,784.3), 30-day ($1,731.1) and 100-day ($1,748.3) averages and 5% above the 200-day ($1,571.4). MACD has been below its signal since Oct 12, still above zero, Parabolic SAR has been bearish since Oct 13 ($1,869.7), and RSI is 38.",
-   "zh": "阿斯麦 10月14日在 30 日均线附近的 $1,734.5 受阻后，以约两倍于平常的成交量下跌 3.9%，收于 $1,650。股价位于 5 日（$1,733.6）、10 日（$1,784.3）、30 日（$1,731.1）和 100 日均线（$1,748.3）下方，比 200 日均线（$1,571.4）高 5%。MACD 自 10月12日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月13日起看空（$1,869.7），RSI 为 38。"
+   "en": "ASML rose 0.5% on Oct 15 to $1,657.44 on above-average volume, after an intraday low of $1,594. It is below its 5-day ($1,711.2), 10-day ($1,769.2), rising 30-day ($1,730.3) and rising 100-day ($1,748.6) averages and 5% above the 200-day ($1,574.4). MACD has been below its signal since Oct 12 and has now slipped below zero; Parabolic SAR has been bearish since Oct 13 ($1,860.8), and RSI is 39.",
+   "zh": "阿斯麦 10月15日在成交量高于平均的情况下上涨 0.5%，收于 $1,657.44，盘中低点为 $1,594。股价位于 5 日（$1,711.2）、10 日（$1,769.2）、上行的 30 日（$1,730.3）和上行的 100 日均线（$1,748.6）下方，比 200 日均线（$1,574.4）高 5%。MACD 自 10月12日起位于信号线下方，现已跌至零轴之下；抛物线 SAR 自 10月13日起看空（$1,860.8），RSI 为 39。"
   },
   {
-   "en": "The Oct 13 low ($1,682) broke and becomes first resistance, ahead of $1,731–1,748 (30 and 100-day averages) and $1,784 (10-day). The day's low was $1,648.8. Support is $1,619 (Sep 3 low), then $1,571–1,573 (Sep 14 low and 200-day average) and $1,531 (Jul 29 low). A close below $1,619 would open $1,572.",
-   "zh": "10月13日低点（$1,682）失守，转为第一阻力，其上为 $1,731–1,748（30 日和 100 日均线）和 $1,784（10 日均线）。当日低点 $1,648.8。支撑为 $1,619（9月3日低点），其次 $1,571–1,573（9月14日低点及 200 日均线）和 $1,531（7月29日低点）。若收盘跌破 $1,619，下一目标看 $1,572。"
+   "en": "The $1,619 Sep 3 low broke intraday, but the drop stopped above the $1,573–1,574 zone and the close recovered to $1,657. Resistance is $1,682 (Oct 13 low), then $1,711 (5-day average) and $1,730–1,749 (30 and 100-day averages). Support is $1,619, then $1,594 (Oct 15 low) and $1,573–1,574 (Sep 14 low, 200-day). A close above $1,682 would open $1,711.",
+   "zh": "9月3日低点 $1,619 盘中失守，但跌势止于 $1,573–1,574 区域上方，收盘回升至 $1,657。阻力为 $1,682（10月13日低点），其次 $1,711（5 日均线）和 $1,730–1,749（30 日和 100 日均线）。支撑为 $1,619，其次 $1,594（10月15日低点）和 $1,573–1,574（9月14日低点、200 日均线）。若收盘站上 $1,682，将打开至 $1,711 的空间。"
   }
  ],
  "levels": {
@@ -25,17 +25,17 @@
     }
    ],
    [
-    1740,
+    1711,
     {
-     "en": "30 and 100-day averages ($1,731–1,748); Oct 14 high $1,734.5",
-     "zh": "30日和100日均线（$1,731–1,748）；10月14日高点 $1,734.5"
+     "en": "5-day average",
+     "zh": "5日均线"
     }
    ],
    [
-    1784,
+    1740,
     {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "30 and 100-day averages ($1,730–1,749)",
+     "zh": "30日和100日均线（$1,730–1,749）"
     }
    ]
   ],
@@ -43,22 +43,22 @@
    [
     1619,
     {
-     "en": "Sep 3 low",
-     "zh": "9月3日低点"
+     "en": "Sep 3 low; undercut intraday Oct 15",
+     "zh": "9月3日低点；10月15日盘中跌破"
     }
    ],
    [
-    1572,
+    1594,
     {
-     "en": "Sep 14 low and 200-day average ($1,571–1,573)",
-     "zh": "9月14日低点及200日均线（$1,571–1,573）"
+     "en": "Oct 15 low",
+     "zh": "10月15日低点"
     }
    ],
    [
-    1531,
+    1573,
     {
-     "en": "Jul 29 low",
-     "zh": "7月29日低点"
+     "en": "Sep 14 low and 200-day average ($1,572.8–1,574.4)",
+     "zh": "9月14日低点及200日均线（$1,572.8–1,574.4）"
     }
    ]
   ]

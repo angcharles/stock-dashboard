@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 737.54,
+ "asof": "Oct 15, 2026",
+ "close": 736.72,
  "bias": {
-  "en": "Uptrend · lost $750, holding the 10-day",
-  "zh": "上升趋势 · 失守 $750，守住 10 日均线"
+  "en": "Uptrend · holding the 10-day under $752",
+  "zh": "上升趋势 · 守住 10 日均线，受制于 $752"
  },
  "read": [
   {
-   "en": "Meta fell 3.3% on Oct 14 to $737.54, giving back the Oct 13 breakout. It closed just above its 5-day ($736.5) and 10-day ($733.9) averages and well above the 30-day ($700.2), 200-day ($631.4) and 100-day ($625.7). MACD has been below its signal since Oct 2 but the gap is narrowing and it is above zero, Parabolic SAR has been bullish since Oct 13 ($712.9), and RSI is 58.",
-   "zh": "Meta 10月14日下跌 3.3%，收于 $737.54，回吐 10月13日的突破涨幅。股价收于 5 日（$736.5）和 10 日均线（$733.9）略上方，远高于 30 日（$700.2）、200 日（$631.4）和 100 日均线（$625.7）。MACD 自 10月2日起位于信号线下方，但差距收窄且在零轴之上，抛物线 SAR 自 10月13日起看多（$712.9），RSI 为 58。"
+   "en": "Meta slipped 0.1% on Oct 15 to $736.72 after an intraday dip to $715.58. It closed just below its 5-day average ($739.7), above the 10-day ($735.0) and well above the 30-day ($705.0), 200-day ($631.8) and 100-day ($627.0). MACD has been below its signal since Oct 2 and is above zero, with the histogram widening slightly again, Parabolic SAR has been bullish since Oct 13 ($714.0), and RSI is 58.",
+   "zh": "Meta 10月15日盘中下探 $715.58 后回升，小幅下跌 0.1%，收于 $736.72。股价收于 5 日均线（$739.7）略下方，位于 10 日均线（$735.0）上方，并远高于 30 日（$705.0）、200 日（$631.8）和 100 日均线（$627.0）。MACD 自 10月2日起位于信号线下方，仍在零轴之上，柱状图再度小幅扩大，抛物线 SAR 自 10月13日起看多（$714.0），RSI 为 58。"
   },
   {
-   "en": "The close fell back below the $748–752 breakout zone (Oct 6 and 12 highs), which returns to resistance, with $771 (Oct 13 high) and the $780 record above. The day's low of $734.29 held the 5 and 10-day averages ($734–737); below them are $712 (SAR and Oct 8 low) and $700 (30-day average). A close back above $752 would target $771–780.",
-   "zh": "收盘跌回 $748–752 突破区域（10月6日和 12日高点）下方，该区域重新成为阻力，其上为 $771（10月13日高点）和 $780 纪录高点。当日低点 $734.29 守住 5 日和 10 日均线（$734–737）；其下为 $712（SAR 及 10月8日低点）和 $700（30 日均线）。若收盘重新站上 $752，目标看 $771–780。"
+   "en": "No level broke: the dip held above the SAR and the Oct 8 low ($711.7), and the close recovered the 10-day average. Resistance is $744 (Oct 15 high), $748–752 (Oct 6 and 12 highs), then $771 (Oct 13 high) and the $780 record. Support is $735 (10-day), then $712–714 (SAR, Oct 8 low) and $705 (30-day). A close above $752 would target $771–780.",
+   "zh": "未跌破任何关键位：盘中回落守在 SAR 和 10月8日低点（$711.7）上方，收盘收复 10 日均线。阻力为 $744（10月15日高点）、$748–752（10月6日和 12日高点），其次 $771（10月13日高点）和 $780 纪录高点。支撑为 $735（10 日均线），其次 $712–714（SAR、10月8日低点）和 $705（30 日均线）。若收盘站上 $752，目标看 $771–780。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     751,
     {
-     "en": "Oct 6 and Oct 12 highs ($748–752), back to resistance",
-     "zh": "10月6日及10月12日高点（$748–752），重新成为阻力"
+     "en": "Oct 6 and Oct 12 highs ($748–752); Oct 15 high $744",
+     "zh": "10月6日及10月12日高点（$748–752）；10月15日高点 $744"
     }
    ],
    [
@@ -41,21 +41,21 @@
   ],
   "s": [
    [
-    734,
+    735,
     {
-     "en": "5 and 10-day averages; Oct 14 low $734.3",
-     "zh": "5日和10日均线；10月14日低点 $734.3"
+     "en": "10-day average",
+     "zh": "10日均线"
     }
    ],
    [
-    712,
+    714,
     {
-     "en": "Oct 8 low; Parabolic SAR",
-     "zh": "10月8日低点；抛物线SAR"
+     "en": "Parabolic SAR; Oct 8 low $711.7",
+     "zh": "抛物线SAR；10月8日低点 $711.7"
     }
    ],
    [
-    700,
+    705,
     {
      "en": "30-day average",
      "zh": "30日均线"

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 14, 2026",
- "close": 239.34,
+ "asof": "Oct 15, 2026",
+ "close": 236.3,
  "bias": {
-  "en": "Bearish · broke $252 support",
-  "zh": "偏空 · 跌破 $252 支撑"
+  "en": "Bearish · held $230 after testing the 200-day",
+  "zh": "偏空 · 测试 200 日均线后守住 $230"
  },
  "read": [
   {
-   "en": "Bloom Energy fell 9.2% on Oct 14 to $239.34 and is down 18% in five sessions. It is below its 5-day ($263.7), 10-day ($275.9), 30-day ($269.6) and 100-day ($253.3, edging lower) averages and above the 200-day ($214.9). MACD has been below its signal since Oct 8 and is still above zero, Parabolic SAR has been bearish since Oct 8 ($296.1), and RSI is 41.",
-   "zh": "Bloom Energy 10月14日下跌 9.2%，收于 $239.34，五个交易日下跌 18%。股价位于 5 日（$263.7）、10 日（$275.9）、30 日（$269.6）和 100 日均线（$253.3，小幅下行）下方，并在 200 日均线（$214.9）上方。MACD 自 10月8日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月8日起看空（$296.1），RSI 为 41。"
+   "en": "Bloom Energy slipped 1.3% on Oct 15 to $236.30 off an intraday low of $215.12, and is down 13% in five sessions. It is below its 5-day ($256.4), 10-day ($271.8), 30-day ($270.3) and falling 100-day ($252.6) averages and above the 200-day ($215.6). MACD has been below its signal since Oct 8 and is just above zero, Parabolic SAR has been bearish since Oct 8 ($291.3), and RSI is 40.",
+   "zh": "Bloom Energy 10月15日盘中下探 $215.12 后回升，小幅下跌 1.3%，收于 $236.30，五个交易日下跌 13%。股价位于 5 日（$256.4）、10 日（$271.8）、30 日（$270.3）和下行的 100 日均线（$252.6）下方，并在 200 日均线（$215.6）上方。MACD 自 10月8日起位于信号线下方，仅略高于零轴，抛物线 SAR 自 10月8日起看空（$291.3），RSI 为 40。"
   },
   {
-   "en": "The $252 support (Sep 24 low and 100-day average) and the Oct 13 low ($248) both broke on the close, ending the range; the day's low was $235.7. That $248–253 zone is now first resistance, then $264 (5-day) and $270 (30-day). Support is $230 (June pivot), then $215 (200-day average) and $197.5 (Sep 1 low). A close below $230 would open $215.",
-   "zh": "$252 支撑（9月24日低点及 100 日均线）和 10月13日低点（$248）均在收盘时失守，区间格局结束；当日低点 $235.7。$248–253 区域现为第一阻力，其次 $264（5 日均线）和 $270（30 日均线）。支撑为 $230（6月转折点），其次 $215（200 日均线）和 $197.5（9月1日低点）。若收盘跌破 $230，下一目标看 $215。"
+   "en": "No level broke: the day's low tested the 200-day average ($215.6) and the stock closed back above the $230 June pivot. Resistance is $248–253 (Oct 13 low and 100-day average), then $256 (5-day) and $270–272 (30 and 10-day averages). Support is $230, then $215 (200-day) and $197.5 (Sep 1 low). A close above $253 would open $270; a close below $230 would open $215.",
+   "zh": "收盘未跌破任何关键位：当日低点测试 200 日均线（$215.6），随后收回 $230 的 6月转折点上方。阻力为 $248–253（10月13日低点及 100 日均线），其次 $256（5 日均线）和 $270–272（30 日和 10 日均线）。支撑为 $230，其次 $215（200 日均线）和 $197.5（9月1日低点）。若收盘站上 $253，将打开至 $270 的空间；若收盘跌破 $230，下一目标看 $215。"
   }
  ],
  "levels": {
@@ -25,7 +25,7 @@
     }
    ],
    [
-    264,
+    256,
     {
      "en": "5-day average",
      "zh": "5日均线"
@@ -34,8 +34,8 @@
    [
     270,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "30 and 10-day averages ($270–272)",
+     "zh": "30日和10日均线（$270–272）"
     }
    ]
   ],
@@ -50,8 +50,8 @@
    [
     215,
     {
-     "en": "200-day average",
-     "zh": "200日均线"
+     "en": "200-day average; Oct 15 low $215.1",
+     "zh": "200日均线；10月15日低点 $215.1"
     }
    ],
    [
