@@ -1,16 +1,9 @@
 window.FCF = {
  "sub": {
-  "en": "Free cash flow is operating cash flow minus capital spending, converted from NT$ to US$ millions at each quarter's rate, for the 20 quarters from Q3 2021 to Q2 2026. Shaded bars and italic rows are estimates.",
-  "zh": "自由现金流 = 经营现金流 − 资本开支，按各季汇率由新台币换算为百万美元，涵盖 2021 Q3 至 2026 Q2 共 20 个季度。浅色柱与斜体行为估算。"
+  "en": "Free cash flow is operating cash flow minus capital spending, converted from NT$ to US$ millions at each quarter's rate, for the 20 quarters from Q4 2021 to Q3 2026. Shaded bars and italic rows are estimates.",
+  "zh": "自由现金流 = 经营现金流 − 资本开支，按各季汇率由新台币换算为百万美元，涵盖 2021 Q4 至 2026 Q3 共 20 个季度。浅色柱与斜体行为估算。"
  },
  "hist": [
-  [
-   "Q3 2021",
-   "Sep 2021",
-   11436,
-   6769,
-   4667
-  ],
   [
    "Q4 2021",
    "Dec 2021",
@@ -143,36 +136,43 @@ window.FCF = {
    24789,
    15696,
    9093
+  ],
+  [
+   "Q3 2026",
+   "Sep 2026",
+   28770,
+   13800,
+   14970
   ]
  ],
  "est": [
   [
-   "Q3 2026",
-   "Sep 2026",
-   25000,
-   17000,
-   8000
-  ],
-  [
    "Q4 2026",
    "Dec 2026",
    31000,
-   18500,
-   12500
+   21000,
+   10000
   ],
   [
    "Q1 2027",
    "Mar 2027",
-   32000,
+   31500,
    19000,
-   13000
+   12500
   ],
   [
    "Q2 2027",
    "Jun 2027",
-   30000,
+   32000,
    20000,
-   10000
+   12000
+  ],
+  [
+   "Q3 2027",
+   "Sep 2027",
+   34000,
+   20500,
+   13500
   ]
  ],
  "cash": {
@@ -180,20 +180,20 @@ window.FCF = {
    "en": "Cash & securities",
    "zh": "现金及有价证券"
   },
-  "v": "~$111B",
+  "v": "~$126B",
   "s": {
-   "en": "NT$3.52T · Jun 30, 2026",
-   "zh": "3.52 万亿新台币 · 2026年6月30日"
+   "en": "NT$4.0T · Sep 30, 2026",
+   "zh": "4.0 万亿新台币 · 2026年9月30日"
   }
  },
  "read": [
   {
-   "en": "TSMC turns roughly 45–65% of revenue into operating cash, then spends a large share of it on fabs. Free cash flow dipped below zero only once in five years (Q2 2023) and has run between about $4B and $12B a quarter since 2025, even as capex climbed to a record $15.7B in Q2 2026.",
-   "zh": "台积电约 45–65% 的营收转化为经营现金流，再将其中大部分投入建厂。五年间自由现金流仅一次转负（2023 Q2），2025 年以来每季约 40 亿至 120 亿美元，即便 2026 Q2 资本开支创下 157 亿美元纪录。"
+   "en": "TSMC turns roughly 45–65% of revenue into operating cash, then spends a large share of it on fabs. Free cash flow dipped below zero only once in five years (Q2 2023). Q3 2026 was a record at about $15B: operating cash of NT$920B (~$28.8B) against $13.8B of capex.",
+   "zh": "台积电约 45–65% 的营收转化为经营现金流，再将其中大部分投入建厂。五年间自由现金流仅一次转负（2023 Q2）。2026 Q3 创纪录，约 150 亿美元：经营现金流 9,200 亿新台币（约 288 亿美元），资本开支 138 亿美元。"
   },
   {
-   "en": "My base case takes Q3 revenue from the monthly sales (~$46.7B), assumes operating cash at about 55–60% of revenue (I assume a softer Q3, as in 2025), and capex of $17–20B a quarter as the raised $60–64B budget and a higher 2027 plan come through. That gives about $44B of free cash flow over four quarters. Capex is the swing factor: management will not cap it, and each extra $5B a year comes straight out of this number.",
-   "zh": "我的基准情景以月度营收推算 Q3 营收（约 467 亿美元），假设经营现金流约为营收的 55–60%（假设 Q3 偏弱，与 2025 年相同），资本开支每季 170–200 亿美元（反映上调后的 600–640 亿预算及更高的 2027 计划），四季自由现金流约 440 亿。资本开支是最大变数：管理层不设上限，每年每多 50 亿美元都直接从这里扣除。"
+   "en": "My base case uses the Q4 guide midpoint ($53.3B), operating cash at about 55–60% of revenue, and capex of about $21B in Q4 (the $60–64B budget less $40.6B spent through Q3), then $19–21B a quarter in 2027 as spending steps up again. That gives about $48B of free cash flow over four quarters. Capex is the swing factor: each extra $5B a year comes straight out of this number.",
+   "zh": "我的基准情景采用 Q4 指引中值（533 亿美元），经营现金流约为营收的 55–60%，Q4 资本开支约 210 亿美元（600–640 亿预算减去前三季已支出的 406 亿），2027 年每季 190–210 亿美元，四季自由现金流约 480 亿。资本开支是最大变数：每年每多 50 亿美元都直接从这里扣除。"
   }
  ],
  "out": [
@@ -203,8 +203,8 @@ window.FCF = {
     "zh": "建厂"
    },
    "p": {
-    "en": "2026 capex of $60–64B, with $26.8B spent in the first half; Arizona, Japan and the 2nm ramp are the big items.",
-    "zh": "2026 年资本开支 600–640 亿美元，上半年已支出 268 亿；亚利桑那、日本及 2 纳米放量为主要项目。"
+    "en": "2026 capex of $60–64B, with $40.6B spent through Q3; 2nm, Arizona, Japan and advanced packaging are the big items.",
+    "zh": "2026 年资本开支 600–640 亿美元，前三季已支出 406 亿；2 纳米、亚利桑那、日本及先进封装为主要项目。"
    }
   },
   {
@@ -213,8 +213,8 @@ window.FCF = {
     "zh": "股息"
    },
    "p": {
-    "en": "Dividends paid reached about NT$156B (~$4.9B) in Q2 2026, and the per-share dividend was raised again this year.",
-    "zh": "2026 Q2 派息约 1,560 亿新台币（约 49 亿美元），今年每股股息再度上调。"
+    "en": "About NT$156B (~$4.9B) was paid in Q3 2026, and management reiterated a steadily rising dividend per share.",
+    "zh": "2026 Q3 派息约 1,560 亿新台币（约 49 亿美元），管理层重申每股股息稳定增加。"
    }
   },
   {
@@ -235,8 +235,8 @@ window.FCF = {
     "zh": "创纪录营收"
    },
    "p": {
-    "en": "Q3 sales of about NT$1.49 trillion were up 51% year over year and 18% from Q2.",
-    "zh": "Q3 营收约 1.49 万亿新台币，同比增 51%，环比增 18%。"
+    "en": "Q3 sales of NT$1.49 trillion were up 51% year over year and 18% from Q2, and Q4 is guided about 14% higher again.",
+    "zh": "Q3 营收 1.49 万亿新台币，同比增 51%，环比增 18%；Q4 指引再环比增约 14%。"
    }
   },
   {
@@ -245,8 +245,8 @@ window.FCF = {
     "zh": "创纪录利润率"
    },
    "p": {
-    "en": "A 60% operating margin in Q2 means most incremental revenue drops to cash.",
-    "zh": "Q2 营业利润率 60%，意味着大部分新增营收转为现金。"
+    "en": "A 58.7% operating margin in Q3 means most incremental revenue drops to cash.",
+    "zh": "Q3 营业利润率 58.7%，意味着大部分新增营收转为现金。"
    }
   },
   {
@@ -255,25 +255,25 @@ window.FCF = {
     "zh": "现金利息"
    },
    "p": {
-    "en": "Roughly $111B of cash and securities earns meaningful interest income, which adds to operating cash.",
-    "zh": "约 1,110 亿美元现金及有价证券带来可观利息收入，计入经营现金流。"
+    "en": "Roughly $126B of cash and securities earns meaningful interest income, which adds to operating cash.",
+    "zh": "约 1,260 亿美元现金及有价证券带来可观利息收入，计入经营现金流。"
    }
   }
  ],
  "bridge": [
   [
    {
-    "en": "Cash & securities, Jun 2026",
-    "zh": "2026年6月现金及有价证券"
+    "en": "Cash & securities, Sep 2026",
+    "zh": "2026年9月现金及有价证券"
    },
-   111300
+   126000
   ],
   [
    {
     "en": "Free cash flow, 4 quarters (est.)",
     "zh": "4季自由现金流（估）"
    },
-   43500
+   48000
   ],
   [
    {
@@ -284,12 +284,12 @@ window.FCF = {
   ]
  ],
  "bridgeEnd": {
-  "en": "Cash & securities, Jun 2027 (est.)",
-  "zh": "2027年6月现金及有价证券（估）"
+  "en": "Cash & securities, Sep 2027 (est.)",
+  "zh": "2027年9月现金及有价证券（估）"
  },
  "bridgeNote": {
-  "en": "TSMC's net cash was about NT$2.49T (~$79B) at the end of June. The NT$/US$ rate alone can move these dollar figures by several billion.",
-  "zh": "台积电 6月底净现金约 2.49 万亿新台币（约 790 亿美元）。仅新台币汇率变动即可使这些美元数字变动数十亿。"
+  "en": "TSMC's cash balance rose NT$488B in Q3 to NT$3.6T, with NT$4.0T including marketable securities. The NT$/US$ rate alone can move these dollar figures by several billion.",
+  "zh": "台积电第三季现金余额增加 4,880 亿新台币至 3.6 万亿，连同有价证券为 4.0 万亿。仅新台币汇率变动即可使这些美元数字变动数十亿。"
  },
  "extraNote": {
   "en": "Converted from NT$ using the rate implied by TSMC's own NT$ and US$ revenue for each quarter.",
@@ -301,12 +301,12 @@ window.FCF = {
    "https://stockanalysis.com/stocks/tsm/financials/cash-flow-statement/?p=quarterly"
   ],
   [
-   "Q2 2026 cash and capex (Marvin Labs)",
-   "https://app.marvin-labs.com/agent-result/tsm-2q26-record-results-capex-hike-margin-reset"
+   "Q3 2026 cash flow, capex and balance sheet (earnings call, Investing.com)",
+   "https://investing.com/news/transcripts/earnings-call-transcript-tsmc-beats-q3-2026-estimates-as-stock-slips-93CH-4950695"
   ],
   [
-   "Q2 2026 balance sheet items (Evid Invest)",
-   "https://evidinvest.com/blog/tsm-q2-2026-earnings-results-margin-q3-capex-2026-07-16"
+   "Q3 2026 results press release (SEC filing)",
+   "https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000726/a3q26e_withguidancexfinal.htm"
   ]
  ]
 };

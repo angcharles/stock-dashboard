@@ -44,7 +44,7 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
   - INTC → `intc/data/quote.json`, `intc/data/history.json` (2 years of closes)
 - Each page reloads its quote every minute, so the price, change, market cap, YTD and chart update without a refresh.
 - The TradingView box under the price is tick-by-tick real time.
-- Fundamentals (revenue, guidance, watch list) are as of Oct 9, 2026 and are edited in each page's HTML.
+- Fundamentals (quarterly table, ratios, guidance, key cells, watch list, calendar, free cash flow) live in `specs/<ticker>.json` and are rebuilt into the page with `python3 scripts/make-stock-page.py specs/<ticker>.json` (ARM, Tesla, Sandisk and Intel have no spec and are edited in their `index.html` and `fcf-data.js`). A Claude scheduled task ("earnings review refresh", Tue–Sat 07:45 SGT) checks every stock for a new quarterly report and updates its fundamentals, ratios and management review once the report is out.
 
 ## Technical analysis section
 - `assets/technicals.js` adds a "Technical analysis" section (and a Technicals link in the page menu) to every stock page: interactive daily candlesticks with SMA 5/10/30/100, Parabolic SAR (0.02, 0.2) and the key levels, MACD (12, 26, 9) and RSI (14) panes, ranges 1M–2Y, and a live signal table with a bullish/bearish count. It draws from `data/history.json`, so it updates with each price refresh.
