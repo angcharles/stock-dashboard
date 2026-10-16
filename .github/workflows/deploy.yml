@@ -123,6 +123,7 @@ jobs:
           if [ -f data/curves.json ]; then cp data/curves.json _site/data/; fi
           mkdir -p _site/datacenter && cp datacenter/index.html _site/datacenter/
           mkdir -p _site/robotics && cp robotics/index.html _site/robotics/
+          mkdir -p _site/merger && cp merger/index.html _site/merger/
           if [ -f data/portfolios-perf.json ]; then cp data/portfolios-perf.json _site/data/; fi
           cp assets/*.js assets/*.css _site/assets/
           for d in arm tesla sndk intc spcx mu lite cohr googl meta nvda zs be aaoi amd mp amzn msft mrvl skhy tsm avgo rok amat asml pltr glw ter; do
