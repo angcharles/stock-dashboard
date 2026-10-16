@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SpaceX vs Tesla Merger · Stock Dashboards</title>
+<meta name="description" content="SpaceX (SPCX) vs Tesla (TSLA) side by side: financial metrics, revenue and earnings forecasts to 2028, business direction, capex and backlog, merger exchange-ratio math and a verdict on which is cheaper and has more potential if they combine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--bg:#f3f5f7;--panel:#fff;--line:#d9dee5;--ink:#141a22;--muted:#5a6573;--accent:#0b6fb8;--accent-soft:#e3eff8;--up:#13804b;--down:#c2362b;
+  --sx:#4f46e5;--ts:#d9480f;--win:#13804b;--win-soft:#e4f4ea;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;--f-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;
+  --sx:#8b85ff;--ts:#f0803c;--win:#3ccf86;--win-soft:#123323;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;
+  --sx:#8b85ff;--ts:#f0803c;--win:#3ccf86;--win-soft:#123323;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 48px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);margin:0 0 28px}
+.tabs a{font:600 13px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabs a:hover,.tabs a:focus-visible{color:var(--accent);outline:none}
+.eyebrow{font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(30px,5vw,48px)/1.05 var(--f-display);margin:.25em 0 .4em}
+h2{font:700 24px/1.15 var(--f-display);margin:0 0 4px}
+h3{font:600 16px var(--f-body);margin:0 0 8px}
+.lede{color:var(--muted);margin:0 0 24px;max-width:76ch}
+.sub{color:var(--muted);font-size:14px;margin:0 0 14px;max-width:80ch}
+section{margin-top:44px}
+.note{font-size:12px;color:var(--muted);margin:10px 0 0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px;min-width:0}
+.tile b{display:block;font:600 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tile .v{display:block;font:600 24px var(--f-mono);font-variant-numeric:tabular-nums;margin:4px 0 2px}
+.tile small{display:block;font-size:12px;color:var(--muted);line-height:1.4}
+.tile.sx{border-top:3px solid var(--sx)}.tile.ts{border-top:3px solid var(--ts)}
+.verdict{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--win);border-radius:6px;padding:18px 20px;margin-top:20px}
+.verdict h2{margin-bottom:10px}
+.verdict p{margin:0 0 10px;max-width:86ch}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:14px 0 4px}
+.vbox{border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.vbox b{display:block;font:600 10.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vbox .w{display:block;font:700 20px var(--f-display);margin:4px 0}
+.vbox small{display:block;font-size:13px;color:var(--muted);line-height:1.45}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr)}}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.st{width:100%;border-collapse:collapse;font-size:13.5px}
+table.st th{font:600 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.st th.sx{color:var(--sx)}table.st th.ts{color:var(--ts)}
+table.st td{padding:7px 6px;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);vertical-align:top}
+table.st td.n{font:600 12.5px var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.st td.k{color:var(--ink);min-width:150px}
+table.st td.w{color:var(--muted);font-size:12.5px;min-width:180px}
+table.st tr.grp td{font:600 10.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:color-mix(in srgb,var(--line) 30%,transparent);padding:6px}
+table.st td.best{background:var(--win-soft)}
+table.st td.e{font-style:italic}
+.tag{display:inline-block;font:600 10px var(--f-mono);letter-spacing:.06em;padding:1px 6px;border-radius:3px;border:1px solid var(--line);color:var(--muted);vertical-align:1px;margin-left:4px}
+.tag.sx{color:var(--sx);border-color:var(--sx)}.tag.ts{color:var(--ts);border-color:var(--ts)}.tag.tie{}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px}
+.seg button{font:500 12px var(--f-mono);border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:5px 10px;border-radius:4px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.seg button:hover{color:var(--ink)}.seg button[aria-pressed="true"]:hover{color:#fff}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:0 0 12px}
+.cgl{font:600 10px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.leg{display:flex;flex-wrap:wrap;gap:6px 16px;font:500 11.5px var(--f-mono);color:var(--muted);margin:8px 0 0}
+.leg i{display:inline-block;width:12px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:6px}
+.c-sx{background:var(--sx)}.c-ts{background:var(--ts)}
+.chart svg{display:block;width:100%;height:auto}
+.chart text{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.chart .lbl{fill:var(--ink);font-weight:600}
+.dir{list-style:none;padding:0;margin:0}
+.dir li{padding:9px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);font-size:14px}
+.dir li:last-child{border-bottom:0}
+.dir li b{display:block;font-size:14px}
+.dir li span{color:var(--muted);font-size:13px}
+.hd{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.mx{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px}
+.risk{columns:2 340px;column-gap:28px;padding-left:20px;margin:0;font-size:14px}
+.risk li{break-inside:avoid;margin:0 0 8px}
+.srcs{font-size:12.5px;color:var(--muted);columns:2 320px;column-gap:28px;padding-left:20px}
+.srcs li{break-inside:avoid;margin:3px 0}
+.live{font:500 11px var(--f-mono);color:var(--muted)}
+footer.pg{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="../macro/">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a><a href="../robotics/">Robotics</a><a href="./" aria-current="page">SpaceX vs Tesla</a></nav>
+  <div class="eyebrow">SPCX · TSLA · Valuation · Forecasts · Capex · Backlog · Deal math</div>
+  <h1>SpaceX vs Tesla merger</h1>
+  <p class="lede">Barclays now expects a deal could be announced before Tesla's annual meeting (due by Dec 6), most likely as SpaceX buying Tesla with its own stock. Nothing has been proposed or filed. This page lines the two companies up on the same yardsticks to answer one question: if they combine, which side is the cheaper one, and which brings more future growth? <span class="live" id="liveNote"></span></p>
+
+  <div class="tiles" id="kpi"></div>
+
+  <div class="verdict" id="verdict">
+    <h2>The verdict</h2>
+    <p><b>Tesla is cheaper on what the companies sell today; SpaceX is cheaper on what they are expected to earn, and has far more growth.</b> Tesla trades at about 14× trailing sales against SpaceX's 85×. But Tesla's profits are thin (1.4% operating margin last quarter) and grow about 12% a year, so it costs roughly 160× next year's earnings. SpaceX's sales are forecast to roughly double each year to 2028, which brings it to about 37× 2027 and 21× 2028 earnings on Goldman's numbers. Even on 2028 sales, SpaceX is slightly cheaper (about 9× vs 10×).</p>
+    <p><b>In a merger, Tesla holders would be swapping into the faster grower, and SpaceX holders would be buying the slower, lower-margin business at a premium.</b> At market prices one Tesla share is worth about <span id="vRatio">2.4</span> SpaceX shares, giving Tesla holders about <span id="vSplit">42%</span> of the combined company before any premium. SpaceX's own holders would see growth diluted (combined 2027 sales growth falls from ~150% to ~60%), in exchange for Tesla's factories, robots, cars and net cash. The biggest risk sits on the SpaceX side: it is burning about $13–15B a quarter on AI compute and is lining up another $40B of debt.</p>
+    <div class="vgrid">
+      <div class="vbox"><b>Cheaper today (sales)</b><span class="w" style="color:var(--ts)">Tesla</span><small>EV / 2026E sales ~13× vs ~42×. Tesla also has net cash and a much smaller burn.</small></div>
+      <div class="vbox"><b>Cheaper on future earnings</b><span class="w" style="color:var(--sx)">SpaceX</span><small>P/E 2027E ~37× vs ~158×; 2028E ~21× vs ~113×. Depends on AI compute revenue arriving on schedule.</small></div>
+      <div class="vbox"><b>More future potential</b><span class="w" style="color:var(--sx)">SpaceX</span><small>Sales forecast 2025→2028 ~+120% a year vs ~+13%. $47.5B contracted backlog; Tesla's robotaxi and Optimus are still pre-revenue.</small></div>
+      <div class="vbox"><b>Lower risk</b><span class="w" style="color:var(--ts)">Tesla</span><small>Capex ~$25B/yr vs SpaceX's ~$80B in 2026 and far more in 2027; SpaceX FCF was −$25B in H1.</small></div>
+    </div>
+    <p class="note">My read from public data, not investment advice. SpaceX forward EPS uses Goldman Sachs' estimates (Oct 7), which are above consensus on revenue; if SpaceX earned only half of Goldman's 2028 EPS, its 2028 P/E would still be about 42×, well below Tesla's ~113×.</p>
+  </div>
+
+  <section aria-labelledby="fmH">
+    <h2 id="fmH">Financial metrics side by side</h2>
+    <p class="sub">Latest reported quarter (Q2 2026 for both), trailing twelve months and balance sheet at June 30, 2026. Valuation rows recalculate from the live price on each stock page. Green marks the better figure where one is clearly better.</p>
+    <div class="panel tw"><table class="st" id="fm"></table></div>
+    <p class="note">Tesla reports Q3 on Oct 21 (consensus EPS ~$0.44, revenue ~$27.8B); SpaceX is expected around Nov 3 (consensus revenue ~$12.9B, adjusted EBITDA ~$6.9B). This table will need refreshing after both.</p>
+  </section>
+
+  <section aria-labelledby="fcH">
+    <h2 id="fcH">Revenue and earnings, 2024 to 2028</h2>
+    <p class="sub">Actuals for 2024–2025, then Street forecasts. On these numbers SpaceX's revenue passes Tesla's in 2027. Italic cells are estimates; see the notes under the table for which source each comes from.</p>
+    <div class="panel">
+      <div class="ctl"><span class="cgl">Show</span><div class="seg" id="fcSeg"><button aria-pressed="true" data-k="rev">Revenue</button><button aria-pressed="false" data-k="eps">EPS</button><button aria-pressed="false" data-k="pe">P/E at today's price</button></div></div>
+      <div class="chart" id="fcChart"></div>
+      <div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span>Lighter bars = estimates</span></div>
+    </div>
+    <div class="panel tw" style="margin-top:12px"><table class="st" id="fc"></table></div>
+    <p class="note">SpaceX 2026E revenue: Street ~$44.8B (Fiscal.ai) and Goldman $51.6B; 2027–28 and all SpaceX EPS: Goldman Sachs. Tesla EPS: consensus ($1.70 / $2.30 / $3.21); 2027 revenue: consensus ~$120.8B; Tesla 2026 revenue is H1 actual + Q3 consensus + my Q4 estimate; Tesla 2028 revenue is my extrapolation (+14%), as no consensus figure was found.</p>
+  </section>
+
+  <section aria-labelledby="bgH">
+    <h2 id="bgH">Where each business is heading</h2>
+    <p class="sub">Revenue engines today, the bets management is making, and where the two already overlap (the overlap is the case for merging).</p>
+    <div class="two">
+      <div class="panel">
+        <div class="hd"><span class="dot c-sx"></span><h3 style="margin:0">SpaceX: connectivity cash machine funding an AI build-out</h3></div>
+        <ul class="dir">
+          <li><b>Starlink (Connectivity), 55% of Q2 sales</b><span>$4.29B, +66%, $1.7B operating profit. 12M subscribers (doubled in a year), $66 ARPU, 10,200 satellites. Direct-to-mobile via EchoStar spectrum (closing late 2027).</span></li>
+          <li><b>AI (former xAI + X), 33% and the growth engine</b><span>$2.56B, +247%, first profitable quarter. Compute cloud for Anthropic and Google; 1.4 GW installed, >2 GW by end-2026, 7.5–10 GW targeted for end-2027. Goldman sees AI sales of $27B → $90B → $147B (2026–28).</span></li>
+          <li><b>Space (launch, Dragon, Starship), 12%</b><span>$962M; 78 launches in H1. Starship reached orbit; it underpins Starlink V3 and orbital compute ("Starmind").</span></li>
+          <li><b>Stated goals</b><span>$100B annual revenue run-rate by Dec 2026; $1 trillion of revenue targeted for 2030.</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="hd"><span class="dot c-ts"></span><h3 style="margin:0">Tesla: car maker turning into a physical-AI company</h3></div>
+        <ul class="dir">
+          <li><b>Automotive, 73% of Q2 sales</b><span>$20.5B, +23%. Q3 deliveries 486,532 (−2% y/y, beat by 5%). Auto gross margin ex-credits 16.3%; regulatory credits are fading.</span></li>
+          <li><b>Energy storage, 11%</b><span>$3.14B; 13.7 GWh deployed in Q3 (missed 15.9 GWh estimate). SpaceX/xAI is a big Megapack buyer ($405M in H1).</span></li>
+          <li><b>Services &amp; other, 16%</b><span>$4.58B, +50%, including FSD subscriptions (~1.5M).</span></li>
+          <li><b>The bets</b><span>Robotaxi live in 7 US metros (management: material revenue from 2027), Cybercab, Optimus humanoid ("flat S-curve" ramp at first), Terafab chip fab, AI compute, solar manufacturing. Roadster production 2028.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <h3>Where they already overlap</h3>
+      <div class="mx">
+        <div><b>Terafab</b><br><span class="sub" style="font-size:13px">Joint chip fab in Texas, $16.8B initial investment; makes edge chips for Tesla cars and Optimus and hardened chips for satellites. Today every decision needs both boards.</span></div>
+        <div><b>Grok in Tesla</b><br><span class="sub" style="font-size:13px">xAI's model has run in Tesla cars since July 2025; Tesla's physical AI would pair with SpaceX's "virtual AI".</span></div>
+        <div><b>Energy for compute</b><br><span class="sub" style="font-size:13px">Megapacks power xAI data centres; a merged company would sell storage to itself.</span></div>
+        <div><b>Cross-holdings</b><br><span class="sub" style="font-size:13px">Tesla owns ~19.0M SPCX shares (from its $2B xAI stake, worth ~<span id="stake">$2.8B</span>); SpaceX bought $100M+ of Cybertrucks.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cxH">
+    <h2 id="cxH">Capex and backlog, now and next</h2>
+    <p class="sub">Both companies are in heavy investment cycles, but at very different scales. SpaceX spent more on capex in Q2 alone ($18.4B) than Tesla plans for most of 2026.</p>
+    <div class="two">
+      <div class="panel"><h3>Capital spending, US$B</h3><div class="chart" id="cxChart"></div><div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span>Lighter = estimate</span></div></div>
+      <div class="panel tw"><table class="st" id="cx"></table></div>
+    </div>
+    <div class="panel tw" style="margin-top:16px"><table class="st" id="bk"></table></div>
+  </section>
+
+  <section aria-labelledby="dmH">
+    <h2 id="dmH">Merger math</h2>
+    <p class="sub">Assumes SpaceX issues new shares for all of Tesla (Barclays' base case). Pick a premium for Tesla holders to see the exchange ratio, the ownership split and what 100 Tesla shares would turn into. Uses live prices.</p>
+    <div class="panel">
+      <div class="ctl"><span class="cgl">Premium to Tesla holders</span><div class="seg" id="prSeg"><button aria-pressed="true" data-p="0">None</button><button aria-pressed="false" data-p="0.1">10%</button><button aria-pressed="false" data-p="0.2">20%</button><button aria-pressed="false" data-p="0.3">30%</button></div></div>
+      <div class="tiles" id="dm"></div>
+      <p class="note">Barclays' "0.7" is the value ratio (Tesla's market value ÷ SpaceX's, $1.5T ÷ $2.1T), not shares per share. Per share, each TSLA is worth about 2.4 SPCX at market. Barclays estimates Musk would own ~37% of the combined company with ~56% of the votes. Morningstar, valuing on its own fair values, argued Tesla holders should get 50–66% instead.</p>
+    </div>
+    <div class="panel tw" style="margin-top:16px"><table class="st" id="pf"></table></div>
+  </section>
+
+  <section aria-labelledby="rkH">
+    <h2 id="rkH">What could change the answer</h2>
+    <ul class="risk">
+      <li><b>SpaceX's AI ramp slips.</b> Nearly all of the forward-earnings case rests on AI compute revenue scaling from $2.6B a quarter to ~$90B a year in 2027. Anthropic and Google contracts help, but this is unproven at that scale.</li>
+      <li><b>Funding.</b> SpaceX has raised ~$111B since June and is seeking $40B more; reaching ~10 GW by 2027 implies hundreds of billions of build cost. Oppenheimer sees net debt above $400B by 2031.</li>
+      <li><b>Tesla Q3 (Oct 21).</b> A margin recovery would lower Tesla's forward P/E; another miss would widen the gap further.</li>
+      <li><b>Related-party process.</b> Musk runs both companies. Independent committees, fairness opinions and a vote of non-Musk Tesla holders decide the ratio, and the premium could be larger than the market expects.</li>
+      <li><b>Timing.</b> Barclays says a deal needs announcing by late Oct / early Nov to go to the AGM; otherwise 6–12 months. Polymarket gives 24% by year-end; Kalshi 52% by May 2027.</li>
+      <li><b>Thin SpaceX float.</b> Only a small share of SPCX trades freely, so the price (and the ratio) can swing hard; it fell 7% intraday on Oct 15.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="srH">
+    <h2 id="srH">Sources</h2>
+    <ol class="srcs">
+      <li><a href="https://qz.com/tesla-spacex-merger-barclays-announcement-annual-meeting-101526">Quartz: Barclays says merger could come before AGM (Oct 15)</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/article/will-spacex-merge-with-tesla-speculation-resurfaces-it-could-before-the-end-of-2026-155742652.html">Yahoo Finance: merger speculation, Musk stakes and votes</a></li>
+      <li><a href="https://247wallst.com/investing/2026/10/15/barclays-says-a-tesla-spacex-merger-could-be-announced-before-december">24/7 Wall St: Barclays note detail</a></li>
+      <li><a href="https://purepowerpicks.com/tesla-spacex-merger/">PurePowerPicks: share math, Morningstar view, Tesla's SPCX stake</a></li>
+      <li><a href="https://fool.com/earnings/call-transcripts/2026/08/11/spacex-spcx-q2-2026-earnings-call-transcript">SpaceX Q2 2026 earnings call (backlog, subscribers, run-rate goal)</a></li>
+      <li><a href="https://defensebriefing.co/intel/companies/spacex">SpaceX profile: shares, debt, cash, margins</a></li>
+      <li><a href="https://beancount.io/blog/2026/07/12/spacex-fy2025-earnings-analysis">SpaceX FY2023–25 financials from the S-1</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-revamps-spacex-stock-020300652.html">Goldman Sachs SpaceX estimates 2026–28 (Oct 8)</a></li>
+      <li><a href="https://markets.businessinsider.com/news/stocks/spacex-stock-spcx-forecast-here-s-why-ubs-expects-a-strong-q3-1036583891">UBS SpaceX Q3 preview and consensus</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/spacex-reportedly-wants-borrow-40-034302259.html">SpaceX $40B debt, capex and compute targets</a></li>
+      <li><a href="https://fool.com/investing/2026/10/07/in-4-months-spacex-has-now-sought-to-raise-over-usd150-billion-should-investors-be-worried-or-is-this-a-flashing-buy-signal">Evercore H2 2026 SpaceX capex estimate</a></li>
+      <li><a href="https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q2-2026-Update.pdf">Tesla Q2 2026 Update</a></li>
+      <li><a href="https://www.fool.com/earnings/call-transcripts/2026/08/05/tesla-tsla-q2-2026-earnings-call-transcript/">Tesla Q2 2026 earnings call (capex, debt capacity, Terafab)</a></li>
+      <li><a href="https://investatis.com/blog/us-filing-tsla-2026-07-23-10-q">Tesla Q2 2026 10-Q summary (balance sheet)</a></li>
+      <li><a href="https://stocktitan.net/sec-filings/TSLA/10-q-tesla-inc-quarterly-earnings-report-b7f8cb50e0a3.html">Tesla 10-Q: 3.95B shares outstanding</a></li>
+      <li><a href="https://fool.com/investing/2026/08/19/teslas-market-cap-just-slipped-below-15-trillion-h">Visible Alpha Tesla consensus: net income, capex, FCF 2026–28</a></li>
+      <li><a href="https://investing.com/news/stock-market-news/tesla-stock-trades-at-a-steep-premium-as-fundamentals-remain-under-pressure-93CH-4932642">Tesla consensus EPS 2026–28</a></li>
+      <li><a href="https://247wallst.com/investing/2026/09/24/prediction-the-biggest-opportunity-for-tesla-stock-may-be-just-ahead?tpid=1671134">Tesla 2027 revenue consensus, price target</a></li>
+      <li><a href="https://zacks.com/stock/news/3006021/tesla-gears-up-to-report-q3-earnings:-here's-what-to-expect-">Zacks: Tesla Q3 preview and deliveries</a></li>
+      <li><a href="https://heygotrade.com/en/news/tesla-tsla-stock-news-october-16-2026">TSLA close Oct 15</a> · <a href="https://marketbeat.com/stocks/NASDAQ/SPCX/chart">SPCX close Oct 15</a></li>
+    </ol>
+  </section>
+
+  <footer class="pg" id="foot">Data as of Oct 16, 2026 (prices update live from the SPCX and TSLA pages). Built from public filings and analyst estimates; my judgments are labelled. Not investment advice.</footer>
+</main>
+<script>
+(function(){
+"use strict";
+// ---------- static data (US$B unless noted) ----------
+const D = {
+  sx:{name:"SpaceX",tk:"SPCX",px:148.62,sh:13.18,cash:100.0,debt:39.5,ttmRev:23.1,
+      eps:{2026:1.30,2027:3.96,2028:7.01}, rev:{2024:14.02,2025:18.67,2026:44.8,2027:127.5,2028:205.6}},
+  ts:{name:"Tesla",tk:"TSLA",px:362.44,sh:3.95,cash:43.5,debt:9.3,ttmRev:103.6,ttmEps:1.08,
+      eps:{2025:1.66,2026:1.70,2027:2.30,2028:3.21}, rev:{2024:97.69,2025:94.83,2026:107.4,2027:120.8,2028:137.7}}
+};
+const EST_FROM = 2026;
+const $ = s => document.querySelector(s);
+const f1 = x => x.toFixed(1), f2 = x => x.toFixed(2);
+const tn = b => b >= 1000 ? "$" + (b/1000).toFixed(2) + "T" : "$" + f1(b) + "B";
+const mult = x => (x >= 100 ? Math.round(x) : x.toFixed(1)) + "×";
+
+function derived(){
+  const s = D.sx, t = D.ts;
+  s.mc = s.px * s.sh; t.mc = t.px * t.sh;           // $B (price × billions of shares)
+  s.ev = s.mc - s.cash + s.debt; t.ev = t.mc - t.cash + t.debt;
+}
+
+// ---------- KPI tiles ----------
+function kpis(){
+  const s = D.sx, t = D.ts, r = t.px / s.px, split = t.mc / (s.mc + t.mc);
+  $("#kpi").innerHTML = [
+    ["sx","SpaceX (SPCX)","$"+f2(s.px),"Market cap "+tn(s.mc)],
+    ["ts","Tesla (TSLA)","$"+f2(t.px),"Market cap "+tn(t.mc)],
+    ["","SPCX per TSLA share",f2(r)+"×","Exchange ratio at market, no premium"],
+    ["","Combined value",tn(s.mc+t.mc),"SpaceX holders "+Math.round((1-split)*100)+"% · Tesla "+Math.round(split*100)+"%"]
+  ].map(([c,b,v,sm])=>`<div class="tile ${c}"><b>${b}</b><span class="v">${v}</span><small>${sm}</small></div>`).join("");
+  $("#vRatio").textContent = f2(r);
+  $("#vSplit").textContent = Math.round(split*100) + "%";
+  $("#stake").textContent = "$" + f1(0.019 * s.px) + "B";
+}
+
+// ---------- financial metrics table ----------
+function fmTable(){
+  const s = D.sx, t = D.ts;
+  // rows: [label, spacex, tesla, better ('s'|'t'|''), note]
+  const R = [
+    ["g","Latest quarter (Q2 2026)"],
+    ["Revenue","$7.81B","$28.24B","","Tesla ~3.6× larger today"],
+    ["Revenue growth y/y","+92%","+25.5%","s",""],
+    ["Gross margin","~55%","~18% (2023–25 level)","s","SpaceX boosted by Starlink"],
+    ["Operating margin","Loss (AI depreciation)","1.4%","t","Tesla operating income $398M"],
+    ["Adj. EBITDA","$3.54B (+191%)","not reported","",""],
+    ["Net income","−$0.54B","$1.13B","t",""],
+    ["EPS","−$0.09","$0.32 GAAP / $0.33 adj.","t","Tesla missed ~$0.50 consensus"],
+    ["Operating cash flow","$2.42B","$4.70B","t",""],
+    ["Capex","$18.37B","$5.79B","t","SpaceX: $15.8B on AI compute"],
+    ["Free cash flow","−$15.96B","−$1.09B","t",""],
+    ["g","Trailing twelve months / balance sheet (Jun 30, 2026)"],
+    ["Revenue, TTM","$"+f1(s.ttmRev)+"B","$"+f1(t.ttmRev)+"B","",""],
+    ["Cash & securities","$100.0B","$43.5B","s","SpaceX mostly IPO proceeds; less after Q3 burn"],
+    ["Debt & finance leases","$39.5B","$9.3B","t","SpaceX seeking $40B more"],
+    ["Net cash","$"+f1(s.cash-s.debt)+"B","$"+f1(t.cash-t.debt)+"B","s",""],
+    ["Shares outstanding","13.18B","3.95B","",""],
+    ["g","Valuation at today's price"],
+    ["Market cap",tn(s.mc),tn(t.mc),"",""],
+    ["Enterprise value",tn(s.ev),tn(t.ev),"",""],
+    ["Price / sales, TTM",mult(s.mc/s.ttmRev),mult(t.mc/t.ttmRev),"t",""],
+    ["EV / sales 2026E",mult(s.ev/s.rev[2026]),mult(t.ev/t.rev[2026]),"t",""],
+    ["EV / sales 2027E",mult(s.ev/s.rev[2027]),mult(t.ev/t.rev[2027]),"t","SpaceX uses Goldman revenue"],
+    ["EV / sales 2028E",mult(s.ev/s.rev[2028]),mult(t.ev/t.rev[2028]),"s",""],
+    ["P/E, trailing","n/m (loss)",mult(t.px/t.ttmEps),"",""],
+    ["P/E 2026E",mult(s.px/s.eps[2026]),mult(t.px/t.eps[2026]),"s",""],
+    ["P/E 2027E",mult(s.px/s.eps[2027]),mult(t.px/t.eps[2027]),"s",""],
+    ["P/E 2028E",mult(s.px/s.eps[2028]),mult(t.px/t.eps[2028]),"s",""],
+    ["Revenue CAGR 2025→28E","+"+Math.round((Math.pow(s.rev[2028]/s.rev[2025],1/3)-1)*100)+"%","+"+Math.round((Math.pow(t.rev[2028]/t.rev[2025],1/3)-1)*100)+"%","s",""],
+    ["Growth-adjusted EV/sales*",f2(s.ev/s.rev[2028]/((Math.pow(s.rev[2028]/s.rev[2025],1/3)-1)*100)),f2(t.ev/t.rev[2028]/((Math.pow(t.rev[2028]/t.rev[2025],1/3)-1)*100)),"s","Lower is cheaper"],
+    ["Analyst avg. price target","~$221–233","~$397","",""],
+    ["Upside to target","+"+Math.round((227/s.px-1)*100)+"%","+"+Math.round((397/t.px-1)*100)+"%","s",""]
+  ];
+  let h = `<thead><tr><th>Metric</th><th class="sx">SpaceX</th><th class="ts">Tesla</th><th>Note</th></tr></thead><tbody>`;
+  for(const r of R){
+    if(r[0]==="g"){ h += `<tr class="grp"><td colspan="4">${r[1]}</td></tr>`; continue; }
+    h += `<tr><td class="k">${r[0]}</td><td class="n${r[3]==="s"?" best":""}">${r[1]}</td><td class="n${r[3]==="t"?" best":""}">${r[2]}</td><td class="w">${r[4]}</td></tr>`;
+  }
+  $("#fm").innerHTML = h + `</tbody>`;
+  $("#fm").insertAdjacentHTML("afterend","");
+}
+
+// ---------- forecast table + chart ----------
+const YRS = [2024,2025,2026,2027,2028];
+function fcTable(){
+  const s = D.sx, t = D.ts;
+  const cell = (v,y,fmt) => v==null ? `<td class="n">—</td>` : `<td class="n${y>=EST_FROM?" e":""}">${fmt(v)}</td>`;
+  const money = v => "$"+f1(v)+"B";
+  const g = (o,y) => o[y]!=null && o[y-1]!=null ? (o[y]/o[y-1]-1) : null;
+  const pct = v => (v>=0?"+":"")+Math.round(v*100)+"%";
+  let h = `<thead><tr><th></th>${YRS.map(y=>`<th>${y}${y>=EST_FROM?"E":"A"}</th>`).join("")}</tr></thead><tbody>`;
+  h += `<tr class="grp"><td colspan="6">Revenue</td></tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell(s.rev[y],y,money)).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell(t.rev[y],y,money)).join("")}</tr>`;
+  h += `<tr><td class="k">Combined</td>${YRS.map(y=>cell(s.rev[y]+t.rev[y],y,money)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">Revenue growth</td></tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell(g(s.rev,y),y,pct)).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell(g(t.rev,y),y,pct)).join("")}</tr>`;
+  const cr = {}; YRS.forEach(y=>cr[y]=s.rev[y]+t.rev[y]);
+  h += `<tr><td class="k">Combined</td>${YRS.map(y=>cell(g(cr,y),y,pct)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">EPS and P/E at today's price</td></tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">SpaceX EPS</td>${YRS.map(y=>cell(s.eps[y],y,v=>(v<0?"−$"+f2(-v):"$"+f2(v)))).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">Tesla EPS</td>${YRS.map(y=>cell(t.eps[y],y,v=>"$"+f2(v))).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">SpaceX P/E</td>${YRS.map(y=>cell(s.eps[y]?s.px/s.eps[y]:null,y,mult)).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">Tesla P/E</td>${YRS.map(y=>cell(y>=2025?t.px/t.eps[y]:null,y,mult)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">Net income (consensus / estimates)</td></tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell({2024:0.79,2025:-4.94,2026:s.eps[2026]*s.sh,2027:s.eps[2027]*s.sh,2028:s.eps[2028]*s.sh}[y],y,v=>(v<0?"−$"+f1(-v):"$"+f1(v))+"B")).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell({2024:7.1,2025:3.8,2026:3.5,2027:4.5,2028:7.1}[y],y,v=>"$"+f1(v)+"B")).join("")}</tr>`;
+  $("#fc").innerHTML = h + `</tbody>`;
+}
+let fcMode = "rev";
+function bars(el, series, opts){
+  // series: [{y:label, a:val, b:val, ea:bool, eb:bool}]
+  const W=640,H=opts.h||260,L=44,B=26,T=14,Rr=8, n=series.length;
+  const mx = Math.max(...series.flatMap(d=>[d.a||0,d.b||0]))*1.12||1;
+  const cw=(W-L-Rr)/n, bw=Math.min(34,cw*0.32);
+  const yv=v=>T+(H-T-B)*(1-v/mx);
+  let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria}">`;
+  for(let i=0;i<=4;i++){const v=mx/1.12*i/4, y=yv(v); svg+=`<line x1="${L}" x2="${W-Rr}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y+4}" text-anchor="end">${opts.fmt(v,true)}</text>`;}
+  series.forEach((d,i)=>{
+    const cx=L+cw*i+cw/2;
+    [["a",-1,"var(--sx)"],["b",1,"var(--ts)"]].forEach(([k,side,col])=>{
+      const v=d[k]; if(v==null) return;
+      const x=cx+(side<0?-bw-2:2), y=yv(Math.max(v,0)), h=Math.max(1,yv(0)-y);
+      svg+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="2" fill="${col}" opacity="${d["e"+k]?0.5:1}"><title>${(k==="a"?"SpaceX":"Tesla")} ${d.y}: ${opts.fmt(v)}</title></rect>`;
+      svg+=`<text class="lbl" x="${x+bw/2}" y="${y-4}" text-anchor="middle" font-size="10">${opts.fmt(v)}</text>`;
+    });
+    svg+=`<text x="${cx}" y="${H-8}" text-anchor="middle">${d.y}</text>`;
+  });
+  el.innerHTML = svg+"</svg>";
+}
+function fcChart(){
+  const s=D.sx,t=D.ts;
+  let ser, fmt;
+  if(fcMode==="rev"){ ser=YRS.map(y=>({y:y+(y>=EST_FROM?"E":""),a:s.rev[y],b:t.rev[y],ea:y>=EST_FROM,eb:y>=EST_FROM})); fmt=(v,ax)=>"$"+(ax?Math.round(v):f1(v))+(ax?"":"B"); }
+  else if(fcMode==="eps"){ ser=[2026,2027,2028].map(y=>({y:y+"E",a:s.eps[y],b:t.eps[y],ea:1,eb:1})); fmt=v=>"$"+f2(v); }
+  else { ser=[2026,2027,2028].map(y=>({y:y+"E",a:s.px/s.eps[y],b:t.px/t.eps[y],ea:1,eb:1})); fmt=(v,ax)=>Math.round(v)+(ax?"":"×"); }
+  bars($("#fcChart"), ser, {fmt, aria:"SpaceX vs Tesla "+fcMode});
+}
+
+// ---------- capex & backlog ----------
+function capex(){
+  bars($("#cxChart"), [
+    {y:"2024A",a:null,b:11.34},
+    {y:"2025A",a:20.7,b:8.53},
+    {y:"H1 2026A",a:28.5,b:8.28},
+    {y:"2026E",a:81.5,b:25.2,ea:1,eb:1},
+    {y:"2027E",a:null,b:25.7,eb:1}
+  ], {fmt:(v,ax)=>"$"+(ax?Math.round(v):f1(v)), aria:"Capex by year", h:240});
+  const R=[
+    ["Q2 2026 capex","$18.4B (86% AI compute)","$5.8B (+142% y/y)"],
+    ["2026 capex","~$81B est.: $28.5B H1 + ~$53B H2 (Evercore); Q3 ~$19.3B (UBS)","&gt;$25B guided; ~$8.3B in H1, so ~$8B+/quarter in H2"],
+    ["2027 capex","Not guided. Target 7.5–10 GW of compute by end-2027 vs >2 GW end-2026; at Nvidia's ~$60B/GW, building 6–8 GW costs $360–480B, partly via leases and vendor/debt financing","~$25.7B consensus; management says capex rises for 2–3 years"],
+    ["2028 capex","Goldman sees 10.6 GW compute in 2028","~$26.3B consensus"],
+    ["What it buys","AI data centres (Nvidia Vera Rubin), Starlink V3 satellites, Starship, EchoStar spectrum","Robotaxi fleet, Optimus lines, Terafab, AI compute, solar, vehicle capacity"],
+    ["Funding","$100B cash (Jun 30), $25B bonds (Jun), $40B debt being arranged","$43.5B cash, up to $30B new debt capacity"],
+    ["FCF outlook","H1 2026 −$25B; Q3 burn ~$13B (UBS)","2026 −$8.5B, 2027 −$11.1B, 2028 −$7.8B (consensus)"]
+  ];
+  $("#cx").innerHTML = `<thead><tr><th>Capex</th><th class="sx">SpaceX</th><th class="ts">Tesla</th></tr></thead><tbody>`+
+    R.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
+  const B=[
+    ["Contracted backlog","$47.5B (Jun 30), all segments","Not disclosed as a single figure"],
+    ["Inside it","$14.1B of AI cloud deals signed in Q2, $6B+ Starshield government work; plus $6.7B more cloud contracts signed early Q3, ramping from Oct","Deferred revenue $7.5B (FSD, service plans); vehicle order backlog largest since 2023; Megapack orders not quantified"],
+    ["Backlog ÷ TTM revenue","~2.1× (≈2 years of sales already contracted)","n/a"],
+    ["Named customers","Anthropic, Google (AI compute); NASA, US DoD/Space Force (Starshield); Tesla (via Terafab)","Consumers and fleets; utilities and xAI/SpaceX for Megapack"],
+    ["Visibility","High for 2027 AI revenue if compute is delivered on time","Low: robotaxi and Optimus revenue not yet contracted"]
+  ];
+  $("#bk").innerHTML = `<thead><tr><th>Backlog</th><th class="sx">SpaceX</th><th class="ts">Tesla</th></tr></thead><tbody>`+
+    B.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
+}
+
+// ---------- merger math ----------
+let prem = 0;
+function deal(){
+  const s=D.sx,t=D.ts;
+  const ratio = t.px/s.px*(1+prem);
+  const newSh = ratio*t.sh; // billions of new SPCX shares
+  const tSplit = newSh/(s.sh+newSh);
+  const val100 = 100*ratio*s.px;
+  $("#dm").innerHTML = [
+    ["Exchange ratio",f2(ratio)+" SPCX","per Tesla share"],
+    ["100 TSLA become",Math.round(100*ratio)+" SPCX","worth $"+Math.round(val100).toLocaleString()+" (vs $"+Math.round(100*t.px).toLocaleString()+" today)"],
+    ["New SPCX shares issued",f2(newSh)+"B","on "+f2(s.sh)+"B existing"],
+    ["Ownership after deal","SX "+Math.round((1-tSplit)*100)+"% · TS "+Math.round(tSplit*100)+"%","SpaceX holders · Tesla holders"],
+    ["Price paid for Tesla",tn(t.mc*(1+prem)),mult(t.mc*(1+prem)/t.rev[2026])+" 2026E sales"]
+  ].map(([b,v,sm])=>`<div class="tile"><b>${b}</b><span class="v" style="font-size:20px">${v}</span><small>${sm}</small></div>`).join("");
+  const cmc=s.mc+t.mc*(1+prem), cash=s.cash+t.cash, debt=s.debt+t.debt, cev=cmc-cash+debt;
+  const cr={2026:s.rev[2026]+t.rev[2026],2027:s.rev[2027]+t.rev[2027],2028:s.rev[2028]+t.rev[2028]};
+  const ni={2026:s.eps[2026]*s.sh+3.5,2027:s.eps[2027]*s.sh+4.5,2028:s.eps[2028]*s.sh+7.1};
+  const R=[
+    ["Market value (incl. premium)",tn(cmc)],
+    ["Cash / debt (Jun 30)","$"+f1(cash)+"B / $"+f1(debt)+"B"],
+    ["Revenue 2026E / 27E / 28E","$"+Math.round(cr[2026])+"B / $"+Math.round(cr[2027])+"B / $"+Math.round(cr[2028])+"B"],
+    ["Net income 2026E / 27E / 28E","$"+f1(ni[2026])+"B / $"+f1(ni[2027])+"B / $"+f1(ni[2028])+"B"],
+    ["P/E 2027E / 2028E (combined)",mult(cmc/ni[2027])+" / "+mult(cmc/ni[2028])+"  (SpaceX alone "+mult(s.mc/(s.eps[2027]*s.sh))+" / "+mult(s.mc/(s.eps[2028]*s.sh))+")"],
+    ["EV / sales 2027E",mult(cev/cr[2027])],
+    ["Capex 2026E","~$107B (≈$81B + $25B+)"],
+    ["Contracted backlog","$47.5B + Tesla deferred revenue $7.5B"],
+    ["Musk stake (Barclays, no premium)","~37% economic, ~56% voting"]
+  ];
+  $("#pf").innerHTML = `<thead><tr><th>Combined company, pro forma</th><th>Value</th></tr></thead><tbody>`+
+    R.map(r=>`<tr><td class="k">${r[0]}</td><td class="n" style="white-space:normal">${r[1]}</td></tr>`).join("")+`</tbody>`;
+}
+
+// ---------- wiring ----------
+function seg(id, cb){
+  const g=$(id); g.addEventListener("click",e=>{const b=e.target.closest("button"); if(!b) return;
+    g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false")); cb(b);});
+}
+seg("#fcSeg", b=>{fcMode=b.dataset.k; fcChart();});
+seg("#prSeg", b=>{prem=parseFloat(b.dataset.p); deal();});
+function render(){ derived(); kpis(); fmTable(); fcTable(); fcChart(); capex(); deal(); }
+render();
+
+// live prices from the stock pages' quote files
+const bust="?t="+Date.now();
+Promise.all(["../spcx/data/quote.json","../tesla/data/quote.json"].map(u=>fetch(u+bust,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null)))
+.then(([qs,qt])=>{
+  let upd=false, when="";
+  if(qs&&qs.price>0){D.sx.px=+qs.price;upd=true;when=qs.date||when;}
+  if(qt&&qt.price>0){D.ts.px=+qt.price;upd=true;when=qt.date||when;}
+  if(upd){ render(); $("#liveNote").textContent="Prices live"+(when?" ("+when+")":"")+"."; }
+  else $("#liveNote").textContent="Prices as of Oct 15 close.";
+});
+})();
+</script>
+<script src="../assets/stock-picker.js?v=1"></script>
+</body>
+</html>
