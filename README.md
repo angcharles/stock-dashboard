@@ -31,7 +31,7 @@ Investor dashboards, EN / 中文, light / dark:
 - **Corning (GLW)** — `glw/index.html` → https://angcharles.github.io/stock-dashboard/glw/
 - **Teradyne (TER)** — `ter/index.html` → https://angcharles.github.io/stock-dashboard/ter/
 
-- **SpaceX vs Tesla merger** — `merger/index.html` → https://angcharles.github.io/stock-dashboard/merger/ (financial metrics, 2024–28 forecasts, capex & backlog, exchange-ratio math, verdict)
+- **SpaceX vs Tesla merger** — `merger/index.html` → https://angcharles.github.io/stock-dashboard/merger/ (financial metrics, 2024–28 forecasts, capex & backlog, exchange-ratio math, merger scenarios with share-price impact, verdict)
 
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
