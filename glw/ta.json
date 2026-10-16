@@ -1,50 +1,57 @@
 {
- "asof": "Oct 15, 2026",
- "close": 138.43,
+ "asof": "Oct 16, 2026",
+ "close": 132,
  "bias": {
-  "en": "Bearish · broke the Sep 3 low",
-  "zh": "偏空 · 跌破 9 月 3 日低点"
+  "en": "Bearish · below the Oct 15 low",
+  "zh": "偏空 · 跌破 10月15日低点"
  },
  "read": [
   {
-   "en": "Corning fell 1.7% on Oct 15 to $138.43 on volume 1.5 times its 20-day average and is down 9% in five sessions. It is below all its averages: the 5-day ($146.4), 10-day ($154.0), falling 30-day ($154.8), 200-day ($153.4) and falling 100-day ($167.7). MACD has been below its signal since Oct 12 and is below zero, Parabolic SAR has been bearish since Oct 12 ($167.2), and RSI is 39.",
-   "zh": "康宁 10月15日下跌 1.7%，收于 $138.43，成交量为 20 日均量的 1.5 倍，五个交易日下跌 9%。股价位于所有均线下方：5 日（$146.4）、10 日（$154.0）、下行的 30 日（$154.8）、200 日（$153.4）以及下行的 100 日均线（$167.7）。MACD 自 10月12日起位于信号线下方并在零轴之下，抛物线 SAR 自 10月12日起看空（$167.2），RSI 为 39。"
+   "en": "Corning fell 4.6% on Oct 16 to $132.00 and is down 16% in five sessions. It is below all its averages: the 5-day ($141.4), 10-day ($150.8), 200-day ($153.6) and the falling 30-day ($154.3) and 100-day ($167.0). MACD has been below its signal since Oct 12 and is below zero with the histogram widening, Parabolic SAR has been bearish since Oct 12 ($164.4), and RSI is 36.",
+   "zh": "康宁 10月16日下跌 4.6%，收于 $132.00，五个交易日累计下跌 16%。股价位于所有均线下方：5 日（$141.4）、10 日（$150.8）、200 日均线（$153.6）以及下行的 30 日（$154.3）和 100 日均线（$167.0）。MACD 自 10月12日起位于信号线及零轴下方，柱状图继续扩大，抛物线 SAR 自 10月12日起看空（$164.4），RSI 为 36。"
   },
   {
-   "en": "The Sep 3 low ($139.25), the last support above $114.5, broke on the close after a day's low of $132.75. It now caps at $139.3, then $141.6–142.4 (Aug 24 and Sep 16 lows) and $146.4 (5-day average). Support is $132.75 (Oct 15 low), then $114.5 (Jul 28 low). A close below $132.75 would open $114.5; a close back above $142.4 would target $146.4.",
-   "zh": "$114.5 之上的最后支撑 9月3日低点（$139.25）收盘失守，当日低点 $132.75。该位现于 $139.3 形成压制，其次 $141.6–142.4（8月24日及 9月16日低点）和 $146.4（5 日均线）。支撑为 $132.75（10月15日低点），其次 $114.5（7月28日低点）。若收盘跌破 $132.75，将打开至 $114.5 的空间；若收盘重新站上 $142.4，目标看 $146.4。"
+   "en": "The Oct 15 low ($132.75) broke on the close after a day's low of $131.63; it now caps at $132.75, then $139.3 (Sep 3 low) and $141.4 (5-day average, Aug 24 low). Support is $130 (Jul 30 low), then $122.6 (Jul 29 low) and $114.5 (Jul 28 low). A close below $130 would open $122.6; a close back above $139.3 would target $141.4.",
+   "zh": "10月15日低点（$132.75）在当日低见 $131.63 后收盘失守，现为 $132.75 阻力，其次 $139.3（9月3日低点）和 $141.4（5 日均线、8月24日低点）。支撑为 $130（7月30日低点），其次 $122.6（7月29日低点）和 $114.5（7月28日低点）。若收盘跌破 $130，下一目标看 $122.6；若重新站上 $139.3，目标看 $141.4。"
   }
  ],
  "levels": {
   "r": [
    [
+    132.75,
+    {
+     "en": "Oct 15 low, now resistance",
+     "zh": "10月15日低点，转为阻力"
+    }
+   ],
+   [
     139.3,
     {
-     "en": "Sep 3 low ($139.25), now resistance",
-     "zh": "9月3日低点（$139.25），转为阻力"
+     "en": "Sep 3 low ($139.25)",
+     "zh": "9月3日低点（$139.25）"
     }
    ],
    [
-    142.4,
+    141.4,
     {
-     "en": "Aug 24 and Sep 16 lows ($141.6–142.4)",
-     "zh": "8月24日及9月16日低点（$141.6–142.4）"
-    }
-   ],
-   [
-    146.4,
-    {
-     "en": "5-day average",
-     "zh": "5日均线"
+     "en": "5-day average; Aug 24 low $141.6",
+     "zh": "5日均线；8月24日低点 $141.6"
     }
    ]
   ],
   "s": [
    [
-    132.75,
+    130,
     {
-     "en": "Oct 15 low",
-     "zh": "10月15日低点"
+     "en": "Jul 30 low; Oct 16 low $131.6",
+     "zh": "7月30日低点；10月16日低点 $131.6"
+    }
+   ],
+   [
+    122.6,
+    {
+     "en": "Jul 29 low",
+     "zh": "7月29日低点"
     }
    ],
    [
