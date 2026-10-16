@@ -36,7 +36,7 @@ Investor dashboards, EN / 中文, light / dark:
 Each page covers price, revenue mix, financials, free cash flow, watch list, calendar and sources. The root `index.html` (https://angcharles.github.io/stock-dashboard/) lists every stock with its latest price.
 
 ## Ranking on the main page
-- The stock cards on `index.html` are ordered from most to least bullish (Claude's judgment as of Oct 11, 2026), with a rank, a tier (Bullish / Constructive / Neutral / Cautious) and a one-line reason on each card. Re-rank by reordering the cards and editing the `rk` and `why` lines.
+- The stock cards on `index.html` are ordered from most to least bullish (Claude's judgment), with a rank, a tier (Bullish / Constructive / Neutral / Cautious) and a one-line reason on each card. A Claude scheduled task re-ranks them after every US session (Tue–Sat 8:22am SGT) by reordering the cards, editing the `rk` and `why` lines and the "Ranked by Claude as of" date.
 
 ## How the live price works
 - A GitHub Action (`.github/workflows/deploy.yml`) runs every 10 minutes during US market hours, fetches each symbol's quote and daily closes from Yahoo Finance (`scripts/fetch-quote.mjs SYMBOL OUTDIR RANGE`), and redeploys the site. No commits are made.
@@ -68,6 +68,11 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 - `scripts/fetch-quote.mjs` adds `ext` to each `data/quote.json` when the regular session is closed: `{session: pre|post|overnight, price, time, chg (% vs last regular price), source}`, from Yahoo's quote (pre/post/overnight fields), then Yahoo's intraday chart with pre/post bars, then Nasdaq. Only a trade newer than the regular price and under 20 hours old is kept.
 - `assets/ext-hours.js` (loaded by every stock page) shows it under the big price and as a chip in the top bar, in EN / 中文, and hides it during regular hours.
 - `.github/workflows/deploy.yml` refreshes every 15 minutes outside regular hours on weekdays (Mon 00:00 to Fri 23:45 UTC), on top of the 10-minute refresh during the session.
+
+## Portfolio tab (`portfolio/`)
+- A rules-based momentum portfolio of at most five dashboard stocks, no stock above 25%, rebalanced at each Friday close for the highest expected Sharpe ratio, with a volatility control (35% a year, 21-session forecast) that moves part to cash. Full rules are on the page and at the top of `scripts/momentum-portfolio.py`.
+- `scripts/momentum-portfolio.py` (standard library only) backtests the rules walk-forward on every `<stock>/data/history.json` and writes `data/momentum-portfolio.json`: daily NAV (with and without the volatility control), equal-weight and SPY benchmarks, drawdowns, the five deepest drawdowns with the stocks that drove them, a bootstrap of next-year drawdowns for today's mix, current holdings, a preview of the next rebalance and every stock's momentum score. SPY history comes from `data/bench/SPY/history.json`.
+- Both run in `ta-data.yml` after each US close, so the tab updates by itself; `assets/momentum.js` renders it (Lightweight Charts for growth and drawdown).
 
 ## Macro page (`macro/`, "Macro" tab on the main page)
 - Tiles, a daily candlestick chart (SMA 5/10/30/100, Parabolic SAR, MACD and RSI panes, each toggleable) and the yield curve for WTI crude, gold, silver and the 2/5/10/30-year Treasury yields; the economic calendar; macro news. Rendered by `assets/macro.js` (news by `assets/news.js` with `data-src="../data/macro-news.json"`).
