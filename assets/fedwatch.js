@@ -185,7 +185,12 @@
     $("fedHm").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; hm = b.dataset.k; try { localStorage.setItem("fed-hm", hm); } catch (x) {} history(now, prv); };
     $("fedHf").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; hf = b.dataset.k; try { localStorage.setItem("fed-hf", hf); } catch (x) {} history(now, prv); };
     const mNow = mFor(now);
-    $("fedHH").textContent = `How pricing for the ${fmtD(md, true)} meeting moved`;
+    // meeting picker: the next three FOMC meetings, plus whichever meeting is picked in the chart above
+    const picks = now.meetings.slice(0, 3).map((m) => m.d);
+    if (!picks.includes(md)) picks.push(md);
+    const hs = $("fedHSel");
+    hs.innerHTML = picks.map((d) => `<option value="${d}"${d === md ? " selected" : ""}>${fmtD(d, true)}${d === now.meetings[0].d ? " (next)" : ""}</option>`).join("");
+    hs.onchange = () => { selM = hs.value; render(); };
 
     const el = host2, W = Math.max(300, el.clientWidth), small = W < 560;
     const L = 48, R = 12, T = 12, PH = small ? 150 : 180, DH = 44, LANE = 30, B = 22;
