@@ -89,118 +89,105 @@ button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .live{font:500 11px var(--f-mono);color:var(--muted)}
 footer.pg{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.topbar{display:flex;align-items:flex-end;gap:12px;border-bottom:1px solid var(--line);margin:0 0 28px}
+.topbar .tabs{border-bottom:0;margin:0;flex:1;min-width:0}
+button.tg{font:500 12px var(--f-mono);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:5px 10px;cursor:pointer;margin-bottom:8px;flex:none}
+button.tg:hover{border-color:var(--accent)}
+button.tg:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html[lang="zh-Hans"] body{font-family:var(--f-body),"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="../macro/">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a><a href="../robotics/">Robotics</a><a href="./" aria-current="page">SpaceX vs Tesla</a></nav>
-  <div class="eyebrow">SPCX · TSLA · Valuation · Forecasts · Capex · Backlog · Deal math</div>
-  <h1>SpaceX vs Tesla merger</h1>
-  <p class="lede">Barclays now expects a deal could be announced before Tesla's annual meeting (due by Dec 6), most likely as SpaceX buying Tesla with its own stock. Nothing has been proposed or filed. This page lines the two companies up on the same yardsticks to answer one question: if they combine, which side is the cheaper one, and which brings more future growth? <span class="live" id="liveNote"></span></p>
+  <div class="topbar">
+    <nav class="tabs" aria-label="Dashboard sections"><a href="../" data-i="t_stocks">Stocks</a><a href="../macro/" data-i="t_macro">Macro</a><a href="../fx/" data-i="t_fx">FX</a><a href="../datacenter/" data-i="t_dc">Datacenter</a><a href="../robotics/" data-i="t_rb">Robotics</a><a href="./" aria-current="page" data-i="t_mg">SpaceX vs Tesla</a></nav>
+    <button class="tg" id="langBtn" type="button" aria-label="Switch language">中文</button>
+  </div>
+  <div class="eyebrow" data-i="eyebrow">SPCX · TSLA · Valuation · Forecasts · Capex · Backlog · Deal math</div>
+  <h1 data-i="h1">SpaceX vs Tesla merger</h1>
+  <p class="lede"><span data-i="lede">Barclays now expects a deal could be announced before Tesla's annual meeting (due by Dec 6), most likely as SpaceX buying Tesla with its own stock. Nothing has been proposed or filed. This page lines the two companies up on the same yardsticks to answer one question: if they combine, which side is the cheaper one, and which brings more future growth?</span> <span class="live" id="liveNote"></span></p>
 
   <div class="tiles" id="kpi"></div>
 
   <div class="verdict" id="verdict">
-    <h2>The verdict</h2>
-    <p><b>Tesla is cheaper on what the companies sell today; SpaceX is cheaper on what they are expected to earn, and has far more growth.</b> Tesla trades at about 14× trailing sales against SpaceX's 85×. But Tesla's profits are thin (1.4% operating margin last quarter) and grow about 12% a year, so it costs roughly 160× next year's earnings. SpaceX's sales are forecast to roughly double each year to 2028, which brings it to about 37× 2027 and 21× 2028 earnings on Goldman's numbers. Even on 2028 sales, SpaceX is slightly cheaper (about 9× vs 10×).</p>
-    <p><b>In a merger, Tesla holders would be swapping into the faster grower, and SpaceX holders would be buying the slower, lower-margin business at a premium.</b> At market prices one Tesla share is worth about <span id="vRatio">2.4</span> SpaceX shares, giving Tesla holders about <span id="vSplit">42%</span> of the combined company before any premium. SpaceX's own holders would see growth diluted (combined 2027 sales growth falls from ~150% to ~60%), in exchange for Tesla's factories, robots, cars and net cash. The biggest risk sits on the SpaceX side: it is burning about $13–15B a quarter on AI compute and is lining up another $40B of debt.</p>
+    <h2 data-i="v_h">The verdict</h2>
+    <p data-i="v_p1"></p>
+    <p data-i="v_p2"></p>
     <div class="vgrid">
-      <div class="vbox"><b>Cheaper today (sales)</b><span class="w" style="color:var(--ts)">Tesla</span><small>EV / 2026E sales ~13× vs ~42×. Tesla also has net cash and a much smaller burn.</small></div>
-      <div class="vbox"><b>Cheaper on future earnings</b><span class="w" style="color:var(--sx)">SpaceX</span><small>P/E 2027E ~37× vs ~158×; 2028E ~21× vs ~113×. Depends on AI compute revenue arriving on schedule.</small></div>
-      <div class="vbox"><b>More future potential</b><span class="w" style="color:var(--sx)">SpaceX</span><small>Sales forecast 2025→2028 ~+120% a year vs ~+13%. $47.5B contracted backlog; Tesla's robotaxi and Optimus are still pre-revenue.</small></div>
-      <div class="vbox"><b>Lower risk</b><span class="w" style="color:var(--ts)">Tesla</span><small>Capex ~$25B/yr vs SpaceX's ~$80B in 2026 and far more in 2027; SpaceX FCF was −$25B in H1.</small></div>
+      <div class="vbox"><b data-i="v_b1">Cheaper today (sales)</b><span class="w" style="color:var(--ts)" data-i="nm_ts">Tesla</span><small data-i="v_s1"></small></div>
+      <div class="vbox"><b data-i="v_b2">Cheaper on future earnings</b><span class="w" style="color:var(--sx)">SpaceX</span><small data-i="v_s2"></small></div>
+      <div class="vbox"><b data-i="v_b3">More future potential</b><span class="w" style="color:var(--sx)">SpaceX</span><small data-i="v_s3"></small></div>
+      <div class="vbox"><b data-i="v_b4">Lower risk</b><span class="w" style="color:var(--ts)" data-i="nm_ts">Tesla</span><small data-i="v_s4"></small></div>
     </div>
-    <p class="note">My read from public data, not investment advice. SpaceX forward EPS uses Goldman Sachs' estimates (Oct 7), which are above consensus on revenue; if SpaceX earned only half of Goldman's 2028 EPS, its 2028 P/E would still be about 42×, well below Tesla's ~113×.</p>
+    <p class="note" data-i="v_note"></p>
   </div>
 
   <section aria-labelledby="fmH">
-    <h2 id="fmH">Financial metrics side by side</h2>
-    <p class="sub">Latest reported quarter (Q2 2026 for both), trailing twelve months and balance sheet at June 30, 2026. Valuation rows recalculate from the live price on each stock page. Green marks the better figure where one is clearly better.</p>
+    <h2 id="fmH" data-i="fm_h">Financial metrics side by side</h2>
+    <p class="sub" data-i="fm_sub"></p>
     <div class="panel tw"><table class="st" id="fm"></table></div>
-    <p class="note">Tesla reports Q3 on Oct 21 (consensus EPS ~$0.44, revenue ~$27.8B); SpaceX is expected around Nov 3 (consensus revenue ~$12.9B, adjusted EBITDA ~$6.9B). This table will need refreshing after both.</p>
+    <p class="note" data-i="fm_note"></p>
   </section>
 
   <section aria-labelledby="fcH">
-    <h2 id="fcH">Revenue and earnings, 2024 to 2028</h2>
-    <p class="sub">Actuals for 2024–2025, then Street forecasts. On these numbers SpaceX's revenue passes Tesla's in 2027. Italic cells are estimates; see the notes under the table for which source each comes from.</p>
+    <h2 id="fcH" data-i="fc_h">Revenue and earnings, 2024 to 2028</h2>
+    <p class="sub" data-i="fc_sub"></p>
     <div class="panel">
-      <div class="ctl"><span class="cgl">Show</span><div class="seg" id="fcSeg"><button aria-pressed="true" data-k="rev">Revenue</button><button aria-pressed="false" data-k="eps">EPS</button><button aria-pressed="false" data-k="pe">P/E at today's price</button></div></div>
+      <div class="ctl"><span class="cgl" data-i="show">Show</span><div class="seg" id="fcSeg"><button aria-pressed="true" data-k="rev" data-i="b_rev">Revenue</button><button aria-pressed="false" data-k="eps" data-i="b_eps">EPS</button><button aria-pressed="false" data-k="pe" data-i="b_pe">P/E at today's price</button></div></div>
       <div class="chart" id="fcChart"></div>
-      <div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span>Lighter bars = estimates</span></div>
+      <div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span data-i="lighter">Lighter bars = estimates</span></div>
     </div>
     <div class="panel tw" style="margin-top:12px"><table class="st" id="fc"></table></div>
-    <p class="note">SpaceX 2026E revenue: Street ~$44.8B (Fiscal.ai) and Goldman $51.6B; 2027–28 and all SpaceX EPS: Goldman Sachs. Tesla EPS: consensus ($1.70 / $2.30 / $3.21); 2027 revenue: consensus ~$120.8B; Tesla 2026 revenue is H1 actual + Q3 consensus + my Q4 estimate; Tesla 2028 revenue is my extrapolation (+14%), as no consensus figure was found.</p>
+    <p class="note" data-i="fc_note"></p>
   </section>
 
   <section aria-labelledby="bgH">
-    <h2 id="bgH">Where each business is heading</h2>
-    <p class="sub">Revenue engines today, the bets management is making, and where the two already overlap (the overlap is the case for merging).</p>
+    <h2 id="bgH" data-i="bg_h">Where each business is heading</h2>
+    <p class="sub" data-i="bg_sub"></p>
     <div class="two">
       <div class="panel">
-        <div class="hd"><span class="dot c-sx"></span><h3 style="margin:0">SpaceX: connectivity cash machine funding an AI build-out</h3></div>
-        <ul class="dir">
-          <li><b>Starlink (Connectivity), 55% of Q2 sales</b><span>$4.29B, +66%, $1.7B operating profit. 12M subscribers (doubled in a year), $66 ARPU, 10,200 satellites. Direct-to-mobile via EchoStar spectrum (closing late 2027).</span></li>
-          <li><b>AI (former xAI + X), 33% and the growth engine</b><span>$2.56B, +247%, first profitable quarter. Compute cloud for Anthropic and Google; 1.4 GW installed, >2 GW by end-2026, 7.5–10 GW targeted for end-2027. Goldman sees AI sales of $27B → $90B → $147B (2026–28).</span></li>
-          <li><b>Space (launch, Dragon, Starship), 12%</b><span>$962M; 78 launches in H1. Starship reached orbit; it underpins Starlink V3 and orbital compute ("Starmind").</span></li>
-          <li><b>Stated goals</b><span>$100B annual revenue run-rate by Dec 2026; $1 trillion of revenue targeted for 2030.</span></li>
-        </ul>
+        <div class="hd"><span class="dot c-sx"></span><h3 style="margin:0" data-i="sx_h"></h3></div>
+        <ul class="dir" data-i="sx_list"></ul>
       </div>
       <div class="panel">
-        <div class="hd"><span class="dot c-ts"></span><h3 style="margin:0">Tesla: car maker turning into a physical-AI company</h3></div>
-        <ul class="dir">
-          <li><b>Automotive, 73% of Q2 sales</b><span>$20.5B, +23%. Q3 deliveries 486,532 (−2% y/y, beat by 5%). Auto gross margin ex-credits 16.3%; regulatory credits are fading.</span></li>
-          <li><b>Energy storage, 11%</b><span>$3.14B; 13.7 GWh deployed in Q3 (missed 15.9 GWh estimate). SpaceX/xAI is a big Megapack buyer ($405M in H1).</span></li>
-          <li><b>Services &amp; other, 16%</b><span>$4.58B, +50%, including FSD subscriptions (~1.5M).</span></li>
-          <li><b>The bets</b><span>Robotaxi live in 7 US metros (management: material revenue from 2027), Cybercab, Optimus humanoid ("flat S-curve" ramp at first), Terafab chip fab, AI compute, solar manufacturing. Roadster production 2028.</span></li>
-        </ul>
+        <div class="hd"><span class="dot c-ts"></span><h3 style="margin:0" data-i="ts_h"></h3></div>
+        <ul class="dir" data-i="ts_list"></ul>
       </div>
     </div>
     <div class="panel" style="margin-top:16px">
-      <h3>Where they already overlap</h3>
-      <div class="mx">
-        <div><b>Terafab</b><br><span class="sub" style="font-size:13px">Joint chip fab in Texas, $16.8B initial investment; makes edge chips for Tesla cars and Optimus and hardened chips for satellites. Today every decision needs both boards.</span></div>
-        <div><b>Grok in Tesla</b><br><span class="sub" style="font-size:13px">xAI's model has run in Tesla cars since July 2025; Tesla's physical AI would pair with SpaceX's "virtual AI".</span></div>
-        <div><b>Energy for compute</b><br><span class="sub" style="font-size:13px">Megapacks power xAI data centres; a merged company would sell storage to itself.</span></div>
-        <div><b>Cross-holdings</b><br><span class="sub" style="font-size:13px">Tesla owns ~19.0M SPCX shares (from its $2B xAI stake, worth ~<span id="stake">$2.8B</span>); SpaceX bought $100M+ of Cybertrucks.</span></div>
-      </div>
+      <h3 data-i="ov_h">Where they already overlap</h3>
+      <div class="mx" data-i="ov"></div>
     </div>
   </section>
 
   <section aria-labelledby="cxH">
-    <h2 id="cxH">Capex and backlog, now and next</h2>
-    <p class="sub">Both companies are in heavy investment cycles, but at very different scales. SpaceX spent more on capex in Q2 alone ($18.4B) than Tesla plans for most of 2026.</p>
+    <h2 id="cxH" data-i="cx_h">Capex and backlog, now and next</h2>
+    <p class="sub" data-i="cx_sub"></p>
     <div class="two">
-      <div class="panel"><h3>Capital spending, US$B</h3><div class="chart" id="cxChart"></div><div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span>Lighter = estimate</span></div></div>
+      <div class="panel"><h3 data-i="cx_ch">Capital spending, US$B</h3><div class="chart" id="cxChart"></div><div class="leg"><span><i class="c-sx"></i>SpaceX</span><span><i class="c-ts"></i>Tesla</span><span data-i="lighter2">Lighter = estimate</span></div></div>
       <div class="panel tw"><table class="st" id="cx"></table></div>
     </div>
     <div class="panel tw" style="margin-top:16px"><table class="st" id="bk"></table></div>
   </section>
 
   <section aria-labelledby="dmH">
-    <h2 id="dmH">Merger math</h2>
-    <p class="sub">Assumes SpaceX issues new shares for all of Tesla (Barclays' base case). Pick a premium for Tesla holders to see the exchange ratio, the ownership split and what 100 Tesla shares would turn into. Uses live prices.</p>
+    <h2 id="dmH" data-i="dm_h">Merger math</h2>
+    <p class="sub" data-i="dm_sub"></p>
     <div class="panel">
-      <div class="ctl"><span class="cgl">Premium to Tesla holders</span><div class="seg" id="prSeg"><button aria-pressed="true" data-p="0">None</button><button aria-pressed="false" data-p="0.1">10%</button><button aria-pressed="false" data-p="0.2">20%</button><button aria-pressed="false" data-p="0.3">30%</button></div></div>
+      <div class="ctl"><span class="cgl" data-i="prem">Premium to Tesla holders</span><div class="seg" id="prSeg"><button aria-pressed="true" data-p="0" data-i="none">None</button><button aria-pressed="false" data-p="0.1">10%</button><button aria-pressed="false" data-p="0.2">20%</button><button aria-pressed="false" data-p="0.3">30%</button></div></div>
       <div class="tiles" id="dm"></div>
-      <p class="note">Barclays' "0.7" is the value ratio (Tesla's market value ÷ SpaceX's, $1.5T ÷ $2.1T), not shares per share. Per share, each TSLA is worth about 2.4 SPCX at market. Barclays estimates Musk would own ~37% of the combined company with ~56% of the votes. Morningstar, valuing on its own fair values, argued Tesla holders should get 50–66% instead.</p>
+      <p class="note" data-i="dm_note"></p>
     </div>
     <div class="panel tw" style="margin-top:16px"><table class="st" id="pf"></table></div>
   </section>
 
   <section aria-labelledby="rkH">
-    <h2 id="rkH">What could change the answer</h2>
-    <ul class="risk">
-      <li><b>SpaceX's AI ramp slips.</b> Nearly all of the forward-earnings case rests on AI compute revenue scaling from $2.6B a quarter to ~$90B a year in 2027. Anthropic and Google contracts help, but this is unproven at that scale.</li>
-      <li><b>Funding.</b> SpaceX has raised ~$111B since June and is seeking $40B more; reaching ~10 GW by 2027 implies hundreds of billions of build cost. Oppenheimer sees net debt above $400B by 2031.</li>
-      <li><b>Tesla Q3 (Oct 21).</b> A margin recovery would lower Tesla's forward P/E; another miss would widen the gap further.</li>
-      <li><b>Related-party process.</b> Musk runs both companies. Independent committees, fairness opinions and a vote of non-Musk Tesla holders decide the ratio, and the premium could be larger than the market expects.</li>
-      <li><b>Timing.</b> Barclays says a deal needs announcing by late Oct / early Nov to go to the AGM; otherwise 6–12 months. Polymarket gives 24% by year-end; Kalshi 52% by May 2027.</li>
-      <li><b>Thin SpaceX float.</b> Only a small share of SPCX trades freely, so the price (and the ratio) can swing hard; it fell 7% intraday on Oct 15.</li>
-    </ul>
+    <h2 id="rkH" data-i="rk_h">What could change the answer</h2>
+    <ul class="risk" data-i="risk"></ul>
   </section>
 
   <section aria-labelledby="srH">
-    <h2 id="srH">Sources</h2>
+    <h2 id="srH" data-i="src_h">Sources</h2>
     <ol class="srcs">
       <li><a href="https://qz.com/tesla-spacex-merger-barclays-announcement-annual-meeting-101526">Quartz: Barclays says merger could come before AGM (Oct 15)</a></li>
       <li><a href="https://finance.yahoo.com/markets/stocks/article/will-spacex-merge-with-tesla-speculation-resurfaces-it-could-before-the-end-of-2026-155742652.html">Yahoo Finance: merger speculation, Musk stakes and votes</a></li>
@@ -225,232 +212,331 @@ footer.pg{font-size:12px;color:var(--muted);margin-top:32px;padding-top:16px;bor
     </ol>
   </section>
 
-  <footer class="pg" id="foot">Data as of Oct 16, 2026 (prices update live from the SPCX and TSLA pages). Built from public filings and analyst estimates; my judgments are labelled. Not investment advice.</footer>
+  <footer class="pg" data-i="foot"></footer>
 </main>
 <script>
 (function(){
 "use strict";
-// ---------- static data (US$B unless noted) ----------
+// ================= text, EN / 中文 =================
+const T = {
+en:{
+ v_p1:"<b>Tesla is cheaper on what the companies sell today; SpaceX is cheaper on what they are expected to earn, and has far more growth.</b> Tesla trades at about 14× trailing sales against SpaceX's 85×. But Tesla's profits are thin (1.4% operating margin last quarter) and grow about 12% a year, so it costs roughly 160× next year's earnings. SpaceX's sales are forecast to roughly double each year to 2028, which brings it to about 37× 2027 and 21× 2028 earnings on Goldman's numbers. Even on 2028 sales, SpaceX is slightly cheaper (about 9× vs 10×).",
+ v_p2:"<b>In a merger, Tesla holders would be swapping into the faster grower, and SpaceX holders would be buying the slower, lower-margin business at a premium.</b> At market prices one Tesla share is worth about <span id=\"vRatio\">2.4</span> SpaceX shares, giving Tesla holders about <span id=\"vSplit\">42%</span> of the combined company before any premium. SpaceX's own holders would see growth diluted (combined 2027 sales growth falls from ~150% to ~60%), in exchange for Tesla's factories, robots, cars and net cash. The biggest risk sits on the SpaceX side: it is burning about $13–15B a quarter on AI compute and is lining up another $40B of debt.",
+ v_s1:"EV / 2026E sales ~13× vs ~42×. Tesla also has net cash and a much smaller burn.",
+ v_s2:"P/E 2027E ~37× vs ~158×; 2028E ~21× vs ~113×. Depends on AI compute revenue arriving on schedule.",
+ v_s3:"Sales forecast 2025→2028 ~+120% a year vs ~+13%. $47.5B contracted backlog; Tesla's robotaxi and Optimus are still pre-revenue.",
+ v_s4:"Capex ~$25B/yr vs SpaceX's ~$80B in 2026 and far more in 2027; SpaceX FCF was −$25B in H1.",
+ v_note:"My read from public data, not investment advice. SpaceX forward EPS uses Goldman Sachs' estimates (Oct 7), which are above consensus on revenue; if SpaceX earned only half of Goldman's 2028 EPS, its 2028 P/E would still be about 42×, well below Tesla's ~113×.",
+ fm_sub:"Latest reported quarter (Q2 2026 for both), trailing twelve months and balance sheet at June 30, 2026. Valuation rows recalculate from the live price on each stock page. Green marks the better figure where one is clearly better.",
+ fm_note:"Tesla reports Q3 on Oct 21 (consensus EPS ~$0.44, revenue ~$27.8B); SpaceX is expected around Nov 3 (consensus revenue ~$12.9B, adjusted EBITDA ~$6.9B). This table will need refreshing after both.",
+ fc_sub:"Actuals for 2024–2025, then Street forecasts. On these numbers SpaceX's revenue passes Tesla's in 2027. Italic cells are estimates; see the notes under the table for which source each comes from.",
+ fc_note:"SpaceX 2026E revenue: Street ~$44.8B (Fiscal.ai) and Goldman $51.6B; 2027–28 and all SpaceX EPS: Goldman Sachs. Tesla EPS: consensus ($1.70 / $2.30 / $3.21); 2027 revenue: consensus ~$120.8B; Tesla 2026 revenue is H1 actual + Q3 consensus + my Q4 estimate; Tesla 2028 revenue is my extrapolation (+14%), as no consensus figure was found.",
+ bg_sub:"Revenue engines today, the bets management is making, and where the two already overlap (the overlap is the case for merging).",
+ sx_h:"SpaceX: connectivity cash machine funding an AI build-out",
+ sx_list:"<li><b>Starlink (Connectivity), 55% of Q2 sales</b><span>$4.29B, +66%, $1.7B operating profit. 12M subscribers (doubled in a year), $66 ARPU, 10,200 satellites. Direct-to-mobile via EchoStar spectrum (closing late 2027).</span></li><li><b>AI (former xAI + X), 33% and the growth engine</b><span>$2.56B, +247%, first profitable quarter. Compute cloud for Anthropic and Google; 1.4 GW installed, &gt;2 GW by end-2026, 7.5–10 GW targeted for end-2027. Goldman sees AI sales of $27B → $90B → $147B (2026–28).</span></li><li><b>Space (launch, Dragon, Starship), 12%</b><span>$962M; 78 launches in H1. Starship reached orbit; it underpins Starlink V3 and orbital compute (\"Starmind\").</span></li><li><b>Stated goals</b><span>$100B annual revenue run-rate by Dec 2026; $1 trillion of revenue targeted for 2030.</span></li>",
+ ts_h:"Tesla: car maker turning into a physical-AI company",
+ ts_list:"<li><b>Automotive, 73% of Q2 sales</b><span>$20.5B, +23%. Q3 deliveries 486,532 (−2% y/y, beat by 5%). Auto gross margin ex-credits 16.3%; regulatory credits are fading.</span></li><li><b>Energy storage, 11%</b><span>$3.14B; 13.7 GWh deployed in Q3 (missed 15.9 GWh estimate). SpaceX/xAI is a big Megapack buyer ($405M in H1).</span></li><li><b>Services &amp; other, 16%</b><span>$4.58B, +50%, including FSD subscriptions (~1.5M).</span></li><li><b>The bets</b><span>Robotaxi live in 7 US metros (management: material revenue from 2027), Cybercab, Optimus humanoid (\"flat S-curve\" ramp at first), Terafab chip fab, AI compute, solar manufacturing. Roadster production 2028.</span></li>",
+ ov:"<div><b>Terafab</b><br><span class=\"sub\" style=\"font-size:13px\">Joint chip fab in Texas, $16.8B initial investment; makes edge chips for Tesla cars and Optimus and hardened chips for satellites. Today every decision needs both boards.</span></div><div><b>Grok in Tesla</b><br><span class=\"sub\" style=\"font-size:13px\">xAI's model has run in Tesla cars since July 2025; Tesla's physical AI would pair with SpaceX's \"virtual AI\".</span></div><div><b>Energy for compute</b><br><span class=\"sub\" style=\"font-size:13px\">Megapacks power xAI data centres; a merged company would sell storage to itself.</span></div><div><b>Cross-holdings</b><br><span class=\"sub\" style=\"font-size:13px\">Tesla owns ~19.0M SPCX shares (from its $2B xAI stake, worth ~<span id=\"stake\">$2.8B</span>); SpaceX bought $100M+ of Cybertrucks.</span></div>",
+ cx_sub:"Both companies are in heavy investment cycles, but at very different scales. SpaceX spent more on capex in Q2 alone ($18.4B) than Tesla plans for most of 2026.",
+ dm_sub:"Assumes SpaceX issues new shares for all of Tesla (Barclays' base case). Pick a premium for Tesla holders to see the exchange ratio, the ownership split and what 100 Tesla shares would turn into. Uses live prices.",
+ dm_note:"Barclays' \"0.7\" is the value ratio (Tesla's market value ÷ SpaceX's, $1.5T ÷ $2.1T), not shares per share. Per share, each TSLA is worth about 2.4 SPCX at market. Barclays estimates Musk would own ~37% of the combined company with ~56% of the votes. Morningstar, valuing on its own fair values, argued Tesla holders should get 50–66% instead.",
+ risk:"<li><b>SpaceX's AI ramp slips.</b> Nearly all of the forward-earnings case rests on AI compute revenue scaling from $2.6B a quarter to ~$90B a year in 2027. Anthropic and Google contracts help, but this is unproven at that scale.</li><li><b>Funding.</b> SpaceX has raised ~$111B since June and is seeking $40B more; reaching ~10 GW by 2027 implies hundreds of billions of build cost. Oppenheimer sees net debt above $400B by 2031.</li><li><b>Tesla Q3 (Oct 21).</b> A margin recovery would lower Tesla's forward P/E; another miss would widen the gap further.</li><li><b>Related-party process.</b> Musk runs both companies. Independent committees, fairness opinions and a vote of non-Musk Tesla holders decide the ratio, and the premium could be larger than the market expects.</li><li><b>Timing.</b> Barclays says a deal needs announcing by late Oct / early Nov to go to the AGM; otherwise 6–12 months. Polymarket gives 24% by year-end; Kalshi 52% by May 2027.</li><li><b>Thin SpaceX float.</b> Only a small share of SPCX trades freely, so the price (and the ratio) can swing hard; it fell 7% intraday on Oct 15.</li>",
+ foot:"Data as of Oct 16, 2026 (prices update live from the SPCX and TSLA pages). Built from public filings and analyst estimates; my judgments are labelled. Not investment advice.",
+ live:"Prices live", asof:"Prices as of Oct 15 close."
+},
+zh:{
+ nm_ts:"特斯拉", t_stocks:"股票", t_macro:"宏观", t_fx:"外汇", t_dc:"数据中心", t_rb:"机器人", t_mg:"SpaceX 对 Tesla",
+ eyebrow:"SPCX · TSLA · 估值 · 预测 · 资本开支 · 订单储备 · 合并测算",
+ h1:"SpaceX 与特斯拉合并分析",
+ lede:"巴克莱目前预计，双方可能在特斯拉年度股东大会（须于 12 月 6 日前召开）之前宣布交易，最可能的方式是 SpaceX 以自身股票收购特斯拉。目前尚无任何提案或文件。本页用同一套标准对比两家公司，回答一个问题：若两者合并，哪一方更便宜？哪一方带来更大的未来增长？",
+ v_h:"结论",
+ v_p1:"<b>按当前销售额看，特斯拉更便宜；按预期盈利看，SpaceX 更便宜，而且增长快得多。</b>特斯拉的过往十二个月市销率约 14 倍，SpaceX 约 85 倍。但特斯拉利润微薄（上季营业利润率仅 1.4%），盈利年增约 12%，因此明年市盈率约 160 倍。SpaceX 的营收预计到 2028 年大约每年翻一番，按高盛预测，其 2027 年和 2028 年市盈率分别约 37 倍和 21 倍。即使按 2028 年销售额计算，SpaceX 也略便宜（约 9 倍对 10 倍）。",
+ v_p2:"<b>若合并，特斯拉股东等于换入增长更快的公司，而 SpaceX 股东则是以溢价买入增长较慢、利润率较低的业务。</b>按市价计，每股特斯拉约值 <span id=\"vRatio\">2.4</span> 股 SpaceX，未计溢价时特斯拉股东将持有合并后公司约 <span id=\"vSplit\">42%</span>。SpaceX 原有股东的增长会被摊薄（合并后 2027 年营收增速由约 150% 降至约 60%），换来的是特斯拉的工厂、机器人、汽车业务和净现金。最大风险在 SpaceX 一方：它每季度在 AI 算力上烧钱约 130–150 亿美元，并正筹措另外 400 亿美元债务。",
+ v_b1:"当前更便宜（按销售额）", v_s1:"企业价值／2026 年预期销售额约 13 倍对约 42 倍。特斯拉还有净现金，烧钱规模小得多。",
+ v_b2:"按未来盈利更便宜", v_s2:"2027 年预期市盈率约 37 倍对约 158 倍；2028 年约 21 倍对约 113 倍。前提是 AI 算力收入如期到位。",
+ v_b3:"未来潜力更大", v_s3:"2025→2028 年营收预计年增约 120%，特斯拉约 13%。SpaceX 有 475 亿美元已签约订单储备；特斯拉的 Robotaxi 和 Optimus 尚未产生收入。",
+ v_b4:"风险更低", v_s4:"特斯拉资本开支约每年 250 亿美元，SpaceX 2026 年约 800 亿美元，2027 年更多；SpaceX 上半年自由现金流为 −250 亿美元。",
+ v_note:"以上为我根据公开数据的判断，不构成投资建议。SpaceX 远期每股收益采用高盛（10 月 7 日）的预测，其营收预测高于市场一致预期；即使 SpaceX 只实现高盛 2028 年每股收益的一半，其 2028 年市盈率仍约 42 倍，远低于特斯拉的约 113 倍。",
+ fm_h:"财务指标对比",
+ fm_sub:"最新报告季度（两家均为 2026 年第二季）、过往十二个月及 2026 年 6 月 30 日资产负债表。估值各行按各股票页的实时股价重新计算。绿色标示明显较优的一方。",
+ fm_note:"特斯拉将于 10 月 21 日公布第三季业绩（一致预期每股收益约 0.44 美元，营收约 278 亿美元）；SpaceX 预计约 11 月 3 日公布（一致预期营收约 129 亿美元，经调整 EBITDA 约 69 亿美元）。两者公布后本表需更新。",
+ fc_h:"2024 至 2028 年营收与盈利",
+ fc_sub:"2024–2025 年为实际数，其后为华尔街预测。按此预测，SpaceX 营收将在 2027 年超过特斯拉。斜体为估算值；各数据来源见表下说明。",
+ show:"显示", b_rev:"营收", b_eps:"每股收益", b_pe:"按现价市盈率", lighter:"浅色柱为估算值", lighter2:"浅色为估算",
+ fc_note:"SpaceX 2026 年营收预测：市场约 448 亿美元（Fiscal.ai），高盛 516 亿美元；2027–28 年及所有 SpaceX 每股收益：高盛。特斯拉每股收益：一致预期（1.70／2.30／3.21 美元）；2027 年营收：一致预期约 1,208 亿美元；特斯拉 2026 年营收为上半年实际数＋第三季一致预期＋我对第四季的估算；特斯拉 2028 年营收为我的推算（+14%），因未找到一致预期数据。",
+ bg_h:"两家公司的业务方向",
+ bg_sub:"当前的收入引擎、管理层押注的方向，以及两者已经重叠的领域（重叠正是合并的理由）。",
+ sx_h:"SpaceX：以星链现金牛支撑 AI 扩张",
+ sx_list:"<li><b>星链（连接业务），占第二季营收 55%</b><span>42.9 亿美元，+66%，营业利润 17 亿美元。用户 1,200 万（一年翻倍），每用户月收入 66 美元，卫星 10,200 颗。通过 EchoStar 频谱发展手机直连（预计 2027 年底完成收购）。</span></li><li><b>AI（原 xAI＋X），占 33%，是增长引擎</b><span>25.6 亿美元，+247%，首次实现季度盈利。为 Anthropic 和谷歌提供算力云；已装机 1.4 GW，2026 年底超过 2 GW，目标 2027 年底达 7.5–10 GW。高盛预计 AI 营收 270 亿 → 900 亿 → 1,470 亿美元（2026–28 年）。</span></li><li><b>航天（发射、龙飞船、星舰），占 12%</b><span>9.62 亿美元；上半年发射 78 次。星舰已入轨，支撑星链 V3 及轨道算力（\"Starmind\"）。</span></li><li><b>公开目标</b><span>2026 年 12 月实现年化营收 1,000 亿美元；目标 2030 年营收达 1 万亿美元。</span></li>",
+ ts_h:"特斯拉：从车企转型为实体 AI 公司",
+ ts_list:"<li><b>汽车，占第二季营收 73%</b><span>205 亿美元，+23%。第三季交付 486,532 辆（同比 −2%，超预期 5%）。不含积分的汽车毛利率 16.3%；监管积分收入持续减少。</span></li><li><b>储能，占 11%</b><span>31.4 亿美元；第三季部署 13.7 GWh（低于 15.9 GWh 预期）。SpaceX／xAI 是 Megapack 大客户（上半年 4.05 亿美元）。</span></li><li><b>服务及其他，占 16%</b><span>45.8 亿美元，+50%，含 FSD 订阅（约 150 万）。</span></li><li><b>押注方向</b><span>Robotaxi 已在美国 7 个城市运营（管理层称 2027 年起贡献实质收入）、Cybercab、Optimus 人形机器人（初期为\"平缓的 S 曲线\"爬坡）、Terafab 芯片厂、AI 算力、太阳能制造。Roadster 2028 年投产。</span></li>",
+ ov_h:"两者已重叠的领域",
+ ov:"<div><b>Terafab</b><br><span class=\"sub\" style=\"font-size:13px\">位于得州的合资芯片厂，首期投资 168 亿美元；为特斯拉汽车和 Optimus 生产边缘芯片，为卫星生产抗辐射芯片。目前每项决策都需两家董事会批准。</span></div><div><b>Grok 进入特斯拉</b><br><span class=\"sub\" style=\"font-size:13px\">xAI 模型自 2025 年 7 月起已在特斯拉汽车上运行；特斯拉的实体 AI 将与 SpaceX 的\"虚拟 AI\"结合。</span></div><div><b>为算力供能</b><br><span class=\"sub\" style=\"font-size:13px\">Megapack 为 xAI 数据中心供电；合并后等于自己卖储能给自己。</span></div><div><b>交叉持股</b><br><span class=\"sub\" style=\"font-size:13px\">特斯拉持有约 1,900 万股 SPCX（来自其 20 亿美元 xAI 投资，约值 <span id=\"stake\">$2.8B</span>）；SpaceX 购买了逾 1 亿美元的 Cybertruck。</span></div>",
+ cx_h:"资本开支与订单储备：现在与未来",
+ cx_sub:"两家公司都处于重投资周期，但规模差异巨大。SpaceX 仅第二季资本开支（184 亿美元）就超过特斯拉 2026 年大半年的计划。",
+ cx_ch:"资本开支（十亿美元）",
+ dm_h:"合并测算",
+ dm_sub:"假设 SpaceX 增发新股收购特斯拉全部股份（巴克莱的基本情景）。选择给特斯拉股东的溢价，即可查看换股比例、持股比例以及 100 股特斯拉可换得多少。使用实时股价。",
+ prem:"给特斯拉股东的溢价", none:"无",
+ dm_note:"巴克莱所说的\"0.7\"是市值比（特斯拉市值 ÷ SpaceX 市值，1.5 万亿 ÷ 2.1 万亿美元），并非每股换股数。按每股计，市价下每股 TSLA 约值 2.4 股 SPCX。巴克莱估计马斯克将持有合并后公司约 37% 股份、约 56% 投票权。晨星按其自身公允价值测算，认为特斯拉股东应获得 50–66%。",
+ rk_h:"可能改变结论的因素",
+ risk:"<li><b>SpaceX 的 AI 扩张延误。</b>远期盈利逻辑几乎全部依赖 AI 算力收入从每季 26 亿美元增至 2027 年约 900 亿美元／年。Anthropic 和谷歌合约有帮助，但如此规模尚未被验证。</li><li><b>融资。</b>SpaceX 自 6 月以来已融资约 1,110 亿美元，并在寻求再融 400 亿美元；到 2027 年达到约 10 GW 意味着数千亿美元的建设成本。Oppenheimer 预计其净债务到 2031 年将超过 4,000 亿美元。</li><li><b>特斯拉第三季业绩（10 月 21 日）。</b>若利润率回升，特斯拉远期市盈率会下降；若再度不及预期，差距将进一步扩大。</li><li><b>关联交易程序。</b>马斯克同时掌管两家公司。换股比例将由独立委员会、公平意见及非马斯克特斯拉股东投票决定，溢价可能高于市场预期。</li><li><b>时间。</b>巴克莱称交易须在 10 月底／11 月初前宣布才能提交股东大会，否则将推迟 6–12 个月。Polymarket 给出年底前 24% 的概率，Kalshi 给出 2027 年 5 月前 52%。</li><li><b>SpaceX 流通盘小。</b>SPCX 只有一小部分可自由交易，股价（及换股比例）可能大幅波动；10 月 15 日盘中一度下跌 7%。</li>",
+ src_h:"资料来源",
+ foot:"数据截至 2026 年 10 月 16 日（股价随 SPCX 与 TSLA 页面实时更新）。依据公开文件与分析师预测编制；我的判断已标明。不构成投资建议。",
+ live:"实时股价", asof:"股价为 10 月 15 日收盘价。"
+}};
+let lang = "en", liveDate = null;
+const EN = {};
+document.querySelectorAll("[data-i]").forEach(el => { EN[el.dataset.i] = el.innerHTML; });
+const Z = (en, zh) => lang === "zh" ? zh : en;
+const tx = k => (lang === "zh" ? T.zh[k] : T.en[k]) ?? T.en[k] ?? EN[k];
+
+// ================= data (US$B unless noted) =================
 const D = {
-  sx:{name:"SpaceX",tk:"SPCX",px:148.62,sh:13.18,cash:100.0,debt:39.5,ttmRev:23.1,
+  sx:{px:148.62,sh:13.18,cash:100.0,debt:39.5,ttmRev:23.1,
       eps:{2026:1.30,2027:3.96,2028:7.01}, rev:{2024:14.02,2025:18.67,2026:44.8,2027:127.5,2028:205.6}},
-  ts:{name:"Tesla",tk:"TSLA",px:362.44,sh:3.95,cash:43.5,debt:9.3,ttmRev:103.6,ttmEps:1.08,
+  ts:{px:362.44,sh:3.95,cash:43.5,debt:9.3,ttmRev:103.6,ttmEps:1.08,
       eps:{2025:1.66,2026:1.70,2027:2.30,2028:3.21}, rev:{2024:97.69,2025:94.83,2026:107.4,2027:120.8,2028:137.7}}
 };
 const EST_FROM = 2026;
 const $ = s => document.querySelector(s);
 const f1 = x => x.toFixed(1), f2 = x => x.toFixed(2);
-const tn = b => b >= 1000 ? "$" + (b/1000).toFixed(2) + "T" : "$" + f1(b) + "B";
+// money formatter: $B / $T in EN, 亿 / 万亿 美元 in ZH
+const B = b => lang === "zh"
+  ? (Math.abs(b) >= 1000 ? (b/1000).toFixed(2) + " 万亿美元" : (b < 0 ? "−" : "") + Math.round(Math.abs(b) * 10).toLocaleString() + " 亿美元")
+  : (Math.abs(b) >= 1000 ? "$" + (b/1000).toFixed(2) + "T" : (b < 0 ? "−$" : "$") + f1(Math.abs(b)) + "B");
 const mult = x => (x >= 100 ? Math.round(x) : x.toFixed(1)) + "×";
 
 function derived(){
   const s = D.sx, t = D.ts;
-  s.mc = s.px * s.sh; t.mc = t.px * t.sh;           // $B (price × billions of shares)
+  s.mc = s.px * s.sh; t.mc = t.px * t.sh;
   s.ev = s.mc - s.cash + s.debt; t.ev = t.mc - t.cash + t.debt;
 }
 
-// ---------- KPI tiles ----------
 function kpis(){
   const s = D.sx, t = D.ts, r = t.px / s.px, split = t.mc / (s.mc + t.mc);
   $("#kpi").innerHTML = [
-    ["sx","SpaceX (SPCX)","$"+f2(s.px),"Market cap "+tn(s.mc)],
-    ["ts","Tesla (TSLA)","$"+f2(t.px),"Market cap "+tn(t.mc)],
-    ["","SPCX per TSLA share",f2(r)+"×","Exchange ratio at market, no premium"],
-    ["","Combined value",tn(s.mc+t.mc),"SpaceX holders "+Math.round((1-split)*100)+"% · Tesla "+Math.round(split*100)+"%"]
+    ["sx","SpaceX (SPCX)","$"+f2(s.px),Z("Market cap ","市值 ")+B(s.mc)],
+    ["ts",Z("Tesla (TSLA)","特斯拉 (TSLA)"),"$"+f2(t.px),Z("Market cap ","市值 ")+B(t.mc)],
+    ["",Z("SPCX per TSLA share","每股 TSLA 换 SPCX"),f2(r)+"×",Z("Exchange ratio at market, no premium","按市价换股比例，未计溢价")],
+    ["",Z("Combined value","合并后市值"),B(s.mc+t.mc),Z("SpaceX holders "+Math.round((1-split)*100)+"% · Tesla "+Math.round(split*100)+"%","SpaceX 股东 "+Math.round((1-split)*100)+"% · 特斯拉 "+Math.round(split*100)+"%")]
   ].map(([c,b,v,sm])=>`<div class="tile ${c}"><b>${b}</b><span class="v">${v}</span><small>${sm}</small></div>`).join("");
-  $("#vRatio").textContent = f2(r);
-  $("#vSplit").textContent = Math.round(split*100) + "%";
-  $("#stake").textContent = "$" + f1(0.019 * s.px) + "B";
+  const vr=$("#vRatio"), vs=$("#vSplit"), st=$("#stake");
+  if(vr) vr.textContent = f2(r);
+  if(vs) vs.textContent = Math.round(split*100) + "%";
+  if(st) st.textContent = B(0.019 * s.px);
 }
 
-// ---------- financial metrics table ----------
 function fmTable(){
   const s = D.sx, t = D.ts;
-  // rows: [label, spacex, tesla, better ('s'|'t'|''), note]
+  const cg = o => Math.pow(o.rev[2028]/o.rev[2025],1/3)-1;
   const R = [
-    ["g","Latest quarter (Q2 2026)"],
-    ["Revenue","$7.81B","$28.24B","","Tesla ~3.6× larger today"],
-    ["Revenue growth y/y","+92%","+25.5%","s",""],
-    ["Gross margin","~55%","~18% (2023–25 level)","s","SpaceX boosted by Starlink"],
-    ["Operating margin","Loss (AI depreciation)","1.4%","t","Tesla operating income $398M"],
-    ["Adj. EBITDA","$3.54B (+191%)","not reported","",""],
-    ["Net income","−$0.54B","$1.13B","t",""],
-    ["EPS","−$0.09","$0.32 GAAP / $0.33 adj.","t","Tesla missed ~$0.50 consensus"],
-    ["Operating cash flow","$2.42B","$4.70B","t",""],
-    ["Capex","$18.37B","$5.79B","t","SpaceX: $15.8B on AI compute"],
-    ["Free cash flow","−$15.96B","−$1.09B","t",""],
-    ["g","Trailing twelve months / balance sheet (Jun 30, 2026)"],
-    ["Revenue, TTM","$"+f1(s.ttmRev)+"B","$"+f1(t.ttmRev)+"B","",""],
-    ["Cash & securities","$100.0B","$43.5B","s","SpaceX mostly IPO proceeds; less after Q3 burn"],
-    ["Debt & finance leases","$39.5B","$9.3B","t","SpaceX seeking $40B more"],
-    ["Net cash","$"+f1(s.cash-s.debt)+"B","$"+f1(t.cash-t.debt)+"B","s",""],
-    ["Shares outstanding","13.18B","3.95B","",""],
-    ["g","Valuation at today's price"],
-    ["Market cap",tn(s.mc),tn(t.mc),"",""],
-    ["Enterprise value",tn(s.ev),tn(t.ev),"",""],
-    ["Price / sales, TTM",mult(s.mc/s.ttmRev),mult(t.mc/t.ttmRev),"t",""],
-    ["EV / sales 2026E",mult(s.ev/s.rev[2026]),mult(t.ev/t.rev[2026]),"t",""],
-    ["EV / sales 2027E",mult(s.ev/s.rev[2027]),mult(t.ev/t.rev[2027]),"t","SpaceX uses Goldman revenue"],
-    ["EV / sales 2028E",mult(s.ev/s.rev[2028]),mult(t.ev/t.rev[2028]),"s",""],
-    ["P/E, trailing","n/m (loss)",mult(t.px/t.ttmEps),"",""],
-    ["P/E 2026E",mult(s.px/s.eps[2026]),mult(t.px/t.eps[2026]),"s",""],
-    ["P/E 2027E",mult(s.px/s.eps[2027]),mult(t.px/t.eps[2027]),"s",""],
-    ["P/E 2028E",mult(s.px/s.eps[2028]),mult(t.px/t.eps[2028]),"s",""],
-    ["Revenue CAGR 2025→28E","+"+Math.round((Math.pow(s.rev[2028]/s.rev[2025],1/3)-1)*100)+"%","+"+Math.round((Math.pow(t.rev[2028]/t.rev[2025],1/3)-1)*100)+"%","s",""],
-    ["Growth-adjusted EV/sales*",f2(s.ev/s.rev[2028]/((Math.pow(s.rev[2028]/s.rev[2025],1/3)-1)*100)),f2(t.ev/t.rev[2028]/((Math.pow(t.rev[2028]/t.rev[2025],1/3)-1)*100)),"s","Lower is cheaper"],
-    ["Analyst avg. price target","~$221–233","~$397","",""],
-    ["Upside to target","+"+Math.round((227/s.px-1)*100)+"%","+"+Math.round((397/t.px-1)*100)+"%","s",""]
+    ["g",Z("Latest quarter (Q2 2026)","最新季度（2026 年第二季）")],
+    [Z("Revenue","营收"),B(7.81),B(28.24),"",Z("Tesla ~3.6× larger today","特斯拉目前约大 3.6 倍")],
+    [Z("Revenue growth y/y","营收同比增长"),"+92%","+25.5%","s",""],
+    [Z("Gross margin","毛利率"),"~55%",Z("~18% (2023–25 level)","约 18%（2023–25 年水平）"),"s",Z("SpaceX boosted by Starlink","SpaceX 受星链带动")],
+    [Z("Operating margin","营业利润率"),Z("Loss (AI depreciation)","亏损（AI 折旧）"),"1.4%","t",Z("Tesla operating income $398M","特斯拉营业利润 3.98 亿美元")],
+    [Z("Adj. EBITDA","经调整 EBITDA"),B(3.54)+" (+191%)",Z("not reported","未披露"),"",""],
+    [Z("Net income","净利润"),B(-0.54),B(1.13),"t",""],
+    [Z("EPS","每股收益"),"−$0.09",Z("$0.32 GAAP / $0.33 adj.","GAAP 0.32 / 调整后 0.33 美元"),"t",Z("Tesla missed ~$0.50 consensus","特斯拉不及约 0.50 美元的一致预期")],
+    [Z("Operating cash flow","经营现金流"),B(2.42),B(4.70),"t",""],
+    [Z("Capex","资本开支"),B(18.37),B(5.79),"t",Z("SpaceX: $15.8B on AI compute","SpaceX：158 亿美元用于 AI 算力")],
+    [Z("Free cash flow","自由现金流"),B(-15.96),B(-1.09),"t",""],
+    ["g",Z("Trailing twelve months / balance sheet (Jun 30, 2026)","过往十二个月／资产负债表（2026 年 6 月 30 日）")],
+    [Z("Revenue, TTM","过往十二个月营收"),B(s.ttmRev),B(t.ttmRev),"",""],
+    [Z("Cash & securities","现金及证券"),B(s.cash),B(t.cash),"s",Z("SpaceX mostly IPO proceeds; less after Q3 burn","SpaceX 主要为 IPO 所得；第三季烧钱后会减少")],
+    [Z("Debt & finance leases","债务及融资租赁"),B(s.debt),B(t.debt),"t",Z("SpaceX seeking $40B more","SpaceX 正寻求再融 400 亿美元")],
+    [Z("Net cash","净现金"),B(s.cash-s.debt),B(t.cash-t.debt),"s",""],
+    [Z("Shares outstanding","流通股数"),Z("13.18B","131.8 亿"),Z("3.95B","39.5 亿"),"",""],
+    ["g",Z("Valuation at today's price","按现价估值")],
+    [Z("Market cap","市值"),B(s.mc),B(t.mc),"",""],
+    [Z("Enterprise value","企业价值"),B(s.ev),B(t.ev),"",""],
+    [Z("Price / sales, TTM","市销率（过往十二个月）"),mult(s.mc/s.ttmRev),mult(t.mc/t.ttmRev),"t",""],
+    [Z("EV / sales 2026E","企业价值／2026 年预期销售额"),mult(s.ev/s.rev[2026]),mult(t.ev/t.rev[2026]),"t",""],
+    [Z("EV / sales 2027E","企业价值／2027 年预期销售额"),mult(s.ev/s.rev[2027]),mult(t.ev/t.rev[2027]),"t",Z("SpaceX uses Goldman revenue","SpaceX 采用高盛营收预测")],
+    [Z("EV / sales 2028E","企业价值／2028 年预期销售额"),mult(s.ev/s.rev[2028]),mult(t.ev/t.rev[2028]),"s",""],
+    [Z("P/E, trailing","市盈率（过往）"),Z("n/m (loss)","不适用（亏损）"),mult(t.px/t.ttmEps),"",""],
+    [Z("P/E 2026E","2026 年预期市盈率"),mult(s.px/s.eps[2026]),mult(t.px/t.eps[2026]),"s",""],
+    [Z("P/E 2027E","2027 年预期市盈率"),mult(s.px/s.eps[2027]),mult(t.px/t.eps[2027]),"s",""],
+    [Z("P/E 2028E","2028 年预期市盈率"),mult(s.px/s.eps[2028]),mult(t.px/t.eps[2028]),"s",""],
+    [Z("Revenue CAGR 2025→28E","营收年复合增长率 2025→28"),"+"+Math.round(cg(s)*100)+"%","+"+Math.round(cg(t)*100)+"%","s",""],
+    [Z("Growth-adjusted EV/sales","增长调整后企业价值／销售额"),f2(s.ev/s.rev[2028]/(cg(s)*100)),f2(t.ev/t.rev[2028]/(cg(t)*100)),"s",Z("2028E EV/sales ÷ CAGR; lower is cheaper","2028 年企业价值／销售额 ÷ 复合增长率；越低越便宜")],
+    [Z("Analyst avg. price target","分析师平均目标价"),"~$221–233","~$397","",""],
+    [Z("Upside to target","距目标价上行空间"),"+"+Math.round((227/s.px-1)*100)+"%","+"+Math.round((397/t.px-1)*100)+"%","s",""]
   ];
-  let h = `<thead><tr><th>Metric</th><th class="sx">SpaceX</th><th class="ts">Tesla</th><th>Note</th></tr></thead><tbody>`;
+  let h = `<thead><tr><th>${Z("Metric","指标")}</th><th class="sx">SpaceX</th><th class="ts">${Z("Tesla","特斯拉")}</th><th>${Z("Note","说明")}</th></tr></thead><tbody>`;
   for(const r of R){
     if(r[0]==="g"){ h += `<tr class="grp"><td colspan="4">${r[1]}</td></tr>`; continue; }
     h += `<tr><td class="k">${r[0]}</td><td class="n${r[3]==="s"?" best":""}">${r[1]}</td><td class="n${r[3]==="t"?" best":""}">${r[2]}</td><td class="w">${r[4]}</td></tr>`;
   }
   $("#fm").innerHTML = h + `</tbody>`;
-  $("#fm").insertAdjacentHTML("afterend","");
 }
 
-// ---------- forecast table + chart ----------
 const YRS = [2024,2025,2026,2027,2028];
+const yl = y => y + (y>=EST_FROM ? Z("E","E") : Z("A","A"));
 function fcTable(){
   const s = D.sx, t = D.ts;
   const cell = (v,y,fmt) => v==null ? `<td class="n">—</td>` : `<td class="n${y>=EST_FROM?" e":""}">${fmt(v)}</td>`;
-  const money = v => "$"+f1(v)+"B";
   const g = (o,y) => o[y]!=null && o[y-1]!=null ? (o[y]/o[y-1]-1) : null;
   const pct = v => (v>=0?"+":"")+Math.round(v*100)+"%";
-  let h = `<thead><tr><th></th>${YRS.map(y=>`<th>${y}${y>=EST_FROM?"E":"A"}</th>`).join("")}</tr></thead><tbody>`;
-  h += `<tr class="grp"><td colspan="6">Revenue</td></tr>`;
-  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell(s.rev[y],y,money)).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell(t.rev[y],y,money)).join("")}</tr>`;
-  h += `<tr><td class="k">Combined</td>${YRS.map(y=>cell(s.rev[y]+t.rev[y],y,money)).join("")}</tr>`;
-  h += `<tr class="grp"><td colspan="6">Revenue growth</td></tr>`;
-  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell(g(s.rev,y),y,pct)).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell(g(t.rev,y),y,pct)).join("")}</tr>`;
+  const SX = `<td class="k" style="color:var(--sx)">SpaceX</td>`, TS = `<td class="k" style="color:var(--ts)">${Z("Tesla","特斯拉")}</td>`, CB = `<td class="k">${Z("Combined","合并")}</td>`;
+  let h = `<thead><tr><th></th>${YRS.map(y=>`<th>${yl(y)}</th>`).join("")}</tr></thead><tbody>`;
+  h += `<tr class="grp"><td colspan="6">${Z("Revenue","营收")}</td></tr>`;
+  h += `<tr>${SX}${YRS.map(y=>cell(s.rev[y],y,B)).join("")}</tr>`;
+  h += `<tr>${TS}${YRS.map(y=>cell(t.rev[y],y,B)).join("")}</tr>`;
+  h += `<tr>${CB}${YRS.map(y=>cell(s.rev[y]+t.rev[y],y,B)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">${Z("Revenue growth","营收增长")}</td></tr>`;
+  h += `<tr>${SX}${YRS.map(y=>cell(g(s.rev,y),y,pct)).join("")}</tr>`;
+  h += `<tr>${TS}${YRS.map(y=>cell(g(t.rev,y),y,pct)).join("")}</tr>`;
   const cr = {}; YRS.forEach(y=>cr[y]=s.rev[y]+t.rev[y]);
-  h += `<tr><td class="k">Combined</td>${YRS.map(y=>cell(g(cr,y),y,pct)).join("")}</tr>`;
-  h += `<tr class="grp"><td colspan="6">EPS and P/E at today's price</td></tr>`;
-  h += `<tr><td class="k" style="color:var(--sx)">SpaceX EPS</td>${YRS.map(y=>cell(s.eps[y],y,v=>(v<0?"−$"+f2(-v):"$"+f2(v)))).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--ts)">Tesla EPS</td>${YRS.map(y=>cell(t.eps[y],y,v=>"$"+f2(v))).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--sx)">SpaceX P/E</td>${YRS.map(y=>cell(s.eps[y]?s.px/s.eps[y]:null,y,mult)).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--ts)">Tesla P/E</td>${YRS.map(y=>cell(y>=2025?t.px/t.eps[y]:null,y,mult)).join("")}</tr>`;
-  h += `<tr class="grp"><td colspan="6">Net income (consensus / estimates)</td></tr>`;
-  h += `<tr><td class="k" style="color:var(--sx)">SpaceX</td>${YRS.map(y=>cell({2024:0.79,2025:-4.94,2026:s.eps[2026]*s.sh,2027:s.eps[2027]*s.sh,2028:s.eps[2028]*s.sh}[y],y,v=>(v<0?"−$"+f1(-v):"$"+f1(v))+"B")).join("")}</tr>`;
-  h += `<tr><td class="k" style="color:var(--ts)">Tesla</td>${YRS.map(y=>cell({2024:7.1,2025:3.8,2026:3.5,2027:4.5,2028:7.1}[y],y,v=>"$"+f1(v)+"B")).join("")}</tr>`;
+  h += `<tr>${CB}${YRS.map(y=>cell(g(cr,y),y,pct)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">${Z("EPS and P/E at today's price","每股收益及按现价市盈率")}</td></tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">${Z("SpaceX EPS","SpaceX 每股收益")}</td>${YRS.map(y=>cell(s.eps[y],y,v=>"$"+f2(v))).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">${Z("Tesla EPS","特斯拉每股收益")}</td>${YRS.map(y=>cell(t.eps[y],y,v=>"$"+f2(v))).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--sx)">${Z("SpaceX P/E","SpaceX 市盈率")}</td>${YRS.map(y=>cell(s.eps[y]?s.px/s.eps[y]:null,y,mult)).join("")}</tr>`;
+  h += `<tr><td class="k" style="color:var(--ts)">${Z("Tesla P/E","特斯拉市盈率")}</td>${YRS.map(y=>cell(y>=2025?t.px/t.eps[y]:null,y,mult)).join("")}</tr>`;
+  h += `<tr class="grp"><td colspan="6">${Z("Net income (actual / estimates)","净利润（实际／预测）")}</td></tr>`;
+  h += `<tr>${SX}${YRS.map(y=>cell({2024:0.79,2025:-4.94,2026:s.eps[2026]*s.sh,2027:s.eps[2027]*s.sh,2028:s.eps[2028]*s.sh}[y],y,B)).join("")}</tr>`;
+  h += `<tr>${TS}${YRS.map(y=>cell({2024:7.1,2025:3.8,2026:3.5,2027:4.5,2028:7.1}[y],y,B)).join("")}</tr>`;
   $("#fc").innerHTML = h + `</tbody>`;
 }
+
 let fcMode = "rev";
 function bars(el, series, opts){
-  // series: [{y:label, a:val, b:val, ea:bool, eb:bool}]
-  const W=640,H=opts.h||260,L=44,B=26,T=14,Rr=8, n=series.length;
+  const W=640,H=opts.h||260,L=48,Bt=26,T0=14,Rr=8, n=series.length;
   const mx = Math.max(...series.flatMap(d=>[d.a||0,d.b||0]))*1.12||1;
   const cw=(W-L-Rr)/n, bw=Math.min(34,cw*0.32);
-  const yv=v=>T+(H-T-B)*(1-v/mx);
+  const yv=v=>T0+(H-T0-Bt)*(1-v/mx);
   let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria}">`;
   for(let i=0;i<=4;i++){const v=mx/1.12*i/4, y=yv(v); svg+=`<line x1="${L}" x2="${W-Rr}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y+4}" text-anchor="end">${opts.fmt(v,true)}</text>`;}
   series.forEach((d,i)=>{
     const cx=L+cw*i+cw/2;
-    [["a",-1,"var(--sx)"],["b",1,"var(--ts)"]].forEach(([k,side,col])=>{
+    [["a",-1,"var(--sx)","SpaceX"],["b",1,"var(--ts)",Z("Tesla","特斯拉")]].forEach(([k,side,col,nm])=>{
       const v=d[k]; if(v==null) return;
       const x=cx+(side<0?-bw-2:2), y=yv(Math.max(v,0)), h=Math.max(1,yv(0)-y);
-      svg+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="2" fill="${col}" opacity="${d["e"+k]?0.5:1}"><title>${(k==="a"?"SpaceX":"Tesla")} ${d.y}: ${opts.fmt(v)}</title></rect>`;
+      svg+=`<rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="2" fill="${col}" opacity="${d["e"+k]?0.5:1}"><title>${nm} ${d.y}: ${opts.fmt(v)}</title></rect>`;
       svg+=`<text class="lbl" x="${x+bw/2}" y="${y-4}" text-anchor="middle" font-size="10">${opts.fmt(v)}</text>`;
     });
     svg+=`<text x="${cx}" y="${H-8}" text-anchor="middle">${d.y}</text>`;
   });
   el.innerHTML = svg+"</svg>";
 }
+// chart money axis: $B in EN, 亿 in ZH would be too wide, so show plain $B numbers with a unit note in the title
+const axB = (v,ax) => "$"+(ax?Math.round(v):f1(v));
 function fcChart(){
-  const s=D.sx,t=D.ts;
-  let ser, fmt;
-  if(fcMode==="rev"){ ser=YRS.map(y=>({y:y+(y>=EST_FROM?"E":""),a:s.rev[y],b:t.rev[y],ea:y>=EST_FROM,eb:y>=EST_FROM})); fmt=(v,ax)=>"$"+(ax?Math.round(v):f1(v))+(ax?"":"B"); }
+  const s=D.sx,t=D.ts; let ser, fmt;
+  if(fcMode==="rev"){ ser=YRS.map(y=>({y:y+(y>=EST_FROM?"E":""),a:s.rev[y],b:t.rev[y],ea:y>=EST_FROM,eb:y>=EST_FROM})); fmt=(v,ax)=>axB(v,ax)+(ax?"":"B"); }
   else if(fcMode==="eps"){ ser=[2026,2027,2028].map(y=>({y:y+"E",a:s.eps[y],b:t.eps[y],ea:1,eb:1})); fmt=v=>"$"+f2(v); }
   else { ser=[2026,2027,2028].map(y=>({y:y+"E",a:s.px/s.eps[y],b:t.px/t.eps[y],ea:1,eb:1})); fmt=(v,ax)=>Math.round(v)+(ax?"":"×"); }
-  bars($("#fcChart"), ser, {fmt, aria:"SpaceX vs Tesla "+fcMode});
+  bars($("#fcChart"), ser, {fmt, aria:Z("SpaceX vs Tesla ","SpaceX 对特斯拉 ")+fcMode});
 }
 
-// ---------- capex & backlog ----------
 function capex(){
   bars($("#cxChart"), [
     {y:"2024A",a:null,b:11.34},
     {y:"2025A",a:20.7,b:8.53},
-    {y:"H1 2026A",a:28.5,b:8.28},
+    {y:Z("H1 2026A","2026上半年"),a:28.5,b:8.28},
     {y:"2026E",a:81.5,b:25.2,ea:1,eb:1},
     {y:"2027E",a:null,b:25.7,eb:1}
-  ], {fmt:(v,ax)=>"$"+(ax?Math.round(v):f1(v)), aria:"Capex by year", h:240});
-  const R=[
+  ], {fmt:axB, aria:Z("Capex by year","各年资本开支"), h:240});
+  const R = lang==="zh" ? [
+    ["2026 年第二季资本开支","184 亿美元（86% 用于 AI 算力）","58 亿美元（同比 +142%）"],
+    ["2026 年资本开支","约 810 亿美元（估）：上半年 285 亿＋下半年约 530 亿（Evercore）；第三季约 193 亿（瑞银）","指引超过 250 亿美元；上半年约 83 亿，下半年每季约 80 亿以上"],
+    ["2027 年资本开支","未给指引。目标 2027 年底算力达 7.5–10 GW（2026 年底超过 2 GW）；按英伟达约每 GW 600 亿美元计，新增 6–8 GW 需 3,600–4,800 亿美元建设成本，部分通过租赁及供应商／债务融资","一致预期约 257 亿美元；管理层称未来 2–3 年资本开支持续上升"],
+    ["2028 年资本开支","高盛预计 2028 年算力达 10.6 GW","一致预期约 263 亿美元"],
+    ["投向","AI 数据中心（英伟达 Vera Rubin）、星链 V3 卫星、星舰、EchoStar 频谱","Robotaxi 车队、Optimus 产线、Terafab、AI 算力、太阳能、整车产能"],
+    ["资金来源","现金 1,000 亿美元（6 月 30 日）、6 月发债 250 亿美元、正筹措 400 亿美元债务","现金 435 亿美元，新增最多 300 亿美元借款额度"],
+    ["自由现金流展望","2026 上半年 −250 亿美元；第三季烧钱约 130 亿（瑞银）","2026 年 −85 亿、2027 年 −111 亿、2028 年 −78 亿美元（一致预期）"]
+  ] : [
     ["Q2 2026 capex","$18.4B (86% AI compute)","$5.8B (+142% y/y)"],
     ["2026 capex","~$81B est.: $28.5B H1 + ~$53B H2 (Evercore); Q3 ~$19.3B (UBS)","&gt;$25B guided; ~$8.3B in H1, so ~$8B+/quarter in H2"],
-    ["2027 capex","Not guided. Target 7.5–10 GW of compute by end-2027 vs >2 GW end-2026; at Nvidia's ~$60B/GW, building 6–8 GW costs $360–480B, partly via leases and vendor/debt financing","~$25.7B consensus; management says capex rises for 2–3 years"],
+    ["2027 capex","Not guided. Target 7.5–10 GW of compute by end-2027 vs &gt;2 GW end-2026; at Nvidia's ~$60B/GW, building 6–8 GW costs $360–480B, partly via leases and vendor/debt financing","~$25.7B consensus; management says capex rises for 2–3 years"],
     ["2028 capex","Goldman sees 10.6 GW compute in 2028","~$26.3B consensus"],
     ["What it buys","AI data centres (Nvidia Vera Rubin), Starlink V3 satellites, Starship, EchoStar spectrum","Robotaxi fleet, Optimus lines, Terafab, AI compute, solar, vehicle capacity"],
     ["Funding","$100B cash (Jun 30), $25B bonds (Jun), $40B debt being arranged","$43.5B cash, up to $30B new debt capacity"],
     ["FCF outlook","H1 2026 −$25B; Q3 burn ~$13B (UBS)","2026 −$8.5B, 2027 −$11.1B, 2028 −$7.8B (consensus)"]
   ];
-  $("#cx").innerHTML = `<thead><tr><th>Capex</th><th class="sx">SpaceX</th><th class="ts">Tesla</th></tr></thead><tbody>`+
-    R.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
-  const B=[
+  const head = k => `<thead><tr><th>${k}</th><th class="sx">SpaceX</th><th class="ts">${Z("Tesla","特斯拉")}</th></tr></thead><tbody>`;
+  const rows = R => R.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
+  $("#cx").innerHTML = head(Z("Capex","资本开支")) + rows(R);
+  const BK = lang==="zh" ? [
+    ["已签约订单储备","475 亿美元（6 月 30 日），涵盖所有业务","未披露单一数字"],
+    ["构成","第二季签订的 141 亿美元 AI 云合约、逾 60 亿美元 Starshield 政府业务；另有第三季初新签的 67 亿美元云合约，10 月起逐步确认","递延收入 75 亿美元（FSD、服务计划）；车辆订单积压为 2023 年以来最大；Megapack 订单未量化"],
+    ["订单储备 ÷ 过往十二个月营收","约 2.1 倍（约两年销售额已签约）","不适用"],
+    ["主要客户","Anthropic、谷歌（AI 算力）；NASA、美国国防部／太空军（Starshield）；特斯拉（经 Terafab）","个人消费者与车队；电力公司及 xAI／SpaceX（Megapack）"],
+    ["可见度","若算力按时交付，2027 年 AI 收入可见度高","低：Robotaxi 与 Optimus 收入尚未签约"]
+  ] : [
     ["Contracted backlog","$47.5B (Jun 30), all segments","Not disclosed as a single figure"],
     ["Inside it","$14.1B of AI cloud deals signed in Q2, $6B+ Starshield government work; plus $6.7B more cloud contracts signed early Q3, ramping from Oct","Deferred revenue $7.5B (FSD, service plans); vehicle order backlog largest since 2023; Megapack orders not quantified"],
     ["Backlog ÷ TTM revenue","~2.1× (≈2 years of sales already contracted)","n/a"],
     ["Named customers","Anthropic, Google (AI compute); NASA, US DoD/Space Force (Starshield); Tesla (via Terafab)","Consumers and fleets; utilities and xAI/SpaceX for Megapack"],
     ["Visibility","High for 2027 AI revenue if compute is delivered on time","Low: robotaxi and Optimus revenue not yet contracted"]
   ];
-  $("#bk").innerHTML = `<thead><tr><th>Backlog</th><th class="sx">SpaceX</th><th class="ts">Tesla</th></tr></thead><tbody>`+
-    B.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
+  $("#bk").innerHTML = head(Z("Backlog","订单储备")) + rows(BK);
 }
 
-// ---------- merger math ----------
 let prem = 0;
 function deal(){
   const s=D.sx,t=D.ts;
-  const ratio = t.px/s.px*(1+prem);
-  const newSh = ratio*t.sh; // billions of new SPCX shares
-  const tSplit = newSh/(s.sh+newSh);
-  const val100 = 100*ratio*s.px;
+  const ratio = t.px/s.px*(1+prem), newSh = ratio*t.sh, tSplit = newSh/(s.sh+newSh), val100 = 100*ratio*s.px;
+  const usd = v => "$"+Math.round(v).toLocaleString();
   $("#dm").innerHTML = [
-    ["Exchange ratio",f2(ratio)+" SPCX","per Tesla share"],
-    ["100 TSLA become",Math.round(100*ratio)+" SPCX","worth $"+Math.round(val100).toLocaleString()+" (vs $"+Math.round(100*t.px).toLocaleString()+" today)"],
-    ["New SPCX shares issued",f2(newSh)+"B","on "+f2(s.sh)+"B existing"],
-    ["Ownership after deal","SX "+Math.round((1-tSplit)*100)+"% · TS "+Math.round(tSplit*100)+"%","SpaceX holders · Tesla holders"],
-    ["Price paid for Tesla",tn(t.mc*(1+prem)),mult(t.mc*(1+prem)/t.rev[2026])+" 2026E sales"]
+    [Z("Exchange ratio","换股比例"),f2(ratio)+" SPCX",Z("per Tesla share","每股特斯拉")],
+    [Z("100 TSLA become","100 股 TSLA 换得"),Math.round(100*ratio)+" SPCX",Z("worth "+usd(val100)+" (vs "+usd(100*t.px)+" today)","价值 "+usd(val100)+"（现值 "+usd(100*t.px)+"）")],
+    [Z("New SPCX shares issued","新增发 SPCX 股数"),Z(f2(newSh)+"B",Math.round(newSh*10)+" 亿股"),Z("on "+f2(s.sh)+"B existing","现有 "+Math.round(s.sh*10)+" 亿股")],
+    [Z("Ownership after deal","交易后持股"),"SX "+Math.round((1-tSplit)*100)+"% · TS "+Math.round(tSplit*100)+"%",Z("SpaceX holders · Tesla holders","SpaceX 股东 · 特斯拉股东")],
+    [Z("Price paid for Tesla","收购特斯拉作价"),B(t.mc*(1+prem)),mult(t.mc*(1+prem)/t.rev[2026])+Z(" 2026E sales"," 2026 年预期销售额")]
   ].map(([b,v,sm])=>`<div class="tile"><b>${b}</b><span class="v" style="font-size:20px">${v}</span><small>${sm}</small></div>`).join("");
   const cmc=s.mc+t.mc*(1+prem), cash=s.cash+t.cash, debt=s.debt+t.debt, cev=cmc-cash+debt;
   const cr={2026:s.rev[2026]+t.rev[2026],2027:s.rev[2027]+t.rev[2027],2028:s.rev[2028]+t.rev[2028]};
   const ni={2026:s.eps[2026]*s.sh+3.5,2027:s.eps[2027]*s.sh+4.5,2028:s.eps[2028]*s.sh+7.1};
   const R=[
-    ["Market value (incl. premium)",tn(cmc)],
-    ["Cash / debt (Jun 30)","$"+f1(cash)+"B / $"+f1(debt)+"B"],
-    ["Revenue 2026E / 27E / 28E","$"+Math.round(cr[2026])+"B / $"+Math.round(cr[2027])+"B / $"+Math.round(cr[2028])+"B"],
-    ["Net income 2026E / 27E / 28E","$"+f1(ni[2026])+"B / $"+f1(ni[2027])+"B / $"+f1(ni[2028])+"B"],
-    ["P/E 2027E / 2028E (combined)",mult(cmc/ni[2027])+" / "+mult(cmc/ni[2028])+"  (SpaceX alone "+mult(s.mc/(s.eps[2027]*s.sh))+" / "+mult(s.mc/(s.eps[2028]*s.sh))+")"],
-    ["EV / sales 2027E",mult(cev/cr[2027])],
-    ["Capex 2026E","~$107B (≈$81B + $25B+)"],
-    ["Contracted backlog","$47.5B + Tesla deferred revenue $7.5B"],
-    ["Musk stake (Barclays, no premium)","~37% economic, ~56% voting"]
+    [Z("Market value (incl. premium)","市值（含溢价）"),B(cmc)],
+    [Z("Cash / debt (Jun 30)","现金／债务（6 月 30 日）"),B(cash)+" / "+B(debt)],
+    [Z("Revenue 2026E / 27E / 28E","营收 2026／27／28 年预测"),B(cr[2026])+" / "+B(cr[2027])+" / "+B(cr[2028])],
+    [Z("Net income 2026E / 27E / 28E","净利润 2026／27／28 年预测"),B(ni[2026])+" / "+B(ni[2027])+" / "+B(ni[2028])],
+    [Z("P/E 2027E / 2028E (combined)","2027／2028 年预期市盈率（合并）"),mult(cmc/ni[2027])+" / "+mult(cmc/ni[2028])+Z("  (SpaceX alone ","（SpaceX 单独 ")+mult(s.mc/(s.eps[2027]*s.sh))+" / "+mult(s.mc/(s.eps[2028]*s.sh))+Z(")","）")],
+    [Z("EV / sales 2027E","企业价值／2027 年预期销售额"),mult(cev/cr[2027])],
+    [Z("Capex 2026E","2026 年预期资本开支"),Z("~$107B (≈$81B + $25B+)","约 1,070 亿美元（约 810 亿＋250 亿以上）")],
+    [Z("Contracted backlog","已签约订单储备"),Z("$47.5B + Tesla deferred revenue $7.5B","475 亿美元＋特斯拉递延收入 75 亿美元")],
+    [Z("Musk stake (Barclays, no premium)","马斯克持股（巴克莱，未计溢价）"),Z("~37% economic, ~56% voting","约 37% 股份，约 56% 投票权")]
   ];
-  $("#pf").innerHTML = `<thead><tr><th>Combined company, pro forma</th><th>Value</th></tr></thead><tbody>`+
+  $("#pf").innerHTML = `<thead><tr><th>${Z("Combined company, pro forma","合并后公司（备考）")}</th><th>${Z("Value","数值")}</th></tr></thead><tbody>`+
     R.map(r=>`<tr><td class="k">${r[0]}</td><td class="n" style="white-space:normal">${r[1]}</td></tr>`).join("")+`</tbody>`;
 }
 
-// ---------- wiring ----------
+// ================= language =================
+function setLang(l){
+  lang = l; document.documentElement.lang = l === "zh" ? "zh-Hans" : "en";
+  document.querySelectorAll("[data-i]").forEach(el => { const v = tx(el.dataset.i); if (v != null) el.innerHTML = v; });
+  $("#langBtn").textContent = l === "zh" ? "EN" : "中文";
+  document.title = Z("SpaceX vs Tesla Merger · Stock Dashboards", "SpaceX 与特斯拉合并 · 股票看板");
+  try { localStorage.setItem("merger-lang", l); } catch (e) {}
+  render();
+}
+$("#langBtn").onclick = () => setLang(lang === "en" ? "zh" : "en");
+
 function seg(id, cb){
   const g=$(id); g.addEventListener("click",e=>{const b=e.target.closest("button"); if(!b) return;
     g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false")); cb(b);});
 }
 seg("#fcSeg", b=>{fcMode=b.dataset.k; fcChart();});
 seg("#prSeg", b=>{prem=parseFloat(b.dataset.p); deal();});
-function render(){ derived(); kpis(); fmTable(); fcTable(); fcChart(); capex(); deal(); }
-render();
+function render(){
+  derived(); kpis(); fmTable(); fcTable(); fcChart(); capex(); deal();
+  $("#liveNote").textContent = liveDate === null ? "" : liveDate ? tx("live") + Z(" ("+liveDate+").","（"+liveDate+"）。") : tx("asof");
+}
+let l0 = "en"; try { l0 = localStorage.getItem("merger-lang") || "en"; } catch (e) {}
+setLang(l0);
 
-// live prices from the stock pages' quote files
 const bust="?t="+Date.now();
 Promise.all(["../spcx/data/quote.json","../tesla/data/quote.json"].map(u=>fetch(u+bust,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null)))
 .then(([qs,qt])=>{
   let upd=false, when="";
   if(qs&&qs.price>0){D.sx.px=+qs.price;upd=true;when=qs.date||when;}
   if(qt&&qt.price>0){D.ts.px=+qt.price;upd=true;when=qt.date||when;}
-  if(upd){ render(); $("#liveNote").textContent="Prices live"+(when?" ("+when+")":"")+"."; }
-  else $("#liveNote").textContent="Prices as of Oct 15 close.";
+  liveDate = upd ? (when || "✓") : "";
+  render();
 });
 })();
 </script>
