@@ -38,6 +38,9 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 ## Ranking on the main page
 - The stock cards on `index.html` are ordered from most to least bullish (Claude's judgment), with a rank, a tier (Bullish / Constructive / Neutral / Cautious) and a one-line reason on each card. A Claude scheduled task re-ranks them after every US session (Tue–Sat 8:22am SGT) by reordering the cards, editing the `rk` and `why` lines and the "Ranked by Claude as of" date.
 
+## Previous-session market recap (main page)
+The panel above "Most to least bullish" summarises the latest US session: headline, index/SOX/VIX/10Y/oil moves, the 3–4 drivers of the rally or sell-off, the week so far and what to watch. It renders `data/market-recap.json` with `assets/market-recap.js`. Claude rewrites the JSON after each US close (scheduled task "Stock dashboard: daily market recap", Tue–Sat ~7:28 SGT) from market wraps; only that file changes.
+
 ## How the live price works
 - A GitHub Action (`.github/workflows/deploy.yml`) runs every 10 minutes during US market hours, fetches each symbol's quote and daily closes from Yahoo Finance (`scripts/fetch-quote.mjs SYMBOL OUTDIR RANGE`), and redeploys the site. No commits are made.
   - ARM → `arm/data/quote.json`, `arm/data/history.json`
