@@ -1,0 +1,55 @@
+name: Options book
+
+# Rebuilds the Options tab (data/options-book.json) after every US close:
+# fetches 5 years of daily prices for every dashboard stock, SPY, the VIX and the
+# 13-week T-bill yield (warm-up history the repo doesn't keep), then re-runs the
+# two-year weekly 5-delta cash-secured put backtest and the live book.
+# Runs when the daily price-saving workflow finishes, so it uses that day's closes.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/options-book.yml
+      - scripts/options-backtest.py
+  workflow_run:
+    workflows: ["Save daily prices for the technical read"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: options-book
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch 5 years of daily history
+        run: |
+          for t in AAOI AMAT AMD AMZN ARM ASML AVGO BE COHR GLW GOOGL INTC LITE META MP MRVL MSFT MU NVDA PLTR ROK SKHY SNDK SPCX TER TSLA TSM ZS SPY ^VIX ^IRX; do
+            mkdir -p "opt-data/$t" && node scripts/fetch-quote.mjs "$t" "opt-data/$t" 5y || true
+          done
+
+      - name: Run the backtest
+        run: python3 scripts/options-backtest.py opt-data --text | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit if changed
+        run: |
+          git add data/options-book.json
+          if git diff --cached --quiet; then echo "No change."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Options book: rebuild after the close"
+          git pull -q --rebase --autostash origin main
+          git push
