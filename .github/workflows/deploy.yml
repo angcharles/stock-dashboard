@@ -113,6 +113,7 @@ jobs:
           mkdir -p _site/data _site/assets
           cp index.html .nojekyll _site/
           cp data/news.json _site/data/
+          if [ -f data/market-recap.json ]; then cp data/market-recap.json _site/data/; fi
           cp data/portfolios.json _site/data/
           cp data/macro.json data/macro-cal.json data/macro-news.json _site/data/
           if [ -f data/fedwatch.json ]; then cp data/fedwatch.json _site/data/; fi
