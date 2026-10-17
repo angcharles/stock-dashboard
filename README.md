@@ -41,6 +41,9 @@ Each page covers price, revenue mix, financials, free cash flow, watch list, cal
 ## Previous-session market recap (main page)
 The panel above "Most to least bullish" summarises the latest US session: headline, index/SOX/VIX/10Y/oil moves, the 3–4 drivers of the rally or sell-off, the week so far and what to watch. It renders `data/market-recap.json` with `assets/market-recap.js`. Claude rewrites the JSON after each US close (scheduled task "Stock dashboard: daily market recap", Tue–Sat ~7:28 SGT) from market wraps; only that file changes. The deploy workflow copies it into the site (`.github/workflows/deploy.yml`).
 
+## Previous-session macro recap (Macro tab)
+The panel at the top of the Macro tab summarises the latest New York session for crude oil, gold, silver and the 2/5/10/30-year US Treasury, German Bund and French OAT yields: headline, the 3–4 themes that moved them, and a one-line read per instrument. The narrative is `data/macro-recap.json` (Claude rewrites it after each New York close, scheduled task "Stock dashboard: daily macro recap", Tue–Sat ~7:38 SGT). `assets/macro-recap.js` computes each row's close and day/week change from the daily bars in `data/macro.json` (the same data as the tiles and chart), so only the JSON's text needs updating. The deploy workflow copies the JSON into the site.
+
 ## How the live price works
 - A GitHub Action (`.github/workflows/deploy.yml`) runs every 10 minutes during US market hours, fetches each symbol's quote and daily closes from Yahoo Finance (`scripts/fetch-quote.mjs SYMBOL OUTDIR RANGE`), and redeploys the site. No commits are made.
   - ARM → `arm/data/quote.json`, `arm/data/history.json`
