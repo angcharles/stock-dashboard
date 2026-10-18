@@ -66,7 +66,7 @@
       `<h2>${esc(r.headline)}</h2>` +
       `<p class="fr-sum">${esc(r.summary)}</p>` +
       `<ul class="fr-dr">${drivers}</ul>` +
-      (r.view || ideas ? `<div class="fr-box">${r.view ? `<p class="fr-view"><b>${esc(r.view[0])}</b> ${esc(r.view[1])}</p>` : ""}${ideas ? `<div class="fr-bh">Highest-conviction calls</div><ol class="fr-ideas">${ideas}</ol>` : ""}</div>` : "") +
+      (r.view || ideas ? `<div class="fr-box">${r.view ? `<p class="fr-view"><b>${esc(r.view[0])}</b> ${esc(r.view[1])}</p>` : ""}${ideas ? `<div class="fr-bh">Highest-conviction calls</div><ol class="fr-ideas">${ideas}</ol>` : ""}${r.review ? `<p class="fr-rev"><b>How the last calls did:</b> ${esc(r.review)}</p>` : ""}</div>` : "") +
       `<details class="fr-all"${open ? " open" : ""}><summary>All ${n} pairs: close, day and week moves, what happened and my call (${esc(r.horizon || "1–2 weeks")})</summary>` +
       `<div class="fr-tbl" role="table" aria-label="Closing levels and calls"><div class="fr-r fr-h"><span>Pair</span><span>Close</span><span>Day</span><span>Week</span><span>What happened · the call</span></div>${tbl}</div></details>` +
       (r.watch ? `<p class="fr-note">${esc(r.watch)}</p>` : "") +
