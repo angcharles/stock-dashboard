@@ -37,12 +37,12 @@
   // snapshot closest to (and not after) n calendar days before the latest one
   function ago(n) {
     const H = data.hist || []; if (H.length < 2) return null;
-    const last = new Date(H.at(-1).d + "T00:00:00Z"); last.setUTCDate(last.getUTCDate() - n);
+    const last = new Date(H[H.length - 1].d + "T00:00:00Z"); last.setUTCDate(last.getUTCDate() - n);
     const cut = last.toISOString().slice(0, 10);
     for (let i = H.length - 2; i >= 0; i--) if (H[i].d <= cut) return H[i];
     return null;
   }
-  const prevDay = () => (data.hist || []).length >= 2 ? data.hist.at(-2) : null;
+  const prevDay = () => (data.hist || []).length >= 2 ? data.hist[data.hist.length - 2] : null;
 
   function axes(C, W, H, P, yMin, yMax, yTicks) {
     for (let i = 0; i <= yTicks; i++) {
@@ -62,8 +62,8 @@
     const rows = data.rows, P = { l: 52, r: 12, t: 12, b: 26 };
     const wk = cmp.w ? ago(7) : null, mo = cmp.m ? ago(30) : null;
     const series = [{ name: "Now", pts: rows.map((r) => r.mid), color: C.acc, w: 2.4, dash: "" }];
-    if (wk) series.push({ name: `1W ago (${wk.d.slice(5)})`, pts: rows.map((r) => wk.m[r.t] ?? null), color: C.muted, w: 1.5, dash: "5 4" });
-    if (mo) series.push({ name: `1M ago (${mo.d.slice(5)})`, pts: rows.map((r) => mo.m[r.t] ?? null), color: C.down, w: 1.5, dash: "2 3" });
+    if (wk) series.push({ name: `1W ago (${wk.d.slice(5)})`, pts: rows.map((r) => (wk.m[r.t] != null ? wk.m[r.t] : null)), color: C.muted, w: 1.5, dash: "5 4" });
+    if (mo) series.push({ name: `1M ago (${mo.d.slice(5)})`, pts: rows.map((r) => (mo.m[r.t] != null ? mo.m[r.t] : null)), color: C.down, w: 1.5, dash: "2 3" });
     const all = [data.spot, ...series.flatMap((s) => s.pts.filter((v) => v != null))];
     const [y0, y1, nT] = niceRange(all, 0.06);
     axes(C, W, H, P, y0, y1, nT);
@@ -125,7 +125,13 @@
   }
 
   function draw() {
-    if (!data || !data.rows?.length) return;
+    try { drawAll(); } catch (e) {
+      const n = root.querySelector("#fwdNote"); if (n) n.textContent = "The forward curve could not be drawn in this browser (" + e.message + "). Try updating the browser or a hard refresh.";
+      if (window.console) console.error("fx-fwd", e);
+    }
+  }
+  function drawAll() {
+    if (!data || !data.rows || !data.rows.length) return;
     const C = col(); svg.innerHTML = "";
     const W = Math.max(280, svg.clientWidth || 600), H = 260; svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
     const cm = root.querySelector("#fwdCmp");
@@ -136,14 +142,14 @@
     if (view === "curve") drawCurve(C, W, H); else drawHist(C, W, H);
     table();
     root.querySelector("#fwdNote").textContent = `Source: ${data.src}, as of ${sgt(data.time)} SGT (refreshed with the FX rates). Spot ${f0(data.spot)}. Carry = points ÷ spot, annualised. ` +
-      `Indicative bank-contributed quotes, not dealable prices; Bloomberg's IHN fixings can differ by a few points. ${data.hist?.length || 0} daily curve${data.hist?.length === 1 ? "" : "s"} saved.`;
+      `Indicative bank-contributed quotes, not dealable prices; Bloomberg's IHN fixings can differ by a few points. ${(data.hist || []).length} daily curve${(data.hist || []).length === 1 ? "" : "s"} saved.`;
   }
 
   async function load() {
-    try { const r = await fetch(SRC + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) { const j = await r.json(); if (j?.rows?.length) { data = j; root.hidden = false; draw(); } } } catch (e) {}
+    try { const r = await fetch(SRC + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) { const j = await r.json(); if (j && j.rows && j.rows.length) { data = j; root.hidden = false; draw(); } } } catch (e) {}
   }
   let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 150); });
-  if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", draw);
+  if (window.matchMedia) { const mq = matchMedia("(prefers-color-scheme: dark)"); if (mq.addEventListener) mq.addEventListener("change", draw); };
   new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   load(); setInterval(load, 5 * 60 * 1000);
 })();
