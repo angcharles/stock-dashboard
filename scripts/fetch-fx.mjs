@@ -140,16 +140,14 @@ for (const P of PAIRS) {
   const old = prevBy[P.k] || {};
   let hist = null, quote = live[P.cnbc] || null, hSrc = "";
   try { hist = await cnbcBars(P.cnbc); hSrc = "CNBC daily bars"; } catch (e) { log(P.k, "cnbc bars failed:", e.message); }
-  // Onshore-traded currencies (ringgit, rupiah, rupee): CNBC's quote stops at the local close, while Yahoo keeps
-  // an indicative rate going into the US session, so when CNBC's is over an hour old use whichever is newer.
-  const oldQ = quote && P.onshore && Date.now() / 1000 - quote.time > 3600;
-  if (!hist || !quote || oldQ) {
+  // Onshore-traded currencies (ringgit, rupiah, rupee) only really trade in local hours: CNBC's quote stops at the
+  // onshore close and is kept as is (the page labels it "Onshore close"). Yahoo's after-hours "indicative" rate was
+  // tried and dropped: it carried fresh timestamps on stale or off-market prices (USD/IDR 17,943 vs an 18,040 close).
+  if (!hist || !quote) {
     try {
       const y = await yahooChart(P.yahoo);
       if (!hist && y.hist.d.length > 100) { hist = y.hist; hSrc = "Yahoo Finance"; }
-      if (y.quote && (!quote || (oldQ && y.quote.time > quote.time + 600))) {
-        quote = { ...y.quote, realtime: !!oldQ, src: oldQ ? "Yahoo Finance (indicative, after the onshore close)" : y.quote.src };
-      }
+      if (!quote && y.quote) quote = y.quote;
     } catch (e) { log(P.k, "yahoo failed:", e.message); }
   }
   // a cross with no direct CNBC quote uses the rate calculated from the two live CNBC legs (Yahoo's is delayed)
