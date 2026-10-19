@@ -1,0 +1,20 @@
+name: Diag overnight prices (temporary)
+on:
+  push:
+    branches: [diag-overnight]
+permissions:
+  contents: write
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/diag-overnight.mjs
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f diag-overnight.json && git commit -q -m "diag output" && git push origin HEAD:diag-overnight
