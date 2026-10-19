@@ -1,4 +1,4 @@
-// FX page data: EUR/USD, AUD/USD, USD/CNH, USD/SGD, USD/JPY, USD/KRW, USD/IDR, USD/INR.
+// FX page data: majors, Asian pairs (CNH HKD SGD KRW TWD MYR PHP IDR INR) and two crosses.
 // Writes data/fx.json (live quote + ~1.5 years of daily OHLC per pair).
 // Sources
 //   Live quotes: CNBC quote service, then Yahoo Finance.
@@ -30,8 +30,11 @@ const PAIRS = [
   { k: "usdhkd", g: "Asia", name: "US dollar / Hong Kong dollar", short: "USD/HKD", dp: 4, cnbc: "HKD=", yahoo: "HKD=X" },
   { k: "usdsgd", g: "Asia", name: "US dollar / Singapore dollar", short: "USD/SGD", dp: 4, cnbc: "SGD=", yahoo: "SGD=X" },
   { k: "usdkrw", g: "Asia", name: "US dollar / Korean won", short: "USD/KRW", dp: 2, cnbc: "KRW=", yahoo: "KRW=X" },
-  { k: "usdidr", g: "Asia", name: "US dollar / Indonesian rupiah", short: "USD/IDR", dp: 0, cnbc: "IDR=", yahoo: "IDR=X" },
-  { k: "usdinr", g: "Asia", name: "US dollar / Indian rupee", short: "USD/INR", dp: 3, cnbc: "INR=", yahoo: "INR=X" },
+  { k: "usdtwd", g: "Asia", name: "US dollar / Taiwan dollar", short: "USD/TWD", dp: 3, cnbc: "TWD=", yahoo: "TWD=X" },
+  { k: "usdmyr", g: "Asia", name: "US dollar / Malaysian ringgit", short: "USD/MYR", dp: 4, cnbc: "MYR=", yahoo: "MYR=X", onshore: true },
+  { k: "usdphp", g: "Asia", name: "US dollar / Philippine peso", short: "USD/PHP", dp: 3, cnbc: "PHP=", yahoo: "PHP=X" },
+  { k: "usdidr", g: "Asia", name: "US dollar / Indonesian rupiah", short: "USD/IDR", dp: 0, cnbc: "IDR=", yahoo: "IDR=X", onshore: true },
+  { k: "usdinr", g: "Asia", name: "US dollar / Indian rupee", short: "USD/INR", dp: 3, cnbc: "INR=", yahoo: "INR=X", onshore: true },
   // crosses: if no source quotes them directly, they are calculated from the two dollar pairs
   { k: "eurjpy", g: "Crosses", name: "Euro / Japanese yen", short: "EUR/JPY", dp: 2, cnbc: "EURJPY=", yahoo: "EURJPY=X", calc: ["eurusd", "*", "usdjpy"] },
   { k: "cnhjpy", g: "Crosses", name: "Offshore yuan / Japanese yen", short: "CNH/JPY", dp: 3, cnbc: "CNHJPY=", yahoo: "CNHJPY=X", calc: ["usdjpy", "/", "usdcnh"] },
@@ -137,11 +140,16 @@ for (const P of PAIRS) {
   const old = prevBy[P.k] || {};
   let hist = null, quote = live[P.cnbc] || null, hSrc = "";
   try { hist = await cnbcBars(P.cnbc); hSrc = "CNBC daily bars"; } catch (e) { log(P.k, "cnbc bars failed:", e.message); }
-  if (!hist || !quote) {
+  // Onshore-traded currencies (ringgit, rupiah, rupee): CNBC's quote stops at the local close, while Yahoo keeps
+  // an indicative rate going into the US session, so when CNBC's is over an hour old use whichever is newer.
+  const oldQ = quote && P.onshore && Date.now() / 1000 - quote.time > 3600;
+  if (!hist || !quote || oldQ) {
     try {
       const y = await yahooChart(P.yahoo);
       if (!hist && y.hist.d.length > 100) { hist = y.hist; hSrc = "Yahoo Finance"; }
-      if (!quote && y.quote) quote = y.quote;
+      if (y.quote && (!quote || (oldQ && y.quote.time > quote.time + 600))) {
+        quote = { ...y.quote, realtime: !!oldQ, src: oldQ ? "Yahoo Finance (indicative, after the onshore close)" : y.quote.src };
+      }
     } catch (e) { log(P.k, "yahoo failed:", e.message); }
   }
   // a cross with no direct CNBC quote uses the rate calculated from the two live CNBC legs (Yahoo's is delayed)
@@ -157,7 +165,7 @@ for (const P of PAIRS) {
   const chg = prevClose != null ? quote.price - prevClose : null;
   const it = { k: P.k, g: P.g, name: P.name, short: P.short, dp: P.dp, price: r6(quote.price), prev: prevClose == null ? null : r6(prevClose),
     chg: chg == null ? null : r6(chg), pct: chg == null || !prevClose ? null : +((chg / prevClose) * 100).toFixed(2),
-    time: quote.time, realtime: !!quote.realtime, src: quote.src, hsrc: hSrc, hist };
+    time: quote.time, realtime: !!quote.realtime, src: quote.src, hsrc: hSrc, ...(P.onshore ? { onshore: true } : {}), hist };
   items.push(it);
   log(P.k, it.price, it.pct, it.src, `${hist.d.length} bars (${hSrc})`);
   summary(`- ${P.short}: ${it.price} (${it.pct >= 0 ? "+" : ""}${it.pct}%) · ${it.src} · history ${hSrc}`);

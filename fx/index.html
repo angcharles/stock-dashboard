@@ -120,6 +120,20 @@ section.fxrecap{margin-top:0}
 .fr-lv{font:500 12px var(--f-mono);white-space:nowrap}.fr-lv b{font-weight:600;color:var(--ink)}
 .fr-note{font-size:13.5px;color:var(--muted);margin:12px 0 6px;max-width:90ch}
 .fr-src{font-size:12px;color:var(--muted);margin:6px 0 0}.fr-src a{color:var(--accent)}
+.fxc{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:18px 20px;margin-top:20px;scroll-margin-top:12px}
+.fxc-h{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:6px}
+.fxc-h h2{font-size:20px;margin:4px 0 0}
+.fxc-m{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 12px var(--f-mono);color:var(--muted)}
+.fxc-m b{display:block;font:600 15px var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}.fxc-m b.up{color:var(--up)}.fxc-m b.down{color:var(--down)}
+.fxc-g{border-top:1px solid var(--line);padding:10px 0 2px;margin-top:8px}
+.fxc-l{font:600 10px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.fxc-g p{margin:0 0 6px;max-width:92ch}
+.fxc-s{font-size:14px;color:var(--muted)}.fxc-s b{color:var(--ink)}
+.fxc-call{font-size:14px}.fxc-call b{font-family:var(--f-mono)}
+.fxc-n{margin:0;padding-left:18px;font-size:14px}.fxc-n li{margin:0 0 4px}.fxc-n a{color:var(--ink)}.fxc-n a:hover{color:var(--accent)}
+.fxc-n span{font:500 11px var(--f-mono);color:var(--muted);white-space:nowrap}
+.fxc-f{font-size:12px;color:var(--muted);margin:8px 0 0}
+@media (max-width:700px){.fxc{padding:16px 14px}}
 @media (max-width:700px){.fxrecap{padding:16px 14px}.fr-r{grid-template-columns:minmax(0,1fr) auto auto auto}.fr-t{grid-column:1/-1;font-size:13px}.fr-h span:last-child{display:none}.fr-lv{white-space:normal}}
 </style>
 </head>
@@ -128,11 +142,13 @@ section.fxrecap{margin-top:0}
   <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="../macro/">Macro</a><a href="./" aria-current="page">FX</a><a href="../datacenter/">Datacenter</a><a href="../robotics/">Robotics</a><a href="../merger/">SpaceX vs Tesla</a><a href="../portfolio/">Portfolio</a><a href="../options/">Options</a></nav>
   <div class="eyebrow">Currencies · Charts · Calendar · News</div>
   <h1>FX</h1>
-  <p class="lede">The major pairs, six Asian currencies against the US dollar, and the euro and yuan against the yen. Rates refresh about every 10 minutes in US hours and every 15 minutes the rest of the weekday; this page re-checks every minute. Pick a tile to chart it. <a href="#fwd" style="color:var(--accent);white-space:nowrap">USD/IDR forward curve ↓</a></p>
+  <p class="lede">The major pairs, nine Asian currencies against the US dollar, and the euro and yuan against the yen. Rates refresh about every 10 minutes in US hours and every 15 minutes the rest of the weekday; this page re-checks every minute. Pick a tile to chart it. <a href="#fwd" style="color:var(--accent);white-space:nowrap">USD/IDR forward curve ↓</a></p>
 
   <section id="fxrecap" class="fxrecap" data-src="../data/fx-recap.json" data-fx="../data/fx.json" aria-label="Previous New York session FX recap and calls" hidden></section>
 
   <div id="tC"></div>
+
+  <section id="fxc" class="fxc" aria-live="polite" aria-label="Commentary on the selected currency pair" hidden></section>
 
   <section aria-labelledby="chH">
     <div class="panel">
@@ -157,18 +173,18 @@ section.fxrecap{margin-top:0}
     <p class="sub" id="calSub">This week and next, in Singapore time. Dots mark expected market impact (red high, orange medium, yellow low).</p>
     <div class="flt" role="group" aria-label="Calendar filter"></div>
     <div id="cal"></div>
-    <p class="note">Calendar: Forex Factory weekly calendar (forecast and previous). "These currencies" shows USD, EUR, GBP, AUD, CAD, CHF, CNY and JPY events; Forex Factory does not list HKD, SGD, KRW, IDR or INR data. Times are in Singapore time.</p>
+    <p class="note">Calendar: Forex Factory weekly calendar (forecast and previous). "These currencies" shows USD, EUR, GBP, AUD, CAD, CHF, CNY and JPY events; Forex Factory does not list HKD, SGD, KRW, TWD, MYR, PHP, IDR or INR data. Times are in Singapore time.</p>
   </section>
 
 
   <section id="news" data-src="../data/fx-news.json" data-tickers="USD,EUR,GBP,JPY,CNY,ASIA,AUD,CAD,CHF" data-h="FX news" data-sub="The dollar, euro, pound, yen, yuan, Asian currencies, Aussie, Canadian dollar and Swiss franc, plus the central banks behind them: headlines from the last 14 days, newest first. ASIA covers the Singapore and Hong Kong dollars, won, rupiah and rupee." aria-label="FX news"></section>
 
-  <footer>Quotes and daily bars: CNBC, with Yahoo Finance as a fallback. Interbank indicative rates; your bank or broker will quote a spread. For information only, not investment advice.</footer>
+  <footer>Quotes and daily bars: CNBC, with Yahoo Finance as a fallback (and for the ringgit, rupiah and rupee after their onshore close, as an indicative rate). Interbank indicative rates; your bank or broker will quote a spread. For information only, not investment advice.</footer>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
-<script src="../assets/fx.js?v=2"></script>
-<script src="../assets/fx-recap.js?v=2"></script>
+<script src="../assets/fx.js?v=3"></script>
+<script src="../assets/fx-recap.js?v=3"></script>
 <script src="../assets/fx-fwd.js?v=2"></script>
 <script src="../assets/news.js?v=5"></script>
 <script src="../assets/stock-picker.js?v=1"></script>
