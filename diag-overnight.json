@@ -1,0 +1,288 @@
+{
+ "at": "2026-10-19T00:44:47.521Z",
+ "NVDA": {
+  "yahooQuote": {
+   "marketState": "CLOSED",
+   "postMarketTime": 1792195197,
+   "regularMarketTime": 1792180800,
+   "market": "us_market",
+   "hasPrePostMarketData": true,
+   "postMarketChangePercent": -0.17774248,
+   "postMarketPrice": 213.7494,
+   "postMarketChange": -0.38059998,
+   "regularMarketChange": -3.09999,
+   "regularMarketChangePercent": -1.42705,
+   "regularMarketPrice": 214.13,
+   "regularMarketDayHigh": 218.676,
+   "regularMarketDayRange": "213.32 - 218.676",
+   "regularMarketDayLow": 213.32,
+   "regularMarketVolume": 121252522,
+   "regularMarketPreviousClose": 217.23,
+   "regularMarketOpen": 216.56,
+   "marketCap": 5170596937728
+  },
+  "yahooChartLast": [
+   [
+    "2026-10-16T23:50:00.000Z",
+    213.6506
+   ],
+   [
+    "2026-10-16T23:55:00.000Z",
+    213.7494
+   ],
+   [
+    "2026-10-16T23:59:57.000Z",
+    213.7494
+   ]
+  ],
+  "yahooChartMeta": {
+   "tp": {
+    "pre": {
+     "timezone": "EDT",
+     "start": 1792137600,
+     "end": 1792157400,
+     "gmtoffset": -14400
+    },
+    "regular": {
+     "timezone": "EDT",
+     "start": 1792157400,
+     "end": 1792180800,
+     "gmtoffset": -14400
+    },
+    "post": {
+     "timezone": "EDT",
+     "start": 1792180800,
+     "end": 1792195200,
+     "gmtoffset": -14400
+    }
+   },
+   "hasPrePost": true
+  },
+  "nasdaq": {
+   "marketStatus": "Closed",
+   "primaryData": {
+    "lastSalePrice": "$214.13",
+    "netChange": "-3.10",
+    "percentageChange": "-1.43%",
+    "deltaIndicator": "down",
+    "lastTradeTimestamp": "Oct 15, 2026",
+    "isRealTime": false,
+    "bidPrice": "N/A",
+    "askPrice": "N/A",
+    "bidSize": "N/A",
+    "askSize": "N/A",
+    "volume": "121,255,149",
+    "currency": null
+   },
+   "secondaryData": null
+  },
+  "cnbc": {
+   "last": "214.13",
+   "last_time": "2026-10-16",
+   "curmktstatus": "POST_MKT",
+   "ExtendedMktQuote": {
+    "type": "POST_MKT",
+    "source": "Last NASDAQ LS, VOL From CTA",
+    "last": "213.75",
+    "last_timedate": "10/16/26 EDT",
+    "last_time": "2026-10-16",
+    "change": "-0.38",
+    "change_pct": "-0.18%",
+    "volume": "7,340,972",
+    "volume_alt": "7.3M",
+    "changetype": "DOWN",
+    "mktcapView": "5.151T"
+   }
+  }
+ },
+ "TSLA": {
+  "yahooQuote": {
+   "market": "us_market",
+   "postMarketTime": 1792195199,
+   "regularMarketTime": 1792180801,
+   "marketState": "CLOSED",
+   "marketCap": 1400983519232,
+   "hasPrePostMarketData": true,
+   "postMarketChangePercent": -0.637125,
+   "postMarketPrice": 352.46,
+   "postMarketChange": -2.2600098,
+   "regularMarketChange": -7.720001,
+   "regularMarketChangePercent": -2.1300082,
+   "regularMarketPrice": 354.72,
+   "regularMarketDayHigh": 370.5799,
+   "regularMarketDayRange": "349.33 - 370.5799",
+   "regularMarketDayLow": 349.33,
+   "regularMarketVolume": 61706132,
+   "regularMarketPreviousClose": 362.44,
+   "regularMarketOpen": 369.04
+  },
+  "yahooChartLast": [
+   [
+    "2026-10-16T23:50:00.000Z",
+    352.3345
+   ],
+   [
+    "2026-10-16T23:55:00.000Z",
+    352.46
+   ],
+   [
+    "2026-10-16T23:59:59.000Z",
+    352.46
+   ]
+  ],
+  "yahooChartMeta": {
+   "tp": {
+    "pre": {
+     "timezone": "EDT",
+     "start": 1792137600,
+     "end": 1792157400,
+     "gmtoffset": -14400
+    },
+    "regular": {
+     "timezone": "EDT",
+     "start": 1792157400,
+     "end": 1792180800,
+     "gmtoffset": -14400
+    },
+    "post": {
+     "timezone": "EDT",
+     "start": 1792180800,
+     "end": 1792195200,
+     "gmtoffset": -14400
+    }
+   },
+   "hasPrePost": true
+  },
+  "nasdaq": {
+   "marketStatus": "Closed",
+   "primaryData": {
+    "lastSalePrice": "$354.72",
+    "netChange": "-7.72",
+    "percentageChange": "-2.13%",
+    "deltaIndicator": "down",
+    "lastTradeTimestamp": "Oct 15, 2026",
+    "isRealTime": false,
+    "bidPrice": "N/A",
+    "askPrice": "N/A",
+    "bidSize": "N/A",
+    "askSize": "N/A",
+    "volume": "62,069,044",
+    "currency": null
+   },
+   "secondaryData": null
+  },
+  "cnbc": {
+   "last": "354.72",
+   "last_time": "2026-10-16",
+   "curmktstatus": "POST_MKT",
+   "ExtendedMktQuote": {
+    "type": "POST_MKT",
+    "source": "Last NASDAQ LS, VOL From CTA",
+    "last": "352.46",
+    "last_timedate": "10/16/26 EDT",
+    "last_time": "2026-10-16",
+    "change": "-2.26",
+    "change_pct": "-0.64%",
+    "volume": "1,120,062",
+    "volume_alt": "1.1M",
+    "changetype": "DOWN",
+    "mktcapView": "1.392T"
+   }
+  }
+ },
+ "MU": {
+  "yahooQuote": {
+   "marketState": "CLOSED",
+   "market": "us_market",
+   "hasPrePostMarketData": true,
+   "postMarketTime": 1792195192,
+   "regularMarketTime": 1792180800,
+   "postMarketChangePercent": -0.32543424,
+   "postMarketPrice": 875.98,
+   "postMarketChange": -2.8600464,
+   "regularMarketChange": -52.399963,
+   "regularMarketChangePercent": -5.6269026,
+   "regularMarketPrice": 878.84,
+   "regularMarketDayHigh": 907.5,
+   "regularMarketDayRange": "875.0 - 907.5",
+   "regularMarketDayLow": 875,
+   "regularMarketVolume": 30514615,
+   "regularMarketPreviousClose": 931.24,
+   "regularMarketOpen": 905,
+   "marketCap": 994340044800
+  },
+  "yahooChartLast": [
+   [
+    "2026-10-16T23:50:00.000Z",
+    874.7603
+   ],
+   [
+    "2026-10-16T23:55:00.000Z",
+    875.98
+   ],
+   [
+    "2026-10-16T23:59:52.000Z",
+    875.98
+   ]
+  ],
+  "yahooChartMeta": {
+   "tp": {
+    "pre": {
+     "timezone": "EDT",
+     "end": 1792157400,
+     "start": 1792137600,
+     "gmtoffset": -14400
+    },
+    "regular": {
+     "timezone": "EDT",
+     "end": 1792180800,
+     "start": 1792157400,
+     "gmtoffset": -14400
+    },
+    "post": {
+     "timezone": "EDT",
+     "end": 1792195200,
+     "start": 1792180800,
+     "gmtoffset": -14400
+    }
+   },
+   "hasPrePost": true
+  },
+  "nasdaq": {
+   "marketStatus": "Closed",
+   "primaryData": {
+    "lastSalePrice": "$878.84",
+    "netChange": "-52.40",
+    "percentageChange": "-5.63%",
+    "deltaIndicator": "down",
+    "lastTradeTimestamp": "Oct 15, 2026",
+    "isRealTime": false,
+    "bidPrice": "N/A",
+    "askPrice": "N/A",
+    "bidSize": "N/A",
+    "askSize": "N/A",
+    "volume": "30,515,800",
+    "currency": null
+   },
+   "secondaryData": null
+  },
+  "cnbc": {
+   "last": "878.84",
+   "last_time": "2026-10-16",
+   "curmktstatus": "POST_MKT",
+   "ExtendedMktQuote": {
+    "type": "POST_MKT",
+    "source": "Last NASDAQ LS, VOL From CTA",
+    "last": "875.98",
+    "last_timedate": "10/16/26 EDT",
+    "last_time": "2026-10-16",
+    "change": "-2.86",
+    "change_pct": "-0.33%",
+    "volume": "1,431,074",
+    "volume_alt": "1.4M",
+    "changetype": "DOWN",
+    "mktcapView": "991.104B"
+   }
+  }
+ }
+}
