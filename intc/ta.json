@@ -1,18 +1,18 @@
 {
- "asof": "Oct 16, 2026",
- "close": 89.85,
+ "asof": "Oct 19, 2026",
+ "close": 92.03,
  "bias": {
-  "en": "Bearish · lost $94.5, testing the July low",
-  "zh": "偏空 · 失守 $94.5，测试 7 月低点"
+  "en": "Bearish · bounced, still under $94.5",
+  "zh": "偏空 · 反弹但仍低于 $94.5"
  },
  "read": [
   {
-   "en": "Intel fell 5.8% on Oct 16 to $89.85 and is down 14% in five sessions. It is below its 5-day ($97.5), 10-day ($104.1), 30-day ($109.1) and falling 100-day ($107.1) averages, and above the 200-day ($84.6). MACD has been below its signal since Oct 5 and is below zero, Parabolic SAR has been bearish since Oct 5 ($109.3), and RSI is 31.",
-   "zh": "英特尔 10月16日下跌 5.8%，收于 $89.85，五个交易日累计下跌 14%。股价位于 5 日（$97.5）、10 日（$104.1）、30 日（$109.1）和下行的 100 日均线（$107.1）下方，仍在 200 日均线（$84.6）之上。MACD 自 10月5日起位于信号线及零轴下方，抛物线 SAR 自 10月5日起看空（$109.3），RSI 为 31。"
+   "en": "Intel rose 2.4% on Oct 19 to $92.03 but faded from a high of $95.39 to close near the day's low of $91.88. It is below its falling 5-day ($95.6), 10-day ($101.7), falling 100-day ($106.8) and 30-day ($109.0) averages, and above the rising 200-day ($84.8). MACD has been below its signal since Oct 5 and is below zero, with the histogram narrowing slightly; Parabolic SAR has been bearish since Oct 5 ($105.3), and RSI is 35.",
+   "zh": "英特尔 10月19日上涨 2.4%，收于 $92.03，但自高点 $95.39 回落，收盘接近当日低点 $91.88。股价位于下行的 5 日（$95.6）、10 日（$101.7）、下行的 100 日（$106.8）和 30 日均线（$109.0）下方，位于上行的 200 日均线（$84.8）上方。MACD 自 10月5日起位于信号线及零轴下方，柱状图略有收窄；抛物线 SAR 自 10月5日起看空（$105.3），RSI 为 35。"
   },
   {
-   "en": "The $94.5 September low broke on the close; the day's low of $89.19 undercut the Jul 17 low ($89.6), but the close held just above it. Resistance is $94.5, then $97.5–98.3 (5-day average, June pivot) and $104 (10-day). Support is $89.2–89.6, then $85 (Aug 24 low, 200-day) and $81.8 (Jul 29 low). A close below $89.2 would open $85.",
-   "zh": "$94.5 的 9月低点收盘失守；当日低点 $89.19 跌破 7月17日低点（$89.6），但收盘守在其上方一线。阻力为 $94.5，其次 $97.5–98.3（5 日均线、6月转折点）和 $104（10 日均线）。支撑为 $89.2–89.6，其次 $85（8月24日低点、200 日均线）和 $81.8（7月29日低点）。若收盘跌破 $89.2，下一目标看 $85。"
+   "en": "The Jul 17 low ($89.6) and Oct 16 low ($89.2) held, but the rebound stalled under the 5-day average and closed below the $94.5 September low. Resistance is $94.5, then $95.6 (5-day, Oct 19 high) and $98.3 (June pivot). Support is $89.2–89.6, then $85 (Aug 24 low, 200-day) and $81.8 (Jul 29 low). A close below $89.2 would open $85; a close above $95.6 would target $98.3.",
+   "zh": "7月17日低点（$89.6）和 10月16日低点（$89.2）守住，但反弹受阻于 5 日均线下方，收盘仍低于 $94.5 的 9 月低点。阻力为 $94.5，其次 $95.6（5 日均线，10月19日高点）和 $98.3（6 月转折点）。支撑为 $89.2–89.6，其次 $85（8月24日低点，200 日均线）和 $81.8（7月29日低点）。若收盘跌破 $89.2，下一目标看 $85；若收盘站上 $95.6，则看向 $98.3。"
   }
  ],
  "levels": {
@@ -20,22 +20,22 @@
    [
     94.5,
     {
-     "en": "September low, now resistance; Oct 15 close $95.4",
-     "zh": "9月低点，转为阻力；10月15日收盘价 $95.4"
+     "en": "September low, now resistance",
+     "zh": "9月低点，现为阻力"
     }
    ],
    [
-    98,
+    95.6,
     {
-     "en": "5-day average $97.5; June pivot $98.3",
-     "zh": "5日均线 $97.5；6月转折点 $98.3"
+     "en": "5-day average; Oct 19 high $95.4",
+     "zh": "5日均线；10月19日高点 $95.4"
     }
    ],
    [
-    104,
+    98.3,
     {
-     "en": "10-day average",
-     "zh": "10日均线"
+     "en": "June pivot",
+     "zh": "6月转折点"
     }
    ]
   ],
@@ -50,8 +50,8 @@
    [
     85,
     {
-     "en": "Aug 24 low $85.1; 200-day average $84.6",
-     "zh": "8月24日低点 $85.1；200日均线 $84.6"
+     "en": "Aug 24 low $85.1; 200-day average $84.8",
+     "zh": "8月24日低点 $85.1；200日均线 $84.8"
     }
    ],
    [

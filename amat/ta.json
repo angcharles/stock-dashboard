@@ -1,38 +1,38 @@
 {
- "asof": "Oct 16, 2026",
- "close": 409.29,
+ "asof": "Oct 19, 2026",
+ "close": 413.11,
  "bias": {
-  "en": "Bearish · broke the September lows",
-  "zh": "偏空 · 跌破 9 月低点"
+  "en": "Bearish · oversold bounce faded",
+  "zh": "偏空 · 超卖反弹回落"
  },
  "read": [
   {
-   "en": "Applied Materials fell 4.8% on Oct 16 to $409.29, its ninth straight decline and down 19.3% over five sessions. It is below the 5-day ($449.5), 10-day ($485.8), 30-day ($474.6), 100-day ($516.8) and 200-day ($439.0) averages. MACD has been below its signal since Oct 13 and below zero with a widening gap, Parabolic SAR has been bearish since Oct 8 ($519.3), and RSI is 29.2, in oversold territory.",
-   "zh": "应用材料 10月16日下跌 4.8%，收于 $409.29，连续第九日下跌，五个交易日累计下跌 19.3%。股价位于 5 日（$449.5）、10 日（$485.8）、30 日（$474.6）、100 日（$516.8）和 200 日均线（$439.0）下方。MACD 自 10月13日起位于信号线下方并在零轴之下，差距扩大，抛物线 SAR 自 10月8日起看空（$519.3），RSI 为 29.2，处于超卖区。"
+   "en": "Applied Materials rose 0.9% on Oct 19 to $413.11, its first gain in ten sessions, but faded from $427.66 to close near the day's low. It is below the falling 5-day ($432.7), 10-day ($472.8), 30-day ($473.2) and 100-day ($516.4) averages and the rising 200-day ($439.8). MACD has been below its signal since Oct 13 and below zero, Parabolic SAR has been bearish since Oct 8 ($505.9), and RSI is 30.8.",
+   "zh": "应用材料 10月19日上涨 0.9%，收于 $413.11，为十个交易日来首次上涨，但自 $427.66 回落，收于当日低点附近。股价位于下行的 5 日（$432.7）、10 日（$472.8）、30 日（$473.2）和 100 日均线（$516.4）以及上行的 200 日均线（$439.8）下方。MACD 自 10月13日起位于信号线及零轴下方，抛物线 SAR 自 10月8日起看空（$505.9），RSI 为 30.8。"
   },
   {
-   "en": "The $426 Sep 3 and $411.5 Sep 16 lows both broke on the close and now cap. Resistance is $411.5–418 (Sep 16 low, Oct 15 low), then $426–430 (Sep 3 low, Oct 15 close) and $439 (200-day). Support is $397 (May 19 low), then $377–380 (April lows). A close below $397 would open $377–380; a close above $430 would target $439.",
-   "zh": "$426 的 9月3日低点和 $411.5 的 9月16日低点均在收盘时失守并转为阻力。阻力为 $411.5–418（9月16日低点、10月15日低点），其次 $426–430（9月3日低点、10月15日收盘）和 $439（200 日均线）。支撑为 $397（5月19日低点），其次 $377–380（4月低点）。若收盘跌破 $397，下一目标看 $377–380；若收盘站上 $430，目标看 $439。"
+   "en": "The rebound pushed into the $426–430 zone (Sep 3 low, Oct 15 close) intraday, then faded back into the $411.5–418 band (Sep 16 and Oct 15 lows). Resistance is $418, then $426–433 (Sep 3 low, 5-day average) and $439.8 (200-day). Support is $407.3 (Oct 16 low), then $397 (May 19 low) and $377–380 (April lows). A close below $397 would open $377–380.",
+   "zh": "反弹盘中一度进入 $426–430 区域（9月3日低点、10月15日收盘价），随后回落至 $411.5–418 区间（9月16日和 10月15日低点）。阻力为 $418，其次 $426–433（9月3日低点、5 日均线）和 $439.8（200 日均线）。支撑为 $407.3（10月16日低点），其次 $397（5月19日低点）和 $377–380（4月低点）。若收盘跌破 $397，下一目标看 $377–380。"
   }
  ],
  "levels": {
   "r": [
    [
-    415,
+    418,
     {
-     "en": "Sep 16 low and Oct 15 low ($411.5–418.2), now resistance",
-     "zh": "9月16日低点及10月15日低点（$411.5–418.2），转为阻力"
+     "en": "Oct 15 low, top of the $411.5–418 band",
+     "zh": "10月15日低点，$411.5–418 区间上沿"
     }
    ],
    [
-    428,
+    430,
     {
-     "en": "Sep 3 low and Oct 15 close ($426–430)",
-     "zh": "9月3日低点及10月15日收盘价（$426–430）"
+     "en": "Sep 3 low, Oct 15 close and 5-day average ($426–432.7)",
+     "zh": "9月3日低点、10月15日收盘价及5日均线（$426–432.7）"
     }
    ],
    [
-    439,
+    439.8,
     {
      "en": "200-day average",
      "zh": "200日均线"
@@ -40,6 +40,13 @@
    ]
   ],
   "s": [
+   [
+    407.3,
+    {
+     "en": "Oct 16 low",
+     "zh": "10月16日低点"
+    }
+   ],
    [
     397,
     {
@@ -51,7 +58,7 @@
     378,
     {
      "en": "Apr 15 and Apr 29 lows ($377.1–379.7)",
-     "zh": "4月15日及4月29日低点（$377.1–379.7）"
+     "zh": "4月15日和4月29日低点（$377.1–379.7）"
     }
    ]
   ]

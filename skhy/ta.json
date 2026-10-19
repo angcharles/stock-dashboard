@@ -8,47 +8,54 @@
     "en": "SKHY · Nasdaq ($)",
     "zh": "SKHY · 纳斯达克（美元）"
    },
-   "asof": "Oct 16, 2026",
-   "close": 136.49,
+   "asof": "Oct 19, 2026",
+   "close": 142.87,
    "bias": {
-    "en": "Bearish · broke the Oct 15 low",
-    "zh": "偏空 · 跌破 10月15日低点"
+    "en": "Bearish · rebounding under the 5-day average",
+    "zh": "偏空 · 在 5 日均线下方反弹"
    },
    "read": [
     {
-     "en": "The Nasdaq ADS fell 6.6% on Oct 16 to $136.49 on heavy volume, closing near the day's low of $136.23; with 70 sessions of history there is no 100-day average yet. It is below its falling 5-day ($149.9), 10-day ($164.5) and 30-day ($179.1) averages. MACD has been below its signal since Sep 28 and is below zero, Parabolic SAR has been bearish since Oct 7 ($181.0), and RSI is 28.",
-     "zh": "纳斯达克 ADS 10月16日放量下跌 6.6%，收于 $136.49，接近当日低点 $136.23；上市仅 70 个交易日，尚无 100 日均线。股价位于下行的 5 日（$149.9）、10 日（$164.5）和 30 日均线（$179.1）下方。MACD 自 9月28日起位于信号线及零轴下方，抛物线 SAR 自 10月7日起看空（$181.0），RSI 为 28。"
+     "en": "The Nasdaq ADS rose 4.7% on Oct 19 to $142.87, trading between $141.27 and $146.00; with 71 sessions of history there is no 100-day average yet. It is below its falling 5-day ($146.0), 10-day ($159.3) and 30-day ($178.0) averages. MACD has been below its signal since Sep 28 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 7 ($174.74), and RSI is 33.",
+     "zh": "纳斯达克 ADS 10月19日上涨 4.7%，收于 $142.87，盘中区间 $141.27–146.00；上市仅 71 个交易日，尚无 100 日均线。股价位于下行的 5 日（$146.0）、10 日（$159.3）和 30 日均线（$178.0）下方。MACD 自 9月28日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月7日起看空（$174.74），RSI 为 33。"
     },
     {
-     "en": "The $145.6 Jul 17 pivot and the $137.8 Oct 15 low both gave way on the close. Resistance is $137.8, then $145.6 and $149.9 (5-day average). Support is $133.8 (Aug 7 low), then $124.8 (Jul 29 low, the lowest since listing). A close below $133.8 would open $124.8. Switch to the Seoul listing above for the longer trend.",
-     "zh": "$145.6 的 7月17日转折点和 $137.8 的 10月15日低点均于收盘失守。阻力为 $137.8，其次 $145.6 和 $149.9（5 日均线）。支撑为 $133.8（8月7日低点），其次 $124.8（7月29日低点，上市以来最低）。若收盘跌破 $133.8，下一目标看 $124.8。如需观察更长周期趋势，可切换至上方的首尔上市股票。"
+     "en": "The close reclaimed the $137.8 Oct 15 low, but the day's high stopped at the 5-day average and the $145.6 Jul 17 pivot. Resistance is $145.6–146.0, then $151.5 (Aug 24 low) and $159.3 (10-day). Support is $137.8, then $133.8 (Aug 7 low) and $124.8 (Jul 29 low, the lowest since listing). A close above $146 would target $151.5; a close below $133.8 would open $124.8.",
+     "zh": "收盘收复 $137.8 的 10月15日低点，但当日高点止步于 5 日均线和 $145.6 的 7月17日转折点。阻力为 $145.6–146.0，其次 $151.5（8月24日低点）和 $159.3（10 日均线）。支撑为 $137.8，其次 $133.8（8月7日低点）和 $124.8（7月29日低点，上市以来最低）。若收盘站上 $146，下一目标看 $151.5；若收盘跌破 $133.8，下一目标看 $124.8。"
     }
    ],
    "levels": {
     "r": [
      [
-      137.8,
+      145.8,
       {
-       "en": "Oct 15 low, now resistance",
-       "zh": "10月15日低点，现为阻力"
+       "en": "Jul 17 pivot $145.6; 5-day average $146.0",
+       "zh": "7月17日转折点 $145.6；5日均线 $146.0"
       }
      ],
      [
-      145.6,
+      151.5,
       {
-       "en": "Jul 17 pivot, now resistance",
-       "zh": "7月17日转折点，现为阻力"
+       "en": "Aug 24 low",
+       "zh": "8月24日低点"
       }
      ],
      [
-      149.9,
+      159.3,
       {
-       "en": "5-day average",
-       "zh": "5日均线"
+       "en": "10-day average",
+       "zh": "10日均线"
       }
      ]
     ],
     "s": [
+     [
+      137.8,
+      {
+       "en": "Oct 15 low, reclaimed",
+       "zh": "10月15日低点，已收复"
+      }
+     ],
      [
       133.8,
       {
@@ -73,20 +80,20 @@
     "en": "000660 · Seoul (₩)",
     "zh": "000660 · 首尔（韩元）"
    },
-   "asof": "Oct 16, 2026",
-   "close": 1272000,
+   "asof": "Oct 19, 2026",
+   "close": 1277000,
    "bias": {
-    "en": "Bearish · holding the July low",
-    "zh": "偏空 · 守住 7 月低点"
+    "en": "Bearish · rebounded off the July low",
+    "zh": "偏空 · 自 7 月低点反弹"
    },
    "read": [
     {
-     "en": "SK hynix closed at ₩1,272,000 in Seoul on Oct 16, up from ₩1,262,000, trading between ₩1,247,000 and ₩1,325,000. It is below its falling 5-day (₩1,333,600), 10-day (₩1,529,100) and 30-day (₩1,690,133) averages, the 100-day (₩1,910,620) and the rising 200-day (₩1,460,420). MACD has been below its signal since Oct 6 and is below zero, Parabolic SAR has been bearish since Sep 29 (₩1,635,732), and RSI is 26.",
-     "zh": "SK 海力士 10月16日在首尔收于 ₩1,272,000，高于前一日的 ₩1,262,000，盘中区间 ₩1,247,000–1,325,000。股价位于下行的 5 日（₩1,333,600）、10 日（₩1,529,100）和 30 日均线（₩1,690,133）、100 日均线（₩1,910,620）及上行的 200 日均线（₩1,460,420）下方。MACD 自 10月6日起位于信号线及零轴下方，抛物线 SAR 自 9月29日起看空（₩1,635,732），RSI 为 26。"
+     "en": "SK hynix closed at ₩1,277,000 in Seoul on Oct 19, up 0.4%, after dipping to ₩1,208,000 and closing at the day's high. It is below its falling 5-day (₩1,334,600), 10-day (₩1,529,600) and 30-day (₩1,690,300) averages, the falling 100-day (₩1,910,670) and the rising 200-day (₩1,460,445). MACD has been below its signal since Oct 6 and is below zero, Parabolic SAR has been bearish since Sep 29 (₩1,635,732), and RSI is 26.",
+     "zh": "SK 海力士 10月19日在首尔收于 ₩1,277,000，上涨 0.4%；盘中一度跌至 ₩1,208,000，随后以全日最高价收盘。股价位于下行的 5 日（₩1,334,600）、10 日（₩1,529,600）和 30 日均线（₩1,690,300）、下行的 100 日均线（₩1,910,670）及上行的 200 日均线（₩1,460,445）下方。MACD 自 10月6日起位于信号线及零轴下方，抛物线 SAR 自 9月29日起看空（₩1,635,732），RSI 为 26。"
     },
     {
-     "en": "The close held above the ₩1,246,000 Jul 29 low for a second session. Resistance is ₩1.33 million (the last two highs, 5-day average), then ₩1.37–1.40 million (Aug 11 and Oct 14 lows) and ₩1,460,420 (200-day). Support is ₩1,238,000–1,246,000 (Oct 15 and Jul 29 lows), then ₩1.2 million and ₩1,060,000 (Mar 18 high). A close below ₩1,238,000 would open ₩1.2 million.",
-     "zh": "收盘连续第二个交易日守在 ₩1,246,000 的 7月29日低点之上。阻力为 ₩133万（近两日高点、5 日均线），其次 ₩137万–140万（8月11日和 10月14日低点）和 ₩1,460,420（200 日均线）。支撑为 ₩1,238,000–1,246,000（10月15日和 7月29日低点），其次 ₩120万 和 ₩1,060,000（3月18日高点）。若收盘跌破 ₩1,238,000，下一目标看 ₩120万。"
+     "en": "The low undercut the ₩1,238,000–1,246,000 Oct 15 and Jul 29 lows, but the close recovered above them for a third session. Resistance is ₩1.33 million (Oct 15–16 highs, 5-day average), then ₩1.37–1.40 million (Aug 11 and Oct 14 lows) and ₩1,460,445 (200-day). Support is ₩1,238,000–1,246,000, then ₩1,208,000 (Oct 19 low, near ₩1.2 million) and ₩1,060,000 (Mar 18 high). A close below ₩1,208,000 would open ₩1,060,000.",
+     "zh": "盘中低点跌破 ₩1,238,000–1,246,000（10月15日和 7月29日低点），但收盘连续第三个交易日回到其上方。阻力为 ₩133万（10月15–16日高点、5 日均线），其次 ₩137万–140万（8月11日和 10月14日低点）和 ₩1,460,445（200 日均线）。支撑为 ₩1,238,000–1,246,000，其次 ₩1,208,000（10月19日低点，接近 ₩120万）和 ₩1,060,000（3月18日高点）。若收盘跌破 ₩1,208,000，下一目标看 ₩1,060,000。"
     }
    ],
    "levels": {
@@ -122,10 +129,10 @@
       }
      ],
      [
-      1200000,
+      1208000,
       {
-       "en": "Round number",
-       "zh": "整数关口"
+       "en": "Oct 19 low, near ₩1.2 million",
+       "zh": "10月19日低点，接近 ₩120万"
       }
      ],
      [

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 16, 2026",
- "close": 354.72,
+ "asof": "Oct 19, 2026",
+ "close": 368.06,
  "bias": {
-  "en": "Bearish · on the $354 Sep 15 low",
-  "zh": "偏空 · 位于 $354 的 9月15日低点"
+  "en": "Bearish bounce · at the $368–372 averages",
+  "zh": "偏空反弹 · 位于 $368–372 均线区"
  },
  "read": [
   {
-   "en": "Tesla fell 2.1% on Oct 16 to $354.72 on heavy volume, its fifth straight decline, after reversing from $369 to a low of $349.33. It is below the 5-day ($367.5), 30-day ($367.7), 100-day ($371.1, falling), 10-day ($373.3) and falling 200-day ($388.0) averages. MACD has been below its signal since Oct 14 and is above zero, Parabolic SAR has been bearish since Oct 15 ($387.89), and RSI is 42.",
-   "zh": "特斯拉 10月16日放量下跌 2.1%，收于 $354.72，连续第五日下跌；当日自 $369 掉头走低，最低至 $349.33。股价位于 5 日（$367.5）、30 日（$367.7）、100 日（$371.1，下行）、10 日均线（$373.3）以及下行的 200 日均线（$388.0）下方。MACD 自 10月14日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月15日起看空（$387.89），RSI 为 42。"
+   "en": "Tesla rose 3.8% on Oct 19 to $368.06, ending a five-day losing streak after a low of $354.47. It is above the 5-day average ($365.5) and level with the 30-day ($368.1), but below the 100-day ($370.4, falling), 10-day ($372.2) and falling 200-day ($387.6). MACD has been below its signal since Oct 14 and is above zero, Parabolic SAR has been bearish since Oct 15 ($386.35), and RSI is 51.",
+   "zh": "特斯拉 10月19日上涨 3.8%，收于 $368.06，结束五连跌，盘中低点 $354.47。股价位于 5 日均线（$365.5）上方、与 30 日均线（$368.1）持平，但仍低于 100 日（$370.4，下行）、10 日（$372.2）和下行的 200 日均线（$387.6）。MACD 自 10月14日起位于信号线下方，仍在零轴之上，抛物线 SAR 自 10月15日起看空（$386.35），RSI 为 51。"
   },
   {
-   "en": "The day's low of $349.33 undercut the $354 Sep 15 low, but the close held just above it. Resistance is $367–373 (the 5, 30, 100 and 10-day averages), then $388 (cap since March, 200-day average, SAR) and $418 (January highs). Support is $354, then $346 (Sep 30 low, bottom of the range) and $337 (Apr 7 low). A close below $346 would open $337.",
-   "zh": "当日低点 $349.33 跌破 $354 的 9月15日低点，但收盘守在其上方。阻力为 $367–373（5 日、30 日、100 日和 10 日均线），其次 $388（3月以来的上限、200 日均线、SAR）和 $418（1月高点）。支撑为 $354，其次 $346（9月30日低点，区间底部）和 $337（4月7日低点）。若收盘跌破 $346，下一目标看 $337。"
+   "en": "The $354 Sep 15 low held again and the close reclaimed the 5-day average, stopping just under the $370 cluster. Resistance is $368–372 (30, 100 and 10-day averages), then $388 (cap since March, 200-day average, SAR) and $418 (January highs). Support is $365.5 (5-day average), then $354 (Sep 15 low) and $346 (Sep 30 low). A close above $372 would target $388.",
+   "zh": "$354 的 9月15日低点再度守住，收盘重回 5 日均线上方，但止步于 $370 附近的均线密集区下方。阻力为 $368–372（30 日、100 日和 10 日均线），其次 $388（3月以来的上限、200 日均线、SAR）和 $418（1月高点）。支撑为 $365.5（5 日均线），其次 $354（9月15日低点）和 $346（9月30日低点）。若收盘站上 $372，下一目标看 $388。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     370,
     {
-     "en": "5, 30, 100 and 10-day averages ($367.5–373.3)",
-     "zh": "5日、30日、100日和10日均线（$367.5–373.3）"
+     "en": "30, 100 and 10-day averages ($368.1–372.2)",
+     "zh": "30日、100日和10日均线（$368.1–372.2）"
     }
    ],
    [
@@ -41,6 +41,13 @@
   ],
   "s": [
    [
+    365.5,
+    {
+     "en": "5-day average",
+     "zh": "5日均线"
+    }
+   ],
+   [
     354,
     {
      "en": "Sep 15 low; Oct 16 low $349.3",
@@ -52,13 +59,6 @@
     {
      "en": "Sep 30 low, bottom of the range",
      "zh": "9月30日低点，区间底部"
-    }
-   ],
-   [
-    337,
-    {
-     "en": "Apr 7 low",
-     "zh": "4月7日低点"
     }
    ]
   ]

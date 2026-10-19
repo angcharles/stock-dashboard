@@ -1,18 +1,18 @@
 {
- "asof": "Oct 16, 2026",
- "close": 232.9,
+ "asof": "Oct 19, 2026",
+ "close": 232.02,
  "bias": {
-  "en": "Bearish · lost the Oct 15 low, $221 next",
-  "zh": "偏空 · 跌破 10月15日低点，下看 $221"
+  "en": "Bearish · pinned to the Oct 16 low",
+  "zh": "偏空 · 贴近 10月16日低点"
  },
  "read": [
   {
-   "en": "Coherent fell 7.1% on Oct 16 to $232.90 and is down 25.5% in five sessions. It is below its 5-day ($265.0), 10-day ($294.6) and 200-day ($294.5) averages and the falling 30-day ($297.0) and 100-day ($321.4). MACD has been below its signal since Oct 12 and is below zero with the histogram widening, Parabolic SAR has been bearish since Oct 12 ($325.6), and RSI is 33.",
-   "zh": "Coherent 10月16日下跌 7.1%，收于 $232.90，五个交易日累计下跌 25.5%。股价位于 5 日（$265.0）、10 日（$294.6）和 200 日均线（$294.5）以及下行的 30 日（$297.0）和 100 日均线（$321.4）下方。MACD 自 10月12日起位于信号线及零轴下方，柱状图继续扩大，抛物线 SAR 自 10月12日起看空（$325.6），RSI 为 33。"
+   "en": "Coherent slipped 0.4% on Oct 19 to $232.02, fading from $244.20 to close near the day's low of $231.79; it is below its falling 5-day ($253.8), 10-day ($284.5) and 30-day ($295.4) averages, the rising 200-day ($294.8) and the falling 100-day ($319.9). MACD has been below its signal since Oct 12 and is below zero with the histogram widening, Parabolic SAR has been bearish since Oct 12 ($316.2), and RSI is 33.",
+   "zh": "Coherent 10月19日下跌 0.4%，收于 $232.02，自 $244.20 回落，收盘接近当日低点 $231.79。股价位于下行的 5 日（$253.8）、10 日（$284.5）和 30 日均线（$295.4）、上行的 200 日均线（$294.8）以及下行的 100 日均线（$319.9）下方。MACD 自 10月12日起位于信号线及零轴下方，柱状图扩大，抛物线 SAR 自 10月12日起看空（$316.2），RSI 为 33。"
   },
   {
-   "en": "The Oct 15 low ($235.5) broke on the close and is now first resistance, then $255 (Sep 3 and Jul 17 lows) and $262.6–265 (Aug 24 low, 5-day average). Support is $231.6 (Oct 16 low), then $221 (Jul 29 low) and the $200 round number. A close below $221 would open $200; a close back above $255 would target $265.",
-   "zh": "10月15日低点（$235.5）收盘失守，现为第一阻力，其次 $255（9月3日及7月17日低点）和 $262.6–265（8月24日低点、5 日均线）。支撑为 $231.6（10月16日低点），其次 $221（7月29日低点）和 $200 整数关口。若收盘跌破 $221，下一目标看 $200；若重新站上 $255，目标看 $265。"
+   "en": "The Oct 16 low ($231.6) held again, but a rebound to $244 faded and the close stayed below the $235.5 Oct 15 low. Resistance is $235.5, then $244 (Oct 19 high) and $254–255 (5-day average, Sep 3 low $255.3). Support is $231.6, then $221 (Jul 29 low) and the $200 round number. A close below $221 would open $200; a close above $244 would target $255.",
+   "zh": "10月16日低点（$231.6）再次守住，但反弹至 $244 后回落，收于 $235.5 的 10月15日低点下方。阻力为 $235.5，其次 $244（10月19日高点）和 $254–255（5 日均线，9月3日低点 $255.3）。支撑为 $231.6，其次 $221（7月29日低点）和 $200 整数关口。若收盘跌破 $221，下一目标看 $200；若收盘站上 $244，则看向 $255。"
   }
  ],
  "levels": {
@@ -21,21 +21,21 @@
     235.5,
     {
      "en": "Oct 15 low, now resistance",
-     "zh": "10月15日低点，转为阻力"
+     "zh": "10月15日低点，现为阻力"
     }
    ],
    [
-    255,
+    244,
     {
-     "en": "Sep 3 and Jul 17 lows",
-     "zh": "9月3日及7月17日低点"
+     "en": "Oct 19 high ($244.2)",
+     "zh": "10月19日高点（$244.2）"
     }
    ],
    [
-    264,
+    254,
     {
-     "en": "Aug 24 low $262.6 and 5-day average $265.0",
-     "zh": "8月24日低点 $262.6 及5日均线 $265.0"
+     "en": "5-day average $253.8; Sep 3 low $255.3",
+     "zh": "5日均线 $253.8；9月3日低点 $255.3"
     }
    ]
   ],
