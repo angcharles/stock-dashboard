@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Macro · Stock Dashboards</title>
-<meta name="description" content="Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with interactive charts, technical analysis, reversal signals, the economic calendar and macro news.">
+<meta name="description" content="Crude oil, gasoline, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with interactive charts, technical analysis, reversal signals, the economic calendar and macro news.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -44,6 +44,19 @@ section{margin-top:40px}
 .rng button[aria-pressed="true"],.flt button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 #chart{height:380px}
 @media (max-width:560px){#chart{height:300px}}
+.mc{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:18px 20px;margin-top:20px;scroll-margin-top:12px}
+.mc-h{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:6px}
+.mc-h h2{font-size:20px;margin:4px 0 0}
+.mc-m{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 12px var(--f-mono);color:var(--muted)}
+.mc-m b{display:block;font:600 15px var(--f-mono);color:var(--ink);font-variant-numeric:tabular-nums}.mc-m b.up{color:var(--up)}.mc-m b.down{color:var(--down)}
+.mc-g{border-top:1px solid var(--line);padding:10px 0 2px;margin-top:8px}
+.mc-l{font:600 10px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+.mc-g p{margin:0 0 6px;max-width:92ch}
+.mc-s{font-size:14px;color:var(--muted)}.mc-s b{color:var(--ink)}
+.mc-n{margin:0;padding-left:18px;font-size:14px}.mc-n li{margin:0 0 4px}.mc-n a{color:var(--ink)}.mc-n a:hover{color:var(--accent)}
+.mc-n span{font:500 11px var(--f-mono);color:var(--muted);white-space:nowrap}
+.mc-f{font-size:12px;color:var(--muted);margin:8px 0 0}
+@media (max-width:700px){.mc{padding:16px 14px}}
 .pane{height:96px;border-top:1px dashed var(--line);margin-top:4px}
 .pane[hidden]{display:none}
 .ind{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 6px}
@@ -242,9 +255,9 @@ section.mrecap{margin-top:0}
 <body>
 <main class="wrap">
   <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="./" aria-current="page">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a><a href="../robotics/">Robotics</a><a href="../merger/">SpaceX vs Tesla</a><a href="../portfolio/">Portfolio</a><a href="../options/">Options</a></nav>
-  <div class="eyebrow">Commodities · Treasuries · Bunds · OATs · Fed pricing · Technicals · Calendar · News</div>
+  <div class="eyebrow">Oil · Gasoline · Metals · Treasuries · Bunds · OATs · Fed pricing · Technicals · Calendar · News</div>
   <h1>Macro</h1>
-  <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, Fed funds futures pricing for every FOMC meeting, the economic calendar and macro headlines. Click a tile to chart it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Crude oil futures are delayed about 10 minutes by the exchange; yields and spot gold and silver are real time.</p>
+  <p class="lede">Crude oil, gasoline, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, Fed funds futures pricing for every FOMC meeting, the economic calendar and macro headlines. Click a tile to chart it and read what is moving it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Crude oil and gasoline futures are delayed about 10 minutes by the exchange; yields and spot gold and silver are real time.</p>
 
   <section id="mrecap" class="mrecap" data-src="../data/macro-recap.json" data-macro="../data/macro.json" aria-label="Previous New York session macro recap" hidden></section>
 
@@ -256,6 +269,8 @@ section.mrecap{margin-top:0}
   <div class="tiles" id="tDE"></div>
   <div class="grp">French OAT yields</div>
   <div class="tiles" id="tFR"></div>
+
+  <section id="mc" class="mc" aria-live="polite" aria-label="Commentary on the selected instrument" hidden></section>
 
   <section aria-labelledby="chH">
     <div class="panel">
@@ -346,14 +361,14 @@ section.mrecap{margin-top:0}
     <p class="note">Calendar: Forex Factory weekly calendar (forecast and previous; check the news for released figures). Times are converted to Singapore time.</p>
   </section>
 
-  <section id="news" data-src="../data/macro-news.json" data-tickers="OIL,GOLD,SILVER,RATES,FED,ECON" data-h="Macro news" data-sub="Oil, gold, silver, Treasury yields, the Fed and economic data: headlines from the last 14 days, newest first. Refreshed with each price update." aria-label="Macro news"></section>
+  <section id="news" data-src="../data/macro-news.json" data-tickers="OIL,GAS,GOLD,SILVER,RATES,FED,ECON" data-h="Macro news" data-sub="Oil, gold, silver, Treasury yields, the Fed and economic data: headlines from the last 14 days, newest first. Refreshed with each price update." aria-label="Macro news"></section>
 
-  <footer>Quotes: CNBC (Tradeweb yields for Treasuries, Bunds and OATs, real-time spot gold and silver, NYMEX front-month WTI futures with the exchange's 10-minute delay), Yahoo Finance as a fallback. Daily bars: CNBC (Yahoo Finance and the US Treasury yield curve as fallbacks). For information only, not investment advice.</footer>
+  <footer>Quotes: CNBC (Tradeweb yields for Treasuries, Bunds and OATs, real-time spot gold and silver, NYMEX front-month WTI crude and RBOB gasoline futures with the exchange's 10-minute delay), Yahoo Finance as a fallback. Daily bars: CNBC (Yahoo Finance and the US Treasury yield curve as fallbacks). For information only, not investment advice.</footer>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
-<script src="../assets/macro.js?v=6"></script>
-<script src="../assets/macro-recap.js?v=1"></script>
+<script src="../assets/macro.js?v=7"></script>
+<script src="../assets/macro-recap.js?v=2"></script>
 <script src="../assets/fedwatch.js?v=3"></script>
 <script src="../assets/news.js?v=5"></script>
 <script src="../assets/stock-picker.js?v=1"></script>

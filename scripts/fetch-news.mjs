@@ -39,6 +39,7 @@ const STOCKS = [
 // `node scripts/fetch-news.mjs macro` builds data/macro-news.json for the Macro page instead.
 const MACRO = [
   { t: "OIL", q: '("oil prices" OR "crude oil" OR OPEC OR Brent OR WTI)', y: "CL=F", m: /\boil\b|crude|OPEC|Brent|WTI|petroleum|barrel/i },
+  { t: "GAS", q: '("gasoline prices" OR "gas prices" OR "RBOB gasoline" OR "gasoline futures" OR "pump prices")', y: "RB=F", m: /gasoline|gas prices|\bRBOB\b|pump price|at the pump|\bAAA\b|GasBuddy/i },
   { t: "GOLD", q: '("gold price" OR "gold prices" OR "gold futures" OR bullion)', y: "GC=F", m: /\bgold\b|bullion/i },
   { t: "SILVER", q: '("silver price" OR "silver prices" OR "silver futures")', y: "SI=F", m: /\bsilver\b/i },
   { t: "RATES", q: '("Treasury yields" OR "bond yields" OR "10-year yield" OR "2-year yield" OR "Treasury auction" OR "bond market")', y: "^TNX", m: /yield|Treasur|\bbonds?\b|auction/i },

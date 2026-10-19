@@ -9,7 +9,7 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const get = (u) => fetch(u + "?t=" + Date.now(), { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   const GROUPS = [["cmd", "Commodities"], ["us", "US Treasuries"], ["de", "German Bunds"], ["fr", "French OATs"]];
-  const ORDER = ["oil", "gold", "silver", "us2y", "us5y", "us10y", "us30y", "de2y", "de5y", "de10y", "de30y", "fr2y", "fr5y", "fr10y", "fr30y"];
+  const ORDER = ["oil", "gas", "gold", "silver", "us2y", "us5y", "us10y", "us30y", "de2y", "de5y", "de10y", "de30y", "fr2y", "fr5y", "fr10y", "fr30y"];
   const shift = (iso, days) => { const t = new Date(iso + "T12:00:00Z"); t.setUTCDate(t.getUTCDate() + days); return t.toISOString().slice(0, 10); };
   const lastLE = (d, x) => { for (let i = d.length - 1; i >= 0; i--) if (d[i] <= x) return i; return -1; };
 
@@ -25,7 +25,7 @@
     };
     let rows = "";
     for (const [g, gName] of GROUPS) {
-      const grpOf = (k) => (by[k] && by[k].grp) || (["oil", "gold", "silver"].includes(k) ? "cmd" : k.slice(0, 2));
+      const grpOf = (k) => (by[k] && by[k].grp) || (["oil", "gas", "gold", "silver"].includes(k) ? "cmd" : k.slice(0, 2));
       const ks = ORDER.filter((k) => grpOf(k) === g && notes[k]);
       if (!ks.length) continue;
       rows += `<div class="mr-g">${gName}</div>`;
@@ -36,11 +36,11 @@
           const i = lastLE(h.d, r.session), j = lastLE(h.d, shift(r.session, -7));
           if (i >= 0) { close = h.c[i]; if (i > 0) day = h.c[i - 1]; if (j >= 0 && j < i) wk = h.c[j]; }
         }
-        const lvl = close == null ? "—" : it.kind === "yield" ? close.toFixed(2) + "%" : "$" + close.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const lvl = close == null ? "—" : it.kind === "yield" ? close.toFixed(2) + "%" : "$" + close.toLocaleString("en-US", { minimumFractionDigits: it.dp || 2, maximumFractionDigits: it.dp || 2 });
         const name = it ? (it.kind === "yield" ? it.short.replace(/ yield$/, "") : it.short) : k;
         rows += `<div class="mr-r"><span class="mr-n">${esc(name)}</span><span class="mr-v">${lvl}</span>` +
           `${it ? fmtChg(it, close, day) : "<span class=mr-c>—</span>"}${it ? fmtChg(it, close, wk) : "<span class=mr-c>—</span>"}` +
-          `<span class="mr-t">${esc(notes[k])}</span></div>`;
+          `<span class="mr-t">${esc(typeof notes[k] === "string" ? notes[k] : notes[k].note || "")}</span></div>`;
       }
     }
     const drivers = (r.drivers || []).map(([h, t]) => `<li><b>${esc(h)}.</b> ${esc(t)}</li>`).join("");

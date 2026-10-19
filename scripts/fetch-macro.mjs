@@ -1,4 +1,4 @@
-// Macro page data: crude oil, gold, silver, the 2/5/10/30-year US Treasury, German Bund and French OAT yields,
+// Macro page data: crude oil, RBOB gasoline, gold, silver, the 2/5/10/30-year US Treasury, German Bund and French OAT yields,
 // plus an economic calendar.
 // Writes data/macro.json (live quote, about 1 year of daily bars and ~10 days of 30-minute bars per instrument)
 // and data/macro-cal.json.
@@ -25,6 +25,8 @@ async function get(url, headers = {}) {
 
 const INSTR = [
   { k: "oil", name: "WTI crude oil", short: "Crude oil", unit: "$/bbl", kind: "commodity", cnbc: "@CL.1", yahoo: "CL=F" },
+  // NYMEX RBOB gasoline, front month, $ per gallon (10-minute exchange delay, like crude; no free real-time feed exists)
+  { k: "gas", name: "RBOB gasoline (NYMEX)", short: "Gasoline", unit: "$/gal", kind: "commodity", dp: 4, cnbc: "@RB.1", yahoo: "RB=F" },
   // spot gold and silver are real time on CNBC; COMEX futures (10-minute exchange delay) are the fallback
   { k: "gold", name: "Gold (spot)", short: "Gold", unit: "$/oz", kind: "commodity", cnbc: "XAU=", fut: { name: "Gold (COMEX)", cnbc: "@GC.1", yahoo: "GC=F" } },
   { k: "silver", name: "Silver (spot)", short: "Silver", unit: "$/oz", kind: "commodity", cnbc: "XAG=", fut: { name: "Silver (COMEX)", cnbc: "@SI.1", yahoo: "SI=F" } },
@@ -191,8 +193,9 @@ for (const base of INSTR) {
   let prevClose = quote.prevClose ?? null;
   if (prevClose == null && hist.c.length > 1) { const qd = nyDate(quote.time * 1000); prevClose = hist.d.at(-1) >= qd ? hist.c.at(-2) : hist.c.at(-1); }
   const chg = prevClose != null ? quote.price - prevClose : null;
-  const it = { k: ins.k, name: ins.name, short: ins.short, unit: ins.unit, kind: ins.kind, grp: ins.grp || (ins.kind === "yield" ? "us" : "cmd"), price: +quote.price.toFixed(ins.kind === "yield" ? 3 : 2),
-    prev: prevClose, chg: chg == null ? null : +chg.toFixed(ins.kind === "yield" ? 3 : 2),
+  const it = { k: ins.k, name: ins.name, short: ins.short, unit: ins.unit, kind: ins.kind, grp: ins.grp || (ins.kind === "yield" ? "us" : "cmd"), price: +quote.price.toFixed(ins.dp ?? (ins.kind === "yield" ? 3 : 2)),
+    prev: prevClose, chg: chg == null ? null : +chg.toFixed(ins.dp ?? (ins.kind === "yield" ? 3 : 2)),
+    ...(ins.dp != null ? { dp: ins.dp } : {}),
     pct: chg == null || !prevClose ? null : +((chg / prevClose) * 100).toFixed(2),
     time: quote.time, realtime: !!quote.realtime, src: quote.src, contract: quote.contract || null, hsrc: hSrc, hist,
     ...(intra ? { intra: intra.bars, isrc: intra.src } : {}) };

@@ -4,33 +4,159 @@
  "headline": "Oil back above $100 while bonds keep their haven rally; French yields jump again",
  "summary": "Oil was the day's big mover, rallying 3.5% in the afternoon on supply risk while equities sold off. Bonds held on to their best week in four months: Treasuries ended the day little changed and the 2-year dipped, while European yields edged up from five-week lows, led by France. Gold stayed boxed in its range and silver lagged.",
  "drivers": [
-  ["Oil supply shock", "Brent closed at $109.86, its highest since May 19, on Strait of Hormuz/Iran risk, Ukrainian strikes on Russian refineries and an 8.6M-barrel US crude draw. IEA and US SPR releases have not capped prices, which feeds straight into inflation expectations."],
-  ["Haven bid beats hot inflation", "September CPI (3.7%) and a four-year-high PPI pushed the US 10-year to 5.33% on Wednesday, but the AI-credit sell-off then sent money into bonds. US yields finished the week 6–17bp lower and global bonds had their best week in four months."],
-  ["Central banks on hold, for now", "Fed Chair Warsh gave no new signal, and odds of an October hike slipped to the mid-teens. Markets expect the ECB to hold on Oct 29 with a December hike largely priced, as euro-area inflation runs at 3.8%."],
-  ["France's fiscal premium", "The 10-year OAT rose about 7bp to 4.85%, near 20-year highs, taking its spread over Bunds back to about 143bp (it hit nearly 160bp on Oct 2). The 2027 budget fight continues, and the Bank of France said conditions for ECB support are not met."]
+  [
+   "Oil supply shock",
+   "Brent closed at $109.86, its highest since May 19, on Strait of Hormuz/Iran risk, Ukrainian strikes on Russian refineries and an 8.6M-barrel US crude draw. IEA and US SPR releases have not capped prices, which feeds straight into inflation expectations."
+  ],
+  [
+   "Haven bid beats hot inflation",
+   "September CPI (3.7%) and a four-year-high PPI pushed the US 10-year to 5.33% on Wednesday, but the AI-credit sell-off then sent money into bonds. US yields finished the week 6–17bp lower and global bonds had their best week in four months."
+  ],
+  [
+   "Central banks on hold, for now",
+   "Fed Chair Warsh gave no new signal, and odds of an October hike slipped to the mid-teens. Markets expect the ECB to hold on Oct 29 with a December hike largely priced, as euro-area inflation runs at 3.8%."
+  ],
+  [
+   "France's fiscal premium",
+   "The 10-year OAT rose about 7bp to 4.85%, near 20-year highs, taking its spread over Bunds back to about 143bp (it hit nearly 160bp on Oct 2). The 2027 budget fight continues, and the Bank of France said conditions for ECB support are not met."
+  ]
  ],
  "rows": {
-  "oil": "First close above $100 in a month and about +10% on the week; supply risk is outweighing emergency stock releases.",
-  "gold": "Boxed in a ~$4,075–4,220 range: a softer dollar and haven demand offset by hot inflation data and Fed-hike risk.",
-  "silver": "Down about 6% on the week, lagging gold as it trades more like a risk and industrial asset; gold/silver ratio near 73.",
-  "us2y": "Front end rallied as Warsh gave no hawkish push and October hike odds faded.",
-  "us5y": "Wednesday's post-CPI spike has fully reversed; down about 13bp on the week.",
-  "us10y": "Back near 5.09% after touching 5.33% on Wednesday; 2s10s curve about 35bp.",
-  "us30y": "Flat on the day but the week's biggest faller, well off last week's 24-year high of 5.73%.",
-  "de2y": "Steady around 3.07%; an ECB hold on Oct 29 is the base case, with December live.",
-  "de5y": "Edged up with global yields as European stocks recovered during the session.",
-  "de10y": "Up ~2bp to 3.43% from Thursday's five-week low of 3.35%; still below the late-September 3.65% peak.",
-  "de30y": "Long end steady near 3.80%; the Bund curve barely moved.",
-  "fr2y": "Rose more than Bunds as the French risk premium crept back into the front end.",
-  "fr5y": "Up ~3bp; France underperformed Germany across the whole curve.",
-  "fr10y": "Jumped ~7bp to 4.85%, near 20-year highs; spread to Bunds back to ~143bp.",
-  "fr30y": "Up ~5bp to 5.41%; long French debt carries the heaviest fiscal premium."
+  "oil": {
+   "note": "First close above $100 in a month and about +10% on the week; supply risk is outweighing emergency stock releases.",
+   "why": "Crude came off Friday's highs after President Trump waived key sanctions and tariffs on Russia under the Graham Act, which should bring more Russian fuel, mainly diesel, to market. Early on Monday WTI slipped about 2% to just under $100 and Brent to near $107.6, after Brent briefly hit $110 on Friday, its first time there since May. By New York afternoon WTI had climbed back to about $102 as Gulf shipping risk reasserted itself.",
+   "outlook": "Supply is still tight: Gulf crude exports fell to roughly 8.5 million barrels a day last week as attacks on ships continued, and Morgan Stanley sees supply 5.5 million barrels a day below last year. Expect a choppy $95–110 Brent range; the waiver is a short-term fix, so dips are likely to be bought unless Hormuz traffic normalises.",
+   "watch": "Hormuz shipping incidents, Wednesday's EIA inventories, and any further US moves to cap prices before the midterms."
+  },
+  "gas": {
+   "note": "RBOB settled near $3.24 a gallon on Friday after a 2.4% drop to a six-week low on Thursday; pump prices average about $4.31.",
+   "why": "US gasoline futures follow crude but also trade on fuel supply. RBOB hit $3.18 on Thursday, its lowest settle since early September, as talk of more Russian fuel exports eased product tightness, then recovered with crude to about $3.24 on Friday. Monday's Russia waiver mainly targets diesel, so gasoline barely reacted and was near $3.24, flat on the day.",
+   "outlook": "Range-bound around $3.10–3.40 a gallon. Seasonal demand is fading and refiners are switching to cheaper winter blends, which usually pulls pump prices down in autumn, but $100 crude limits the fall. AAA estimates each $10 move in crude is worth about 25 cents a gallon at the pump.",
+   "watch": "Wednesday's EIA gasoline stocks and refinery runs, crude's $100 line, and the national average versus the $4 mark."
+  },
+  "gold": {
+   "note": "Boxed in a ~$4,075–4,220 range: a softer dollar and haven demand offset by hot inflation data and Fed-hike risk.",
+   "why": "Gold slipped about 0.6% to near $4,140 by New York afternoon after trading close to $4,175 in Asia. Falling oil and lower Treasury yields early on helped, but yields turned higher in New York as the AI sell-off eased and stocks bounced, which took the shine off a metal that pays no interest. Expectations that the Fed holds in October (over 85% priced) keep the downside limited.",
+   "outlook": "Still boxed between about $4,075 and $4,220. A close above $4,220 would need yields to fall decisively; a break of $4,075 would open a deeper pullback. Into the Fed on Oct 28 I'd expect the range to hold.",
+   "watch": "US 10-year yield, the dollar, and the Fed decision on Oct 28."
+  },
+  "silver": {
+   "note": "Down about 6% on the week, lagging gold as it trades more like a risk and industrial asset; gold/silver ratio near 73.",
+   "why": "Silver outperformed gold, edging up to about $57.1 after trading above $57.6 in Asia. It behaves more like an industrial and risk asset, so the rebound in stocks and the bounce in chip shares helped it more than gold; last week it fell about 6% on the AI sell-off.",
+   "outlook": "Silver needs to hold about $56.30 to keep a recovery toward $58.50 in play. It remains more volatile than gold and will follow equities and industrial demand, so expect larger swings either way.",
+   "watch": "Equity risk appetite, the gold/silver ratio near 73, and the Fed on Oct 28."
+  },
+  "us2y": {
+   "note": "Front end rallied as Warsh gave no hawkish push and October hike odds faded.",
+   "why": "The 2-year was little changed near 4.73–4.77%. It tracks Fed expectations, and markets now price over 85% odds that the Fed holds at its Oct 27–28 meeting after Chair Warsh gave no push for a hike last week. Lower oil early in the day helped, but the move faded.",
+   "outlook": "Anchored by Fed pricing. A hike would need another hot inflation print; until the meeting, the 2-year should stay in a tight range around 4.70–4.80%.",
+   "watch": "Fed speakers before the blackout, and the Oct 28 decision."
+  },
+  "us5y": {
+   "note": "Wednesday's post-CPI spike has fully reversed; down about 13bp on the week.",
+   "why": "The 5-year followed the 10-year: lower in Asia as oil eased, then higher in New York as the AI-led sell-off calmed and stocks recovered, cutting demand for safe bonds. It ended near 4.95%, up about 4–5bp.",
+   "outlook": "Sensitive to both Fed and inflation news. Last week's post-CPI spike has unwound, but 3.7% inflation and $100 oil keep a floor under it.",
+   "watch": "Oil, the 5-year auction calendar and the Fed meeting."
+  },
+  "us10y": {
+   "note": "Back near 5.09% after touching 5.33% on Wednesday; 2s10s curve about 35bp.",
+   "why": "The 10-year fell to about 5.07% in Asia as oil slipped and on talk the Treasury may cut long-dated issuance at its Nov 4 refunding. In New York it reversed to about 5.15%, up around 5bp, as the AI scare faded and money moved back from bonds into stocks.",
+   "outlook": "Range 5.00–5.30%. Lower long-bond supply and fading hike odds argue for a cap, but inflation near 3.7% and $100 oil stop it falling far. A close above 5.33%, last week's high, would reopen the selloff.",
+   "watch": "Nov 4 refunding signals, oil, and equity risk appetite."
+  },
+  "us30y": {
+   "note": "Flat on the day but the week's biggest faller, well off last week's 24-year high of 5.73%.",
+   "why": "The long bond rose about 4–5bp to near 5.48% in New York after dipping to about 5.41% earlier. Long-dated yields swing most with geopolitics, oil and supply worries; hopes for smaller long-bond auctions helped early, then the rebound in stocks pushed it back up.",
+   "outlook": "Still well below the recent 24-year high of 5.73%. The refunding announcement on Nov 4 is the key event: less long-dated supply would cap yields, while no change would leave them exposed.",
+   "watch": "The Nov 4 refunding announcement and oil."
+  },
+  "de2y": {
+   "note": "Steady around 3.07%; an ECB hold on Oct 29 is the base case, with December live.",
+   "why": "Germany's 2-year was steady near 3.1%. Short Bund yields follow ECB expectations, and markets see a hold on Oct 29 with a December hike largely priced as euro-area inflation runs near 3.8%.",
+   "outlook": "Range-bound until the ECB meeting; a hawkish signal for December would push it up.",
+   "watch": "The ECB on Oct 29 and euro-area flash inflation."
+  },
+  "de5y": {
+   "note": "Edged up with global yields as European stocks recovered during the session.",
+   "why": "The 5-year Bund edged up about 1bp to near 3.24%, little moved. German debt got some haven demand from French unrest, which offset the rise in global yields in the afternoon.",
+   "outlook": "Steady; Bunds benefit when French risk rises, so they should lag any global selloff.",
+   "watch": "French bond spreads and the ECB."
+  },
+  "de10y": {
+   "note": "Up ~2bp to 3.43% from Thursday's five-week low of 3.35%; still below the late-September 3.65% peak.",
+   "why": "The 10-year Bund was nearly flat near 3.41–3.47% depending on the benchmark. Haven buying from French unrest balanced the rise in US yields, so Germany held steady while France sold off.",
+   "outlook": "Range 3.35–3.65%, between last week's five-week low and the late-September peak. Germany is the safe side of any French stress.",
+   "watch": "ECB guidance on Oct 29 and the OAT–Bund spread."
+  },
+  "de30y": {
+   "note": "Long end steady near 3.80%; the Bund curve barely moved.",
+   "why": "The 30-year Bund was steady near 3.8%; the German curve barely moved on Monday.",
+   "outlook": "Little change expected; long Bunds follow global long-end yields more than domestic news.",
+   "watch": "US long-end yields and German issuance."
+  },
+  "fr2y": {
+   "note": "Rose more than Bunds as the French risk premium crept back into the front end.",
+   "why": "France's 2-year rose about 6bp as weekend violence at cost-of-living protests revived fears over whether the government can pass its deficit-cutting budget. Even short French debt now carries a political risk premium.",
+   "outlook": "Biased higher while protests and the budget fight continue; the ECB's crisis tool is only a backstop if markets become disorderly.",
+   "watch": "The budget vote, further protest days and ratings reviews."
+  },
+  "fr5y": {
+   "note": "Up ~3bp; France underperformed Germany across the whole curve.",
+   "why": "The 5-year OAT rose with the rest of the French curve as investors sold French bonds after the weekend unrest, widening France's gap over Germany.",
+   "outlook": "Underperforms Bunds until there is political clarity on the budget.",
+   "watch": "The budget vote and the OAT–Bund spread."
+  },
+  "fr10y": {
+   "note": "Jumped ~7bp to 4.85%, near 20-year highs; spread to Bunds back to ~143bp.",
+   "why": "The 10-year OAT jumped as much as 8–10bp after France's worst day of unrest in years over the cost of living, a day before a key budget vote. Its spread over Bunds widened to about 145bp, the highest in two years though below the near-160bp of early October, and French yields now sit above Italy's and Greece's.",
+   "outlook": "Investors doubt France will deliver fiscal consolidation, so the spread is unlikely to narrow soon. A return toward 160bp is the risk; the ECB is unlikely to step in unless trading becomes disorderly.",
+   "watch": "Tuesday's budget vote, more protests, and any rating action."
+  },
+  "fr30y": {
+   "note": "Up ~5bp to 5.41%; long French debt carries the heaviest fiscal premium.",
+   "why": "The 30-year OAT rose about 8bp, the long end carrying the heaviest fiscal premium as investors demand more to hold French debt for decades amid budget doubts and street unrest.",
+   "outlook": "Most exposed part of the French curve; it will move most if the budget fails or ratings are cut.",
+   "watch": "The budget vote and long-dated auctions."
+  }
  },
  "watch": "Next: weekend oil headlines (Iran/Hormuz), the ECB on Oct 29 and the Fed's late-October decision, US data and auctions, and whether the OAT–Bund spread pushes back toward 150bp.",
  "sources": [
-  ["Reuters via Kitco (gold)", "https://www.kitco.com/news/off-the-wire/2026-10-16/gold-set-weekly-drop-traders-assess-fed-signals"],
-  ["Reuters (euro zone bonds)", "https://www.devdiscourse.com/article/international/3993624-euro-zone-bond-yields-inch-up-after-safe-haven-rally"],
-  ["Investopedia (oil, yields)", "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-10162026-12176848"],
-  ["Le Monde (France)", "https://www.lemonde.fr/en/economy/article/2026/10/16/conditions-for-eu-bank-intervention-not-met-in-french-government-bond-yields-surge-bank-of-france-head-says_6758679_19.html"]
- ]
+  [
+   "Reuters via Kitco (gold)",
+   "https://www.kitco.com/news/off-the-wire/2026-10-16/gold-set-weekly-drop-traders-assess-fed-signals"
+  ],
+  [
+   "Reuters (euro zone bonds)",
+   "https://www.devdiscourse.com/article/international/3993624-euro-zone-bond-yields-inch-up-after-safe-haven-rally"
+  ],
+  [
+   "Investopedia (oil, yields)",
+   "https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-10162026-12176848"
+  ],
+  [
+   "Le Monde (France)",
+   "https://www.lemonde.fr/en/economy/article/2026/10/16/conditions-for-eu-bank-intervention-not-met-in-french-government-bond-yields-surge-bank-of-france-head-says_6758679_19.html"
+  ],
+  [
+   "Reuters via The Star (oil)",
+   "https://thestar.com.my/business/business-news/2026/10/19/oil-slips-from-5-month-high-as-trump039s-russia-sanctions-waiver-may-bring-more-supplies"
+  ],
+  [
+   "Dow Jones via Morningstar (RBOB)",
+   "https://morningstar.com/news/dow-jones/202610157035/front-month-nymex-rbob-gasoline-fell-243-to-settle-at-31802-data-talk"
+  ],
+  [
+   "Kitco (gold, silver)",
+   "https://kitco.com/news/article/2026-10-19/gold-slips-silver-gains-oil-retreats-and-fed-pause-expectations-hold-kitco"
+  ],
+  [
+   "CNBC (French bonds)",
+   "https://cnbc.com/2026/10/19/france-protests-bond-yields-markets.html"
+  ],
+  [
+   "CNBC (Treasuries)",
+   "https://cnbc.com/2026/10/19/bonds-treasurys-us-yields.html"
+  ]
+ ],
+ "commentary_asof": "Mon Oct 19, 2026 (Asia, Europe and early New York)"
 }

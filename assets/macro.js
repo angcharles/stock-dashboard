@@ -1,4 +1,4 @@
-/* Macro page: tiles for crude oil, gold, silver and the 2/5/10/30-year US Treasury, German Bund and French OAT yields; an interactive chart
+/* Macro page: tiles for crude oil, gasoline, gold, silver and the 2/5/10/30-year US Treasury, German Bund and French OAT yields; an interactive chart
    for the selected one (1W on 30-minute bars, 1M to 1Y on daily bars) with indicators, reversal-signal markers,
    key levels, a computed technical read and a reversal-signal table; the yield curve vs 1 month and 1 year ago, and the economic calendar.
    Data: data/macro.json and data/macro-cal.json, built by scripts/fetch-macro.mjs in the deploy workflow.
@@ -10,9 +10,10 @@
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   const isY = (x) => x.kind === "yield";
   const nth = (a, i) => a[a.length + i]; // a.at(i) for negative i, for older browsers
-  const fmtV = (x, v) => v == null ? "–" : isY(x) ? v.toFixed(3) + "%" : "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const dpx = (x) => (x && x.dp) || 2;   // decimals: gasoline is quoted to 4 ($/gal), the rest to 2
+  const fmtV = (x, v) => v == null ? "–" : isY(x) ? v.toFixed(3) + "%" : "$" + v.toLocaleString("en-US", { minimumFractionDigits: dpx(x), maximumFractionDigits: dpx(x) });
   const sgn = (v, d) => (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(d);
-  const chgTxt = (x, chg, pct) => chg == null ? "–" : isY(x) ? `${sgn(chg * 100, 1)} bp` : `${sgn(chg, 2)} (${sgn(pct, 2)}%)`;
+  const chgTxt = (x, chg, pct) => chg == null ? "–" : isY(x) ? `${sgn(chg * 100, 1)} bp` : `${sgn(chg, dpx(x))} (${sgn(pct, 2)}%)`;
   const sgt = (s) => new Date(s * 1000).toLocaleString("en-SG", { timeZone: TZ, month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
   const fmtD = (iso) => { const [Y, M, D] = iso.split("-").map(Number); return new Date(Date.UTC(Y, M - 1, D)).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }); };
   let M = null, CAL = null, sel = "oil", tf = "6M", calFilter = "us";
@@ -90,6 +91,40 @@
     if (open && age > 2700) return `<span class="down">Stale ${Math.round(age / 60)} min</span>`;
     return x.realtime ? "Live" : x.kind === "commodity" ? "10-min delay (CME)" : "Delayed";
   }
+  // ---------- commentary for the selected instrument: what moved it, the view, what to watch, headlines ----------
+  // Narrative: data/macro-recap.json rows (written by Claude after each New York close: note, why, outlook, watch);
+  // the live move and technical state are computed here from the same data as the tile and chart.
+  let REC = null, NEWS = null;
+  const NM = { oil: /\boil\b|crude|OPEC|Brent|WTI|barrel|Hormuz/i, gas: /gasoline|gas prices|\bRBOB\b|pump|refiner|diesel|\bAAA\b/i, gold: /\bgold\b|bullion/i, silver: /\bsilver\b/i,
+    us: /Treasur|\bFed\b|Federal Reserve|FOMC|Warsh|yield|inflation|\bCPI\b/i, de: /\bBund|German|Germany|\bECB\b|euro zone|eurozone/i, fr: /\bFrench\b|France|\bOAT\b|Paris|\bECB\b/i };
+  function commentary(scroll) {
+    const box = $("mc"); if (!box || !M) return;
+    const x = M.items.find((i) => i.k === sel); if (!x) { box.hidden = true; return; }
+    const S = series(x), last = nth(S.c, -1), raw = REC && REC.rows ? REC.rows[x.k] : null;
+    const row = raw == null ? null : typeof raw === "string" ? { note: raw } : raw, Y = isY(x);
+    const mv = (a) => a == null ? "–" : Y ? sgn((last - a) * 100, 0) + " bp" : sgn((last / a - 1) * 100, 2) + "%";
+    const cl = (a) => a == null ? "" : last >= a ? "up" : "down";
+    const w1 = at(S, 7), m1 = at(S, 30), ma30 = nth(sma(S.c, 30), -1), r = nth(rsi(S.c, 14), -1), m = macd(S.c);
+    const tech = [ma30 == null ? "" : `${last >= ma30 ? "above" : "below"} its 30-day average (${fmtV(x, ma30)})`,
+      r == null ? "" : `RSI ${r.toFixed(0)}${r >= 70 ? ", overbought" : r <= 30 ? ", oversold" : ""}`,
+      nth(m.m, -1) == null ? "" : `MACD ${nth(m.m, -1) >= nth(m.sig, -1) ? "above" : "below"} signal`].filter(Boolean).join(" · ");
+    const re = NM[Y ? (x.grp || "us") : x.k], since = Date.now() / 1000 - 4 * 86400;
+    const heads = re && NEWS && NEWS.items ? NEWS.items.filter((n) => n.ts >= since && re.test(n.title)).sort((p, q) => q.ts - p.ts)
+      .filter((n, i, all) => all.findIndex((o) => o.title === n.title) === i).slice(0, 4) : [];
+    const today = x.chg == null ? "–" : Y ? sgn(x.chg * 100, 1) + " bp" : sgn(x.pct, 2) + "%";
+    const tag = liveTag(x).replace(/<[^>]+>/g, "");
+    box.innerHTML = `<div class="mc-h"><div><div class="eyebrow">What's moving ${esc(x.short)}</div><h2>${esc(x.name)}</h2></div>
+        <div class="mc-m"><span>Now <b>${fmtV(x, x.price)}</b></span><span>Today <b class="${x.chg == null ? "" : x.chg >= 0 ? "up" : "down"}">${today}</b></span><span>1 week <b class="${cl(w1)}">${mv(w1)}</b></span><span>1 month <b class="${cl(m1)}">${mv(m1)}</b></span></div></div>
+      ${row && (row.why || row.note) ? `<div class="mc-g"><div class="mc-l">Why it moved</div><p>${esc(row.why || row.note)}</p>${row.why && row.note ? `<p class="mc-s"><b>${esc(REC.asof || "Last close")}:</b> ${esc(row.note)}</p>` : ""}</div>` : `<p class="sub">Commentary for this instrument arrives with the next daily macro recap.</p>`}
+      ${row && row.outlook ? `<div class="mc-g"><div class="mc-l">Expert view</div><p>${esc(row.outlook)}</p></div>` : ""}
+      <div class="mc-g"><div class="mc-l">Right now</div><p class="mc-s">${esc(tech)}. ${esc(tag)} quote, ${sgt(x.time)} SGT.</p></div>
+      ${row && row.watch ? `<div class="mc-g"><div class="mc-l">Watch</div><p class="mc-s">${esc(row.watch)}</p></div>` : ""}
+      ${heads.length ? `<div class="mc-g"><div class="mc-l">Latest headlines</div><ul class="mc-n">${heads.map((n) => `<li><a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)}</a> <span>${esc(n.src || "")} · ${sgt(n.ts)}</span></li>`).join("")}</ul></div>` : ""}
+      <p class="mc-f">Commentary by Claude${REC ? `, as of ${esc(REC.commentary_asof || REC.asof)}` : ""}; refreshed after each New York close. Moves and technicals update live. A market view, not investment advice.</p>`;
+    box.hidden = false;
+    if (scroll && box.getBoundingClientRect().top > innerHeight - 120) box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function tiles() {
     const put = (host, list) => {
       host.innerHTML = list.map((x) => {
@@ -97,7 +132,7 @@
         return `<button type="button" class="tile" data-k="${x.k}" aria-pressed="${x.k === sel}"><b>${esc(x.short)}</b><span class="v">${fmtV(x, x.price)}</span><span class="c ${cls}">${chgTxt(x, x.chg, x.pct)}</span>
           ${spark(s)}<small>${liveTag(x)} · ${sgt(x.time)} SGT</small></button>`;
       }).join("");
-      host.querySelectorAll(".tile").forEach((b) => b.onclick = () => { sel = b.dataset.k; try { localStorage.setItem("macro-sel", sel); } catch (e) {} tiles(); chart(); });
+      host.querySelectorAll(".tile").forEach((b) => b.onclick = () => { sel = b.dataset.k; try { localStorage.setItem("macro-sel", sel); } catch (e) {} tiles(); chart(); commentary(true); });
     };
     const g = (x) => x.grp || (isY(x) ? "us" : "cmd");
     put($("tC"), M.items.filter((x) => !isY(x)));
@@ -374,7 +409,7 @@
     ["macd", "rsi", "stoch"].forEach((k) => { $({ macd: "chMacd", rsi: "chRsi", stoch: "chStoch" }[k]).hidden = !on[k]; });
     if (window.LightweightCharts) {
       if (!C || C.intra !== B.intra) build(B.intra);
-      const pf = isY(x) ? { type: "custom", formatter: (v) => v.toFixed(3) + "%", minMove: 0.001 } : { type: "price", precision: 2, minMove: 0.01 };
+      const pf = isY(x) ? { type: "custom", formatter: (v) => v.toFixed(3) + "%", minMove: 0.001 } : { type: "price", precision: dpx(x), minMove: Math.pow(10, -dpx(x)) };
       const pts = (a) => B.T.map((t, i) => a[i] == null ? { time: t } : { time: t, value: a[i] });
       const up = css("--up"), dn = css("--down");
       C.candle.applyOptions({ priceFormat: pf, visible: style === "candle" });
@@ -623,10 +658,15 @@
   }
 
   async function getJSON(u) { try { const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" }); return r.ok ? await r.json() : null; } catch (e) { return null; } }
+  let lastSlow = 0;
   async function load() {
-    const [m, c] = await Promise.all([getJSON("../data/macro.json"), getJSON("../data/macro-cal.json")]);
+    const slow = !REC || Date.now() - lastSlow > 600000;
+    const [m, c, rc, nw] = await Promise.all([getJSON("../data/macro.json"), getJSON("../data/macro-cal.json"),
+      slow ? getJSON("../data/macro-recap.json") : null, slow ? getJSON("../data/macro-news.json") : null]);
+    if (slow) { lastSlow = Date.now(); if (rc) REC = rc; if (nw) NEWS = nw; }
     const mChanged = m && m.items && m.items.length && (!M || m.updated !== M.updated);
     if (mChanged) { M = m; tiles(); chart(); curve(); }
+    if (M && (mChanged || slow)) commentary(false);
     else if (!M) { $("tC").innerHTML = `<p class="sub">Macro prices could not be loaded right now.</p>`; }
     if (c && (!CAL || c.updated !== CAL.updated)) { CAL = c; calendar(); } else if (!CAL) calendar();
   }
