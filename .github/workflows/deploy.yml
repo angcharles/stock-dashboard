@@ -103,6 +103,7 @@ jobs:
       - name: Fetch FX rates
         run: |
           node scripts/fetch-fx.mjs || echo "fx fetch failed; using the committed file"
+          node scripts/fetch-fwd.mjs || echo "USD/IDR forwards fetch failed; using the committed file"
           node scripts/fetch-news.mjs fx || echo "fx news failed"
 
       - name: Fetch government bond curves (AI debt yields)
@@ -121,6 +122,7 @@ jobs:
           if [ -f data/fedwatch.json ]; then cp data/fedwatch.json _site/data/; fi
           mkdir -p _site/macro && cp macro/index.html _site/macro/
           cp data/fx.json data/fx-news.json _site/data/
+          if [ -f data/fx-fwd.json ]; then cp data/fx-fwd.json _site/data/; fi
           mkdir -p _site/fx && cp fx/index.html _site/fx/
           cp data/datacenter.json data/ai-debt.json _site/data/
           if [ -f data/curves.json ]; then cp data/curves.json _site/data/; fi

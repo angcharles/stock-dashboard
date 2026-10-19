@@ -47,6 +47,9 @@ The panel at the top of the Macro tab summarises the latest New York session for
 ## Previous-session FX recap and calls (FX tab)
 The panel at the top of the FX tab summarises the latest New York FX session (the FX day ends at 5pm New York) for the 14 pairs on the tab: headline, a two-sentence summary, the 2–3 themes that moved currencies, Claude's dollar view and highest-conviction calls, and — folded under "All 14 pairs" — a one-line read plus a 1–2 week call per pair (direction, entry zone, target and the level that would prove it wrong). The narrative and calls are `data/fx-recap.json`; Claude rewrites it after each New York close (scheduled task "Stock dashboard: daily FX recap", Tue–Sat ~7:12 SGT). `assets/fx-recap.js` computes each pair's close and day/week change from the daily bars in `data/fx.json` (the same data as the tiles and chart), so only the JSON's text needs updating. The deploy workflow copies the JSON into the site.
 
+## USD/IDR forward curve (FX tab)
+Below the FX chart: indicative USD/IDR outright forwards from 1 week to 2 years (offshore rupiah forwards are NDFs), with bid / ask / mid, points, annualised carry and the 1-day change in points. "Curve" overlays the curve 1 week and 1 month ago; "History" plots spot, 1M, 3M and 1Y over time. `scripts/fetch-fwd.mjs` scrapes FXEmpire's forward-rates page (fallback: Investing.com's points on the CNBC spot) into `data/fx-fwd.json` on every deploy; the after-close data workflow (`ta-data.yml`) runs it with `FWD_CLOSE=1` and commits the file, which is how one curve a day is saved for the overlays and history. `assets/fx-fwd.js` draws it.
+
 ## How the live price works
 - A GitHub Action (`.github/workflows/deploy.yml`) runs every 10 minutes during US market hours, fetches each symbol's quote and daily closes from Yahoo Finance (`scripts/fetch-quote.mjs SYMBOL OUTDIR RANGE`), and redeploys the site. No commits are made.
   - ARM → `arm/data/quote.json`, `arm/data/history.json`

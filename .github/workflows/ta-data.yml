@@ -87,9 +87,15 @@ jobs:
           SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
         run: python3 scripts/build-portfolios.py pf-data
 
+      - name: Save the USD/IDR forward curve at the New York close (FX tab history)
+        run: |
+          node scripts/fetch-fx.mjs || echo "fx fetch failed"
+          FWD_CLOSE=1 node scripts/fetch-fwd.mjs || echo "USD/IDR forwards fetch failed"
+
       - name: Commit if changed
         run: |
           git add */data/history.json skhy/data/krx/history.json data/ta-snapshot.json data/portfolios-perf.json data/momentum-portfolio.json data/bench/SPY/history.json
+          if [ -f data/fx-fwd.json ]; then git add data/fx-fwd.json; fi
           if git diff --cached --quiet; then echo "No change."; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
