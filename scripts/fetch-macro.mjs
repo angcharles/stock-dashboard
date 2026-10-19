@@ -3,7 +3,8 @@
 // Writes data/macro.json (live quote, about 1 year of daily bars and ~10 days of 30-minute bars per instrument)
 // and data/macro-cal.json.
 // Sources
-//   Live quotes: CNBC quote service (Tradeweb yields, CME/COMEX front-month futures), then Yahoo Finance.
+//   Live quotes: CNBC quote service (Tradeweb yields, real-time spot gold and silver, CME front-month crude futures,
+//   which the exchange delays ~10 minutes), then Yahoo Finance. Gold and silver fall back to COMEX futures.
 //   History: Yahoo daily closes for the futures; US Treasury daily par yield curve for the yields
 //            (Yahoo ^FVX/^TNX/^TYX as a fallback; the 2-year has no Yahoo index).
 //   Calendar: Forex Factory weekly calendar JSON (this week and next week); forecast and previous only.
@@ -24,8 +25,9 @@ async function get(url, headers = {}) {
 
 const INSTR = [
   { k: "oil", name: "WTI crude oil", short: "Crude oil", unit: "$/bbl", kind: "commodity", cnbc: "@CL.1", yahoo: "CL=F" },
-  { k: "gold", name: "Gold (COMEX)", short: "Gold", unit: "$/oz", kind: "commodity", cnbc: "@GC.1", yahoo: "GC=F" },
-  { k: "silver", name: "Silver (COMEX)", short: "Silver", unit: "$/oz", kind: "commodity", cnbc: "@SI.1", yahoo: "SI=F" },
+  // spot gold and silver are real time on CNBC; COMEX futures (10-minute exchange delay) are the fallback
+  { k: "gold", name: "Gold (spot)", short: "Gold", unit: "$/oz", kind: "commodity", cnbc: "XAU=", fut: { name: "Gold (COMEX)", cnbc: "@GC.1", yahoo: "GC=F" } },
+  { k: "silver", name: "Silver (spot)", short: "Silver", unit: "$/oz", kind: "commodity", cnbc: "XAG=", fut: { name: "Silver (COMEX)", cnbc: "@SI.1", yahoo: "SI=F" } },
   { k: "us2y", name: "US 2-year Treasury yield", short: "2Y yield", unit: "%", kind: "yield", cnbc: "US2Y", tsy: "2 Yr" },
   { k: "us5y", name: "US 5-year Treasury yield", short: "5Y yield", unit: "%", kind: "yield", cnbc: "US5Y", tsy: "5 Yr", yahoo: "^FVX" },
   { k: "us10y", name: "US 10-year Treasury yield", short: "10Y yield", unit: "%", kind: "yield", cnbc: "US10Y", tsy: "10 Yr", yahoo: "^TNX" },
@@ -41,7 +43,7 @@ const prevBy = Object.fromEntries((prev.items || []).map((x) => [x.k, x]));
 
 // ---------- live quotes ----------
 async function cnbc() {
-  const syms = INSTR.map((i) => i.cnbc).join("|");
+  const syms = INSTR.flatMap((i) => [i.cnbc, i.fut?.cnbc].filter(Boolean)).join("|");
   const r = await get(`https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols=${encodeURIComponent(syms)}&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json&events=1`, { Accept: "application/json" });
   const list = (await r.json())?.FormattedQuoteResult?.FormattedQuote || [];
   const out = {};
@@ -85,6 +87,7 @@ async function cnbcBars(sym) {
   for (const b of bars) {
     const cl = num(b.close); if (!isFinite(cl)) continue;
     const t = String(b.tradeTime || ""), day = t.length >= 8 ? `${t.slice(0, 4)}-${t.slice(4, 6)}-${t.slice(6, 8)}` : nyDate(b.tradeTimeinMills);
+    const wd = new Date(day + "T12:00:00Z").getUTCDay(); if (wd === 0 || wd === 6) continue;   // spot series carry flat weekend bars
     const op = num(b.open), hi = num(b.high), lo = num(b.low);
     const O = isFinite(op) ? op : cl, H = Math.max(isFinite(hi) ? hi : cl, O, cl), L = Math.min(isFinite(lo) ? lo : cl, O, cl);
     if (d.at(-1) === day) { const k = c.length - 1; h[k] = Math.max(h[k], H); l[k] = Math.min(l[k], L); c[k] = cl; }
@@ -157,7 +160,10 @@ let tsy = null;
 try { tsy = await treasury(); log("Treasury rows:", tsy.length, "latest", tsy.at(-1)?.d); } catch (e) { log("Treasury failed:", e.message); }
 
 const items = [];
-for (const ins of INSTR) {
+for (const base of INSTR) {
+  // spot quote missing (feed hiccup) -> use the futures contract for this run, history included, so bars and quote match
+  const ins = base.fut && !live[base.cnbc] ? { ...base, ...base.fut } : base;
+  if (ins !== base) log(base.k, "spot quote missing, using", ins.cnbc);
   const old = prevBy[ins.k] || {};
   let hist = null, quote = live[ins.cnbc] || null, hSrc = "";
   try { hist = await cnbcBars(ins.cnbc); hSrc = "CNBC daily bars"; } catch (e) { log(ins.k, "cnbc bars failed:", e.message); }

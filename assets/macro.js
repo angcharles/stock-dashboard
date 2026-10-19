@@ -81,12 +81,21 @@
     return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;
   }
 
+  // "Live" for real-time feeds; CME futures carry the exchange's 10-minute delay; a quote older than
+  // 45 minutes while markets are open is flagged stale (e.g. when a deploy is held up)
+  function liveTag(x) {
+    const age = Date.now() / 1000 - x.time, p = {};
+    new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "2-digit", hourCycle: "h23" }).formatToParts(new Date()).forEach((q) => { p[q.type] = q.value; });
+    const wd = p.weekday, hr = +p.hour, open = !(wd === "Sat" || (wd === "Sun" && hr < 18) || (wd === "Fri" && hr >= 17) || hr === 17);
+    if (open && age > 2700) return `<span class="down">Stale ${Math.round(age / 60)} min</span>`;
+    return x.realtime ? "Live" : x.kind === "commodity" ? "10-min delay (CME)" : "Delayed";
+  }
   function tiles() {
     const put = (host, list) => {
       host.innerHTML = list.map((x) => {
         const s = series(x), cls = x.chg == null ? "" : x.chg >= 0 ? "up" : "down";
         return `<button type="button" class="tile" data-k="${x.k}" aria-pressed="${x.k === sel}"><b>${esc(x.short)}</b><span class="v">${fmtV(x, x.price)}</span><span class="c ${cls}">${chgTxt(x, x.chg, x.pct)}</span>
-          ${spark(s)}<small>${x.realtime ? "Live" : "Delayed"} · ${sgt(x.time)} SGT</small></button>`;
+          ${spark(s)}<small>${liveTag(x)} · ${sgt(x.time)} SGT</small></button>`;
       }).join("");
       host.querySelectorAll(".tile").forEach((b) => b.onclick = () => { sel = b.dataset.k; try { localStorage.setItem("macro-sel", sel); } catch (e) {} tiles(); chart(); });
     };

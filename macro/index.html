@@ -244,7 +244,7 @@ section.mrecap{margin-top:0}
   <nav class="tabs" aria-label="Dashboard sections"><a href="../">Stocks</a><a href="./" aria-current="page">Macro</a><a href="../fx/">FX</a><a href="../datacenter/">Datacenter</a><a href="../robotics/">Robotics</a><a href="../merger/">SpaceX vs Tesla</a><a href="../portfolio/">Portfolio</a><a href="../options/">Options</a></nav>
   <div class="eyebrow">Commodities · Treasuries · Bunds · OATs · Fed pricing · Technicals · Calendar · News</div>
   <h1>Macro</h1>
-  <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, Fed funds futures pricing for every FOMC meeting, the economic calendar and macro headlines. Click a tile to chart it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Futures quotes can be delayed by the exchange.</p>
+  <p class="lede">Crude oil, gold, silver and the 2, 5, 10 and 30-year US Treasury, German Bund and French OAT yields, with an interactive chart, technical analysis and reversal signals for each, Fed funds futures pricing for every FOMC meeting, the economic calendar and macro headlines. Click a tile to chart it. Prices refresh about every 10 minutes in US hours and every 15 minutes overnight on weekdays; this page re-checks every minute. Crude oil futures are delayed about 10 minutes by the exchange; yields and spot gold and silver are real time.</p>
 
   <section id="mrecap" class="mrecap" data-src="../data/macro-recap.json" data-macro="../data/macro.json" aria-label="Previous New York session macro recap" hidden></section>
 
@@ -348,7 +348,7 @@ section.mrecap{margin-top:0}
 
   <section id="news" data-src="../data/macro-news.json" data-tickers="OIL,GOLD,SILVER,RATES,FED,ECON" data-h="Macro news" data-sub="Oil, gold, silver, Treasury yields, the Fed and economic data: headlines from the last 14 days, newest first. Refreshed with each price update." aria-label="Macro news"></section>
 
-  <footer>Quotes: CNBC (Tradeweb yields for Treasuries, Bunds and OATs, CME/COMEX front-month futures), Yahoo Finance as a fallback. Daily bars: CNBC (Yahoo Finance and the US Treasury yield curve as fallbacks). For information only, not investment advice.</footer>
+  <footer>Quotes: CNBC (Tradeweb yields for Treasuries, Bunds and OATs, real-time spot gold and silver, NYMEX front-month WTI futures with the exchange's 10-minute delay), Yahoo Finance as a fallback. Daily bars: CNBC (Yahoo Finance and the US Treasury yield curve as fallbacks). For information only, not investment advice.</footer>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>

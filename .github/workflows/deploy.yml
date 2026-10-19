@@ -20,13 +20,17 @@ permissions:
   pages: write
   id-token: write
 
+# Don't cancel a deploy that is already running: during a GitHub Actions slowdown each new dispatch
+# killed the queued run before it got a runner, so nothing shipped for over an hour.
+# Newer dispatches wait as one pending run instead (older pending ones are superseded).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
