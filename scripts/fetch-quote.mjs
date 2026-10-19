@@ -67,6 +67,19 @@ async function yahoo() {
 // Session from New York clock time: 04:00-09:30 pre, 16:00-20:00 post, 20:00-04:00 overnight.
 const nyMin = (ms) => { const t = new Date(new Date(ms).toLocaleString("en-US", { timeZone: "America/New_York" })); return t.getHours() * 60 + t.getMinutes(); };
 const sessionAt = (ms) => { const m = nyMin(ms); return m >= 240 && m < 570 ? "pre" : m >= 960 && m < 1200 ? "post" : m >= 570 && m < 960 ? "regular" : "overnight"; };
+// Robinhood's public 24/5 quote feed: the latest trade outside the regular session, including the
+// overnight session (8pm-4am ET, Sunday to Thursday nights) routed through Blue Ocean ATS ("boats").
+// Yahoo, Nasdaq and CNBC publish pre-market and after-hours trades but not overnight ones, so this goes first.
+// Unofficial endpoint, no login; if it fails or changes, the sources below take over.
+async function robinhoodExt() {
+  const j = await (await get(`https://api.robinhood.com/marketdata/quotes/?symbols=${encodeURIComponent(SYMBOL)}&bounds=24_5`, { Accept: "application/json" })).json();
+  const x = j?.results?.[0];
+  const price = num(x?.last_non_reg_trade_price), t = Date.parse(x?.venue_last_non_reg_trade_time || "");
+  if (!isFinite(price) || !isFinite(t)) throw new Error("robinhood: no extended-hours trade");
+  const session = sessionAt(t);
+  if (session === "regular") throw new Error("robinhood: latest trade is regular session");
+  return { session, price, time: Math.floor(t / 1000), src: x.last_non_reg_trade_price_source === "boats" ? "Robinhood (Blue Ocean)" : "Robinhood" };
+}
 // Yahoo quote: pre/post fields plus overnight fields where Yahoo provides them.
 async function yahooExt() {
   const q = crumb ? `&crumb=${encodeURIComponent(crumb)}` : "";
@@ -107,7 +120,7 @@ async function nasdaqExt() {
   return { session: /pre/i.test(st) ? "pre" : /overnight/i.test(st) ? "overnight" : "post", price, time, src: "Nasdaq" };
 }
 async function extended(regTime) {
-  for (const [name, fn] of [["Yahoo quote", yahooExt], ["Yahoo chart", yahooExtChart], ["Nasdaq", nasdaqExt]]) {
+  for (const [name, fn] of [["Robinhood 24/5", robinhoodExt], ["Yahoo quote", yahooExt], ["Yahoo chart", yahooExtChart], ["Nasdaq", nasdaqExt]]) {
     try { const e = await fn(); if (e.time > regTime) return e; log(name, "extended price not newer than the regular quote"); }
     catch (e) { log(name, "extended failed:", e.message); }
   }
