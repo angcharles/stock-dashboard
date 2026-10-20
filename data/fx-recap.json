@@ -1,268 +1,268 @@
 {
- "session": "2026-10-19",
- "asof": "Mon Oct 19, 2026",
+ "session": "2026-10-20",
+ "asof": "Tue Oct 20, 2026",
  "horizon": "1–2 weeks",
- "headline": "AI rebound and French riots nudge the dollar up; loonie leads on BoC hike bets, yen lags",
- "summary": "The dollar index rose about 0.15% to near 102.0 as a rebound in AI stocks pushed the US 10-year yield back to about 5.14% and violent protests in France knocked the euro to about 1.1215. The Canadian dollar, Aussie and won led on a hawkish Bank of Canada, China's GDP beat and exporter selling; the yen, rupiah, Taiwan dollar and peso lagged.",
+ "headline": "Iran deal hopes cool oil and yields, dollar slips; sterling leads, Taiwan dollar hits 18-month low",
+ "summary": "The dollar index fell about 0.25% to near 101.75 after unconfirmed reports of a US–Iran compromise pulled oil off five-month highs and the 10-year Treasury yield eased to about 5.10%; a diplomat's denial trimmed the drop from a three-week low near 101.50. Sterling led on a strong UK jobs report, the loonie hit a four-week high and the won a two-year high, while the Taiwan dollar slid to its weakest since April 2025 and the peso held at a record low.",
  "drivers": [
   [
-   "French unrest hits the euro",
-   "Weekend riots pushed the OAT–Bund spread to around 140–147bp, crisis-era levels, and the euro fell about 0.2% to near 1.1215 after a dip to 1.1181. Sterling hit a 17-month high against it near 83.95 pence."
+   "Iran headlines cut oil and yields",
+   "Reports of a Qatar–Pakistan brokered US–Iran compromise pushed WTI from above $100 toward $96 before a denial; the 10-year yield fell about 2–4bp to roughly 5.10% and the dollar index touched 101.50, its lowest since Oct 1. Fed hike odds for next week are down to about 15%, though a December hike is still largely priced."
   ],
   [
-   "AI rebound lifts yields and the dollar",
-   "Chip stocks ended a nine-day slide and the Nasdaq gained about 1.1%, so Treasuries sold off: the 10-year rose about 4bp to 5.14%. That widened rate gaps and made the yen the weakest major, with USD/JPY up about 0.3% to 158.5."
+   "BoE and BoC hawks lift GBP and CAD",
+   "UK unemployment fell to 4.7% against 4.9–5.0% forecasts and pay beat, so markets price about a 96% chance of a November BoE hike; sterling rose about 0.55% to near 1.3380 after 1.3409. The loonie hit 1.4033 as Alberta voted to stay in Canada and BoC hike odds held near 80%."
   ],
   [
-   "Hawks in Ottawa, outflows in Asia",
-   "Macklem's warning on energy inflation lifted Oct 28 BoC hike odds to about 80% from 30%, taking the loonie to a four-week high near 1.407. In Asia, MSCI's Indonesia threat, foreign selling of Taiwan shares and oil kept the rupiah, Taiwan dollar and peso under pressure."
+   "Chip outflows split Asia",
+   "Foreigners sold Taiwan shares for a 10th day (about NT$80 billion) and the Kospi fell 3.7%, yet exporters' dollar sales lifted the won to 1,328.1 while the Taiwan dollar slid 0.172 to 32.617. A record 20-year JGB auction helped the yen."
   ]
  ],
  "view": [
   "My dollar view:",
-  "Still mildly weaker into the Fed (Oct 28) and BoJ (Oct 30), but Monday showed where the floor is: a 10-year yield above 5.1% and a December Fed hike still largely priced keep dips shallow, so I expect the index to range between about 101 and 102.5 rather than break down. Fade the dollar against the yen and the Canadian dollar, where central banks are turning hawkish; stay long it against the Aussie and the rupiah. A Fed hold on Oct 28 that clearly endorses a December hike would make me neutral."
+  "Mildly weaker into the Fed (Oct 28): October hike odds are fading, oil carries a deal-headline risk premium and the index sits near the bottom of its 101.5–102.5 October range, but a 10-year yield above 5% and a priced December hike should stop a clean break below 101.5. Fade the dollar against the yen and the Canadian dollar, where central banks lean hawkish; keep backing it against the Aussie and, until Bank Indonesia acts decisively, the rupiah. A confirmed Iran deal would push the index toward 101; a Fed that locks in December would make me neutral."
  ],
  "ideas": [
   [
    "usdjpy",
-   "Best risk/reward: the upside is capped by Tokyo's 159–160 intervention zone while Ueda is prepping a hike; sell 158.50–159.00 for 156.80, about 2:1."
+   "Short from 158.50 is working: record JGB demand and a hawkish-leaning Ueda meet Tokyo's 159–160 guard; hold for 156.80, stop 159.60, about 2:1."
   ],
   [
    "usdcad",
-   "BoC hike odds jumped to about 80% for Oct 28 while the Fed is expected to hold; sell bounces into 1.4150–1.4180 for 1.3950."
+   "BoC hike odds near 80% and the 2-year gap narrowing; sell bounces into 1.4100–1.4130 for the 200-day near 1.3880, stop 1.4210."
   ],
   [
    "usdidr",
-   "MSCI's standalone threat means forced index selling and the 10-year yield hit 7.4%; buy dips toward 17,950 for a test of the 18,190 record."
+   "MSCI's standalone threat still drives outflows; buy dips toward 17,950 for 18,250, but cut size before Bank Indonesia's Oct 21 decision."
   ]
  ],
- "review": "Quiet session, no targets or stops hit: USD/JPY and USD/TWD shorts filled (TWD at its 32.57 high, now about 0.1 in favour), USD/IDR long is about 0.2% in favour, the EUR/USD long tested its 1.1180 entry and sits flat, ranges held; USD/CAD reset lower on the BoC, CNH and SGD levels adjusted for risk/reward.",
+ "review": "No targets or stops hit: the USD/JPY short (filled 158.50) is about 0.3 in favour, EUR/USD's long from 1.1180 is about 0.5% up, the AUD/USD short filled near 0.7000 and is flat, and USD/TWD's 32.50–32.60 short is about 0.1 against but its 32.80 stop held; CAD, KRW and IDR entries were not reached, so CAD and KRW entries move lower.",
  "rows": {
   "eurusd": {
-   "note": "Fell about 0.2% to near 1.1215 on French riots, after a 1.1181 low in thin early Asian trade.",
+   "note": "Up about 0.2% to near 1.1235 as French protests eased and the dollar slipped; capped near 1.1260.",
    "view": {
     "dir": "up",
-    "call": "Buy dips toward 1.1180; a priced December ECB hike gives support.",
+    "call": "Buy dips toward 1.1190; a priced December ECB hike gives support.",
     "target": 1.134,
     "stop": 1.114
    },
-   "why": "This was a euro move, not a dollar move. Weekend riots in France pushed the OAT–Bund spread to around 140–147bp, levels last seen in the 2011–12 debt crisis, and the CAC 40 fell more than 1%. The dollar added a little help as an AI-stock rebound lifted the 10-year Treasury yield to about 5.14%, leaving the euro near 1.1215 and well under the 1.1270 area that has capped it four times.",
-   "outlook": "I keep buying dips toward 1.1180: the dollar's rate support has stopped growing and a December ECB hike is priced. But France caps rallies near 1.1270 until spreads narrow, and a close under 1.114 would mean the French discount is winning.",
-   "watch": "French bond spreads and budget talks, then the Fed on Oct 28 and the ECB on Oct 29."
+   "why": "Both sides helped a little. Overnight unrest in France calmed, so the euro steadied after Monday's slide, while Iran-deal reports pulled oil lower and trimmed the 10-year Treasury yield to about 5.10%, softening the dollar. Gains stalled near 1.1260 as French bond yields stayed elevated and strategists warned more euro weakness from France is still to be priced.",
+   "outlook": "I keep the long from dips toward 1.1190: the dollar's rate edge has stopped widening and the ECB is priced to hike. France caps rallies near 1.1270 until spreads narrow; a close under 1.1140 would end the call.",
+   "watch": "French spreads and budget talks, euro-area flash consumer confidence on Oct 22, the Fed on Oct 28 and the ECB on Oct 29."
   },
   "gbpusd": {
-   "note": "Steady near 1.3305; sterling hit a 17-month high against the euro on French turmoil.",
+   "note": "Led the majors, up about 0.55% to near 1.3380 after a one-month high of 1.3409 on strong UK jobs data.",
    "view": {
     "dir": "range",
-    "call": "1.3200–1.3400; fade the top unless it closes above 1.3400."
+    "call": "1.3300–1.3450; buy dips, but the Oct 28 Budget caps it."
    },
-   "why": "Sterling is absorbing euro selling rather than outperforming the dollar. Money leaving the euro over France lifted the pound to a 17-month high near 83.95 pence per euro, while against a firmer dollar it slipped about 0.05% to near 1.3305. Recent upside surprises in UK data and fewer worries about UK public finances are keeping it supported.",
-   "outlook": "A range trade against the dollar: HSBC and others see a hawkish Fed weighing on it, while the euro cross does the heavy lifting. Only a daily close above 1.3400 would change that.",
-   "watch": "UK CPI on Oct 21 and Bank of England speakers, then the Fed on Oct 28."
+   "why": "A UK story. Unemployment fell to 4.7% against forecasts of 4.9–5.0%, employment rose about 102,000 and regular pay growth picked up to 3.7%, so money markets moved to about a 96% chance of a BoE hike on Nov 5. Sterling hit its highest since Sept 18 against the dollar and about 83.8 pence per euro, its strongest since May 2025, helped by a softer dollar.",
+   "outlook": "Bias is higher while the BoE is the only major central bank set to hike next month, but the Oct 28 Budget and gilt yields above 5.4% are a real risk, so I trade the 1.3300–1.3450 range from the bottom. A close above 1.3450 would turn me outright bullish.",
+   "watch": "UK CPI on Oct 21, the Budget on Oct 28, the Fed on Oct 28 and the BoE on Nov 5."
   },
   "audusd": {
-   "note": "Rose about 0.5% to near 0.698 on China's 4.5% GDP beat and the rebound in stocks.",
+   "note": "Up about 0.3% to near 0.7000 on the softer dollar; the short entry zone has filled.",
    "view": {
     "dir": "down",
-    "call": "Sell 0.6990–0.7020; a bounce, not a turn.",
+    "call": "Sell 0.7000–0.7020; RBA is on hold while the Fed isn't.",
     "target": 0.686,
     "stop": 0.707
    },
-   "why": "The Aussie led on risk appetite and China. Third-quarter Chinese growth came in at 4.5% against a 4.4% forecast, chip stocks bounced and the yuan's offshore rate hit its strongest since mid-2022, so investors bought growth-linked currencies. It rose about 0.5% to near 0.698, its second straight gain from last week's three-month low of 0.6894.",
-   "outlook": "I still see this as a bounce to sell. Last week's jobs shock (unemployment 4.7%) took RBA hikes off the table while the Fed keeps hike risk, so I'd sell into 0.6990–0.7020; a close above 0.7070 would end the call.",
-   "watch": "RBA minutes and speakers, China data, and the RBA decision on Nov 3."
+   "why": "The Aussie rose with other risk-linked currencies as the dollar slipped on lower oil and Treasury yields and the yuan touched its strongest since mid-2022. This was dollar weakness rather than an Australian story: there was no new local data, and the RBA's outlook still reflects last week's jump in unemployment to 4.7%.",
+   "outlook": "I still sell this bounce into 0.7000–0.7020: the RBA has no reason to hike while the Fed keeps a December hike alive. A close above 0.7070 would end the call.",
+   "watch": "Australia flash PMIs on Oct 23, China data and yuan fixings, and the RBA on Nov 3."
   },
   "usdjpy": {
-   "note": "Up about 0.3% to near 158.5 as Treasury yields rose; still inside last week's 157.55–158.94 range.",
+   "note": "Down about 0.2% to near 158.2 after a record-demand 20-year JGB auction; the 158.50 short is in favour.",
    "view": {
     "dir": "down",
-    "call": "Sell 158.50–159.00; Tokyo guards 159–160.",
+    "call": "Hold shorts from 158.50; Tokyo guards 159–160.",
     "target": 156.8,
     "stop": 159.6
    },
-   "why": "The dollar did the moving. A rebound in AI stocks sent the 10-year Treasury yield up about 4bp to 5.14%, widening the US–Japan rate gap and making the yen the weakest major on the day. That outweighed Governor Ueda's comments that underlying inflation is close to 2% and that hiking too slowly risks higher bond yields, and PM Takaichi's insistence she is not driving the weak yen.",
-   "outlook": "Asymmetric: the upside is capped by the 159–160 zone where Tokyo has threatened action and joined the US in intervening in July, while swaps price about an 80% chance of a December BoJ hike. Selling 158.50–159.00 stays my best risk/reward; a close above 159.60 would say Tokyo is tolerating more weakness.",
-   "watch": "Japan's September CPI on Oct 23, the Fed on Oct 28, the BoJ on Oct 30, and any rate checks near 159."
+   "why": "The yen did some of the moving. A 20-year JGB auction drew bids of 5.84 times the amount offered, the strongest since the bond was introduced in 1987, pulling the 20-year yield down about 5bp and easing fears about Japan's finances. Lower US long-end yields on the Iran headlines added to the dip, though the yen was the dollar's smallest loser among majors.",
+   "outlook": "Asymmetric: Tokyo has made 159–160 the line, Ueda says underlying inflation is close to 2% and swaps price about an 80% chance of a December BoJ hike. I hold the short for 156.80; a close above 159.60 would mean Tokyo is tolerating more weakness.",
+   "watch": "Japan trade data and September CPI on Oct 23, the Fed on Oct 28, the BoJ on Oct 30 and rate checks near 159."
   },
   "usdchf": {
-   "note": "Bounced about 0.35% to near 0.827 as the dollar firmed and haven demand eased with stocks.",
+   "note": "Down about 0.25% to near 0.8246 as the dollar eased; the 0.8300 sell zone was not reached.",
    "view": {
     "dir": "down",
-    "call": "Sell bounces toward 0.8300; the franc trend is intact.",
+    "call": "Sell bounces toward 0.8290; the franc trend is intact.",
     "target": 0.818,
     "stop": 0.836
    },
-   "why": "USD/CHF bounced to about 0.827 because the rebound in stocks reduced haven demand while higher Treasury yields helped the dollar. The franc still gained against the euro, which fell to a three-month low against it on France's unrest, so this was dollar strength rather than franc weakness. Markets continue to judge the SNB will hold at zero rather than go negative.",
-   "outlook": "The franc's trend remains firm, so I keep selling bounces toward 0.8300 rather than chasing; a close above 0.8360 would end the call.",
-   "watch": "European bond spreads, SNB comments on the franc, and the Fed on Oct 28."
+   "why": "A dollar move. Lower oil and long-dated Treasury yields on the US–Iran reports weighed on the greenback across the board, and the franc tracked the euro, which steadied as French protests eased. There was no Swiss-specific news; markets still expect the SNB to hold at zero rather than cut below it.",
+   "outlook": "The franc trend is firm, so I'd sell bounces toward 0.8290 rather than chase at 0.8246. A close above 0.8360 would end the call.",
+   "watch": "European bond spreads, SNB comments on the franc and the Fed on Oct 28."
   },
   "usdcad": {
-   "note": "Loonie hit a four-week high near 1.4071 as BoC hike odds jumped to about 80%; closed near 1.411.",
+   "note": "Loonie hit a four-week high of 1.4033 after Alberta voted to stay; closed near 1.4055, down about 0.4%.",
    "view": {
     "dir": "down",
-    "call": "Sell bounces into 1.4150–1.4180; BoC hike risk.",
-    "target": 1.395,
-    "stop": 1.425
+    "call": "Sell bounces into 1.4100–1.4130; BoC hike odds near 80%.",
+    "target": 1.388,
+    "stop": 1.421
    },
-   "why": "The loonie was driven by the Bank of Canada. Governor Macklem said on Saturday the bank will raise its inflation forecast significantly because of high oil and fuel prices, and swaps moved to about an 80% chance of an Oct 28 hike from 30% on Friday. That lifted the Canadian dollar to its strongest since Sept 23 near 1.4071, even as oil eased on US waivers for Russian fuel exports.",
-   "outlook": "I lower the call: with a BoC hike now likely and the Fed expected to hold, I'd sell bounces into 1.4150–1.4180 for 1.3950. The risks are Alberta's referendum and a sharp oil drop; a close above 1.4250 would end it.",
-   "watch": "Alberta's referendum result, Canada data, oil, and the BoC and Fed decisions on Oct 28."
+   "why": "The Canadian side drove it. Alberta voted by a large margin to remain in Canada, removing a political risk, and swaps kept about an 80% chance of a 25bp BoC hike to 2.50% on Oct 28 after Macklem's warning on energy inflation. Canada's 2-year discount to the US narrowed to about 146bp from 160bp, and a softer US dollar did the rest.",
+   "outlook": "I lower the entry to 1.4100–1.4130 and target the 200-day average near 1.3880; a break of the 100-day near 1.4040 has opened that path. A close above 1.4210, the 10-day average, would end the call; a sharp oil drop on an Iran deal is the main risk.",
+   "watch": "Oil and Iran headlines, and the BoC and Fed decisions on Oct 28."
   },
   "usdcnh": {
-   "note": "Yuan near 6.682 offshore, strongest since mid-2022, after a GDP beat; the 6.7208 fix was the strongest since Feb 2023.",
+   "note": "Yuan touched about 6.6775 offshore, strongest since July 2022; fix 6.72, strongest since Feb 2023.",
    "view": {
     "dir": "down",
     "call": "Slow grind lower at the PBOC's pace.",
     "target": 6.64,
     "stop": 6.71
    },
-   "why": "The yuan firmed slightly to about 6.682 after China's third-quarter GDP beat at 4.5%, driven by exports. The PBOC set its fixing at 6.7208, the strongest since February 2023, but still about 300 pips weaker than the 6.6897 Reuters estimate, so it keeps letting the yuan rise slowly while braking the pace. Governor Pan also flagged a shift to an overnight policy rate.",
-   "outlook": "A slow grind lower in USD/CNH at Beijing's pace. I'm moving the target to 6.64 and the stop to 6.71, above last week's highs, for a better balance; a fix close to estimates would mean faster gains.",
-   "watch": "Daily PBOC fixings versus estimates, the loan prime rate, and US–China trade headlines."
+   "why": "The PBOC kept guiding the yuan higher, setting the midpoint near 6.72, its strongest since February 2023 but still about 390 pips weaker than estimates, so it is braking the pace. Loan prime rates were held for a 17th month after the 4.5% GDP beat, and the central bank will run daily overnight repos from Oct 21 as it studies an overnight policy rate. Exporter conversion and a softer dollar did the rest.",
+   "outlook": "A steady, managed grind lower in USD/CNH; I keep 6.64 as the target and 6.71 as the stop above last week's highs. Fixes landing close to estimates would signal faster gains.",
+   "watch": "Daily fixings versus estimates, the overnight repo rate set from Oct 21, and US–China trade headlines."
   },
   "usdhkd": {
-   "note": "Pinned near 7.848, just shy of the 7.85 weak-side limit.",
+   "note": "Pinned near 7.8485, just shy of the 7.85 weak-side limit.",
    "view": {
     "dir": "range",
     "call": "7.84–7.85, no trade; an HKMA defence would lift HIBOR fast."
    },
-   "why": "USD/HKD stayed near 7.848, close to the 7.85 weak edge of the peg. Low Hong Kong interest rates relative to the US make it cheap to borrow HKD and buy USD, and Monday's rise in Treasury yields only widened that gap.",
-   "outlook": "No trade. A touch of 7.85 would force the HKMA to buy HKD, draining cash and pushing HIBOR up fast; that is the only catalyst that moves it.",
+   "why": "USD/HKD stayed near 7.8485 because Hong Kong rates remain well below US rates, keeping the carry trade of selling HKD for USD attractive. Tuesday's slight fall in long-dated Treasury yields barely changed that gap, and the Hang Seng's roughly 1% drop added no fresh inflows.",
+   "outlook": "No trade. A touch of 7.85 would force the HKMA to buy HKD and push HIBOR higher; until then it sits at the weak edge.",
    "watch": "HKMA intervention at 7.85, the aggregate balance and one-month HIBOR."
   },
   "usdsgd": {
-   "note": "Flat near 1.280, tracking the broad dollar; the S$NEER sits near the strong side of its band.",
+   "note": "Eased about 0.2% to near 1.2775 with the broad dollar.",
    "view": {
     "dir": "down",
     "call": "Mildly lower with the dollar; SGD is low-beta.",
     "target": 1.272,
     "stop": 1.285
    },
-   "why": "USD/SGD held near 1.280 as a firmer dollar against the euro and yen was offset by firmer Asian growth currencies after China's GDP beat. On Oct 14 the MAS surprised by holding its policy band, and the S$NEER sits about 1.6–1.7% above its midpoint, close to the strong edge, which limits further basket gains.",
-   "outlook": "Mildly lower if the dollar eases into the Fed. I'm moving the target to 1.272 and the stop to 1.285 for a better reward-to-risk; SGD will lag other Asian currencies on any rally.",
-   "watch": "Singapore CPI and trade data, and the broad dollar into the Fed on Oct 28."
+   "why": "USD/SGD followed the broad dollar lower as oil and Treasury yields fell on the Iran reports, with a firmer yuan helping regional sentiment. The move was small because the MAS held its policy band on Oct 14 and the S$NEER is already near the strong edge, which limits how far the basket can rise.",
+   "outlook": "Mildly lower if the dollar keeps easing into the Fed; I keep 1.272 as the target and 1.285 as the stop. SGD will lag other Asian currencies in any rally.",
+   "watch": "Singapore CPI and the broad dollar into the Fed on Oct 28."
   },
   "usdkrw": {
-   "note": "Won firmed 1.1 to 1,330.3 at the Seoul close, after touching 1,327.6, its strongest since Oct 2024.",
+   "note": "Won firmed 2.2 to 1,328.1 at the Seoul close, its strongest since Oct 2024, despite a 3.7% Kospi drop.",
    "view": {
     "dir": "down",
-    "call": "Sell rallies toward 1,345; needs chips to hold up.",
+    "call": "Sell rallies into 1,335–1,340; exporters keep selling.",
     "target": 1315,
-    "stop": 1360
+    "stop": 1352
    },
-   "why": "The won rose to a two-year high intraday as exporters sold dollars and the Kospi reversed a 3% opening drop to close up 1.76% on institutional buying. Foreign investors were only small net sellers of about 37.8 billion won, a big change from last week's heavy selling, and the finance minister said the rate is now in line with fundamentals.",
-   "outlook": "I keep selling USD/KRW rallies toward 1,345. The won tracks chip stocks and foreign flows, so this week's AI earnings matter; another big foreign selling day would push it back toward 1,360.",
-   "watch": "Foreign flows in Seoul, Samsung and SK hynix, AI earnings this week, and Korea's Q3 GDP."
+   "why": "Exporters, led by chipmakers, kept selling dollars, which outweighed foreign selling of about 535 billion won of Korean shares as the Kospi fell 3.7%. The won hit a fresh two-year high intraday at 1,325.4 for a third straight session, helped by the softer dollar index near 101.8 and a chip-driven current-account surplus.",
+   "outlook": "The trend favours the won, so I lower the entry to 1,335–1,340 for 1,315. A heavy foreign equity exodus on weaker AI earnings is the risk; a close above 1,352 would end the call.",
+   "watch": "Foreign flows in Seoul, Samsung and SK hynix, AI earnings this week and Korea's Q3 GDP."
   },
   "usdtwd": {
-   "note": "Taiwan dollar fell 0.107 to 32.445, after hitting 32.57, its weakest since April 2025.",
+   "note": "Taiwan dollar fell 0.172 to 32.617, weakest close since April 2025, after touching 32.672.",
    "view": {
     "dir": "down",
-    "call": "Fade 32.50–32.60; the central bank has flagged action.",
+    "call": "Fade 32.50–32.65; the central bank is smoothing hard.",
     "target": 32.1,
     "stop": 32.8
    },
-   "why": "The Taiwan dollar extended last week's slide as foreign investors sold another NT$76.7 billion (about US$2.4 billion) of Taiwan shares and the Taiex slipped 0.6%. It touched 32.57 before the central bank said it may intervene to keep the currency stable, blaming last week's US$19.4 billion of foreign share sales and US$18 billion of outflows on the global chip sell-off.",
-   "outlook": "The 32.50 area is the weak end of the range the central bank has defended this year, and it has now said so publicly; fading 32.50–32.60 offers the better risk/reward, provided chip stocks stop falling. A close above 32.80 would mean outflows are winning.",
-   "watch": "Foreign flows on the Taiex, TSMC and AI earnings this week, and central bank action near 32.50."
+   "why": "Foreign investors sold Taiwan shares for a 10th straight day, about NT$80 billion, taking the run to over NT$830 billion, and the Taiex fell 1.1% before Wednesday's futures settlement. Repatriation of sale proceeds and dividends overwhelmed central bank dollar sales, after it had dragged Monday's close back to 32.445 late in the day.",
+   "outlook": "I keep fading the weakness: the central bank has said publicly it will act, foreign futures shorts are being trimmed, and settlement on Oct 21 may end forced selling. But outflows are winning for now; a close above 32.80 would stop the call.",
+   "watch": "Foreign flows on the Taiex, futures settlement on Oct 21, TSMC and AI earnings, and central bank action."
   },
   "usdmyr": {
-   "note": "Ringgit eased slightly to about 4.0825 at the 6pm close but gained on the euro, yen and ASEAN peers.",
+   "note": "Ringgit flat at 4.0805/4.0845 at the 6pm close as investors waited for the Fed.",
    "view": {
     "dir": "range",
     "call": "4.07–4.10; steady, follows the broad dollar."
    },
-   "why": "The ringgit barely moved against the dollar but rose against most others on strong Malaysian data: third-quarter growth beat forecasts at 5.3%, September inflation eased to 1.8%, and total trade jumped 53.7% from a year earlier. It also gained against the rupiah as Indonesia's MSCI scare pushed money out of Jakarta.",
+   "why": "The ringgit held still because the drivers cancelled out. Low odds of a Fed hike next week and a softer dollar index helped, but markets still expect a December Fed hike, and strong Malaysian data (third-quarter growth of 5.3% and 1.8% inflation) is already reflected in the price, so it stayed in a narrow range.",
    "outlook": "Range-bound around 4.07–4.10. Strong trade and low inflation support it, but it rarely moves far without the broad dollar.",
-   "watch": "The Fed on Oct 28, oil prices, and Bank Negara's Nov 5 meeting."
+   "watch": "The Fed on Oct 28, oil prices and Bank Negara's Nov 5 meeting."
   },
   "usdphp": {
-   "note": "Peso closed at a record low of 63.09, down 10.5 centavos; it traded 62.98–63.17.",
+   "note": "Peso closed unchanged at its record low of 63.09; it traded 62.98–63.11 into Thursday's BSP.",
    "view": {
     "dir": "range",
     "call": "62.80–63.40 into Thursday's BSP; a skip would break 63.40."
    },
-   "why": "The peso set its third record-low close this month even though oil eased. Brent near $108 keeps the Philippines' import bill high, the dollar firmed on higher Treasury yields, and the BSP is in its quiet period before Thursday's meeting. It is down about 6.8% this year.",
-   "outlook": "A 62.80–63.40 range into Thursday. Twenty of 22 economists expect a 25bp hike to 5.25%, and BPI sees a 50bp move if the peso nears 64; a hike should steady it, while a skip would likely break 63.40.",
-   "watch": "The BSP decision on Oct 22, oil prices, and BSP dollar sales near 63.20."
+   "why": "The peso held at its record-low close because high oil kept import dollar demand strong while the softer global dollar offered little relief. Traders also see the BSP smoothing moves above 63, and positions are light before Thursday's policy meeting. It is down about 6.8% this year.",
+   "outlook": "A 62.80–63.40 range into Thursday. Twenty of 22 economists expect a 25bp hike, with two calling for 50bp; a hike should steady it, while a skip would likely break 63.40.",
+   "watch": "The BSP decision on Oct 22, oil prices and BSP dollar sales near 63.20."
   },
   "usdidr": {
-   "note": "Rupiah weakened to about 18,040 as Jakarta stocks fell another 3.6% on MSCI's expulsion threat.",
+   "note": "Rupiah firmed slightly to about 18,010–18,030 as Jakarta curbed selling; JISDOR fixed at 18,006.",
    "view": {
     "dir": "up",
-    "call": "Stay long dollar; buy dips toward 17,950.",
+    "call": "Buy dips toward 17,950; MSCI risk outweighs intervention.",
     "target": 18250,
     "stop": 17850
    },
-   "why": "The rupiah was Asia's worst performer because of domestic flows, not the dollar. MSCI said on Friday it may move Indonesia to standalone status, forcing index funds out; Jakarta stocks fell to a six-year low after an 11.6% drop on Friday, and the 10-year bond yield jumped to about 7.4% from 7.17%. Bank Indonesia said it is intervening in spot, DNDF and offshore NDF markets.",
-   "outlook": "I stay long the dollar. Intervention, and possibly a hike on Wednesday that 14 of 29 economists expect or Citi's 50bp call, can slow the slide but probably not stop a test of the 18,190 record while the MSCI threat stands. Credible government steps to answer MSCI would end the call.",
-   "watch": "Bank Indonesia's decision on Oct 21, the government's response to MSCI, and bond auctions."
+   "why": "The rupiah steadied on local measures, not the dollar. The stock exchange halved the daily price-drop limit to 7% and moved to improve transparency after MSCI's standalone threat, so Jakarta stocks rebounded about 3%. Bank Indonesia said swaps and DNDF tools had drawn in $8–9 billion, and the JISDOR reference rate firmed to 18,006 from 18,050.",
+   "outlook": "I stay long the dollar on dips toward 17,950 while the MSCI threat stands, but Wednesday's decision is binary: Citi expects a 50bp hike, others 25bp or a hold. A large hike plus credible fixes for MSCI would end the call below 17,850.",
+   "watch": "Bank Indonesia's decision on Oct 21, the government's response to MSCI and bond auctions."
   },
   "usdinr": {
-   "note": "Rupee closed about 94.92, little changed, after RBI dollar sales lifted it at the open.",
+   "note": "Onshore market shut for Dussehra; offshore rate near 94.75 after Monday's 94.91 close.",
    "view": {
     "dir": "range",
     "call": "94.50–95.80; the RBI wants order, not a rally."
    },
-   "why": "The rupee opened firmer at about 94.86 on RBI dollar sales, extending last week's best run since March, but gave the gains back as Brent near $108 and foreign equity outflows lifted dollar demand from importers. Traders see 95 as the RBI's soft defence line.",
-   "outlook": "A managed range of 94.50–95.80. The RBI is aiming for stability rather than a rally, and oil is the main risk; I wouldn't chase it either way.",
-   "watch": "Oil prices, RBI intervention near 95, and foreign portfolio flows."
+   "why": "Indian markets were closed for Dussehra, so the offshore rate drifted about 0.2% firmer with the softer global dollar and the dip in oil on Iran-deal reports. On Monday the rupee ended a six-day winning run at 94.91 as equity outflows and Brent near $108 lifted importer demand, after RBI curbs on spot dollar demand had driven a 2% gain the prior week.",
+   "outlook": "A managed 94.50–95.80 range. The RBI wants stability, not a rally, and oil is the swing factor; I wouldn't chase it either way.",
+   "watch": "Oil and Iran talks, RBI intervention near 95 and foreign portfolio flows."
   },
   "eurjpy": {
-   "note": "Little changed near 177.8 as euro weakness on France offset the yen's slide.",
+   "note": "Little changed near 177.7 as the euro and yen both firmed against the dollar.",
    "view": {
     "dir": "range",
     "call": "176–179; the BoJ on Oct 30 is the event risk."
    },
-   "why": "Both sides fell together: the euro on French unrest and wider bond spreads, the yen on higher US yields. With EUR/USD down about 0.2% and USD/JPY up about 0.3%, the cross ended near 177.8, barely changed.",
+   "why": "Both legs gained on the dollar by similar amounts: the euro about 0.2% as French unrest eased, the yen about 0.2% after record demand at the 20-year JGB auction. With EUR/USD near 1.1235 and USD/JPY near 158.2, the cross ended near 177.7, almost unchanged.",
    "outlook": "Range 176–179. The ECB (Oct 29) and BoJ (Oct 30) meet back to back; a hawkish BoJ would break it lower, while a French budget deal would lift it.",
    "watch": "French bond spreads, Japan CPI on Oct 23, and the ECB and BoJ meetings."
   },
   "cnhjpy": {
-   "note": "Firmed to about 23.72 as the yuan held its gains and the yen weakened.",
+   "note": "Near 23.70, close to the top of its range, as the yuan hit a four-year high.",
    "view": {
     "dir": "range",
     "call": "23.3–23.8; no edge."
    },
-   "why": "The yuan held near its strongest since mid-2022 after China's GDP beat, while the yen slipped on higher US yields, nudging CNH/JPY up to about 23.72, near the top of its recent range.",
+   "why": "The yuan firmed to its strongest since mid-2022 on another strong PBOC fix, while the yen also gained after the JGB auction, so CNH/JPY held near 23.70, close to the top of its recent range.",
    "outlook": "No edge in a 23.3–23.8 range: the PBOC slows yuan gains while Tokyo guards the yen's weak side. A break above 23.8 would need the yen to weaken through 159.",
    "watch": "PBOC fixings and Japanese intervention signals."
   }
  },
- "watch": "Next: UK CPI and Bank Indonesia (Oct 21), the BSP (Oct 22), Japan CPI (Oct 23), the Fed and BoC (Oct 28), the ECB and BoJ (Oct 29–30), AI earnings this week, MSCI follow-up on Indonesia, and Tokyo's 159–160 line.",
+ "watch": "Next: UK CPI, Bank Indonesia and Taiwan futures settlement (Oct 21), the BSP (Oct 22), Japan CPI (Oct 23), the Fed, BoC and UK Budget (Oct 28), the ECB and BoJ (Oct 29–30), US–Iran talks and oil, and Tokyo's 159–160 line.",
  "sources": [
   [
-   "Reuters via MarketScreener (euro, dollar)",
-   "https://marketscreener.com/news/euro-dips-on-french-turmoil-us-dollar-lifted-as-stocks-rebound-ce785cdbdc8df223"
+   "investingLive Americas FX wrap",
+   "https://investinglive.com/news/investinglive-americas-fx-news-wrap-20-oct-usd-falls-as-deal-headlines-swing-oil-dow-and-small-caps-outperform"
+  ],
+  [
+   "Reuters via MarketScreener (euro, yen)",
+   "https://marketscreener.com/news/euro-steadies-as-french-protests-ease-pound-and-yen-firm-ce785cd8d88df023"
   ],
   [
    "Reuters via MarketScreener (sterling)",
-   "https://marketscreener.com/news/sterling-hits-17-month-high-against-euro-ce785cdbd88cf72c"
+   "https://uk.marketscreener.com/news/sterling-rises-as-strong-labour-market-data-reinforces-rate-hike-bets-ce785cd8d98af424"
   ],
   [
    "Reuters via Kitco (loonie)",
-   "http://kitco.com/news/off-the-wire/2026-10-19/canadian-dollar-notches-nearly-four-week-high-boc-rate-hike-bets"
-  ],
-  [
-   "Reuters via MarketScreener (Bank Indonesia poll)",
-   "https://ca.marketscreener.com/news/bank-indonesia-narrowly-expected-to-hold-interest-rates-despite-market-turmoil-ce785cdbd981f023"
-  ],
-  [
-   "Taipei Times (TWD)",
-   "https://taipeitimes.com/News/biz/archives/2026/10/20/2003866255"
+   "http://kitco.com/news/off-the-wire/2026-10-20/canadian-dollar-hits-four-week-high-market-cheers-alberta-remain-vote"
   ],
   [
    "Yonhap (won)",
-   "https://en.yna.co.kr/view/AEN20261019008900320"
+   "https://en.yna.co.kr/view/AEN20261020008200320"
   ],
   [
-   "BusinessWorld (peso)",
-   "https://bworldonline.com/banking-finance/2026/10/19/787842/peso-slides-to-new-low-on-dollars-strength"
+   "Focus Taiwan (TWD)",
+   "https://focustaiwan.tw/business/202610200015"
+  ],
+  [
+   "CNBC (Bank Indonesia, rupiah)",
+   "https://cnbc.com/2026/10/20/indonesia-msci-inflation-interest-rate-.html"
   ],
   [
    "The Star (ringgit)",
-   "https://thestar.com.my/business/business-news/2026/10/19/ringgit-closes-higher-against-major-currencies-on-strong-economic-data"
+   "https://thestar.com.my/business/business-news/2026/10/20/ringgit-ends-flat-on-caution-ahead-of-fed-meeting"
   ]
  ],
- "commentary_asof": "Mon Oct 19, 2026"
+ "commentary_asof": "Tue Oct 20, 2026"
 }
