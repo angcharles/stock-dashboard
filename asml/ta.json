@@ -1,41 +1,41 @@
 {
- "asof": "Oct 19, 2026",
- "close": 1647.12,
+ "asof": "Oct 20, 2026",
+ "close": 1630.84,
  "bias": {
-  "en": "Bearish · capped under $1,686",
-  "zh": "偏空 · 受制于 $1,686 下方"
+  "en": "Bearish · lower highs above the Sep 3 low",
+  "zh": "偏空 · 高点下移，守在 9 月 3 日低点上方"
  },
  "read": [
   {
-   "en": "ASML edged up 0.3% on Oct 19 to $1,647.12, fading from $1,681.78 to close near the day's low of $1,646.02. It is below the falling 5-day ($1,662.8), 10-day ($1,725.3) and 30-day ($1,727.8) averages and the 100-day ($1,749.2), and above the rising 200-day ($1,580.1). MACD has been below its signal since Oct 12 and below zero, Parabolic SAR has been bearish since Oct 13 ($1,829.8), and RSI is 38.6.",
-   "zh": "阿斯麦 10月19日微涨 0.3%，收于 $1,647.12，自 $1,681.78 回落，收于当日低点 $1,646.02 附近。股价位于下行的 5 日（$1,662.8）、10 日（$1,725.3）和 30 日均线（$1,727.8）以及 100 日均线（$1,749.2）下方，位于上行的 200 日均线（$1,580.1）上方。MACD 自 10月12日起位于信号线及零轴下方，抛物线 SAR 自 10月13日起看空（$1,829.8），RSI 为 38.6。"
+   "en": "ASML fell 1.0% on Oct 20 to $1,630.84 on light volume, trading between $1,613.54 and $1,654.19. It is below the falling 5-day ($1,645.4), 10-day ($1,705.0) and 30-day ($1,723.4) averages and the rising 100-day ($1,749.4), and above the rising 200-day ($1,582.4). MACD has been below its signal since Oct 12 and below zero, Parabolic SAR has been bearish since Oct 13 ($1,815.63), and RSI is 36.9.",
+   "zh": "阿斯麦 10月20日下跌 1.0%，收于 $1,630.84，成交量偏低，盘中区间 $1,613.54–1,654.19。股价位于下行的 5 日（$1,645.4）、10 日（$1,705.0）和 30 日均线（$1,723.4）及上行的 100 日均线（$1,749.4）下方，在上行的 200 日均线（$1,582.4）上方。MACD 自 10月12日起位于信号线及零轴下方，抛物线 SAR 自 10月13日起看空（$1,815.63），RSI 为 36.9。"
   },
   {
-   "en": "For a second session the high stalled just under the $1,682–1,686 resistance (Oct 13 low, Oct 16 high), while the close stayed above the $1,619 Sep 3 low. Resistance is $1,663–1,686 (5-day average, Oct 16 high), then $1,725–1,749 (10, 30 and 100-day averages). Support is $1,619, then $1,594 (Oct 15 low) and $1,573–1,580 (Sep 14 low, 200-day). A close below $1,594 would open $1,573.",
-   "zh": "连续第二个交易日高点止步于 $1,682–1,686 阻力（10月13日低点、10月16日高点）下方，收盘仍守在 $1,619 的 9月3日低点之上。阻力为 $1,663–1,686（5 日均线、10月16日高点），其次 $1,725–1,749（10 日、30 日和 100 日均线）。支撑为 $1,619，其次 $1,594（10月15日低点）和 $1,573–1,580（9月14日低点、200 日均线）。若收盘跌破 $1,594，下一目标看 $1,573。"
+   "en": "The high slipped to $1,654, and the low briefly undercut the $1,619 Sep 3 low before the close recovered above it. Resistance is $1,645–1,654 (5-day average, Oct 20 high), then $1,682–1,686 (Oct 13 low, Oct 16 high) and $1,705–1,723. Support is $1,619, then $1,594 (Oct 15 low) and $1,573–1,582 (Sep 14 low, 200-day). A close below $1,594 would open $1,573.",
+   "zh": "当日高点降至 $1,654，盘中低点短暂跌破 $1,619 的 9月3日低点，随后收盘回到其上方。阻力为 $1,645–1,654（5 日均线、10月20日高点），其次 $1,682–1,686（10月13日低点、10月16日高点）和 $1,705–1,723。支撑为 $1,619，其次 $1,594（10月15日低点）和 $1,573–1,582（9月14日低点、200 日均线）。若收盘跌破 $1,594，下一目标看 $1,573。"
   }
  ],
  "levels": {
   "r": [
    [
+    1650,
+    {
+     "en": "5-day average ($1,645.4); Oct 20 high $1,654",
+     "zh": "5日均线（$1,645.4）；10月20日高点 $1,654"
+    }
+   ],
+   [
     1684,
     {
-     "en": "5-day average ($1,662.8) up to the Oct 13 low and Oct 16 high ($1,682–1,686)",
-     "zh": "5日均线（$1,662.8）至10月13日低点和10月16日高点（$1,682–1,686）"
+     "en": "Oct 13 low and Oct 16 high ($1,682–1,686)",
+     "zh": "10月13日低点及10月16日高点（$1,682–1,686）"
     }
    ],
    [
-    1740,
+    1714,
     {
-     "en": "10, 30 and 100-day averages ($1,725–1,749)",
-     "zh": "10日、30日和100日均线（$1,725–1,749）"
-    }
-   ],
-   [
-    1830,
-    {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "10 and 30-day averages ($1,705–1,723)",
+     "zh": "10日和30日均线（$1,705–1,723）"
     }
    ]
   ],
@@ -43,8 +43,8 @@
    [
     1619,
     {
-     "en": "Sep 3 low",
-     "zh": "9月3日低点"
+     "en": "Sep 3 low; Oct 20 low $1,613.5",
+     "zh": "9月3日低点；10月20日低点 $1,613.5"
     }
    ],
    [
@@ -55,10 +55,10 @@
     }
    ],
    [
-    1576,
+    1578,
     {
-     "en": "Sep 14 low and 200-day average ($1,572.8–1,580.1)",
-     "zh": "9月14日低点及200日均线（$1,572.8–1,580.1）"
+     "en": "Sep 14 low and 200-day average ($1,572.8–1,582.4)",
+     "zh": "9月14日低点及200日均线（$1,572.8–1,582.4）"
     }
    ]
   ]

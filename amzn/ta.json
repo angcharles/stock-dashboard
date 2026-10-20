@@ -1,18 +1,18 @@
 {
- "asof": "Oct 19, 2026",
- "close": 262.45,
+ "asof": "Oct 20, 2026",
+ "close": 262.63,
  "bias": {
-  "en": "Turning bullish · testing the Oct 12 high",
-  "zh": "转多 · 测试 10月12日高点"
+  "en": "Turning bullish · pressing the Oct 12 high",
+  "zh": "转为偏多 · 挑战 10 月 12 日高点"
  },
  "read": [
   {
-   "en": "Amazon jumped 5.0% on Oct 19 to $262.45 on heavy volume, closing near the day's high of $263.71. It reclaimed the 5-day ($256.0), 10-day ($257.2), falling 30-day ($253.3) and falling 100-day ($252.2) averages and is above the rising 200-day ($242.9). MACD has been above its signal since Oct 5 and above zero, with the histogram widening again, Parabolic SAR flipped bullish on Oct 19 ($248.6), and RSI is 57.3.",
-   "zh": "亚马逊 10月19日放量大涨 5.0%，收于 $262.45，接近当日高点 $263.71。股价收复 5 日（$256.0）、10 日（$257.2）、下行的 30 日（$253.3）和下行的 100 日均线（$252.2），并位于上行的 200 日均线（$242.9）上方。MACD 自 10月5日起位于信号线及零轴上方，柱状图重新扩大，抛物线 SAR 于 10月19日转为看多（$248.6），RSI 为 57.3。"
+   "en": "Amazon edged up 0.1% on Oct 20 to $262.63, holding the previous day's 5.0% jump, between $260.42 and $265.34. It is above the 5-day ($256.8), rising 10-day ($257.8), falling 30-day ($253.5) and 100-day ($252.1) and rising 200-day ($243.1) averages. MACD has been above its signal since Oct 5 and above zero, with the histogram widening; Parabolic SAR has been bullish since Oct 19 ($248.6), and RSI is 57.",
+   "zh": "亚马逊 10月20日微涨 0.1%，收于 $262.63，守住前一日 5.0% 的涨幅，盘中区间 $260.42–265.34。股价位于 5 日（$256.8）、上行的 10 日（$257.8）、下行的 30 日（$253.5）和 100 日（$252.1）及上行的 200 日均线（$243.1）上方。MACD 自 10月5日起位于信号线及零轴上方，柱状图扩大；抛物线 SAR 自 10月19日起看多（$248.6），RSI 为 57。"
   },
   {
-   "en": "The $252.7 and $256 resistances from the previous read both broke and now act as support; the high stopped at the $263.7 Oct 12 high. Resistance is $263.7, then $267.6 (Aug 28 high) and $278.6 (May 5 high). Support is $256–257 (5 and 10-day), then $252–253 (30 and 100-day) and $248.6 (Oct 15–16 lows, SAR). A close above $263.7 would open $267.6.",
-   "zh": "上一期提到的 $252.7 和 $256 阻力均被突破，现转为支撑；当日高点止步于 $263.7 的 10月12日高点。阻力为 $263.7，其次 $267.6（8月28日高点）和 $278.6（5月5日高点）。支撑为 $256–257（5 日和 10 日均线），其次 $252–253（30 日和 100 日均线）和 $248.6（10月15–16日低点、SAR）。若收盘站上 $263.7，可看向 $267.6。"
+   "en": "The high pushed above the $263.7 Oct 12 high, but the close stayed just under it, so no level changed. Resistance is $263.7–265.3, then $267.6 (Aug 28 high) and $278.6 (May 5 high). Support is $256.8–257.8 (5 and 10-day), then $252–253.5 (30 and 100-day) and $248.6 (Oct 15–16 lows, SAR). A close above $265.3 would open $267.6, then $278.6.",
+   "zh": "盘中高点突破 $263.7 的 10月12日高点，但收盘仍略低于该位，关键位未变。阻力为 $263.7–265.3，其次 $267.6（8月28日高点）和 $278.6（5月5日高点）。支撑为 $256.8–257.8（5 日与 10 日均线），其次 $252–253.5（30 日与 100 日均线）和 $248.6（10月15–16日低点、SAR）。若收盘站上 $265.3，下一目标看 $267.6，再看 $278.6。"
   }
  ],
  "levels": {
@@ -20,8 +20,8 @@
    [
     263.7,
     {
-     "en": "Oct 12 high, top of the Sep–Oct range",
-     "zh": "10月12日高点，9–10月区间上沿"
+     "en": "Oct 12 high; Oct 20 high $265.3",
+     "zh": "10月12日高点；10月20日高点 $265.3"
     }
    ],
    [
@@ -41,17 +41,17 @@
   ],
   "s": [
    [
-    256.6,
+    257,
     {
-     "en": "5 and 10-day averages ($256.0–257.2)",
-     "zh": "5日和10日均线（$256.0–257.2）"
+     "en": "5 and 10-day averages ($256.8–257.8)",
+     "zh": "5日和10日均线（$256.8–257.8）"
     }
    ],
    [
     252.7,
     {
-     "en": "30 and 100-day averages ($252.2–253.3), now support",
-     "zh": "30日和100日均线（$252.2–253.3），现为支撑"
+     "en": "30 and 100-day averages ($252.1–253.5)",
+     "zh": "30日和100日均线（$252.1–253.5）"
     }
    ],
    [

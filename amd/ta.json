@@ -1,27 +1,27 @@
 {
- "asof": "Oct 19, 2026",
- "close": 538.05,
+ "asof": "Oct 20, 2026",
+ "close": 534.74,
  "bias": {
-  "en": "Uptrend under pressure · holding the 100-day average",
-  "zh": "上升趋势承压 · 守住 100 日均线"
+  "en": "Uptrend under pressure · MACD below zero, 100-day holds",
+  "zh": "上升趋势承压 · MACD 跌破零轴，100 日均线守住"
  },
  "read": [
   {
-   "en": "AMD rose 1.8% on Oct 19 to $538.05, ending a three-day decline. It is below the falling 5-day ($561.1) and 10-day ($592.4) averages and the rising 30-day ($580.3), but above the rising 100-day ($526.2) and 200-day ($395.9). MACD has been below its signal since Oct 9 and is still above zero with a widening gap, Parabolic SAR has been bearish since Oct 8 ($610.7), and RSI is 40.5.",
-   "zh": "AMD 10月19日上涨 1.8%，收于 $538.05，结束连续三日下跌。股价位于下行的 5 日（$561.1）和 10 日均线（$592.4）以及上行的 30 日均线（$580.3）下方，但位于上行的 100 日（$526.2）和 200 日均线（$395.9）上方。MACD 自 10月9日起位于信号线下方，仍在零轴之上，且差距扩大，抛物线 SAR 自 10月8日起看空（$610.7），RSI 为 40.5。"
+   "en": "AMD slipped 0.6% on Oct 20 to $534.74, trading between $524.60 and $548.11. It is below the falling 5-day ($546.9) and 10-day ($580.9) averages and the rising 30-day ($581.2), but above the rising 100-day ($526.3) and 200-day ($397.4). MACD has been below its signal since Oct 9 and has now dropped below zero; Parabolic SAR has been bearish since Oct 8 ($598.92), and RSI is 39.8.",
+   "zh": "AMD 10月20日下跌 0.6%，收于 $534.74，盘中区间 $524.60–548.11。股价位于下行的 5 日（$546.9）和 10 日均线（$580.9）及上行的 30 日均线（$581.2）下方，但仍在上行的 100 日（$526.3）和 200 日均线（$397.4）上方。MACD 自 10月9日起位于信号线下方，目前已跌破零轴；抛物线 SAR 自 10月8日起看空（$598.92），RSI 为 39.8。"
   },
   {
-   "en": "The close reclaimed the $530 Oct 15 low, and the 100-day average zone ($526–527) held for a second session. Resistance is $554–561 (Oct 19 high, 5-day average), then $567–571 (Oct 14 low and close) and $580 (30-day). Support is $526–530 (100-day average, Oct 15–16 lows), then $495–498 (late-June and early-July lows). A close below $526 would open $497; a close above $561 would target $570–580.",
-   "zh": "收盘收复 $530 的 10月15日低点，100 日均线区域（$526–527）连续第二个交易日守住。阻力为 $554–561（10月19日高点、5 日均线），其次 $567–571（10月14日低点和收盘价）和 $580（30 日均线）。支撑为 $526–530（100 日均线、10月15–16日低点），其次 $495–498（6月下旬和 7月初低点）。若收盘跌破 $526，下一目标看 $497；若收盘站上 $561，可看向 $570–580。"
+   "en": "The low dipped under the 100-day average, but the close held above it for a third session. Resistance is $547–548 (5-day average, Oct 20 high), then $567–571 (Oct 14 low and close) and $581 (10 and 30-day). Support is $524.6–526.3 (Oct 20 low, 100-day), then $495–498 and $480. A close below $524.6 would open $497; a close above $548 would target $570.",
+   "zh": "盘中低点一度跌破 100 日均线，但收盘连续第三个交易日守在其上方。阻力为 $547–548（5 日均线、10月20日高点），其次 $567–571（10月14日低点和收盘价）和 $581（10 日与 30 日均线）。支撑为 $524.6–526.3（10月20日低点、100 日均线），其次 $495–498 和 $480。若收盘跌破 $524.6，下一目标看 $497；若收盘站上 $548，下一目标看 $570。"
   }
  ],
  "levels": {
   "r": [
    [
-    557,
+    547,
     {
-     "en": "Oct 19 high and 5-day average ($554.4–561.1)",
-     "zh": "10月19日高点及5日均线（$554.4–561.1）"
+     "en": "5-day average ($546.9); Oct 20 high $548.1",
+     "zh": "5日均线（$546.9）；10月20日高点 $548.1"
     }
    ],
    [
@@ -32,19 +32,19 @@
     }
    ],
    [
-    580,
+    581,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "10 and 30-day averages ($580.9–581.2)",
+     "zh": "10日和30日均线（$580.9–581.2）"
     }
    ]
   ],
   "s": [
    [
-    527,
+    526,
     {
-     "en": "100-day average ($526.2) and Oct 15–16 lows ($526.8–530.1)",
-     "zh": "100日均线（$526.2）及10月15–16日低点（$526.8–530.1）"
+     "en": "100-day average ($526.3); Oct 20 low $524.6",
+     "zh": "100日均线（$526.3）；10月20日低点 $524.6"
     }
    ],
    [

@@ -1,27 +1,34 @@
 {
- "asof": "Oct 19, 2026",
- "close": 194.15,
+ "asof": "Oct 20, 2026",
+ "close": 192.6,
  "bias": {
-  "en": "Uptrend, momentum fading · back above the 30-day average",
-  "zh": "上升趋势，动能减弱 · 重回 30 日均线上方"
+  "en": "Uptrend, momentum fading · holding above the 30-day average",
+  "zh": "上升趋势，动能减弱 · 守在 30 日均线上方"
  },
  "read": [
   {
-   "en": "Palantir rose 4.4% on Oct 19 to $194.15, rebounding from $186.15 to a high of $196.99. It is above the rising 30-day ($187.1), 100-day ($157.8) and 200-day ($152.7) averages and below the falling 5-day ($198.1) and rising 10-day ($199.3). MACD has been below its signal since Oct 16 and is above zero with a widening histogram, Parabolic SAR has been bearish since Oct 15 ($211.41), and RSI is 54.",
-   "zh": "Palantir 10月19日上涨 4.4%，收于 $194.15，自 $186.15 反弹至高点 $196.99。股价位于上行的 30 日（$187.1）、100 日（$157.8）和 200 日均线（$152.7）上方，位于下行的 5 日（$198.1）和上行的 10 日均线（$199.3）下方。MACD 自 10月16日起位于信号线下方，仍在零轴之上，柱状图扩大，抛物线 SAR 自 10月15日起看空（$211.41），RSI 为 54。"
+   "en": "Palantir slipped 0.8% on Oct 20 to $192.60 on light volume, trading between $189.42 and $196.11. It is above the rising 30-day ($187.8), 100-day ($158.3) and 200-day ($152.9) averages and below the falling 5-day ($194.9) and rising 10-day ($199.4). MACD has been below its signal since Oct 16 and is above zero with a widening histogram, Parabolic SAR has been bearish since Oct 15 ($210.33), and RSI is 52.",
+   "zh": "Palantir 10月20日下跌 0.8%，收于 $192.60，成交清淡，盘中区间 $189.42–196.11。股价位于上行的 30 日（$187.8）、100 日（$158.3）和 200 日均线（$152.9）上方，低于下行的 5 日（$194.9）和上行的 10 日均线（$199.4）。MACD 自 10月16日起位于信号线下方，仍在零轴之上，柱状图扩大；抛物线 SAR 自 10月15日起看空（$210.33），RSI 为 52。"
   },
   {
-   "en": "The close reclaimed the 30-day average and the $192.6 Oct 15 low, both lost on Oct 16. Resistance is $197–199.3 (Oct 19 high, 5 and 10-day averages), then $203.6 (Oct 16 high) and $211.4–212.9 (SAR, Oct 12 record high). Support is $192.6 (Oct 15 low), then $186–187 (30-day, Oct 19 low) and $184.5 (Oct 16 low). A close above $199.3 would open $203.6.",
-   "zh": "收盘收复 10月16日失守的 30 日均线和 10月15日低点 $192.6。阻力为 $197–199.3（10月19日高点、5 日和 10 日均线），其次 $203.6（10月16日高点）和 $211.4–212.9（SAR、10月12日纪录高点）。支撑为 $192.6（10月15日低点），其次 $186–187（30 日均线、10月19日低点）和 $184.5（10月16日低点）。若收盘站上 $199.3，上方目标看 $203.6。"
+   "en": "The close sat on the $192.6 Oct 15 low reclaimed on Oct 19, and the low held above the 30-day. Resistance is $194.9–196.1 (5-day, Oct 20 high), then $197–199.4 (Oct 19 high, 10-day), then $203.6. Support is $189.4 (Oct 20 low), then $187.8 (30-day) and $184.5 (Oct 16 low). A close above $199.4 would open $203.6; a close below $187.8 would open $184.5.",
+   "zh": "股价收在 10月19日收复的 $192.6（10月15日低点）上，当日低点守在 30 日均线上方。阻力为 $194.9–196.1（5 日均线、10月20日高点），其次 $197–199.4（10月19日高点、10 日均线）和 $203.6（10月16日高点）。支撑为 $189.4（10月20日低点），其次 $187.8（30 日均线）和 $184.5（10月16日低点）。若收盘站上 $199.4，可看 $203.6；若收盘跌破 $187.8，下一目标看 $184.5。"
   }
  ],
  "levels": {
   "r": [
    [
-    198.5,
+    195.5,
     {
-     "en": "Oct 19 high $197; 5 and 10-day averages ($198.1–199.3)",
-     "zh": "10月19日高点 $197；5日和10日均线（$198.1–199.3）"
+     "en": "5-day average $194.9; Oct 20 high $196.1",
+     "zh": "5日均线 $194.9；10月20日高点 $196.1"
+    }
+   ],
+   [
+    199.4,
+    {
+     "en": "10-day average; Oct 19 high $197",
+     "zh": "10日均线；10月19日高点 $197"
     }
    ],
    [
@@ -30,28 +37,21 @@
      "en": "Oct 16 high",
      "zh": "10月16日高点"
     }
-   ],
-   [
-    212,
-    {
-     "en": "SAR $211.4; Oct 12 record high $212.9",
-     "zh": "抛物线SAR $211.4；10月12日纪录高点 $212.9"
-    }
    ]
   ],
   "s": [
    [
-    192.6,
+    189.4,
     {
-     "en": "Oct 15 low, reclaimed",
-     "zh": "10月15日低点，已收复"
+     "en": "Oct 20 low",
+     "zh": "10月20日低点"
     }
    ],
    [
-    187,
+    187.8,
     {
-     "en": "30-day average; Oct 19 low $186.2",
-     "zh": "30日均线；10月19日低点 $186.2"
+     "en": "30-day average",
+     "zh": "30日均线"
     }
    ],
    [

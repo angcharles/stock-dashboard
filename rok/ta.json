@@ -1,57 +1,57 @@
 {
- "asof": "Oct 19, 2026",
- "close": 424.47,
+ "asof": "Oct 20, 2026",
+ "close": 427.77,
  "bias": {
-  "en": "Bearish · slipped back under the 200-day",
-  "zh": "偏空 · 重新跌破 200 日均线"
+  "en": "Bearish · back above the 200-day",
+  "zh": "偏空 · 重回 200 日均线上方"
  },
  "read": [
   {
-   "en": "Rockwell Automation slipped 0.4% on Oct 19 to $424.47, trading between $423.64 and $431.71. It is just below the rising 200-day average ($425.9) and the falling 5-day ($425.7), and below the falling 30-day ($430.2), 10-day ($432.2) and 100-day ($448.0). MACD has been below its signal since Oct 13 and is below zero, Parabolic SAR has been bearish since Oct 8 ($451.00), and RSI is 43.",
-   "zh": "罗克韦尔自动化 10月19日下跌 0.4%，收于 $424.47，盘中区间 $423.64–431.71。股价略低于上行的 200 日均线（$425.9）和下行的 5 日均线（$425.7），并位于下行的 30 日（$430.2）、10 日（$432.2）和 100 日均线（$448.0）下方。MACD 自 10月13日起位于信号线及零轴下方，抛物线 SAR 自 10月8日起看空（$451.00），RSI 为 43。"
+   "en": "Rockwell Automation rose 0.8% on Oct 20 to $427.77, recovering from a low of $413.85 to $429.24. It is back above the falling 5-day ($424.8) and rising 200-day ($426.1) averages, but below the falling 10-day ($429.9), 30-day ($430.1) and 100-day ($447.7). MACD has been below its signal since Oct 13 and is below zero, its histogram narrowing, Parabolic SAR has been bearish since Oct 8 ($448.70), and RSI is 46.",
+   "zh": "罗克韦尔自动化 10月20日上涨 0.8%，收于 $427.77，自 $413.85 低点回升至 $429.24。股价重回下行的 5 日（$424.8）和上行的 200 日均线（$426.1）上方，但低于下行的 10 日（$429.9）、30 日（$430.1）和 100 日均线（$447.7）。MACD 自 10月13日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$448.70），RSI 为 46。"
   },
   {
-   "en": "The 200-day average reclaimed on Oct 16 was lost again on the close. Resistance is $425.7–425.9 (5 and 200-day averages), then $430–432 (30 and 10-day averages, Oct 19 high) and $448–451 (100-day average, SAR). Support is $419–421.5 (May 19 low, Oct 16 low), then $412.7 (Oct 15 low) and $406.9 (Sep 17 low). A close below $412.7 would open $406.9.",
-   "zh": "10月16日收复的 200 日均线于收盘再度失守。阻力为 $425.7–425.9（5 日和 200 日均线），其次 $430–432（30 日和 10 日均线、10月19日高点）和 $448–451（100 日均线、SAR）。支撑为 $419–421.5（5月19日低点、10月16日低点），其次 $412.7（10月15日低点）和 $406.9（9月17日低点）。若收盘跌破 $412.7，下一目标看 $406.9。"
+   "en": "After testing the $412.7 Oct 15 low, the close reclaimed the 200-day lost on Oct 19. Resistance is $429.2–430.1 (Oct 20 high, 10 and 30-day averages), then $436 (Sep 8, Oct 14 highs) and $447.7–448.7 (100-day, SAR). Support is $424.8–426.1 (5 and 200-day), then $412.7–413.9 (Oct 15, 20 lows) and $406.9. A close above $430.1 would open $436; a close below $412.7 would open $406.9.",
+   "zh": "盘中低点测试 $412.7 的 10月15日低点后，收盘收复 10月19日失守的 200 日均线。阻力为 $429.2–430.1（10月20日高点、10 日和 30 日均线），其次 $436（9月8日和 10月14日高点）和 $447.7–448.7（100 日均线、抛物线 SAR）。支撑为 $424.8–426.1（5 日和 200 日均线），其次 $412.7–413.9（10月15日和 20日低点）和 $406.9（9月17日低点）。若收盘站上 $430.1，可看 $436；若收盘跌破 $412.7，下一目标看 $406.9。"
   }
  ],
  "levels": {
   "r": [
    [
-    425.8,
+    430,
     {
-     "en": "5 and 200-day averages ($425.7–425.9), lost Oct 19",
-     "zh": "5日和200日均线（$425.7–425.9），10月19日失守"
+     "en": "10 and 30-day averages ($429.9–430.1); Oct 20 high $429.2",
+     "zh": "10日和30日均线（$429.9–430.1）；10月20日高点 $429.2"
     }
    ],
    [
-    431,
+    436,
     {
-     "en": "30 and 10-day averages ($430.2–432.2); Oct 19 high $431.7",
-     "zh": "30日和10日均线（$430.2–432.2）；10月19日高点 $431.7"
+     "en": "Sep 8 high; Oct 14 high $435.9",
+     "zh": "9月8日高点；10月14日高点 $435.9"
     }
    ],
    [
-    450,
+    448,
     {
-     "en": "100-day average and SAR ($448.0–451.0)",
-     "zh": "100日均线及抛物线SAR（$448.0–451.0）"
+     "en": "100-day average $447.7; SAR $448.7",
+     "zh": "100日均线 $447.7；抛物线SAR $448.7"
     }
    ]
   ],
   "s": [
    [
-    420,
+    425.5,
     {
-     "en": "May 19 low $418.8; Oct 16 low $421.5",
-     "zh": "5月19日低点 $418.8；10月16日低点 $421.5"
+     "en": "200 and 5-day averages ($424.8–426.1), reclaimed",
+     "zh": "200日和5日均线（$424.8–426.1），已收复"
     }
    ],
    [
-    412.7,
+    413,
     {
-     "en": "Oct 15 low",
-     "zh": "10月15日低点"
+     "en": "Oct 15 low $412.7; Oct 20 low $413.9",
+     "zh": "10月15日低点 $412.7；10月20日低点 $413.9"
     }
    ],
    [

@@ -1,45 +1,52 @@
 {
- "asof": "Oct 19, 2026",
- "close": 420.22,
+ "asof": "Oct 20, 2026",
+ "close": 425.08,
  "bias": {
-  "en": "Uptrend under pressure · bounced off the Sep 15 low",
-  "zh": "上升趋势承压 · 自 9月15日低点反弹"
+  "en": "Uptrend under pressure · back above the 5-day average",
+  "zh": "上升趋势承压 · 重回 5 日均线上方"
  },
  "read": [
   {
-   "en": "TSMC rose 1.8% on Oct 19 to $420.22, trading between $415.50 and $427.16. It is below the falling 5-day ($426.0), rising 100-day ($430.1), rising 30-day ($444.0) and 10-day ($444.0) averages, and above the rising 200-day ($395.6). MACD has been below its signal since Oct 9 and is below zero, with the histogram no longer widening; Parabolic SAR has been bearish since Oct 8 ($458.98), and RSI is 39.",
-   "zh": "台积电 10月19日上涨 1.8%，收于 $420.22，盘中区间 $415.50–427.16。股价位于下行的 5 日（$426.0）、上行的 100 日（$430.1）、上行的 30 日（$444.0）和 10 日均线（$444.0）下方，位于上行的 200 日均线（$395.6）上方。MACD 自 10月9日起位于信号线及零轴下方，柱状图不再扩大；抛物线 SAR 自 10月8日起看空（$458.98），RSI 为 39。"
+   "en": "TSMC rose 1.2% on Oct 20 to $425.08, trading between $416.12 and $428.21. It is above the falling 5-day ($422.0) and rising 200-day ($396.2) averages, and below the rising 100-day ($430.1), falling 10-day ($438.3) and falling 30-day ($443.5). MACD has been below its signal since Oct 9 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 8 ($452.76), and RSI is 42.",
+   "zh": "台积电 10月20日上涨 1.2%，收于 $425.08，盘中区间 $416.12–428.21。股价位于下行的 5 日（$422.0）和上行的 200 日均线（$396.2）上方，低于上行的 100 日（$430.1）、下行的 10 日（$438.3）和下行的 30 日均线（$443.5）。MACD 自 10月9日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$452.76），RSI 为 42。"
   },
   {
-   "en": "The close held above the $412.5 Sep 15 low for a third session, but stayed under the 5-day average. Resistance is $426–430 (5 and 100-day averages, the day's high $427.2), then $444 (30 and 10-day averages, Sep 8 high) and $459 (SAR). Support is $412.5, then $405–408 (Aug 24, Sep 3 and Oct 15 lows) and $395.6 (200-day). A close above $430 would target $444.",
-   "zh": "收盘连续第三个交易日守在 $412.5 的 9月15日低点上方，但仍低于 5 日均线。阻力为 $426–430（5 日和 100 日均线、当日高点 $427.2），其次 $444（30 日和 10 日均线、9月8日高点）和 $459（SAR）。支撑为 $412.5，其次 $405–408（8月24日、9月3日和 10月15日低点）和 $395.6（200 日均线）。若收盘站上 $430，下一目标看 $444。"
+   "en": "The close reclaimed the 5-day average, but the high stopped short of the 100-day. Resistance is $428–430 (day's high, 100-day), then $438.3 (10-day) and $444 (30-day, Sep 8 high). Support is $422 (5-day), then $412.5 (Sep 15 low) and $405–408 (Aug 24, Sep 3 and Oct 15 lows). A close above $430 would target $444; a close below $412.5 would open $405.",
+   "zh": "收盘收复 5 日均线，但盘中高点未能触及 100 日均线。阻力为 $428–430（当日高点、100 日均线），其次 $438.3（10 日均线）和 $444（30 日均线、9月8日高点）。支撑为 $422（5 日均线），其次 $412.5（9月15日低点）和 $405–408（8月24日、9月3日和 10月15日低点）。若收盘站上 $430，下一目标看 $444；若收盘跌破 $412.5，下一目标看 $405。"
   }
  ],
  "levels": {
   "r": [
    [
-    428,
+    430,
     {
-     "en": "5 and 100-day averages ($426.0–430.1)",
-     "zh": "5日和100日均线（$426.0–430.1）"
+     "en": "100-day average $430.1; Oct 20 high $428.2",
+     "zh": "100日均线 $430.1；10月20日高点 $428.2"
+    }
+   ],
+   [
+    438.3,
+    {
+     "en": "10-day average",
+     "zh": "10日均线"
     }
    ],
    [
     444,
     {
-     "en": "30 and 10-day averages ($444.0); Sep 8 high $444.3",
-     "zh": "30日和10日均线（$444.0）；9月8日高点 $444.3"
-    }
-   ],
-   [
-    459,
-    {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "30-day average $443.5; Sep 8 high $444.3",
+     "zh": "30日均线 $443.5；9月8日高点 $444.3"
     }
    ]
   ],
   "s": [
+   [
+    422,
+    {
+     "en": "5-day average, reclaimed",
+     "zh": "5日均线，已收复"
+    }
+   ],
    [
     412.5,
     {
@@ -51,14 +58,7 @@
     406,
     {
      "en": "Aug 24 and Sep 3 lows ($405–408); Oct 15 low $407.1",
-     "zh": "8月24日及9月3日低点（$405–408）；10月15日低点 $407.1"
-    }
-   ],
-   [
-    395.6,
-    {
-     "en": "200-day average",
-     "zh": "200日均线"
+     "zh": "8月24日和9月3日低点（$405–408）；10月15日低点 $407.1"
     }
    ]
   ]

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 19, 2026",
- "close": 132.74,
+ "asof": "Oct 20, 2026",
+ "close": 132.26,
  "bias": {
-  "en": "Bearish · stuck under the Oct 15 low",
-  "zh": "偏空 · 受制于 10月15日低点"
+  "en": "Bearish · capped under the Oct 15 low",
+  "zh": "偏空 · 受制于 10月15日低点下方"
  },
  "read": [
   {
-   "en": "Corning rose 0.6% on Oct 19 to $132.74 after fading from a high of $137.24. It is below all its averages: the falling 5-day ($138.5), 10-day ($148.2) and 30-day ($153.6), the rising 200-day ($153.9) and the falling 100-day ($166.5). MACD has been below its signal since Oct 12 and is below zero with the histogram widening, Parabolic SAR has been bearish since Oct 12 ($161.2), and RSI is 36.6.",
-   "zh": "康宁 10月19日上涨 0.6%，收于 $132.74，盘中自高点 $137.24 回落。股价位于全部均线下方：下行的 5 日（$138.5）、10 日（$148.2）和 30 日均线（$153.6）、上行的 200 日均线（$153.9）以及下行的 100 日均线（$166.5）。MACD 自 10月12日起位于信号线及零轴下方，柱状图扩大，抛物线 SAR 自 10月12日起看空（$161.2），RSI 为 36.6。"
+   "en": "Corning slipped 0.4% on Oct 20 to $132.26 after a low of $127.56. It is below all its averages: the falling 5-day ($135.3), 10-day ($144.5) and 30-day ($152.4), the rising 200-day ($154.1) and the falling 100-day ($165.9). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing slightly; Parabolic SAR has been bearish since Oct 12 ($157.51), and RSI is 36.",
+   "zh": "康宁 10月20日下跌 0.4%，收于 $132.26，盘中低点 $127.56。股价位于所有均线下方：下行的 5 日（$135.3）、10 日（$144.5）和 30 日（$152.4），上行的 200 日（$154.1）及下行的 100 日均线（$165.9）。MACD 自 10月12日起位于信号线及零轴下方，柱状图略有收窄；抛物线 SAR 自 10月12日起看空（$157.51），RSI 为 36。"
   },
   {
-   "en": "The close sat a cent under the $132.75 Oct 15 low, so it was not reclaimed. Resistance is $132.75, then $138.5 (5-day average, Oct 19 high $137.2) and $141.6 (Aug 24 low). Support is $130 (Jul 30 low), then $122.6 (Jul 29 low) and $114.5 (Jul 28 low). A close below $130 would open $122.6; a close above $138.5 would target $141.6.",
-   "zh": "收盘较 $132.75 的 10月15日低点仅低 1 美分，未能收复。阻力为 $132.75，其次 $138.5（5 日均线，10月19日高点 $137.2）和 $141.6（8月24日低点）。支撑为 $130（7月30日低点），其次 $122.6（7月29日低点）和 $114.5（7月28日低点）。若收盘跌破 $130，下一目标看 $122.6；若收盘站上 $138.5，则看向 $141.6。"
+   "en": "The low broke the $130 Jul 30 support intraday, but the close recovered above it while staying under the $132.75 Oct 15 low. Resistance is $132.75, then $135.3 (5-day average) and $141.6 (Aug 24 low). Support is $130, then $127.6 (Oct 20 low) and $122.6 (Jul 29 low). A close below $127.6 would open $122.6; a close above $135.3 would target $141.6.",
+   "zh": "盘中低点跌破 $130 的 7月30日支撑，但收盘回到其上方，但仍收在 $132.75 的 10月15日低点下方。阻力为 $132.75，其次 $135.3（5 日均线）和 $141.6（8月24日低点）。支撑为 $130，其次 $127.6（10月20日低点）和 $122.6（7月29日低点）。若收盘跌破 $127.6，下一目标看 $122.6；若收盘站上 $135.3，下一目标看 $141.6。"
   }
  ],
  "levels": {
@@ -21,14 +21,14 @@
     132.75,
     {
      "en": "Oct 15 low, now resistance",
-     "zh": "10月15日低点，现为阻力"
+     "zh": "10月15日低点，转为阻力"
     }
    ],
    [
-    138.5,
+    135.3,
     {
-     "en": "5-day average; Oct 19 high $137.2",
-     "zh": "5日均线；10月19日高点 $137.2"
+     "en": "5-day average; Oct 19 high $137.4",
+     "zh": "5日均线；10月19日高点 $137.4"
     }
    ],
    [
@@ -43,8 +43,15 @@
    [
     130,
     {
-     "en": "Jul 30 low; Oct 16 low $131.6",
-     "zh": "7月30日低点；10月16日低点 $131.6"
+     "en": "Jul 30 low, held on the close",
+     "zh": "7月30日低点，收盘守住"
+    }
+   ],
+   [
+    127.6,
+    {
+     "en": "Oct 20 low",
+     "zh": "10月20日低点"
     }
    ],
    [
@@ -52,13 +59,6 @@
     {
      "en": "Jul 29 low",
      "zh": "7月29日低点"
-    }
-   ],
-   [
-    114.5,
-    {
-     "en": "Jul 28 low",
-     "zh": "7月28日低点"
     }
    ]
   ]
