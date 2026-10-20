@@ -107,7 +107,7 @@ jobs:
       - name: Fetch FX rates
         run: |
           node scripts/fetch-fx.mjs || echo "fx fetch failed; using the committed file"
-          node scripts/fetch-fwd.mjs || echo "USD/IDR forwards fetch failed; using the committed file"
+          node scripts/fetch-fwd.mjs || echo "NDF forwards fetch failed; using the committed file"
           node scripts/fetch-news.mjs fx || echo "fx news failed"
 
       - name: Fetch government bond curves (AI debt yields)

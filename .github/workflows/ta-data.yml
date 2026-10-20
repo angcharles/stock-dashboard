@@ -87,10 +87,10 @@ jobs:
           SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
         run: python3 scripts/build-portfolios.py pf-data
 
-      - name: Save the USD/IDR forward curve at the New York close (FX tab history)
+      - name: Save the NDF forward curves at the New York close (FX tab history)
         run: |
           node scripts/fetch-fx.mjs || echo "fx fetch failed"
-          FWD_CLOSE=1 node scripts/fetch-fwd.mjs || echo "USD/IDR forwards fetch failed"
+          FWD_CLOSE=1 node scripts/fetch-fwd.mjs || echo "NDF forwards fetch failed"
 
       - name: Commit if changed
         run: |
