@@ -162,7 +162,7 @@
     svg.innerHTML = "";
     if (!data || !data.rows || !data.rows.length) {
       ["#fwdTab", "#fwdRead", "#fwdLeg", "#fwdCmp"].forEach((s) => { root.querySelector(s).innerHTML = ""; });
-      root.querySelector("#fwdNote").textContent = `No ${p.label} forward quotes yet — they appear after the next refresh of the FX rates.`;
+      root.querySelector("#fwdNote").textContent = `No usable ${p.label} forward quotes right now: the free sources either show a placeholder curve or block the server that refreshes this page. It fills in by itself once a source returns a valid curve; the other pairs are unaffected.`;
       return;
     }
     const C = col();
@@ -180,7 +180,12 @@
   }
 
   // the file used to hold USD/IDR only, at the top level
-  function pick() { const P = all && (all.pairs || (all.rows ? { usdidr: all } : null)); data = P ? P[cur] || null : null; }
+  function pick() {
+    const P = all && (all.pairs || (all.rows ? { usdidr: all } : null)); data = P ? P[cur] || null : null;
+    // flag pairs with no curve in the drop-down
+    sel.querySelectorAll("option").forEach((o) => { const ok = P && P[o.value] && P[o.value].rows && P[o.value].rows.length;
+      o.textContent = `${PAIRS[o.value].label} NDF${ok ? "" : " (no data)"}`; });
+  }
   async function load() {
     try { const r = await fetch(SRC + "?t=" + Date.now(), { cache: "no-store" }); if (r.ok) { const j = await r.json(); if (j && (j.pairs || j.rows)) { all = j; pick(); root.hidden = false; draw(); } } } catch (e) {}
   }
