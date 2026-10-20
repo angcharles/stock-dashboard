@@ -1,29 +1,29 @@
 {
- "session": "2026-10-19",
- "asof": "Mon Oct 19, 2026",
- "tone": "up",
- "headline": "Oversold chips bounce and Amazon jumps 5%, lifting the Nasdaq 1.1% while most stocks fall",
- "summary": "A narrow, tech-only rebound. The Nasdaq opened about 1% higher and held the gain all day, while the S&P 500 peaked near 7,731 before fading into the close. Under the surface most stocks fell: NYSE decliners beat advancers about 1.7 to 1, seven of 11 S&P sectors closed lower, and the Dow slipped after swinging around unchanged.",
+ "session": "2026-10-20",
+ "asof": "Tue Oct 20, 2026",
+ "tone": "mixed",
+ "headline": "Oil retreat and earnings beats lift the Dow 1% and small caps 1.8%; Nasdaq flat as AI lags",
+ "summary": "A broad rotation day. Stocks opened lower as AI shares slid after a 3.7% drop in Korea's Kospi and Brent neared $112, then turned up within the first hour as oil reversed and the Dow added about 600 points by mid-morning. More than 400 S&P 500 stocks rose and eight of 11 sectors gained, led by record-high healthcare, while technology, communication services and energy fell and late selling left the Nasdaq a hair lower.",
  "stats": [
-  ["S&P 500", "7,690.73", 0.41],
-  ["Nasdaq", "26,430.89", 1.11],
-  ["Dow", "51,966.03", -0.07],
-  ["Russell 2000", "2,728.30", 0.25],
-  ["SOX (chips)", "11,316.34", 1.61],
-  ["US 10Y", "5.14%", "+4bp"],
-  ["WTI crude", "$103.66", 2.22]
+  ["S&P 500", "7,712.57", 0.28],
+  ["Nasdaq", "26,424.82", -0.02],
+  ["Dow", "52,495.88", 1.02],
+  ["Russell 2000", "2,776.15", 1.75],
+  ["VIX", "17.47", -5.26, true],
+  ["US 10Y", "5.11%", "−3bp"],
+  ["WTI crude", "$97.82", -0.73]
  ],
  "drivers": [
-  ["Chips snap a record losing run", "The SOX rose 1.6%, ending an eight-day slide of about 15.7%, its longest since 2008, as bargain hunters returned after the heaviest hedge-fund tech selling on Goldman's records. Intel +2.4% on a JPMorgan upgrade to neutral; Nvidia gained about 2%, and memory names (Micron, Sandisk) led early gains."],
-  ["Amazon and Tesla carry consumer stocks", "Amazon rose 5% after Morgan Stanley named it a top pick and Tesla added 3.8% ahead of Wednesday's results, so consumer discretionary (+2.7%) was the best sector. Cleveland-Cliffs jumped 16% on a third-quarter profit beat."],
-  ["AI credit still unsettled", "CoreWeave gave back an early pop from a Goldman upgrade to buy and closed down 0.4% after last week's 25% drop on its roughly $50B debt load; Nebius (+2.9%) and IREN (+2.7%) did better. Traders called the day an oversold bounce rather than a change in the AI-financing worries."],
-  ["Higher yields hit defensives", "The 10-year yield rose about 4bp to 5.14% as global bond yields climbed with protests in France and Italy, and homebuilder confidence fell to 29, a 14-year low. Utilities (−2%) and real estate (−1.2%) were the worst sectors; JPMorgan, Visa and Sherwin-Williams weighed on the Dow."]
+  ["Oil reverses from a five-month high", "Brent hit nearly $112 on Gulf shipping attacks and Houthi strikes on Saudi Arabia, then fell 0.7% to $108.79 on signs of continuing US-Iran talks and eased Russia sanctions; December WTI settled 0.7% lower at $97.82. Airlines rallied (American +3.7%, United +2.3%) and the 10-year yield slipped about 3bp to 5.11%."],
+  ["Earnings beats drive the Dow", "3M rose 5.8% after beating and raising its outlook, Equifax jumped 11.3%, Hasbro 11.2% and Northrop Grumman more than 4%. GM fell 6.8% despite a beat and a $20B buyback, as its full-year profit range disappointed on about $2B of raw-material costs."],
+  ["Rotation into healthcare and value", "Healthcare rose about 2.4% to a record, with Eli Lilly up about 4% as the biggest boost to the S&P 500 and gains in UnitedHealth, Merck, J&J and Amgen. Real estate (+1.7%), utilities and financials (+1.2% each) also gained; Braze soared 52% on a $47.50-a-share Salesforce bid."],
+  ["AI and Big Tech still lag", "Chips sank to their lowest since early August at the open before bargain buyers cut the losses, but equipment makers (Lam, KLA, Applied) stayed weak and tech ended down 0.3%. Meta fell about 2% and Apple and Alphabet also slipped; CoreWeave swung from −6% to +5% and closed up 1.7% while its default-swap spread topped 1,100bp."]
  ],
- "week": "Week so far: Nasdaq +1.1%, S&P 500 +0.4%, Dow −0.1%, a partial bounce after last week's 4.5% Nasdaq drop. Oil stayed volatile: the expiring November WTI contract rose 2.2% on renewed Houthi attacks on Saudi facilities, while the December contract slipped 0.5% after the US waived some Russia sanctions.",
- "watch": "Next: SpaceX reports Tuesday, Meta and Tesla on Wednesday, with Lam Research and Texas Instruments later in the week; the Fed meets next week with September CPI at 3.7%.",
+ "week": "Week so far: Russell 2000 +1.9%, Nasdaq +1.1%, Dow +0.9%, S&P 500 +0.7%, as leadership shifts from Monday's tech bounce to the broader market. November WTI expired Tuesday at $101.79 (−1.8%), so the oil row now tracks December; the 10-year yield remains above 5% with Brent stuck in a $97–112 range this month.",
+ "watch": "Next: SpaceX beat forecasts after the close with revenue up 161% while Netflix fell after hours; Meta and Tesla report Wednesday and Lam Research this week, with the Fed meeting next week.",
  "sources": [
-  ["AP", "https://wtop.com/national/2026/10/how-major-us-stock-indexes-fared-monday-10-19-2026"],
-  ["Reuters / Straits Times", "https://www.straitstimes.com/business/companies-markets/nasdaq-climbs-as-us-chip-and-ai-linked-stocks-bounce-back"],
-  ["Yahoo Finance", "https://finance.yahoo.com/markets/stocks/articles/stock-market-midday-oct-19-163749088.html"]
+  ["AP", "https://apnews.com/article/wall-street-stocks-dow-nasdaq-0a5ea168499c6ae617c49e10bf48f9c6"],
+  ["Reuters / Straits Times", "https://straitstimes.com/business/companies-markets/dow-leads-wall-street-higher-investors-focus-on-health-care-stocks"],
+  ["ChosunBiz", "https://biz.chosun.com/en/en-international/2026/10/21/VLOFLBSZNNA47EXZYJUPJVQNUY"]
  ]
 }
