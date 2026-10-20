@@ -22,6 +22,8 @@ def t(o, lang="en"):
 
 def build(spec_path):
     S = json.loads(pathlib.Path(spec_path).read_text())
+    import hashlib
+    fcf_ver = hashlib.sha1(json.dumps(S.get('fcf'), sort_keys=True).encode()).hexdigest()[:8]  # cache-bust when FCF data changes
     d = S["dir"]
     out = ROOT / d
     (out / "data").mkdir(parents=True, exist_ok=True)
@@ -217,7 +219,7 @@ let P = {{d:[],c:[]}};
 const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 </script>
 <script src="../assets/stock-page.js?v=1"></script>
-<script src="fcf-data.js?v=1"></script>
+<script src="fcf-data.js?v={fcf_ver}"></script>
 <script src="../assets/fcf.js?v=4"></script>
 <script src="../assets/news.js?v=2"></script>
 <script src="../assets/technicals.js?v=1"></script>
