@@ -46,10 +46,10 @@
   }
  },
  "earnings": {
-  "v": "Late Oct",
+  "v": "Oct 28",
   "s": {
-   "en": "Q3 2026 · date not yet announced",
-   "zh": "2026 第三季 · 日期未公布"
+   "en": "Q3 2026 · Oct 28, before the Seoul open",
+   "zh": "2026 第三季 · 10月28日首尔开盘前"
   }
  },
  "sub_price": {
@@ -198,14 +198,14 @@
  ],
  "calendar": [
   {
-   "date": "Late Oct 2026",
+   "date": "Oct 28, 2026",
    "h": {
     "en": "Q3 2026 earnings",
     "zh": "2026 第三季财报"
    },
    "p": {
-    "en": "DRAM bit shipments were guided up about 10% sequentially, NAND up low single digits; HBM4 ramp is the key variable.",
-    "zh": "DRAM 出货量指引环比增约 10%，NAND 增幅为低个位数；HBM4 放量为关键变量。"
+    "en": "Call 9am Seoul (8am SGT). DRAM bit shipments were guided up about 10% sequentially, NAND up low single digits; HBM4 ramp is the key variable.",
+    "zh": "电话会议首尔时间上午9点（新加坡时间上午8点）。DRAM 出货量指引环比增约 10%，NAND 增幅为低个位数；HBM4 放量为关键变量。"
    }
   },
   {

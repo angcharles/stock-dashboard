@@ -46,10 +46,10 @@
   }
  },
  "earnings": {
-  "v": "Late Oct",
+  "v": "Oct 27",
   "s": {
-   "en": "Q3 2026 and Q4 guide · date not yet announced",
-   "zh": "2026 第三季及 Q4 指引 · 日期未公布"
+   "en": "Q3 2026 and Q4 guide · after the close",
+   "zh": "2026 第三季及 Q4 指引 · 美股收盘后"
   }
  },
  "sub_price": {
@@ -198,14 +198,14 @@
  ],
  "calendar": [
   {
-   "date": "Late Oct 2026",
+   "date": "Oct 27, 2026",
    "h": {
     "en": "Q3 2026 earnings",
     "zh": "2026 第三季财报"
    },
    "p": {
-    "en": "Guidance is $1.20–1.30B of revenue and $1.85–2.15 adjusted EPS. Date not yet announced.",
-    "zh": "指引为营收 12–13 亿美元、调整后每股 $1.85–2.15。日期未公布。"
+    "en": "After US close; call 8:30am ET Oct 28 (8:30pm SGT). Guidance is $1.20–1.30B of revenue and $1.85–2.15 adjusted EPS.",
+    "zh": "美股收盘后；电话会议美东时间10月28日上午8:30（新加坡时间晚上8:30）。指引为营收 12–13 亿美元、调整后每股 $1.85–2.15。"
    }
   },
   {

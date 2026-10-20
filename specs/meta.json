@@ -46,10 +46,10 @@
   }
  },
  "earnings": {
-  "v": "Oct 28",
+  "v": "Oct 21",
   "s": {
-   "en": "Q3 2026 · expected, after close",
-   "zh": "2026 第三季 · 预计，盘后"
+   "en": "Q3 2026 · confirmed, after close",
+   "zh": "2026 第三季 · 已确认，盘后"
   }
  },
  "sub_price": {
@@ -198,14 +198,14 @@
  ],
  "calendar": [
   {
-   "date": "Oct 28, 2026",
+   "date": "Oct 21, 2026",
    "h": {
-    "en": "Q3 2026 earnings (expected)",
-    "zh": "2026 第三季财报（预计）"
+    "en": "Q3 2026 earnings",
+    "zh": "2026 第三季财报"
    },
    "p": {
-    "en": "After US close. Guide: revenue $61–64B; consensus EPS ~$6.77.",
-    "zh": "美股收盘后。指引：营收 610–640 亿美元；一致预期每股约 $6.77。"
+    "en": "After US close; call 1:30pm PT (Oct 22, 4:30am SGT). Guide: revenue $61–64B; consensus EPS ~$6.64.",
+    "zh": "美股收盘后；电话会议太平洋时间下午1:30（新加坡时间10月22日凌晨4:30）。指引：营收 610–640 亿美元；一致预期每股约 $6.64。"
    }
   },
   {

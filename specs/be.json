@@ -46,10 +46,10 @@
   }
  },
  "earnings": {
-  "v": "Late Oct",
+  "v": "Oct 22",
   "s": {
-   "en": "Q3 2026 · date not yet announced",
-   "zh": "2026 第三季 · 日期未公布"
+   "en": "Q3 2026 · confirmed, after close",
+   "zh": "2026 第三季 · 已确认，盘后"
   }
  },
  "sub_price": {
@@ -154,14 +154,14 @@
  ],
  "calendar": [
   {
-   "date": "Late Oct 2026",
+   "date": "Oct 22, 2026",
    "h": {
     "en": "Q3 2026 earnings",
     "zh": "2026 第三季财报"
    },
    "p": {
-    "en": "Date not yet announced; last year's Q3 came on Oct 28.",
-    "zh": "日期未公布；去年第三季于10月28日发布。"
+    "en": "After US close; call 2pm PT (Oct 23, 5am SGT).",
+    "zh": "美股收盘后；电话会议太平洋时间下午2点（新加坡时间10月23日凌晨5点）。"
    }
   },
   {
