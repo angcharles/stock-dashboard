@@ -92,7 +92,13 @@ async function fxempire(P) {
 async function investing(P) {
   const spot = fxSpot[P.k];
   if (!spot) throw new Error("no spot in data/fx.json to convert points");
-  const txt = await page(`https://www.investing.com/currencies/${P.slug}-forward-rates`);
+  // the main site often answers GitHub's runners with 403; the regional mirrors carry the same table
+  let txt = null, errs = [];
+  for (const host of ["www", "in", "au", "ca", "uk", "sg"]) {
+    try { txt = await page(`https://${host}.investing.com/currencies/${P.slug}-forward-rates`); if (txt.includes(`${P.inv} `)) break; errs.push(`${host}: no table`); txt = null; }
+    catch (e) { errs.push(`${host}: ${e.message}`); }
+  }
+  if (!txt) throw new Error(errs.join(", "));
   const rows = [];
   for (const T of TENORS) {
     let m = null;
