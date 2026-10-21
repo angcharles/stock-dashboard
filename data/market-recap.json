@@ -1,29 +1,26 @@
 {
- "session": "2026-10-20",
- "asof": "Tue Oct 20, 2026",
- "tone": "mixed",
- "headline": "Oil retreat and earnings beats lift the Dow 1% and small caps 1.8%; Nasdaq flat as AI lags",
- "summary": "A broad rotation day. Stocks opened lower as AI shares slid after a 3.7% drop in Korea's Kospi and Brent neared $112, then turned up within the first hour as oil reversed and the Dow added about 600 points by mid-morning. More than 400 S&P 500 stocks rose and eight of 11 sectors gained, led by record-high healthcare, while technology, communication services and energy fell and late selling left the Nasdaq a hair lower.",
+ "session": "2026-10-21",
+ "asof": "Wed Oct 21, 2026",
+ "tone": "up",
+ "headline": "SpaceX and Super Micro beats revive the AI trade; Nasdaq +1.1% as AT&T and Netflix lag",
+ "summary": "A tech-led day. The Nasdaq gained from the open on overnight AI earnings while the S&P 500 and Dow hovered near flat in the first hour, then buying broadened and the S&P 500 closed near its high for a third straight gain, within 1% of its Oct 6 record. Technology was the best sector, communication services the worst, and small caps added less than 0.5% after Tuesday's surge.",
  "stats": [
-  ["S&P 500", "7,712.57", 0.28],
-  ["Nasdaq", "26,424.82", -0.02],
-  ["Dow", "52,495.88", 1.02],
-  ["Russell 2000", "2,776.15", 1.75],
-  ["VIX", "17.47", -5.26, true],
-  ["US 10Y", "5.11%", "−3bp"],
-  ["WTI crude", "$97.82", -0.73]
+  ["S&P 500", "7,757.17", 0.58],
+  ["Nasdaq", "26,702.86", 1.05],
+  ["Dow", "52,856.09", 0.69],
+  ["WTI crude", "$97.15", -0.68]
  ],
  "drivers": [
-  ["Oil reverses from a five-month high", "Brent hit nearly $112 on Gulf shipping attacks and Houthi strikes on Saudi Arabia, then fell 0.7% to $108.79 on signs of continuing US-Iran talks and eased Russia sanctions; December WTI settled 0.7% lower at $97.82. Airlines rallied (American +3.7%, United +2.3%) and the 10-year yield slipped about 3bp to 5.11%."],
-  ["Earnings beats drive the Dow", "3M rose 5.8% after beating and raising its outlook, Equifax jumped 11.3%, Hasbro 11.2% and Northrop Grumman more than 4%. GM fell 6.8% despite a beat and a $20B buyback, as its full-year profit range disappointed on about $2B of raw-material costs."],
-  ["Rotation into healthcare and value", "Healthcare rose about 2.4% to a record, with Eli Lilly up about 4% as the biggest boost to the S&P 500 and gains in UnitedHealth, Merck, J&J and Amgen. Real estate (+1.7%), utilities and financials (+1.2% each) also gained; Braze soared 52% on a $47.50-a-share Salesforce bid."],
-  ["AI and Big Tech still lag", "Chips sank to their lowest since early August at the open before bargain buyers cut the losses, but equipment makers (Lam, KLA, Applied) stayed weak and tech ended down 0.3%. Meta fell about 2% and Apple and Alphabet also slipped; CoreWeave swung from −6% to +5% and closed up 1.7% while its default-swap spread topped 1,100bp."]
+  ["SpaceX results put the AI trade back on", "SpaceX's revenue rose 161% to $14.58B, well above forecasts, and it posted its first profit as a public company as its AI compute business boomed; the stock rose 7.8%. Musk said SpaceX and Tesla have set up special committees to study a merger, and Tesla gained more than 3% ahead of its own results, one of the biggest lifts to the S&P 500."],
+  ["Super Micro eases AI-spending worries", "Super Micro jumped about 10% to top the S&P 500 after lifting its September-quarter sales estimate to $18.5–19.5B from a $14.5–15.5B forecast, and Dell and HPE followed. Chips extended their rebound from an eight-session slide: Nvidia rose about 2%, AMD more than 3%, and Micron and Marvell nearly 2%."],
+  ["Telecom and media drag", "AT&T fell about 6% despite beating forecasts, on fears SpaceX will compete in mobile service, and Netflix lost about 5% after a weak fourth-quarter outlook and a cut to its ad-revenue target. Alphabet slipped, and Abbott fell about 4% after trimming its sales-growth outlook; Capital One rose about 4% on its beat."],
+  ["Oil and yields stay calm", "Brent jumped more than $2 toward $111 when Iran played down hopes of talks with the US, then faded to settle flat at $108.82; WTI ended 0.7% lower at $97.15 despite a 3.1M-barrel US crude draw. The 10-year yield stayed near 5.1%, though a 20-year bond auction cleared at 5.469%, the highest since 1986."]
  ],
- "week": "Week so far: Russell 2000 +1.9%, Nasdaq +1.1%, Dow +0.9%, S&P 500 +0.7%, as leadership shifts from Monday's tech bounce to the broader market. November WTI expired Tuesday at $101.79 (−1.8%), so the oil row now tracks December; the 10-year yield remains above 5% with Brent stuck in a $97–112 range this month.",
- "watch": "Next: SpaceX beat forecasts after the close with revenue up 161% while Netflix fell after hours; Meta and Tesla report Wednesday and Lam Research this week, with the Fed meeting next week.",
+ "week": "Week so far: Nasdaq +2.2%, Russell 2000 +2.2%, Dow +1.6%, S&P 500 +1.3%, as chips recover part of last week's AI-led rout. Brent is still in a $97–112 range this month and the 10-year yield remains above 5% ahead of next week's Fed decision.",
+ "watch": "Next: Tesla, Meta, Lam Research and Texas Instruments reported after the close and oil rose after hours on reports of an attack on Saudi Aramco; Western Digital reports Thursday, the Fed decides Oct 28 (SK hynix reports that day) and Intel follows Oct 29.",
  "sources": [
-  ["AP", "https://apnews.com/article/wall-street-stocks-dow-nasdaq-0a5ea168499c6ae617c49e10bf48f9c6"],
-  ["Reuters / Straits Times", "https://straitstimes.com/business/companies-markets/dow-leads-wall-street-higher-investors-focus-on-health-care-stocks"],
-  ["ChosunBiz", "https://biz.chosun.com/en/en-international/2026/10/21/VLOFLBSZNNA47EXZYJUPJVQNUY"]
+  ["AP", "https://apnews.com/article/wall-street-stocks-dow-nasdaq-3ec2d8c93a390023ef8104973dea275f"],
+  ["Reuters / MarketScreener", "https://www.marketscreener.com/news/nasdaq-leads-wall-street-to-higher-close-as-spacex-super-micro-boost-ai-sentiment-ce785cd9dd8cf725"],
+  ["ChosunBiz", "https://biz.chosun.com/en/en-international/2026/10/22/SGH7BDZSDBG6ZGQ62NJJN35UXI"]
  ]
 }
