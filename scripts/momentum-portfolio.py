@@ -22,7 +22,7 @@ Pure standard library so it runs in the GitHub Action without installs.
 Usage: python3 scripts/momentum-portfolio.py [--text]
 """
 import json, math, os, random, sys
-from datetime import date
+from datetime import date, datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "momentum-portfolio.json")
@@ -404,7 +404,8 @@ def main():
     def rnd4(a):
         return [round(x, 5) for x in a]
     out = {
-        "updated": dates[T - 1], "start": out_dates[0], "next_rebalance": "next Friday close",
+        "updated": dates[T - 1], "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "start": out_dates[0], "next_rebalance": "next Friday close",
         "rules": {"hold": N_HOLD, "cap": CAP, "step": STEP, "lookbacks": [L6, L3], "skip": SKIP, "mom_vol_window": VOLW,
                   "cov_window": COVW, "sma": SMA, "cost": COST, "cash_rate": CASH_RATE, "vol_target": VOL_TARGET, "vol_window": VT_WIN, "rebalance": "weekly (Friday close)"},
         "dates": out_dates, "nav": rnd4(nav), "raw": rnd4(nav_raw), "dd_raw": rnd4(dd_series(nav_raw)),

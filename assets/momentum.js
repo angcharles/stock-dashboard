@@ -22,9 +22,80 @@
     D = d;
     d.scores.forEach((s) => { names[s.tk] = s.n; folders[s.tk] = s.f; });
     d.holdings.forEach((h) => { names[h.tk] = h.n; folders[h.tk] = h.f; });
-    kpis(); holdings(); next(); controls(); charts(); review(); weights(); scores(); rules();
+    kpis(); holdings(); next(); controls(); charts(); values(); review(); weights(); scores(); rules();
     $("foot").textContent = `Backtest from ${fd(d.start)} to the ${fd(d.updated)} close, rebuilt from the dashboard's daily prices after every US session. Results are simulated: they include 0.10% trading costs and a ${pct(d.rules.cash_rate)} cash rate, but not taxes, slippage on large orders or the bias of testing on a stock list picked today. For information only, not investment advice.`;
   }).catch((e) => { $("kpi").innerHTML = `<p class="note">Portfolio data not available yet (${esc(e.message)}).</p>`; });
+
+  /* ---------- portfolio value at each close ---------- */
+  // US regular close is 4:00pm New York; work out its UTC instant for a given date (handles daylight saving).
+  const nyClose = (d) => {
+    for (const h of [20, 21]) {
+      const t = new Date(d + "T" + h + ":00:00Z");
+      const ny = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", hour12: false }).format(t);
+      if (+ny === 16) return t;
+    }
+    return new Date(d + "T20:00:00Z");
+  };
+  const sgt = (t, withDate = true) => {
+    const o = { timeZone: "Asia/Singapore", hour: "numeric", minute: "2-digit", hour12: true };
+    if (withDate) Object.assign(o, { weekday: "short", day: "numeric", month: "short" });
+    return new Intl.DateTimeFormat("en-SG", o).format(t).replace(/\s?(am|pm)/i, (m) => m.trim().toLowerCase());
+  };
+  const etZone = (t) => (new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", timeZoneName: "short" }).formatToParts(t).find((x) => x.type === "timeZoneName") || {}).value || "ET";
+  const WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const money = (x) => "$" + Math.round(x).toLocaleString("en-US");
+  const smoney = (x) => (x > 0.5 ? "+" : x < -0.5 ? "−" : "") + "$" + Math.abs(Math.round(x)).toLocaleString("en-US");
+  let vRng = 30, vCap = 1e6, vRows = [];
+  function valRows() {
+    const n = D.dates.length, base = 1, R = []; // NAV starts at 1.0 before the first session (incl. the opening trade cost)
+    const rb = (D.rebalances || []).slice().sort((a, b) => (a.d < b.d ? -1 : 1));
+    let peak = -Infinity;
+    for (let i = 0; i < n; i++) {
+      const d = D.dates[i], v = D.nav[i] / base * vCap;
+      peak = Math.max(peak, v);
+      const prev = i ? D.nav[i - 1] / base * vCap : null;
+      // weights held through this session: the last rebalance before this date (trades happen at that Friday's close)
+      let held = null, isRb = false;
+      for (const r of rb) { if (r.d < d) held = r; else if (r.d === d) isRb = r; else break; }
+      const spyD = D.spy && i ? D.spy[i] / D.spy[i - 1] - 1 : null;
+      R.push({ d, i, v, chg: prev == null ? null : v - prev, pct: prev == null ? null : v / prev - 1, tot: v / vCap - 1, dd: v / peak - 1, spy: spyD, held, isRb, t: nyClose(d) });
+    }
+    return R;
+  }
+  function values() {
+    const gen = D.generated ? new Date(D.generated) : null;
+    $("valSub").innerHTML = `What the portfolio would be worth at every US closing bell since ${fd(D.start)}, starting from the amount you enter. One row per trading session, newest first, with the closing time in New York and Singapore. ` +
+      `Values come from the same simulated daily returns as the chart above${gen ? `; last rebuilt <b>${esc(sgt(gen))} SGT</b> after the ${fd(D.updated)} close` : ""}.`;
+    const cap = $("valCap");
+    cap.onchange = cap.onblur = () => {
+      const x = parseFloat(String(cap.value).replace(/[^0-9.]/g, ""));
+      vCap = isFinite(x) && x > 0 ? x : 1e6; cap.value = Math.round(vCap).toLocaleString("en-US"); valTable();
+    };
+    cap.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); cap.onchange(); } };
+    $("valDl").onclick = () => {
+      const q = (x) => (x == null ? "" : /[",]/.test(String(x)) ? `"${String(x).replace(/"/g, '""')}"` : x);
+      const head = ["date", "close_new_york", "close_singapore", "value_usd", "day_change_usd", "day_change_pct", "since_start_pct", "from_high_pct", "sp500_day_pct", "holdings", "rebalanced_at_close"];
+      const body = vRows.slice().reverse().map((r) => [r.d, r.t.toISOString().slice(0, 10) + " 16:00 " + etZone(r.t), new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Singapore", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }).format(r.t).replace(",", "") + " SGT",
+        r.v.toFixed(2), r.chg == null ? "" : r.chg.toFixed(2), r.pct == null ? "" : (r.pct * 100).toFixed(3), (r.tot * 100).toFixed(3), (r.dd * 100).toFixed(3), r.spy == null ? "" : (r.spy * 100).toFixed(3),
+        r.held ? Object.entries(r.held.w).map(([k, w]) => `${k} ${(w * 100).toFixed(1)}%`).join("; ") + (r.held.cash > 0.001 ? `; cash ${(r.held.cash * 100).toFixed(1)}%` : "") : "", r.isRb ? "yes" : ""].map(q).join(","));
+      const blob = new Blob(["﻿" + [head.join(","), ...body].join("\n")], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = `portfolio-value-${D.updated}.csv`; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+    };
+    valTable();
+  }
+  function valTable() {
+    vRows = valRows();
+    $("valRng").innerHTML = [[30, "30 days"], [90, "90 days"], [0, "All " + vRows.length]].map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === vRng}">${l}</button>`).join("");
+    $("valRng").querySelectorAll("button").forEach((b) => (b.onclick = () => { vRng = +b.dataset.k; valTable(); }));
+    const R = vRows.slice(vRng ? -vRng : 0).reverse();
+    const hold = (r) => !r.held ? "Starting mix" : Object.entries(r.held.w).sort((a, b) => b[1] - a[1]).map(([k, w]) => `${k} ${Math.round(w * 1000) / 10}%`).join(" · ") + (r.held.cash > 0.001 ? ` · cash ${Math.round(r.held.cash * 1000) / 10}%` : "");
+    $("valTab").innerHTML = `<table class="st"><thead><tr><th>Date</th><th class="r">Value</th><th class="r">Day</th><th class="r">Day %</th><th class="r">Since start</th><th class="r">From high</th><th class="r">S&amp;P 500 day</th><th>Closing bell · New York / Singapore</th><th>Held during the session</th></tr></thead><tbody>` +
+      R.map((r) => `<tr${r.isRb ? ' class="rb"' : ""}><td class="mono dt">${WD[new Date(r.d + "T12:00:00Z").getUTCDay()]} ${fd(r.d)}${r.isRb ? '<span class="chip rbc" title="Rebalanced at this close; new weights apply from the next session">Rebal.</span>' : ""}</td>` +
+        `<td class="mono r"><b>${money(r.v)}</b></td><td class="mono r ${cls(r.chg)}">${r.chg == null ? "—" : smoney(r.chg)}</td><td class="mono r ${cls(r.pct)}">${r.pct == null ? "—" : spct(r.pct, 2)}</td>` +
+        `<td class="mono r ${cls(r.tot)}">${spct(r.tot, 1)}</td><td class="mono r ${r.dd < -0.0005 ? "neg" : ""}">${r.dd < -0.0005 ? spct(r.dd, 1) : "High"}</td><td class="mono r ${cls(r.spy)}">${r.spy == null ? "—" : spct(r.spy, 2)}</td><td class="mono">4:00pm ${etZone(r.t)} · ${esc(sgt(r.t))} SGT</td><td class="h">${esc(hold(r))}</td></tr>`).join("") + `</tbody></table>`;
+    const last = vRows[vRows.length - 1];
+    $("valNote").textContent = `Latest: ${money(last.v)} at the ${fd(last.d)} close (4:00pm ${etZone(last.t)}, ${sgt(last.t)} SGT). Times are the regular US closing bell; on early-close days (e.g. the day after Thanksgiving) the market shuts at 1:00pm New York. Highlighted rows are Friday rebalances: the new weights apply from the next session. Simulated, after 0.10% trading costs; not investment advice.`;
+  }
 
   const link = (tk) => folders[tk] ? `<a href="../${folders[tk]}/">${tk}</a>` : tk;
 
