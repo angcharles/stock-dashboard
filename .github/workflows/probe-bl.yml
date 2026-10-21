@@ -1,0 +1,12 @@
+name: probe bond lending
+on:
+  push:
+    branches: [probe-bond-lending]
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node .probe/probe.mjs 2>&1 | head -c 200000
