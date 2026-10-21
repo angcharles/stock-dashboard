@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>China · Stock Dashboards</title>
-<meta name="description" content="China government bond yields: the ChinaBond (CCDC) curve by tenor, tenor history, and every outstanding CGB by bond code and ISIN with CFETS traded yields.">
+<meta name="description" content="China government bond yields: the ChinaBond (CCDC) curve by tenor, tenor history, and every outstanding CGB by bond code and ISIN with CFETS traded yields, plus CFETS interbank bond lending fees by tenor over time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-:root{--bg:#f3f5f7;--panel:#fff;--line:#d9dee5;--ink:#141a22;--muted:#5a6573;--accent:#0b6fb8;--accent-soft:#e3eff8;--up:#13804b;--down:#c2362b;--c1:#0b6fb8;--c2:#d97706;--c3:#8b5cf6;
+:root{--bg:#f3f5f7;--panel:#fff;--line:#d9dee5;--ink:#141a22;--muted:#5a6573;--accent:#0b6fb8;--accent-soft:#e3eff8;--up:#13804b;--down:#c2362b;--c1:#0b6fb8;--c2:#d97706;--c3:#8b5cf6;--c4:#0f9d8a;--c5:#db2777;--c6:#64748b;
   --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;--f-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;--f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;--c1:#4fa8e8;--c2:#f0a43a;--c3:#a78bfa;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;--c1:#4fa8e8;--c2:#f0a43a;--c3:#a78bfa;color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;--c1:#4fa8e8;--c2:#f0a43a;--c3:#a78bfa;--c4:#2dd4bf;--c5:#f472b6;--c6:#94a3b8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1117;--panel:#141b24;--line:#26303c;--ink:#e7ecf2;--muted:#93a0b0;--accent:#4fa8e8;--accent-soft:#132a3d;--up:#3ccf86;--down:#f0675b;--c1:#4fa8e8;--c2:#f0a43a;--c3:#a78bfa;--c4:#2dd4bf;--c5:#f472b6;--c6:#94a3b8;color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 48px}
@@ -117,6 +117,34 @@ footer a{color:var(--accent)}
     </div>
   </section>
 
+  <section aria-labelledby="blH">
+    <h2 id="blH">Bond lending fees (债券借贷)</h2>
+    <p class="sub" id="blSub">Interbank bond lending fee rates from CFETS: the annualised fee a borrower pays to borrow bonds (mostly CGBs and policy bank bonds, used to cover shorts and for collateral), by lending tenor. A rising fee means the bonds are scarcer to borrow.</p>
+    <div class="tiles" id="blTiles" role="group" aria-label="Lending tenors"></div>
+
+    <div class="panel" style="margin-top:16px">
+      <div class="chead"><h3 id="blcH">Weighted lending fee over time</h3><div class="btns" id="blMode" role="group" aria-label="Frequency"></div></div>
+      <div class="ctl" style="margin-bottom:8px"><div class="btns" id="blTen" role="group" aria-label="Tenors to plot (up to five)"></div><div class="btns" id="blRng" role="group" aria-label="Range"></div></div>
+      <div class="cwrap"><div id="blChart" style="height:320px"></div><div class="leg" id="blLeg" aria-live="polite"></div></div>
+      <div class="stats" id="blStats"></div>
+      <p class="note" id="blNote"></p>
+    </div>
+
+    <div class="curve" style="margin-top:16px">
+      <div class="panel">
+        <div class="chead"><h3 id="bltH">Latest day by tenor</h3></div>
+        <div style="overflow-x:auto"><table class="ctab" aria-labelledby="bltH"><thead><tr><th>Tenor</th><th>W.avg %</th><th>Open</th><th>Close</th><th>High</th><th>Low</th><th>1D bp</th><th>vs last mo bp</th><th>Vol RMB bn</th></tr></thead><tbody id="blTab"></tbody></table></div>
+        <p class="note" id="blTabNote"></p>
+      </div>
+      <div class="panel">
+        <div class="chead"><h3 id="bltyH">Monthly volume by bond type</h3><div class="btns" id="blTyR" role="group" aria-label="Months shown"></div></div>
+        <div class="cwrap"><svg id="blTy" role="img" aria-label="Monthly bond lending volume by bond type" style="display:block;width:100%;height:260px"></svg><div class="tip" id="blTyTip" hidden></div></div>
+        <div class="leg" id="blTyLeg"></div>
+      </div>
+    </div>
+    <p class="note"><b>By bond code / ISIN:</b> CFETS and ChinaBond (CCDC) publish lending fees only by tenor (L001 overnight … L1Y), plus monthly volumes by bond type. Neither releases the fee for an individual bond code or ISIN — those are bilateral quotes visible only to members on the CFETS terminal — so the bond table below stays on yields.</p>
+  </section>
+
   <section aria-labelledby="bH">
     <h2 id="bH">Bonds by code and ISIN</h2>
     <p class="sub" id="bSub">Every outstanding China government bond, one row per bond code with its ISIN. Curve yield is the CCDC curve read at the bond's remaining term; traded yield is the latest CFETS interbank deal today, and "vs curve" is the difference in basis points.</p>
@@ -131,9 +159,10 @@ footer a{color:var(--accent)}
     <p class="note" id="bNote"></p>
   </section>
 
-  <footer id="foot">Curve and tenor history: ChinaBond (CCDC) 中债国债收益率曲线, yield to maturity, published for each business day after the Beijing close. Bond list, ISINs, coupons and maturities: CFETS bond information (chinamoney.com.cn). Traded yields: CFETS interbank cash-bond deals, intraday. Coupon shown is the bond's fixed coupon; discount bills have none. Yields in percent; changes in basis points. Indicative, not an offer to trade.</footer>
+  <footer id="foot">Curve and tenor history: ChinaBond (CCDC) 中债国债收益率曲线, yield to maturity, published for each business day after the Beijing close. Bond list, ISINs, coupons and maturities: CFETS bond information (chinamoney.com.cn). Traded yields: CFETS interbank cash-bond deals, intraday. Bond lending: CFETS 债券借贷日报 (daily, by tenor, published ~22:00 Beijing) and 债券借贷月报 (monthly, by tenor and bond type). Coupon shown is the bond's fixed coupon; discount bills have none. Yields in percent; changes in basis points. Indicative, not an offer to trade.</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script src="../assets/china.js?v=2"></script>
+<script src="../assets/china-lending.js?v=1"></script>
 </body>
 </html>
