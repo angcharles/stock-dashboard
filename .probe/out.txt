@@ -1,21 +1,26 @@
-BK_URL '/ags/ms/',
-DURL '/r/cms/www/chinamoney/data/',          // 数据
-DQSURL '/dqs/rest/'
-JSON1 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1792504830013,"producer":""},"data":{"endDate":"2026-10-20","lastDateEn":"20 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-20"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.8300","clsngLngdngRate":"0.1000","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.0999","wghtdAvgLngdngRate":"0.2916","trdVol":"96070.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.1000","clsngLngdngRate":"0.1400","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.0999","wghtdAvgLngdngRate":"0.2479","trdVol":"71240.0000","sortNo":7},{"instrmntCd":"L014","openLngdngRate":"0.1000","clsngLngdngRate":"0.7600","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.2476","trdVol":"24960.0000","sortNo":14},{"instrmntCd":"L021","openLngdngRate":"0.2500","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.8300","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1644","trdVol":"5590.0000","sortNo":21},{"instrmntCd":"L1M","openLngdngRate":"0.1200","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.9500","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.2232","trdVol":"11770.0000","sortNo":30},{"instrmntCd":"L2M","openLngdngRate":"0.1000","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.8800","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1447","trdVol":"9760.0000","sortNo":60},{"instrmntCd":"L3M","openLngdngRate":"0.1000","clsngLngdngRate":"0.2000","hghstLngdngRate":"0.2000","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1288","trdVol":"5190.0000","sortNo":90},{"instrmntCd":"L4M","openLngdngRate":"0.1000","clsngLngdngRate":"0.1000","hghstLngdngRate":"0.1600","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1146","trdVol":"2030.0000","sortNo":120},{"instrmntCd":"L6M","openLngdngRate":"0.1100","clsngLngdngRate":"0.1500","hghstLngdngRate":"0.1500","lwstLngdngRate":"0.1100","wghtdAvgLngdngRate":"0.1469","trdVol":"390.0000","sortNo":180}]}
-POST 2026-10-20 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1792564483494,"producer":"","tstext":"2026-10-21 14:34:43"},"data":{"endDate":"2026-10-20","lastDateEn":"20 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-20"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.8300","clsngLngdngRate":"0.1000","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.0999","wghtdAvgLngdngRate":"0.2916","trdVol":"96070.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.1000","clsngLngdngRate":"0.1400","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.0999","wghtdAvgLngdngRate":"0.2479","trdVol":"71240.0000","sortNo":7},{"instrmntCd":"L014","openLngdngRate":"0.1000","clsngLngdngRate":"0.7600","hghstLngdngRate":"1.5100","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.2476","trdVol":"24960.0000","sortNo":14},{"instrmntCd":"L021","openLngdngRate":"0.2500","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.8300","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1644","trdVol":"5590.0000","sortNo":21},{"instrmntCd":"L1M","openLngdngRate":"0.1200","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.9500","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.2232","trdVol":"11770.0000","sortNo":30},{"instrmntCd":"L2M","openLngdngRate":"0.1000","clsngLngdngRate":"0.1400","hghstLngdngRate":"0.8800","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1447","trdVol":"9760.0000","sortNo":60},{"instrmntCd":"L3M","openLngdngRate":"0.1000","clsngLngdngRate":"0.2000","hghstLngdngRate":"0.2000","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1288","trdVol":"5190.0000","sortNo":90},{"instrmntCd":"L4M","openLngdngRate":"0.1000","clsngLngdngRate":"0.1000","hghstLngdngRate":"0.1600","lwstLngdngRate":"0.1000","wghtdAvgLngdngRate":"0.1146","trdVol":"2030.0000","sortNo":120},{"instrmntCd":"L6M","openLngdngRate":"0.1100","clsngLngdngRate":"0.1500","hghstLngdngRate":"0.1500","lwstLngdngRate":"0.1100","wghtdAvgLngdngRate":"0.1469","trdVol":"390.0000","sortNo":180}]}
-POST 2026-09-18 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1792564483760,"producer":"","tstext":"2026-10-21 14:34:43"},"data":{"endDate":"2026-10-20","lastDateEn":"18 Sep 2026","startDate":"2026-10-07","lastDate":"2026-09-18"},"records":[]}
-POST 2025-10-20 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1792564484064,"producer":"","tstext":"2026-10-21 14:34:44"},"data":{"endDate":"2026-10-20","lastDateEn":"20 Oct 2025","startDate":"2026-10-07","lastDate":"2025-10-20"},"records":[]}
-MLY 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1790811339803,"producer":""},"data":{"optionJson":"{\"2026\":\"09,08,07,06,05,04,03,02,01\",\"2025\":\"12,11,10,09,08,07,06,05,04,03,02,01\",\"2024\":\"12,11,10,09,08,07,06,05,04,03,02,01\",\"2023\":\"12,11,10\"}","showYearMonth":"2026-09"},"records":[{"type":"L001","typeEN":"L001","rate":"0.3131","cnt":"14890","amt":"19825.32"},{"type":"L007","typeEN":"L007","rate":"0.3038","cnt":"11416","amt":"15435.14"},{"type":"L014","typeEN":"L014","rate":"0.2521","cnt":"2690","amt":"4193.60"},{"type":"L021","typeEN":"L021","rate":"0.2662","cnt":"1711","amt":"2452.10"},{"type":"L1M","typeEN":"L1M","rate":"0.2654","cnt":"1235","amt":"2203.80"},{"type":"L2M","typeEN":"L2M","rate":"0.1900","cnt":"1045","amt":"2261.88"},{"type":"L3M","typeEN":"L3M","rate":"0.2105","cnt":"240","amt":"480.45"},{"type":"L4M","typeEN":"L4M","rate":"0.2174","cnt":"60","amt":"114.45"},{"type":"L6M","typeEN":"L6M","rate":"0.1246","cnt":"12","amt":"26.70"},{"type":"L9M","typeEN":"L9M","rate":"0.1245","cnt":"7","amt":"21.60"},{"type":"L1Y","typeEN":"L1Y","rate":"0.1500","cnt":"1","amt":"1.50"},{"type":"合计","typeEN":"Total","rate":"0.2925","cnt":"33307","amt":"47016.54"}]}
-MLYBAL 200 {"head":{"version":"2.0","provider":"CWAP","req_code":"","rep_code":"200","rep_message":"","ts":1790811339860,"producer":""},"data":{"optionJson":"{\"2026\":\"09,08,07,06,05,04,03,02,01\",\"2025\":\"12,11,10,09,08,07,06,05,04,03,02,01\",\"2024\":\"12,11,10,09,08,07,06,05,04,03,02,01\",\"2023\":\"12,11,10\"}","showYearMonth":"2026-09"},"records":[{"type":"国债","typeEN":"Treasury Bond","amt":"30823.22"},{"type":"政策性金融债","typeEN":"Policy Financial Bond","amt":"15847.96"},{"type":"地方政府债","typeEN":"Local Government Bond","amt":"250.16"},{"type":"二级资本工具","typeEN":"Tire-2 Capital Instrument","amt":"91.90"},{"type":"无固定期限资本债券","typeEN":"Perpetual Capital Bond","amt":"2.30"},{"type":"中期票据","typeEN":"Medium-term Note","amt":"1.00"},{"type":"合计","typeEN":"Total","amt":"47016.54"}]}
-==== PAGE 200 /chinese/mkdatabond/
-DATAURL /r/cms/chinese/chinamoney/html/bond/market-bond-deal.html 200 29740 
-DATAURL /r/cms/chinese/chinamoney/html/bond/market-bond-making.html 200 11276 
-==== PAGE 200 /chinese/mtmonhyzqtj/
-DATAURL /r/cms/chinese/chinamoney/html/bond/monthly-active-bonds.html 200 7172 
-==== PAGE 200 /chinese/mkdatapm/
-DATAURL /r/cms/chinese/chinamoney/html/currency/iblr-cn.html 200 2595 
-DATAURL /r/cms/chinese/chinamoney/html/currency/iblr-chart.html 200 6559 
-DATAURL /r/cms/chinese/chinamoney/html/currency/prr-cn.html 200 2980 
-DATAURL /r/cms/chinese/chinamoney/html/currency/prr-chart.html 200 6536 
-DATAURL /r/cms/chinese/chinamoney/html/currency/orr-cn.html 200 2524 
-DATAURL /r/cms/chinese/chinamoney/html/currency/orr-chart.html 200 6584 
+M url: DURL + 'bond/bdc-mly-bltn-pro.json'
+M url: DURL + 'bond/bdc-mly-bltn-orgT.json'
+M url: DURL + 'bond/bdc-mly-bltn-orgB.json'
+M url: DURL + 'bond/bdc-mly-bltn-bal.json'
+M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
+M data: { lang: "cn", yearMonth: yearMonth, indexType: "pro" }
+M url: data
+M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
+M data: { lang: "cn", yearMonth: yearMonth, indexType: "orgT" }
+M url: data
+M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
+M data: { lang: "cn", yearMonth: yearMonth, indexType: "orgB" }
+M url: data
+M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
+M data: { lang: "cn", yearMonth: yearMonth, indexType: "bal" }
+M url: data
+A data-name="top">名次
+A data-name="bondNm">债券简称
+A data-name="dealAmt">成交金额(亿元)
+A data-name="dealCnt">笔数
+A data-name="yieldRate">到期收益率(%)
+A url: DURL+'bond/atb-mth-bltn.json'
+A url: MD_URL + 'cm-u-query-mlrp/AtbMthBltn'
+A url:data
+D 2026-10-09 "09 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-09"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.3000","clsngLngdngRate":"0.1000","hghstLngdngRate":"1.0000","lwstLngdngRate":"0.0998","wghtdAvgLngdngRate":"0.1989","trdVol":"36620.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.7400","clsngL
+D 2026-10-15 "15 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-15"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.1300","clsngLngdngRate":"0.8100","hghstLngdngRate":"1.4800","lwstLngdngRate":"0.0998","wghtdAvgLngdngRate":"0.2953","trdVol":"92580.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.1200","clsngL
