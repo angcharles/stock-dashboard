@@ -121,7 +121,7 @@
     $("hRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.hR = b.textContent; hist(true); });
     if (window.LightweightCharts) {
       const opts = { layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono") }, grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") }, timeScale: { borderColor: css("--line") }, crosshair: { mode: 1 } };
-      if (!ch) { ch = LightweightCharts.createChart($("hist"), { ...opts, autoSize: true }); ls = ch.addLineSeries({ color: css("--accent"), lineWidth: 2, priceLineVisible: false }); }
+      if (!ch) { ch = LightweightCharts.createChart($("hist"), { ...opts, autoSize: true, localization: { locale: "en-US" } }); ls = ch.addLineSeries({ color: css("--accent"), lineWidth: 2, priceLineVisible: false }); }
       else { ch.applyOptions(opts); ls.applyOptions({ color: css("--accent") }); }
       ls.applyOptions({ priceFormat: { type: "price", precision: isS ? 1 : 3, minMove: isS ? 0.1 : 0.001 } });
       ls.setData(v.map(([time, value]) => ({ time, value })));
