@@ -1,0 +1,61 @@
+name: China government bonds
+
+# Daily, after ChinaBond (CCDC) publishes the day's curve (~17:00–18:00 Beijing): update the CGB master list
+# (new bond codes, ISINs, coupons, maturities from CFETS), rebuild data/china.json and commit both, so the
+# deploy always has a fresh committed copy even if a later live fetch fails. The deploy workflow also
+# re-fetches data/china.json on every refresh for intraday CFETS traded yields.
+on:
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Re-read every bond's detail (slow, ~15 min)"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "40 10 * * 1-5"   # 18:40 Singapore / Beijing
+    - cron: "10 1 * * 1-5"    # 09:10, catches a curve published late the evening before
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: china-bonds
+  cancel-in-progress: false
+
+jobs:
+  china:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update the CGB master list (code, ISIN, coupon, maturity)
+        run: node scripts/fetch-cgb-master.mjs ${{ inputs.full && '--full' || '' }} || echo "master update failed; keeping the committed list"
+
+      - name: CCDC curve, history and CFETS bond yields
+        run: node scripts/fetch-china.mjs
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git add data/cgb-master.json data/china.json
+          if git diff --cached --quiet; then
+            echo "No changes."; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Refresh China government bond curve and bond list"
+          git pull -q --rebase origin main
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
