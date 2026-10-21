@@ -1,26 +1,49 @@
-M url: DURL + 'bond/bdc-mly-bltn-pro.json'
-M url: DURL + 'bond/bdc-mly-bltn-orgT.json'
-M url: DURL + 'bond/bdc-mly-bltn-orgB.json'
-M url: DURL + 'bond/bdc-mly-bltn-bal.json'
-M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
-M data: { lang: "cn", yearMonth: yearMonth, indexType: "pro" }
-M url: data
-M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
-M data: { lang: "cn", yearMonth: yearMonth, indexType: "orgT" }
-M url: data
-M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
-M data: { lang: "cn", yearMonth: yearMonth, indexType: "orgB" }
-M url: data
-M url: MD_URL + 'cm-u-query-mlrp/BdcMthBltn'
-M data: { lang: "cn", yearMonth: yearMonth, indexType: "bal" }
-M url: data
-A data-name="top">名次
-A data-name="bondNm">债券简称
-A data-name="dealAmt">成交金额(亿元)
-A data-name="dealCnt">笔数
-A data-name="yieldRate">到期收益率(%)
-A url: DURL+'bond/atb-mth-bltn.json'
-A url: MD_URL + 'cm-u-query-mlrp/AtbMthBltn'
-A url:data
-D 2026-10-09 "09 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-09"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.3000","clsngLngdngRate":"0.1000","hghstLngdngRate":"1.0000","lwstLngdngRate":"0.0998","wghtdAvgLngdngRate":"0.1989","trdVol":"36620.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.7400","clsngL
-D 2026-10-15 "15 Oct 2026","startDate":"2026-10-07","lastDate":"2026-10-15"},"records":[{"instrmntCd":"L001","openLngdngRate":"0.1300","clsngLngdngRate":"0.8100","hghstLngdngRate":"1.4800","lwstLngdngRate":"0.0998","wghtdAvgLngdngRate":"0.2953","trdVol":"92580.0000","sortNo":1},{"instrmntCd":"L007","openLngdngRate":"0.1200","clsngL
+no previous bond-lending.json
+daily: CFETS serves 2026-10-07 → 2026-10-20
+daily 2026-10-07: no deals (holiday?)
+daily 2026-10-08: 8 tenors
+daily 2026-10-09: 8 tenors
+daily 2026-10-10: 7 tenors
+daily 2026-10-12: 9 tenors
+daily 2026-10-13: 9 tenors
+daily 2026-10-14: 10 tenors
+daily 2026-10-15: 9 tenors
+daily 2026-10-16: 9 tenors
+daily 2026-10-19: 9 tenors
+monthly: 36 months available, latest 2026-09
+monthly 2023-10: 12 tenors
+monthly 2023-11: 12 tenors
+monthly 2023-12: 12 tenors
+monthly 2024-01: 12 tenors
+monthly 2024-02: 12 tenors
+monthly 2024-03: 12 tenors
+monthly 2024-04: 12 tenors
+monthly 2024-05: 12 tenors
+monthly 2024-06: 12 tenors
+monthly 2024-07: 12 tenors
+monthly 2024-08: 12 tenors
+monthly 2024-09: 12 tenors
+monthly 2024-10: 12 tenors
+monthly 2024-11: 12 tenors
+monthly 2024-12: 12 tenors
+monthly 2025-01: 12 tenors
+monthly 2025-02: 12 tenors
+monthly 2025-03: 12 tenors
+monthly 2025-04: 12 tenors
+monthly 2025-05: 12 tenors
+monthly 2025-06: 12 tenors
+monthly 2025-07: 12 tenors
+monthly 2025-08: 12 tenors
+monthly 2025-09: 12 tenors
+monthly 2025-10: 12 tenors
+monthly 2025-11: 12 tenors
+monthly 2025-12: 12 tenors
+monthly 2026-01: 12 tenors
+monthly 2026-02: 12 tenors
+monthly 2026-03: 12 tenors
+monthly 2026-04: 12 tenors
+monthly 2026-05: 12 tenors
+monthly 2026-06: 11 tenors
+monthly 2026-07: 12 tenors
+monthly 2026-08: 12 tenors
+Bond lending: 10 days (2026-10-08 → 2026-10-20), L001 0.2916% · L007 0.2479%; 36 months (2023-10 → 2026-09)
