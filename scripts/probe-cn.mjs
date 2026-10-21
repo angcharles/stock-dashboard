@@ -1,17 +1,13 @@
 const UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
-const cmh={"User-Agent":UA,Accept:"application/json",Referer:"https://www.chinamoney.com.cn/",Origin:"https://www.chinamoney.com.cn","Content-Type":"application/x-www-form-urlencoded; charset=UTF-8","X-Requested-With":"XMLHttpRequest"};
-const post=async(u,b)=>{const r=await fetch(u,{method:"POST",headers:cmh,body:b,signal:AbortSignal.timeout(30000)});return r.json();};
-let j=await post("https://www.chinamoney.com.cn/ags/ms/cm-u-bond-md/BondMarketInfoListEN","pageNo=1&pageSize=100&bondType=100001&bondCode=&bondName=");
-console.log("LISTEN size",j.data.resultList.length,"total",j.data.total);
-console.log(JSON.stringify(j.data.resultList.slice(0,3)));
-console.log("isin filled:",j.data.resultList.filter(x=>x.isin&&x.isin!=="---").length);
-j=await post("https://www.chinamoney.com.cn/ags/ms/cm-u-bond-md/BondMarketInfoListEN","pageNo=20&pageSize=100&bondType=100001&bondCode=&bondName=");
-console.log("page20",JSON.stringify(j.data.resultList.slice(0,2)));
-const one=(await post("https://www.chinamoney.com.cn/ags/ms/cm-u-bond-md/BondMarketInfoListEN","pageNo=1&pageSize=100&bondType=100001&bondCode=&bondName=")).data.resultList.find(x=>/^2600/.test(x.bondCode)||/^26000/.test(x.bondCode))||j.data.resultList[0];
-const d=await post("https://www.chinamoney.com.cn/ags/ms/cm-u-bond-md/BondDetailInfoEN","bondDefinedCode="+one.bondDefinedCode);
-console.log("DETAIL",JSON.stringify(d.data));
-const c=await post("https://www.chinamoney.com.cn/ags/ms/cm-u-md-bond/CbtPri?flag=1&lang=en&abdAssetEncdShrtDesc=&emaEntyEncdShrtDesc=","");
-console.log("CBT n",c.records.length);
-const tr=c.records.filter(r=>/国债|CGB|Treasury/i.test(JSON.stringify(r)));
-console.log("CBT treasury n",tr.length);console.log(JSON.stringify(tr.slice(0,2)));
-console.log("CBT keys",Object.keys(c.records[0]).join(","));
+const H={"User-Agent":UA,Accept:"application/json, text/javascript, */*","Content-Type":"application/x-www-form-urlencoded; charset=UTF-8",Referer:"https://yield.chinabond.com.cn/cbweb-mn/yield_main?locale=zh_CN",Origin:"https://yield.chinabond.com.cn","X-Requested-With":"XMLHttpRequest"};
+const CGB="2c9081e50a2f9606010a3068cae70001";
+async function q(name,dcq,s,e){try{const r=await fetch(`https://yield.chinabond.com.cn/cbweb-mn/yc/queryYz?bjlx=no&&dcq=${dcq}&&startTime=${s}&&endTime=${e}&&qxlx=0,&&yqqxN=N&&yqqxK=K&&par=day&&ycDefIds=${CGB},&&locale=zh_CN`,{method:"POST",headers:H,signal:AbortSignal.timeout(30000)});const t=await r.text();let j;try{j=JSON.parse(t)}catch{console.log(name,r.status,t.slice(0,300));return}
+console.log(name,r.status,Array.isArray(j)?j.map(x=>`${String(x.ycDefId).slice(32)}:${x.seriesData?.length}`).join(" "):t.slice(0,300));}catch(err){console.log(name,"ERR",err.message)}}
+await q("2t-20d","1,1y;10,10y;","2026-10-01","2026-10-20");
+await q("2t-1y","1,1y;10,10y;","2025-10-16","2026-10-20");
+await q("2t-6m","1,1y;10,10y;","2026-04-20","2026-10-20");
+await q("2t-3m","1,1y;10,10y;","2026-07-20","2026-10-20");
+await q("13t-20d","0.25,0.25y;0.5,0.5y;1,1y;2,2y;3,3y;5,5y;7,7y;10,10y;15,15y;20,20y;30,30y;40,40y;50,50y;","2026-10-01","2026-10-20");
+await q("frac-20d","0.25,0.25y;0.5,0.5y;","2026-10-01","2026-10-20");
+await q("m-20d","0.25,3m;0.5,6m;","2026-10-01","2026-10-20");
+await q("7t-20d","1,1y;2,2y;3,3y;5,5y;7,7y;10,10y;30,30y;","2026-10-01","2026-10-20");
