@@ -1,11 +1,343 @@
-PAGE 200 https://www.chinamoney.com.cn/chinese/mtdexdaily/ 17472
- JS 200 https://www.chinamoney.com.cn/r/cms/chinese/chinamoney/assets/js/grayscale.js 12906 endpoints: 
- JS 200 https://www.chinamoney.com.cn/r/cms/chinese/chinamoney/assets/js/cm-basic.js 394181 endpoints: /dqs/rest/cm-u-rbt/apply | /r/cms/www/chinamoney/data/ | /r/cms/chinese/chinamoney/assets/ | /r/cms/chinese/chinamoney/data/ | /dqs/rest/ | /ags/ms/ | /ags/ms | /dqs/cm-s-notice-query/ | /r/cms/chinese/chinamoney/html/msg-frequest.html | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-pdf-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-word-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-excel-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-other-170515.png | /r/cms/chinese/chinamoney/assets/images/icon-pdf-170515.png | /r/cms/chinese/chinamoney/assets/images/icon-word-170515.png | /r/cms/chinese/chinamoney/assets/images/icon-excel-170515.png | /r/cms/chinese/chinamoney/assets/images/icon-other-170515.png | /r/cms/chinese/chinamoney/assets/css/cm-basic.4.css\ | /r/cms/chinese/chinamoney/assets/css/cm-layout.css\ | /r/cms/chinese/chinamoney/assets/images/jg1.png | https://idata.chinamoney.com.cn/dqs/rest/ips-s-account/chkAuth?ut=
-  CTX: //债券借贷 var BDC_PUBLISHED_TIME = 2200; //历史稿件设置默认字体及大小时间节点 var timeNode = '2020-05-01 23:59:59'; //@{res} var RESURL = ''; // 默认路径 var JURL = '', /
-  CTX:  $naviList.html('<template><li *san-for="item in records"><a href="{{#item.url}}" target="_blank"><img src="{{#item.imgSrc}}"></a><div class="text">{{#item.text}}</div></li></template>'); $naviList.sanTemplate({ 
-  CTX: function listABlank(total, count) { var diff = 0, i, str = '', classPlus = ''; if (!count) { count = 0; } if (count < total) { diff = total - co
- JS 200 https://www.chinamoney.com.cn/r/cms/chinese/chinamoney/assets/js/cm-gray.js 8313 endpoints: /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-word-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-excel-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-pdf-170515.png | /r/cms/chinese/chinamoney/assets/css/gray/img-cm-layout/gray/icon-other-170515.png
-PAGE 200 https://www.chinamoney.com.cn/chinese/mtmoncjgl/ 20925
-PAGE 200 https://www.chinamoney.com.cn/chinese/mkdatapm/ 20846
-PAGE 404 https://www.chinamoney.com.cn/chinese/mkdatabl/ 36
-PAGE 404 https://www.chinamoney.com.cn/chinese/bkbl/ 36
+==== PAGE 200 https://www.chinamoney.com.cn/chinese/mtdexdaily/
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 253 
+ $(function(){
+						              		$("#hasPhoneTitle").val("1");
+					              			$('#phone-title').append('<span class="title-s" data-mid="2-2" data-channel="mtdexdaily">每日速递</span>');
+														$('#li-2-2').attr('class','');
+													});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 913 
+ $(function(){
+		if($("#hasPhoneTitle").val()=="0"){
+			$('#phone-title').append('<span class="title-s" data-mid="" data-channel="">&nbsp;</span>');
+		}
+		var initReady11 = setInterval(function(){
+	    if (DOTABS) {
+	    	clearInterval(initReady11);
+	        var currentTab = $('.side-menu-list').children('.current').children('a').html().trim();
+	        if(currentTab == '外汇市场自律'){
+	        	$('#whsczlwxtp').html('<img src="/r/cms/chinese/chinamoney/assets/old/images/erweima.jpg" style="max-width: 100%; max-height: 100%"/>	');
+	        if(MEDIA_CASE=='XS' || MEDIA_CASE =="S"){
+			$('#whsczlwxtp').attr('style','display:none;');
+		}else{
+			$('#whsczlwxtp').attr('style','');
+		}
+}
+	    }
+	}, 10);
+$(window).on('resize.leftmenu', function(e, duration) {
+		if(MEDIA_CASE=='XS' || MEDIA_CASE =="S"){
+			$('#whsczlwxtp').attr('style','display:none;');
+		}else{
+			$('#whsczlwxtp').attr('style','');
+		}
+	});
+	});
+--- INLINE 1267 
+ $(function(){
+    var initReady = setInterval(function(){
+        if ('san' in window) {
+            clearInterval(initReady);
+            doJumptoByDatafor();
+        }
+    }, 10);
+
+    var readyInterval = setInterval(function(){
+        if(DOTABS){
+            clearInterval(readyInterval);
+            //指定默认tab页，如/chinese/home/index.html?tab=2
+            var tab = getQueryStr('tab');
+            if(!tab){
+                tab = 1;
+            }
+
+            $('#tabs-member-fx').sanTabs({
+                layout: 'table',
+                defaultItem: tab,
+                equalWidth: false,
+                inject:true,
+                type:"mix",
+                mediaListening: true,
+once:false,
+                onDone:function($li){
+                    var index=$li.attr('data-tabs-index');
+                    $(this).find('div[data-url]:not(.san-datasheet)').each(function(){
+                        $(this).sanJumpto();
+                        // $(this).parent().siblings('div[data-show="toggle"]').children('div[data-url]').children().remove();
+                        // $(this).parent().siblings('div[data-show="toggle"]').children('div[data-url]').siblings().remove();
+                    })
+                }
+            });
+        }
+    },10);
+})
+SRC /r/cms/chinese/chinamoney/assets/js/jquery-1.12.2.min.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery-ui-1.10.4.custom.min.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-jquery-ui-default.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.flexslider-min.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.mousewheel.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.mCustomScrollbar.js
+SRC /r/cms/chinese/chinamoney/assets/js/grayscale.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-basic.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-gray.js
+SRC /r/cms/chinese/chinamoney/assets/js/echarts.min.js
+SRC /r/cms/chinese/chinamoney/assets/old/images/erweima.jpg
+==== PAGE 200 https://www.chinamoney.com.cn/chinese/mtmoncjgl/
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 75 
+ $(function(){
+														$('#li-2-2').attr('class','');
+													});
+--- INLINE 242 
+ $(function(){
+						              			$("#hasPhoneTitle").val("1");
+						              			$('#phone-title').append('<span class="title-s" data-mid="2-3-1" data-channel="mtmoncjgl">成交概览</span>');
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 61 
+ $(function(){
+						              		
+					              		});
+--- INLINE 30 
+ $(function(){
+													});
+--- INLINE 913 
+ $(function(){
+		if($("#hasPhoneTitle").val()=="0"){
+			$('#phone-title').append('<span class="title-s" data-mid="" data-channel="">&nbsp;</span>');
+		}
+		var initReady11 = setInterval(function(){
+	    if (DOTABS) {
+	    	clearInterval(initReady11);
+	        var currentTab = $('.side-menu-list').children('.current').children('a').html().trim();
+	        if(currentTab == '外汇市场自律'){
+	        	$('#whsczlwxtp').html('<img src="/r/cms/chinese/chinamoney/assets/old/images/erweima.jpg" style="max-width: 100%; max-height: 100%"/>	');
+	        if(MEDIA_CASE=='XS' || MEDIA_CASE =="S"){
+			$('#whsczlwxtp').attr('style','display:none;');
+		}else{
+			$('#whsczlwxtp').attr('style','');
+		}
+}
+	    }
+	}, 10);
+$(window).on('resize.leftmenu', function(e, duration) {
+		if(MEDIA_CASE=='XS' || MEDIA_CASE =="S"){
+			$('#whsczlwxtp').attr('style','display:none;');
+		}else{
+			$('#whsczlwxtp').attr('style','');
+		}
+	});
+	});
+--- INLINE 1255 
+ $(function(){
+    var initReady = setInterval(function(){
+        if ('san' in window) {
+            clearInterval(initReady);
+            doJumptoByDatafor();
+        }
+    }, 10);
+
+    var readyInterval = setInterval(function(){
+        if(DOTABS){
+            clearInterval(readyInterval);
+            //指定默认tab页，如/chinese/home/index.html?tab=2
+            var tab = getQueryStr('tab');
+            if(!tab){
+                tab = 1;
+            }
+
+            $('#tabs-member-fx').sanTabs({
+                layout: 'table',
+                defaultItem: tab,
+                equalWidth: false,
+                inject:true,
+                type:"mix",
+                mediaListening: true,
+                onDone:function($li){
+                    var index=$li.attr('data-tabs-index');
+                    $(this).find('div[data-url]:not(.san-datasheet)').each(function(){
+                        $(this).sanJumpto();
+                        // $(this).parent().siblings('div[data-show="toggle"]').children('div[data-url]').children().remove();
+                        // $(this).parent().siblings('div[data-show="toggle"]').children('div[data-url]').siblings().remove();
+                    })
+                }
+            });
+        }
+    },10);
+})
+SRC /r/cms/chinese/chinamoney/assets/js/jquery-1.12.2.min.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery-ui-1.10.4.custom.min.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-jquery-ui-default.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.flexslider-min.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.mousewheel.js
+SRC /r/cms/chinese/chinamoney/assets/js/jquery.mCustomScrollbar.js
+SRC /r/cms/chinese/chinamoney/assets/js/grayscale.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-basic.js
+SRC /r/cms/chinese/chinamoney/assets/js/cm-gray.js
+SRC /r/cms/chinese/chinamoney/assets/js/echarts.min.js
+SRC /r/cms/chinese/chinamoney/assets/old/images/erweima.jpg
