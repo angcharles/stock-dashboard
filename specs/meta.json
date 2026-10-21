@@ -20,18 +20,18 @@
   "zh": "广告大卖，<em>AI 账单也来了</em>。"
  },
  "lede": {
-  "en": "Meta grew revenue 28% to $60.8B in Q2, but costs rose 55% and about $31B of capex ate almost all of its operating cash flow. 2026 capex is guided at $130–145B, Reality Labs still loses about $4.6B a quarter, and buybacks have slowed sharply.",
-  "zh": "Meta 第二季营收增 28% 至 608 亿美元，但成本增 55%，约 310 亿美元资本开支几乎吞掉全部经营现金流。2026 年资本开支指引 1300–1450 亿美元，Reality Labs 每季仍亏约 46 亿，回购大幅放缓。"
+  "en": "Meta grew revenue 26% to $64.6B in Q3 and guided Q4 above consensus, but a $9.9B youth-safety settlement charge cut operating margin to 20%, and $34.9B of capex pushed free cash flow negative for the first time. No buybacks in Q3; Meta plans a new non-voting Class C share.",
+  "zh": "Meta 第三季营收增 26% 至 646 亿美元，第四季指引高于预期；但 99 亿美元青少年安全和解费用使营业利润率降至 20%，349 亿美元资本开支令自由现金流首次转负。第三季未回购，并计划发行无投票权的新 C 类股。"
  },
  "valuation": {
   "k": {
    "en": "P/E",
    "zh": "市盈率"
   },
-  "v": "~27×",
+  "v": "~24×",
   "s": {
-   "en": "Q3 consensus EPS $6.77 × 4 · trailing GAAP ~27×",
-   "zh": "Q3 一致预期每股 $6.77 × 4 · GAAP 历史约 27 倍"
+   "en": "trailing GAAP EPS $29.33 · ~21× excluding the Q3 legal charge",
+   "zh": "GAAP 历史每股 $29.33 · 剔除第三季法律费用约 21 倍"
   }
  },
  "analysts": {
@@ -46,30 +46,30 @@
   }
  },
  "earnings": {
-  "v": "Oct 21",
+  "v": "Late Jan",
   "s": {
-   "en": "Q3 2026 · confirmed, after close",
-   "zh": "2026 第三季 · 已确认，盘后"
+   "en": "Q4 2026 · date not yet announced",
+   "zh": "2026 第四季 · 日期未公布"
   }
  },
  "sub_price": {
-  "en": "Daily closes with the 50-day average. The stock fell about 10% after Q2 results on the capex and cost outlook.",
-  "zh": "每日收盘价与50日均线。第二季财报后因资本开支与成本展望，股价下跌约 10%。"
+  "en": "Daily closes with the 50-day average. The stock fell 8% after Q2 results, then re-rated on the Muse AI agent; it rose about 4% after hours on the Q3 beat and Q4 guide.",
+  "zh": "每日收盘价与50日均线。第二季财报后股价下跌 8%，其后因 Muse AI 智能体重新估值；第三季业绩超预期、第四季指引强劲，盘后上涨约 4%。"
  },
  "sub_rev": {
-  "en": "Revenue in US$ millions, with gross margin on the right axis. Q3 2025 GAAP EPS of $1.05 reflects a one-time tax charge. The last bar is the midpoint of Meta's Q3 2026 guidance of $61–64B.",
-  "zh": "营收单位为百万美元，右轴为毛利率。2025 第三季 GAAP 每股 $1.05 反映一次性税务费用。最后一根柱为 Meta 2026 第三季指引 610–640 亿美元的中值。"
+  "en": "Revenue in US$ millions, with gross margin on the right axis. GAAP EPS of $1.05 in Q3 2025 reflects a one-time tax charge, and $3.83 in Q3 2026 a $9.89B legal charge ($7.40 excluding it). The last bar is the midpoint of Meta's Q4 2026 guidance of $73–76B.",
+  "zh": "营收单位为百万美元，右轴为毛利率。2025 第三季 GAAP 每股 $1.05 反映一次性税务费用，2026 第三季 $3.83 反映 98.9 亿美元法律费用（剔除后为 $7.40）。最后一根柱为 Meta 2026 第四季指引 730–760 亿美元的中值。"
  },
  "rev_cells": [
   {
    "k": {
-    "en": "Q2 2026",
-    "zh": "2026 Q2"
+    "en": "Q3 2026",
+    "zh": "2026 Q3"
    },
-   "v": "$60.8B",
+   "v": "$64.6B",
    "s": {
-    "en": "+28% YoY",
-    "zh": "同比 +28%"
+    "en": "+26% YoY · beat ~$63.3B",
+    "zh": "同比 +26% · 高于约 633 亿预期"
    }
   },
   {
@@ -77,10 +77,10 @@
     "en": "Op. margin",
     "zh": "营业利润率"
    },
-   "v": "34.8%",
+   "v": "20.1%",
    "s": {
-    "en": "43.0% a year ago",
-    "zh": "一年前 43.0%"
+    "en": "35.4% excl. legal charge · 40.1% a year ago",
+    "zh": "剔除法律费用 35.4% · 一年前 40.1%"
    }
   },
   {
@@ -88,10 +88,10 @@
     "en": "Costs & expenses",
     "zh": "成本与费用"
    },
-   "v": "$42.0B",
+   "v": "$51.6B",
    "s": {
-    "en": "+55% · incl. $2.4B legal, $1.2B severance",
-    "zh": "+55% · 含 24 亿法律费用、12 亿遣散费"
+    "en": "+68% · incl. $9.89B legal charge",
+    "zh": "+68% · 含 98.9 亿法律费用"
    }
   },
   {
@@ -99,32 +99,32 @@
     "en": "Reality Labs",
     "zh": "Reality Labs"
    },
-   "v": "−$4.62B",
+   "v": "−$4.13B",
    "s": {
-    "en": "operating loss on $431M revenue",
-    "zh": "营收 4.31 亿，营业亏损"
+    "en": "operating loss on $443M revenue",
+    "zh": "营收 4.43 亿，营业亏损"
    }
   },
   {
    "k": {
-    "en": "Q2 capex",
-    "zh": "Q2 资本开支"
+    "en": "Q3 capex",
+    "zh": "Q3 资本开支"
    },
-   "v": "$31.1B",
+   "v": "$34.9B",
    "s": {
-    "en": "incl. finance leases · ~2× a year ago",
-    "zh": "含融资租赁 · 约为一年前两倍"
+    "en": "incl. finance leases · 1.8× a year ago",
+    "zh": "含融资租赁 · 为一年前 1.8 倍"
    }
   },
   {
    "k": {
-    "en": "Q3 guide",
-    "zh": "Q3 指引"
+    "en": "Q4 guide",
+    "zh": "Q4 指引"
    },
-   "v": "$61–64B",
+   "v": "$73–76B",
    "s": {
-    "en": "FX about a 1-point headwind",
-    "zh": "汇率约 1 个百分点逆风"
+    "en": "midpoint above ~$73.6B consensus",
+    "zh": "中值高于约 736 亿预期"
    }
   }
  ],
@@ -136,41 +136,52 @@
     "zh": "广告引擎"
    },
    "p": {
-    "en": "Revenue grew 28% in Q2 and between 16% and 33% in each of the last ten quarters, as AI-driven ad targeting and ranking keep working.",
-    "zh": "第二季营收增 28%，过去十个季度每季增长 16% 至 33%，AI 驱动的广告定向与排序持续见效。"
+    "en": "Revenue grew 26% in Q3 as ad impressions rose 10% and price per ad 14%. The Q4 guide of $73–76B implies about 22–27% growth, and Meta expects strong growth through 2027.",
+    "zh": "第三季营收增 26%，广告展示量增 10%、单价增 14%。第四季 730–760 亿美元指引意味着增长约 22–27%，Meta 预计 2027 年全年保持强劲增长。"
+   }
+  },
+  {
+   "kind": "plus",
+   "h": {
+    "en": "Muse and leaner costs",
+    "zh": "Muse 与精简成本"
+   },
+   "p": {
+    "en": "More than 10M people set up the Muse AI agent in about six weeks. Headcount is down 15% YoY to 66,775, and Reality Labs losses should narrow to about $15B in 2027.",
+    "zh": "约六周内逾 1000 万人开通 Muse AI 智能体。员工数同比减 15% 至 66,775 人，Reality Labs 亏损预计 2027 年收窄至约 150 亿美元。"
    }
   },
   {
    "kind": "watch",
    "h": {
-    "en": "Capex and costs",
-    "zh": "资本开支与成本"
+    "en": "Capex and cash flow",
+    "zh": "资本开支与现金流"
    },
    "p": {
-    "en": "The 2026 guide is $130–145B of capex and $165–169B of total expenses. Q2 free cash flow was just $0.8B on Meta's own measure.",
-    "zh": "2026 年资本开支指引 1300–1450 亿美元，总费用 1650–1690 亿。按 Meta 自身口径，第二季自由现金流仅 8 亿美元。"
+    "en": "2026 capex is guided at $135–145B, implying about $49–59B in Q4. Free cash flow was −$2.1B in Q3 on Meta's measure, and buybacks have stopped.",
+    "zh": "2026 年资本开支指引 1350–1450 亿美元，意味着第四季约 490–590 亿。按 Meta 口径第三季自由现金流为 −21 亿美元，回购已暂停。"
    }
   },
   {
    "kind": "watch",
    "h": {
-    "en": "Borrowing to build",
-    "zh": "举债建设"
+    "en": "Borrowing and the Class C share",
+    "zh": "举债与 C 类股"
    },
    "p": {
-    "en": "Meta issued about $55B of bonds over the last year. Total debt including leases (~$112B) now exceeds cash and securities (~$90B).",
-    "zh": "过去一年 Meta 发行约 550 亿美元债券。含租赁的总负债（约 1120 亿）已超过现金及证券（约 900 亿）。"
+    "en": "Long-term debt rose to $80.9B from $58.7B in December, about equal to cash and securities of $82.4B. A non-voting Class C share (one per existing share, due Jan 2027) can be used to raise capital or pay for deals.",
+    "zh": "长期债务从去年 12 月的 587 亿升至 809 亿美元，与 824 亿现金及证券相当。无投票权 C 类股（每股派一股，预计 2027 年 1 月）可用于融资或并购。"
    }
   },
   {
-   "kind": "watch",
+   "kind": "risk",
    "h": {
-    "en": "Growth slows in Q3",
-    "zh": "第三季增速放缓"
+    "en": "Legal bills",
+    "zh": "法律费用"
    },
    "p": {
-    "en": "The $61–64B Q3 guide implies growth of about 19–25%, down from 28%, and slightly below what analysts expected.",
-    "zh": "第三季 610–640 亿美元指引意味着增速约 19–25%，低于 28%，也略低于分析师预期。"
+    "en": "The attorneys-general deal provides up to about $18.6B in payments, and a New Mexico judge ordered $25B over Cambridge Analytica, which Meta will appeal. More youth-safety trials are scheduled.",
+    "zh": "与各州总检察长的和解最多需支付约 186 亿美元；新墨西哥州法官就剑桥分析案判罚 250 亿，Meta 将上诉。更多青少年安全审判仍在排期。"
    }
   },
   {
@@ -180,34 +191,12 @@
     "zh": "Reality Labs"
    },
    "p": {
-    "en": "Lost $4.62B in Q2 and more than $80B since 2020. Zuckerberg says 2026 is the peak loss year.",
-    "zh": "第二季亏损 46.2 亿美元，2020 年以来累计逾 800 亿。扎克伯格称 2026 年是亏损最高的一年。"
-   }
-  },
-  {
-   "kind": "risk",
-   "h": {
-    "en": "Youth-safety trials",
-    "zh": "青少年安全诉讼"
-   },
-   "p": {
-    "en": "Several US trials over harms to young users are scheduled this year, and Meta warns they could result in a material loss.",
-    "zh": "今年美国有多起涉及青少年用户伤害的审判，Meta 警告可能导致重大损失。"
+    "en": "Lost $4.13B in Q3 and is guided to lose $18–19B in 2026, on revenue of under $0.5B a quarter.",
+    "zh": "第三季亏损 41.3 亿美元，2026 年指引亏损 180–190 亿，每季营收不足 5 亿。"
    }
   }
  ],
  "calendar": [
-  {
-   "date": "Oct 21, 2026",
-   "h": {
-    "en": "Q3 2026 earnings",
-    "zh": "2026 第三季财报"
-   },
-   "p": {
-    "en": "After US close; call 1:30pm PT (Oct 22, 4:30am SGT). Guide: revenue $61–64B; consensus EPS ~$6.64.",
-    "zh": "美股收盘后；电话会议太平洋时间下午1:30（新加坡时间10月22日凌晨4:30）。指引：营收 610–640 亿美元；一致预期每股约 $6.64。"
-   }
-  },
   {
    "date": "Late Jan 2027",
    "h": {
@@ -215,42 +204,53 @@
     "zh": "第四季及 2026 全年业绩"
    },
    "p": {
-    "en": "Expected to include 2027 capex and expense outlooks.",
-    "zh": "预计将给出 2027 年资本开支与费用展望。"
+    "en": "Guide: revenue $73–76B. Expected to include 2027 capex and expense outlooks.",
+    "zh": "指引：营收 730–760 亿美元。预计将给出 2027 年资本开支与费用展望。"
+   }
+  },
+  {
+   "date": "Jan 19, 2027",
+   "h": {
+    "en": "Class C shares",
+    "zh": "C 类股"
+   },
+   "p": {
+    "en": "Intended effective date of the non-voting Class C stock; one share is paid per Class A or B share and the Class A price should adjust like a 2-for-1 split.",
+    "zh": "无投票权 C 类股拟生效日；每股 A 或 B 类股派发一股，A 类股价格将如 1 拆 2 般调整。"
    }
   },
   {
    "date": "2026–2027",
    "h": {
-    "en": "Youth-safety trials",
-    "zh": "青少年安全审判"
+    "en": "Youth-safety trials and appeals",
+    "zh": "青少年安全审判与上诉"
    },
    "p": {
-    "en": "Several US trials are scheduled; outcomes could lead to material losses.",
-    "zh": "美国多起审判排期中，结果可能导致重大损失。"
+    "en": "More US trials are scheduled, and Meta is appealing the $25B New Mexico ruling.",
+    "zh": "美国更多审判排期中，Meta 正就新墨西哥州 250 亿美元判决上诉。"
    }
   }
  ],
  "sources": [
   [
-   "Q2 2026 results and outlook",
-   "https://hustlers.digital/en/news/meta-second-quarter-2026-earnings-breakdown"
+   "Q3 2026 press release (PR Newswire)",
+   "https://www.prnewswire.com/news-releases/meta-reports-third-quarter-2026-results-302915964.html"
   ],
   [
-   "Q2 2026 analysis (Miracoup)",
-   "https://miracoup.com/meta-q2-2026-earnings-analysis"
+   "Q3 2026 results summary (Stock Titan)",
+   "https://www.stocktitan.net/news/META/meta-reports-third-quarter-2026-13ysmyjaxliq.html"
   ],
   [
-   "Q2 2026 capex and guidance",
-   "https://news.insightanalytics.io/articles/meta-platforms-q2-fy2026-earnings"
+   "Q3 2026: settlement, capex and FCF (Fortune)",
+   "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
   ],
   [
-   "Q2 2026 10-Q balance sheet",
-   "https://keid.app/filings/870609003317563392"
+   "Q3 2026 earnings call (Investing.com)",
+   "https://www.investing.com/news/transcripts/earnings-call-transcript-meta-beats-q3-2026-estimates-as-ai-push-lifts-shares-93CH-4964260"
   ],
   [
-   "Debt vs cash (TIKR)",
-   "https://tikr.com/blog/meta-now-owes-22-billion-more-than-it-holds-heres-why-that-matters"
+   "Q3 2026 vs consensus (StockStory)",
+   "https://stockstory.org/us/stocks/nasdaq/meta/news/earnings/metas-nasdaqmeta-q3-2026-sales-top-estimates-quarterly-revenue-guidance-slightly-exceeds-expectations"
   ],
   [
    "Quarterly income statement (Stock Analysis)",
@@ -261,13 +261,13 @@
    "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001326801"
   ],
   [
-   "Price, market cap, beta, targets and earnings date: Financial Modeling Prep, as of Oct 9, 2026",
+   "Price, market cap, beta, targets: Financial Modeling Prep, as of Oct 9, 2026",
    "https://finance.yahoo.com/quote/META"
   ]
  ],
  "foot": {
-  "en": "Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Meta Platforms, Inc..",
-  "zh": "基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 Meta Platforms, Inc. 无关联。"
+  "en": "Fundamentals as of Oct 22, 2026 (Q3 2026 results). For information only, not investment advice. Not affiliated with Meta Platforms, Inc.",
+  "zh": "基本面数据截至 2026年10月22日（2026 第三季业绩）。仅供参考，不构成投资建议。与 Meta Platforms, Inc. 无关联。"
  },
  "quarters": [
   [
@@ -429,27 +429,28 @@
    81.36,
    34.83,
    6.18
+  ],
+  [
+   "Q3 2026",
+   "Sep 2026",
+   64601,
+   79.31,
+   20.1,
+   3.83
   ]
  ],
  "guide": [
-  "Q3 2026e",
-  62500,
-  "Sep 2026 · guidance midpoint",
-  "2026年9月 · 指引中值"
+  "Q4 2026e",
+  74500,
+  "Dec 2026 · guidance midpoint",
+  "2026年12月 · 指引中值"
  ],
  "fcf": {
   "sub": {
-   "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q3 2021 to Q2 2026. Shaded bars and italic rows are estimates.",
-   "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第三季至 2026 年第二季共 20 个季度。浅色柱与斜体行为估算。"
+   "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q4 2021 to Q3 2026. Shaded bars and italic rows are estimates.",
+   "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第四季至 2026 年第三季共 20 个季度。浅色柱与斜体行为估算。"
   },
   "hist": [
-   [
-    "Q3 2021",
-    "Sep 2021",
-    14090,
-    4346,
-    9744
-   ],
    [
     "Q4 2021",
     "Dec 2021",
@@ -582,36 +583,43 @@
     31862,
     30116,
     1746
+   ],
+   [
+    "Q3 2026",
+    "Sep 2026",
+    32786,
+    33942,
+    -1156
    ]
   ],
   "est": [
    [
-    "Q3 2026",
-    "Sep 2026",
-    33000,
-    42000,
-    -9000
-   ],
-   [
     "Q4 2026",
     "Dec 2026",
+    38000,
+    52000,
+    -14000
+   ],
+   [
+    "Q1 2027",
+    "Mar 2027",
     36000,
     45000,
     -9000
    ],
    [
-    "Q1 2027",
-    "Mar 2027",
-    34000,
-    45000,
-    -11000
-   ],
-   [
     "Q2 2027",
     "Jun 2027",
-    33000,
+    37000,
+    46000,
+    -9000
+   ],
+   [
+    "Q3 2027",
+    "Sep 2027",
+    38000,
     47000,
-    -14000
+    -9000
    ]
   ],
   "cash": {
@@ -619,20 +627,20 @@
     "en": "Cash & securities",
     "zh": "现金及有价证券"
    },
-   "v": "$90.3B",
+   "v": "$82.4B",
    "s": {
-    "en": "Jun 30, 2026",
-    "zh": "2026年6月30日"
+    "en": "Sep 30, 2026",
+    "zh": "2026年9月30日"
    }
   },
   "read": [
    {
-    "en": "Meta generated $5–16B of free cash flow almost every quarter for five years, enough to fund large buybacks. Capex has more than tripled since early 2024, and in Q2 2026 it nearly matched operating cash flow: $31.9B in, $30.1B out, leaving $1.7B (Meta's own figure, which also deducts finance leases, was $0.8B).",
-    "zh": "过去五年 Meta 几乎每季产生 50–160 亿美元自由现金流，足以支撑大规模回购。自 2024 年初以来资本开支增至三倍以上，2026 年第二季几乎与经营现金流持平：流入 319 亿、流出 301 亿，剩余 17 亿（按 Meta 自身口径另扣融资租赁后为 8 亿）。"
+    "en": "Meta generated $5–16B of free cash flow almost every quarter for five years, enough to fund large buybacks. In Q3 2026 capex passed operating cash flow for the first time: $32.8B in, $33.9B out, leaving −$1.2B (Meta's own figure, which also deducts finance leases, was −$2.1B). There were no buybacks.",
+    "zh": "过去五年 Meta 几乎每季产生 50–160 亿美元自由现金流，足以支撑大规模回购。2026 年第三季资本开支首次超过经营现金流：流入 328 亿、流出 339 亿，剩余 −12 亿（按 Meta 自身口径另扣融资租赁后为 −21 亿）。当季未回购。"
    },
    {
-    "en": "The $130–145B guide for 2026 implies about $87B of capex in the second half, so I expect free cash flow to turn negative, roughly −$9B a quarter, and to stay negative into 2027 if spending keeps rising. Meta is filling the gap with bonds, about $55B over the last year, and has slowed buybacks.",
-    "zh": "2026 年 1300–1450 亿美元的指引意味着下半年资本开支约 870 亿，因此我预计自由现金流将转负，每季约 −90 亿美元；若支出继续上升，2027 年仍将为负。Meta 以债券填补缺口（过去一年约 550 亿），并放缓了回购。"
+    "en": "The $135–145B guide for 2026 implies about $49–59B of capex in Q4 alone, so I expect free cash flow of roughly −$14B in Q4 and about −$9B a quarter in 2027 if spending stays near that pace (Meta gives its 2027 capex in January). Settlement payments of up to $18.6B add to the drain, and long-term debt is already up $22B this year.",
+    "zh": "2026 年 1350–1450 亿美元的指引意味着仅第四季资本开支就约 490–590 亿，因此我预计第四季自由现金流约 −140 亿美元；若支出维持此节奏，2027 年每季约 −90 亿（Meta 将于 1 月给出 2027 年资本开支）。最多 186 亿美元的和解支付进一步消耗现金，今年长期债务已增加 220 亿。"
    }
   ],
   "out": [
@@ -642,8 +650,8 @@
      "zh": "AI 数据中心与算力"
     },
     "p": {
-     "en": "$50.9B of capex in the first half of 2026 (including finance leases) and about $87B more implied for the second half.",
-     "zh": "2026 年上半年资本开支 509 亿美元（含融资租赁），下半年隐含约 870 亿。"
+     "en": "$85.8B of capex in the first nine months of 2026 (including finance leases) and about $49–59B more implied for Q4.",
+     "zh": "2026 年前九个月资本开支 858 亿美元（含融资租赁），第四季隐含约 490–590 亿。"
     }
    },
    {
@@ -652,8 +660,8 @@
      "zh": "Reality Labs"
     },
     "p": {
-     "en": "About $4.6B of operating losses a quarter on AR/VR and AI glasses.",
-     "zh": "AR/VR 与 AI 眼镜每季营业亏损约 46 亿美元。"
+     "en": "$4.13B of operating losses in Q3; $18–19B guided for 2026.",
+     "zh": "第三季营业亏损 41.3 亿美元；2026 年指引 180–190 亿。"
     }
    },
    {
@@ -662,18 +670,18 @@
      "zh": "股息"
     },
     "p": {
-     "en": "About $1.35B a quarter.",
-     "zh": "每季约 13.5 亿美元。"
+     "en": "About $1.36B a quarter.",
+     "zh": "每季约 13.6 亿美元。"
     }
    },
    {
     "h": {
-     "en": "Legal costs",
-     "zh": "法律费用"
+     "en": "Legal settlements",
+     "zh": "法律和解"
     },
     "p": {
-     "en": "$2.4B of legal charges in Q2, with youth-safety trials still ahead.",
-     "zh": "第二季法律费用 24 亿美元，青少年安全审判尚未结束。"
+     "en": "Up to about $18.6B to the states under the youth-safety agreement ($9.89B charged in Q3), plus a $25B New Mexico ruling under appeal.",
+     "zh": "青少年安全协议下最多向各州支付约 186 亿美元（第三季计提 98.9 亿），另有上诉中的新墨西哥州 250 亿判决。"
     }
    }
   ],
@@ -684,8 +692,8 @@
      "zh": "广告"
     },
     "p": {
-     "en": "About $32B of operating cash flow a quarter from Facebook, Instagram, WhatsApp and Messenger ads.",
-     "zh": "Facebook、Instagram、WhatsApp 和 Messenger 广告每季带来约 320 亿美元经营现金流。"
+     "en": "About $33B of operating cash flow a quarter from Facebook, Instagram, WhatsApp and Messenger ads.",
+     "zh": "Facebook、Instagram、WhatsApp 和 Messenger 广告每季带来约 330 亿美元经营现金流。"
     }
    },
    {
@@ -694,41 +702,41 @@
      "zh": "发行债券"
     },
     "p": {
-     "en": "$24.9B in Q2 2026 and $29.9B in Q4 2025.",
-     "zh": "2026 年第二季 249 亿美元，2025 年第四季 299 亿。"
+     "en": "Long-term debt rose from $58.7B in December 2025 to $80.9B in September 2026.",
+     "zh": "长期债务从 2025 年 12 月的 587 亿增至 2026 年 9 月的 809 亿美元。"
     }
    }
   ],
   "bridge": [
    [
     {
-     "en": "Cash & securities, Jun 2026",
-     "zh": "2026年6月现金及证券"
+     "en": "Cash & securities, Sep 2026",
+     "zh": "2026年9月现金及证券"
     },
-    90260
+    82450
    ],
    [
     {
      "en": "Free cash flow, 4 quarters (est.)",
      "zh": "4季自由现金流（估）"
     },
-    -43000
+    -41000
    ],
    [
     {
-     "en": "Dividends (~$1.35B a quarter)",
-     "zh": "股息（每季约13.5亿）"
+     "en": "Dividends (~$1.36B a quarter)",
+     "zh": "股息（每季约13.6亿）"
     },
     -5400
    ]
   ],
   "bridgeEnd": {
-   "en": "Cash & securities, Jun 2027 (est.)",
-   "zh": "2027年6月现金及证券（估）"
+   "en": "Cash & securities, Sep 2027 (est.)",
+   "zh": "2027年9月现金及证券（估）"
   },
   "bridgeNote": {
-   "en": "Before any new bonds or buybacks. Meta has been issuing debt roughly every other quarter.",
-   "zh": "未计入新发债券或回购。Meta 大约每两季发债一次。"
+   "en": "Before settlement payments, any new bonds or Class C share sales, or buybacks.",
+   "zh": "未计入和解支付、新发债券、C 类股融资或回购。"
   },
   "extraNote": {
    "en": "Capex here excludes principal payments on finance leases, which Meta includes in its own free cash flow measure.",
@@ -736,20 +744,16 @@
   },
   "src": [
    [
+    "Q3 2026 press release (PR Newswire)",
+    "https://www.prnewswire.com/news-releases/meta-reports-third-quarter-2026-results-302915964.html"
+   ],
+   [
     "Quarterly cash flow statement (Stock Analysis)",
     "https://stockanalysis.com/stocks/meta/financials/cash-flow-statement/?p=quarterly"
    ],
    [
-    "Q2 2026 capex and FCF",
-    "https://news.insightanalytics.io/articles/meta-platforms-q2-fy2026-earnings"
-   ],
-   [
-    "Q2 2026 10-Q balance sheet",
-    "https://keid.app/filings/870609003317563392"
-   ],
-   [
-    "Debt vs cash (TIKR)",
-    "https://tikr.com/blog/meta-now-owes-22-billion-more-than-it-holds-heres-why-that-matters"
+    "Q3 2026: capex and FCF (Fortune)",
+    "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
    ]
   ]
  }

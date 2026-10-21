@@ -126,7 +126,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     <div>
       <div class="eyebrow" data-i="eyebrow">Tesla, Inc. · Common stock · Austin, Texas</div>
       <h1 data-ih="title">A carmaker on the books, <em>an AI bet</em> in the price.</h1>
-      <p class="lede" data-i="lede">Tesla still earns about three-quarters of its revenue selling cars, and Q2 operating margin was just 1.4%. The $1.5T valuation rests on robotaxi, FSD subscriptions, Optimus and energy storage, while capex runs above $25B this year.</p>
+      <p class="lede" data-i="lede">Tesla still earns about three-quarters of its revenue selling cars, and Q3 operating margin was 2.6% on flat sales. Margins and cash flow recovered and 2026 capex was cut to about $20B, but the $1.5T valuation still rests on robotaxi, FSD, Optimus and energy storage.</p>
     </div>
     <div class="pxbox">
       <div class="eyebrow" id="pxLabel">Last close · Oct 8, 2026</div>
@@ -140,15 +140,15 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
   <div class="cells" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px">
     <div class="cell"><div class="k" data-i="k_mcap">Market cap</div><div class="v" id="mcap">$1.48T</div><div class="s" data-i="s_mcap">at current price</div></div>
     <div class="cell"><div class="k" data-i="k_52">52-week range</div><div class="v">$297–499</div><div class="s" data-i="s_52">intraday low / high</div></div>
-    <div class="cell"><div class="k" data-i="k_pe">Forward P/E</div><div class="v">~164×</div><div class="s" data-i="s_pe">2027E EPS $2.29 · trailing GAAP ~347×</div></div>
-    <div class="cell"><div class="k" data-i="k_ttm">Revenue TTM</div><div class="v">$103.6B</div><div class="s" data-i="s_ttm">+12% YoY</div></div>
+    <div class="cell"><div class="k" data-i="k_pe">Forward P/E</div><div class="v">~169×</div><div class="s" data-i="s_pe">2027E EPS $2.29 · Q3 GAAP EPS $0.22</div></div>
+    <div class="cell"><div class="k" data-i="k_ttm">Revenue TTM</div><div class="v">$103.6B</div><div class="s" data-i="s_ttm">+8% YoY · through Q3 2026</div></div>
     <div class="cell"><div class="k" data-i="k_an">Analysts</div><div class="v">Buy</div><div class="s" data-i="s_an">35 buy · 32 hold · 15 sell · target $441</div></div>
-    <div class="cell"><div class="k" data-i="k_er">Next earnings</div><div class="v">Oct 21</div><div class="s" data-i="s_er">Q3 2026, after close</div></div>
+    <div class="cell"><div class="k" data-i="k_er">Next earnings</div><div class="v">Late Jan</div><div class="s" data-i="s_er">Q4 2026, date not yet announced</div></div>
   </div>
 
   <section id="price">
     <h2 data-i="h_price">Price, last 12 months</h2>
-    <p class="sub" data-i="sub_price">Daily closes with the 50-day average. The stock peaked in mid-December, slid 39% to a late-July low after the Q2 profit miss, and has since won back about two-fifths of the drop.</p>
+    <p class="sub" data-i="sub_price">Daily closes with the 50-day average. The stock peaked in mid-December and slid 39% to a late-July low after the Q2 profit miss. It has since recovered to the high $380s; it slipped about 2% after hours on the Q3 report when 2026 capex was cut to about $20B.</p>
     <div class="grid">
       <div class="panel">
         <div class="range" role="group" aria-label="Range">
@@ -177,21 +177,21 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
 
   <section id="revenue">
     <h2 data-i="h_rev">Revenue by segment, by quarter</h2>
-    <p class="sub" data-i="sub_rev">Automotive is vehicle sales, regulatory credits and leasing. Energy is Megapack, Powerwall and solar. Services &amp; other covers servicing, insurance, Supercharging, used cars and FSD-related revenue. Q3 2026 is analyst consensus, not company guidance; Tesla does not give quarterly revenue guidance.</p>
+    <p class="sub" data-i="sub_rev">Automotive is vehicle sales, regulatory credits and leasing. Energy is Megapack, Powerwall and solar. Services &amp; other covers servicing, insurance, Supercharging, used cars and FSD-related revenue. Tesla does not give quarterly revenue guidance, so no forward bar is shown.</p>
     <div class="grid">
       <div class="panel">
-        <div class="legend"><span><i class="sw" style="background:var(--accent)"></i><span data-i="l_auto">Automotive</span></span><span><i class="sw" style="background:var(--copper)"></i><span data-i="l_en">Energy</span></span><span><i class="sw" style="background:var(--slate)"></i><span data-i="l_svc">Services &amp; other</span></span><span><i class="sw" style="background:var(--line)"></i><span data-i="l_g">Consensus</span></span></div>
+        <div class="legend"><span><i class="sw" style="background:var(--accent)"></i><span data-i="l_auto">Automotive</span></span><span><i class="sw" style="background:var(--copper)"></i><span data-i="l_en">Energy</span></span><span><i class="sw" style="background:var(--slate)"></i><span data-i="l_svc">Services &amp; other</span></span></div>
         <div class="chart"><canvas id="cRev" aria-label="Quarterly revenue by segment"></canvas></div>
       </div>
       <div class="cells">
-        <div class="cell"><div class="k">Q2 2026</div><div class="v">$28.24B</div><div class="s" data-i="s_q2">+26% YoY, record quarter</div></div>
-        <div class="cell"><div class="k" data-i="k_auto">Automotive</div><div class="v">$20.52B</div><div class="s" data-i="s_auto">+23% · credits only $146M</div></div>
-        <div class="cell"><div class="k" data-i="k_en">Energy</div><div class="v">$3.14B</div><div class="s" data-i="s_en">+13% · 13.5 GWh deployed</div></div>
-        <div class="cell"><div class="k" data-i="k_svc">Services</div><div class="v">$4.58B</div><div class="s" data-i="s_svc">+50% YoY</div></div>
-        <div class="cell"><div class="k" data-i="k_gm">Gross margin</div><div class="v">16.8%</div><div class="s" data-i="s_gm">Q1 was 21.1%</div></div>
-        <div class="cell"><div class="k" data-i="k_om">Op. margin</div><div class="v down">1.4%</div><div class="s" data-i="s_om">opex +47% YoY</div></div>
-        <div class="cell"><div class="k" data-i="k_del">Q3 deliveries</div><div class="v">486,532</div><div class="s" data-i="s_del">vs. ~462k consensus</div></div>
-        <div class="cell"><div class="k" data-i="k_sto">Q3 storage</div><div class="v">13.7 GWh</div><div class="s" data-i="s_sto">record quarter</div></div>
+        <div class="cell"><div class="k">Q3 2026</div><div class="v">$28.05B</div><div class="s" data-i="s_q2">flat YoY · beat ~$27.9B consensus</div></div>
+        <div class="cell"><div class="k" data-i="k_auto">Automotive</div><div class="v">$20.56B</div><div class="s" data-i="s_auto">−3% · credits only $113M</div></div>
+        <div class="cell"><div class="k" data-i="k_en">Energy</div><div class="v">$2.88B</div><div class="s" data-i="s_en">−16% · margin 33% · 13.7 GWh</div></div>
+        <div class="cell"><div class="k" data-i="k_svc">Services</div><div class="v">$4.61B</div><div class="s" data-i="s_svc">+33% YoY · record gross profit</div></div>
+        <div class="cell"><div class="k" data-i="k_gm">Gross margin</div><div class="v">19.6%</div><div class="s" data-i="s_gm">16.8% in Q2 · auto ex-credits 18.1%</div></div>
+        <div class="cell"><div class="k" data-i="k_om">Op. margin</div><div class="v down">2.6%</div><div class="s" data-i="s_om">1.4% in Q2 · opex +39% YoY</div></div>
+        <div class="cell"><div class="k" data-i="k_del">Q3 deliveries</div><div class="v">486,532</div><div class="s" data-i="s_del">−2% YoY · beat ~462k consensus</div></div>
+        <div class="cell"><div class="k" data-i="k_sto">Q3 storage</div><div class="v">13.7 GWh</div><div class="s" data-i="s_sto">+10% YoY · Megapack nearly sold out</div></div>
       </div>
     </div>
     <div class="panel tbl" style="margin-top:16px">
@@ -234,11 +234,11 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
     <h2 data-i="h_watch">Watch list</h2>
     <p class="sub" data-i="sub_watch">What moves the thesis, sorted by direction.</p>
     <div class="wl">
-      <div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w1h">Robotaxi and FSD</h3><p data-i="w1p">Unsupervised robotaxi runs in 7 US metros and Cybercab production has started in Texas. Paid FSD users reached 1.48M, with take rate above 55% of North American deliveries.</p></div></div>
-      <div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w2h">Volume is back</h3><p data-i="w2p">Q3 deliveries of 486,532 beat consensus by about 25k after Q2 rose 25% YoY. Storage deployments hit a record 13.7 GWh, with Megapack 3 due in 2026.</p></div></div>
-      <div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w3h">Margin squeeze</h3><p data-i="w3p">Auto gross margin ex-credits fell to 16.3% from 19.2% in Q1. Q2 GAAP profit leaned on a ~$1.0B unrealized SpaceX gain; operating income was only $398M.</p></div></div>
-      <div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w4h">Capex and cash burn</h3><p data-i="w4p">2026 capex is guided above $25B. Free cash flow was −$1.09B in Q2 and management expects it to stay negative through 2026. Cash and investments stand at $43.5B.</p></div></div>
-      <div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w5h">Credits and execution</h3><p data-i="w5p">Regulatory credit revenue fell 67% YoY to $146M. Optimus, Semi and Cybercab all have to ramp in the same half-year, and the robotaxi city target for H1 was missed.</p></div></div>
+      <div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w1h">Robotaxi and FSD</h3><p data-i="w1p">Cybercab joined the Austin robotaxi fleet on Sep 3, unsupervised miles grew 8× in the quarter and Dallas is next. Active FSD subscriptions rose 67% to 1.74M, with over 75% of North American deliveries attaching FSD.</p></div></div>
+      <div class="item"><span class="pill p-plus" data-i="pl_plus">Tailwind</span><div><h3 data-i="w2h">Volume is back</h3><p data-i="w2p">Gross margin rose to 19.6% and auto margin ex-credits to 18.1%, the best in a year; energy margin hit 33%. Musk says the vehicle backlog is the largest in four years and expects margins to rise meaningfully.</p></div></div>
+      <div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w3h">Margin squeeze</h3><p data-i="w3p">Operating income fell 56% YoY to $718M as R&amp;D rose 69%, and GAAP EPS was just $0.22. Revenue was flat, with battery supply still limiting vehicle output.</p></div></div>
+      <div class="item"><span class="pill p-watch" data-i="pl_watch">Watch</span><div><h3 data-i="w4h">Capex and cash burn</h3><p data-i="w4p">Free cash flow returned to +$1.53B as capex fell to $4.73B. 2026 capex was cut to about $20B from over $25B, but management says it rises in 2027, and Terafab could cost tens of billions. Cash and investments: $45.4B.</p></div></div>
+      <div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w5h">Credits and execution</h3><p data-i="w5p">Credit revenue fell 73% YoY to $113M. Optimus and Semi production has only just started, Optimus customer deliveries are not expected until about end-2027, and unsupervised FSD for owners is targeted for around Q2 2027.</p></div></div>
       <div class="item"><span class="pill p-risk" data-i="pl_risk">Risk</span><div><h3 data-i="w6h">Valuation and dispersion</h3><p data-i="w6p">About 164× 2027 earnings. Analyst targets run from $157 to $840, and 15 of 82 rate it a sell. Average daily range is about $11, so position sizing matters.</p></div></div>
     </div>
   </section>
@@ -248,7 +248,7 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
   <section id="calendar">
     <h2 data-i="h_cal">Calendar</h2>
     <div class="cal">
-      <div class="item"><div><div class="date">Oct 21, 2026</div><h3 data-i="c1h">Q3 2026 earnings</h3><p data-i="c1p">After US close; Q&amp;A webcast 5:30pm ET (Oct 22, 5:30am SGT). Consensus: revenue ~$27.6B, gross margin ~17.7%.</p></div></div>
+      <div class="item"><div><div class="date">Nov–Dec 2026</div><h3 data-i="c1h">Robotaxi expansion</h3><p data-i="c1p">Dallas next, more cities before year-end, and 24/7 operation targeted by end-2026.</p></div></div>
       <div class="item"><div><div class="date">Early Jan 2027</div><h3 data-i="c2h">Q4 deliveries</h3><p data-i="c2p">Production and deliveries usually post on the second calendar day of the quarter.</p></div></div>
       <div class="item"><div><div class="date">Late Jan 2027</div><h3 data-i="c3h">Q4 and FY26 results</h3><p data-i="c3p">Date not yet announced; full-year results have come in the last week of January.</p></div></div>
     </div>
@@ -264,13 +264,16 @@ footer{font-size:12px;color:var(--muted);padding-top:20px;border-top:1px solid v
       <li><a href="https://teslabriefing.com/en/earnings/2026-q2" target="_blank" rel="noopener">Q2 2026 detail: credits, auto margin, outlook</a></li>
       <li><a href="https://linevestnews.com/article/2026-08-22-tesla-tsla-q2-2026-revenue-26pct-ai-costs-crush-operating-margin" target="_blank" rel="noopener">Q2 2026 10-Q segment table</a></li>
       <li><a href="https://mercomindia.com/teslas-q4-2025-revenue-falls-3-while-energy-generation-and-storage-revenue-rises-25" target="_blank" rel="noopener">Q4 and FY2025 results</a></li>
-      <li><a href="https://www.hudson-labs.com/research/tesla-q3-2026-earnings-preview-tsla-revenue-margins-outlook" target="_blank" rel="noopener">Q3 2026 earnings preview and consensus</a></li>
+      <li><a href="https://www.stocktitan.net/news/TSLA/tesla-releases-third-quarter-2026-financial-ptza7z4lqz4d.html" target="_blank" rel="noopener">Q3 2026 financial results</a> (Oct 21, 2026)</li>
+      <li><a href="https://electrek.co/2026/10/21/tesla-tsla-q3-2026-financial-results/" target="_blank" rel="noopener">Q3 2026 margins, capex and FCF (Electrek)</a></li>
+      <li><a href="https://za.investing.com/news/stock-market-news/earnings-call-transcript-tesla-beats-q3-2026-estimates-as-stock-slips-after-hours-93CH-4517968" target="_blank" rel="noopener">Q3 2026 earnings call (Investing.com)</a></li>
+      <li><a href="https://en.sedaily.com/international/2026/10/22/tesla-cuts-annual-capex-target-to-20-billion-from-25-billion" target="_blank" rel="noopener">2026 capex cut to ~$20B (Seoul Economic Daily)</a></li>
       <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001318605" target="_blank" rel="noopener">SEC EDGAR filings (CIK 1318605)</a></li>
       <li>Price history, technicals, estimates, analyst consensus: Financial Modeling Prep, as of Oct 9, 2026</li>
     </ol>
   </section>
 
-  <footer><span id="footTime"></span> <span data-i="foot">Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Tesla, Inc.</span></footer>
+  <footer><span id="footTime"></span> <span data-i="foot">Fundamentals as of Oct 22, 2026 (Q3 2026 results). For information only, not investment advice. Not affiliated with Tesla, Inc.</span></footer>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -288,32 +291,33 @@ const Q = [
  ["Q4 2025",17693,3837,3371,25707,20.1,0.50],
  ["Q1 2026",16234,2408,3745,19335,21.1,0.41],
  ["Q2 2026",20517,3138,4581,22496,16.8,0.33],
+ ["Q3 2026",20560,2881,4605,28095,19.6,0.48],
 ];
-const G = ["Q3 2026","(consensus)",27571,28095,17.7];
+const G = null; // Tesla gives no quarterly guidance; set ["Q4 2026","(consensus)",revenue,total a year earlier,gross margin] to show a consensus bar
 const A = [["FY23",82419,6035,8319],["FY24",77070,10086,10534],["FY25",69526,12771,12530]];
 
 const T = {
  zh:{n_home:"全部股票",n_over:"概览",n_price:"股价",n_rev:"营收",n_ann:"财务",n_fcf:"现金流",n_watch:"关注点",n_news:"新闻",n_src:"来源",
   eyebrow:"Tesla, Inc. · 普通股 · 美国德州奥斯汀",
   title:"账面是车企，股价押注的是<em>人工智能</em>。",
-  lede:"特斯拉约四分之三的营收仍来自卖车，第二季营业利润率仅 1.4%。1.5 万亿美元的市值押注在 Robotaxi、FSD 订阅、Optimus 机器人和储能上，而今年资本开支超过 250 亿美元。",
-  k_mcap:"市值",s_mcap:"按当前股价",k_52:"52周区间",s_52:"盘中低 / 高",k_pe:"预期市盈率",s_pe:"2027 年预期 EPS $2.29 · GAAP 历史约 347 倍",k_ttm:"近12月营收",s_ttm:"同比 +12%",k_an:"分析师",s_an:"35 买入 · 32 持有 · 15 卖出 · 目标 $441",k_er:"下次财报",s_er:"2026 第三季，盘后",
-  h_price:"近12个月股价",sub_price:"每日收盘价与50日均线。股价在12月中见顶，Q2 盈利不及预期后跌 39% 至7月底低点，此后收复约五分之二跌幅。",
+  lede:"特斯拉约四分之三的营收仍来自卖车，第三季营收持平、营业利润率 2.6%。利润率与现金流有所回升，2026 年资本开支下调至约 200 亿美元，但 1.5 万亿美元的市值仍押注在 Robotaxi、FSD、Optimus 机器人和储能上。",
+  k_mcap:"市值",s_mcap:"按当前股价",k_52:"52周区间",s_52:"盘中低 / 高",k_pe:"预期市盈率",s_pe:"2027 年预期 EPS $2.29 · 第三季 GAAP 每股 $0.22",k_ttm:"近12月营收",s_ttm:"同比 +8% · 截至 2026 第三季",k_an:"分析师",s_an:"35 买入 · 32 持有 · 15 卖出 · 目标 $441",k_er:"下次财报",s_er:"2026 第四季，日期未公布",
+  h_price:"近12个月股价",sub_price:"每日收盘价与50日均线。股价在12月中见顶，Q2 盈利不及预期后跌 39% 至7月底低点，此后回升至 380 多美元；第三季财报电话会上 2026 年资本开支下调至约 200 亿美元，盘后下跌约 2%。",
   k_hi:"一年收盘最高",k_lo:"一年收盘最低",s_sma50:"股价在上方",s_sma200:"股价在下方",s_rsi:"中性",s_atr:"日波幅约3%",s_beta:"相对标普500",k_dd:"距高点",s_dd:"相对12月16日收盘",
-  h_rev:"按季度分部营收",sub_rev:"汽车包括整车销售、监管积分与租赁；能源包括 Megapack、Powerwall 与太阳能；服务及其他包括维修、保险、超充、二手车与 FSD 相关收入。2026 第三季为分析师一致预期，并非公司指引；特斯拉不提供季度营收指引。",
-  l_auto:"汽车",l_en:"能源",l_svc:"服务及其他",l_g:"一致预期",s_q2:"同比 +26%，单季新高",k_auto:"汽车",s_auto:"+23% · 积分仅 $146M",k_en:"能源",s_en:"+13% · 部署 13.5 GWh",k_svc:"服务",s_svc:"同比 +50%",k_gm:"毛利率",s_gm:"Q1 为 21.1%",k_om:"营业利润率",s_om:"营业费用同比 +47%",k_del:"Q3 交付",s_del:"预期约 46.2 万",k_sto:"Q3 储能",s_sto:"单季新高",
+  h_rev:"按季度分部营收",sub_rev:"汽车包括整车销售、监管积分与租赁；能源包括 Megapack、Powerwall 与太阳能；服务及其他包括维修、保险、超充、二手车与 FSD 相关收入。特斯拉不提供季度营收指引，因此不显示预测柱。",
+  l_auto:"汽车",l_en:"能源",l_svc:"服务及其他",l_g:"一致预期",s_q2:"同比持平 · 高于约 279 亿预期",k_auto:"汽车",s_auto:"−3% · 积分仅 $113M",k_en:"能源",s_en:"−16% · 毛利率 33% · 13.7 GWh",k_svc:"服务",s_svc:"同比 +33% · 毛利创新高",k_gm:"毛利率",s_gm:"Q2 为 16.8% · 汽车（不含积分）18.1%",k_om:"营业利润率",s_om:"Q2 为 1.4% · 营业费用同比 +39%",k_del:"Q3 交付",s_del:"同比 −2% · 高于约 46.2 万预期",k_sto:"Q3 储能",s_sto:"同比 +10% · Megapack 几近售罄",
   t_q:"季度",t_tot:"合计",t_yoy:"合计同比",t_gm:"毛利率",t_eps:"非GAAP每股收益",
   h_ann:"财年财务",sub_ann:"营收单位为百万美元；特斯拉财年即自然年。2025 年营收下降 3%，汽车收入减少 10%；研发增长 41%，GAAP 净利润近乎减半至 38 亿美元（摊薄每股 $1.08）。",
   t_pct:"占营收",r_rev:"营收",r_gp:"毛利",r_oi:"营业利润（GAAP）",r_ni:"净利润（GAAP）",r_eps:"非GAAP每股收益",
   h_watch:"关注点",sub_watch:"影响投资逻辑的因素，按方向分类。",pl_plus:"利好",pl_watch:"留意",pl_risk:"风险",
-  w1h:"Robotaxi 与 FSD",w1p:"无人监督 Robotaxi 已在美国 7 个都会区运营，Cybercab 已在德州投产。FSD 付费用户达 148 万，北美交付搭载率超过 55%。",
-  w2h:"销量回升",w2p:"Q3 交付 486,532 辆，比预期多约 2.5 万辆；Q2 已同比增 25%。储能部署创纪录达 13.7 GWh，Megapack 3 预计 2026 年投产。",
-  w3h:"利润率受压",w3p:"不含积分的汽车毛利率由 Q1 的 19.2% 降至 16.3%。Q2 GAAP 利润依赖约 10 亿美元 SpaceX 未实现收益，营业利润仅 3.98 亿美元。",
-  w4h:"资本开支与现金消耗",w4p:"2026 年资本开支指引超过 250 亿美元。Q2 自由现金流为 −10.9 亿美元，管理层预计 2026 年余下时间仍为负。现金及投资为 435 亿美元。",
-  w5h:"积分与执行风险",w5p:"监管积分收入同比降 67% 至 1.46 亿美元。Optimus、Semi 和 Cybercab 需在同一半年内爬坡，上半年 Robotaxi 城市目标未达成。",
+  w1h:"Robotaxi 与 FSD",w1p:"Cybercab 于 9 月 3 日加入奥斯汀 Robotaxi 车队，当季无人监督里程增长 8 倍，下一站为达拉斯。FSD 活跃订阅同比增 67% 至 174 万，北美逾 75% 的交付车辆搭载 FSD。",
+  w2h:"销量回升",w2p:"毛利率升至 19.6%，不含积分的汽车毛利率升至 18.1%，为一年来最高；能源毛利率达 33%。马斯克称汽车订单积压为四年来最大，并预计利润率将明显上升。",
+  w3h:"利润率受压",w3p:"研发同比增 69%，营业利润同比降 56% 至 7.18 亿美元，GAAP 每股收益仅 0.22 美元。营收持平，电池供应仍限制汽车产量。",
+  w4h:"资本开支与现金消耗",w4p:"资本开支降至 47.3 亿美元，自由现金流回升至 +15.3 亿美元。2026 年资本开支由逾 250 亿下调至约 200 亿，但管理层称 2027 年将上升，Terafab 或需数百亿美元。现金及投资为 454 亿美元。",
+  w5h:"积分与执行风险",w5p:"积分收入同比降 73% 至 1.13 亿美元。Optimus 与 Semi 刚刚投产，Optimus 预计约 2027 年底才向客户交付，面向车主的无人监督 FSD 目标约为 2027 年第二季。",
   w6h:"估值与分歧",w6p:"约为 2027 年预期盈利的 164 倍。分析师目标价从 $157 到 $840 不等，82 位中有 15 位给出卖出评级。日均波幅约 $11，仓位控制很重要。",
-  h_cal:"日程",c1h:"2026 第三季财报",c1p:"美股收盘后发布；问答网播美东 5:30pm（新加坡时间10月22日早上5:30）。一致预期：营收约 276 亿美元，毛利率约 17.7%。",c2h:"第四季交付数据",c2p:"产量与交付数据通常在季度第二个自然日公布。",c3h:"第四季及 2026 全年业绩",c3p:"日期未公布；全年业绩通常在1月最后一周发布。",
-  h_src:"来源",foot:"基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 Tesla, Inc. 无关联。"}
+  h_cal:"日程",c1h:"Robotaxi 扩张",c1p:"下一站为达拉斯，年底前再增城市，目标 2026 年底实现全天候运营。",c2h:"第四季交付数据",c2p:"产量与交付数据通常在季度第二个自然日公布。",c3h:"第四季及 2026 全年业绩",c3p:"日期未公布；全年业绩通常在1月最后一周发布。",
+  h_src:"来源",foot:"基本面数据截至 2026年10月22日（2026 第三季业绩）。仅供参考，不构成投资建议。与 Tesla, Inc. 无关联。"}
 };
 const EN = {};
 document.querySelectorAll("[data-i],[data-ih]").forEach(el=>{const k=el.dataset.i||el.dataset.ih; if(!(k in EN)) EN[k]=el.innerHTML;});
@@ -334,10 +338,10 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>buildCh
 
 // quarterly table, newest first
 (function(){const b=document.getElementById("qBody");const f=n=>n.toLocaleString("en-US");
-  const pct=(a,b)=>{const v=(a/b-1)*100;return (v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(0)+"%";};
+  const pct=(a,b)=>{const v=(a/b-1)*100;return Math.abs(v)<0.5?"0%":(v>0?"+":"−")+Math.abs(v).toFixed(0)+"%";};
   Q.forEach(q=>{const tot=q[1]+q[2]+q[3];
     b.insertAdjacentHTML("afterbegin",`<tr><td>${q[0]}</td><td>${f(q[1])}</td><td>${f(q[2])}</td><td>${f(q[3])}</td><td><b>${f(tot)}</b></td><td>${pct(tot,q[4])}</td><td>${q[5].toFixed(1)}%</td><td>$${q[6].toFixed(2)}</td></tr>`);});
-  b.insertAdjacentHTML("afterbegin",`<tr class="guide"><td>${G[0]} ${G[1]}</td><td>—</td><td>—</td><td>—</td><td>${f(G[2])}</td><td>${pct(G[2],G[3])}</td><td>${G[4].toFixed(1)}%</td><td>—</td></tr>`);
+  if(G) b.insertAdjacentHTML("afterbegin",`<tr class="guide"><td>${G[0]} ${G[1]}</td><td>—</td><td>—</td><td>—</td><td>${f(G[2])}</td><td>${pct(G[2],G[3])}</td><td>${G[4].toFixed(1)}%</td><td>—</td></tr>`);
 })();
 
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -360,12 +364,12 @@ function buildCharts(){
       scales:{x:{...nobox,grid:{display:false},ticks:{maxTicksLimit:7,callback:function(v){const s=this.getLabelForValue(v);return s.slice(5,7)+"/"+s.slice(2,4);}}},
               y:{...nobox,grid,ticks:{callback:v=>"$"+v}}}}}));
   const L={a:lang==="zh"?"汽车":"Automotive",e:lang==="zh"?"能源":"Energy",s:lang==="zh"?"服务及其他":"Services & other",g:lang==="zh"?"一致预期":"Consensus"};
-  const ql=Q.map(q=>q[0]).concat([G[0]+"E"]);
+  const ql=Q.map(q=>q[0]).concat(G?[G[0]+"E"]:[]);const X=G?[null]:[];
   charts.push(new Chart(document.getElementById("cRev"),{type:"bar",data:{labels:ql,datasets:[
-    {label:L.a,data:Q.map(q=>q[1]).concat([null]),backgroundColor:acc,stack:"s",borderRadius:2},
-    {label:L.e,data:Q.map(q=>q[2]).concat([null]),backgroundColor:cop,stack:"s",borderRadius:2},
-    {label:L.s,data:Q.map(q=>q[3]).concat([null]),backgroundColor:sl,stack:"s",borderRadius:2},
-    {label:L.g,data:Q.map(()=>null).concat([G[2]]),backgroundColor:line,borderColor:mut,borderWidth:1,borderDash:[3,3],stack:"s",borderRadius:2}]},
+    {label:L.a,data:Q.map(q=>q[1]).concat(X),backgroundColor:acc,stack:"s",borderRadius:2},
+    {label:L.e,data:Q.map(q=>q[2]).concat(X),backgroundColor:cop,stack:"s",borderRadius:2},
+    {label:L.s,data:Q.map(q=>q[3]).concat(X),backgroundColor:sl,stack:"s",borderRadius:2},
+    {label:L.g,data:G?Q.map(()=>null).concat([G[2]]):[],backgroundColor:line,borderColor:mut,borderWidth:1,borderDash:[3,3],stack:"s",borderRadius:2}]},
     options:{maintainAspectRatio:false,animation:false,interaction:{mode:"index",intersect:false},
       plugins:{legend:{display:false},tooltip:{filter:t=>t.parsed.y!=null,callbacks:{label:t=>`${t.dataset.label}: $${(t.parsed.y/1000).toFixed(2)}B`,
         footer:it=>it.length>1?"Total: $"+(it.reduce((s,x)=>s+x.parsed.y,0)/1000).toFixed(2)+"B":""}}},
@@ -445,7 +449,7 @@ s.text=JSON.stringify({symbol:"NASDAQ:TSLA",width:"100%",isTransparent:true,colo
 document.querySelector("#tv .tradingview-widget-container").appendChild(s);})();
 </script>
 
-<script src="fcf-data.js?v=2"></script>
+<script src="fcf-data.js?v=3"></script>
 <script src="../assets/fcf.js?v=4"></script>
 <script src="../assets/news.js?v=2"></script>
 <script src="../assets/technicals.js?v=1"></script>

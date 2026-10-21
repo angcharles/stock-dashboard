@@ -247,24 +247,24 @@ html[lang="zh-Hans"] body{font-family:var(--f-body),"PingFang SC","Hiragino Sans
 // ================= text, EN / 中文 =================
 const T = {
 en:{
- v_p1:"<b>Tesla is cheaper on what the companies sell today; SpaceX is cheaper on what they are expected to earn, and has far more growth.</b> Tesla trades at about 14× trailing sales against SpaceX's 85×. But Tesla's profits are thin (1.4% operating margin last quarter) and grow about 12% a year, so it costs roughly 160× next year's earnings. SpaceX's sales are forecast to roughly double each year to 2028, which brings it to about 37× 2027 and 21× 2028 earnings on Goldman's numbers. Even on 2028 sales, SpaceX is slightly cheaper (about 9× vs 10×).",
+ v_p1:"<b>Tesla is cheaper on what the companies sell today; SpaceX is cheaper on what they are expected to earn, and has far more growth.</b> Tesla trades at about 14× trailing sales against SpaceX's 85×. But Tesla's profits are thin (2.6% operating margin in Q3) and grow about 12% a year, so it costs roughly 160× next year's earnings. SpaceX's sales are forecast to roughly double each year to 2028, which brings it to about 37× 2027 and 21× 2028 earnings on Goldman's numbers. Even on 2028 sales, SpaceX is slightly cheaper (about 9× vs 10×).",
  v_p2:"<b>In a merger, Tesla holders would be swapping into the faster grower, and SpaceX holders would be buying the slower, lower-margin business at a premium.</b> At market prices one Tesla share is worth about <span id=\"vRatio\">2.4</span> SpaceX shares, giving Tesla holders about <span id=\"vSplit\">42%</span> of the combined company before any premium. SpaceX's own holders would see growth diluted (combined 2027 sales growth falls from ~150% to ~60%), in exchange for Tesla's factories, robots, cars and net cash. The biggest risk sits on the SpaceX side: it is burning about $13–15B a quarter on AI compute and is lining up another $40B of debt.",
  v_s1:"EV / 2026E sales ~13× vs ~42×. Tesla also has net cash and a much smaller burn.",
  v_s2:"P/E 2027E ~37× vs ~158×; 2028E ~21× vs ~113×. Depends on AI compute revenue arriving on schedule.",
  v_s3:"Sales forecast 2025→2028 ~+120% a year vs ~+13%. $47.5B contracted backlog; Tesla's robotaxi and Optimus are still pre-revenue.",
- v_s4:"Capex ~$25B/yr vs SpaceX's ~$80B in 2026 and far more in 2027; SpaceX FCF was −$25B in H1.",
+ v_s4:"Tesla capex ~$20B in 2026 vs SpaceX's ~$80B and far more in 2027; SpaceX FCF was −$25B in H1.",
  v_note:"My read from public data, not investment advice. SpaceX forward EPS uses Goldman Sachs' estimates (Oct 7), which are above consensus on revenue; if SpaceX earned only half of Goldman's 2028 EPS, its 2028 P/E would still be about 42×, well below Tesla's ~113×.",
- fm_sub:"Latest reported quarter (Q2 2026 for both), trailing twelve months and balance sheet at June 30, 2026. Valuation rows recalculate from the live price on each stock page. Green marks the better figure where one is clearly better.",
- fm_note:"Tesla reports Q3 on Oct 21 (consensus EPS ~$0.44, revenue ~$27.8B); SpaceX is expected around Nov 3 (consensus revenue ~$12.9B, adjusted EBITDA ~$6.9B). This table will need refreshing after both.",
+ fm_sub:"Latest reported quarter (SpaceX Q2 2026, Tesla Q3 2026), trailing twelve months and balance sheet (SpaceX June 30, Tesla cash September 30, 2026). Valuation rows recalculate from the live price on each stock page. Green marks the better figure where one is clearly better.",
+ fm_note:"Tesla reported Q3 on Oct 21: revenue $28.05B (flat y/y), adjusted EPS $0.48 vs ~$0.45 expected, free cash flow +$1.53B, 2026 capex cut to ~$20B. SpaceX is expected around Nov 3 (consensus revenue ~$12.9B, adjusted EBITDA ~$6.9B); its column refreshes after that.",
  fc_sub:"Actuals for 2024–2025, then Street forecasts. On these numbers SpaceX's revenue passes Tesla's in 2027. Italic cells are estimates; see the notes under the table for which source each comes from.",
  fc_note:"SpaceX 2026E revenue: Street ~$44.8B (Fiscal.ai) and Goldman $51.6B; 2027–28 and all SpaceX EPS: Goldman Sachs. Tesla EPS: consensus ($1.70 / $2.30 / $3.21); 2027 revenue: consensus ~$120.8B; Tesla 2026 revenue is H1 actual + Q3 consensus + my Q4 estimate; Tesla 2028 revenue is my extrapolation (+14%), as no consensus figure was found.",
  bg_sub:"Revenue engines today, the bets management is making, and where the two already overlap (the overlap is the case for merging).",
  sx_h:"SpaceX: connectivity cash machine funding an AI build-out",
  sx_list:"<li><b>Starlink (Connectivity), 55% of Q2 sales</b><span>$4.29B, +66%, $1.7B operating profit. 12M subscribers (doubled in a year), $66 ARPU, 10,200 satellites. Direct-to-mobile via EchoStar spectrum (closing late 2027).</span></li><li><b>AI (former xAI + X), 33% and the growth engine</b><span>$2.56B, +247%, first profitable quarter. Compute cloud for Anthropic and Google; 1.4 GW installed, &gt;2 GW by end-2026, 7.5–10 GW targeted for end-2027. Goldman sees AI sales of $27B → $90B → $147B (2026–28).</span></li><li><b>Space (launch, Dragon, Starship), 12%</b><span>$962M; 78 launches in H1. Starship reached orbit; it underpins Starlink V3 and orbital compute (\"Starmind\").</span></li><li><b>Stated goals</b><span>$100B annual revenue run-rate by Dec 2026; $1 trillion of revenue targeted for 2030.</span></li>",
  ts_h:"Tesla: car maker turning into a physical-AI company",
- ts_list:"<li><b>Automotive, 73% of Q2 sales</b><span>$20.5B, +23%. Q3 deliveries 486,532 (−2% y/y, beat by 5%). Auto gross margin ex-credits 16.3%; regulatory credits are fading.</span></li><li><b>Energy storage, 11%</b><span>$3.14B; 13.7 GWh deployed in Q3 (missed 15.9 GWh estimate). SpaceX/xAI is a big Megapack buyer ($405M in H1).</span></li><li><b>Services &amp; other, 16%</b><span>$4.58B, +50%, including FSD subscriptions (~1.5M).</span></li><li><b>The bets</b><span>Robotaxi live in 7 US metros (management: material revenue from 2027), Cybercab, Optimus humanoid (\"flat S-curve\" ramp at first), Terafab chip fab, AI compute, solar manufacturing. Roadster production 2028.</span></li>",
+ ts_list:"<li><b>Automotive, 73% of Q3 sales</b><span>$20.6B, −3%. Q3 deliveries 486,532 (−2% y/y, beat by 5%). Auto gross margin ex-credits 18.1% (16.3% in Q2); regulatory credits are fading ($113M).</span></li><li><b>Energy storage, 10%</b><span>$2.88B, −16%, at a 33% margin; 13.7 GWh deployed (missed 15.9 GWh estimate). SpaceX/xAI is a big Megapack buyer ($405M in H1).</span></li><li><b>Services &amp; other, 16%</b><span>$4.61B, +33%, including FSD subscriptions (1.74M).</span></li><li><b>The bets</b><span>Robotaxi in 6 US cities with Cybercab in the Austin fleet (management: material revenue from 2027), Cybercab, Optimus humanoid (\"flat S-curve\" ramp at first), Terafab chip fab, AI compute, solar manufacturing. Roadster production 2028.</span></li>",
  ov:"<div><b>Terafab</b><br><span class=\"sub\" style=\"font-size:13px\">Joint chip fab in Texas, $16.8B initial investment; makes edge chips for Tesla cars and Optimus and hardened chips for satellites. Today every decision needs both boards.</span></div><div><b>Grok in Tesla</b><br><span class=\"sub\" style=\"font-size:13px\">xAI's model has run in Tesla cars since July 2025; Tesla's physical AI would pair with SpaceX's \"virtual AI\".</span></div><div><b>Energy for compute</b><br><span class=\"sub\" style=\"font-size:13px\">Megapacks power xAI data centres; a merged company would sell storage to itself.</span></div><div><b>Cross-holdings</b><br><span class=\"sub\" style=\"font-size:13px\">Tesla owns ~19.0M SPCX shares (from its $2B xAI stake, worth ~<span id=\"stake\">$2.8B</span>); SpaceX bought $100M+ of Cybertrucks.</span></div>",
- cx_sub:"Both companies are in heavy investment cycles, but at very different scales. SpaceX spent more on capex in Q2 alone ($18.4B) than Tesla plans for most of 2026.",
+ cx_sub:"Both companies are in heavy investment cycles, but at very different scales. SpaceX spent more on capex in Q2 alone ($18.4B) than Tesla now plans for all of 2026 (~$20B).",
  dm_sub:"Assumes SpaceX issues new shares for all of Tesla (Barclays' base case). Pick a premium for Tesla holders to see the exchange ratio, the ownership split and what 100 Tesla shares would turn into. Uses live prices.",
  dm_note:"Barclays' \"0.7\" is the value ratio (Tesla's market value ÷ SpaceX's, $1.5T ÷ $2.1T), not shares per share. Per share, each TSLA is worth about 2.4 SPCX at market. Barclays estimates Musk would own ~37% of the combined company with ~56% of the votes. Morningstar, valuing on its own fair values, argued Tesla holders should get 50–66% instead.",
  risk:"<li><b>SpaceX's AI ramp slips.</b> Nearly all of the forward-earnings case rests on AI compute revenue scaling from $2.6B a quarter to ~$90B a year in 2027. Anthropic and Google contracts help, but this is unproven at that scale.</li><li><b>Funding.</b> SpaceX has raised ~$111B since June and is seeking $40B more; reaching ~10 GW by 2027 implies hundreds of billions of build cost. Oppenheimer sees net debt above $400B by 2031.</li><li><b>Tesla Q3 (Oct 21).</b> A margin recovery would lower Tesla's forward P/E; another miss would widen the gap further.</li><li><b>Related-party process.</b> Musk runs both companies. Independent committees, fairness opinions and a vote of non-Musk Tesla holders decide the ratio, and the premium could be larger than the market expects.</li><li><b>Timing.</b> Barclays says a deal needs announcing by late Oct / early Nov to go to the AGM; otherwise 6–12 months. Polymarket gives 24% by year-end; Kalshi 52% by May 2027.</li><li><b>Thin SpaceX float.</b> Only a small share of SPCX trades freely, so the price (and the ratio) can swing hard; it fell 7% intraday on Oct 15.</li>",
@@ -281,16 +281,16 @@ zh:{
  h1:"SpaceX 与特斯拉合并分析",
  lede:"巴克莱目前预计，双方可能在特斯拉年度股东大会（须于 12 月 6 日前召开）之前宣布交易，最可能的方式是 SpaceX 以自身股票收购特斯拉。目前尚无任何提案或文件。本页用同一套标准对比两家公司，回答一个问题：若两者合并，哪一方更便宜？哪一方带来更大的未来增长？",
  v_h:"结论",
- v_p1:"<b>按当前销售额看，特斯拉更便宜；按预期盈利看，SpaceX 更便宜，而且增长快得多。</b>特斯拉的过往十二个月市销率约 14 倍，SpaceX 约 85 倍。但特斯拉利润微薄（上季营业利润率仅 1.4%），盈利年增约 12%，因此明年市盈率约 160 倍。SpaceX 的营收预计到 2028 年大约每年翻一番，按高盛预测，其 2027 年和 2028 年市盈率分别约 37 倍和 21 倍。即使按 2028 年销售额计算，SpaceX 也略便宜（约 9 倍对 10 倍）。",
+ v_p1:"<b>按当前销售额看，特斯拉更便宜；按预期盈利看，SpaceX 更便宜，而且增长快得多。</b>特斯拉的过往十二个月市销率约 14 倍，SpaceX 约 85 倍。但特斯拉利润微薄（第三季营业利润率仅 2.6%），盈利年增约 12%，因此明年市盈率约 160 倍。SpaceX 的营收预计到 2028 年大约每年翻一番，按高盛预测，其 2027 年和 2028 年市盈率分别约 37 倍和 21 倍。即使按 2028 年销售额计算，SpaceX 也略便宜（约 9 倍对 10 倍）。",
  v_p2:"<b>若合并，特斯拉股东等于换入增长更快的公司，而 SpaceX 股东则是以溢价买入增长较慢、利润率较低的业务。</b>按市价计，每股特斯拉约值 <span id=\"vRatio\">2.4</span> 股 SpaceX，未计溢价时特斯拉股东将持有合并后公司约 <span id=\"vSplit\">42%</span>。SpaceX 原有股东的增长会被摊薄（合并后 2027 年营收增速由约 150% 降至约 60%），换来的是特斯拉的工厂、机器人、汽车业务和净现金。最大风险在 SpaceX 一方：它每季度在 AI 算力上烧钱约 130–150 亿美元，并正筹措另外 400 亿美元债务。",
  v_b1:"当前更便宜（按销售额）", v_s1:"企业价值／2026 年预期销售额约 13 倍对约 42 倍。特斯拉还有净现金，烧钱规模小得多。",
  v_b2:"按未来盈利更便宜", v_s2:"2027 年预期市盈率约 37 倍对约 158 倍；2028 年约 21 倍对约 113 倍。前提是 AI 算力收入如期到位。",
  v_b3:"未来潜力更大", v_s3:"2025→2028 年营收预计年增约 120%，特斯拉约 13%。SpaceX 有 475 亿美元已签约订单储备；特斯拉的 Robotaxi 和 Optimus 尚未产生收入。",
- v_b4:"风险更低", v_s4:"特斯拉资本开支约每年 250 亿美元，SpaceX 2026 年约 800 亿美元，2027 年更多；SpaceX 上半年自由现金流为 −250 亿美元。",
+ v_b4:"风险更低", v_s4:"特斯拉 2026 年资本开支约 200 亿美元，SpaceX 2026 年约 800 亿美元，2027 年更多；SpaceX 上半年自由现金流为 −250 亿美元。",
  v_note:"以上为我根据公开数据的判断，不构成投资建议。SpaceX 远期每股收益采用高盛（10 月 7 日）的预测，其营收预测高于市场一致预期；即使 SpaceX 只实现高盛 2028 年每股收益的一半，其 2028 年市盈率仍约 42 倍，远低于特斯拉的约 113 倍。",
  fm_h:"财务指标对比",
- fm_sub:"最新报告季度（两家均为 2026 年第二季）、过往十二个月及 2026 年 6 月 30 日资产负债表。估值各行按各股票页的实时股价重新计算。绿色标示明显较优的一方。",
- fm_note:"特斯拉将于 10 月 21 日公布第三季业绩（一致预期每股收益约 0.44 美元，营收约 278 亿美元）；SpaceX 预计约 11 月 3 日公布（一致预期营收约 129 亿美元，经调整 EBITDA 约 69 亿美元）。两者公布后本表需更新。",
+ fm_sub:"最新报告季度（SpaceX 为 2026 年第二季，特斯拉为第三季）、过往十二个月及资产负债表（SpaceX 为 6 月 30 日，特斯拉现金为 2026 年 9 月 30 日）。估值各行按各股票页的实时股价重新计算。绿色标示明显较优的一方。",
+ fm_note:"特斯拉已于 10 月 21 日公布第三季业绩：营收 280.5 亿美元（同比持平），经调整每股收益 0.48 美元（预期约 0.45），自由现金流 +15.3 亿美元，2026 年资本开支下调至约 200 亿。SpaceX 预计约 11 月 3 日公布（一致预期营收约 129 亿美元，经调整 EBITDA 约 69 亿美元），届时更新其数据。",
  fc_h:"2024 至 2028 年营收与盈利",
  fc_sub:"2024–2025 年为实际数，其后为华尔街预测。按此预测，SpaceX 营收将在 2027 年超过特斯拉。斜体为估算值；各数据来源见表下说明。",
  show:"显示", b_rev:"营收", b_eps:"每股收益", b_pe:"按现价市盈率", lighter:"浅色柱为估算值", lighter2:"浅色为估算",
@@ -300,11 +300,11 @@ zh:{
  sx_h:"SpaceX：以星链现金牛支撑 AI 扩张",
  sx_list:"<li><b>星链（连接业务），占第二季营收 55%</b><span>42.9 亿美元，+66%，营业利润 17 亿美元。用户 1,200 万（一年翻倍），每用户月收入 66 美元，卫星 10,200 颗。通过 EchoStar 频谱发展手机直连（预计 2027 年底完成收购）。</span></li><li><b>AI（原 xAI＋X），占 33%，是增长引擎</b><span>25.6 亿美元，+247%，首次实现季度盈利。为 Anthropic 和谷歌提供算力云；已装机 1.4 GW，2026 年底超过 2 GW，目标 2027 年底达 7.5–10 GW。高盛预计 AI 营收 270 亿 → 900 亿 → 1,470 亿美元（2026–28 年）。</span></li><li><b>航天（发射、龙飞船、星舰），占 12%</b><span>9.62 亿美元；上半年发射 78 次。星舰已入轨，支撑星链 V3 及轨道算力（\"Starmind\"）。</span></li><li><b>公开目标</b><span>2026 年 12 月实现年化营收 1,000 亿美元；目标 2030 年营收达 1 万亿美元。</span></li>",
  ts_h:"特斯拉：从车企转型为实体 AI 公司",
- ts_list:"<li><b>汽车，占第二季营收 73%</b><span>205 亿美元，+23%。第三季交付 486,532 辆（同比 −2%，超预期 5%）。不含积分的汽车毛利率 16.3%；监管积分收入持续减少。</span></li><li><b>储能，占 11%</b><span>31.4 亿美元；第三季部署 13.7 GWh（低于 15.9 GWh 预期）。SpaceX／xAI 是 Megapack 大客户（上半年 4.05 亿美元）。</span></li><li><b>服务及其他，占 16%</b><span>45.8 亿美元，+50%，含 FSD 订阅（约 150 万）。</span></li><li><b>押注方向</b><span>Robotaxi 已在美国 7 个城市运营（管理层称 2027 年起贡献实质收入）、Cybercab、Optimus 人形机器人（初期为\"平缓的 S 曲线\"爬坡）、Terafab 芯片厂、AI 算力、太阳能制造。Roadster 2028 年投产。</span></li>",
+ ts_list:"<li><b>汽车，占第三季营收 73%</b><span>206 亿美元，−3%。第三季交付 486,532 辆（同比 −2%，超预期 5%）。不含积分的汽车毛利率 18.1%（第二季 16.3%）；监管积分收入持续减少（1.13 亿美元）。</span></li><li><b>储能，占 10%</b><span>28.8 亿美元，−16%，毛利率 33%；部署 13.7 GWh（低于 15.9 GWh 预期）。SpaceX／xAI 是 Megapack 大客户（上半年 4.05 亿美元）。</span></li><li><b>服务及其他，占 16%</b><span>46.1 亿美元，+33%，含 FSD 订阅（174 万）。</span></li><li><b>押注方向</b><span>Robotaxi 已在美国 6 个城市运营、Cybercab 已加入奥斯汀车队（管理层称 2027 年起贡献实质收入）、Cybercab、Optimus 人形机器人（初期为\"平缓的 S 曲线\"爬坡）、Terafab 芯片厂、AI 算力、太阳能制造。Roadster 2028 年投产。</span></li>",
  ov_h:"两者已重叠的领域",
  ov:"<div><b>Terafab</b><br><span class=\"sub\" style=\"font-size:13px\">位于得州的合资芯片厂，首期投资 168 亿美元；为特斯拉汽车和 Optimus 生产边缘芯片，为卫星生产抗辐射芯片。目前每项决策都需两家董事会批准。</span></div><div><b>Grok 进入特斯拉</b><br><span class=\"sub\" style=\"font-size:13px\">xAI 模型自 2025 年 7 月起已在特斯拉汽车上运行；特斯拉的实体 AI 将与 SpaceX 的\"虚拟 AI\"结合。</span></div><div><b>为算力供能</b><br><span class=\"sub\" style=\"font-size:13px\">Megapack 为 xAI 数据中心供电；合并后等于自己卖储能给自己。</span></div><div><b>交叉持股</b><br><span class=\"sub\" style=\"font-size:13px\">特斯拉持有约 1,900 万股 SPCX（来自其 20 亿美元 xAI 投资，约值 <span id=\"stake\">$2.8B</span>）；SpaceX 购买了逾 1 亿美元的 Cybertruck。</span></div>",
  cx_h:"资本开支与订单储备：现在与未来",
- cx_sub:"两家公司都处于重投资周期，但规模差异巨大。SpaceX 仅第二季资本开支（184 亿美元）就超过特斯拉 2026 年大半年的计划。",
+ cx_sub:"两家公司都处于重投资周期，但规模差异巨大。SpaceX 仅第二季资本开支（184 亿美元）就接近特斯拉 2026 年全年的计划（约 200 亿美元）。",
  cx_ch:"资本开支（十亿美元）",
  dm_h:"合并测算",
  dm_sub:"假设 SpaceX 增发新股收购特斯拉全部股份（巴克莱的基本情景）。选择给特斯拉股东的溢价，即可查看换股比例、持股比例以及 100 股特斯拉可换得多少。使用实时股价。",
@@ -333,8 +333,8 @@ const tx = k => (lang === "zh" ? T.zh[k] : T.en[k]) ?? T.en[k] ?? EN[k];
 const D = {
   sx:{px:148.62,sh:13.18,cash:100.0,debt:39.5,ttmRev:23.1,
       eps:{2026:1.30,2027:3.96,2028:7.01}, rev:{2024:14.02,2025:18.67,2026:44.8,2027:127.5,2028:205.6}},
-  ts:{px:362.44,sh:3.95,cash:43.5,debt:9.3,ttmRev:103.6,ttmEps:1.08,
-      eps:{2025:1.66,2026:1.70,2027:2.30,2028:3.21}, rev:{2024:97.69,2025:94.83,2026:107.4,2027:120.8,2028:137.7}}
+  ts:{px:362.44,sh:3.95,cash:45.4,debt:9.3,ttmRev:103.6,ttmEps:1.08,
+      eps:{2025:1.66,2026:1.70,2027:2.30,2028:3.21}, rev:{2024:97.69,2025:94.83,2026:107.5,2027:120.8,2028:137.7}}
 };
 const EST_FROM = 2026;
 const $ = s => document.querySelector(s);
@@ -369,17 +369,17 @@ function fmTable(){
   const s = D.sx, t = D.ts;
   const cg = o => Math.pow(o.rev[2028]/o.rev[2025],1/3)-1;
   const R = [
-    ["g",Z("Latest quarter (Q2 2026)","最新季度（2026 年第二季）")],
-    [Z("Revenue","营收"),B(7.81),B(28.24),"",Z("Tesla ~3.6× larger today","特斯拉目前约大 3.6 倍")],
-    [Z("Revenue growth y/y","营收同比增长"),"+92%","+25.5%","s",""],
-    [Z("Gross margin","毛利率"),"~55%",Z("~18% (2023–25 level)","约 18%（2023–25 年水平）"),"s",Z("SpaceX boosted by Starlink","SpaceX 受星链带动")],
-    [Z("Operating margin","营业利润率"),Z("Loss (AI depreciation)","亏损（AI 折旧）"),"1.4%","t",Z("Tesla operating income $398M","特斯拉营业利润 3.98 亿美元")],
+    ["g",Z("Latest quarter (SpaceX Q2, Tesla Q3 2026)","最新季度（SpaceX 2026 年第二季，特斯拉第三季）")],
+    [Z("Revenue","营收"),B(7.81),B(28.05),"",Z("Tesla ~3.6× larger today","特斯拉目前约大 3.6 倍")],
+    [Z("Revenue growth y/y","营收同比增长"),"+92%","−0.2%","s",""],
+    [Z("Gross margin","毛利率"),"~55%","19.6%","s",Z("SpaceX boosted by Starlink","SpaceX 受星链带动")],
+    [Z("Operating margin","营业利润率"),Z("Loss (AI depreciation)","亏损（AI 折旧）"),"2.6%","t",Z("Tesla operating income $718M","特斯拉营业利润 7.18 亿美元")],
     [Z("Adj. EBITDA","经调整 EBITDA"),B(3.54)+" (+191%)",Z("not reported","未披露"),"",""],
-    [Z("Net income","净利润"),B(-0.54),B(1.13),"t",""],
-    [Z("EPS","每股收益"),"−$0.09",Z("$0.32 GAAP / $0.33 adj.","GAAP 0.32 / 调整后 0.33 美元"),"t",Z("Tesla missed ~$0.50 consensus","特斯拉不及约 0.50 美元的一致预期")],
-    [Z("Operating cash flow","经营现金流"),B(2.42),B(4.70),"t",""],
-    [Z("Capex","资本开支"),B(18.37),B(5.79),"t",Z("SpaceX: $15.8B on AI compute","SpaceX：158 亿美元用于 AI 算力")],
-    [Z("Free cash flow","自由现金流"),B(-15.96),B(-1.09),"t",""],
+    [Z("Net income","净利润"),B(-0.54),B(0.79),"t",""],
+    [Z("EPS","每股收益"),"−$0.09",Z("$0.22 GAAP / $0.48 adj.","GAAP 0.22 / 调整后 0.48 美元"),"t",Z("Tesla beat ~$0.45 consensus","特斯拉高于约 0.45 美元的一致预期")],
+    [Z("Operating cash flow","经营现金流"),B(2.42),B(6.26),"t",""],
+    [Z("Capex","资本开支"),B(18.37),B(4.73),"t",Z("SpaceX: $15.8B on AI compute","SpaceX：158 亿美元用于 AI 算力")],
+    [Z("Free cash flow","自由现金流"),B(-15.96),B(1.53),"t",""],
     ["g",Z("Trailing twelve months / balance sheet (Jun 30, 2026)","过往十二个月／资产负债表（2026 年 6 月 30 日）")],
     [Z("Revenue, TTM","过往十二个月营收"),B(s.ttmRev),B(t.ttmRev),"",""],
     [Z("Cash & securities","现金及证券"),B(s.cash),B(t.cash),"s",Z("SpaceX mostly IPO proceeds; less after Q3 burn","SpaceX 主要为 IPO 所得；第三季烧钱后会减少")],
@@ -478,21 +478,21 @@ function capex(){
     {y:"2027E",a:null,b:25.7,eb:1}
   ], {fmt:axB, aria:Z("Capex by year","各年资本开支"), h:240});
   const R = lang==="zh" ? [
-    ["2026 年第二季资本开支","184 亿美元（86% 用于 AI 算力）","58 亿美元（同比 +142%）"],
-    ["2026 年资本开支","约 810 亿美元（估）：上半年 285 亿＋下半年约 530 亿（Evercore）；第三季约 193 亿（瑞银）","指引超过 250 亿美元；上半年约 83 亿，下半年每季约 80 亿以上"],
-    ["2027 年资本开支","未给指引。目标 2027 年底算力达 7.5–10 GW（2026 年底超过 2 GW）；按英伟达约每 GW 600 亿美元计，新增 6–8 GW 需 3,600–4,800 亿美元建设成本，部分通过租赁及供应商／债务融资","一致预期约 257 亿美元；管理层称未来 2–3 年资本开支持续上升"],
+    ["最新季度资本开支","第二季 184 亿美元（86% 用于 AI 算力）","第三季 47.3 亿美元（同比 +110%；第二季 57.9 亿）"],
+    ["2026 年资本开支","约 810 亿美元（估）：上半年 285 亿＋下半年约 530 亿（Evercore）；第三季约 193 亿（瑞银）","下调至约 200 亿美元（原为逾 250 亿）；前九个月 130 亿，意味第四季约 70 亿"],
+    ["2027 年资本开支","未给指引。目标 2027 年底算力达 7.5–10 GW（2026 年底超过 2 GW）；按英伟达约每 GW 600 亿美元计，新增 6–8 GW 需 3,600–4,800 亿美元建设成本，部分通过租赁及供应商／债务融资","未给指引；管理层称 2027 年明显上升，2028 年随 Terafab 达数百亿美元"],
     ["2028 年资本开支","高盛预计 2028 年算力达 10.6 GW","一致预期约 263 亿美元"],
     ["投向","AI 数据中心（英伟达 Vera Rubin）、星链 V3 卫星、星舰、EchoStar 频谱","Robotaxi 车队、Optimus 产线、Terafab、AI 算力、太阳能、整车产能"],
-    ["资金来源","现金 1,000 亿美元（6 月 30 日）、6 月发债 250 亿美元、正筹措 400 亿美元债务","现金 435 亿美元，新增最多 300 亿美元借款额度"],
-    ["自由现金流展望","2026 上半年 −250 亿美元；第三季烧钱约 130 亿（瑞银）","2026 年 −85 亿、2027 年 −111 亿、2028 年 −78 亿美元（一致预期）"]
+    ["资金来源","现金 1,000 亿美元（6 月 30 日）、6 月发债 250 亿美元、正筹措 400 亿美元债务","现金 454 亿美元（9 月 30 日），300 亿美元借款额度未提用，今年不计划提用"],
+    ["自由现金流展望","2026 上半年 −250 亿美元；第三季烧钱约 130 亿（瑞银）","第三季 +15.3 亿美元；此前一致预期 2026 年 −85 亿、2027 年 −111 亿（资本开支下调前）"]
   ] : [
-    ["Q2 2026 capex","$18.4B (86% AI compute)","$5.8B (+142% y/y)"],
-    ["2026 capex","~$81B est.: $28.5B H1 + ~$53B H2 (Evercore); Q3 ~$19.3B (UBS)","&gt;$25B guided; ~$8.3B in H1, so ~$8B+/quarter in H2"],
-    ["2027 capex","Not guided. Target 7.5–10 GW of compute by end-2027 vs &gt;2 GW end-2026; at Nvidia's ~$60B/GW, building 6–8 GW costs $360–480B, partly via leases and vendor/debt financing","~$25.7B consensus; management says capex rises for 2–3 years"],
+    ["Latest quarter capex","Q2: $18.4B (86% AI compute)","Q3: $4.73B (+110% y/y; $5.79B in Q2)"],
+    ["2026 capex","~$81B est.: $28.5B H1 + ~$53B H2 (Evercore); Q3 ~$19.3B (UBS)","Cut to ~$20B from &gt;$25B; $13.0B in nine months, so ~$7B in Q4"],
+    ["2027 capex","Not guided. Target 7.5–10 GW of compute by end-2027 vs &gt;2 GW end-2026; at Nvidia's ~$60B/GW, building 6–8 GW costs $360–480B, partly via leases and vendor/debt financing","Not guided; management says it rises meaningfully in 2027 and to tens of billions in 2028 with Terafab"],
     ["2028 capex","Goldman sees 10.6 GW compute in 2028","~$26.3B consensus"],
     ["What it buys","AI data centres (Nvidia Vera Rubin), Starlink V3 satellites, Starship, EchoStar spectrum","Robotaxi fleet, Optimus lines, Terafab, AI compute, solar, vehicle capacity"],
-    ["Funding","$100B cash (Jun 30), $25B bonds (Jun), $40B debt being arranged","$43.5B cash, up to $30B new debt capacity"],
-    ["FCF outlook","H1 2026 −$25B; Q3 burn ~$13B (UBS)","2026 −$8.5B, 2027 −$11.1B, 2028 −$7.8B (consensus)"]
+    ["Funding","$100B cash (Jun 30), $25B bonds (Jun), $40B debt being arranged","$45.4B cash (Sep 30); $30B credit lines undrawn, no draw planned this year"],
+    ["FCF outlook","H1 2026 −$25B; Q3 burn ~$13B (UBS)","Q3 +$1.53B; consensus before the capex cut: 2026 −$8.5B, 2027 −$11.1B"]
   ];
   const head = k => `<thead><tr><th>${k}</th><th class="sx">SpaceX</th><th class="ts">${Z("Tesla","特斯拉")}</th></tr></thead><tbody>`;
   const rows = R => R.map(r=>`<tr><td class="k">${r[0]}</td><td class="w" style="color:var(--ink)">${r[1]}</td><td class="w" style="color:var(--ink)">${r[2]}</td></tr>`).join("")+`</tbody>`;
@@ -530,12 +530,12 @@ function deal(){
   const ni={2026:s.eps[2026]*s.sh+3.5,2027:s.eps[2027]*s.sh+4.5,2028:s.eps[2028]*s.sh+7.1};
   const R=[
     [Z("Market value (incl. premium)","市值（含溢价）"),B(cmc)],
-    [Z("Cash / debt (Jun 30)","现金／债务（6 月 30 日）"),B(cash)+" / "+B(debt)],
+    [Z("Cash / debt (latest)","现金／债务（最新）"),B(cash)+" / "+B(debt)],
     [Z("Revenue 2026E / 27E / 28E","营收 2026／27／28 年预测"),B(cr[2026])+" / "+B(cr[2027])+" / "+B(cr[2028])],
     [Z("Net income 2026E / 27E / 28E","净利润 2026／27／28 年预测"),B(ni[2026])+" / "+B(ni[2027])+" / "+B(ni[2028])],
     [Z("P/E 2027E / 2028E (combined)","2027／2028 年预期市盈率（合并）"),mult(cmc/ni[2027])+" / "+mult(cmc/ni[2028])+Z("  (SpaceX alone ","（SpaceX 单独 ")+mult(s.mc/(s.eps[2027]*s.sh))+" / "+mult(s.mc/(s.eps[2028]*s.sh))+Z(")","）")],
     [Z("EV / sales 2027E","企业价值／2027 年预期销售额"),mult(cev/cr[2027])],
-    [Z("Capex 2026E","2026 年预期资本开支"),Z("~$107B (≈$81B + $25B+)","约 1,070 亿美元（约 810 亿＋250 亿以上）")],
+    [Z("Capex 2026E","2026 年预期资本开支"),Z("~$101B (≈$81B + ~$20B)","约 1,010 亿美元（约 810 亿＋约 200 亿）")],
     [Z("Contracted backlog","已签约订单储备"),Z("$47.5B + Tesla deferred revenue $7.5B","475 亿美元＋特斯拉递延收入 75 亿美元")],
     [Z("Musk stake (Barclays, no premium)","马斯克持股（巴克莱，未计溢价）"),Z("~37% economic, ~56% voting","约 37% 股份，约 56% 投票权")]
   ];

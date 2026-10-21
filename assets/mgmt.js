@@ -2,7 +2,7 @@
    Reads mgmt.json next to the page and adds two sections after the revenue charts:
      1. "Management's review of the quarter" — the latest results and management's view (paragraph 1)
         and the share price reaction and what drove it (paragraph 2), plus three cells: report date,
-        first-session move, and the move since (computed live from data/history.json when it is there).
+        first-session move (or the after-hours move, with "ah": true, until the first session closes), and the move since (computed live from data/history.json when it is there).
      2. "CEO and CFO" — one card per executive with a short background.
    EN / 中文 follows <html lang>. Each stock's text lives in <stock>/mgmt.json; refresh it after each report. */
 (function () {
@@ -26,9 +26,10 @@
       hR: "Management's review of the quarter",
       subR: (q) => `${q}: what the company reported and how management sees it, then how the stock traded around the report and why.`,
       hL: "CEO and CFO", subL: "Who runs the company and who runs the money.",
-      kRep: "Reported", kReact: "First session", kSince: "Since the report",
+      kRep: "Reported", kReact: "First session", kAh: "After hours", kSince: "Since the report",
       sRep: { amc: "after the US close", bmo: "before the US open", krx: "before the Seoul open" },
       sReact: (d) => `close on ${d} vs. the last close before the report`,
+      sAh: (d) => `after-hours price on ${d} vs. that day's close; first session pending`,
       sSince: (d, live) => `vs. pre-report close · ${live ? "live, " : ""}as of ${d}`,
       ceo: "Chief Executive Officer", cfo: "Chief Financial Officer", since: (y) => `in the role since ${y}`,
       src: "Sources", asof: (d) => `Written ${d}. Price moves use daily closes.`,
@@ -39,9 +40,10 @@
       hR: "管理层季度回顾",
       subR: (q) => `${q}：公司业绩与管理层看法，以及财报前后股价走势与驱动因素。`,
       hL: "CEO 与 CFO", subL: "公司掌舵人与财务掌门人。",
-      kRep: "发布日期", kReact: "首个交易日", kSince: "财报后至今",
+      kRep: "发布日期", kReact: "首个交易日", kAh: "盘后", kSince: "财报后至今",
       sRep: { amc: "美股收盘后", bmo: "美股开盘前", krx: "首尔开盘前" },
       sReact: (d) => `${d} 收盘价对比财报前最后收盘价`,
+      sAh: (d) => `${d} 盘后价格对比当日收盘价；首个交易日待更新`,
       sSince: (d, live) => `对比财报前收盘价 · ${live ? "实时，" : ""}截至 ${d}`,
       ceo: "首席执行官", cfo: "首席财务官", since: (y) => `${y} 年起任职`,
       src: "资料来源", asof: (d) => `撰写于 ${d}。股价变动按每日收盘价计算。`,
@@ -122,7 +124,7 @@
       <p class="sub">${esc(t("subR")(tx(D.quarter)))}</p>
       <div class="cells mg-cells">
         <div class="cell"><div class="k">${t("kRep")}</div><div class="v">${fd(D.reported)}</div><div class="s">${esc(t("sRep")[D.timing] || "")}</div></div>
-        <div class="cell"><div class="k">${t("kReact")}</div><div class="v ${cls(D.react.pct)}">${pct(D.react.pct)}</div><div class="s">${esc(t("sReact")(fd(D.react.date)))}</div></div>
+        <div class="cell"><div class="k">${t(D.react.ah ? "kAh" : "kReact")}</div><div class="v ${cls(D.react.pct)}">${pct(D.react.pct)}</div><div class="s">${esc(t(D.react.ah ? "sAh" : "sReact")(fd(D.react.date)))}</div></div>
         <div class="cell"><div class="k">${t("kSince")}</div><div class="v ${s ? cls(s.v) : ""}">${s ? pct(s.v) : "—"}</div><div class="s">${s ? esc(t("sSince")(fd(s.d), s.live)) : ""}</div></div>
       </div>
       <div class="panel mg-body">

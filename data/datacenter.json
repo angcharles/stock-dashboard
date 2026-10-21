@@ -529,11 +529,11 @@
     "tgt": 5,
     "tgtT": "Hyperion (Louisiana) scales to 5 GW, first phase 2028"
    },
-   "capexV": 137.5,
-   "capexT": "$130–145B in 2026",
+   "capexV": 140.0,
+   "capexT": "$135–145B in 2026",
    "capex": [
-    "2026 guide $130–145B incl. finance leases",
-    "No 2027 guide; BofA models 5–6 GW of owned capacity in 2027 for ~$200B",
+    "2026 guide $135–145B incl. finance leases (narrowed from $130–145B in Oct); $85.8B spent in the first nine months",
+    "2027 guide due in January; BofA models 5–6 GW of owned capacity in 2027 for ~$200B",
     "1 GW El Paso data center in a JV with BlackRock"
    ],
    "rev": {
@@ -574,7 +574,7 @@
      }
     ]
    },
-   "watch": "Q2 free cash flow was ~$0.8B; total debt incl. leases now above cash.",
+   "watch": "Q3 free cash flow was −$2.1B and buybacks stopped; long-term debt is $80.9B vs $82.4B of cash.",
    "src": [
     12,
     13,

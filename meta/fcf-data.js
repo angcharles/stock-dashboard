@@ -1,16 +1,9 @@
 window.FCF = {
  "sub": {
-  "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q3 2021 to Q2 2026. Shaded bars and italic rows are estimates.",
-  "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第三季至 2026 年第二季共 20 个季度。浅色柱与斜体行为估算。"
+  "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q4 2021 to Q3 2026. Shaded bars and italic rows are estimates.",
+  "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第四季至 2026 年第三季共 20 个季度。浅色柱与斜体行为估算。"
  },
  "hist": [
-  [
-   "Q3 2021",
-   "Sep 2021",
-   14090,
-   4346,
-   9744
-  ],
   [
    "Q4 2021",
    "Dec 2021",
@@ -143,36 +136,43 @@ window.FCF = {
    31862,
    30116,
    1746
+  ],
+  [
+   "Q3 2026",
+   "Sep 2026",
+   32786,
+   33942,
+   -1156
   ]
  ],
  "est": [
   [
-   "Q3 2026",
-   "Sep 2026",
-   33000,
-   42000,
-   -9000
-  ],
-  [
    "Q4 2026",
    "Dec 2026",
+   38000,
+   52000,
+   -14000
+  ],
+  [
+   "Q1 2027",
+   "Mar 2027",
    36000,
    45000,
    -9000
   ],
   [
-   "Q1 2027",
-   "Mar 2027",
-   34000,
-   45000,
-   -11000
-  ],
-  [
    "Q2 2027",
    "Jun 2027",
-   33000,
+   37000,
+   46000,
+   -9000
+  ],
+  [
+   "Q3 2027",
+   "Sep 2027",
+   38000,
    47000,
-   -14000
+   -9000
   ]
  ],
  "cash": {
@@ -180,20 +180,20 @@ window.FCF = {
    "en": "Cash & securities",
    "zh": "现金及有价证券"
   },
-  "v": "$90.3B",
+  "v": "$82.4B",
   "s": {
-   "en": "Jun 30, 2026",
-   "zh": "2026年6月30日"
+   "en": "Sep 30, 2026",
+   "zh": "2026年9月30日"
   }
  },
  "read": [
   {
-   "en": "Meta generated $5–16B of free cash flow almost every quarter for five years, enough to fund large buybacks. Capex has more than tripled since early 2024, and in Q2 2026 it nearly matched operating cash flow: $31.9B in, $30.1B out, leaving $1.7B (Meta's own figure, which also deducts finance leases, was $0.8B).",
-   "zh": "过去五年 Meta 几乎每季产生 50–160 亿美元自由现金流，足以支撑大规模回购。自 2024 年初以来资本开支增至三倍以上，2026 年第二季几乎与经营现金流持平：流入 319 亿、流出 301 亿，剩余 17 亿（按 Meta 自身口径另扣融资租赁后为 8 亿）。"
+   "en": "Meta generated $5–16B of free cash flow almost every quarter for five years, enough to fund large buybacks. In Q3 2026 capex passed operating cash flow for the first time: $32.8B in, $33.9B out, leaving −$1.2B (Meta's own figure, which also deducts finance leases, was −$2.1B). There were no buybacks.",
+   "zh": "过去五年 Meta 几乎每季产生 50–160 亿美元自由现金流，足以支撑大规模回购。2026 年第三季资本开支首次超过经营现金流：流入 328 亿、流出 339 亿，剩余 −12 亿（按 Meta 自身口径另扣融资租赁后为 −21 亿）。当季未回购。"
   },
   {
-   "en": "The $130–145B guide for 2026 implies about $87B of capex in the second half, so I expect free cash flow to turn negative, roughly −$9B a quarter, and to stay negative into 2027 if spending keeps rising. Meta is filling the gap with bonds, about $55B over the last year, and has slowed buybacks.",
-   "zh": "2026 年 1300–1450 亿美元的指引意味着下半年资本开支约 870 亿，因此我预计自由现金流将转负，每季约 −90 亿美元；若支出继续上升，2027 年仍将为负。Meta 以债券填补缺口（过去一年约 550 亿），并放缓了回购。"
+   "en": "The $135–145B guide for 2026 implies about $49–59B of capex in Q4 alone, so I expect free cash flow of roughly −$14B in Q4 and about −$9B a quarter in 2027 if spending stays near that pace (Meta gives its 2027 capex in January). Settlement payments of up to $18.6B add to the drain, and long-term debt is already up $22B this year.",
+   "zh": "2026 年 1350–1450 亿美元的指引意味着仅第四季资本开支就约 490–590 亿，因此我预计第四季自由现金流约 −140 亿美元；若支出维持此节奏，2027 年每季约 −90 亿（Meta 将于 1 月给出 2027 年资本开支）。最多 186 亿美元的和解支付进一步消耗现金，今年长期债务已增加 220 亿。"
   }
  ],
  "out": [
@@ -203,8 +203,8 @@ window.FCF = {
     "zh": "AI 数据中心与算力"
    },
    "p": {
-    "en": "$50.9B of capex in the first half of 2026 (including finance leases) and about $87B more implied for the second half.",
-    "zh": "2026 年上半年资本开支 509 亿美元（含融资租赁），下半年隐含约 870 亿。"
+    "en": "$85.8B of capex in the first nine months of 2026 (including finance leases) and about $49–59B more implied for Q4.",
+    "zh": "2026 年前九个月资本开支 858 亿美元（含融资租赁），第四季隐含约 490–590 亿。"
    }
   },
   {
@@ -213,8 +213,8 @@ window.FCF = {
     "zh": "Reality Labs"
    },
    "p": {
-    "en": "About $4.6B of operating losses a quarter on AR/VR and AI glasses.",
-    "zh": "AR/VR 与 AI 眼镜每季营业亏损约 46 亿美元。"
+    "en": "$4.13B of operating losses in Q3; $18–19B guided for 2026.",
+    "zh": "第三季营业亏损 41.3 亿美元；2026 年指引 180–190 亿。"
    }
   },
   {
@@ -223,18 +223,18 @@ window.FCF = {
     "zh": "股息"
    },
    "p": {
-    "en": "About $1.35B a quarter.",
-    "zh": "每季约 13.5 亿美元。"
+    "en": "About $1.36B a quarter.",
+    "zh": "每季约 13.6 亿美元。"
    }
   },
   {
    "h": {
-    "en": "Legal costs",
-    "zh": "法律费用"
+    "en": "Legal settlements",
+    "zh": "法律和解"
    },
    "p": {
-    "en": "$2.4B of legal charges in Q2, with youth-safety trials still ahead.",
-    "zh": "第二季法律费用 24 亿美元，青少年安全审判尚未结束。"
+    "en": "Up to about $18.6B to the states under the youth-safety agreement ($9.89B charged in Q3), plus a $25B New Mexico ruling under appeal.",
+    "zh": "青少年安全协议下最多向各州支付约 186 亿美元（第三季计提 98.9 亿），另有上诉中的新墨西哥州 250 亿判决。"
    }
   }
  ],
@@ -245,8 +245,8 @@ window.FCF = {
     "zh": "广告"
    },
    "p": {
-    "en": "About $32B of operating cash flow a quarter from Facebook, Instagram, WhatsApp and Messenger ads.",
-    "zh": "Facebook、Instagram、WhatsApp 和 Messenger 广告每季带来约 320 亿美元经营现金流。"
+    "en": "About $33B of operating cash flow a quarter from Facebook, Instagram, WhatsApp and Messenger ads.",
+    "zh": "Facebook、Instagram、WhatsApp 和 Messenger 广告每季带来约 330 亿美元经营现金流。"
    }
   },
   {
@@ -255,41 +255,41 @@ window.FCF = {
     "zh": "发行债券"
    },
    "p": {
-    "en": "$24.9B in Q2 2026 and $29.9B in Q4 2025.",
-    "zh": "2026 年第二季 249 亿美元，2025 年第四季 299 亿。"
+    "en": "Long-term debt rose from $58.7B in December 2025 to $80.9B in September 2026.",
+    "zh": "长期债务从 2025 年 12 月的 587 亿增至 2026 年 9 月的 809 亿美元。"
    }
   }
  ],
  "bridge": [
   [
    {
-    "en": "Cash & securities, Jun 2026",
-    "zh": "2026年6月现金及证券"
+    "en": "Cash & securities, Sep 2026",
+    "zh": "2026年9月现金及证券"
    },
-   90260
+   82450
   ],
   [
    {
     "en": "Free cash flow, 4 quarters (est.)",
     "zh": "4季自由现金流（估）"
    },
-   -43000
+   -41000
   ],
   [
    {
-    "en": "Dividends (~$1.35B a quarter)",
-    "zh": "股息（每季约13.5亿）"
+    "en": "Dividends (~$1.36B a quarter)",
+    "zh": "股息（每季约13.6亿）"
    },
    -5400
   ]
  ],
  "bridgeEnd": {
-  "en": "Cash & securities, Jun 2027 (est.)",
-  "zh": "2027年6月现金及证券（估）"
+  "en": "Cash & securities, Sep 2027 (est.)",
+  "zh": "2027年9月现金及证券（估）"
  },
  "bridgeNote": {
-  "en": "Before any new bonds or buybacks. Meta has been issuing debt roughly every other quarter.",
-  "zh": "未计入新发债券或回购。Meta 大约每两季发债一次。"
+  "en": "Before settlement payments, any new bonds or Class C share sales, or buybacks.",
+  "zh": "未计入和解支付、新发债券、C 类股融资或回购。"
  },
  "extraNote": {
   "en": "Capex here excludes principal payments on finance leases, which Meta includes in its own free cash flow measure.",
@@ -297,20 +297,16 @@ window.FCF = {
  },
  "src": [
   [
+   "Q3 2026 press release (PR Newswire)",
+   "https://www.prnewswire.com/news-releases/meta-reports-third-quarter-2026-results-302915964.html"
+  ],
+  [
    "Quarterly cash flow statement (Stock Analysis)",
    "https://stockanalysis.com/stocks/meta/financials/cash-flow-statement/?p=quarterly"
   ],
   [
-   "Q2 2026 capex and FCF",
-   "https://news.insightanalytics.io/articles/meta-platforms-q2-fy2026-earnings"
-  ],
-  [
-   "Q2 2026 10-Q balance sheet",
-   "https://keid.app/filings/870609003317563392"
-  ],
-  [
-   "Debt vs cash (TIKR)",
-   "https://tikr.com/blog/meta-now-owes-22-billion-more-than-it-holds-heres-why-that-matters"
+   "Q3 2026: capex and FCF (Fortune)",
+   "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
   ]
  ]
 };

@@ -1,31 +1,32 @@
 {
  "ticker": "META",
- "asof": "2026-10-11",
+ "asof": "2026-10-22",
  "quarter": {
-  "en": "Q2 2026",
-  "zh": "2026年第二季"
+  "en": "Q3 2026",
+  "zh": "2026年第三季"
  },
- "reported": "2026-07-29",
+ "reported": "2026-10-21",
  "timing": "amc",
- "pre_close": 585.61,
+ "pre_close": 697.43,
  "react": {
-  "date": "2026-07-30",
-  "close": 539.03,
-  "pct": -8.0
+  "date": "2026-10-21",
+  "close": 723.93,
+  "pct": 3.8,
+  "ah": true
  },
  "since": {
-  "date": "2026-10-20",
-  "close": 694.25,
-  "pct": 18.6
+  "date": "2026-10-21",
+  "close": 723.93,
+  "pct": 3.8
  },
  "review": {
   "en": [
-   "Revenue grew 28% to $60.8B, a beat, but EPS of $6.18 missed ~$7.2 after $3.58B of legal and severance charges; excluding them, operating income rose 9%. Capex of $31.1B ate nearly all operating cash flow, leaving free cash flow of $784M versus $8.55B a year earlier. The Q3 revenue guide of $61–64B was below consensus and 2026 capex was narrowed to $130–145B. Mark Zuckerberg hinted at renting out compute to other companies, and CFO Susan Li said industry capacity will stay tight for the foreseeable future.",
-   "Shares fell almost 10% after hours and closed down 8.0% the next day on the soft guide and the collapse in free cash flow. They recovered to about the pre-report price within a week, sagged again to $544 in mid-August, then re-rated after the Sep 8 launch of the Muse AI agent topped app-store charts; a Wells Fargo target increase added 11% on Sep 21. The stock now sits well above where it was before the report."
+   "Revenue rose 26% to $64.6B, beating ~$63.3B, as ad impressions grew 10% and price per ad 14%. GAAP EPS of $3.83 absorbed a $9.89B charge for the youth-safety deal with 52 attorneys general; excluding it, EPS was $7.40 and operating margin 35.4%. Capex of $34.9B outran operating cash flow, so free cash flow was −$2.1B and there were no buybacks. The Q4 guide of $73–76B tops consensus, 2026 capex was narrowed to $135–145B, and CFO Susan Li expects strong growth through 2027, with Reality Labs losses narrowing to ~$15B. Zuckerberg said Muse passed 10M users in six weeks; a non-voting Class C share is planned for January.",
+   "Shares rose about 3.8% after hours to near $724 from a $697.43 close, as the revenue beat and the Q4 guide outweighed the legal charge and negative cash flow, both largely expected since the settlement was announced in August. The stock had already climbed about 28% from its mid-August low near $544 on the Muse launch. The first full session is Oct 22; watch whether the Class C plan, read as a future source of share supply, and the $25B New Mexico ruling cap the gain."
   ],
   "zh": [
-   "营收增长 28% 至 608 亿美元，超出预期；但受 35.8 亿美元法律与裁员费用影响，每股收益 6.18 美元，低于约 7.2 美元的预期，剔除这些费用营业利润增长 9%。资本开支 311 亿美元，几乎耗尽经营现金流，自由现金流仅 7.84 亿美元（去年同期 85.5 亿）。第三季营收指引 610–640 亿美元低于预期，2026 年资本开支区间收窄至 1,300–1,450 亿美元。扎克伯格暗示将向外部出租算力，CFO Susan Li表示行业算力在可预见未来仍将紧张。",
-   "盘后下跌近 10%，次日因指引偏弱和自由现金流骤降收跌 8.0%。一周内回到财报前价位，8 月中旬再跌至 544 美元；9 月 8 日推出的 AI 智能体 Muse 登顶应用商店，带动重新估值，9 月 21 日富国银行上调目标价后大涨 11%。目前股价远高于财报前。"
+   "营收增长 26% 至 646 亿美元，高于约 633 亿的预期，广告展示量增 10%、单价增 14%。GAAP 每股收益 3.83 美元，计入与 52 位州总检察长达成青少年安全和解的 98.9 亿美元费用；剔除后每股 7.40 美元，营业利润率 35.4%。资本开支 349 亿美元超过经营现金流，自由现金流为 −21 亿美元，当季未回购。第四季营收指引 730–760 亿美元高于预期，2026 年资本开支区间收窄至 1,350–1,450 亿美元；CFO Susan Li 预计 2027 年全年保持强劲增长，Reality Labs 亏损收窄至约 150 亿。扎克伯格称 Muse 六周内用户突破 1000 万；公司计划于明年 1 月推出无投票权 C 类股。",
+   "盘后股价从 697.43 美元的收盘价上涨约 3.8% 至 724 美元左右：营收超预期与第四季指引盖过了法律费用和负现金流，两者自 8 月公布和解后已大致在预期之中。此前受 Muse 推出带动，股价已较 8 月中约 544 美元的低点上涨约 28%。10 月 22 日为财报后首个完整交易日，需关注被视为未来股份供给来源的 C 类股计划，以及新墨西哥州 250 亿美元判决是否压制涨幅。"
   ]
  },
  "ceo": {
@@ -46,22 +47,26 @@
   },
   "since": "2022",
   "bio": {
-   "en": "CFO since November 2022. Joined Facebook's finance team in 2008, before the IPO, and spent years leading business finance and planning. Manages the 2026 capex guidance of $130–145B.",
-   "zh": "2022 年 11 月起任 CFO。2008 年加入 Facebook 财务团队（早于上市），多年负责业务财务与规划。主管 2026 年 1,300–1,450 亿美元的资本开支指引。"
+   "en": "CFO since November 2022. Joined Facebook's finance team in 2008, before the IPO, and spent years leading business finance and planning. Manages the 2026 capex guidance of $135–145B and the new Class C share plan.",
+   "zh": "2022 年 11 月起任 CFO。2008 年加入 Facebook 财务团队（早于上市），多年负责业务财务与规划。主管 2026 年 1,350–1,450 亿美元的资本开支指引及新 C 类股计划。"
   }
  },
  "sources": [
   {
-   "t": "Q2 2026 results (CNBC)",
-   "u": "https://cnbc.com/2026/07/29/meta-q2-earnings-report-2026.html"
+   "t": "Q3 2026 press release",
+   "u": "https://www.prnewswire.com/news-releases/meta-reports-third-quarter-2026-results-302915964.html"
   },
   {
-   "t": "Free cash flow (Fortune)",
-   "u": "https://fortune.com/2026/07/29/meta-earnings-zuckerberg-hints-cloud-business-free-cash-flow-capex"
+   "t": "Q3 2026 earnings call (Investing.com)",
+   "u": "https://www.investing.com/news/transcripts/earnings-call-transcript-meta-beats-q3-2026-estimates-as-ai-push-lifts-shares-93CH-4964260"
   },
   {
-   "t": "Sep 21 move",
-   "u": "https://markets.businessinsider.com/news/stocks/why-meta-stock-jumped-over-11-today-september-21-2026-1036562410"
+   "t": "Settlement, capex and FCF (Fortune)",
+   "u": "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
+  },
+  {
+   "t": "Class C stock (Stock Titan)",
+   "u": "https://www.stocktitan.net/articles/meta-q3-2026-earnings-results"
   }
  ]
 }
