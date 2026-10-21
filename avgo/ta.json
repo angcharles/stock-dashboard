@@ -1,27 +1,27 @@
 {
- "asof": "Oct 20, 2026",
- "close": 334.37,
+ "asof": "Oct 21, 2026",
+ "close": 337.8,
  "bias": {
-  "en": "Bearish · stalling under the September lows",
-  "zh": "偏空 · 受制于 9 月低点下方"
+  "en": "Bearish · back above $335, capped under $341",
+  "zh": "偏空 · 重回 $335 上方，受制于 $341"
  },
  "read": [
   {
-   "en": "Broadcom was flat on Oct 20, down 0.1% to $334.37, trading between $330.80 and $341.09. It is below its 5-day ($337.7), 10-day ($349.9), 30-day ($353.1), 100-day ($378.5) and 200-day ($368.1) averages, all falling. MACD has been below its signal since Oct 15 and below zero with a widening gap, Parabolic SAR has been bearish since Oct 13 ($368.76), and RSI is 38.6.",
-   "zh": "博通 10月20日基本持平，下跌 0.1% 至 $334.37，盘中区间 $330.80–341.09。股价位于 5 日（$337.7）、10 日（$349.9）、30 日（$353.1）、100 日（$378.5）和 200 日均线（$368.1）下方，各均线均在下行。MACD 自 10月15日起位于信号线及零轴下方，差距扩大；抛物线 SAR 自 10月13日起看空（$368.76），RSI 为 38.6。"
+   "en": "Broadcom rose 1.0% on Oct 21 to $337.80, trading between $332.29 and $339.24. It is just above the falling 5-day average ($336.0) but below the falling 10-day ($346.0), 30-day ($352.2), 100-day ($377.4) and 200-day ($368.0). MACD has been below its signal since Oct 15 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 13 ($365.54), and RSI is 41.",
+   "zh": "博通 10月21日上涨 1.0%，收于 $337.80，盘中区间 $332.29–339.24。股价略高于下行的 5 日均线（$336.0），但低于下行的 10 日（$346.0）、30 日（$352.2）、100 日（$377.4）和 200 日均线（$368.0）。MACD 自 10月15日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月13日起看空（$365.54），RSI 为 41。"
   },
   {
-   "en": "Again the high stalled near $341 and the close sat just under $335, while the $328.6 Oct 16 low held. Resistance is $335–341 (Sep 16 and Oct 15 lows, 5-day average, Oct 20 high), then $343.3 (Oct 1 low) and $350–353 (10 and 30-day). Support is $328.6, then $321–324 (Dec 17 and Oct 10, 2025 lows) and $314–316. A close below $321 would open $315.",
-   "zh": "当日高点再度止步于 $341 附近，收盘略低于 $335，$328.6 的 10月16日低点守住。阻力为 $335–341（9月16日和 10月15日低点、5 日均线、10月20日高点），其次 $343.3（10月1日低点）和 $350–353（10 日与 30 日均线）。支撑为 $328.6，其次 $321–324（2025年12月17日和 10月10日低点）和 $314–316。若收盘跌破 $321，下一目标看 $315。"
+   "en": "The close got back above $335 (Sep 16 and Oct 15 lows) for the first time since Oct 15, now support, but the high again stopped short of $341. Resistance is $339–341, then $343.3 (Oct 1 low) and $346–352 (10 and 30-day). Support is $335–336, then $328.6 and $321–324. A close above $341 would target $346–352; a close below $328.6 would open $322.",
+   "zh": "收盘自 10月15日以来首次回到 $335 上方（9月16日和10月15日低点），该位转为支撑，但盘中高点再次未能触及 $341。阻力为 $339–341，其次 $343.3（10月1日低点）和 $346–352（10 日和 30 日均线）。支撑为 $335–336，其次 $328.6 和 $321–324。若收盘站上 $341，下一目标看 $346–352；若收盘跌破 $328.6，将打开 $322。"
   }
  ],
  "levels": {
   "r": [
    [
-    335,
+    341,
     {
-     "en": "Sep 16 and Oct 15 lows; 5-day average $337.7; Oct 20 high $341.1",
-     "zh": "9月16日和10月15日低点；5日均线 $337.7；10月20日高点 $341.1"
+     "en": "Oct 20 high $341.1; Oct 21 high $339.2",
+     "zh": "10月20日高点 $341.1；10月21日高点 $339.2"
     }
    ],
    [
@@ -32,14 +32,21 @@
     }
    ],
    [
-    351,
+    349,
     {
-     "en": "10 and 30-day averages ($349.9–353.1)",
-     "zh": "10日和30日均线（$349.9–353.1）"
+     "en": "10 and 30-day averages ($346.0–352.2)",
+     "zh": "10日和30日均线（$346.0–352.2）"
     }
    ]
   ],
   "s": [
+   [
+    335,
+    {
+     "en": "Sep 16 and Oct 15 lows; 5-day average $336.0, reclaimed",
+     "zh": "9月16日和10月15日低点；5日均线 $336.0，已收复"
+    }
+   ],
    [
     328.6,
     {
@@ -52,13 +59,6 @@
     {
      "en": "Dec 17 and Oct 10, 2025 lows ($321.4–324.1)",
      "zh": "2025年12月17日和10月10日低点（$321.4–324.1）"
-    }
-   ],
-   [
-    315,
-    {
-     "en": "Jan 23 and Feb 17 lows ($314.1–316.3)",
-     "zh": "1月23日和2月17日低点（$314.1–316.3）"
     }
    ]
   ]

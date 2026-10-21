@@ -1,18 +1,18 @@
 {
- "asof": "Oct 20, 2026",
- "close": 694.25,
+ "asof": "Oct 21, 2026",
+ "close": 697.52,
  "bias": {
-  "en": "Uptrend under pressure · resting on the Oct 19 low",
-  "zh": "上升趋势承压 · 停在 10月19日低点"
+  "en": "Uptrend under pressure · rejected below the 30-day",
+  "zh": "上升趋势承压 · 在 30 日均线下方受阻"
  },
  "read": [
   {
-   "en": "Meta fell 1.6% on Oct 20 to $694.25, its fifth straight lower close. It is below the rising 30-day average ($714.0) and the 5-day ($716.7) and 10-day ($725.0), but above the 200-day ($632.4) and 100-day ($629.2). MACD has been below its signal since Oct 2 and is above zero with the histogram widening, Parabolic SAR has been bearish since Oct 16 ($766.86), and RSI is 46.",
-   "zh": "Meta 10月20日下跌 1.6%，收于 $694.25，为连续第五个交易日收低。股价位于上行的 30 日均线（$714.0）及下行的 5 日（$716.7）和 10 日均线（$725.0）下方，但仍远高于 200 日（$632.4）和 100 日均线（$629.2）。MACD 自 10月2日起位于信号线下方，仍在零轴之上，柱状图扩大，抛物线 SAR 自 10月16日起看空（$766.86），RSI 为 46。"
+   "en": "Meta rose 0.5% on Oct 21 to $697.52 (range $690.10–713.22) on volume 1.35 times its 20-day average. It is below the falling 5-day ($708.7) and 10-day ($722.6) and the rising 30-day ($715.4), above the rising 100-day ($629.9) and 200-day ($632.6). MACD has been below its signal since Oct 2 and is above zero, with the histogram widening; Parabolic SAR has been bearish since Oct 16 ($761.71), and RSI is 47.",
+   "zh": "Meta 10月21日上涨 0.5%，收于 $697.52，成交量为 20 日均量的 1.35 倍，盘中区间 $690.10–713.22。股价低于下行的 5 日（$708.7）和 10 日（$722.6）以及上行的 30 日均线（$715.4），但高于上行的 100 日（$629.9）和 200 日均线（$632.6）。MACD 自 10月2日起位于信号线下方，仍在零轴之上，柱状图扩大；抛物线 SAR 自 10月16日起看空（$761.71），RSI 为 47。"
   },
   {
-   "en": "The $702.7 Oct 16 low broke on the close; the day's low reached $681.05, just above the $679.6 top of the Sep 21 gap. Resistance is $702.7, then $714–717 (30 and 5-day averages) and $725 (10-day). Support is $694, then $680 (gap top) and $632 (200-day). A close below $680 would open the 200-day; a close above $717 would target $725.",
-   "zh": "$702.7 的 10月16日低点在收盘时失守；盘中低点 $681.05，略高于 9月21日缺口上沿 $679.6。阻力为 $702.7，其次 $714–717（30 日和 5 日均线）和 $725（10 日均线）。支撑为 $694，其次 $680（缺口上沿）和 $632（200 日均线）。若收盘跌破 $680，下一目标看 200 日均线；若收盘站上 $717，下一目标看 $725。"
+   "en": "The rebound to $713.2 faded under the 30-day, and the close stayed below the $702.7 Oct 16 low. Resistance is $702.7, then $709–715 (5 and 30-day) and $722.6 (10-day). Support is $690–694 (Oct 21 and 19 lows), then $680 (Sep 21 gap top) and $630–633 (100 and 200-day). A close above $715 would target $722.6; a close below $680 would open the 200-day.",
+   "zh": "反弹至 $713.2 后在 30 日均线下方回落，收盘仍低于 $702.7 的 10月16日低点。阻力为 $702.7，其次 $709–715（5 日和 30 日均线）和 $722.6（10 日均线）。支撑为 $690–694（10月21日及19日低点），其次 $680（9月21日缺口上沿）和 $630–633（100 日和 200 日均线）。若收盘站上 $715，下一目标看 $722.6；若收盘跌破 $680，将打开 200 日均线。"
   }
  ],
  "levels": {
@@ -25,14 +25,14 @@
     }
    ],
    [
-    715,
+    712,
     {
-     "en": "30-day $714.0 and 5-day $716.7 averages",
-     "zh": "30日均线 $714.0 和5日均线 $716.7"
+     "en": "5-day $708.7 and 30-day $715.4 averages; Oct 21 high $713.2",
+     "zh": "5日均线 $708.7 和30日均线 $715.4；10月21日高点 $713.2"
     }
    ],
    [
-    725,
+    722.6,
     {
      "en": "10-day average",
      "zh": "10日均线"
@@ -41,10 +41,10 @@
   ],
   "s": [
    [
-    694,
+    692,
     {
-     "en": "Oct 19 low ($693.9)",
-     "zh": "10月19日低点（$693.9）"
+     "en": "Oct 21 low $690.1; Oct 19 low $693.9",
+     "zh": "10月21日低点 $690.1；10月19日低点 $693.9"
     }
    ],
    [
@@ -55,10 +55,10 @@
     }
    ],
    [
-    632,
+    631,
     {
-     "en": "200-day average $632.4; 100-day $629.2",
-     "zh": "200日均线 $632.4；100日均线 $629.2"
+     "en": "200-day $632.6 and 100-day $629.9 averages",
+     "zh": "200日均线 $632.6 和100日均线 $629.9"
     }
    ]
   ]

@@ -1,45 +1,52 @@
 {
- "asof": "Oct 20, 2026",
- "close": 1630.84,
+ "asof": "Oct 21, 2026",
+ "close": 1676.69,
  "bias": {
-  "en": "Bearish · lower highs above the Sep 3 low",
-  "zh": "偏空 · 高点下移，守在 9 月 3 日低点上方"
+  "en": "Bearish · rebound testing the 10-day average",
+  "zh": "偏空 · 反弹测试 10 日均线"
  },
  "read": [
   {
-   "en": "ASML fell 1.0% on Oct 20 to $1,630.84 on light volume, trading between $1,613.54 and $1,654.19. It is below the falling 5-day ($1,645.4), 10-day ($1,705.0) and 30-day ($1,723.4) averages and the rising 100-day ($1,749.4), and above the rising 200-day ($1,582.4). MACD has been below its signal since Oct 12 and below zero, Parabolic SAR has been bearish since Oct 13 ($1,815.63), and RSI is 36.9.",
-   "zh": "阿斯麦 10月20日下跌 1.0%，收于 $1,630.84，成交量偏低，盘中区间 $1,613.54–1,654.19。股价位于下行的 5 日（$1,645.4）、10 日（$1,705.0）和 30 日均线（$1,723.4）及上行的 100 日均线（$1,749.4）下方，在上行的 200 日均线（$1,582.4）上方。MACD 自 10月12日起位于信号线及零轴下方，抛物线 SAR 自 10月13日起看空（$1,815.63），RSI 为 36.9。"
+   "en": "ASML rose 2.8% on Oct 21 to $1,676.69, trading between $1,661.62 and $1,687.81. It is above the falling 5-day ($1,650.7) and rising 200-day ($1,584.7) averages, but below the falling 10-day ($1,692.2) and 30-day ($1,721.6) and the rising 100-day ($1,750.1). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 13 ($1,802.34), and RSI is 44.",
+   "zh": "阿斯麦 10月21日上涨 2.8%，收于 $1,676.69，盘中区间 $1,661.62–1,687.81。股价位于下行的 5 日（$1,650.7）和上行的 200 日均线（$1,584.7）上方，但低于下行的 10 日（$1,692.2）、30 日（$1,721.6）及上行的 100 日均线（$1,750.1）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月13日起看空（$1,802.34），RSI 为 44。"
   },
   {
-   "en": "The high slipped to $1,654, and the low briefly undercut the $1,619 Sep 3 low before the close recovered above it. Resistance is $1,645–1,654 (5-day average, Oct 20 high), then $1,682–1,686 (Oct 13 low, Oct 16 high) and $1,705–1,723. Support is $1,619, then $1,594 (Oct 15 low) and $1,573–1,582 (Sep 14 low, 200-day). A close below $1,594 would open $1,573.",
-   "zh": "当日高点降至 $1,654，盘中低点短暂跌破 $1,619 的 9月3日低点，随后收盘回到其上方。阻力为 $1,645–1,654（5 日均线、10月20日高点），其次 $1,682–1,686（10月13日低点、10月16日高点）和 $1,705–1,723。支撑为 $1,619，其次 $1,594（10月15日低点）和 $1,573–1,582（9月14日低点、200 日均线）。若收盘跌破 $1,594，下一目标看 $1,573。"
+   "en": "The close cleared the $1,650–1,654 resistance (5-day, Oct 20 high), now support, but the high stalled at $1,688 (Oct 13 low, Oct 16 high). Resistance is $1,684–1,692 (with the 10-day), then $1,722 (30-day) and $1,750 (100-day). Support is $1,650, then $1,613–1,619 and $1,594 (Oct 15 low). A close above $1,692 would target $1,722–1,750; a close below $1,613 would reopen $1,594.",
+   "zh": "收盘突破 $1,650–1,654 阻力（5 日均线、10月20日高点），该区域转为支撑，但盘中高点受阻于 $1,688（10月13日低点、10月16日高点）。阻力为 $1,684–1,692（含 10 日均线），其次 $1,722（30 日均线）和 $1,750（100 日均线）。支撑为 $1,650，其次 $1,613–1,619 和 $1,594（10月15日低点）。若收盘站上 $1,692，下一目标看 $1,722–1,750；若收盘跌破 $1,613，将重新打开 $1,594。"
   }
  ],
  "levels": {
   "r": [
    [
-    1650,
+    1688,
     {
-     "en": "5-day average ($1,645.4); Oct 20 high $1,654",
-     "zh": "5日均线（$1,645.4）；10月20日高点 $1,654"
+     "en": "Oct 13 low, Oct 16 high and 10-day average ($1,682–1,692)",
+     "zh": "10月13日低点、10月16日高点和10日均线（$1,682–1,692）"
     }
    ],
    [
-    1684,
+    1722,
     {
-     "en": "Oct 13 low and Oct 16 high ($1,682–1,686)",
-     "zh": "10月13日低点及10月16日高点（$1,682–1,686）"
+     "en": "30-day average ($1,721.6)",
+     "zh": "30日均线（$1,721.6）"
     }
    ],
    [
-    1714,
+    1750,
     {
-     "en": "10 and 30-day averages ($1,705–1,723)",
-     "zh": "10日和30日均线（$1,705–1,723）"
+     "en": "100-day average ($1,750.1)",
+     "zh": "100日均线（$1,750.1）"
     }
    ]
   ],
   "s": [
+   [
+    1650,
+    {
+     "en": "5-day average ($1,650.7); Oct 20 high $1,654, cleared",
+     "zh": "5日均线（$1,650.7）；10月20日高点 $1,654，已突破"
+    }
+   ],
    [
     1619,
     {
@@ -52,13 +59,6 @@
     {
      "en": "Oct 15 low",
      "zh": "10月15日低点"
-    }
-   ],
-   [
-    1578,
-    {
-     "en": "Sep 14 low and 200-day average ($1,572.8–1,582.4)",
-     "zh": "9月14日低点及200日均线（$1,572.8–1,582.4）"
     }
    ]
   ]

@@ -1,34 +1,34 @@
 {
- "asof": "Oct 20, 2026",
- "close": 373.71,
+ "asof": "Oct 21, 2026",
+ "close": 386.47,
  "bias": {
-  "en": "Neutral · reclaimed the $368–372 averages",
-  "zh": "中性 · 收复 $368–372 均线区"
+  "en": "Turning bullish · testing the $388 cap",
+  "zh": "转多 · 测试 $388 上限"
  },
  "read": [
   {
-   "en": "Tesla rose 1.5% on Oct 20 to $373.71, trading between $363.64 and $377.59. It is above the falling 5-day ($365.2), rising 30-day ($368.3), falling 100-day ($369.7) and falling 10-day ($371.5) averages, but below the falling 200-day ($387.3). MACD has been below its signal since Oct 14 and is above zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 15 ($384.87), and RSI is 54.",
-   "zh": "特斯拉 10月20日上涨 1.5%，收于 $373.71，盘中区间 $363.64–377.59。股价位于下行的 5 日（$365.2）、上行的 30 日（$368.3）、下行的 100 日（$369.7）和下行的 10 日均线（$371.5）上方，但仍低于下行的 200 日均线（$387.3）。MACD 自 10月14日起位于信号线下方，仍在零轴之上，柱状图收窄；抛物线 SAR 自 10月15日起看空（$384.87），RSI 为 54。"
+   "en": "Tesla rose 3.4% on Oct 21 to $386.47, trading between $380.51 and $388.84. It is above the falling 5-day ($369.1), rising 30-day ($368.9), falling 100-day ($369.2) and falling 10-day ($372.4) averages, and level with the falling 200-day ($386.9). MACD crossed above its signal on Oct 21 and is above zero; Parabolic SAR turned bullish on Oct 21 ($349.33), and RSI is 60.",
+   "zh": "特斯拉 10月21日上涨 3.4%，收于 $386.47，盘中区间 $380.51–388.84。股价位于下行的 5 日（$369.1）、上行的 30 日（$368.9）、下行的 100 日（$369.2）和下行的 10 日均线（$372.4）上方，与下行的 200 日均线（$386.9）基本持平。MACD 于 10月21日上穿信号线，位于零轴之上；抛物线 SAR 于 10月21日转为看多（$349.33），RSI 为 60。"
   },
   {
-   "en": "The close cleared the $368–372 cluster (30, 100 and 10-day averages) and it now becomes support. Resistance is $377.6 (the day's high and Oct 12 low), then $388 (cap since March, 200-day average, SAR) and $418 (January highs). Support is $368–372, then $365.2 (5-day) and $354 (Sep 15 low). A close above $388 would target $418; a close below $365 would reopen $354.",
-   "zh": "收盘突破 $368–372 均线密集区（30 日、100 日和 10 日均线），该区域转为支撑。阻力为 $377.6（当日高点及 10月12日低点），其次 $388（3月以来的上限、200 日均线、SAR）和 $418（1月高点）。支撑为 $368–372，其次 $365.2（5 日均线）和 $354（9月15日低点）。若收盘站上 $388，下一目标看 $418；若收盘跌破 $365，将重新打开 $354。"
+   "en": "The close cleared $377.6 (Oct 20 high, Oct 12 low), now support; the high tagged the $388 cap but the close stayed below. Resistance is $388 (cap since March, 200-day average), then $409 (Apr 17 high) and $418 (January highs). Support is $377.6, then $368–372 (averages) and $349.3 (SAR, Oct 16 low). A close above $388 would target $409–418; a close below $377.6 would reopen $368.",
+   "zh": "收盘突破 $377.6（10月20日高点、10月12日低点），该位置转为支撑；盘中高点触及 $388 上限，但收盘仍在其下方。阻力为 $388（3月以来的上限、200 日均线），其次 $409（4月17日高点）和 $418（1月高点）。支撑为 $377.6，其次 $368–372（均线区）和 $349.3（SAR、10月16日低点）。若收盘站上 $388，下一目标看 $409–418；若收盘跌破 $377.6，将重新打开 $368。"
   }
  ],
  "levels": {
   "r": [
    [
-    377.6,
+    388,
     {
-     "en": "Oct 20 high; Oct 12 low $377.6",
-     "zh": "10月20日高点；10月12日低点 $377.6"
+     "en": "$388 cap since March plus the 200-day average ($386.9); Oct 9 high $388.56",
+     "zh": "3月以来 $388 压力及200日均线（$386.9）；10月9日高点 $388.56"
     }
    ],
    [
-    388,
+    409.3,
     {
-     "en": "$388 cap since March plus the 200-day average and SAR",
-     "zh": "3月以来 $388 压力及200日均线、SAR"
+     "en": "Apr 17 high",
+     "zh": "4月17日高点"
     }
    ],
    [
@@ -41,24 +41,24 @@
   ],
   "s": [
    [
+    377.6,
+    {
+     "en": "Oct 20 high; Oct 12 low, now support",
+     "zh": "10月20日高点；10月12日低点，转为支撑"
+    }
+   ],
+   [
     370,
     {
-     "en": "10, 100 and 30-day averages ($368.3–371.5), reclaimed",
-     "zh": "10日、100日和30日均线（$368.3–371.5），已收复"
+     "en": "5, 30, 100 and 10-day averages ($368.9–372.4)",
+     "zh": "5日、30日、100日和10日均线（$368.9–372.4）"
     }
    ],
    [
-    365.2,
+    349.3,
     {
-     "en": "5-day average",
-     "zh": "5日均线"
-    }
-   ],
-   [
-    354,
-    {
-     "en": "Sep 15 low; Oct 16 low $349.3",
-     "zh": "9月15日低点；10月16日低点 $349.3"
+     "en": "Parabolic SAR; Oct 16 low",
+     "zh": "抛物线 SAR；10月16日低点"
     }
    ]
   ]

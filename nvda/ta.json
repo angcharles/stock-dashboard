@@ -1,47 +1,54 @@
 {
- "asof": "Oct 20, 2026",
- "close": 216.47,
+ "asof": "Oct 21, 2026",
+ "close": 221.97,
  "bias": {
-  "en": "Uptrend under pressure · holding the 100-day",
-  "zh": "上升趋势承压 · 守住 100 日均线"
+  "en": "Uptrend under pressure · bounced off the 100-day to the 10-day",
+  "zh": "承压上升趋势 · 自 100 日均线反弹至 10 日均线"
  },
  "read": [
   {
-   "en": "Nvidia slipped 0.3% on Oct 20 to $216.47, trading between $212.77 and $218.46. It is below its falling 5-day ($217.2), 10-day ($223.8) and 30-day ($224.5) averages and above the rising 100-day ($214.5) and 200-day ($203.3). MACD has been below its signal since Oct 12 and is below zero, its histogram steady, Parabolic SAR has been bearish since Oct 13 ($237.09), and RSI is 41.",
-   "zh": "英伟达 10月20日下跌 0.3%，收于 $216.47，盘中区间 $212.77–218.46。股价位于下行的 5 日（$217.2）、10 日（$223.8）和 30 日均线（$224.5）下方，位于上行的 100 日（$214.5）和 200 日均线（$203.3）上方。MACD 自 10月12日起位于信号线及零轴下方，柱状图持平；抛物线 SAR 自 10月13日起看空（$237.09），RSI 为 41。"
+   "en": "Nvidia rose 2.5% on Oct 21 to $221.97, trading between $217.66 and $222.19. It is above the falling 5-day ($217.4) and rising 100-day ($214.6) and 200-day ($203.4) averages, and just under the falling 10-day ($222.3) and 30-day ($224.5). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 13 ($235.14), and RSI is 48.",
+   "zh": "英伟达 10月21日上涨 2.5%，收于 $221.97，盘中区间 $217.66–222.19。股价位于下行的 5 日（$217.4）以及上行的 100 日（$214.6）和 200 日均线（$203.4）上方，略低于下行的 10 日（$222.3）和 30 日均线（$224.5）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月13日起看空（$235.14），RSI 为 48。"
   },
   {
-   "en": "The low dipped under the 100-day to the $212.8 Oct 15 low, but the close held above both again. Resistance is $217.2–218.5 (5-day average, Oct 20 high), then $219.6 (Oct 19 high) and $223.8–224.5 (10 and 30-day). Support is $214.5 (100-day), then $212.8 (Oct 15 and 20 lows) and $207–209 (Aug–Sep lows). A close above $219.6 would open $224.5; below $212.8, $207–209.",
-   "zh": "盘中低点跌破 100 日均线，触及 $212.8 的 10月15日低点，但收盘连续第二个交易日守在两者上方。阻力为 $217.2–218.5（5 日均线、10月20日高点），其次 $219.6（10月19日高点、10月14日低点）和 $223.8–224.5（10 日和 30 日均线）。支撑为 $214.5（100 日均线），其次 $212.8（10月15日和 20日低点）和 $207–209（8月24日和 9月14日低点）。若收盘站上 $219.6，可看 $224.5；若收盘跌破 $212.8，下一目标看 $207–209。"
+   "en": "The close cleared $218–219.6 (5-day average, Oct 19 and 20 highs), which now becomes support. Resistance is $222.2–224.5 (day's high, 10 and 30-day averages), then $226 (Oct 14 high) and $235.1 (SAR). Support is $217.4–219.6, then $214.6 (100-day) and $212.8 (Oct 15 and 20 lows). A close above $224.5 would open $226–235; a close below $214.6 would reopen $212.8.",
+   "zh": "收盘突破 $218–219.6（5 日均线、10月19日和20日高点），该区域转为支撑。阻力为 $222.2–224.5（当日高点、10 日和 30 日均线），其次 $226（10月14日高点）和 $235.1（SAR）。支撑为 $217.4–219.6，其次 $214.6（100 日均线）和 $212.8（10月15日和20日低点）。若收盘站上 $224.5，将打开 $226–235；若收盘跌破 $214.6，将重新打开 $212.8。"
   }
  ],
  "levels": {
   "r": [
    [
-    218,
+    224.5,
     {
-     "en": "5-day average $217.2; Oct 20 high $218.5",
-     "zh": "5日均线 $217.2；10月20日高点 $218.5"
+     "en": "10 and 30-day averages ($222.3–224.5); Oct 21 high $222.2",
+     "zh": "10日和30日均线（$222.3–224.5）；10月21日高点 $222.2"
     }
    ],
    [
-    219.6,
+    226,
     {
-     "en": "Oct 19 high; Oct 14 low",
-     "zh": "10月19日高点；10月14日低点"
+     "en": "Oct 14 high",
+     "zh": "10月14日高点"
     }
    ],
    [
-    224.2,
+    235.1,
     {
-     "en": "10 and 30-day averages ($223.8–224.5)",
-     "zh": "10日和30日均线（$223.8–224.5）"
+     "en": "SAR",
+     "zh": "SAR"
     }
    ]
   ],
   "s": [
    [
-    214.5,
+    218.5,
+    {
+     "en": "5-day average $217.4; Oct 19–20 highs ($218.5–219.6), cleared",
+     "zh": "5日均线 $217.4；10月19–20日高点（$218.5–219.6，已突破）"
+    }
+   ],
+   [
+    214.6,
     {
      "en": "100-day average",
      "zh": "100日均线"
@@ -51,14 +58,7 @@
     212.8,
     {
      "en": "Oct 15 and Oct 20 lows",
-     "zh": "10月15日及20日低点"
-    }
-   ],
-   [
-    208,
-    {
-     "en": "Aug 24 and Sep 14 lows ($207–209)",
-     "zh": "8月24日及9月14日低点（$207–209）"
+     "zh": "10月15日和10月20日低点"
     }
    ]
   ]

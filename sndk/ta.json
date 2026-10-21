@@ -1,18 +1,18 @@
 {
- "asof": "Oct 20, 2026",
- "close": 1365.38,
+ "asof": "Oct 21, 2026",
+ "close": 1378.22,
  "bias": {
-  "en": "Bearish · basing above the Jul 17 low",
-  "zh": "偏空 · 在 7 月 17 日低点上方筑底"
+  "en": "Bearish · capped at the $1,401 October lows",
+  "zh": "偏空 · 受制于 $1,401 的 10 月低点"
  },
  "read": [
   {
-   "en": "Sandisk slipped 0.4% on Oct 20 to $1,365.38, trading between $1,330.51 and $1,388.88. It is level with the falling 5-day average ($1,366.8), below the falling 10-day ($1,468.7), 30-day ($1,628.1) and 100-day ($1,639.4), and above the rising 200-day ($1,221.8). MACD has been below its signal since Oct 2 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 6 ($1,557.86), and RSI is 36.",
-   "zh": "闪迪 10月20日微跌 0.4%，收于 $1,365.38，盘中区间 $1,330.51–1,388.88。股价与下行的 5 日均线（$1,366.8）持平，低于下行的 10 日（$1,468.7）、30 日（$1,628.1）和 100 日均线（$1,639.4），高于上行的 200 日均线（$1,221.8）。MACD 自 10月2日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月6日起看空（$1,557.86），RSI 为 36。"
+   "en": "Sandisk rose 0.9% on Oct 21 to $1,378.22, trading between $1,327.62 and $1,424.48. It is above the falling 5-day ($1,361.8) and rising 200-day ($1,227.4) averages, and below the falling 10-day ($1,437.3), 30-day ($1,615.2) and 100-day ($1,636.2). MACD has been below its signal since Oct 2 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 6 ($1,518.40), and RSI is 37.",
+   "zh": "闪迪 10月21日上涨 0.9%，收于 $1,378.22，盘中区间 $1,327.62–1,424.48。股价位于下行的 5 日（$1,361.8）和上行的 200 日均线（$1,227.4）上方，低于下行的 10 日（$1,437.3）、30 日（$1,615.2）和 100 日均线（$1,636.2）。MACD 自 10月2日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月6日起看空（$1,518.40），RSI 为 37。"
   },
   {
-   "en": "The close held above the $1,325 Jul 17 low for a second session, while the high again stalled below the $1,401 Oct 13–14 lows. Resistance is $1,401, then $1,470 (former floor, 10-day average) and $1,558 (SAR). Support is $1,325, then $1,276 (Oct 15 low) and $1,222 (200-day). A close above $1,401 would target $1,470; a close below $1,276 would open $1,222.",
-   "zh": "收盘连续第二个交易日守在 $1,325 的 7月17日低点上方，但盘中高点再度受阻于 $1,401 的 10月13–14日低点下方。阻力为 $1,401，其次 $1,470（前期底部、10 日均线）和 $1,558（SAR）。支撑为 $1,325，其次 $1,276（10月15日低点）和 $1,222（200 日均线）。若收盘站上 $1,401，下一目标看 $1,470；若收盘跌破 $1,276，下一目标看 $1,222。"
+   "en": "The high poked above $1,401 (Oct 13–14 lows) but the close fell back below it, while the low held the $1,325 Jul 17 low for a third session. Resistance is $1,401–1,424, then $1,437 (10-day) and $1,518 (SAR). Support is $1,325, then $1,276 (Oct 15 low) and $1,227 (200-day). A close above $1,424 would target $1,437–1,470; a close below $1,276 would open $1,227.",
+   "zh": "盘中高点短暂升破 $1,401（10月13–14日低点），但收盘回落至其下方；低点连续第三个交易日守住 $1,325 的 7月17日低点。阻力为 $1,401–1,424，其次 $1,437（10 日均线）和 $1,518（SAR）。支撑为 $1,325，其次 $1,276（10月15日低点）和 $1,227（200 日均线）。若收盘站上 $1,424，下一目标看 $1,437–1,470；若收盘跌破 $1,276，将打开 $1,227。"
   }
  ],
  "levels": {
@@ -20,19 +20,19 @@
    [
     1401,
     {
-     "en": "Oct 13 and Oct 14 lows; Oct 20 high $1,388.9",
-     "zh": "10月13日和14日低点；10月20日高点 $1,388.9"
+     "en": "Oct 13 and Oct 14 lows; Oct 21 high $1,424.5",
+     "zh": "10月13日和14日低点；10月21日高点 $1,424.5"
     }
    ],
    [
-    1470,
+    1437,
     {
-     "en": "Former floor ($1,465–1,475); 10-day average $1,468.7",
-     "zh": "前期底部（$1,465–1,475）；10日均线 $1,468.7"
+     "en": "10-day average $1,437.3; former floor $1,465–1,475 above",
+     "zh": "10日均线 $1,437.3；上方为前期底部 $1,465–1,475"
     }
    ],
    [
-    1558,
+    1518,
     {
      "en": "Parabolic SAR",
      "zh": "抛物线 SAR"
@@ -43,8 +43,8 @@
    [
     1325,
     {
-     "en": "Jul 17 low",
-     "zh": "7月17日低点"
+     "en": "Jul 17 low; Oct 21 low $1,327.6",
+     "zh": "7月17日低点；10月21日低点 $1,327.6"
     }
    ],
    [
@@ -55,7 +55,7 @@
     }
    ],
    [
-    1222,
+    1227,
     {
      "en": "200-day average",
      "zh": "200日均线"

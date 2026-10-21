@@ -1,50 +1,57 @@
 {
- "asof": "Oct 20, 2026",
- "close": 896.07,
+ "asof": "Oct 21, 2026",
+ "close": 913.67,
  "bias": {
-  "en": "Bearish · back under $903",
-  "zh": "偏空 · 重新跌破 $903"
+  "en": "Bearish · reclaimed $903, capped under the 10-day",
+  "zh": "偏空 · 收复 $903，受制于 10 日均线"
  },
  "read": [
   {
-   "en": "Micron fell 1.0% on Oct 20 to $896.07, trading between $881.52 and $918.89. It is below its falling 5-day ($905.0), 10-day ($962.0) and 30-day ($1,007.1) averages and the rising 100-day ($977.0), and above the rising 200-day ($723.8). MACD has been below its signal since Oct 6 and is below zero, its histogram narrowing slightly, Parabolic SAR has been bearish since Oct 7 ($1,015.42), and RSI is 37.5.",
-   "zh": "美光 10月20日下跌 1.0%，收于 $896.07，盘中区间 $881.52–918.89。股价位于下行的 5 日（$905.0）、10 日（$962.0）和 30 日均线（$1,007.1）及上行的 100 日均线（$977.0）下方，位于上行的 200 日均线（$723.8）上方。MACD 自 10月6日起位于信号线及零轴下方，柱状图略有收窄；抛物线 SAR 自 10月7日起看空（$1,015.42），RSI 为 37.5。"
+   "en": "Micron rose 2.0% on Oct 21 to $913.67, trading between $889.45 and $928.45. It is above the falling 5-day average ($904.9) and the rising 200-day ($726.9), but below the falling 10-day ($944.6) and 30-day ($1,003.3) and the rising 100-day ($976.5). MACD has been below its signal since Oct 6 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 7 ($999.67), and RSI is 41.",
+   "zh": "美光 10月21日上涨 2.0%，收于 $913.67，盘中区间 $889.45–928.45。股价位于下行的 5 日均线（$904.9）和上行的 200 日均线（$726.9）上方，但低于下行的 10 日（$944.6）和 30 日均线（$1,003.3）以及上行的 100 日均线（$976.5）。MACD 自 10月6日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月7日起看空（$999.67），RSI 为 41。"
   },
   {
-   "en": "The close lost $903 (Sep 14 low) again, a day after reclaiming it; the low briefly undercut the $888 Aug 24 low. Resistance is $903–905 (Sep 14 low, 5-day average), then $919–932 (recent highs) and $962 (10-day). Support is $881–888 (Oct 20 and Aug 24 lows), then $854–858 (Jun 9, Oct 15 lows) and $804. A close above $932 would open $962; below $854, $804.",
-   "zh": "收盘重新跌破前一日刚收复的 $903（9月14日低点），盘中低点一度跌破 $888 的 8月24日低点后回升。阻力为 $903–905（9月14日低点、5 日均线），其次 $919–932（10月20日、19日和 15日高点）和 $962（10 日均线）。支撑为 $881–888（10月20日和 8月24日低点），其次 $854–858（6月9日和 10月15日低点）和 $804（7月17日低点）。若收盘站上 $932，可看 $962；若收盘跌破 $854，下一目标看 $804。"
+   "en": "The close reclaimed $903–905 (Sep 14 low, 5-day average), lost on Oct 20, and it turns to support. Resistance is $926.8–931.7 (Oct 19 and 15 highs), then $944.6 (10-day) and $976.5 (100-day). Support is $903–905, then $881.5–889.5 (Oct 20 and 21 lows) and $854–858 (Jun 9, Oct 15 lows). A close above $932 would open $944.6; a close below $881 would open $856.",
+   "zh": "收盘收复 10月20日失守的 $903–905（9月14日低点、5 日均线），该区域转为支撑。阻力为 $926.8–931.7（10月19日和15日高点），其次 $944.6（10 日均线）和 $976.5（100 日均线）。支撑为 $903–905，其次 $881.5–889.5（10月20日和21日低点）和 $854–858（6月9日、10月15日低点）。若收盘站上 $932，将打开 $944.6；若收盘跌破 $881，将打开 $856。"
   }
  ],
  "levels": {
   "r": [
    [
-    904,
+    929,
     {
-     "en": "Sep 14 low $903, lost again; 5-day average $905",
-     "zh": "9月14日低点 $903，再度失守；5日均线 $905"
+     "en": "Oct 19 high $926.8; Oct 15 high $931.7",
+     "zh": "10月19日高点 $926.8；10月15日高点 $931.7"
     }
    ],
    [
-    925,
-    {
-     "en": "Oct 20 high $918.9; Oct 19 high $926.8; Oct 15 high $931.7",
-     "zh": "10月20日高点 $918.9；10月19日高点 $926.8；10月15日高点 $931.7"
-    }
-   ],
-   [
-    962,
+    944.6,
     {
      "en": "10-day average",
      "zh": "10日均线"
+    }
+   ],
+   [
+    976.5,
+    {
+     "en": "100-day average",
+     "zh": "100日均线"
     }
    ]
   ],
   "s": [
    [
+    904,
+    {
+     "en": "Sep 14 low $903 and 5-day average $904.9, reclaimed",
+     "zh": "9月14日低点 $903 与5日均线 $904.9（已收复）"
+    }
+   ],
+   [
     885,
     {
-     "en": "Aug 24 low $887.6; Oct 20 low $881.5",
-     "zh": "8月24日低点 $887.6；10月20日低点 $881.5"
+     "en": "Oct 20 low $881.5; Oct 21 low $889.5; Aug 24 low $887.6",
+     "zh": "10月20日低点 $881.5；10月21日低点 $889.5；8月24日低点 $887.6"
     }
    ],
    [
@@ -52,13 +59,6 @@
     {
      "en": "Oct 15 low $858; Jun 9 low $854",
      "zh": "10月15日低点 $858；6月9日低点 $854"
-    }
-   ],
-   [
-    804,
-    {
-     "en": "Jul 17 low",
-     "zh": "7月17日低点"
     }
    ]
   ]

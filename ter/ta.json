@@ -1,45 +1,52 @@
 {
- "asof": "Oct 20, 2026",
- "close": 336.59,
+ "asof": "Oct 21, 2026",
+ "close": 345.49,
  "bias": {
-  "en": "Bearish · holding $332 under the averages",
-  "zh": "偏空 · 在均线下方守住 $332"
+  "en": "Bearish · pressing the 200-day average",
+  "zh": "偏空 · 逼近 200 日均线"
  },
  "read": [
   {
-   "en": "Teradyne rose 0.3% on Oct 20 to $336.59 after swinging between $322.34 and $342.98. It is below the falling 5-day ($340.0), rising 200-day ($346.1), falling 10-day ($367.7), falling 100-day ($380.6) and falling 30-day ($381.3) averages. MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 8 ($401.76), and RSI is 37.",
-   "zh": "泰瑞达 10月20日上涨 0.3%，收于 $336.59，盘中在 $322.34–342.98 之间宽幅波动。股价位于下行的 5 日（$340.0）、上行的 200 日（$346.1）、下行的 10 日（$367.7）、下行的 100 日（$380.6）和下行的 30 日均线（$381.3）下方。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$401.76），RSI 为 37。"
+   "en": "Teradyne rose 2.6% on Oct 21 to $345.49, trading between $341.51 and $351.95. It is above the falling 5-day average ($337.2) but just below the rising 200-day ($346.7), and below the falling 10-day ($361.1), 30-day ($380.0) and 100-day ($380.3). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 8 ($390.64), and RSI is 41.",
+   "zh": "泰瑞达 10月21日上涨 2.6%，收于 $345.49，盘中区间 $341.51–351.95。股价位于下行的 5 日均线（$337.2）上方，但略低于上行的 200 日均线（$346.7），并低于下行的 10 日（$361.1）、30 日（$380.0）和 100 日均线（$380.3）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$390.64），RSI 为 41。"
   },
   {
-   "en": "The low undercut the $324.1 Oct 16 low, but the close held the $332 zone for a second session. Resistance is $340–346 (5 and 200-day), then $367.7 (10-day) and $381 (100 and 30-day). Support is $332, then $322.3 (Oct 20 low) and $309.4 (May 19 low). A close above $346 would target $367.7; a close below $322 would open $309.",
-   "zh": "盘中低点跌破 $324.1 的 10月16日低点，但收盘连续第二个交易日守住 $332 区域。阻力为 $340–346（5 日和 200 日均线），其次 $367.7（10 日均线）和 $381（100 日和 30 日均线）。支撑为 $332，其次 $322.3（10月20日低点）和 $309.4（5月19日低点）。若收盘站上 $346，下一目标看 $367.7；若收盘跌破 $322，下一目标看 $309。"
+   "en": "The close cleared $343 (Oct 20 high) and the 5-day, but the high faded and the close stayed under the 200-day. Resistance is $346.7–352 (200-day, day's high), then $361 (10-day) and $380 (30 and 100-day). Support is $341.5 (day's low), then $332 and $322.3 (Oct 20 low). A close above $352 would target $361; a close below $332 would reopen $322.",
+   "zh": "收盘突破 $343（10月20日高点）和 5 日均线，但盘中高点回落，收盘仍在 200 日均线下方。阻力为 $346.7–352（200 日均线、当日高点），其次 $361（10 日均线）和 $380（30 日和 100 日均线）。支撑为 $341.5（当日低点），其次 $332 和 $322.3（10月20日低点）。若收盘站上 $352，下一目标看 $361；若收盘跌破 $332，将重新打开 $322。"
   }
  ],
  "levels": {
   "r": [
    [
-    343,
+    346.7,
     {
-     "en": "5 and 200-day averages ($340.0–346.1); Oct 20 high $343.0",
-     "zh": "5日和200日均线（$340.0–346.1）；10月20日高点 $343.0"
+     "en": "200-day average; Oct 21 high $352.0",
+     "zh": "200日均线；10月21日高点 $352.0"
     }
    ],
    [
-    367.7,
+    361.1,
     {
      "en": "10-day average",
      "zh": "10日均线"
     }
    ],
    [
-    381,
+    380,
     {
-     "en": "100 and 30-day averages ($380.6–381.3)",
-     "zh": "100日和30日均线（$380.6–381.3）"
+     "en": "30 and 100-day averages ($380.0–380.3)",
+     "zh": "30日和100日均线（$380.0–380.3）"
     }
    ]
   ],
   "s": [
+   [
+    341.5,
+    {
+     "en": "Oct 21 low; 5-day average $337.2",
+     "zh": "10月21日低点；5日均线 $337.2"
+    }
+   ],
    [
     332,
     {
@@ -52,13 +59,6 @@
     {
      "en": "Oct 20 low; Oct 16 low $324.1",
      "zh": "10月20日低点；10月16日低点 $324.1"
-    }
-   ],
-   [
-    309.4,
-    {
-     "en": "May 19 low",
-     "zh": "5月19日低点"
     }
    ]
   ]

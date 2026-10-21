@@ -1,18 +1,18 @@
 {
- "asof": "Oct 20, 2026",
- "close": 76.74,
+ "asof": "Oct 21, 2026",
+ "close": 77.32,
  "bias": {
-  "en": "Bearish · clinging to the July low",
-  "zh": "偏空 · 勉强守在 7 月低点上方"
+  "en": "Bearish · capped at the 5-day average",
+  "zh": "偏空 · 受制于 5 日均线"
  },
  "read": [
   {
-   "en": "AAOI fell 1.9% on Oct 20 to $76.74, trading between $73.05 and $79.19. It is below the falling 5-day ($80.1), 10-day ($93.7), 30-day ($101.2) and 100-day ($123.1) averages and the rising 200-day ($112.6). MACD has been below its signal since Oct 13 and below zero, with the histogram no longer widening; Parabolic SAR has been bearish since Oct 12 ($113.53), and RSI is 34.",
-   "zh": "AAOI 10月20日下跌 1.9%，收于 $76.74，盘中区间 $73.05–79.19。股价位于下行的 5 日（$80.1）、10 日（$93.7）、30 日（$101.2）和 100 日均线（$123.1）及上行的 200 日均线（$112.6）下方。MACD 自 10月13日起位于信号线及零轴下方，柱状图不再扩大；抛物线 SAR 自 10月12日起看空（$113.53），RSI 为 34。"
+   "en": "AAOI rose 0.8% on Oct 21 to $77.32, trading between $76.51 and $81.20. It is below its falling 5-day ($78.3), 10-day ($89.2), 30-day ($100.2) and 100-day ($122.3) averages and the rising 200-day ($112.8). MACD has been below its signal since Oct 13 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 12 ($108.68), and RSI is 35.",
+   "zh": "AAOI 10月21日上涨 0.8%，收于 $77.32，盘中区间 $76.51–81.20。股价位于下行的 5 日（$78.3）、10 日（$89.2）、30 日（$100.2）和 100 日均线（$122.3）以及上行的 200 日均线（$112.8）下方。MACD 自 10月13日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月12日起看空（$108.68），RSI 为 35。"
   },
   {
-   "en": "The high stalled at the $78.6 Mar 31 low; the low undercut the $75.4–76 zone (Oct 16 and Jul 29 lows), but the close held above it. Resistance is $78.6–80.1 (Mar 31 low, 5-day average), then $84.6–85 (March low, Oct 15 high). Support is $76, then $73.05 (Oct 20 low) and $65.6 (Feb 27 gap low). A close below $73 would open $65.6.",
-   "zh": "当日高点受阻于 $78.6 的 3月31日低点；盘中低点跌破 $75.4–76 区域（10月16日和 7月29日低点），但收盘守在其上方。阻力为 $78.6–80.1（3月31日低点、5 日均线），其次 $84.6–85（3月低点、10月15日高点）。支撑为 $76，其次 $73.05（10月20日低点）和 $65.6（2月27日缺口低点）。若收盘跌破 $73，下一目标看 $65.6。"
+   "en": "The high reached $81.2 but the close slipped back under the 5-day average; the low held the $76 Jul 29 support. Resistance is $78.3–78.6 (5-day, Mar 31 low), then $81.2 (Oct 21 high) and $84.6–85. Support is $76, then $73.05 (Oct 20 low) and $65.6. A close above $81.2 would target $85; a close below $73 would open $65.6.",
+   "zh": "盘中高点触及 $81.2，但收盘回落至 5 日均线下方；低点守住 $76 的 7月29日支撑。阻力为 $78.3–78.6（5 日均线、3月31日低点），其次 $81.2（10月21日高点）和 $84.6–85。支撑为 $76，其次 $73.05（10月20日低点）和 $65.6。若收盘站上 $81.2，下一目标看 $85；若收盘跌破 $73，将打开 $65.6。"
   }
  ],
  "levels": {
@@ -20,15 +20,15 @@
    [
     78.6,
     {
-     "en": "Mar 31 low; Oct 20 high $79.2",
-     "zh": "3月31日低点；10月20日高点 $79.2"
+     "en": "5-day average $78.3; Mar 31 low $78.6",
+     "zh": "5日均线 $78.3；3月31日低点 $78.6"
     }
    ],
    [
-    80.1,
+    81.2,
     {
-     "en": "5-day average",
-     "zh": "5日均线"
+     "en": "Oct 21 high",
+     "zh": "10月21日高点"
     }
    ],
    [
@@ -43,8 +43,8 @@
    [
     76,
     {
-     "en": "Jul 29 low; Oct 16 low $75.4",
-     "zh": "7月29日低点；10月16日低点 $75.4"
+     "en": "Jul 29 low; Oct 21 low $76.5",
+     "zh": "7月29日低点；10月21日低点 $76.5"
     }
    ],
    [
