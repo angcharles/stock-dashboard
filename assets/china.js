@@ -11,7 +11,7 @@
   const bp = (v, n = 1) => v == null || !isFinite(v) ? "–" : `${v > 0 ? "+" : ""}${(+v).toFixed(n)}`;
   const cls = (v) => v == null || !isFinite(v) || Math.abs(v) < 0.05 ? "" : v > 0 ? "up" : "down"; // yields up = green, as on the Macro tab
   let D = null;
-  const st = { cvMax: 30, hT: 10, hR: "6M", q: "", type: "All", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
+  const st = { cvMax: 30, hT: 10, hR: "6M", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
 
   // ---------- series helpers ----------
   const ser = (t) => D?.tenors?.[t] || [];
@@ -157,6 +157,7 @@
     return (D.bonds || []).filter((b) =>
       (!q || [b.code, b.isin, b.name].some((x) => String(x || "").toLowerCase().includes(q))) &&
       (st.type === "All" || (st.type === "Special" ? /Special/.test(b.type) : b.type === st.type)) &&
+      (!st.mat || (() => { const [lo, hi] = st.mat.split("-").map(Number); return b.ttm >= lo && b.ttm < hi; })()) &&
       (!st.traded || b.last != null))
       .sort((a, b) => {
         const x = a[st.sort], y = b[st.sort];
@@ -190,6 +191,7 @@
   }
   $("bQ").oninput = (e) => { st.q = e.target.value; table(); };
   $("bTr").onchange = (e) => { st.traded = e.target.checked; table(); };
+  $("bMat").onchange = (e) => { st.mat = e.target.value; table(); };
   $("bDl").onclick = () => {
     const head = ["code", "isin", "name", "type", "coupon_pct", "issue", "maturity", "years_left", "ccdc_curve_pct", "cfets_last_pct", "cfets_wavg_pct", "chg_bp", "vs_curve_bp"];
     const q = (v) => v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v;
