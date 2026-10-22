@@ -155,16 +155,26 @@ function policyOn(date, rows) {
   return { effr, lower };
 }
 
-// The previous file: the local copy, else the copy on the published site.
+// The previous file: the committed copy (written by the daily fedwatch workflow) merged with the copy on
+// the published site (written by every deploy), so neither the intraday runs nor the daily commit lose
+// snapshots or headlines the other one had.
 async function previous() {
-  try { return JSON.parse(readFileSync("data/fedwatch.json", "utf8")); } catch {}
+  let local = null, site = null;
+  try { local = JSON.parse(readFileSync("data/fedwatch.json", "utf8")); log(`previous committed file: ${local.snapshots?.length || 0} snapshots`); } catch {}
   const repo = process.env.GITHUB_REPOSITORY || "angcharles/stock-dashboard", [owner, name] = repo.split("/");
   const url = process.env.FEDWATCH_PREV_URL || `https://${owner.toLowerCase()}.github.io/${name}/data/fedwatch.json`;
   try {
-    const j = await (await get(`${url}?t=${Date.now()}`, { Accept: "application/json" })).json();
-    log(`previous file from the site: ${j.snapshots?.length || 0} snapshots, ${j.events?.length || 0} events`);
-    return j;
-  } catch (e) { log("previous file from the site failed:", e.message); return { snapshots: [] }; }
+    site = await (await get(`${url}?t=${Date.now()}`, { Accept: "application/json" })).json();
+    log(`previous file from the site: ${site.snapshots?.length || 0} snapshots, ${site.events?.length || 0} events`);
+  } catch (e) { log("previous file from the site failed:", e.message); }
+  if (!local || !site) return local || site || { snapshots: [] };
+  const byD = new Map();
+  for (const s of [...(local.snapshots || []), ...(site.snapshots || [])]) {
+    const o = byD.get(s.d);
+    if (!o || s.meetings.length > o.meetings.length) byD.set(s.d, s);
+  }
+  const newer = (site.updated || 0) >= (local.updated || 0) ? site : local;
+  return { ...newer, snapshots: [...byD.values()].sort((a, b) => (a.d < b.d ? -1 : 1)), events: [...(site.events || []), ...(local.events || [])] };
 }
 
 // ---------- events for the history chart ----------

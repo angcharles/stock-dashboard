@@ -56,6 +56,13 @@ jobs:
                 echo "dispatch failed; retrying next minute"
               fi
             fi
+            # Fed funds pricing: once a morning at 05:45-06:15 Singapore (cron for it is often dropped)
+            sg=$(TZ=Asia/Singapore date +%H%M); sgd=$(TZ=Asia/Singapore date +%F)
+            if [ "$((10#$sg))" -ge 545 ] && [ "$((10#$sg))" -le 615 ] && [ "${fedday:-}" != "$sgd" ]; then
+              if gh workflow run fedwatch.yml -R "$REPO" --ref main; then
+                echo "$sgd $sg SGT fed funds refresh dispatched"; fedday=$sgd
+              fi
+            fi
             sleep 60
           done
 

@@ -1,0 +1,83 @@
+name: Fed funds pricing (daily 6am SGT)
+
+# Macro tab, "Fed funds: what's priced" and "How pricing moved": rebuilds data/fedwatch.json from the
+# CBOT 30-day fed funds futures (ZQ) settles, EFFR / target range from FRED and the New York Fed, and
+# the Fed / data-release headlines. The deploy workflow also refreshes this on every price update, but
+# never commits it, so this job commits a checked copy each morning at 6am Singapore (after the US
+# settle) and redeploys the site. It fails, and GitHub emails the repo owner, when the futures feed is
+# stale, so a broken feed does not go unnoticed.
+#
+# GitHub drops many scheduled runs, so the price heartbeat also dispatches this job at 05:45-06:15 SGT;
+# the cron below is the safety net.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/fetch-fedwatch.mjs", ".github/workflows/fedwatch.yml"]
+  schedule:
+    - cron: "45 21 * * *"   # 05:45 Singapore
+    - cron: "20 22 * * *"   # 06:20 Singapore, in case the first one is dropped
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: fedwatch
+  cancel-in-progress: false
+
+jobs:
+  fedwatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Macro calendar and news (read for the "How pricing moved" chart)
+        run: |
+          node scripts/fetch-macro.mjs || echo "macro fetch failed; using the committed files"
+          node scripts/fetch-news.mjs macro || echo "macro news failed; using the committed file"
+
+      - name: Fed funds futures, implied path and range probabilities
+        run: node scripts/fetch-fedwatch.mjs
+
+      - name: Check the data is fresh
+        run: |
+          node -e '
+            const j = JSON.parse(require("fs").readFileSync("data/fedwatch.json", "utf8"));
+            const s = j.snapshots.at(-1), m = s.meetings[0];
+            const behind = (Date.now() - Date.parse(s.d + "T21:00:00Z")) / 864e5;
+            const lb = (k) => j.snapshots.at(-1 - k);
+            const mv = (k) => { const p = lb(k)?.meetings.find((x) => x.d === m.d); return p ? ((m.rate - p.rate) * 100).toFixed(1) + "bp" : "n/a"; };
+            const line = `latest settle ${s.d}, ${j.snapshots.length} daily snapshots; next FOMC ${m.d}: implied ${m.rate.toFixed(3)}% (${m.move >= 0 ? "+" : ""}${m.move}bp priced); vs 1D ${mv(1)}, 1W ${mv(5)}, 1M ${mv(21)}`;
+            console.log(line);
+            require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY, "- Fed funds: " + line + "\n");
+            if (j.stale) { console.error("STALE: no fresh futures data this run"); process.exit(1); }
+            if (behind > 4.2) { console.error(`STALE: latest settle is ${behind.toFixed(1)} days old`); process.exit(1); }
+          '
+
+      - name: Commit if changed
+        id: commit
+        if: always()
+        run: |
+          [ -f data/fedwatch.json ] || { echo "no file"; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          git add data/fedwatch.json
+          if git diff --cached --quiet; then
+            echo "No changes."; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Refresh Fed funds pricing ($(TZ=Asia/Singapore date '+%Y-%m-%d %H:%M') SGT)"
+          git pull -q --rebase origin main
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: always() && steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
