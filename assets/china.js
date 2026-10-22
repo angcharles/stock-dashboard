@@ -11,7 +11,7 @@
   const bp = (v, n = 1) => v == null || !isFinite(v) ? "–" : `${v > 0 ? "+" : ""}${(+v).toFixed(n)}`;
   const cls = (v) => v == null || !isFinite(v) || Math.abs(v) < 0.05 ? "" : v > 0 ? "up" : "down"; // yields up = green, as on the Macro tab
   let D = null;
-  const st = { cvMax: 30, hT: 10, hR: "6M", hA: "t:10", hB: "", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
+  const st = { cvMax: 30, hT: 10, hR: "6M", hA: "t:10", hB: "", hC: "", hD: "", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
 
   // ---------- series helpers ----------
   const ser = (t) => D?.tenors?.[t] || [];
@@ -129,16 +129,18 @@
   const legSer = (k) => !k ? [] : k.startsWith("t:") ? ser(+k.slice(2)) : bondSer(k.slice(2));
   const legName = (k) => { if (!k) return ""; if (k.startsWith("t:")) return `CGB ${lab(+k.slice(2))}`; const b = (D.bonds || []).find((x) => x.code === k.slice(2)); return b ? `${b.code} ${b.name}` : k.slice(2); };
   const legShort = (k) => k.startsWith("t:") ? lab(+k.slice(2)) : k.slice(2);
-  function legOptions(sel, none) {
-    const grp = [[0, 2, "Bonds: less than 2Y"], [2, 5, "Bonds: 2Y – 5Y"], [5, 10, "Bonds: 5Y – 10Y"], [10, 20, "Bonds: 10Y – 20Y"], [20, 30, "Bonds: 20Y – 30Y"], [30, 999, "Bonds: more than 30Y"]];
-    const bonds = (D.bonds || []).filter((b) => b.mat).sort((a, b) => a.ttm - b.ttm);
+  function legOptions(sel, none, tradedOnly) {
+    const grp = [[0, 2, "less than 2Y"], [2, 5, "2Y – 5Y"], [5, 10, "5Y – 10Y"], [10, 20, "10Y – 20Y"], [20, 30, "20Y – 30Y"], [30, 999, "more than 30Y"]];
+    const bonds = (D.bonds || []).filter((b) => b.mat && (!tradedOnly || b.last != null)).sort((a, b) => a.ttm - b.ttm);
     const o = (v, t) => `<option value="${esc(v)}"${v === sel ? " selected" : ""}>${esc(t)}</option>`;
-    return (none ? o("", "None (single line)") : "") +
+    return (none ? o("", "None") : "") +
       `<optgroup label="CCDC standard tenors">${TEN.map((t) => o(`t:${t}`, `CGB ${lab(t)} (CCDC curve)`)).join("")}</optgroup>` +
-      grp.map(([lo, hi, l]) => { const g = bonds.filter((b) => b.ttm >= lo && b.ttm < hi); return g.length ? `<optgroup label="${l}">${g.map((b) => o(`b:${b.code}`, `${b.code} · ${b.name} · ${b.coupon != null ? f2(b.coupon, 2) + "%" : b.type} · ${b.mat} · ${f2(b.ttm, 2)}Y`)).join("")}</optgroup>` : ""; }).join("");
+      grp.map(([lo, hi, l]) => { const g = bonds.filter((b) => b.ttm >= lo && b.ttm < hi); return g.length ? `<optgroup label="${tradedOnly ? "Traded on CFETS" : "Bonds"}: ${l}">${g.map((b) => o(`b:${b.code}`, `${b.code} · ${b.name} · ${b.coupon != null ? f2(b.coupon, 2) + "%" : b.type} · ${b.mat} · ${f2(b.ttm, 2)}Y${b.last != null ? ` · CFETS last ${f2(b.last, 4)}%` : ""}`)).join("")}</optgroup>` : ""; }).join("");
   }
   const tkey = (p) => { if (p?.time == null) return null; const t = p.time; return typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; };
-  let ch = null, ls = null, lsB = null, dc = null, ds = null, dpad = null, hl = [], dl = [];
+  // Lines: A (set by tenor buttons/tiles), B, C, D. C and D list tenors plus only the CGBs with a CFETS last yield today.
+  const LEGS = [["hA", "A", "--c1"], ["hB", "B", "--c2"], ["hC", "C", "--c4"], ["hD", "D", "--c5"]];
+  let ch = null, dc = null, dpad = null, mser = [], dser = [], hl = [], dl = [];
   const chartOpts = () => ({ layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono") }, grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") }, timeScale: { borderColor: css("--line") }, crosshair: { mode: 1 } });
   function hLegends(k) {
     const row = (l, u) => { const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1); return `<span><i style="background:${l.col};height:2.5px"></i>${esc(l.label)} <b>${v ? (u === "bp" ? bp(v[1]) + " bp" : f2(v[1], u === "bpS" ? 1 : 3) + (u === "bpS" ? " bp" : "%")) : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`; };
@@ -154,66 +156,71 @@
   function hist(fit) {
     const k = String(st.hT), isS = k.startsWith("s");
     if (!isS && k !== "bond") st.hA = `t:${k}`; // tenor buttons and tiles drive Line A
-    const cmp = !isS && !!st.hB && st.hB !== st.hA;
-    const sA = isS ? (k === "s10_1" ? spread(10, 1) : spread(30, 10)) : legSer(st.hA), sB = cmp ? legSer(st.hB) : [];
+    const traded = new Set((D.bonds || []).filter((b) => b.last != null).map((b) => `b:${b.code}`));
+    for (const id of ["hC", "hD"]) if (st[id].startsWith("b:") && !traded.has(st[id])) st[id] = ""; // no longer traded today
     const days = { "1M": 31, "3M": 92, "6M": 183, "1Y": 366 }[st.hR];
-    const lastD = [sA.at(-1)?.[0], sB.at(-1)?.[0]].filter(Boolean).sort().at(-1);
+    // legs actually drawn: A always; B/C/D when set and different from A
+    const legs = isS ? [{ id: "hA", L: "A", col: css("--accent"), key: k, s: k === "s10_1" ? spread(10, 1) : spread(30, 10) }]
+      : LEGS.filter(([id]) => id === "hA" || (st[id] && st[id] !== st.hA)).map(([id, L, c]) => ({ id, L, col: css(c), key: st[id], s: legSer(st[id]) }));
+    if (!isS && legs.length === 1) legs[0].col = css("--accent");
+    const lastD = legs.map((l) => l.s.at(-1)?.[0]).filter(Boolean).sort().at(-1);
     const cut = lastD ? new Date(Date.parse(lastD) - days * 864e5).toISOString().slice(0, 10) : "";
-    const v = sA.filter(([d]) => d >= cut), vB = sB.filter(([d]) => d >= cut);
-    const mB = new Map(vB), dv = cmp ? v.filter(([d]) => mB.has(d)).map(([d, y]) => [d, +((mB.get(d) - y) * 100).toFixed(1)]) : [];
-    $("hH").textContent = isS ? `${k === "s10_1" ? "10Y – 1Y" : "30Y – 10Y"} spread history (bp)` : cmp ? `${legName(st.hA)} vs ${legName(st.hB)} yield history (%)` : `${legName(st.hA)} yield history (%)`;
+    legs.forEach((l) => { l.v = l.s.filter(([d]) => d >= cut); });
+    const A = legs[0], mA = new Map(A.v);
+    const sprs = isS ? [] : legs.slice(1).map((l) => ({ label: `${legShort(l.key)} − ${legShort(A.key)}`, L: l.L, col: l.col, data: l.v.filter(([d]) => mA.has(d)).map(([d, y]) => [d, +((y - mA.get(d)) * 100).toFixed(1)]) }));
+    const cmp = sprs.length > 0;
+    $("hH").textContent = isS ? `${k === "s10_1" ? "10Y – 1Y" : "30Y – 10Y"} spread history (bp)` : `${legs.map((l) => legName(l.key)).join(" vs ")} yield history (%)`;
     $("hTen").innerHTML = TEN.map((t) => `<button type="button" data-k="${t}" aria-pressed="${!isS && st.hA === `t:${t}`}">${lab(t)}</button>`).join("") + `<button type="button" data-k="s10_1" aria-pressed="${k === "s10_1"}">10Y–1Y</button><button type="button" data-k="s30_10" aria-pressed="${k === "s30_10"}">30Y–10Y</button>`;
     $("hTen").querySelectorAll("button").forEach((b) => b.onclick = () => { st.hT = b.dataset.k; tiles(); hist(true); });
     $("hRng").innerHTML = ["1M", "3M", "6M", "1Y"].map((r) => `<button type="button" aria-pressed="${r === st.hR}">${r}</button>`).join("");
     $("hRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.hR = b.textContent; hist(true); });
-    $("hA").innerHTML = legOptions(isS ? "" : st.hA, false); $("hB").innerHTML = legOptions(st.hB, true);
-    $("hA").disabled = $("hB").disabled = $("hSwap").disabled = isS;
+    $("hA").innerHTML = legOptions(isS ? "" : st.hA, false, false); $("hB").innerHTML = legOptions(st.hB, true, false);
+    $("hC").innerHTML = legOptions(st.hC, true, true); $("hD").innerHTML = legOptions(st.hD, true, true);
+    ["hA", "hB", "hC", "hD", "hSwap"].forEach((id) => { $(id).disabled = isS; });
     $("hA").onchange = (e) => { st.hA = e.target.value; st.hT = st.hA.startsWith("t:") ? st.hA.slice(2) : "bond"; tiles(); hist(true); };
-    $("hB").onchange = (e) => { st.hB = e.target.value; hist(true); };
+    ["hB", "hC", "hD"].forEach((id) => { $(id).onchange = (e) => { st[id] = e.target.value; hist(true); }; });
     $("hSwap").onclick = () => { if (!st.hB) return; [st.hA, st.hB] = [st.hB, st.hA]; st.hT = st.hA.startsWith("t:") ? st.hA.slice(2) : "bond"; tiles(); hist(true); };
-    const cA = css(cmp ? "--c1" : "--accent"), cB = css("--c2");
     if (window.LightweightCharts) {
-      const o = chartOpts();
+      const o = chartOpts(), pf = { type: "price", precision: isS ? 1 : 3, minMove: isS ? 0.1 : 0.001 }, pf1 = { type: "price", precision: 1, minMove: 0.1 };
       if (!ch) {
         ch = LightweightCharts.createChart($("hist"), { ...o, autoSize: true, localization: { locale: "en-US" } });
-        ls = ch.addLineSeries({ lineWidth: 2, priceLineVisible: false }); lsB = ch.addLineSeries({ lineWidth: 2, priceLineVisible: false });
-        ch.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(dc, ds, dl[0]?.data || [], t); });
+        ch.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(dc, dser[0], dl[0]?.data || [], t); });
         ch.timeScale().subscribeVisibleLogicalRangeChange((r) => { if (dc && r) try { dc.timeScale().setVisibleLogicalRange(r); } catch {} });
       } else ch.applyOptions(o);
-      const pf = { type: "price", precision: isS ? 1 : 3, minMove: isS ? 0.1 : 0.001 };
-      ls.applyOptions({ color: cA, priceFormat: pf }); lsB.applyOptions({ color: cB, priceFormat: pf, visible: cmp });
-      ls.setData(v.map(([time, value]) => ({ time, value }))); lsB.setData(cmp ? vB.map(([time, value]) => ({ time, value })) : []);
+      mser.forEach((x) => ch.removeSeries(x)); mser = legs.map((l) => { const x = ch.addLineSeries({ color: l.col, lineWidth: 2, priceLineVisible: false, priceFormat: pf }); x.setData(l.v.map(([time, value]) => ({ time, value }))); return x; });
       if (fit) ch.timeScale().fitContent();
       $("hDWrap").style.display = cmp ? "" : "none";
       if (cmp) {
         if (!dc) {
           dc = LightweightCharts.createChart($("hDiff"), { ...o, autoSize: true, localization: { locale: "en-US" }, handleScroll: false, handleScale: false });
-          dpad = dc.addLineSeries({ visible: false, priceLineVisible: false, lastValueVisible: false, priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
-          ds = dc.addLineSeries({ lineWidth: 2, priceLineVisible: false, priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
-          ds.createPriceLine({ price: 0, color: css("--muted"), lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: "" });
-          dc.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(ch, ls, v, t); });
+          dpad = dc.addLineSeries({ visible: false, priceLineVisible: false, lastValueVisible: false, priceFormat: pf1 });
+          dc.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(ch, mser[0], A.v, t); });
         } else dc.applyOptions(o);
-        ds.applyOptions({ color: css("--c3") });
+        dser.forEach((x) => dc.removeSeries(x));
         // same dates as the main chart so the two x-axes line up bar for bar
-        dpad.setData([...new Set([...v, ...vB].map(([d]) => d))].sort().map((time) => ({ time })));
-        ds.setData(dv.map(([time, value]) => ({ time, value })));
+        dpad.setData([...new Set(legs.flatMap((l) => l.v.map(([d]) => d)))].sort().map((time) => ({ time })));
+        dser = sprs.map((sp, i) => { const x = dc.addLineSeries({ color: sp.col, lineWidth: 2, priceLineVisible: false, priceFormat: pf1 }); x.setData(sp.data.map(([time, value]) => ({ time, value }))); if (!i) x.createPriceLine({ price: 0, color: css("--muted"), lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: "" }); return x; });
         requestAnimationFrame(() => requestAnimationFrame(() => {
           const w = ch.priceScale("right").width(); if (w) dc.applyOptions({ rightPriceScale: { minimumWidth: w } });
           const r = ch.timeScale().getVisibleLogicalRange(); if (r) try { dc.timeScale().setVisibleLogicalRange(r); } catch {}
         }));
-        $("hDH").textContent = `Spread: ${legShort(st.hB)} − ${legShort(st.hA)} (bp)`;
+        $("hDH").textContent = sprs.length === 1 ? `Spread: ${sprs[0].label} (bp)` : `Spreads against Line A (${legShort(A.key)}), bp`;
       }
     }
-    hl = [{ label: isS ? $("hH").textContent.replace(" history (bp)", "") : legName(st.hA), data: v, col: cA, u: isS ? "bpS" : "%" }].concat(cmp ? [{ label: legName(st.hB), data: vB, col: cB, u: "%" }] : []);
-    dl = cmp ? [{ label: `${legShort(st.hB)} − ${legShort(st.hA)}`, data: dv, col: css("--c3") }] : [];
+    hl = legs.map((l) => ({ label: isS ? $("hH").textContent.replace(" history (bp)", "") : `${isS || legs.length === 1 ? "" : l.L + ": "}${legName(l.key)}`, data: l.v, col: l.col, u: isS ? "bpS" : "%" }));
+    dl = sprs;
     hLegends(null);
-    const S = cmp ? dv : v, sp = cmp || isS;
-    if (S.length) {
-      const ys = S.map((p) => p[1]), mul = sp ? 1 : 100, u = sp ? " bp" : "%";
-      const fmt = (x) => sp ? f2(x, 1) + u : f2(x, 3) + u, pre = cmp ? "Spread " : "";
-      $("hStats").innerHTML = [[`${pre}latest`.replace(/^l/, "L"), fmt(S.at(-1)[1]) + ` <small class="mut">${S.at(-1)[0]}</small>`], [`${pre}${st.hR} change`, `<span class="${cls((S.at(-1)[1] - S[0][1]) * mul)}">${bp((S.at(-1)[1] - S[0][1]) * mul)} bp</span>`], [`${pre}high`.replace(/^h/, "H"), fmt(Math.max(...ys))], [`${pre}low`.replace(/^l/, "L"), fmt(Math.min(...ys))], [`${pre}average`.replace(/^a/, "A"), fmt(ys.reduce((a, b) => a + b, 0) / ys.length)]]
-        .map(([a, b]) => `<div>${a}<span>${b}</span></div>`).join("");
-    } else $("hStats").innerHTML = cmp ? `<div>Spread<span>no common dates</span></div>` : "";
+    // stats boxes: single line or the 10Y–1Y / 30Y–10Y spread; with one comparison, that spread; with more, a table
+    const stat = (S, sp) => { const ys = S.map((p) => p[1]), fmt = (x) => sp ? bp(x) + " bp" : f2(x, 3) + "%"; return { last: S.at(-1), chg: (S.at(-1)[1] - S[0][1]) * (sp ? 1 : 100), hi: fmt(Math.max(...ys)), lo: fmt(Math.min(...ys)), avg: fmt(ys.reduce((a, b) => a + b, 0) / ys.length), fmt }; };
+    $("hSTab").style.display = sprs.length > 1 ? "" : "none";
+    if (sprs.length > 1) {
+      $("hStats").innerHTML = "";
+      $("hSTab").querySelector("tbody").innerHTML = sprs.map((sp) => { if (!sp.data.length) return `<tr><td>${esc(sp.label)}</td><td colspan="5" class="mut">no common dates</td></tr>`; const t = stat(sp.data, true); return `<tr><td><i style="display:inline-block;width:10px;height:3px;background:${sp.col};vertical-align:middle;margin-right:6px"></i>${sp.L} − A · ${esc(sp.label)}</td><td><b>${bp(t.last[1])}</b></td><td class="${cls(t.chg)}">${bp(t.chg)}</td><td>${t.hi}</td><td>${t.lo}</td><td>${t.avg}</td></tr>`; }).join("");
+    } else {
+      const S = cmp ? sprs[0].data : A.v, sp = cmp || isS, pre = cmp ? "Spread " : "";
+      if (S.length) { const t = stat(S, sp); $("hStats").innerHTML = [[`${pre}latest`, t.fmt(t.last[1]) + ` <small class="mut">${t.last[0]}</small>`], [`${pre}${st.hR} change`, `<span class="${cls(t.chg)}">${bp(t.chg)} bp</span>`], [`${pre}high`, t.hi], [`${pre}low`, t.lo], [`${pre}average`, t.avg]].map(([a, b]) => `<div>${a.charAt(0).toUpperCase() + a.slice(1)}<span>${b}</span></div>`).join(""); }
+      else $("hStats").innerHTML = cmp ? `<div>Spread<span>no common dates</span></div>` : "";
+    }
   }
 
   // ---------- bonds table ----------
