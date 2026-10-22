@@ -151,7 +151,11 @@
   function ychart(fit) {
     if (!window.LightweightCharts) return;
     const o = chartOpts();
-    if (!yc) { yc = LightweightCharts.createChart($("fuYChart"), { ...o, autoSize: true, localization: { locale: "en-US" } }); yc.subscribeCrosshairMove((p) => yLegend(p)); }
+    if (!yc) {
+      yc = LightweightCharts.createChart($("fuYChart"), { ...o, autoSize: true, localization: { locale: "en-US" } });
+      yc.subscribeCrosshairMove((p) => { const k = tkey(p); yLegend(k); sLegend(k); xhair(sc, slines, k); });
+      yc.timeScale().subscribeVisibleTimeRangeChange((r) => syncRange(sc, r));
+    }
     else yc.applyOptions(o);
     ylines.forEach((l) => yc.removeSeries(l.s)); ylines = [];
     const last = D.products[0]?.yhist?.at(-1)?.[0], cut = last ? new Date(Date.parse(last) - RNG[st.yr] * 864e5).toISOString().slice(0, 10) : "";
@@ -174,21 +178,86 @@
     }
     if (fit) yc.timeScale().fitContent();
     yLegend(null);
+    schart(cut, fit);
     const m = D.products.map((x) => `${x.p} ${mainC(x).ctd ? `CTD ${mainC(x).ctd.code}` : "notional bond"}`).join(", ");
     $("fuYNote").textContent = st.ym === "imp"
-      ? `Daily yield equivalent of each product's futures close: today's cheapest-to-deliver bond for the main contract (${m}) priced at futures × conversion factor, solved for yield at delivery. Earlier days use the same bond, so CTD switches over the range are not shown.`
+      ? `Daily yield equivalent of each product's futures close: today's cheapest-to-deliver bond for the main contract (${m}) priced at futures × conversion factor, solved for yield at delivery. Earlier days use the same bond, so CTD switches over the range are not shown. The spread chart below shows the curve spreads between the selected tenors in bp (longer minus shorter; positive means a steeper curve).`
       : st.ym === "cmp"
-        ? `Solid lines: futures-implied yield. Dashed: CCDC cash CGB yield at the matching standard tenor (2, 5, 10, 30 years). The CTD's maturity is usually shorter than the standard tenor (for example a 6½–7 year bond for the 10-year contract), so the gap partly reflects the curve's slope, not just futures richness.`
+        ? `Solid lines: futures-implied yield. Dashed: CCDC cash CGB yield at the matching standard tenor (2, 5, 10, 30 years). The CTD's maturity is usually shorter than the standard tenor (for example a 6½–7 year bond for the 10-year contract), so the gap partly reflects the curve's slope, not just futures richness. The spread chart below plots futures minus cash in bp for each tenor.`
         : `Futures-implied yield minus the CCDC cash yield at the matching standard tenor, in basis points, on days both exist (CCDC history covers the last year). Negative means the futures price implies a lower yield than the cash benchmark.`;
   }
-  function yLegend(p) {
-    let k = null;
-    if (p?.time != null) { const t = p.time; k = typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; }
+  function yLegend(k) {
     const bpMode = st.ym === "basis";
     $("fuYLeg").innerHTML = ylines.map((l) => {
       const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1);
       return `<span><i style="background:${l.col};height:${l.dashed ? 1.5 : 2.5}px;${l.dashed ? "opacity:.75" : ""}"></i>${esc(l.label)} <b>${v ? (bpMode ? sg(v[1], 1) + " bp" : f(v[1], 3) + "%") : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`;
     }).join("");
+  }
+
+  // ---------- spread chart (bp) ----------
+  // Futures-implied view: curve spreads between the selected tenors (2s5s, 5s10s, 10s30s, plus the outer pair).
+  // vs-cash and futures-minus-cash views: futures-implied minus CCDC cash at the matching tenor, per tenor.
+  let sc = null, slines = [], syncing = false;
+  const PCOL = ["--c5", "--c6", "--ink"]; // consecutive pairs; the outer pair is drawn dashed
+  const tkey = (p) => { if (p?.time == null) return null; const t = p.time; return typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; };
+  function syncRange(ch, r) { if (!ch || !r || syncing) return; syncing = true; try { ch.timeScale().setVisibleRange(r); } catch {} syncing = false; }
+  function xhair(ch, lines, k) {
+    if (!ch) return;
+    const l = k && lines.find((x) => x.data.some(([d]) => d === k));
+    if (!l) { ch.clearCrosshairPosition?.(); return; }
+    try { ch.setCrosshairPosition(l.data.find(([d]) => d === k)[1], k, l.s); } catch {}
+  }
+  const diff = (a, b) => { const m = new Map(b); return a.filter(([d]) => m.has(d)).map(([d, y]) => [d, +((y - m.get(d)) * 100).toFixed(1)]); };
+  function spreadDefs() {
+    const on = D.products.filter((x) => st.on[x.p]);
+    if (st.ym === "imp") {
+      const pairs = on.slice(1).map((x, i) => [on[i], x]);
+      if (on.length > 2) pairs.push([on[0], on.at(-1)]);
+      return pairs.map(([a, b], i) => { const outer = on.length > 2 && i === pairs.length - 1; return { label: `${TEN[a.p]}s${TEN[b.p]}s (${b.p} − ${a.p})`, col: css(outer ? "--muted" : PCOL[i % PCOL.length]), dashed: outer, full: diff(b.yhist, a.yhist) }; });
+    }
+    return on.map((x) => ({ label: `${TEN[x.p]}Y ${x.p} − CCDC cash`, col: css(COL[x.p]), full: diff(x.yhist, cashSer(x.p)) }));
+  }
+  const at = (data, k) => { let v = null; for (const r of data) { if (r[0] <= k) v = r; else break; } return v; };
+  const back = (data, days) => { const l = data.at(-1); if (!l) return null; return at(data, new Date(Date.parse(l[0]) - days * 864e5).toISOString().slice(0, 10)); };
+  function schart(cut, fit) {
+    const defs = spreadDefs(), showChart = st.ym !== "basis";
+    $("fuSH").textContent = st.ym === "imp" ? "Curve spreads between futures-implied yields (bp)" : "Futures-implied minus CCDC cash (bp)";
+    $("fuSChart").parentElement.style.display = showChart ? "" : "none"; $("fuSLeg").style.display = showChart ? "" : "none";
+    if (!showChart) $("fuSH").textContent = "Futures minus cash: summary (bp)";
+    if (showChart && window.LightweightCharts) {
+      const o = chartOpts();
+      if (!sc) {
+        sc = LightweightCharts.createChart($("fuSChart"), { ...o, autoSize: true, localization: { locale: "en-US" } });
+        sc.subscribeCrosshairMove((p) => { const k = tkey(p); sLegend(k); yLegend(k); xhair(yc, ylines, k); });
+        sc.timeScale().subscribeVisibleTimeRangeChange((r) => syncRange(yc, r));
+      } else sc.applyOptions(o);
+      slines.forEach((l) => sc.removeSeries(l.s)); slines = [];
+      defs.forEach((d, i) => {
+        const data = d.full.filter(([t]) => t >= cut);
+        const s = sc.addLineSeries({ color: d.col, lineWidth: 2, lineStyle: d.dashed ? 2 : 0, priceLineVisible: false, lastValueVisible: true, title: "", priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
+        s.setData(data.map(([time, value]) => ({ time, value })));
+        if (i === 0) s.createPriceLine({ price: 0, color: css("--muted"), lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: "" });
+        slines.push({ s, label: d.label, data, col: d.col });
+      });
+      // match the main chart's price-axis width and date range so the two x-axes line up
+      const w = () => { const a = yc?.priceScale("right").width() || 0; if (a) sc.applyOptions({ rightPriceScale: { minimumWidth: a } }); const r = yc?.timeScale().getVisibleRange(); if (r) syncRange(sc, r); };
+      requestAnimationFrame(() => requestAnimationFrame(w));
+      sLegend(null);
+    }
+    const bp = (v) => v == null || !isFinite(v) ? "–" : sg(v, 1);
+    $("fuSTab").innerHTML = defs.length ? defs.map((d) => {
+      const w = d.full.filter(([t]) => t >= cut).map((r) => r[1]), l = d.full.at(-1);
+      const ch = (n) => { const b = n === 1 ? d.full.at(-2) : back(d.full, n); return l && b ? l[1] - b[1] : null; };
+      const avg = w.length ? w.reduce((a, b) => a + b, 0) / w.length : null;
+      return `<tr><td><i style="display:inline-block;width:10px;height:3px;background:${d.col};vertical-align:middle;margin-right:6px"></i>${esc(d.label)}</td><td><b>${bp(l?.[1])}</b></td><td>${bp(ch(1))}</td><td>${bp(ch(7))}</td><td>${bp(ch(30))}</td><td>${w.length ? bp(Math.min(...w)) : "–"}</td><td>${w.length ? bp(Math.max(...w)) : "–"}</td><td>${bp(avg)}</td></tr>`;
+    }).join("") : `<tr><td colspan="8" class="mut">Select at least two tenors to see curve spreads.</td></tr>`;
+  }
+  function sLegend(k) {
+    if (st.ym === "basis") return;
+    $("fuSLeg").innerHTML = slines.length ? slines.map((l) => {
+      const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1);
+      return `<span><i style="background:${l.col};height:2.5px"></i>${esc(l.label)} <b>${v ? sg(v[1], 1) + " bp" : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`;
+    }).join("") : `<span class="mut">Select at least two tenors to chart curve spreads.</span>`;
   }
 
   function render(first) {
