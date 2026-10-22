@@ -189,7 +189,11 @@
   function ychart(fit) {
     if (!window.LightweightCharts) return;
     const o = chartOpts();
-    if (!yc) { yc = LightweightCharts.createChart($("fuYChart"), { ...o, autoSize: true, localization: { locale: "en-US" } }); yc.subscribeCrosshairMove((p) => yLegend(p)); }
+    if (!yc) {
+      yc = LightweightCharts.createChart($("fuYChart"), { ...o, autoSize: true, localization: { locale: "en-US" } });
+      yc.subscribeCrosshairMove((p) => { yLegend(p); const k = tkey(p); dLegend(k); xhair(dc, dlines, k); });
+      yc.timeScale().subscribeVisibleLogicalRangeChange((r) => syncTo(dc, r));
+    }
     else yc.applyOptions(o);
     ylines.forEach((l) => yc.removeSeries(l.s)); ylines = [];
     const last = D.products[0]?.yhist?.at(-1)?.[0], cut = last ? new Date(Date.parse(last) - RNG[st.yr] * 864e5).toISOString().slice(0, 10) : "";
@@ -212,12 +216,62 @@
     }
     if (fit) yc.timeScale().fitContent();
     yLegend(null);
+    dchart(cut);
     const m = D.products.map((x) => `${x.p} ${mainC(x).ctd ? `CTD ${mainC(x).ctd.code}` : "notional bond"}`).join(", ");
     $("fuYNote").textContent = st.ym === "imp"
       ? `Daily yield equivalent of each product's futures close: today's cheapest-to-deliver bond for the main contract (${m}) priced at futures × conversion factor, solved for yield at delivery. Earlier days use the same bond, so CTD switches over the range are not shown.`
       : st.ym === "cmp"
         ? `Solid lines: futures-implied yield. Dashed: CCDC cash CGB yield at the matching standard tenor (2, 5, 10, 30 years). The CTD's maturity is usually shorter than the standard tenor (for example a 6½–7 year bond for the 10-year contract), so the gap partly reflects the curve's slope, not just futures richness.${(() => { const u = D.products.filter((x) => st.on[x.p] && st.bond[x.p]).map((x) => `${TEN[x.p]}Y vs ${st.bond[x.p]}`); return u.length ? ` Specific bonds: ${u.join(", ")}; a bond's history is the CCDC curve on each day read at its remaining maturity that day (CCDC publishes no per-bond history).` : ""; })()}`
         : `Futures-implied yield minus the CCDC cash yield at the matching standard tenor, in basis points, on days both exist (CCDC history covers the last year). Negative means the futures price implies a lower yield than the cash benchmark.`;
+  }
+  // ---------- bp sub-chart (vs CCDC cash view): futures-implied minus the chosen cash yield ----------
+  let dc = null, dpad = null, dlines = [], syncing = false;
+  const tkey = (p) => { if (p?.time == null) return null; const t = p.time; return typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; };
+  function syncTo(ch, r) { if (!ch || !r || syncing) return; syncing = true; try { ch.timeScale().setVisibleLogicalRange(r); } catch {} syncing = false; }
+  function xhair(ch, lines, k) {
+    if (!ch) return;
+    const l = k && lines.find((x) => x.data.some(([d]) => d === k));
+    if (!l) { ch.clearCrosshairPosition?.(); return; }
+    try { ch.setCrosshairPosition(l.data.find(([d]) => d === k)[1], k, l.s); } catch {}
+  }
+  function dchart(cut) {
+    const on = st.ym === "cmp" && !!C;
+    $("fuDWrap").style.display = on ? "" : "none";
+    if (!on || !window.LightweightCharts) return;
+    const o = chartOpts();
+    if (!dc) {
+      // follows the main chart's zoom and scroll; it has no zoom or scroll of its own
+      dc = LightweightCharts.createChart($("fuDChart"), { ...o, autoSize: true, localization: { locale: "en-US" }, handleScroll: false, handleScale: false });
+      dc.subscribeCrosshairMove((p) => { const k = tkey(p); dLegend(k); xhair(yc, ylines, k); });
+    } else dc.applyOptions(o);
+    dlines.forEach((l) => dc.removeSeries(l.s)); dlines = [];
+    if (dpad) dc.removeSeries(dpad);
+    // invisible series carrying every date the main chart shows, so both charts have the same bars and line up
+    const all = new Set(); ylines.forEach((l) => l.data.forEach(([d]) => all.add(d)));
+    dpad = dc.addLineSeries({ visible: false, priceLineVisible: false, lastValueVisible: false, priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
+    dpad.setData([...all].sort().map((time) => ({ time })));
+    for (const x of D.products) {
+      if (!st.on[x.p]) continue;
+      const cm = new Map(cashSer(x.p)), col = css(COL[x.p]);
+      const data = x.yhist.filter(([d]) => d >= cut && cm.has(d)).map(([d, y]) => [d, +((y - cm.get(d)) * 100).toFixed(1)]);
+      const s = dc.addLineSeries({ color: col, lineWidth: 2, priceLineVisible: false, lastValueVisible: true, title: "", priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
+      s.setData(data.map(([time, value]) => ({ time, value })));
+      if (!dlines.length) s.createPriceLine({ price: 0, color: css("--muted"), lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: "" });
+      dlines.push({ s, data, col, label: `${TEN[x.p]}Y ${x.p} − ${useBond(x.p) ? st.bond[x.p] : "CCDC " + TEN[x.p] + "Y"}` });
+    }
+    // line up the x-axis with the main chart: same price-axis width, same visible dates
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const w = yc.priceScale("right").width(); if (w) dc.applyOptions({ rightPriceScale: { minimumWidth: w } });
+      syncTo(dc, yc.timeScale().getVisibleLogicalRange());
+    }));
+    dLegend(null);
+  }
+  function dLegend(k) {
+    if (st.ym !== "cmp") return;
+    $("fuDLeg").innerHTML = dlines.map((l) => {
+      const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1);
+      return `<span><i style="background:${l.col};height:2.5px"></i>${esc(l.label)} <b>${v ? sg(v[1], 1) + " bp" : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`;
+    }).join("");
   }
   function yLegend(p) {
     let k = null;
