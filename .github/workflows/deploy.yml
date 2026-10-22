@@ -118,6 +118,9 @@ jobs:
           node scripts/fetch-china.mjs || echo "china fetch failed; using the committed file"
           node scripts/fetch-bond-lending.mjs || echo "bond lending fetch failed; using the committed file"
 
+      - name: Fetch CGB bond futures (CFFEX TS, TF, T, TL; delayed quotes and implied yields)
+        run: node scripts/fetch-cgb-futures.mjs || echo "CGB futures fetch failed; using the committed file"
+
       - name: Assemble site
         run: |
           mkdir -p _site/data _site/assets
@@ -135,6 +138,7 @@ jobs:
           mkdir -p _site/fx && cp fx/index.html _site/fx/
           if [ -f data/china.json ]; then cp data/china.json _site/data/; fi
           if [ -f data/bond-lending.json ]; then cp data/bond-lending.json _site/data/; fi
+          if [ -f data/cgb-futures.json ]; then cp data/cgb-futures.json _site/data/; fi
           mkdir -p _site/china && cp china/index.html _site/china/
           cp data/datacenter.json data/ai-debt.json _site/data/
           if [ -f data/curves.json ]; then cp data/curves.json _site/data/; fi
