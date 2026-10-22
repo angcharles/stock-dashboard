@@ -11,7 +11,7 @@
   const bp = (v, n = 1) => v == null || !isFinite(v) ? "–" : `${v > 0 ? "+" : ""}${(+v).toFixed(n)}`;
   const cls = (v) => v == null || !isFinite(v) || Math.abs(v) < 0.05 ? "" : v > 0 ? "up" : "down"; // yields up = green, as on the Macro tab
   let D = null;
-  const st = { cvMax: 30, hT: 10, hR: "6M", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
+  const st = { cvMax: 30, hT: 10, hR: "6M", hA: "t:10", hB: "", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
 
   // ---------- series helpers ----------
   const ser = (t) => D?.tenors?.[t] || [];
@@ -107,32 +107,113 @@
   }
 
   // ---------- history ----------
-  let ch = null, ls = null;
+  // Line A / Line B: "t:<tenor>" for a CCDC standard tenor, "b:<code>" for a single CGB. CCDC publishes the curve by
+  // tenor only, so a bond's history is the CCDC curve on each day read (linear interpolation) at the bond's remaining
+  // maturity that day, from its issue date. The tenor buttons set Line A; Line B adds a second line and a B − A chart.
+  const bondCache = {};
+  function bondSer(code) {
+    if (bondCache[code]) return bondCache[code];
+    const b = (D.bonds || []).find((x) => x.code === code); if (!b || !b.mat) return [];
+    const ts = TEN.slice(), maps = ts.map((t) => new Map(ser(t))), mat = Date.parse(b.mat), out = [];
+    for (const [d] of ser(10)) {
+      if (b.issue && d < b.issue) continue;
+      const ttm = (mat - Date.parse(d)) / (365.25 * 864e5);
+      const pts = ts.map((t, i) => [t, maps[i].get(d)]).filter(([, y]) => y != null);
+      let y = null;
+      if (pts.length && ttm <= pts[0][0]) y = pts[0][1];
+      else for (let i = 0; i < pts.length - 1; i++) if (ttm >= pts[i][0] && ttm <= pts[i + 1][0]) { const [t0, y0] = pts[i], [t1, y1] = pts[i + 1]; y = y0 + (y1 - y0) * (ttm - t0) / (t1 - t0); break; }
+      if (y != null) out.push([d, +y.toFixed(4)]);
+    }
+    return (bondCache[code] = out);
+  }
+  const legSer = (k) => !k ? [] : k.startsWith("t:") ? ser(+k.slice(2)) : bondSer(k.slice(2));
+  const legName = (k) => { if (!k) return ""; if (k.startsWith("t:")) return `CGB ${lab(+k.slice(2))}`; const b = (D.bonds || []).find((x) => x.code === k.slice(2)); return b ? `${b.code} ${b.name}` : k.slice(2); };
+  const legShort = (k) => k.startsWith("t:") ? lab(+k.slice(2)) : k.slice(2);
+  function legOptions(sel, none) {
+    const grp = [[0, 2, "Bonds: less than 2Y"], [2, 5, "Bonds: 2Y – 5Y"], [5, 10, "Bonds: 5Y – 10Y"], [10, 20, "Bonds: 10Y – 20Y"], [20, 30, "Bonds: 20Y – 30Y"], [30, 999, "Bonds: more than 30Y"]];
+    const bonds = (D.bonds || []).filter((b) => b.mat).sort((a, b) => a.ttm - b.ttm);
+    const o = (v, t) => `<option value="${esc(v)}"${v === sel ? " selected" : ""}>${esc(t)}</option>`;
+    return (none ? o("", "None (single line)") : "") +
+      `<optgroup label="CCDC standard tenors">${TEN.map((t) => o(`t:${t}`, `CGB ${lab(t)} (CCDC curve)`)).join("")}</optgroup>` +
+      grp.map(([lo, hi, l]) => { const g = bonds.filter((b) => b.ttm >= lo && b.ttm < hi); return g.length ? `<optgroup label="${l}">${g.map((b) => o(`b:${b.code}`, `${b.code} · ${b.name} · ${b.coupon != null ? f2(b.coupon, 2) + "%" : b.type} · ${b.mat} · ${f2(b.ttm, 2)}Y`)).join("")}</optgroup>` : ""; }).join("");
+  }
+  const tkey = (p) => { if (p?.time == null) return null; const t = p.time; return typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; };
+  let ch = null, ls = null, lsB = null, dc = null, ds = null, dpad = null, hl = [], dl = [];
+  const chartOpts = () => ({ layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono") }, grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") }, timeScale: { borderColor: css("--line") }, crosshair: { mode: 1 } });
+  function hLegends(k) {
+    const row = (l, u) => { const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1); return `<span><i style="background:${l.col};height:2.5px"></i>${esc(l.label)} <b>${v ? (u === "bp" ? bp(v[1]) + " bp" : f2(v[1], u === "bpS" ? 1 : 3) + (u === "bpS" ? " bp" : "%")) : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`; };
+    $("hLeg").innerHTML = hl.map((l) => row(l, l.u)).join("");
+    $("hDLeg").innerHTML = dl.map((l) => row(l, "bp")).join("");
+  }
+  function xh(chart, series, data, k) {
+    if (!chart || !series) return;
+    const v = k && data.find(([d]) => d === k);
+    if (!v) { chart.clearCrosshairPosition?.(); return; }
+    try { chart.setCrosshairPosition(v[1], k, series); } catch {}
+  }
   function hist(fit) {
     const k = String(st.hT), isS = k.startsWith("s");
-    const s = k === "s10_1" ? spread(10, 1) : k === "s30_10" ? spread(30, 10) : ser(+k);
+    if (!isS && k !== "bond") st.hA = `t:${k}`; // tenor buttons and tiles drive Line A
+    const cmp = !isS && !!st.hB && st.hB !== st.hA;
+    const sA = isS ? (k === "s10_1" ? spread(10, 1) : spread(30, 10)) : legSer(st.hA), sB = cmp ? legSer(st.hB) : [];
     const days = { "1M": 31, "3M": 92, "6M": 183, "1Y": 366 }[st.hR];
-    const cut = s.length ? new Date(Date.parse(s.at(-1)[0]) - days * 864e5).toISOString().slice(0, 10) : "";
-    const v = s.filter(([d]) => d >= cut);
-    $("hH").textContent = isS ? `${k === "s10_1" ? "10Y – 1Y" : "30Y – 10Y"} spread history (bp)` : `CGB ${lab(+k)} yield history (%)`;
-    $("hTen").innerHTML = TEN.map((t) => `<button type="button" data-k="${t}" aria-pressed="${String(t) === k}">${lab(t)}</button>`).join("") + `<button type="button" data-k="s10_1" aria-pressed="${k === "s10_1"}">10Y–1Y</button><button type="button" data-k="s30_10" aria-pressed="${k === "s30_10"}">30Y–10Y</button>`;
+    const lastD = [sA.at(-1)?.[0], sB.at(-1)?.[0]].filter(Boolean).sort().at(-1);
+    const cut = lastD ? new Date(Date.parse(lastD) - days * 864e5).toISOString().slice(0, 10) : "";
+    const v = sA.filter(([d]) => d >= cut), vB = sB.filter(([d]) => d >= cut);
+    const mB = new Map(vB), dv = cmp ? v.filter(([d]) => mB.has(d)).map(([d, y]) => [d, +((mB.get(d) - y) * 100).toFixed(1)]) : [];
+    $("hH").textContent = isS ? `${k === "s10_1" ? "10Y – 1Y" : "30Y – 10Y"} spread history (bp)` : cmp ? `${legName(st.hA)} vs ${legName(st.hB)} yield history (%)` : `${legName(st.hA)} yield history (%)`;
+    $("hTen").innerHTML = TEN.map((t) => `<button type="button" data-k="${t}" aria-pressed="${!isS && st.hA === `t:${t}`}">${lab(t)}</button>`).join("") + `<button type="button" data-k="s10_1" aria-pressed="${k === "s10_1"}">10Y–1Y</button><button type="button" data-k="s30_10" aria-pressed="${k === "s30_10"}">30Y–10Y</button>`;
     $("hTen").querySelectorAll("button").forEach((b) => b.onclick = () => { st.hT = b.dataset.k; tiles(); hist(true); });
     $("hRng").innerHTML = ["1M", "3M", "6M", "1Y"].map((r) => `<button type="button" aria-pressed="${r === st.hR}">${r}</button>`).join("");
     $("hRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.hR = b.textContent; hist(true); });
+    $("hA").innerHTML = legOptions(isS ? "" : st.hA, false); $("hB").innerHTML = legOptions(st.hB, true);
+    $("hA").disabled = $("hB").disabled = $("hSwap").disabled = isS;
+    $("hA").onchange = (e) => { st.hA = e.target.value; st.hT = st.hA.startsWith("t:") ? st.hA.slice(2) : "bond"; tiles(); hist(true); };
+    $("hB").onchange = (e) => { st.hB = e.target.value; hist(true); };
+    $("hSwap").onclick = () => { if (!st.hB) return; [st.hA, st.hB] = [st.hB, st.hA]; st.hT = st.hA.startsWith("t:") ? st.hA.slice(2) : "bond"; tiles(); hist(true); };
+    const cA = css(cmp ? "--c1" : "--accent"), cB = css("--c2");
     if (window.LightweightCharts) {
-      const opts = { layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono") }, grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") }, timeScale: { borderColor: css("--line") }, crosshair: { mode: 1 } };
-      if (!ch) { ch = LightweightCharts.createChart($("hist"), { ...opts, autoSize: true, localization: { locale: "en-US" } }); ls = ch.addLineSeries({ color: css("--accent"), lineWidth: 2, priceLineVisible: false }); }
-      else { ch.applyOptions(opts); ls.applyOptions({ color: css("--accent") }); }
-      ls.applyOptions({ priceFormat: { type: "price", precision: isS ? 1 : 3, minMove: isS ? 0.1 : 0.001 } });
-      ls.setData(v.map(([time, value]) => ({ time, value })));
+      const o = chartOpts();
+      if (!ch) {
+        ch = LightweightCharts.createChart($("hist"), { ...o, autoSize: true, localization: { locale: "en-US" } });
+        ls = ch.addLineSeries({ lineWidth: 2, priceLineVisible: false }); lsB = ch.addLineSeries({ lineWidth: 2, priceLineVisible: false });
+        ch.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(dc, ds, dl[0]?.data || [], t); });
+        ch.timeScale().subscribeVisibleLogicalRangeChange((r) => { if (dc && r) try { dc.timeScale().setVisibleLogicalRange(r); } catch {} });
+      } else ch.applyOptions(o);
+      const pf = { type: "price", precision: isS ? 1 : 3, minMove: isS ? 0.1 : 0.001 };
+      ls.applyOptions({ color: cA, priceFormat: pf }); lsB.applyOptions({ color: cB, priceFormat: pf, visible: cmp });
+      ls.setData(v.map(([time, value]) => ({ time, value }))); lsB.setData(cmp ? vB.map(([time, value]) => ({ time, value })) : []);
       if (fit) ch.timeScale().fitContent();
+      $("hDWrap").style.display = cmp ? "" : "none";
+      if (cmp) {
+        if (!dc) {
+          dc = LightweightCharts.createChart($("hDiff"), { ...o, autoSize: true, localization: { locale: "en-US" }, handleScroll: false, handleScale: false });
+          dpad = dc.addLineSeries({ visible: false, priceLineVisible: false, lastValueVisible: false, priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
+          ds = dc.addLineSeries({ lineWidth: 2, priceLineVisible: false, priceFormat: { type: "price", precision: 1, minMove: 0.1 } });
+          ds.createPriceLine({ price: 0, color: css("--muted"), lineWidth: 1, lineStyle: 2, axisLabelVisible: false, title: "" });
+          dc.subscribeCrosshairMove((p) => { const t = tkey(p); hLegends(t); xh(ch, ls, v, t); });
+        } else dc.applyOptions(o);
+        ds.applyOptions({ color: css("--c3") });
+        // same dates as the main chart so the two x-axes line up bar for bar
+        dpad.setData([...new Set([...v, ...vB].map(([d]) => d))].sort().map((time) => ({ time })));
+        ds.setData(dv.map(([time, value]) => ({ time, value })));
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          const w = ch.priceScale("right").width(); if (w) dc.applyOptions({ rightPriceScale: { minimumWidth: w } });
+          const r = ch.timeScale().getVisibleLogicalRange(); if (r) try { dc.timeScale().setVisibleLogicalRange(r); } catch {}
+        }));
+        $("hDH").textContent = `Spread: ${legShort(st.hB)} − ${legShort(st.hA)} (bp)`;
+      }
     }
-    if (v.length) {
-      const ys = v.map((p) => p[1]), mul = isS ? 1 : 100, u = isS ? " bp" : "%";
-      const fmt = (x) => isS ? f2(x, 1) + u : f2(x, 3) + u;
-      $("hStats").innerHTML = [["Latest", fmt(v.at(-1)[1]) + ` <small class="mut">${v.at(-1)[0]}</small>`], [`${st.hR} change`, `<span class="${cls((v.at(-1)[1] - v[0][1]) * mul)}">${bp((v.at(-1)[1] - v[0][1]) * mul)} bp</span>`], ["High", fmt(Math.max(...ys))], ["Low", fmt(Math.min(...ys))], ["Average", fmt(ys.reduce((a, b) => a + b, 0) / ys.length)]]
+    hl = [{ label: isS ? $("hH").textContent.replace(" history (bp)", "") : legName(st.hA), data: v, col: cA, u: isS ? "bpS" : "%" }].concat(cmp ? [{ label: legName(st.hB), data: vB, col: cB, u: "%" }] : []);
+    dl = cmp ? [{ label: `${legShort(st.hB)} − ${legShort(st.hA)}`, data: dv, col: css("--c3") }] : [];
+    hLegends(null);
+    const S = cmp ? dv : v, sp = cmp || isS;
+    if (S.length) {
+      const ys = S.map((p) => p[1]), mul = sp ? 1 : 100, u = sp ? " bp" : "%";
+      const fmt = (x) => sp ? f2(x, 1) + u : f2(x, 3) + u, pre = cmp ? "Spread " : "";
+      $("hStats").innerHTML = [[`${pre}latest`.replace(/^l/, "L"), fmt(S.at(-1)[1]) + ` <small class="mut">${S.at(-1)[0]}</small>`], [`${pre}${st.hR} change`, `<span class="${cls((S.at(-1)[1] - S[0][1]) * mul)}">${bp((S.at(-1)[1] - S[0][1]) * mul)} bp</span>`], [`${pre}high`.replace(/^h/, "H"), fmt(Math.max(...ys))], [`${pre}low`.replace(/^l/, "L"), fmt(Math.min(...ys))], [`${pre}average`.replace(/^a/, "A"), fmt(ys.reduce((a, b) => a + b, 0) / ys.length)]]
         .map(([a, b]) => `<div>${a}<span>${b}</span></div>`).join("");
-    } else $("hStats").innerHTML = "";
+    } else $("hStats").innerHTML = cmp ? `<div>Spread<span>no common dates</span></div>` : "";
   }
 
   // ---------- bonds table ----------
