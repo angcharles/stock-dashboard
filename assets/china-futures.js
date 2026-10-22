@@ -17,7 +17,7 @@
   const DEC = { TS: 3, TF: 3, T: 3, TL: 2 };
   const RNG = { "1D": 1, "5D": 5, "1M": 31, "3M": 92, "6M": 183, "1Y": 366, "2Y": 731 };
   let D = null, C = null;
-  const st = { p: "T", con: "main", rng: "3M", ym: "imp", yr: "6M", bond: "", on: { TS: true, TF: true, T: true, TL: true } };
+  const st = { p: "T", con: "main", rng: "3M", ym: "imp", yr: "6M", bond: { TS: "", TF: "", T: "", TL: "" }, on: { TS: true, TF: true, T: true, TL: true } };
   const P = (p) => D.products.find((x) => x.p === p);
   const mainC = (x) => x.contracts.find((c) => c.code === x.main) || x.contracts[0];
 
@@ -145,8 +145,9 @@
   // ---------- yield chart ----------
   let yc = null, ylines = [];
   const stdCash = (p) => (C?.tenors?.[TEN[p]] || []).map(([d, y]) => [d, y]);
-  // 2Y comparison bond: CGBs with 1.5–2.5 years left, the 9 nearest 2.0 years.
-  const tsBonds = () => (C?.bonds || []).filter((b) => b.ttm >= 1.5 && b.ttm <= 2.5 && b.mat).sort((a, b) => Math.abs(a.ttm - 2) - Math.abs(b.ttm - 2)).slice(0, 9).sort((a, b) => a.ttm - b.ttm);
+  // Comparison bond per tenor: CGBs within ±25% of the tenor (2Y: 1.5–2.5Y, 5Y: 3.75–6.25Y, 10Y: 7.5–12.5Y,
+  // 30Y: 22.5–37.5Y), the 9 nearest the tenor, listed shortest first.
+  const pBonds = (p) => { const t = +TEN[p]; return (C?.bonds || []).filter((b) => b.ttm >= t * 0.75 && b.ttm <= t * 1.25 && b.mat).sort((a, b) => Math.abs(a.ttm - t) - Math.abs(b.ttm - t)).slice(0, 9).sort((a, b) => a.ttm - b.ttm); };
   const bondCache = {};
   // CCDC publishes the curve by tenor, not a history per bond, so a bond's history is the CCDC curve on each day
   // read (linear interpolation) at that bond's remaining maturity on that day.
@@ -166,9 +167,9 @@
     }
     return (bondCache[code] = out);
   }
-  const useBond = (p) => p === "TS" && st.bond && st.ym !== "imp";
-  const cashSer = (p) => useBond(p) ? bondSer(st.bond) : stdCash(p);
-  const cashLbl = (p) => { if (!useBond(p)) return `${TEN[p]}Y CCDC cash`; const b = C.bonds.find((x) => x.code === st.bond); return `${b.code} ${b.mat} (${b.ttm.toFixed(2)}Y) CCDC`; };
+  const useBond = (p) => !!st.bond[p] && st.ym !== "imp";
+  const cashSer = (p) => useBond(p) ? bondSer(st.bond[p]) : stdCash(p);
+  const cashLbl = (p) => { if (!useBond(p)) return `${TEN[p]}Y CCDC cash`; const b = C.bonds.find((x) => x.code === st.bond[p]); return `${b.code} ${b.mat} (${b.ttm.toFixed(2)}Y) CCDC`; };
   function yControls() {
     $("fuYMode").innerHTML = [["imp", "Futures-implied"], ["cmp", "vs CCDC cash"], ["basis", "Futures − cash (bp)"]].map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === st.ym}"${k !== "imp" && !C ? " disabled" : ""}>${l}</button>`).join("");
     $("fuYMode").querySelectorAll("button").forEach((b) => b.onclick = () => { st.ym = b.dataset.k; yControls(); ychart(true); });
@@ -176,14 +177,14 @@
     $("fuYRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.yr = b.textContent; yControls(); ychart(true); });
     $("fuYTen").innerHTML = D.products.map((x) => `<button type="button" data-p="${x.p}" aria-pressed="${!!st.on[x.p]}" style="${st.on[x.p] ? `background:var(${COL[x.p]});border-color:var(${COL[x.p]})` : ""}">${TEN[x.p]}Y · ${x.p}</button>`).join("");
     $("fuYTen").querySelectorAll("button").forEach((b) => b.onclick = () => { const p = b.dataset.p; if (st.on[p] && Object.values(st.on).filter(Boolean).length === 1) return; st.on[p] = !st.on[p]; yControls(); ychart(false); });
-    const bs = C ? tsBonds() : [], show = st.ym !== "imp" && st.on.TS && bs.length;
-    $("fuYBondL").style.display = show ? "" : "none";
-    if (show) {
-      if (st.bond && !bs.some((b) => b.code === st.bond)) st.bond = "";
-      const ctd = mainC(P("TS"))?.ctd?.code;
-      $("fuYBond").innerHTML = `<option value="">Standard 2Y tenor (CCDC curve)</option>` + bs.map((b) => `<option value="${esc(b.code)}"${b.code === st.bond ? " selected" : ""}>${esc(b.code)} · ${esc(b.name)} · ${b.coupon != null ? f(b.coupon, 2) + "%" : "–"} · ${esc(b.mat)} · ${f(b.ttm, 2)}Y${b.code === ctd ? " · CTD" : ""}</option>`).join("");
-      $("fuYBond").onchange = (e) => { st.bond = e.target.value; ychart(false); };
-    }
+    const box = $("fuYBonds"), ps = C && st.ym !== "imp" ? D.products.filter((x) => st.on[x.p] && pBonds(x.p).length) : [];
+    box.style.display = ps.length ? "" : "none";
+    box.innerHTML = ps.map((x) => {
+      const bs = pBonds(x.p), ctd = mainC(x)?.ctd?.code;
+      if (st.bond[x.p] && !bs.some((b) => b.code === st.bond[x.p])) st.bond[x.p] = "";
+      return `<label class="mlab"><i style="display:inline-block;width:10px;height:3px;background:var(${COL[x.p]})"></i>${TEN[x.p]}Y vs <select data-p="${x.p}" aria-label="${TEN[x.p]}Y comparison bond"><option value="">Standard ${TEN[x.p]}Y tenor (CCDC curve)</option>${bs.map((b) => `<option value="${esc(b.code)}"${b.code === st.bond[x.p] ? " selected" : ""}>${esc(b.code)} · ${esc(b.name)} · ${b.coupon != null ? f(b.coupon, 2) + "%" : "–"} · ${esc(b.mat)} · ${f(b.ttm, 2)}Y${b.code === ctd ? " · CTD" : ""}</option>`).join("")}</select></label>`;
+    }).join("");
+    box.querySelectorAll("select").forEach((el) => el.onchange = () => { st.bond[el.dataset.p] = el.value; ychart(false); });
   }
   function ychart(fit) {
     if (!window.LightweightCharts) return;
@@ -203,7 +204,7 @@
       };
       if (bpMode) {
         const cm = new Map(cash);
-        add(imp.filter(([d]) => cm.has(d)).map(([d, y]) => [d, +((y - cm.get(d)) * 100).toFixed(1)]), useBond(x.p) ? `2Y TS − ${st.bond}` : `${TEN[x.p]}Y basis`, false);
+        add(imp.filter(([d]) => cm.has(d)).map(([d, y]) => [d, +((y - cm.get(d)) * 100).toFixed(1)]), useBond(x.p) ? `${TEN[x.p]}Y ${x.p} − ${st.bond[x.p]}` : `${TEN[x.p]}Y basis`, false);
       } else {
         add(imp, `${TEN[x.p]}Y ${x.p} implied`, false);
         if (st.ym === "cmp") add(cash, cashLbl(x.p), true);
@@ -215,7 +216,7 @@
     $("fuYNote").textContent = st.ym === "imp"
       ? `Daily yield equivalent of each product's futures close: today's cheapest-to-deliver bond for the main contract (${m}) priced at futures × conversion factor, solved for yield at delivery. Earlier days use the same bond, so CTD switches over the range are not shown.`
       : st.ym === "cmp"
-        ? `Solid lines: futures-implied yield. Dashed: CCDC cash CGB yield at the matching standard tenor (2, 5, 10, 30 years). The CTD's maturity is usually shorter than the standard tenor (for example a 6½–7 year bond for the 10-year contract), so the gap partly reflects the curve's slope, not just futures richness.${st.bond && st.on.TS ? ` 2Y: compared with bond ${st.bond} instead of the standard tenor; its history is the CCDC curve on each day read at the bond's remaining maturity that day (CCDC publishes no per-bond history).` : ""}`
+        ? `Solid lines: futures-implied yield. Dashed: CCDC cash CGB yield at the matching standard tenor (2, 5, 10, 30 years). The CTD's maturity is usually shorter than the standard tenor (for example a 6½–7 year bond for the 10-year contract), so the gap partly reflects the curve's slope, not just futures richness.${(() => { const u = D.products.filter((x) => st.on[x.p] && st.bond[x.p]).map((x) => `${TEN[x.p]}Y vs ${st.bond[x.p]}`); return u.length ? ` Specific bonds: ${u.join(", ")}; a bond's history is the CCDC curve on each day read at its remaining maturity that day (CCDC publishes no per-bond history).` : ""; })()}`
         : `Futures-implied yield minus the CCDC cash yield at the matching standard tenor, in basis points, on days both exist (CCDC history covers the last year). Negative means the futures price implies a lower yield than the cash benchmark.`;
   }
   function yLegend(p) {
