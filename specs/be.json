@@ -6,9 +6,9 @@
  "shares": 294530000.0,
  "beta": "3.78",
  "snapshot": {
-  "price": "$280.50",
-  "date": "Oct 9, 2026",
-  "mcap": "$82.6B",
+  "price": "$217.77",
+  "date": "Oct 22, 2026",
+  "mcap": "$64.1B",
   "range": "$76–351"
  },
  "eyebrow": {
@@ -20,18 +20,18 @@
   "zh": "为 AI 供电，<em>现场发电</em>。"
  },
  "lede": {
-  "en": "Bloom's solid oxide fuel cells let data centers make their own power instead of waiting years for a grid connection. Revenue hit $1.07B last quarter, up 166%, and 2026 guidance was raised twice to $3.9–4.2B. Oracle, AEP and all major US hyperscalers are customers or have validated the product.",
-  "zh": "Bloom 的固体氧化物燃料电池让数据中心自行发电，无需等待多年接入电网。上季营收增 166% 至 10.7 亿美元，2026 年指引两度上调至 39–42 亿。甲骨文、AEP 及所有美国主要云厂商均为客户或已完成验证。"
+  "en": "Bloom's solid oxide fuel cells let data centers make their own power instead of waiting years for a grid connection. Revenue hit a record $1.24B last quarter, up 138%, and 2026 guidance was raised a third time to $4.4–4.6B. Oracle, AEP and all major US hyperscalers are customers or have validated the product.",
+  "zh": "Bloom 的固体氧化物燃料电池让数据中心自行发电，无需等待多年接入电网。上季营收增 138% 至创纪录的 12.4 亿美元，2026 年指引第三次上调至 44–46 亿。甲骨文、AEP 及所有美国主要云厂商均为客户或已完成验证。"
  },
  "valuation": {
   "k": {
    "en": "P/E",
    "zh": "市盈率"
   },
-  "v": "~104×",
+  "v": "~47×",
   "s": {
-   "en": "FY26 guide EPS $2.55–2.85 (non-GAAP)",
-   "zh": "FY26 指引每股 $2.55–2.85（非GAAP）"
+   "en": "2027 consensus EPS ~$4.63 (non-GAAP) · ~67× FY26 guide",
+   "zh": "2027 年一致预期每股约 $4.63（非GAAP）· 约为 FY26 指引的 67 倍"
   }
  },
  "analysts": {
@@ -39,17 +39,17 @@
    "en": "FY26 guide",
    "zh": "FY26 指引"
   },
-  "v": "$3.9–4.2B",
+  "v": "$4.4–4.6B",
   "s": {
-   "en": "revenue, ~2× 2025 · op. income $0.8–0.9B",
-   "zh": "营收约为 2025 年两倍 · 营业利润 8–9 亿"
+   "en": "revenue, +122% at midpoint · implies Q4 ~$1.35–1.55B",
+   "zh": "营收，中值增 122% · 隐含第四季约 13.5–15.5 亿"
   }
  },
  "earnings": {
-  "v": "Oct 22",
+  "v": "Early Feb",
   "s": {
-   "en": "Q3 2026 · confirmed, after close",
-   "zh": "2026 第三季 · 已确认，盘后"
+   "en": "Q4 2026 and 2027 outlook · date not yet announced",
+   "zh": "2026 第四季及 2027 年展望 · 日期未公布"
   }
  },
  "sub_price": {
@@ -57,19 +57,19 @@
   "zh": "每日收盘价与50日均线。过去一年股价在约 $76 至 $351 间，贝塔值近 3.8。"
  },
  "sub_rev": {
-  "en": "Revenue in US$ millions, with GAAP gross margin on the right axis. Bloom's revenue is lumpy and Q4-heavy because it is booked as systems are installed. The last bar is about half of the second-half revenue implied by the full-year guide.",
-  "zh": "营收单位为百万美元，右轴为 GAAP 毛利率。Bloom 按系统安装确认收入，因此季度波动大、第四季偏高。最后一根柱约为全年指引所隐含下半年营收的一半。"
+  "en": "Revenue in US$ millions, with GAAP gross margin on the right axis. Bloom's revenue is lumpy and Q4-heavy because it is booked as systems are installed. The last bar is the Q4 revenue implied by the midpoint of the full-year guide.",
+  "zh": "营收单位为百万美元，右轴为 GAAP 毛利率。Bloom 按系统安装确认收入，因此季度波动大、第四季偏高。最后一根柱为全年指引中值所隐含的第四季营收。"
  },
  "rev_cells": [
   {
    "k": {
-    "en": "Q2 2026",
-    "zh": "2026 Q2"
+    "en": "Q3 2026",
+    "zh": "2026 Q3"
    },
-   "v": "$1.07B",
+   "v": "$1.24B",
    "s": {
-    "en": "+166% YoY · first $1B quarter",
-    "zh": "同比 +166% · 首个 10 亿季度"
+    "en": "+138% YoY · record, ~$1.07B expected",
+    "zh": "同比 +138% · 创纪录，预期约 10.7 亿"
    }
   },
   {
@@ -77,10 +77,10 @@
     "en": "Product revenue",
     "zh": "产品收入"
    },
-   "v": "$935M",
+   "v": "$1.07B",
    "s": {
-    "en": "+215% YoY",
-    "zh": "同比 +215%"
+    "en": "+179% YoY · first $1B product quarter",
+    "zh": "同比 +179% · 首个产品收入破 10 亿的季度"
    }
   },
   {
@@ -88,21 +88,21 @@
     "en": "Gross margin",
     "zh": "毛利率"
    },
-   "v": "34.3%",
+   "v": "34.5%",
    "s": {
-    "en": "non-GAAP · +6 pts YoY",
-    "zh": "非GAAP · 同比 +6 点"
+    "en": "non-GAAP · +4 pts YoY · op. margin 23%",
+    "zh": "非GAAP · 同比 +4 点 · 营业利润率 23%"
    }
   },
   {
    "k": {
-    "en": "Backlog",
-    "zh": "订单储备"
+    "en": "EPS",
+    "zh": "每股收益"
    },
-   "v": "~$20B",
+   "v": "$0.94",
    "s": {
-    "en": "end-2025; $8B+ product orders added in H1",
-    "zh": "2025 年底；上半年新增产品订单逾 80 亿"
+    "en": "non-GAAP vs ~$0.69 consensus · GAAP $0.78",
+    "zh": "非GAAP，一致预期约 $0.69 · GAAP $0.78"
    }
   }
  ],
@@ -114,8 +114,8 @@
     "zh": "AI 电力紧缺"
    },
    "p": {
-    "en": "Oracle went from a 100 MW pilot to a 2.8 GW plan and AEP from 100 MW to 900 MW. First-half product orders of over $8B fill capacity into 2028.",
-    "zh": "甲骨文从 100 兆瓦试点扩至 2.8 吉瓦计划，AEP 从 100 兆瓦增至 900 兆瓦。上半年逾 80 亿美元产品订单已排产至 2028 年。"
+    "en": "Oracle powered a Utah site in under two months and AEP is deploying 700 MW for Google. Backlog is growing faster than revenue, and capacity is nearing 5 GW a year with more room in Fremont.",
+    "zh": "甲骨文犹他州站点不到两个月即完成供电，AEP 正为谷歌部署 700 兆瓦。订单储备增速快于营收，年产能接近 5 吉瓦，弗里蒙特仍有扩产空间。"
    }
   },
   {
@@ -125,19 +125,19 @@
     "zh": "盈利增长"
    },
    "p": {
-    "en": "Operating income rose to $240M in Q2; full-year non-GAAP operating income is guided at $800–900M.",
-    "zh": "第二季营业利润升至 2.4 亿美元；全年非GAAP营业利润指引 8–9 亿。"
+    "en": "Non-GAAP operating income was $286M in Q3, more than all of 2025; full-year guidance is now $960M–1.03B with EPS of $3.10–3.40.",
+    "zh": "第三季非GAAP营业利润 2.86 亿美元，超过 2025 年全年；全年指引上调至 9.6–10.3 亿，每股 $3.10–3.40。"
    }
   },
   {
    "kind": "watch",
    "h": {
-    "en": "Lumpy cash flow",
-    "zh": "现金流波动"
+    "en": "Working capital and margin",
+    "zh": "营运资金与毛利率"
    },
    "p": {
-    "en": "Cash flow swings with installation timing: −$220M of free cash flow in Q2 2025, +$395M in Q4 2025.",
-    "zh": "现金流随安装进度大幅波动：2025 年第二季自由现金流 −2.2 亿美元，第四季 +3.95 亿。"
+    "en": "Free cash flow was −$181M in Q3 as unbilled contract assets doubled to $859M and capex tripled to $153M. Margin guidance stayed at ~34% despite the revenue raise, on ramp and expediting costs.",
+    "zh": "第三季未开票合同资产翻倍至 8.59 亿美元、资本开支增至三倍的 1.53 亿，自由现金流为 −1.81 亿。尽管上调营收指引，因扩产和加急交付成本，毛利率指引仍维持约 34%。"
    }
   },
   {
@@ -147,23 +147,12 @@
     "zh": "估值与波动"
    },
    "p": {
-    "en": "About 104× this year's guided earnings with a beta near 3.8; delays at customer sites can move quarters.",
-    "zh": "约为今年指引盈利的 104 倍，贝塔值近 3.8；客户现场延误会影响季度业绩。"
+    "en": "About 47× next year's consensus earnings with a beta near 3.8; shares fell 8.7% on report day and further after hours despite the beat.",
+    "zh": "约为明年一致预期盈利的 47 倍，贝塔值近 3.8；财报当天股价跌 8.7%，业绩超预期后盘后继续下跌。"
    }
   }
  ],
  "calendar": [
-  {
-   "date": "Oct 22, 2026",
-   "h": {
-    "en": "Q3 2026 earnings",
-    "zh": "2026 第三季财报"
-   },
-   "p": {
-    "en": "After US close; call 2pm PT (Oct 23, 5am SGT).",
-    "zh": "美股收盘后；电话会议太平洋时间下午2点（新加坡时间10月23日凌晨5点）。"
-   }
-  },
   {
    "date": "Dec 31, 2026",
    "h": {
@@ -171,61 +160,49 @@
     "zh": "FY26 结束"
    },
    "p": {
-    "en": "Guide: revenue $3.9–4.2B, non-GAAP EPS $2.55–2.85.",
-    "zh": "指引：营收 39–42 亿美元，非GAAP每股 $2.55–2.85。"
+    "en": "Guide: revenue $4.4–4.6B, non-GAAP EPS $3.10–3.40.",
+    "zh": "指引：营收 44–46 亿美元，非GAAP每股 $3.10–3.40。"
    }
   },
   {
-   "date": "Feb 2027",
+   "date": "Early Feb 2027",
    "h": {
     "en": "Q4 and FY26 results",
     "zh": "第四季及 FY26 业绩"
    },
    "p": {
-    "en": "Expected to include 2027 guidance.",
-    "zh": "预计给出 2027 年指引。"
+    "en": "Expected to include 2027 guidance; date not yet announced.",
+    "zh": "预计给出 2027 年指引；日期未公布。"
    }
   }
  ],
  "sources": [
   [
-   "Q2 2026 call: guidance raise",
-   "https://finance.biggo.com/news/US_BE_2026-07-28"
+   "Q3 2026 results release",
+   "https://bloomenergy.com/news/bloom-energy-reports-record-third-quarter-2026-financial-results-and-raises-full-year-2026-guidance"
   ],
   [
-   "Q2 2026 orders and backlog",
-   "https://dolphinresearch.substack.com/p/be-delay-fears-aside-set-to-ride"
+   "Q3 2026 call transcript (Investing.com)",
+   "https://investing.com/news/transcripts/earnings-call-transcript-bloom-energy-beats-q3-2026-estimates-stock-falls-93CH-4967732"
   ],
   [
-   "Q2 2026 filings analysis",
-   "https://sec-api.io/insights/financial-analysis-of-bloom-energy-q2-2026-filings-and-scenarios-to-2029"
+   "Q3 2026 vs estimates (Yahoo Finance)",
+   "https://finance.yahoo.com/markets/stocks/articles/bloom-energy-nyse-beats-expectations-202017908.html"
   ],
   [
-   "Q2 2026 recap: cash",
-   "https://thebuildout.co/earnings/recap/BE/CY2026Q3_FY2026Q2"
+   "Q3 2026 cash flow analysis (Stock Titan)",
+   "https://stocktitan.net/articles/bloom-energy-q3-2026-earnings-cash-flow-negative"
   ],
   [
-   "Quarterly income statement (Stock Analysis)",
-   "https://stockanalysis.com/stocks/be/financials/?p=quarterly"
-  ],
-  [
-   "Price, market cap and beta: Financial Modeling Prep, as of Oct 9, 2026",
+   "Price, market cap and forward EPS: Stocklake, as of Oct 22, 2026",
    "https://finance.yahoo.com/quote/BE"
   ]
  ],
  "foot": {
-  "en": "Fundamentals as of Oct 9, 2026. For information only, not investment advice. Not affiliated with Bloom Energy Corporation.",
-  "zh": "基本面数据截至 2026年10月9日。仅供参考，不构成投资建议。与 Bloom Energy Corporation 无关联。"
+  "en": "Fundamentals as of Oct 22, 2026 (Q3 2026 results). For information only, not investment advice. Not affiliated with Bloom Energy Corporation.",
+  "zh": "基本面数据截至 2026年10月22日（2026 年第三季业绩）。仅供参考，不构成投资建议。与 Bloom Energy Corporation 无关联。"
  },
  "quarters": [
-  [
-   "Q3 2021",
-   "Sep 2021",
-   207.23,
-   17.8,
-   -21.18,
-   null
-  ],
   [
    "Q4 2021",
    "Dec 2021",
@@ -377,27 +354,28 @@
    33.38,
    17.11,
    null
+  ],
+  [
+   "Q3 2026",
+   "Sep 2026",
+   1235.84,
+   33.75,
+   18.24,
+   null
   ]
  ],
  "guide": [
-  "Q3 2026e",
-  1000,
-  "Sep 2026 · ~half of H2 implied by guide",
-  "2026年9月 · 约为指引隐含下半年的一半"
+  "Q4 2026e",
+  1450,
+  "Dec 2026 · implied by FY guide midpoint",
+  "2026年12月 · 全年指引中值隐含"
  ],
  "fcf": {
   "sub": {
-   "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q3 2021 to Q2 2026. Shaded bars and italic rows are estimates.",
-   "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第三季至 2026 年第二季共 20 个季度。浅色柱与斜体行为估算。"
+   "en": "Free cash flow is operating cash flow minus capital spending, in US$ millions, for the 20 quarters from Q4 2021 to Q3 2026. Shaded bars and italic rows are estimates.",
+   "zh": "自由现金流 = 经营现金流 − 资本开支，单位百万美元，涵盖 2021 年第四季至 2026 年第三季共 20 个季度。浅色柱与斜体行为估算。"
   },
   "hist": [
-   [
-    "Q3 2021",
-    "Sep 2021",
-    -72.65,
-    10.17,
-    -82.82
-   ],
    [
     "Q4 2021",
     "Dec 2021",
@@ -530,36 +508,43 @@
     226.43,
     51.64,
     174.79
+   ],
+   [
+    "Q3 2026",
+    "Sep 2026",
+    -27.1,
+    153.5,
+    -180.6
    ]
   ],
   "est": [
    [
-    "Q3 2026",
-    "Sep 2026",
-    150,
-    60,
-    90
-   ],
-   [
     "Q4 2026",
     "Dec 2026",
-    450,
-    70,
+    500,
+    120,
     380
    ],
    [
     "Q1 2027",
     "Mar 2027",
-    50,
-    70,
-    -20
+    0,
+    110,
+    -110
    ],
    [
     "Q2 2027",
     "Jun 2027",
     250,
-    80,
-    170
+    110,
+    140
+   ],
+   [
+    "Q3 2027",
+    "Sep 2027",
+    200,
+    110,
+    90
    ]
   ],
   "cash": {
@@ -567,31 +552,31 @@
     "en": "Cash",
     "zh": "现金"
    },
-   "v": "$2.7B",
+   "v": "$2.5B",
    "s": {
-    "en": "Jun 30, 2026",
-    "zh": "2026年6月30日"
+    "en": "Sep 30, 2026",
+    "zh": "2026年9月30日"
    }
   },
   "read": [
    {
-    "en": "Bloom's cash flow follows its install schedule: it usually burns cash in the first half and collects in the fourth quarter. Over these five years it mostly burned cash, but the last four quarters were all positive, about $625M in total, as volumes doubled.",
-    "zh": "Bloom 的现金流随安装进度变化：通常上半年烧钱、第四季回款。过去五年大多在烧钱，但随出货量翻倍，近四个季度全部为正，合计约 6.25 亿美元。"
+    "en": "Bloom's cash flow follows its install schedule: it usually burns cash early in the year and collects in the fourth quarter. Q3 2026 turned negative (−$181M) as unbilled contract assets doubled to $859M, inventory grew and capex tripled; year to date free cash flow is still +$42M.",
+    "zh": "Bloom 的现金流随安装进度变化：通常年初烧钱、第四季回款。2026 年第三季转负（−1.81 亿美元），因未开票合同资产翻倍至 8.59 亿、存货增加且资本开支增至三倍；年初至今自由现金流仍为 +4200 万。"
    },
    {
-    "en": "Guidance implies about $2.23B of revenue in the second half. I assume the usual seasonal pattern with a strong Q4, giving roughly $620M of free cash flow over four quarters. Capex stays small because Bloom adds factory capacity in modest 'copy exact' steps.",
-    "zh": "指引隐含下半年营收约 22.3 亿美元。我按惯常季节性（第四季强）估计四季自由现金流约 6.2 亿美元。由于 Bloom 以小步\"复制扩产\"方式增加产能，资本开支维持较低。"
+    "en": "The new guide implies $1.35–1.55B of Q4 revenue. I assume a strong Q4 collection as contract assets are billed, then a weak Q1, giving roughly $500M of free cash flow over four quarters. Capex runs higher, about $110–120M a quarter, as Bloom expands past 5 GW in Fremont and Newark.",
+    "zh": "新指引隐含第四季营收 13.5–15.5 亿美元。我假设合同资产开票后第四季回款强劲、第一季偏弱，四季自由现金流约 5 亿美元。随着 Bloom 在弗里蒙特和纽瓦克扩产至 5 吉瓦以上，资本开支提高至每季约 1.1–1.2 亿。"
    }
   ],
   "out": [
    {
     "h": {
-     "en": "Inventory for growth",
-     "zh": "备货"
+     "en": "Working capital",
+     "zh": "营运资金"
     },
     "p": {
-     "en": "Building systems ahead of installs ties up cash, especially in the first half.",
-     "zh": "安装前生产系统会占用现金，上半年尤甚。"
+     "en": "Contract assets, receivables and inventory used about $776M of cash in Q3, partly offset by $309M of customer deposits.",
+     "zh": "第三季合同资产、应收款和存货占用约 7.76 亿美元现金，部分被 3.09 亿客户预付款抵消。"
     }
    },
    {
@@ -600,8 +585,8 @@
      "zh": "工厂扩产"
     },
     "p": {
-     "en": "Capex rose to $52M in Q2, still small next to revenue.",
-     "zh": "第二季资本开支升至 5200 万美元，相对营收仍小。"
+     "en": "Capex rose to $153M in Q3 and $231M year to date as capacity nears 5 GW.",
+     "zh": "随着产能接近 5 吉瓦，第三季资本开支升至 1.53 亿美元，年初至今 2.31 亿。"
     }
    }
   ],
@@ -612,40 +597,40 @@
      "zh": "数据中心安装"
     },
     "p": {
-     "en": "Product revenue of $935M in Q2, up 215%.",
-     "zh": "第二季产品收入 9.35 亿美元，增 215%。"
+     "en": "Product revenue of $1.07B in Q3, up 179%; net income of $249M.",
+     "zh": "第三季产品收入 10.7 亿美元，增 179%；净利润 2.49 亿。"
     }
    },
    {
     "h": {
-     "en": "Convertible notes",
-     "zh": "可转债"
+     "en": "Customer deposits",
+     "zh": "客户预付款"
     },
     "p": {
-     "en": "Bloom raised $2.5B in Q4 2025 and repaid about $0.98B of older debt.",
-     "zh": "2025 年第四季发行 25 亿美元，并偿还约 9.8 亿旧债。"
+     "en": "Deferred revenue and deposits reached $754M, five times the December level.",
+     "zh": "递延收入及客户预付款达 7.54 亿美元，为去年 12 月的五倍。"
     }
    }
   ],
   "bridge": [
    [
     {
-     "en": "Cash, Jun 2026",
-     "zh": "2026年6月现金"
+     "en": "Cash, Sep 2026",
+     "zh": "2026年9月现金"
     },
-    2700
+    2490
    ],
    [
     {
      "en": "Free cash flow, 4 quarters (est.)",
      "zh": "4季自由现金流（估）"
     },
-    620
+    500
    ]
   ],
   "bridgeEnd": {
-   "en": "Cash, Jun 2027 (est.)",
-   "zh": "2027年6月现金（估）"
+   "en": "Cash, Sep 2027 (est.)",
+   "zh": "2027年9月现金（估）"
   },
   "bridgeNote": {
    "en": "Excludes debt repayments and conversions.",
@@ -657,12 +642,16 @@
   },
   "src": [
    [
-    "Quarterly cash flow statement (Stock Analysis)",
-    "https://stockanalysis.com/stocks/be/financials/cash-flow-statement/?p=quarterly"
+    "Q3 2026 cash flow analysis (Stock Titan)",
+    "https://stocktitan.net/articles/bloom-energy-q3-2026-earnings-cash-flow-negative"
    ],
    [
-    "Q2 2026 recap: cash",
-    "https://thebuildout.co/earnings/recap/BE/CY2026Q3_FY2026Q2"
+    "Q3 2026 results release",
+    "https://bloomenergy.com/news/bloom-energy-reports-record-third-quarter-2026-financial-results-and-raises-full-year-2026-guidance"
+   ],
+   [
+    "Quarterly cash flow statement (Stock Analysis)",
+    "https://stockanalysis.com/stocks/be/financials/cash-flow-statement/?p=quarterly"
    ]
   ]
  }

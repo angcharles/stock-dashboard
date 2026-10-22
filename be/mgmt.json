@@ -1,31 +1,32 @@
 {
  "ticker": "BE",
- "asof": "2026-10-11",
+ "asof": "2026-10-23",
  "quarter": {
-  "en": "Q2 2026",
-  "zh": "2026年第二季"
+  "en": "Q3 2026",
+  "zh": "2026年第三季"
  },
- "reported": "2026-07-28",
+ "reported": "2026-10-22",
  "timing": "amc",
- "pre_close": 166.84,
+ "pre_close": 217.77,
  "react": {
-  "date": "2026-07-29",
-  "close": 163.75,
-  "pct": -1.9
+  "date": "2026-10-22",
+  "close": 203.97,
+  "pct": -6.3,
+  "ah": true
  },
  "since": {
-  "date": "2026-10-21",
-  "close": 238.53,
-  "pct": 43.0
+  "date": "2026-10-22",
+  "close": 217.77,
+  "pct": 0.0
  },
  "review": {
   "en": [
-   "Revenue rose 166% to $1.065B, Bloom's first billion-dollar quarter and nearly 30% above consensus, with product revenue up 215%. Gross margin improved to 34.3%, operating income reached $240M and adjusted EPS of $0.78 almost doubled the $0.40 estimate. Management raised 2026 guidance to about $4B of revenue. Founder-CEO KR Sridhar said every major US hyperscaler and over a dozen neoclouds and AI labs have approved Bloom's fuel cells, making it a standard for on-site AI power.",
-   "The report landed after an 11% drop on Jul 28, when Corning's guidance triggered a selloff across AI hardware. Shares rose 11% after hours but closed 1.9% lower next day on execution worries. On Jul 30 Mizuho upgraded the stock to Buy, citing operating leverage and gas-turbine prices up about 20%, and it soared 26.5%. As power shortages for AI data centers became a market theme, the stock has gained more than two-thirds since the report."
+   "Revenue rose 138% to a record $1.24B, about 15% above the ~$1.07B consensus, as product revenue topped $1B for the first time. Non-GAAP gross margin was 34.5% and operating income $286M, more than all of 2025; adjusted EPS of $0.94 beat ~$0.69. Bloom raised 2026 guidance a third time, to $4.4–4.6B with EPS of $3.10–3.40. CEO KR Sridhar said grid limits keep pushing data centers to on-site power and capacity nears 5 GW a year; CFO Simon Edwards held margin guidance at ~34% on ramp and expediting costs.",
+   "Shares fell 8.7% to $217.77 on report day as a broad selloff in AI stocks hit power and chip names, then slid about 6% more after hours to near $204 despite the beat. The focus turned to free cash flow of −$181M, as unbilled contract assets doubled and capex tripled to $153M, and to margin guidance left unchanged while revenue guidance rose. The first full session is Oct 23."
   ],
   "zh": [
-   "营收增长 166% 至 10.65 亿美元，首次单季突破十亿，高出预期近 30%，产品营收增长 215%。毛利率升至 34.3%，营业利润 2.4 亿美元，经调整每股收益 0.78 美元，几乎是 0.40 美元预期的两倍。管理层将 2026 年营收指引上调至约 40 亿美元。创始人兼 CEO K.R. 斯里达尔表示，美国所有主要云巨头和十多家新兴云、AI 实验室都已认可 Bloom 燃料电池，使其成为 AI 现场供电的标准方案。",
-   "财报发布前的 7 月 28 日，康宁指引引发 AI 硬件板块抛售，Bloom 当天下跌 11%。盘后上涨 11%，但次日因执行风险担忧收跌 1.9%。7 月 30 日瑞穗将其上调至「买入」，理由是经营杠杆以及燃气轮机价格上涨约 20%，股价大涨 26.5%。随着 AI 数据中心电力短缺成为市场主线，股价自财报以来已上涨逾三分之二。"
+   "营收增长 138% 至创纪录的 12.4 亿美元，比约 10.7 亿美元的一致预期高约 15%，产品收入首次突破 10 亿美元。非GAAP毛利率 34.5%，营业利润 2.86 亿美元，超过 2025 年全年；经调整每股收益 0.94 美元，高于约 0.69 美元的预期。Bloom 第三次上调 2026 年指引，营收至 44–46 亿美元、每股收益 3.10–3.40 美元。CEO K.R. 斯里达尔表示，电网瓶颈持续推动数据中心转向现场发电，年产能接近 5 吉瓦；CFO 西蒙·爱德华兹因扩产和加急交付成本，维持约 34% 的毛利率指引。",
+   "财报当天，AI 股全面抛售波及电力与芯片股，股价下跌 8.7% 至 217.77 美元；尽管业绩超预期，盘后再跌约 6% 至 204 美元附近。市场关注点转向 −1.81 亿美元的自由现金流（未开票合同资产翻倍、资本开支增至三倍的 1.53 亿美元），以及营收指引上调而毛利率指引未变。10 月 23 日为财报后首个完整交易日。"
   ]
  },
  "ceo": {
@@ -52,12 +53,16 @@
  },
  "sources": [
   {
-   "t": "Q2 2026 call transcript",
-   "u": "https://www.marketbeat.com/earnings/reports/2026-7-28-bloom-energy-co-stock/"
+   "t": "Q3 2026 results release",
+   "u": "https://bloomenergy.com/news/bloom-energy-reports-record-third-quarter-2026-financial-results-and-raises-full-year-2026-guidance"
   },
   {
-   "t": "Jul 30 upgrade",
-   "u": "https://markets.businessinsider.com/news/stocks/why-is-bloom-energy-stock-be-rallying-today-7-30-2026-1036388843"
+   "t": "Q3 2026 call transcript (Investing.com)",
+   "u": "https://investing.com/news/transcripts/earnings-call-transcript-bloom-energy-beats-q3-2026-estimates-stock-falls-93CH-4967732"
+  },
+  {
+   "t": "Cash flow and contract assets (Stock Titan)",
+   "u": "https://stocktitan.net/articles/bloom-energy-q3-2026-earnings-cash-flow-negative"
   }
  ]
 }

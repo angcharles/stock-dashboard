@@ -1,6 +1,6 @@
 {
  "ticker": "TSM",
- "asof": "2026-10-16",
+ "asof": "2026-10-23",
  "quarter": {
   "en": "Q3 2026",
   "zh": "2026年第三季"
@@ -14,18 +14,18 @@
   "pct": -1.8
  },
  "since": {
-  "date": "2026-10-21",
-  "close": 431.89,
-  "pct": 0.4
+  "date": "2026-10-22",
+  "close": 412.35,
+  "pct": -4.1
  },
  "review": {
   "en": [
    "Revenue of $46.7B (+41% in dollars) beat the top of guidance and EPS of $4.60 per ADR topped the ~$4.42 consensus. HPC grew 22% QoQ to 68% of sales and 2nm reached 8% of wafer revenue, while gross margin eased to 66.4% on the 2nm ramp. The Q4 guide of $52.3–54.3B is well above the ~$51.2B consensus, and 2026 growth rose to ~44%. C.C. Wei said AI demand is still far above supply but planning for 2027 is prudent as consumer markets weaken; capex stays $60–64B.",
-   "The ADR had already fallen 3.4% to $430 on Oct 14 as a global chip selloff over AI financing costs and hot inflation data deepened. On Oct 15 it gapped down to $415 and touched $407 as Korean chip stocks crashed and Wei's cautious 2027 remark weighed on the sector, then recovered as the selloff eased to close down 1.8% at $422.25. CFO Wendell Huang's warning that overseas-fab margin dilution will widen to 3–4% also tempered the beat."
+   "The ADR had already fallen 3.4% to $430 on Oct 14 in a global chip selloff, then gapped down to $415 on Oct 15 as Korean chip stocks crashed and Wei's cautious 2027 remark weighed, closing down 1.8% at $422.25. Over the following week it recovered to $431.89 by Oct 21 as chips rebounded, then fell 4.5% to $412.35 on Oct 22 when Meta's spending worries sent the chip index down 6.7%, leaving it 2.3% below the first-session close."
   ],
   "zh": [
    "营收 467 亿美元（以美元计 +41%）高于指引上限，每份 ADR 收益 4.60 美元高于约 4.42 美元的一致预期。高性能计算环比增长 22%，占营收 68%；2 纳米占晶圆营收 8%，毛利率因 2 纳米爬坡降至 66.4%。第四季营收指引 523–543 亿美元，明显高于约 512 亿美元的市场预期，2026 年增长展望上调至约 44%。魏哲家表示 AI 需求仍远高于供应能力，但因消费类市场转弱，对 2027 年规划审慎；资本开支维持 600–640 亿美元。",
-   "在对 AI 融资成本的担忧和高于预期的通胀数据引发的全球芯片股抛售中，ADR 于 10 月 14 日已下跌 3.4% 至 430 美元。10 月 15 日跳空低开至 415 美元，盘中一度跌至 407 美元，韩国芯片股暴跌以及魏哲家对 2027 年的审慎表态拖累板块；随后抛压缓和，收盘跌 1.8% 至 422.25 美元。CFO 黄仁昭警告海外晶圆厂对毛利率的稀释将扩大至 3–4 个百分点，也削弱了业绩超预期的效果。"
+   "在全球芯片股抛售中，ADR 于 10 月 14 日已下跌 3.4% 至 430 美元；10 月 15 日因韩国芯片股暴跌及魏哲家对 2027 年的审慎表态跳空低开至 415 美元，收跌 1.8% 至 422.25 美元。随后一周，随芯片股反弹，10 月 21 日回升至 431.89 美元；10 月 22 日 Meta 引发的支出担忧使费城半导体指数下跌 6.7%，ADR 下跌 4.5% 至 412.35 美元，较首个交易日收盘价低 2.3%。"
   ]
  },
  "ceo": {
@@ -60,8 +60,9 @@
    "u": "https://fool.com/earnings/call-transcripts/2026/10/15/tsmc-tsm-q3-2026-earnings-call-transcript"
   },
   {
-   "t": "Reaction (MarketWatch)",
-   "u": "https://morningstar.com/news/marketwatch/2026101589/tsmc-ceo-sees-no-sign-of-a-slowdown-as-chip-foundry-reports-record-profit"
+   "t": "Oct 22 chip selloff (Reuters via MarketScreener)",
+   "u": "https://marketscreener.com/news/stocks-drop-as-meta-fans-ai-worries-treasuries-gain-ce785cdede89f223"
   }
- ]
+ ],
+ "followup_done": true
 }
