@@ -1,57 +1,50 @@
 {
- "asof": "Oct 21, 2026",
- "close": 334.76,
+ "asof": "Oct 22, 2026",
+ "close": 324.22,
  "bias": {
-  "en": "Bearish · lost the Oct 1 low",
-  "zh": "偏空 · 跌破 10月1日低点"
+  "en": "Bearish · broke the September low",
+  "zh": "偏空 · 跌破 9 月低点"
  },
  "read": [
   {
-   "en": "Alphabet fell 1.6% on Oct 21 to $334.76, trading between $330.38 and $337.27. It is below all its averages: the falling 5-day ($341.8), 10-day ($346.3) and 100-day ($349.5), and the rising 200-day ($341.3) and 30-day ($345.1). MACD has been below its signal since Oct 16 and is below zero, with the histogram widening; Parabolic SAR has been bearish since Oct 16 ($357.79), and RSI is 40.",
-   "zh": "Alphabet 10月21日下跌 1.6%，收于 $334.76，盘中区间 $330.38–337.27。股价位于全部均线下方：下行的 5 日（$341.8）、10 日（$346.3）和 100 日均线（$349.5），以及上行的 200 日（$341.3）和 30 日均线（$345.1）。MACD 自 10月16日起位于信号线及零轴下方，柱状图扩大；抛物线 SAR 自 10月16日起看空（$357.79），RSI 为 40。"
+   "en": "Alphabet fell 3.1% on Oct 22 to $324.22, trading between $322.00 and $331.43. It is below the falling 5-day ($336.8), falling 10-day ($343.9), rising 30-day ($344.8), falling 100-day ($349.0) and rising 200-day ($341.3) averages. MACD has been below its signal since Oct 16 and below zero, with the histogram widening; Parabolic SAR has been bearish since Oct 16 ($356.14), and RSI is 34.",
+   "zh": "Alphabet 10月22日下跌 3.1%，收于 $324.22，盘中区间 $322.00–331.43。股价位于下行的 5 日（$336.8）、下行的 10 日（$343.9）、上行的 30 日（$344.8）、下行的 100 日（$349.0）和上行的 200 日均线（$341.3）下方。MACD 自 10月16日起位于信号线及零轴下方，柱状图扩大；抛物线 SAR 自 10月16日起看空（$356.14），RSI 为 34。"
   },
   {
-   "en": "The close broke the $338.4 Oct 20 low and the $335.5 Oct 1 low, which now act as resistance. Resistance is $335.5–338.4, then $341.3–341.8 (200 and 5-day) and $345–346 (30 and 10-day). Support is $330.2–330.4 (day's low, Jun 26 low), then $327.7 (Sep 10 low) and $314.9 (Jul 23 low). A close below $327.7 would open $314.9; a close above $341.8 would target $346.",
-   "zh": "收盘跌破 $338.4 的 10月20日低点和 $335.5 的 10月1日低点，二者转为阻力。阻力为 $335.5–338.4，其次 $341.3–341.8（200 日和 5 日均线）和 $345–346（30 日和 10 日均线）。支撑为 $330.2–330.4（当日低点、6月26日低点），其次 $327.7（9月10日低点）和 $314.9（7月23日低点）。若收盘跌破 $327.7，将打开 $314.9；若收盘站上 $341.8，下一目标看 $346。"
+   "en": "The drop broke the $330.2–330.4 support and the $327.7 Sep 10 low, both now resistance. Resistance is $327.7–331.4, then $335.5–338.4 (Oct 1 and Oct 20 lows) and $341.3 (200-day). Support is $319.4–322 (Jan 21 low, Oct 22 low), then $314.9 (Jul 23 low) and $310.3 (Jan 2 low). A close below $319.4 would open $314.9; a close above $331.4 would target $335.5–338.4.",
+   "zh": "股价跌破 $330.2–330.4 支撑和 9月10日低点 $327.7，二者转为阻力。阻力为 $327.7–331.4，其次 $335.5–338.4（10月1日和10月20日低点）和 $341.3（200 日均线）。支撑为 $319.4–322（1月21日低点、10月22日低点），其次 $314.9（7月23日低点）和 $310.3（1月2日低点）。若收盘跌破 $319.4，将打开 $314.9；若收盘站上 $331.4，下一目标看 $335.5–338.4。"
   }
  ],
  "levels": {
   "r": [
    [
+    329.5,
+    {
+     "en": "Sep 10 low $327.7; Jun 26 low $330.2; Oct 22 high $331.4",
+     "zh": "9月10日低点 $327.7；6月26日低点 $330.2；10月22日高点 $331.4"
+    }
+   ],
+   [
     337,
     {
-     "en": "Oct 1 low $335.5 and Oct 20 low $338.4, now resistance",
-     "zh": "10月1日低点 $335.5 和10月20日低点 $338.4，转为阻力"
+     "en": "Oct 1 low $335.5 and Oct 20 low $338.4; 5-day average $336.8",
+     "zh": "10月1日低点 $335.5和10月20日低点 $338.4；5日均线 $336.8"
     }
    ],
    [
-    341.5,
+    341.3,
     {
-     "en": "200-day $341.3 and 5-day $341.8 averages",
-     "zh": "200日均线 $341.3 和5日均线 $341.8"
-    }
-   ],
-   [
-    346,
-    {
-     "en": "30-day $345.1 and 10-day $346.3 averages",
-     "zh": "30日均线 $345.1 和10日均线 $346.3"
+     "en": "200-day average",
+     "zh": "200日均线"
     }
    ]
   ],
   "s": [
    [
-    330.3,
+    320.5,
     {
-     "en": "Oct 21 low $330.4; Jun 26 low $330.2",
-     "zh": "10月21日低点 $330.4；6月26日低点 $330.2"
-    }
-   ],
-   [
-    327.7,
-    {
-     "en": "Sep 10 low",
-     "zh": "9月10日低点"
+     "en": "Oct 22 low $322.0; Jan 21 low $319.4",
+     "zh": "10月22日低点 $322.0；1月21日低点 $319.4"
     }
    ],
    [
@@ -59,6 +52,13 @@
     {
      "en": "Jul 23 low",
      "zh": "7月23日低点"
+    }
+   ],
+   [
+    310.3,
+    {
+     "en": "Jan 2 low",
+     "zh": "1月2日低点"
     }
    ]
   ]

@@ -1,57 +1,50 @@
 {
- "asof": "Oct 21, 2026",
- "close": 438.51,
+ "asof": "Oct 22, 2026",
+ "close": 423.87,
  "bias": {
-  "en": "Neutral · back above every average but the 100-day",
-  "zh": "中性 · 重回除 100 日外所有均线上方"
+  "en": "Neutral · back under the average cluster",
+  "zh": "中性 · 回落至均线密集区下方"
  },
  "read": [
   {
-   "en": "Rockwell Automation rose 2.5% on Oct 21 to $438.51, between $428.57 and $441.39. It is above the falling 5-day ($427.8), 10-day ($429.5) and 30-day ($430.6) averages and the rising 200-day ($426.2), but below the falling 100-day ($447.6). MACD has been below its signal since Oct 13 and is below zero, with the histogram fading toward a cross; Parabolic SAR has been bearish since Oct 8 ($446.54), and RSI is 55.",
-   "zh": "罗克韦尔自动化 10月21日上涨 2.5%，收于 $438.51，盘中区间 $428.57–441.39。股价位于下行的 5 日（$427.8）、10 日（$429.5）和 30 日均线（$430.6）以及上行的 200 日均线（$426.2）上方，但低于下行的 100 日均线（$447.6）。MACD 自 10月13日起位于信号线及零轴下方，柱状图收窄、接近交叉；抛物线 SAR 自 10月8日起看空（$446.54），RSI 为 55。"
+   "en": "Rockwell Automation fell 3.3% on Oct 22 to $423.87, trading between $417.62 and $431.07 on 1.9 times average volume. It is below the falling 5-day ($428.2), falling 10-day ($428.5), rising 30-day ($430.6), falling 100-day ($447.3) and rising 200-day ($426.3) averages. MACD has been below its signal since Oct 13 and below zero, histogram widening; Parabolic SAR has been bearish since Oct 8 ($444.51), and RSI is 44.",
+   "zh": "罗克韦尔自动化 10月22日下跌 3.3%，收于 $423.87，盘中区间 $417.62–431.07，成交量为平均水平的 1.9 倍。股价位于下行的 5 日（$428.2）、下行的 10 日（$428.5）、上行的 30 日（$430.6）、下行的 100 日（$447.3）和上行的 200 日均线（$426.3）下方。MACD 自 10月13日起位于信号线及零轴下方，柱状图扩大；抛物线 SAR 自 10月8日起看空（$444.51），RSI 为 44。"
   },
   {
-   "en": "The close cleared $430 (10 and 30-day averages) and $436 (Sep 8, Oct 14 highs); both now become support. Resistance is $441.4 (day's high), then $446.5–447.6 (SAR, 100-day) and $460.2 (Oct 6 high). Support is $436, then $426–430.6 (5 to 200-day averages) and $412.7–413.9 (Oct 15, 20 lows). A close above $447.6 would open $460; a close below $426 would reopen $413.",
-   "zh": "收盘突破 $430（10 日和 30 日均线）和 $436（9月8日、10月14日高点），两者转为支撑。阻力为 $441.4（当日高点），其次 $446.5–447.6（SAR、100 日均线）和 $460.2（10月6日高点）。支撑为 $436，其次 $426–430.6（5 日至 200 日均线）和 $412.7–413.9（10月15日、20日低点）。若收盘站上 $447.6，将打开 $460；若收盘跌破 $426，将重新打开 $413。"
+   "en": "The drop gave back $436 and the $426–430.6 average cluster (5, 10, 30 and 200-day), now resistance. Resistance is $426.3–430.6, then $436 (Sep 8 high) and $441.4 (Oct 21 high). Support is $417.6–418.8 (Oct 22 and May 19 lows), then $412.7–413.9 (Oct 15 and 20 lows) and $406.9 (Sep 17 low). A close above $430.6 would target $436–441; a close below $412.7 would open $406.9.",
+   "zh": "股价失守 $436 和 $426–430.6 的均线密集区（5、10、30 和 200 日均线），该区域转为阻力。阻力为 $426.3–430.6，其次 $436（9月8日高点）和 $441.4（10月21日高点）。支撑为 $417.6–418.8（10月22日和5月19日低点），其次 $412.7–413.9（10月15日和20日低点）和 $406.9（9月17日低点）。若收盘站上 $430.6，下一目标看 $436–441；若收盘跌破 $412.7，将打开 $406.9。"
   }
  ],
  "levels": {
   "r": [
+   [
+    428.5,
+    {
+     "en": "5, 10, 30 and 200-day averages ($426.3–430.6)",
+     "zh": "5日、10日、30日和200日均线（$426.3–430.6）"
+    }
+   ],
+   [
+    436,
+    {
+     "en": "Sep 8 high; Oct 14 high $435.9",
+     "zh": "9月8日高点；10月14日高点 $435.9"
+    }
+   ],
    [
     441.4,
     {
      "en": "Oct 21 high",
      "zh": "10月21日高点"
     }
-   ],
-   [
-    447,
-    {
-     "en": "SAR $446.5; 100-day average $447.6",
-     "zh": "SAR $446.5；100日均线 $447.6"
-    }
-   ],
-   [
-    460.2,
-    {
-     "en": "Oct 6 high",
-     "zh": "10月6日高点"
-    }
    ]
   ],
   "s": [
    [
-    436,
+    418,
     {
-     "en": "Sep 8 high; Oct 14 high $435.9, cleared",
-     "zh": "9月8日高点；10月14日高点 $435.9（已突破）"
-    }
-   ],
-   [
-    429,
-    {
-     "en": "5, 10, 30 and 200-day averages ($426.2–430.6)",
-     "zh": "5日、10日、30日和200日均线（$426.2–430.6）"
+     "en": "Oct 22 low $417.6; May 19 low $418.8",
+     "zh": "10月22日低点 $417.6；5月19日低点 $418.8"
     }
    ],
    [
@@ -59,6 +52,13 @@
     {
      "en": "Oct 15 low $412.7; Oct 20 low $413.9",
      "zh": "10月15日低点 $412.7；10月20日低点 $413.9"
+    }
+   ],
+   [
+    406.9,
+    {
+     "en": "Sep 17 low",
+     "zh": "9月17日低点"
     }
    ]
   ]

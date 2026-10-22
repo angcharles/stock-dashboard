@@ -1,64 +1,64 @@
 {
- "asof": "Oct 21, 2026",
- "close": 159.31,
+ "asof": "Oct 22, 2026",
+ "close": 144.75,
  "bias": {
-  "en": "Neutral · jumped above the averages on heavy volume",
-  "zh": "中性 · 放量升穿均线"
+  "en": "Neutral turning bearish · Oct 21 jump reversed",
+  "zh": "中性转弱 · 10月21日涨幅全部回吐"
  },
  "read": [
   {
-   "en": "SpaceX rose 7.8% on Oct 21 to $159.31, trading between $156.93 and $166.18 on volume 2.6 times its 20-day average, with no 100-day average yet (91 sessions). It is above the falling 5-day ($149.9), rising 30-day ($153.6) and falling 10-day ($154.5) averages. MACD has been below its signal since Oct 14 but above zero, histogram narrowing; Parabolic SAR has been bearish since Oct 14 ($170.60), and RSI is 56.",
-   "zh": "SpaceX 10月21日上涨 7.8%，收于 $159.31，盘中区间 $156.93–166.18，成交量为 20 日均量的 2.6 倍；上市仅 91 个交易日，尚无 100 日均线。股价位于下行的 5 日（$149.9）、上行的 30 日（$153.6）和下行的 10 日均线（$154.5）上方。MACD 自 10月14日起位于信号线下方，仍在零轴之上，柱状图收窄；抛物线 SAR 自 10月14日起看空（$170.60），RSI 为 56。"
+   "en": "SpaceX fell 9.1% on Oct 22 to $144.75, trading between $143.21 and $154.22 on twice its average volume, with no 100-day average yet (92 sessions). It is below the falling 5-day ($149.2), 10-day ($152.9) and 30-day ($153.5) averages. MACD has been below its signal since Oct 14 but is above zero, histogram widening; Parabolic SAR has been bearish since Oct 14 ($169.40), and RSI is 44.",
+   "zh": "SpaceX 10月22日下跌 9.1%，收于 $144.75，盘中区间 $143.21–154.22，成交量约为平均水平的两倍；上市仅 92 个交易日，尚无 100 日均线。股价位于下行的 5 日（$149.2）、10 日（$152.9）和 30 日均线（$153.5）下方。MACD 自 10月14日起位于信号线下方，但仍在零轴之上，柱状图扩大；抛物线 SAR 自 10月14日起看空（$169.40），RSI 为 44。"
   },
   {
-   "en": "The jump broke all three written resistances ($148.6, $153.3, $158), though the close faded from the $166.2 high. Resistance is $166.2 (day's high, Oct 12 high $167.1), then $170.6 (SAR) and $176.4 (Oct 6 high). Support is $158 (Sep 21 high), then $154 (10 and 30-day) and $145.4 (Sep 28 low). A close above $166.2 would target $176.4; a close below $153.6 would reopen $145.4.",
-   "zh": "本次跳升突破了此前三个阻力位（$148.6、$153.3、$158），但收盘较 $166.2 高点回落。阻力为 $166.2（当日高点、10月12日高点 $167.1），其次 $170.6（SAR）和 $176.4（10月6日高点）。支撑为 $158（9月21日高点），其次 $154（10 日和 30 日均线）和 $145.4（9月28日低点）。若收盘站上 $166.2，下一目标看 $176.4；若收盘跌破 $153.6，将重新打开 $145.4。"
+   "en": "The drop erased the Oct 21 jump, breaking the $158 and $154 supports and the $145.4 Sep 28 low, all now resistance. Resistance is $145.4–147.1, then $149.2–149.8 (5-day, Aug 17 high) and $153–154.2 (10 and 30-day). Support is $142.9–143.2, then $140.7 (Oct 15 low) and $130.4 (Aug 20 low). A close below $140.7 would open $130.4; a close above $147.1 would target $149–154.",
+   "zh": "股价抹去 10月21日的涨幅，跌破 $158 和 $154 支撑以及 9月28日低点 $145.4，这些位置均转为阻力。阻力为 $145.4–147.1，其次 $149.2–149.8（5 日均线、8月17日高点）和 $153–154.2（10 日和 30 日均线）。支撑为 $142.9–143.2，其次 $140.7（10月15日低点）和 $130.4（8月20日低点）。若收盘跌破 $140.7，将打开 $130.4；若收盘站上 $147.1，下一目标看 $149–154。"
   }
  ],
  "levels": {
   "r": [
    [
-    166.2,
+    146,
     {
-     "en": "Oct 21 high; Oct 12 high $167.1",
-     "zh": "10月21日高点；10月12日高点 $167.1"
+     "en": "Sep 28 low $145.4; Jun 23 low $147.1, now resistance",
+     "zh": "9月28日低点 $145.4；6月23日低点 $147.1，转为阻力"
     }
    ],
    [
-    170.6,
+    149.5,
     {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
-    }
-   ],
-   [
-    176.4,
-    {
-     "en": "Oct 6 high",
-     "zh": "10月6日高点"
-    }
-   ]
-  ],
-  "s": [
-   [
-    158,
-    {
-     "en": "Sep 21 high $158.1, reclaimed",
-     "zh": "9月21日高点 $158.1，已收复"
+     "en": "5-day average $149.2; Aug 17 high $149.8",
+     "zh": "5日均线 $149.2；8月17日高点 $149.8"
     }
    ],
    [
     154,
     {
-     "en": "10 and 30-day averages ($153.6–154.5)",
-     "zh": "10日和30日均线（$153.6–154.5）"
+     "en": "10 and 30-day averages ($152.9–153.5); Oct 22 high $154.2",
+     "zh": "10日和30日均线（$152.9–153.5）；10月22日高点 $154.2"
+    }
+   ]
+  ],
+  "s": [
+   [
+    143,
+    {
+     "en": "Sep 15 low $142.9; Oct 22 low $143.2",
+     "zh": "9月15日低点 $142.9；10月22日低点 $143.2"
     }
    ],
    [
-    145.4,
+    140.7,
     {
-     "en": "Sep 28 low",
-     "zh": "9月28日低点"
+     "en": "Oct 15 low",
+     "zh": "10月15日低点"
+    }
+   ],
+   [
+    130.4,
+    {
+     "en": "Aug 20 low",
+     "zh": "8月20日低点"
     }
    ]
   ]

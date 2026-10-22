@@ -1,64 +1,57 @@
 {
- "asof": "Oct 21, 2026",
- "close": 244.76,
+ "asof": "Oct 22, 2026",
+ "close": 223.47,
  "bias": {
-  "en": "Bearish, bouncing · back above the 100-day average",
-  "zh": "偏空反弹 · 重回 100 日均线上方"
+  "en": "Bearish · lost the 100-day and the $226.5 lows",
+  "zh": "偏空 · 跌破 100 日均线和 $226.5 低点"
  },
  "read": [
   {
-   "en": "Marvell rose 1.8% on Oct 21 to $244.76 on light volume, between $237.80 and $250.12. It is above the falling 5-day ($238.3) and rising 100-day ($241.9) and 200-day ($178.2) averages, but below the falling 10-day ($252.1) and rising 30-day ($253.5). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 8 ($266.30), and RSI is 47.",
-   "zh": "Marvell 10月21日上涨 1.8%，收于 $244.76，成交清淡，盘中区间 $237.80–250.12。股价位于下行的 5 日（$238.3）以及上行的 100 日（$241.9）和 200 日均线（$178.2）上方，但低于下行的 10 日（$252.1）和上行的 30 日均线（$253.5）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$266.30），RSI 为 47。"
+   "en": "Marvell fell 8.7% on Oct 22 to $223.47, trading between $220.21 and $236.20. It is below the falling 5-day ($234.7) and 10-day ($247.0) and the rising 30-day ($253.3) and 100-day ($241.9) averages, but above the rising 200-day ($178.8). MACD has been below its signal since Oct 12 and is below zero; Parabolic SAR has been bearish since Oct 8 ($261.53), and RSI is 38.",
+   "zh": "Marvell 10月22日下跌 8.7%，收于 $223.47，盘中区间 $220.21–236.20。股价位于下行的 5 日（$234.7）和 10 日（$247.0）以及上行的 30 日（$253.3）和 100 日均线（$241.9）下方，仍在上行的 200 日均线（$178.8）上方。MACD 自 10月12日起位于信号线下方，且在零轴之下；抛物线 SAR 自 10月8日起看空（$261.53），RSI 为 38。"
   },
   {
-   "en": "The close reclaimed the 100-day average ($241.9) that capped Oct 20, and the high cleared the $246.6 Oct 19 high before fading. Resistance is $250.1 (day's high), then $252–253.5 (10 and 30-day averages) and $266.3 (SAR). Support is $238–242 (5 and 100-day), then $226.5 (Oct 16 and 20 lows) and $200.6. A close above $253.5 would open $266; a close below $226.5 would open $200.6.",
-   "zh": "收盘收复 10月20日受阻的 100 日均线（$241.9），盘中高点突破 10月19日 $246.6 高点后回落。阻力为 $250.1（当日高点），其次 $252–253.5（10 日和 30 日均线）和 $266.3（SAR）。支撑为 $238–242（5 日和 100 日均线），其次 $226.5（10月16日和20日低点）和 $200.6。若收盘站上 $253.5，将打开 $266；若收盘跌破 $226.5，将打开 $200.6。"
+   "en": "The drop gave back the 100-day average and broke the $226.5 Oct 16 and Oct 20 lows, both now resistance. Resistance is $226.5, then $234.7–242 (5 and 100-day) and $247–250 (10-day, Oct 21 high). Support is $220.2 (Oct 22 low), then $200–200.6 (Sep 1 low). A close above $226.5 would target $234.7–242; a close below $220 would open $200.6.",
+   "zh": "股价失守 100 日均线，并跌破 10月16日和10月20日低点 $226.5，二者转为阻力。阻力为 $226.5，其次 $234.7–242（5 日和 100 日均线）和 $247–250（10 日均线、10月21日高点）。支撑为 $220.2（10月22日低点），其次 $200–200.6（9月1日低点）。若收盘站上 $226.5，下一目标看 $234.7–242；若收盘跌破 $220，将打开 $200.6。"
   }
  ],
  "levels": {
   "r": [
    [
-    250.1,
+    226.5,
     {
-     "en": "Oct 21 high",
-     "zh": "10月21日高点"
+     "en": "Oct 16 and Oct 20 lows, now resistance",
+     "zh": "10月16日和10月20日低点，转为阻力"
     }
    ],
    [
-    253,
+    238,
     {
-     "en": "10 and 30-day averages ($252.1–253.5)",
-     "zh": "10日和30日均线（$252.1–253.5）"
+     "en": "5-day $234.7 and 100-day $241.9 averages",
+     "zh": "5日均线 $234.7和100日均线 $241.9"
     }
    ],
    [
-    266.3,
+    248,
     {
-     "en": "SAR",
-     "zh": "SAR"
+     "en": "10-day average $247.0; Oct 21 high $250.1",
+     "zh": "10日均线 $247.0；10月21日高点 $250.1"
     }
    ]
   ],
   "s": [
    [
-    240,
+    220.2,
     {
-     "en": "100-day average $241.9, reclaimed; 5-day $238.3",
-     "zh": "100日均线 $241.9（已收复）；5日均线 $238.3"
-    }
-   ],
-   [
-    226.5,
-    {
-     "en": "Oct 16 and Oct 20 lows, retested",
-     "zh": "10月16日和10月20日低点（已回测）"
+     "en": "Oct 22 low",
+     "zh": "10月22日低点"
     }
    ],
    [
     200.6,
     {
-     "en": "Sep 1 low",
-     "zh": "9月1日低点"
+     "en": "Sep 1 low; $200 round number",
+     "zh": "9月1日低点；$200 整数关口"
     }
    ]
   ]

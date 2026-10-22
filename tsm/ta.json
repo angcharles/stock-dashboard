@@ -1,64 +1,64 @@
 {
- "asof": "Oct 21, 2026",
- "close": 431.89,
+ "asof": "Oct 22, 2026",
+ "close": 412.35,
  "bias": {
-  "en": "Uptrend under pressure · reclaimed the 100-day average",
-  "zh": "上升趋势承压 · 收复 100 日均线"
+  "en": "Uptrend under pressure · lost the 100-day again",
+  "zh": "上升趋势承压 · 再度跌破 100 日均线"
  },
  "read": [
   {
-   "en": "TSMC rose 1.6% on Oct 21 to $431.89, trading between $423.74 and $435.16. It is above the falling 5-day ($422.4), rising 100-day ($430.3) and rising 200-day ($396.7) averages, and below the falling 10-day ($434.3) and falling 30-day ($443.4). MACD has been below its signal since Oct 9 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 8 ($447.29), and RSI is 46.",
-   "zh": "台积电 10月21日上涨 1.6%，收于 $431.89，盘中区间 $423.74–435.16。股价位于下行的 5 日（$422.4）、上行的 100 日（$430.3）和上行的 200 日均线（$396.7）上方，低于下行的 10 日（$434.3）和下行的 30 日均线（$443.4）。MACD 自 10月9日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月8日起看空（$447.29），RSI 为 46。"
+   "en": "TSMC fell 4.5% on Oct 22 to $412.35, trading between $410.22 and $421.91 on 1.5 times average volume. It is below the falling 5-day ($420.4), 10-day ($429.7), 30-day ($442.9) and 100-day ($430.0) averages, and above the rising 200-day ($397.1). MACD has been below its signal since Oct 9 and is below zero; Parabolic SAR has been bearish since Oct 8 ($442.47), and RSI is 38.",
+   "zh": "台积电 10月22日下跌 4.5%，收于 $412.35，盘中区间 $410.22–421.91，成交量为平均水平的 1.5 倍。股价位于下行的 5 日（$420.4）、10 日（$429.7）、30 日（$442.9）和 100 日均线（$430.0）下方，仍在上行的 200 日均线（$397.1）上方。MACD 自 10月9日起位于信号线下方，且在零轴之下；抛物线 SAR 自 10月8日起看空（$442.47），RSI 为 38。"
   },
   {
-   "en": "The close reclaimed the $430 100-day average, which now becomes support, but the high stalled near the 10-day. Resistance is $435 (10-day, day's high), then $444 (30-day, Sep 8 high) and $447.3 (SAR). Support is $430, then $422.4 (5-day) and $412.5 (Sep 15 low). A close above $435 would target $444; a close below $422 would reopen $412.5.",
-   "zh": "收盘收复 $430 的 100 日均线，该位置转为支撑，但盘中高点在 10 日均线附近受阻。阻力为 $435（10 日均线、当日高点），其次 $444（30 日均线、9月8日高点）和 $447.3（SAR）。支撑为 $430，其次 $422.4（5 日均线）和 $412.5（9月15日低点）。若收盘站上 $435，下一目标看 $444；若收盘跌破 $422，将重新打开 $412.5。"
+   "en": "The drop gave back the $430 100-day average and the $422.4 5-day, and closed on the $412.5 Sep 15 low. Resistance is $412.5, then $419–421.9 (5-day, Oct 22 high) and $430 (10 and 100-day). Support is $407.1–410.6 (Oct 15, 16 and 22 lows), then $405.2–405.5 and $397.1 (200-day). A close below $405 would open $397; a close above $421.9 would target $430.",
+   "zh": "股价失守 $430 的 100 日均线和 $422.4 的 5 日均线，收于 9月15日低点 $412.5 附近。阻力为 $412.5，其次 $419–421.9（5 日均线、10月22日高点）和 $430（10 日和 100 日均线）。支撑为 $407.1–410.6（10月15日、16日和22日低点），其次 $405.2–405.5 和 $397.1（200 日均线）。若收盘跌破 $405，将打开 $397；若收盘站上 $421.9，下一目标看 $430。"
   }
  ],
  "levels": {
   "r": [
    [
-    435,
+    412.5,
     {
-     "en": "10-day average $434.3; Oct 21 high $435.2",
-     "zh": "10日均线 $434.3；10月21日高点 $435.2"
+     "en": "Sep 15 low",
+     "zh": "9月15日低点"
     }
    ],
    [
-    444,
+    420.5,
     {
-     "en": "30-day average $443.4; Sep 8 high $444.3",
-     "zh": "30日均线 $443.4；9月8日高点 $444.3"
+     "en": "5-day average $420.4; Jun 26 low $419.2; Oct 22 high $421.9",
+     "zh": "5日均线 $420.4；6月26日低点 $419.2；10月22日高点 $421.9"
     }
    ],
    [
-    447.3,
+    430,
     {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "100-day $430.0 and 10-day $429.7 averages",
+     "zh": "100日均线 $430.0和10日均线 $429.7"
     }
    ]
   ],
   "s": [
    [
-    430,
+    409,
     {
-     "en": "100-day average $430.3, reclaimed",
-     "zh": "100日均线 $430.3，已收复"
+     "en": "Oct 15 low $407.1; Oct 16 low $410.6; Oct 22 low $410.2",
+     "zh": "10月15日低点 $407.1；10月16日低点 $410.6；10月22日低点 $410.2"
     }
    ],
    [
-    422.4,
+    405.3,
     {
-     "en": "5-day average",
-     "zh": "5日均线"
+     "en": "Aug 24 low $405.2; Jun 9 low $405.5",
+     "zh": "8月24日低点 $405.2；6月9日低点 $405.5"
     }
    ],
    [
-    412.5,
+    397.1,
     {
-     "en": "Sep 15 low; Oct 16 low $410.6",
-     "zh": "9月15日低点；10月16日低点 $410.6"
+     "en": "200-day average",
+     "zh": "200日均线"
     }
    ]
   ]

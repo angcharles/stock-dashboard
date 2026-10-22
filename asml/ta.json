@@ -1,64 +1,64 @@
 {
- "asof": "Oct 21, 2026",
- "close": 1676.69,
+ "asof": "Oct 22, 2026",
+ "close": 1560.54,
  "bias": {
-  "en": "Bearish · rebound testing the 10-day average",
-  "zh": "偏空 · 反弹测试 10 日均线"
+  "en": "Bearish · broke below the 200-day average",
+  "zh": "偏空 · 跌破 200 日均线"
  },
  "read": [
   {
-   "en": "ASML rose 2.8% on Oct 21 to $1,676.69, trading between $1,661.62 and $1,687.81. It is above the falling 5-day ($1,650.7) and rising 200-day ($1,584.7) averages, but below the falling 10-day ($1,692.2) and 30-day ($1,721.6) and the rising 100-day ($1,750.1). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 13 ($1,802.34), and RSI is 44.",
-   "zh": "阿斯麦 10月21日上涨 2.8%，收于 $1,676.69，盘中区间 $1,661.62–1,687.81。股价位于下行的 5 日（$1,650.7）和上行的 200 日均线（$1,584.7）上方，但低于下行的 10 日（$1,692.2）、30 日（$1,721.6）及上行的 100 日均线（$1,750.1）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月13日起看空（$1,802.34），RSI 为 44。"
+   "en": "ASML fell 6.9% on Oct 22 to $1,560.54, trading between $1,555.94 and $1,628.20 on volume 1.4 times its 20-day average. It is below the falling 5-day ($1,631.3), 10-day ($1,671.3) and 30-day ($1,717.4) averages, the rising 100-day ($1,749.4) and now the rising 200-day ($1,586.3). MACD has been below its signal since Oct 12 and is below zero; Parabolic SAR has been bearish since Oct 13 ($1,789.84), and RSI is 34.",
+   "zh": "阿斯麦 10月22日下跌 6.9%，收于 $1,560.54，盘中区间 $1,555.94–1,628.20，成交量为 20 日均量的 1.4 倍。股价位于下行的 5 日（$1,631.3）、10 日（$1,671.3）和 30 日均线（$1,717.4）、上行的 100 日均线（$1,749.4）下方，并跌破上行的 200 日均线（$1,586.3）。MACD 自 10月12日起位于信号线及零轴下方；抛物线 SAR 自 10月13日起看空（$1,789.84），RSI 为 34。"
   },
   {
-   "en": "The close cleared the $1,650–1,654 resistance (5-day, Oct 20 high), now support, but the high stalled at $1,688 (Oct 13 low, Oct 16 high). Resistance is $1,684–1,692 (with the 10-day), then $1,722 (30-day) and $1,750 (100-day). Support is $1,650, then $1,613–1,619 and $1,594 (Oct 15 low). A close above $1,692 would target $1,722–1,750; a close below $1,613 would reopen $1,594.",
-   "zh": "收盘突破 $1,650–1,654 阻力（5 日均线、10月20日高点），该区域转为支撑，但盘中高点受阻于 $1,688（10月13日低点、10月16日高点）。阻力为 $1,684–1,692（含 10 日均线），其次 $1,722（30 日均线）和 $1,750（100 日均线）。支撑为 $1,650，其次 $1,613–1,619 和 $1,594（10月15日低点）。若收盘站上 $1,692，下一目标看 $1,722–1,750；若收盘跌破 $1,613，将重新打开 $1,594。"
+   "en": "The drop broke the $1,650, $1,613–1,619 and $1,594 (Oct 15 low) supports. Resistance is $1,586–1,594 (200-day, Oct 15 low), then $1,613–1,631 (Oct 20 low, 5-day) and $1,671 (10-day). Support is $1,556 (Oct 22 low), then $1,530.6 (Jul 29 low) and $1,441 (May 19 low). A close back above $1,594 would target $1,631; a close below $1,530 would open $1,441.",
+   "zh": "股价跌破 $1,650、$1,613–1,619 和 $1,594（10月15日低点）支撑。阻力为 $1,586–1,594（200 日均线、10月15日低点），其次 $1,613–1,631（10月20日低点、5 日均线）和 $1,671（10 日均线）。支撑为 $1,556（10月22日低点），其次 $1,530.6（7月29日低点）和 $1,441（5月19日低点）。若收盘重回 $1,594 上方，下一目标看 $1,631；若收盘跌破 $1,530，将打开 $1,441。"
   }
  ],
  "levels": {
   "r": [
    [
-    1688,
+    1590,
     {
-     "en": "Oct 13 low, Oct 16 high and 10-day average ($1,682–1,692)",
-     "zh": "10月13日低点、10月16日高点和10日均线（$1,682–1,692）"
+     "en": "200-day average ($1,586.3); Oct 15 low $1,594",
+     "zh": "200日均线（$1,586.3）；10月15日低点 $1,594"
     }
    ],
    [
-    1722,
+    1622,
     {
-     "en": "30-day average ($1,721.6)",
-     "zh": "30日均线（$1,721.6）"
+     "en": "Oct 20 low $1,613.5; 5-day average $1,631.3",
+     "zh": "10月20日低点 $1,613.5；5日均线 $1,631.3"
     }
    ],
    [
-    1750,
+    1671,
     {
-     "en": "100-day average ($1,750.1)",
-     "zh": "100日均线（$1,750.1）"
+     "en": "10-day average ($1,671.3)",
+     "zh": "10日均线（$1,671.3）"
     }
    ]
   ],
   "s": [
    [
-    1650,
+    1556,
     {
-     "en": "5-day average ($1,650.7); Oct 20 high $1,654, cleared",
-     "zh": "5日均线（$1,650.7）；10月20日高点 $1,654，已突破"
+     "en": "Oct 22 low",
+     "zh": "10月22日低点"
     }
    ],
    [
-    1619,
+    1530.6,
     {
-     "en": "Sep 3 low; Oct 20 low $1,613.5",
-     "zh": "9月3日低点；10月20日低点 $1,613.5"
+     "en": "Jul 29 low",
+     "zh": "7月29日低点"
     }
    ],
    [
-    1594,
+    1441,
     {
-     "en": "Oct 15 low",
-     "zh": "10月15日低点"
+     "en": "May 19 low",
+     "zh": "5月19日低点"
     }
    ]
   ]

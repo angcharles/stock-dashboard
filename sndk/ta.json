@@ -1,64 +1,64 @@
 {
- "asof": "Oct 21, 2026",
- "close": 1378.22,
+ "asof": "Oct 22, 2026",
+ "close": 1260.93,
  "bias": {
-  "en": "Bearish · capped at the $1,401 October lows",
-  "zh": "偏空 · 受制于 $1,401 的 10 月低点"
+  "en": "Bearish · broke the $1,276–1,325 floor",
+  "zh": "偏空 · 跌破 $1,276–1,325 底部区域"
  },
  "read": [
   {
-   "en": "Sandisk rose 0.9% on Oct 21 to $1,378.22, trading between $1,327.62 and $1,424.48. It is above the falling 5-day ($1,361.8) and rising 200-day ($1,227.4) averages, and below the falling 10-day ($1,437.3), 30-day ($1,615.2) and 100-day ($1,636.2). MACD has been below its signal since Oct 2 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 6 ($1,518.40), and RSI is 37.",
-   "zh": "闪迪 10月21日上涨 0.9%，收于 $1,378.22，盘中区间 $1,327.62–1,424.48。股价位于下行的 5 日（$1,361.8）和上行的 200 日均线（$1,227.4）上方，低于下行的 10 日（$1,437.3）、30 日（$1,615.2）和 100 日均线（$1,636.2）。MACD 自 10月2日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月6日起看空（$1,518.40），RSI 为 37。"
+   "en": "Sandisk fell 8.5% on Oct 22 to $1,260.93, trading between $1,244.60 and $1,355.00 on 1.3 times average volume. It is below the falling 5-day ($1,335.0), 10-day ($1,402.5), 30-day ($1,600.9) and 100-day ($1,631.2) averages, and above the rising 200-day ($1,231.9). MACD has been below its signal since Oct 2 and is below zero; Parabolic SAR has been bearish since Oct 6 ($1,484.47), and RSI is 31.",
+   "zh": "闪迪 10月22日下跌 8.5%，收于 $1,260.93，盘中区间 $1,244.60–1,355.00，成交量为平均水平的 1.3 倍。股价位于下行的 5 日（$1,335.0）、10 日（$1,402.5）、30 日（$1,600.9）和 100 日均线（$1,631.2）下方，仍在上行的 200 日均线（$1,231.9）上方。MACD 自 10月2日起位于信号线下方，且在零轴之下；抛物线 SAR 自 10月6日起看空（$1,484.47），RSI 为 31。"
   },
   {
-   "en": "The high poked above $1,401 (Oct 13–14 lows) but the close fell back below it, while the low held the $1,325 Jul 17 low for a third session. Resistance is $1,401–1,424, then $1,437 (10-day) and $1,518 (SAR). Support is $1,325, then $1,276 (Oct 15 low) and $1,227 (200-day). A close above $1,424 would target $1,437–1,470; a close below $1,276 would open $1,227.",
-   "zh": "盘中高点短暂升破 $1,401（10月13–14日低点），但收盘回落至其下方；低点连续第三个交易日守住 $1,325 的 7月17日低点。阻力为 $1,401–1,424，其次 $1,437（10 日均线）和 $1,518（SAR）。支撑为 $1,325，其次 $1,276（10月15日低点）和 $1,227（200 日均线）。若收盘站上 $1,424，下一目标看 $1,437–1,470；若收盘跌破 $1,276，将打开 $1,227。"
+   "en": "After holding three sessions, the $1,325 Jul 17 low gave way, along with the $1,276 Oct 15 low; both now act as resistance. Resistance is $1,276–1,277, then $1,325–1,335 (5-day) and $1,401–1,402 (10-day). Support is $1,244.6 (Oct 22 low), then $1,232 (200-day) and $998 (Jul 29 low). A close above $1,277 would target $1,325–1,335; a close below the 200-day would open the $1,000 area.",
+   "zh": "此前守住三个交易日的 7月17日低点 $1,325 失守，10月15日低点 $1,276 也被跌破，二者转为阻力。阻力为 $1,276–1,277，其次 $1,325–1,335（5 日均线）和 $1,401–1,402（10 日均线）。支撑为 $1,244.6（10月22日低点），其次 $1,232（200 日均线）和 $998（7月29日低点）。若收盘站上 $1,277，下一目标看 $1,325–1,335；若收盘跌破 200 日均线，将打开 $1,000 附近。"
   }
  ],
  "levels": {
   "r": [
    [
+    1276.5,
+    {
+     "en": "Oct 15 low $1,276; May 18 low $1,277.3, now resistance",
+     "zh": "10月15日低点 $1,276；5月18日低点 $1,277.3，转为阻力"
+    }
+   ],
+   [
+    1330,
+    {
+     "en": "Jul 17 low $1,325; 5-day average $1,335.0",
+     "zh": "7月17日低点 $1,325；5日均线 $1,335.0"
+    }
+   ],
+   [
     1401,
     {
-     "en": "Oct 13 and Oct 14 lows; Oct 21 high $1,424.5",
-     "zh": "10月13日和14日低点；10月21日高点 $1,424.5"
-    }
-   ],
-   [
-    1437,
-    {
-     "en": "10-day average $1,437.3; former floor $1,465–1,475 above",
-     "zh": "10日均线 $1,437.3；上方为前期底部 $1,465–1,475"
-    }
-   ],
-   [
-    1518,
-    {
-     "en": "Parabolic SAR",
-     "zh": "抛物线 SAR"
+     "en": "Oct 13 and Oct 14 lows; 10-day average $1,402.5",
+     "zh": "10月13日和10月14日低点；10日均线 $1,402.5"
     }
    ]
   ],
   "s": [
    [
-    1325,
+    1244.6,
     {
-     "en": "Jul 17 low; Oct 21 low $1,327.6",
-     "zh": "7月17日低点；10月21日低点 $1,327.6"
+     "en": "Oct 22 low",
+     "zh": "10月22日低点"
     }
    ],
    [
-    1276,
+    1232,
     {
-     "en": "Oct 15 low",
-     "zh": "10月15日低点"
+     "en": "200-day average ($1,231.9)",
+     "zh": "200日均线（$1,231.9）"
     }
    ],
    [
-    1227,
+    998.2,
     {
-     "en": "200-day average",
-     "zh": "200日均线"
+     "en": "Jul 29 low",
+     "zh": "7月29日低点"
     }
    ]
   ]

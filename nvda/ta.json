@@ -1,64 +1,64 @@
 {
- "asof": "Oct 21, 2026",
- "close": 221.97,
+ "asof": "Oct 22, 2026",
+ "close": 212.21,
  "bias": {
-  "en": "Uptrend under pressure · bounced off the 100-day to the 10-day",
-  "zh": "承压上升趋势 · 自 100 日均线反弹至 10 日均线"
+  "en": "Uptrend under pressure · slipped below the 100-day",
+  "zh": "上升趋势承压 · 跌破 100 日均线"
  },
  "read": [
   {
-   "en": "Nvidia rose 2.5% on Oct 21 to $221.97, trading between $217.66 and $222.19. It is above the falling 5-day ($217.4) and rising 100-day ($214.6) and 200-day ($203.4) averages, and just under the falling 10-day ($222.3) and 30-day ($224.5). MACD has been below its signal since Oct 12 and is below zero, with the histogram narrowing; Parabolic SAR has been bearish since Oct 13 ($235.14), and RSI is 48.",
-   "zh": "英伟达 10月21日上涨 2.5%，收于 $221.97，盘中区间 $217.66–222.19。股价位于下行的 5 日（$217.4）以及上行的 100 日（$214.6）和 200 日均线（$203.4）上方，略低于下行的 10 日（$222.3）和 30 日均线（$224.5）。MACD 自 10月12日起位于信号线及零轴下方，柱状图收窄；抛物线 SAR 自 10月13日起看空（$235.14），RSI 为 48。"
+   "en": "Nvidia fell 4.4% on Oct 22 to $212.21, trading between $211.26 and $218.88. It is below the falling 5-day ($216.4), 10-day ($220.5) and 30-day ($224.3) averages and now the rising 100-day ($214.5), and above the rising 200-day ($203.6). MACD has been below its signal since Oct 12 and is below zero; Parabolic SAR has been bearish since Oct 13 ($233.35), and RSI is 39.",
+   "zh": "英伟达 10月22日下跌 4.4%，收于 $212.21，盘中区间 $211.26–218.88。股价位于下行的 5 日（$216.4）、10 日（$220.5）和 30 日均线（$224.3）下方，并跌破上行的 100 日均线（$214.5），仍在上行的 200 日均线（$203.6）上方。MACD 自 10月12日起位于信号线下方，且在零轴之下；抛物线 SAR 自 10月13日起看空（$233.35），RSI 为 39。"
   },
   {
-   "en": "The close cleared $218–219.6 (5-day average, Oct 19 and 20 highs), which now becomes support. Resistance is $222.2–224.5 (day's high, 10 and 30-day averages), then $226 (Oct 14 high) and $235.1 (SAR). Support is $217.4–219.6, then $214.6 (100-day) and $212.8 (Oct 15 and 20 lows). A close above $224.5 would open $226–235; a close below $214.6 would reopen $212.8.",
-   "zh": "收盘突破 $218–219.6（5 日均线、10月19日和20日高点），该区域转为支撑。阻力为 $222.2–224.5（当日高点、10 日和 30 日均线），其次 $226（10月14日高点）和 $235.1（SAR）。支撑为 $217.4–219.6，其次 $214.6（100 日均线）和 $212.8（10月15日和20日低点）。若收盘站上 $224.5，将打开 $226–235；若收盘跌破 $214.6，将重新打开 $212.8。"
+   "en": "The drop broke the 100-day average and the $212.8 Oct 15 and Oct 20 lows, both now resistance. Resistance is $212.8–214.5, then $216.4–218.9 (5-day, Oct 22 high) and $220.5–224.3 (10 and 30-day). Support is $211.3 (Oct 22 low), then $207.3–208.9 (Aug 24 and Sep 14 lows) and $203.6 (200-day). A close below $207 would open $203.6; a close above $214.5 would target $218.9.",
+   "zh": "股价跌破 100 日均线和 10月15日、10月20日低点 $212.8，二者转为阻力。阻力为 $212.8–214.5，其次 $216.4–218.9（5 日均线、10月22日高点）和 $220.5–224.3（10 日和 30 日均线）。支撑为 $211.3（10月22日低点），其次 $207.3–208.9（8月24日和9月14日低点）和 $203.6（200 日均线）。若收盘跌破 $207，将打开 $203.6；若收盘站上 $214.5，下一目标看 $218.9。"
   }
  ],
  "levels": {
   "r": [
    [
-    224.5,
+    213.7,
     {
-     "en": "10 and 30-day averages ($222.3–224.5); Oct 21 high $222.2",
-     "zh": "10日和30日均线（$222.3–224.5）；10月21日高点 $222.2"
+     "en": "Oct 15 and Oct 20 lows ($212.8); 100-day average $214.5",
+     "zh": "10月15日和10月20日低点（$212.8）；100日均线 $214.5"
     }
    ],
    [
-    226,
+    218,
     {
-     "en": "Oct 14 high",
-     "zh": "10月14日高点"
+     "en": "5-day average $216.4; Oct 22 high $218.9",
+     "zh": "5日均线 $216.4；10月22日高点 $218.9"
     }
    ],
    [
-    235.1,
+    222,
     {
-     "en": "SAR",
-     "zh": "SAR"
+     "en": "10 and 30-day averages ($220.5–224.3)",
+     "zh": "10日和30日均线（$220.5–224.3）"
     }
    ]
   ],
   "s": [
    [
-    218.5,
+    211.3,
     {
-     "en": "5-day average $217.4; Oct 19–20 highs ($218.5–219.6), cleared",
-     "zh": "5日均线 $217.4；10月19–20日高点（$218.5–219.6，已突破）"
+     "en": "Oct 22 low",
+     "zh": "10月22日低点"
     }
    ],
    [
-    214.6,
+    208,
     {
-     "en": "100-day average",
-     "zh": "100日均线"
+     "en": "Aug 24 low $207.3; Sep 14 low $208.9",
+     "zh": "8月24日低点 $207.3；9月14日低点 $208.9"
     }
    ],
    [
-    212.8,
+    203.6,
     {
-     "en": "Oct 15 and Oct 20 lows",
-     "zh": "10月15日和10月20日低点"
+     "en": "200-day average",
+     "zh": "200日均线"
     }
    ]
   ]
