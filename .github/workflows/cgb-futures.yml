@@ -1,0 +1,58 @@
+name: CGB bond futures
+
+# China tab, "CGB Bond Futures": delayed quotes, daily history and futures-implied yields for the CFFEX
+# 2/5/10/30-year China government bond futures (TS, TF, T, TL). The deploy workflow re-fetches the same
+# file on every refresh for intraday quotes; this workflow commits a copy after the morning session, after
+# the close (once CFFEX publishes settlement prices) and whenever the fetch script changes, so the site
+# always has a recent committed file even if a later live fetch fails.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/fetch-cgb-futures.mjs", ".github/workflows/cgb-futures.yml"]
+  schedule:
+    - cron: "40 3 * * 1-5"   # 11:40 Beijing / Singapore, after the morning session
+    - cron: "50 7 * * 1-5"   # 15:50, after the 15:15 close
+    - cron: "20 9 * * 1-5"   # 17:20, catches CFFEX settlement statistics published late
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: cgb-futures
+  cancel-in-progress: false
+
+jobs:
+  futures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: CGB futures quotes, history and implied yields
+        run: node scripts/fetch-cgb-futures.mjs
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          git add data/cgb-futures.json
+          if git diff --cached --quiet; then
+            echo "No changes."; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Refresh CGB bond futures"
+          git pull -q --rebase origin main
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
