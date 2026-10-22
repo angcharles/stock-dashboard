@@ -191,7 +191,8 @@
     const o = chartOpts();
     if (!yc) {
       yc = LightweightCharts.createChart($("fuYChart"), { ...o, autoSize: true, localization: { locale: "en-US" } });
-      yc.subscribeCrosshairMove((p) => { yLegend(p); const k = tkey(p); dLegend(k); xhair(dc, dlines, k); });
+      yc.subscribeCrosshairMove((p) => { yLegend(p); const k = tkey(p); dLegend(k); xhair(dc, dlines, k); yCard(p, k); });
+      $("fuYChart").addEventListener("mouseleave", () => { $("fuYTip").hidden = true; });
       yc.timeScale().subscribeVisibleLogicalRangeChange((r) => syncTo(dc, r));
     }
     else yc.applyOptions(o);
@@ -272,6 +273,40 @@
       const v = k ? l.data.find(([d]) => d === k) : l.data.at(-1);
       return `<span><i style="background:${l.col};height:2.5px"></i>${esc(l.label)} <b>${v ? sg(v[1], 1) + " bp" : "–"}</b><span class="mut">${v ? " " + v[0] : ""}</span></span>`;
     }).join("");
+  }
+  // ---------- hover card: futures contract and CTD vs the chosen cash bond ----------
+  const yrsLeft = (mat, d) => mat ? (Date.parse(mat) - Date.parse(d)) / (365.25 * 864e5) : null;
+  function yCard(p, k) {
+    const tip = $("fuYTip");
+    if (!k || !p.point || p.point.x < 0) { tip.hidden = true; return; }
+    const at = (data) => data.find(([d]) => d === k)?.[1];
+    const rows = D.products.filter((x) => st.on[x.p]).map((x) => {
+      const c = mainC(x), t = c.ctd, imp = at(x.yhist), col = css(COL[x.p]);
+      const fut = `<div><h4><i style="background:${col}"></i>${x.p} · ${TEN[x.p]}Y futures</h4><dl>
+        <dt>Implied yield</dt><dd><b>${imp != null ? f(imp, 3) + "%" : "–"}</b></dd>
+        <dt>Main contract now</dt><dd>${esc(c.code)} · ${f(c.last, DEC[x.p])}</dd>
+        <dt>Notional</dt><dd>${TEN[x.p]}Y 3% · ${esc(x.face || "")}</dd>
+        ${t ? `<dt>CTD (today's)</dt><dd>${esc(t.code)} ${esc(t.name || "")}</dd><dt>CTD coupon · mat</dt><dd>${f(t.coupon, 2)}% · ${esc(t.mat)}</dd><dt>CTD left · CF</dt><dd>${f(yrsLeft(t.mat, k), 2)}Y · ${f(t.cf, 4)}</dd>` : `<dt>CTD</dt><dd>notional bond</dd>`}
+      </dl></div>`;
+      if (st.ym === "imp") return `<div class="fr">${fut}</div>`;
+      const cash = at(cashSer(x.p)), b = useBond(x.p) ? C.bonds.find((y) => y.code === st.bond[x.p]) : null;
+      const cb = b ? `<div><h4><i style="background:${col};opacity:.6"></i>${esc(b.code)} · cash bond</h4><dl>
+        <dt>CCDC yield</dt><dd><b>${cash != null ? f(cash, 3) + "%" : "–"}</b></dd>
+        <dt>Name</dt><dd>${esc(b.name)}</dd><dt>ISIN</dt><dd>${esc(b.isin || "–")}</dd>
+        <dt>Coupon · mat</dt><dd>${b.coupon != null ? f(b.coupon, 2) + "%" : "–"} · ${esc(b.mat)}</dd>
+        <dt>Years left</dt><dd>${f(yrsLeft(b.mat, k), 2)}Y</dd>
+        <dt>CFETS last today</dt><dd>${b.last != null ? f(b.last, 4) + "%" : "not traded"}</dd>
+      </dl></div>` : `<div><h4><i style="background:${col};opacity:.6"></i>${TEN[x.p]}Y CCDC cash</h4><dl>
+        <dt>CCDC yield</dt><dd><b>${cash != null ? f(cash, 3) + "%" : "–"}</b></dd>
+        <dt>Point</dt><dd>standard ${TEN[x.p]}Y tenor</dd><dt>Source</dt><dd>ChinaBond curve</dd></dl></div>`;
+      const sp = imp != null && cash != null ? (imp - cash) * 100 : null;
+      return `<div class="fr"><div class="fg">${fut}${cb}</div><div class="fs">Futures − cash ${sp != null ? sg(sp, 1) + " bp" : "–"}</div></div>`;
+    }).join("");
+    tip.innerHTML = `<div class="fd">${esc(k)}</div>${rows}`;
+    tip.hidden = false;
+    const box = $("fuYChart").getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = p.point.x + 16; if (x + w > box.width) x = Math.max(0, p.point.x - w - 16);
+    tip.style.left = x + "px"; tip.style.top = Math.max(0, Math.min(p.point.y - h / 2, box.height - h)) + "px";
   }
   function yLegend(p) {
     let k = null;

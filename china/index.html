@@ -49,6 +49,18 @@ section{margin-top:40px}
 #cv text{font:500 10.5px var(--f-mono);fill:var(--muted)}
 .tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 8px;font:500 11.5px var(--f-mono);font-variant-numeric:tabular-nums;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
 .tip[hidden]{display:none}
+.fcard{white-space:normal;width:min(560px,calc(100% - 16px));padding:8px 10px}
+.fcard .fd{font:600 11px var(--f-mono);color:var(--muted);margin-bottom:6px}
+.fcard .fr{border-top:1px solid var(--line);padding-top:6px;margin-top:6px}
+.fcard .fr:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.fcard .fg{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.fcard .fg div{min-width:0}
+.fcard h4{margin:0 0 3px;font:600 11.5px var(--f-mono);display:flex;align-items:center;gap:6px}
+.fcard h4 i{display:inline-block;width:10px;height:3px}
+.fcard dl{display:grid;grid-template-columns:auto 1fr;gap:1px 8px;margin:0;font:500 11px var(--f-mono)}
+.fcard dt{color:var(--muted)}.fcard dd{margin:0;text-align:right;color:var(--ink)}
+.fcard .fs{margin-top:5px;font:600 11.5px var(--f-mono)}
+@media (max-width:640px){.fcard .fg{grid-template-columns:1fr}}
 .leg{display:flex;flex-wrap:wrap;gap:12px;font:500 11px var(--f-mono);color:var(--muted);margin-top:6px}
 .leg i{display:inline-block;width:12px;height:2px;vertical-align:middle;margin-right:5px}
 .leg i.dot{width:7px;height:7px;border-radius:50%}
@@ -161,7 +173,7 @@ footer a{color:var(--accent)}
     <div class="panel" style="margin-top:16px">
       <div class="chead"><h3 id="fuYH">Yield equivalent: 2Y, 5Y, 10Y, 30Y</h3><div class="btns" id="fuYRng" role="group" aria-label="Yield range"></div></div>
       <div class="ctl" style="margin-bottom:8px"><div class="btns" id="fuYMode" role="group" aria-label="Yield view"></div><div class="btns ften" id="fuYTen" role="group" aria-label="Tenors shown"></div></div><div class="ctl" id="fuYBonds" style="margin:0 0 8px;display:none"></div>
-      <div class="cwrap"><div id="fuYChart" style="height:340px"></div></div>
+      <div class="cwrap"><div id="fuYChart" style="height:340px"></div><div class="tip fcard" id="fuYTip" hidden></div></div>
       <div class="leg" id="fuYLeg" aria-live="polite"></div>
       <div id="fuDWrap" style="display:none;margin-top:4px"><div class="mut" style="font:500 11px var(--f-mono);margin:4px 0 2px">Futures-implied minus cash (bp)</div><div class="cwrap"><div id="fuDChart" style="height:160px"></div></div><div class="leg" id="fuDLeg" aria-live="polite"></div></div>
       <p class="note" id="fuYNote"></p>
@@ -224,6 +236,6 @@ footer a{color:var(--accent)}
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script src="../assets/china.js?v=3"></script>
 <script src="../assets/china-lending.js?v=1"></script>
-<script src="../assets/china-futures.js?v=6"></script>
+<script src="../assets/china-futures.js?v=7"></script>
 </body>
 </html>
