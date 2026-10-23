@@ -127,6 +127,13 @@
   }
   function niceStep(raw) { const p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }
 
+  // meeting picker options: the next 8 FOMC meetings, plus the selected one if it is further out
+  function meetOpts(now, md) {
+    const picks = now.meetings.slice(0, 8).map((m) => m.d);
+    if (!picks.includes(md)) picks.push(md);
+    return picks.map((d) => `<option value="${d}"${d === md ? " selected" : ""}>${fmtD(d, true)}${d === now.meetings[0].d ? " (next)" : ""}</option>`).join("");
+  }
+
   // ---------- probability distribution for the selected meeting ----------
   function probs(now, prv) {
     const m = now.meetings.find((x) => x.d === selM) || now.meetings[0], q = prv && prv.meetings.find((x) => x.d === m.d);
@@ -139,8 +146,9 @@
         `<div class="pv">${pct(a)}<small>${b != null ? `${pct(b)} · <span class="${d > 0.05 ? "up" : d < -0.05 ? "down" : ""}">${sgn(d, 1)} pp</span>` : ""}</small></div></div>`;
     }).join("");
     const s = sides(m, now.lower);
-    $("fedProb").innerHTML = `<div class="sig-head"><h3>FOMC ${fmtD(m.d, true)}: target range probabilities</h3><span class="score">${s.hike >= s.hold && s.hike >= s.cut ? "Hike favoured" : s.cut > s.hold ? "Cut favoured" : "Hold favoured"}</span></div>` +
+    $("fedProb").innerHTML = `<div class="sig-head"><h3><label class="vh" for="fedPSel">FOMC meeting</label>FOMC <select id="fedPSel" class="msel">${meetOpts(now, m.d)}</select>: target range probabilities</h3><span class="score">${s.hike >= s.hold && s.hike >= s.cut ? "Hike favoured" : s.cut > s.hold ? "Cut favoured" : "Hold favoured"}</span></div>` +
       `<p class="note" style="margin:0 0 10px">Implied rate ${m.rate.toFixed(3)}%${q ? ` (${sgn((m.rate - q.rate) * 100, 1)} bp vs ${lb} ago)` : ""} · ${sgn(m.cum, 1)} bp priced from today, ${sgn(m.move, 1)} bp at this meeting. Bars: now; thin line: ${lb} ago.</p>${rows}`;
+    $("fedPSel").onchange = (e) => { selM = e.target.value; render(); };
   }
 
   function table(now, prv) {
@@ -185,11 +193,8 @@
     $("fedHm").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; hm = b.dataset.k; try { localStorage.setItem("fed-hm", hm); } catch (x) {} history(now, prv); };
     $("fedHf").onclick = (e) => { const b = e.target.closest("button"); if (!b) return; hf = b.dataset.k; try { localStorage.setItem("fed-hf", hf); } catch (x) {} history(now, prv); };
     const mNow = mFor(now);
-    // meeting picker: the next three FOMC meetings, plus whichever meeting is picked in the chart above
-    const picks = now.meetings.slice(0, 3).map((m) => m.d);
-    if (!picks.includes(md)) picks.push(md);
     const hs = $("fedHSel");
-    hs.innerHTML = picks.map((d) => `<option value="${d}"${d === md ? " selected" : ""}>${fmtD(d, true)}${d === now.meetings[0].d ? " (next)" : ""}</option>`).join("");
+    hs.innerHTML = meetOpts(now, md);
     hs.onchange = () => { selM = hs.value; render(); };
 
     const el = host2, W = Math.max(300, el.clientWidth), small = W < 560;
