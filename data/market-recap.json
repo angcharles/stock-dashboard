@@ -1,29 +1,30 @@
 {
- "session": "2026-10-22",
- "asof": "Thu Oct 22, 2026",
+ "session": "2026-10-23",
+ "asof": "Fri Oct 23, 2026",
  "tone": "down",
- "headline": "Meta's AI spending bill sparks a 6.7% chip rout; Nasdaq −2.6% while yields tumble below 5%",
- "summary": "A one-sided tech sell-off. Futures slid overnight after Meta, Tesla and Lam Research reported, and the selling deepened through the day: the Nasdaq had its worst day since June and the S&P 500 its worst since July, both closing near their lows. Under the surface the market held up — the Dow and Russell 2000 ended slightly higher, NYSE gainers edged out losers, and staples, defense and industrials rallied as money rotated out of AI names and into Treasuries.",
+ "headline": "Brent jumps to $116 on Houthi attacks; Dow −1.2% as selling moves from tech to blue chips",
+ "summary": "A broad but orderly decline. The Dow opened about 1% lower and stayed there, while the Nasdaq briefly turned positive on a chip rebound before slipping into the red late; the S&P 500 finished near its low. Nearly three in four S&P 500 stocks fell and decliners led advancers about 1.7 to 1 on the NYSE, with staples, consumer discretionary, financials and telecoms the weakest groups while energy hit a record and tech edged up.",
  "stats": [
-  ["S&P 500", "7,663.43", -1.21],
-  ["Nasdaq", "26,008.86", -2.6],
-  ["Dow", "52,867.98", 0.02],
-  ["Russell 2000", "2,784.03", 0.11],
-  ["VIX", "19.08", 14.39, true],
-  ["US 10Y", "4.96%", "−18bp"],
-  ["WTI crude", "$99.47", 2.39]
+  ["S&P 500", "7,623.68", -0.52],
+  ["Nasdaq", "25,955.34", -0.21],
+  ["Dow", "52,215.16", -1.23],
+  ["Russell 2000", "2,775.90", -0.29],
+  ["SOX (chips)", "≈10,779", 0.44],
+  ["VIX", "19.45", 2.21, true],
+  ["US 10Y", "4.99%", "+4bp"],
+  ["WTI crude", "$103.27", 3.8]
  ],
  "drivers": [
-  ["Meta reignites AI-cost fears", "Meta beat on revenue but posted negative free cash flow of $2.1B, its first cash burn in more than a decade, raised the low end of its capex range to $135B and plans a 2-for-1 split into non-voting shares to help fund AI spending; the stock fell 7%. Tesla lost 3.1% despite positive free cash flow and a cut in 2026 capex to about $20B."],
-  ["Chips suffer their worst day since June", "The SOX sank 6.7% to its lowest close since Jul 29, now more than 26% below its June record. Lam Research fell about 12% on an outlook only in line and supply-chain limits; AMD, Intel, Sandisk and Marvell dropped more than 8%, Micron about 6%, CoreWeave 11% and Nvidia 4% after Jensen Huang said a lack of capital is holding back neocloud growth."],
-  ["Oil jumps on Iran strike plans", "A report that the US and Israel have drawn up renewed strikes on Iran for after the Nov 3 midterms, plus more Houthi attacks in Saudi Arabia, sent Brent up 4% to $113.17, its highest settle in over five months; WTI rose 2.4% to $99.47. Gold fell nearly 3%."],
-  ["Bonds rally, defensives catch a bid", "The 10-year yield fell about 18bp to 4.96%, below 5% for the first time since Sep 23, in the biggest Treasury rally in about a year; jobless claims dropped to 194K. Procter & Gamble rose 5.6% and Lockheed Martin 7% on beats, Blackstone 8.4% and Spotify 11.1%, while Moderna sank nearly 20%."]
+  ["Oil surge revives inflation worries", "Houthi attacks on Saudi energy sites and an oil spill reported off the UAE sent Brent up 3.1% to $116.72, its highest settle since April, and WTI up 3.8% to $103.27. Consumer sentiment hovered near a record low on rising prices; energy stocks rose 2.5% to a record, with SLB up about 7% on a profit beat and Chevron up 2.9%."],
+  ["Selling rotates into blue chips", "Defensive and old-economy names that held up on Thursday gave ground: staples, discretionary and financials each fell more than 1%. American Express lost 3.7% despite a raised forecast as it announced 5% job cuts, JPMorgan and Citi fell 1.5%, Caterpillar 2.4% and Eli Lilly 2.5%."],
+  ["Chips steady after the rout", "The SOX recovered 0.44% after Thursday's 6.7% plunge and S&P tech rose 0.35%. Memory led: Micron gained 2.5% and SK hynix about 4% after it dropped the Solidigm IPO review; AMD and Intel rose 1.7%, while Nvidia slipped about 0.6% and Apple briefly passed it in market value."],
+  ["SpaceX wireless report hits telecoms", "A report that SpaceX is seeking access to thousands of US cell sites for a fourth wireless carrier sank AT&T and T-Mobile about 8% and Verizon 1.2%, while tower owners Crown Castle (+9%) and American Tower (+4%) rallied. Cybersecurity stocks jumped 6–8% on fresh AI-found software flaws; Bloom Energy fell 11% after results."]
  ],
- "week": "Week so far: Russell 2000 +2.3%, Dow +1.7%, S&P 500 +0.1%, Nasdaq −0.5%, as Thursday wiped out most of the week's chip rebound. Oil above $110 Brent keeps inflation in focus, and markets still see a chance of another 25bp Fed hike before year-end.",
- "watch": "Next: Western Digital beat and guided well above forecasts after the close but gave back an early 4% after-hours gain; Friday brings flash PMIs and consumer sentiment, then the Fed decides Oct 28 alongside Microsoft and SK hynix results, with Intel on Oct 29.",
+ "week": "For the week: Russell 2000 +2.0%, Dow +0.4% (third weekly gain), S&P 500 −0.5% (second weekly loss), Nasdaq −0.7%, as Meta's spending shock and oil near post-war highs outweighed earnings tracking more than 30% growth. The 10-year yield still fell about 11bp on the week, staying just under 5%.",
+ "watch": "Next: a third of the S&P 500 reports, including Alphabet, Microsoft and Amazon, whose AI capex plans are in focus; the Fed decides Oct 28 alongside SK hynix results, Intel reports Oct 29, and the Nov 3 midterms follow.",
  "sources": [
-  ["AP", "https://wtop.com/national/2026/10/how-major-us-stock-indexes-fared-thursday-10-22-2026"],
-  ["Reuters / MarketScreener", "https://au.marketscreener.com/news/s-p-500-nasdaq-end-sharply-lower-as-revived-ai-doubts-ignite-tech-selloff-ce785cdedc80ff25"],
-  ["investingLive", "https://investinglive.com/news/investinglive-americas-fx-news-wrap-22-oct-nasdaq-sinks-as-ai-worries-bite-treasury-yields-tumble"]
+  ["AP", "https://wtop.com/national/2026/10/how-major-us-stock-indexes-fared-friday-10-23-2026"],
+  ["Reuters / Yahoo Finance", "https://finance.yahoo.com/markets/stocks/articles/wall-st-set-open-lower-130848087.html"],
+  ["LA Times (AP)", "https://latimes.com/business/story/2026-10-23/wall-street-loses-ground-under-pressure-from-rising-oil-prices"]
  ]
 }
