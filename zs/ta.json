@@ -1,31 +1,38 @@
 {
- "asof": "Oct 22, 2026",
- "close": 237.76,
+ "asof": "Oct 23, 2026",
+ "close": 255.15,
  "bias": {
-  "en": "Uptrend · cleared the October high, SAR turned bullish",
-  "zh": "上升趋势 · 突破 10 月高点，SAR 转多"
+  "en": "Uptrend · broke out above $250, RSI overbought",
+  "zh": "上升趋势 · 突破 $250，RSI 超买"
  },
  "read": [
   {
-   "en": "Zscaler rose 2.8% on Oct 22 to $237.76, trading between $231.64 and $241.12 on 1.3 times average volume. It is above the falling 5-day ($220.7), rising 10-day ($223.3), rising 30-day ($208.2), rising 100-day ($169.7) and falling 200-day ($165.9) averages. MACD crossed above its signal on Oct 22 and is above zero; Parabolic SAR turned bullish on Oct 22 ($203.33), and RSI is 66.",
-   "zh": "Zscaler 10月22日上涨 2.8%，收于 $237.76，盘中区间 $231.64–241.12，成交量为平均水平的 1.3 倍。股价位于下行的 5 日（$220.7）、上行的 10 日（$223.3）、上行的 30 日（$208.2）、上行的 100 日（$169.7）和下行的 200 日均线（$165.9）上方。MACD 于 10月22日上穿信号线，位于零轴之上；抛物线 SAR 于 10月22日转为看多（$203.33），RSI 为 66。"
+   "en": "Zscaler rose 7.3% on Oct 23 to $255.15, trading between $234.19 and $255.55 on 1.4 times average volume. It is above all its rising averages: 5-day ($230.3), 10-day ($225.4), 30-day ($211.2), 100-day ($170.9) and 200-day ($166.0). MACD has been above its signal since Oct 22 and above zero; Parabolic SAR has been bullish since Oct 22 ($204.09), and RSI is 72.",
+   "zh": "Zscaler 10月23日上涨 7.3%，收于 $255.15，盘中区间 $234.19–255.55，成交量为平均水平的 1.4 倍。股价位于所有上行均线上方：5 日（$230.3）、10 日（$225.4）、30 日（$211.2）、100 日（$170.9）和 200 日均线（$166.0）。MACD 自 10月22日起位于信号线及零轴上方；抛物线 SAR 自 10月22日起看多（$204.09），RSI 为 72。"
   },
   {
-   "en": "The close cleared the $237.2 Oct 12 high, which now becomes support, and the SAR flipped bullish as flagged. Resistance is $241.1 (Oct 22 high), then $250 (round number). Support is $237.2, then $231.6–232.1 (Oct 22 low, Oct 21 high) and $220.7–223.3 (5 and 10-day). A close above $241.1 would target $250; a close below $231.6 would reopen $221–223.",
-   "zh": "收盘突破 10月12日高点 $237.2，该位置转为支撑，SAR 也如预期转为看多。阻力为 $241.1（10月22日高点），其次 $250（整数关口）。支撑为 $237.2，其次 $231.6–232.1（10月22日低点、10月21日高点）和 $220.7–223.3（5 日和 10 日均线）。若收盘站上 $241.1，下一目标看 $250；若收盘跌破 $231.6，将重新打开 $221–223。"
+   "en": "The rally cleared the $241.1 Oct 22 high and $250, both now support, and closed near the day's high with RSI above 70. Resistance is $255.6 (Oct 23 high), then $260 and $270 (round numbers). Support is $250, then $241.1 and $231.6–237.2 (Oct 22 low, Oct 12 high). A close above $255.6 would target $260–270; a close below $241 would reopen $231.6–237.2.",
+   "zh": "此轮上涨突破 $241.1（10月22日高点）和 $250，二者转为支撑，收盘接近全日高点，RSI 高于 70。阻力为 $255.6（10月23日高点），其次 $260 和 $270（整数关口）。支撑为 $250，其次 $241.1 和 $231.6–237.2（10月22日低点、10月12日高点）。若收盘站上 $255.6，下一目标看 $260–270；若收盘跌破 $241，将重新打开 $231.6–237.2。"
   }
  ],
  "levels": {
   "r": [
    [
-    241.1,
+    255.6,
     {
-     "en": "Oct 22 high",
-     "zh": "10月22日高点"
+     "en": "Oct 23 high",
+     "zh": "10月23日高点"
     }
    ],
    [
-    250,
+    260,
+    {
+     "en": "Round number",
+     "zh": "整数关口"
+    }
+   ],
+   [
+    270,
     {
      "en": "Round number",
      "zh": "整数关口"
@@ -34,24 +41,24 @@
   ],
   "s": [
    [
-    237.2,
+    250,
     {
-     "en": "Oct 12 high, cleared",
-     "zh": "10月12日高点，已突破"
+     "en": "Round number, cleared",
+     "zh": "整数关口，已突破"
     }
    ],
    [
-    232,
+    241.1,
     {
-     "en": "Oct 21 high $232.1; Oct 22 low $231.6",
-     "zh": "10月21日高点 $232.1；10月22日低点 $231.6"
+     "en": "Oct 22 high, cleared",
+     "zh": "10月22日高点，已突破"
     }
    ],
    [
-    222,
+    234.5,
     {
-     "en": "5 and 10-day averages ($220.7–223.3)",
-     "zh": "5日和10日均线（$220.7–223.3）"
+     "en": "Oct 12 high $237.2; Oct 23 low $234.2; Oct 22 low $231.6",
+     "zh": "10月12日高点 $237.2；10月23日低点 $234.2；10月22日低点 $231.6"
     }
    ]
   ]

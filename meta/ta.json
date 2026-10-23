@@ -1,57 +1,57 @@
 {
- "asof": "Oct 22, 2026",
- "close": 648.85,
+ "asof": "Oct 23, 2026",
+ "close": 642.62,
  "bias": {
-  "en": "Uptrend under pressure · lost $680, nearing the 100 and 200-day",
-  "zh": "上升趋势承压 · 跌破 $680，逼近 100 日和 200 日均线"
+  "en": "Uptrend under pressure · testing the 100 and 200-day",
+  "zh": "上升趋势承压 · 考验 100 日和 200 日均线"
  },
  "read": [
   {
-   "en": "Meta fell 7.0% on Oct 22 to $648.85, trading between $639.69 and $681.07 on twice its average volume. It is below the falling 5-day ($691.1) and 10-day ($715.4) and rising 30-day ($715.6), and above the rising 100-day ($630.4) and 200-day ($632.6). MACD has been below its signal since Oct 2 but is above zero, histogram widening; Parabolic SAR has been bearish since Oct 16 ($756.87), and RSI is 37.",
-   "zh": "Meta 10月22日下跌 7.0%，收于 $648.85，盘中区间 $639.69–681.07，成交量约为平均水平的两倍。股价位于下行的 5 日（$691.1）和 10 日（$715.4）以及上行的 30 日均线（$715.6）下方，仍在上行的 100 日（$630.4）和 200 日均线（$632.6）上方。MACD 自 10月2日起位于信号线下方，仍在零轴之上，柱状图扩大；抛物线 SAR 自 10月16日起看空（$756.87），RSI 为 37。"
+   "en": "Meta fell 1.0% on Oct 23 to $642.62, trading between $633.27 and $648.04. It is below the falling 5-day ($677.7) and 10-day ($707.8) and rising 30-day ($715.4), and above the rising 100-day ($630.8) and 200-day ($632.5). MACD has been below its signal since Oct 2 and is now below zero, histogram widening; Parabolic SAR has been bearish since Oct 16 ($747.49), and RSI is 36.",
+   "zh": "Meta 10月23日下跌 1.0%，收于 $642.62，盘中区间 $633.27–648.04。股价位于下行的 5 日（$677.7）和 10 日（$707.8）以及上行的 30 日均线（$715.4）下方，高于上行的 100 日（$630.8）和 200 日均线（$632.5）。MACD 自 10月2日起位于信号线下方，现已跌破零轴，柱状图扩大；抛物线 SAR 自 10月16日起看空（$747.49），RSI 为 36。"
   },
   {
-   "en": "The drop broke the $690–694 support and the $680 Sep 21 gap top, now resistance; the low held the $638.6 Dec 12, 2025 low. Resistance is $680–681, then $690–694 (Oct 19–21 lows, 5-day) and $702.7 (Oct 16 low). Support is $638.6–639.7, then $630–633 (100 and 200-day) and $600 (Jan 20 low). A close below $630 would open $600; a close above $681 would target $694–702.7.",
-   "zh": "股价跌破 $690–694 支撑和 9月21日跳空缺口上沿 $680，二者转为阻力；盘中低点守住 2025年12月12日低点 $638.6。阻力为 $680–681，其次 $690–694（10月19–21日低点、5 日均线）和 $702.7（10月16日低点）。支撑为 $638.6–639.7，其次 $630–633（100 日和 200 日均线）和 $600（1月20日低点）。若收盘跌破 $630，将打开 $600；若收盘站上 $681，下一目标看 $694–702.7。"
+   "en": "The $633.3 low dipped under the $638.6–639.7 support (Dec 12, 2025 and Oct 22 lows) before the close recovered above it. Resistance is $648 (Oct 23 high), then $677.7–681 (5-day, Oct 22 high) and $690–694. Support is $633–639.7, then $630.8–632.5 (100 and 200-day) and $600 (Jan 20 low). A close below $630 would open $600; a close above $648 would target $678–681.",
+   "zh": "盘中低点 $633.3 一度跌破 $638.6–639.7 支撑（2025年12月12日和10月22日低点），随后收盘回到其上方。阻力为 $648（10月23日高点），其次 $677.7–681（5 日均线、10月22日高点）和 $690–694。支撑为 $633–639.7，其次 $630.8–632.5（100 日和 200 日均线）和 $600（1月20日低点）。若收盘跌破 $630，将打开 $600；若收盘站上 $648，下一目标看 $678–681。"
   }
  ],
  "levels": {
   "r": [
    [
-    680.5,
+    648,
     {
-     "en": "Oct 20 low and Oct 22 high ($681.1); Sep 21 gap top $679.6",
-     "zh": "10月20日低点和10月22日高点（$681.1）；9月21日缺口上沿 $679.6"
+     "en": "Oct 23 high",
+     "zh": "10月23日高点"
+    }
+   ],
+   [
+    680,
+    {
+     "en": "5-day average $677.7; Oct 22 high $681.1; Sep 21 gap top $679.6",
+     "zh": "5日均线 $677.7；10月22日高点 $681.1；9月21日缺口上沿 $679.6"
     }
    ],
    [
     692,
     {
-     "en": "Oct 21 low $690.1; 5-day average $691.1; Oct 19 low $693.9",
-     "zh": "10月21日低点 $690.1；5日均线 $691.1；10月19日低点 $693.9"
-    }
-   ],
-   [
-    702.7,
-    {
-     "en": "Oct 16 low",
-     "zh": "10月16日低点"
+     "en": "Oct 21 low $690.1; Oct 19 low $693.9",
+     "zh": "10月21日低点 $690.1；10月19日低点 $693.9"
     }
    ]
   ],
   "s": [
    [
-    639,
+    636,
     {
-     "en": "Oct 22 low $639.7; Dec 12, 2025 low $638.6",
-     "zh": "10月22日低点 $639.7；2025年12月12日低点 $638.6"
+     "en": "Oct 22 low $639.7; Dec 12, 2025 low $638.6; Oct 23 low $633.3",
+     "zh": "10月22日低点 $639.7；2025年12月12日低点 $638.6；10月23日低点 $633.3"
     }
    ],
    [
-    631,
+    631.5,
     {
-     "en": "200-day $632.6 and 100-day $630.4 averages",
-     "zh": "200日均线 $632.6和100日均线 $630.4"
+     "en": "200-day $632.5 and 100-day $630.8 averages",
+     "zh": "200日均线 $632.5 和 100日均线 $630.8"
     }
    ],
    [

@@ -1,34 +1,34 @@
 {
- "asof": "Oct 22, 2026",
- "close": 521.08,
+ "asof": "Oct 23, 2026",
+ "close": 524.51,
  "bias": {
-  "en": "Uptrend pausing · lost the $524 Oct 16 low",
-  "zh": "上升趋势暂停 · 跌破 10月16日低点 $524"
+  "en": "Uptrend pausing · back at the $525 resistance",
+  "zh": "上升趋势暂停 · 回到 $525 阻力"
  },
  "read": [
   {
-   "en": "Microsoft fell 2.2% on Oct 22 to $521.08, trading between $520.30 and $533.60. It is below the falling 5-day ($529.7) and rising 10-day ($534.1) averages, and above the rising 30-day ($516.8), 100-day ($459.1) and 200-day ($436.3). MACD has been below its signal since Oct 19 but is above zero, histogram widening; Parabolic SAR has been bearish since Oct 16 ($549.08), and RSI is 51.",
-   "zh": "微软 10月22日下跌 2.2%，收于 $521.08，盘中区间 $520.30–533.60。股价位于下行的 5 日（$529.7）和上行的 10 日均线（$534.1）下方，仍在上行的 30 日（$516.8）、100 日（$459.1）和 200 日均线（$436.3）上方。MACD 自 10月19日起位于信号线下方，但仍在零轴之上，柱状图扩大；抛物线 SAR 自 10月16日起看空（$549.08），RSI 为 51。"
+   "en": "Microsoft rose 0.7% on Oct 23 to $524.51, trading between $515.70 and $525.77 on light volume (0.64 times average). It is below the falling 5-day ($528.8) and rising 10-day ($533.1) averages, and above the rising 30-day ($517.8), 100-day ($459.9) and 200-day ($436.5). MACD has been below its signal since Oct 19 but is above zero, histogram widening; Parabolic SAR has been bearish since Oct 16 ($547.92), and RSI is 53.",
+   "zh": "微软 10月23日上涨 0.7%，收于 $524.51，盘中区间 $515.70–525.77，成交清淡（为平均水平的 0.64 倍）。股价位于下行的 5 日（$528.8）和上行的 10 日均线（$533.1）下方，高于上行的 30 日（$517.8）、100 日（$459.9）和 200 日均线（$436.5）。MACD 自 10月19日起位于信号线下方，但仍在零轴上方，柱状图扩大；抛物线 SAR 自 10月16日起看空（$547.92），RSI 为 53。"
   },
   {
-   "en": "After holding three times, the $524.4–525 support (Oct 16 and 21 lows) gave way on the close and now becomes resistance. Resistance is $524.4–525, then $529.7–534.1 (5 and 10-day) and $544 (Oct 16 high). Support is $516.8 (30-day), then $497–502 (Sep 25–29 lows) and $486 (Sep 10 low). A close below $516.8 would open $497–502; a close above $534 would target $544.",
-   "zh": "此前三次守住的 $524.4–525 支撑（10月16日和21日低点）在收盘时失守，该区域转为阻力。阻力为 $524.4–525，其次 $529.7–534.1（5 日和 10 日均线）和 $544（10月16日高点）。支撑为 $516.8（30 日均线），其次 $497–502（9月25–29日低点）和 $486（9月10日低点）。若收盘跌破 $516.8，将打开 $497–502；若收盘站上 $534，下一目标看 $544。"
+   "en": "The $515.7 low dipped under the 30-day average, but the close recovered to the $524.4–525 resistance. Resistance is $524.4–525.8, then $528.8–533.1 (5 and 10-day) and $544 (Oct 16 high). Support is $515.7–517.8 (Oct 23 low, 30-day), then $497–502 (Sep 25–29 lows) and $486 (Sep 10 low). A close above $525.8 would target $533; a close below $515.7 would open $497–502.",
+   "zh": "盘中低点 $515.7 一度跌破 30 日均线，但收盘回升至 $524.4–525 阻力。阻力为 $524.4–525.8，其次 $528.8–533.1（5 日和 10 日均线）和 $544（10月16日高点）。支撑为 $515.7–517.8（10月23日低点、30 日均线），其次 $497–502（9月25–29日低点）和 $486（9月10日低点）。若收盘站上 $525.8，下一目标看 $533；若收盘跌破 $515.7，将打开 $497–502。"
   }
  ],
  "levels": {
   "r": [
    [
-    524.7,
+    525,
     {
-     "en": "Oct 16 low $524.4; Oct 21 low $525.0, now resistance",
-     "zh": "10月16日低点 $524.4；10月21日低点 $525.0，转为阻力"
+     "en": "Oct 16 low $524.4; Oct 21 low $525.0; Oct 23 high $525.8",
+     "zh": "10月16日低点 $524.4；10月21日低点 $525.0；10月23日高点 $525.8"
     }
    ],
    [
-    532,
+    531,
     {
-     "en": "5 and 10-day averages ($529.7–534.1)",
-     "zh": "5日和10日均线（$529.7–534.1）"
+     "en": "5 and 10-day averages ($528.8–533.1)",
+     "zh": "5日和10日均线（$528.8–533.1）"
     }
    ],
    [
@@ -43,8 +43,8 @@
    [
     516.8,
     {
-     "en": "30-day average",
-     "zh": "30日均线"
+     "en": "30-day average $517.8; Oct 23 low $515.7",
+     "zh": "30日均线 $517.8；10月23日低点 $515.7"
     }
    ],
    [

@@ -1,18 +1,18 @@
 {
- "asof": "Oct 22, 2026",
- "close": 507.93,
+ "asof": "Oct 23, 2026",
+ "close": 516.79,
  "bias": {
-  "en": "Uptrend under pressure · lost the 100-day average",
-  "zh": "上升趋势承压 · 跌破 100 日均线"
+  "en": "Uptrend under pressure · capped by the 100-day average",
+  "zh": "上升趋势承压 · 受制于 100 日均线"
  },
  "read": [
   {
-   "en": "AMD fell 8.1% on Oct 22 to $507.93, trading between $502.60 and $529.98 on volume 1.4 times its 20-day average. It is below the falling 5-day ($532.4) and 10-day ($560.3) and the rising 30-day ($582.4) and 100-day ($526.7), but above the rising 200-day ($400.6). MACD has been below its signal since Oct 9 and below zero; Parabolic SAR has been bearish since Oct 8 ($577.04), and RSI is 37.",
-   "zh": "AMD 10月22日下跌 8.1%，收于 $507.93，盘中区间 $502.60–529.98，成交量为 20 日均量的 1.4 倍。股价位于下行的 5 日（$532.4）和 10 日均线（$560.3）、上行的 30 日均线（$582.4）下方，并跌破上行的 100 日均线（$526.7），但仍在上行的 200 日均线（$400.6）上方。MACD 自 10月9日起位于信号线及零轴下方；抛物线 SAR 自 10月8日起看空（$577.04），RSI 为 37。"
+   "en": "AMD rose 1.7% on Oct 23 to $516.79, trading between $508.36 and $523.92. It is below the falling 5-day ($530.1) and 10-day ($551.2) and the rising 30-day ($582.4) and 100-day ($526.6), but above the rising 200-day ($402.1). MACD has been below its signal since Oct 9 and below zero, histogram narrowing slightly; Parabolic SAR has been bearish since Oct 8 ($563.64), and RSI is 39.",
+   "zh": "AMD 10月23日上涨 1.7%，收于 $516.79，盘中区间 $508.36–523.92。股价位于下行的 5 日（$530.1）和 10 日（$551.2）以及上行的 30 日（$582.4）和 100 日均线（$526.6）下方，但高于上行的 200 日均线（$402.1）。MACD 自 10月9日起位于信号线及零轴下方，柱状图略有收窄；抛物线 SAR 自 10月8日起看空（$563.64），RSI 为 39。"
   },
   {
-   "en": "The drop broke the $524.6–526.7 support (Oct 20 low, 100-day average), now resistance; the low stopped above the $495–498 late-June and early-July lows. Resistance is $526.7–530, then $548 (Oct 20 high) and $560 (10-day). Support is $495–498, then $460 (Jul 17 low) and $440.5 (Sep 3 low). A close back above $530 would target $548; a close below $495 would open $460.",
-   "zh": "股价跌破 $524.6–526.7 支撑（10月20日低点、100 日均线），该区域转为阻力；盘中低点止步于 6 月下旬和 7 月初低点 $495–498 上方。阻力为 $526.7–530，其次 $548（10月20日高点）和 $560（10 日均线）。支撑为 $495–498，其次 $460（7月17日低点）和 $440.5（9月3日低点）。若收盘重回 $530 上方，下一目标看 $548；若收盘跌破 $495，将打开 $460。"
+   "en": "The rebound stayed under Wednesday's break: the $523.9 high stopped short of the $526.6–530 zone (100-day, Oct 22 high), still resistance. Resistance is $526.6–530, then $548–551 (Oct 20 high, 10-day) and $563.6 (SAR). Support is $508.4 (Oct 23 low), then $495–502.6 (late-June and early-July lows, Oct 22 low) and $460. A close above $530 would target $548–551; a close below $495 would open $460.",
+   "zh": "反弹未能收复周三破位：$523.9 高点未触及 $526.6–530 区间（100 日均线、10月22日高点），该区间仍为阻力。阻力为 $526.6–530，其次 $548–551（10月20日高点、10 日均线）和 $563.6（SAR）。支撑为 $508.4（10月23日低点），其次 $495–502.6（6 月下旬和 7 月初低点、10月22日低点）和 $460。若收盘站上 $530，下一目标看 $548–551；若收盘跌破 $495，将打开 $460。"
   }
  ],
  "levels": {
@@ -20,31 +20,38 @@
    [
     527,
     {
-     "en": "100-day average ($526.7), lost; Oct 22 high $530.0",
-     "zh": "100日均线（$526.7），已跌破；10月22日高点 $530.0"
+     "en": "100-day average ($526.6); Oct 22 high $530.0",
+     "zh": "100日均线（$526.6）；10月22日高点 $530.0"
     }
    ],
    [
-    548,
+    549,
     {
-     "en": "Oct 20 high $548.1",
-     "zh": "10月20日高点 $548.1"
+     "en": "Oct 20 high $548.1; 10-day average $551.2",
+     "zh": "10月20日高点 $548.1；10日均线 $551.2"
     }
    ],
    [
-    560,
+    563.6,
     {
-     "en": "10-day average ($560.3)",
-     "zh": "10日均线（$560.3）"
+     "en": "Parabolic SAR",
+     "zh": "抛物线 SAR"
     }
    ]
   ],
   "s": [
    [
+    508.4,
+    {
+     "en": "Oct 23 low",
+     "zh": "10月23日低点"
+    }
+   ],
+   [
     497,
     {
-     "en": "Late-June and early-July lows ($495–498)",
-     "zh": "6月下旬和7月初低点（$495–498）"
+     "en": "Late-June and early-July lows ($495–498); Oct 22 low $502.6",
+     "zh": "6月下旬和7月初低点（$495–498）；10月22日低点 $502.6"
     }
    ],
    [
@@ -52,13 +59,6 @@
     {
      "en": "Jul 17 low",
      "zh": "7月17日低点"
-    }
-   ],
-   [
-    440.5,
-    {
-     "en": "Sep 3 low",
-     "zh": "9月3日低点"
     }
    ]
   ]

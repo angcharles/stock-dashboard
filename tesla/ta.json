@@ -1,18 +1,18 @@
 {
- "asof": "Oct 22, 2026",
- "close": 374.58,
+ "asof": "Oct 23, 2026",
+ "close": 372.22,
  "bias": {
-  "en": "Turning bullish · rejected again at the $388 cap",
-  "zh": "转多 · 再度受阻于 $388 上限"
+  "en": "Mixed · MACD crossed down, averages holding",
+  "zh": "多空交织 · MACD 下穿，均线支撑仍在"
  },
  "read": [
   {
-   "en": "Tesla fell 3.1% on Oct 22 to $374.58, trading between $373.71 and $388.86 on 1.5 times average volume. It is above the falling 5-day ($371.5), falling 10-day ($372.3), rising 30-day ($369.3) and falling 100-day ($368.8) averages, and below the falling 200-day ($386.6). MACD is above its signal (since Oct 21) and zero, but only just; Parabolic SAR has been bullish since Oct 21 ($350.12), and RSI is 53.",
-   "zh": "特斯拉 10月22日下跌 3.1%，收于 $374.58，盘中区间 $373.71–388.86，成交量为平均水平的 1.5 倍。股价位于下行的 5 日（$371.5）、下行的 10 日（$372.3）、上行的 30 日（$369.3）和下行的 100 日均线（$368.8）上方，低于下行的 200 日均线（$386.6）。MACD 位于信号线（自 10月21日起）及零轴上方，但优势很小；抛物线 SAR 自 10月21日起看多（$350.12），RSI 为 53。"
+   "en": "Tesla slipped 0.6% on Oct 23 to $372.22, trading between $365.27 and $377.30. It is above the falling 10-day ($371.3), rising 30-day ($369.5) and falling 100-day ($368.2) averages, and below the rising 5-day ($375.0) and falling 200-day ($386.4). MACD crossed back below its signal on Oct 23 but is above zero; Parabolic SAR has been bullish since Oct 21 ($351.67), and RSI is 52.",
+   "zh": "特斯拉 10月23日下跌 0.6%，收于 $372.22，盘中区间 $365.27–377.30。股价位于下行的 10 日（$371.3）、上行的 30 日（$369.5）和下行的 100 日均线（$368.2）上方，低于上行的 5 日（$375.0）和下行的 200 日均线（$386.4）。MACD 于 10月23日重新下穿信号线，但仍在零轴上方；抛物线 SAR 自 10月21日起看多（$351.67），RSI 为 52。"
   },
   {
-   "en": "The high tagged the $388 cap and was rejected again; the close fell back below $377.6 (Oct 20 high, Oct 12 low), resistance again. Resistance is $377.6, then $386.6–388.9 (200-day, $388 cap) and $409 (Apr 17 high). Support is $368.8–372.3, then $363.6 (Oct 20 low) and $349.3–350.1 (SAR, Oct 16 low). A close above $388.9 would target $409–418; a close below $368.8 would open $350.",
-   "zh": "盘中高点再次触及 $388 上限后回落，收盘重新跌破 $377.6（10月20日高点、10月12日低点），该位置再次转为阻力。阻力为 $377.6，其次 $386.6–388.9（200 日均线、$388 上限）和 $409（4月17日高点）。支撑为 $368.8–372.3，其次 $363.6（10月20日低点）和 $349.3–350.1（SAR、10月16日低点）。若收盘站上 $388.9，下一目标看 $409–418；若收盘跌破 $368.8，将打开 $350。"
+   "en": "The close held the $368.2–371.3 averages (10, 30 and 100-day) after a dip to $365.3. Resistance is $375–377.6 (5-day, Oct 20 high), then $386.4–388.9 (200-day, $388 cap) and $409 (Apr 17 high). Support is $368.2–371.3, then $363.6–365.3 (Oct 20 and 23 lows) and $349.3–351.7 (Oct 16 low, SAR). A close above $388.9 would target $409–418; a close below $363.6 would open $350.",
+   "zh": "盘中下探 $365.3 后，收盘守住 $368.2–371.3 均线区（10 日、30 日和 100 日均线）。阻力为 $375–377.6（5 日均线、10月20日高点），其次 $386.4–388.9（200 日均线、$388 上限）和 $409（4月17日高点）。支撑为 $368.2–371.3，其次 $363.6–365.3（10月20日和23日低点）和 $349.3–351.7（10月16日低点、SAR）。若收盘站上 $388.9，下一目标看 $409–418；若收盘跌破 $363.6，将打开 $350。"
   }
  ],
  "levels": {
@@ -20,15 +20,15 @@
    [
     377.6,
     {
-     "en": "Oct 20 high; Oct 12 low, resistance again",
-     "zh": "10月20日高点；10月12日低点，再度转为阻力"
+     "en": "Oct 20 high; Oct 12 low; 5-day average $375.0",
+     "zh": "10月20日高点；10月12日低点；5日均线 $375.0"
     }
    ],
    [
     388,
     {
-     "en": "$388 cap since March plus the 200-day average ($386.6); Oct 22 high $388.86",
-     "zh": "3月以来 $388 压力及200日均线（$386.6）；10月22日高点 $388.86"
+     "en": "$388 cap since March plus the 200-day average ($386.4); Oct 22 high $388.86",
+     "zh": "3月以来 $388 压力及200日均线（$386.4）；10月22日高点 $388.86"
     }
    ],
    [
@@ -43,22 +43,22 @@
    [
     370,
     {
-     "en": "5, 10, 30 and 100-day averages ($368.8–372.3)",
-     "zh": "5日、10日、30日和100日均线（$368.8–372.3）"
+     "en": "10, 30 and 100-day averages ($368.2–371.3)",
+     "zh": "10日、30日和100日均线（$368.2–371.3）"
     }
    ],
    [
-    363.6,
+    364.5,
     {
-     "en": "Oct 20 low",
-     "zh": "10月20日低点"
+     "en": "Oct 20 low $363.6; Oct 23 low $365.3",
+     "zh": "10月20日低点 $363.6；10月23日低点 $365.3"
     }
    ],
    [
-    349.7,
+    350.5,
     {
-     "en": "Parabolic SAR $350.1; Oct 16 low $349.3",
-     "zh": "抛物线 SAR $350.1；10月16日低点 $349.3"
+     "en": "Parabolic SAR $351.7; Oct 16 low $349.3",
+     "zh": "抛物线 SAR $351.7；10月16日低点 $349.3"
     }
    ]
   ]
