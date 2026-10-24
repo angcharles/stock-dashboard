@@ -4,7 +4,9 @@ name: Options book
 # fetches 5 years of daily prices for every dashboard stock, SPY, the VIX and the
 # 13-week T-bill yield (warm-up history the repo doesn't keep), then re-runs the
 # two-year weekly 5-delta cash-secured put backtest and the live book.
-# Runs when the daily price-saving workflow finishes, so it uses that day's closes.
+# Runs when the daily price-saving workflow finishes, so it uses that day's closes, and again when the
+# implied-volatility recorder finishes: that job often lands after the price job (and can fail and be
+# re-run), and without it the latest real 30-day IV can be too old and the book falls back to proxy vol.
 
 on:
   workflow_dispatch:
@@ -14,7 +16,7 @@ on:
       - .github/workflows/options-book.yml
       - scripts/options-backtest.py
   workflow_run:
-    workflows: ["Save daily prices for the technical read"]
+    workflows: ["Save daily prices for the technical read", "Record implied volatility"]
     types: [completed]
 
 permissions:
