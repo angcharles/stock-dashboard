@@ -1,6 +1,6 @@
 {
  "ticker": "BE",
- "asof": "2026-10-23",
+ "asof": "2026-10-24",
  "quarter": {
   "en": "Q3 2026",
   "zh": "2026年第三季"
@@ -9,24 +9,23 @@
  "timing": "amc",
  "pre_close": 217.77,
  "react": {
-  "date": "2026-10-22",
-  "close": 203.97,
-  "pct": -6.3,
-  "ah": true
+  "date": "2026-10-23",
+  "close": 193.3,
+  "pct": -11.2
  },
  "since": {
-  "date": "2026-10-22",
-  "close": 217.77,
-  "pct": 0.0
+  "date": "2026-10-23",
+  "close": 193.3,
+  "pct": -11.2
  },
  "review": {
   "en": [
    "Revenue rose 138% to a record $1.24B, about 15% above the ~$1.07B consensus, as product revenue topped $1B for the first time. Non-GAAP gross margin was 34.5% and operating income $286M, more than all of 2025; adjusted EPS of $0.94 beat ~$0.69. Bloom raised 2026 guidance a third time, to $4.4–4.6B with EPS of $3.10–3.40. CEO KR Sridhar said grid limits keep pushing data centers to on-site power and capacity nears 5 GW a year; CFO Simon Edwards held margin guidance at ~34% on ramp and expediting costs.",
-   "Shares fell 8.7% to $217.77 on report day as a broad selloff in AI stocks hit power and chip names, then slid about 6% more after hours to near $204 despite the beat. The focus turned to free cash flow of −$181M, as unbilled contract assets doubled and capex tripled to $153M, and to margin guidance left unchanged while revenue guidance rose. The first full session is Oct 23."
+   "Shares fell 8.7% to $217.77 on report day as AI power and chip names sold off, then about 6% more after hours despite the beat. In the first session they closed down 11.2% at $193.30, about 44% below the recent high, as investors focused on −$181M free cash flow (expected positive), negative operating cash flow and tripled capex. JPMorgan and Roth cut targets, while Morgan Stanley raised its target; the CFO called the cash use timing, not a trend."
   ],
   "zh": [
    "营收增长 138% 至创纪录的 12.4 亿美元，比约 10.7 亿美元的一致预期高约 15%，产品收入首次突破 10 亿美元。非GAAP毛利率 34.5%，营业利润 2.86 亿美元，超过 2025 年全年；经调整每股收益 0.94 美元，高于约 0.69 美元的预期。Bloom 第三次上调 2026 年指引，营收至 44–46 亿美元、每股收益 3.10–3.40 美元。CEO K.R. 斯里达尔表示，电网瓶颈持续推动数据中心转向现场发电，年产能接近 5 吉瓦；CFO 西蒙·爱德华兹因扩产和加急交付成本，维持约 34% 的毛利率指引。",
-   "财报当天，AI 股全面抛售波及电力与芯片股，股价下跌 8.7% 至 217.77 美元；尽管业绩超预期，盘后再跌约 6% 至 204 美元附近。市场关注点转向 −1.81 亿美元的自由现金流（未开票合同资产翻倍、资本开支增至三倍的 1.53 亿美元），以及营收指引上调而毛利率指引未变。10 月 23 日为财报后首个完整交易日。"
+   "财报当天，AI 电力与芯片股遭抛售，股价下跌 8.7% 至 217.77 美元；尽管业绩超预期，盘后再跌约 6%。首个交易日收跌 11.2% 至 193.30 美元，较近期高点低约 44%，投资者聚焦于 −1.81 亿美元的自由现金流（市场原预期为正）、为负的经营现金流以及增至三倍的资本开支。摩根大通和 Roth 下调目标价，摩根士丹利则上调目标价；CFO 称现金流出属时间性因素，并非趋势。"
   ]
  },
  "ceo": {
@@ -61,8 +60,8 @@
    "u": "https://investing.com/news/transcripts/earnings-call-transcript-bloom-energy-beats-q3-2026-estimates-stock-falls-93CH-4967732"
   },
   {
-   "t": "Cash flow and contract assets (Stock Titan)",
-   "u": "https://stocktitan.net/articles/bloom-energy-q3-2026-earnings-cash-flow-negative"
+   "t": "First-session move: cash flow concerns (Motley Fool)",
+   "u": "https://fool.com/coverage/stock-market-today/2026/10/23/stock-market-today-oct-23-bloom-energy-falls-on-cash-flow-concerns-despite-record-q3-revenue"
   }
  ]
 }
