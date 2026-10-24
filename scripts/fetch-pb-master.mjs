@@ -45,7 +45,22 @@ for (const [k, p] of Object.entries(china.pb || {})) {
   }
 }
 
-const need = Object.values(B).filter((b) => !b.matured && !b.mat && (b.tries || 0) < 5);
+// Diagnostics while no lookup has succeeded yet: record what CFETS returns for one bond under a few query shapes.
+if (!Object.values(B).some((b) => b.mat)) {
+  const b = Object.values(B).find((x) => /^\d{6}$/.test(x.code)) || Object.values(B)[0];
+  const tryIt = async (path, body) => { try { const r = await fetch(BASE + path, { method: "POST", headers: H, body, signal: AbortSignal.timeout(30000) }); return `${r.status} ${(await r.text()).slice(0, 700)}`; } catch (e) { return `error ${e.message}`; } };
+  const q = (o) => Object.entries({ pageNo: 1, pageSize: 15, bondName: "", bondCode: "", issueEnty: "", bondType: "", bondSpclPrjctVrty: "", couponType: "", issueYear: "", entyDefinedCode: "", rtngShrt: "", ...o }).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+  master.probe = { at: new Date().toISOString(), code: b?.code,
+    enCode: await tryIt("BondMarketInfoListEN", q({ bondCode: b?.code })),
+    cnCode: await tryIt("BondMarketInfoList2", q({ bondCode: b?.code })),
+    cnName: await tryIt("BondMarketInfoList2", q({ bondName: b?.name || "" })),
+    cond: await tryIt("BondBaseInfoSearchCondition", ""),
+  };
+}
+
+// until a lookup has worked, try only a few bonds per run (and don't use up the others' tries)
+let need = Object.values(B).filter((b) => !b.matured && !b.mat && (b.tries || 0) < 5);
+if (master.probe) need = need.slice(0, 3);
 log(`policy bank master: ${Object.keys(B).length} bonds on file, ${need.length} to look up`);
 let done = 0, fail = 0;
 async function lookup(b) {
@@ -67,8 +82,8 @@ async function lookup(b) {
     const cp = parseFloat(blank(d.parCouponRate) ?? "");
     if (isFinite(cp)) b.coupon = cp;
     if (!b.mat) throw new Error("no maturity in detail");
-    delete b.tries; done++;
-  } catch (e) { b.tries = (b.tries || 0) + 1; fail++; if (fail <= 5) log(`lookup ${b.code} failed: ${e.message}`); }
+    delete b.tries; delete b.err; done++;
+  } catch (e) { b.tries = (b.tries || 0) + 1; b.err = String(e.message).slice(0, 80); fail++; if (fail <= 5) log(`lookup ${b.code} failed: ${e.message}`); }
 }
 for (let i = 0; i < need.length; i += 4) {
   if (Date.now() - T0 > BUDGET) { log("time budget reached; the next run continues"); break; }
