@@ -3,7 +3,7 @@
 // maturity and coupon from CFETS bond information (chinamoney.com.cn).
 // Which bonds: every policy bank bond seen trading on CFETS, taken from data/china.json (each issuer's traded bonds
 // and its running register, written by fetch-china.mjs). Each code is looked up once: the English list searched by
-// bond code gives its CFETS internal id, then the English detail gives maturity and coupon. A failed lookup is
+// bond code (bond type 100003, 政策性金融债; CFETS requires a type) gives its CFETS internal id, then the English detail gives maturity and coupon. A failed lookup is
 // retried on later runs (up to 5 tries), so the list fills in as bonds trade.
 // Writes data/pb-master.json. Usage: node scripts/fetch-pb-master.mjs
 import { readFileSync, writeFileSync, mkdirSync, appendFileSync } from "node:fs";
@@ -45,28 +45,16 @@ for (const [k, p] of Object.entries(china.pb || {})) {
   }
 }
 
-// Diagnostics while no lookup has succeeded yet: record what CFETS returns for one bond under a few query shapes.
-if (!Object.values(B).some((b) => b.mat)) {
-  const b = Object.values(B).find((x) => /^\d{6}$/.test(x.code)) || Object.values(B)[0];
-  const tryIt = async (path, body) => { try { const r = await fetch(BASE + path, { method: "POST", headers: H, body, signal: AbortSignal.timeout(30000) }); return `${r.status} ${(await r.text()).slice(0, 700)}`; } catch (e) { return `error ${e.message}`; } };
-  const q = (o) => Object.entries({ pageNo: 1, pageSize: 15, bondName: "", bondCode: "", issueEnty: "", bondType: "", bondSpclPrjctVrty: "", couponType: "", issueYear: "", entyDefinedCode: "", rtngShrt: "", ...o }).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
-  master.probe = { at: new Date().toISOString(), code: b?.code,
-    enCode: await tryIt("BondMarketInfoListEN", q({ bondCode: b?.code })),
-    cnCode: await tryIt("BondMarketInfoList2", q({ bondCode: b?.code })),
-    cnName: await tryIt("BondMarketInfoList2", q({ bondName: b?.name || "" })),
-    cond: await tryIt("BondBaseInfoSearchCondition", ""),
-  };
-}
+// v2: lookups before this needed CFETS's bond type (政策性金融债 = 100003); give those bonds their tries back
+if (master.v !== 2) { for (const b of Object.values(B)) { delete b.tries; delete b.err; } delete master.probe; master.v = 2; }
 
-// until a lookup has worked, try only a few bonds per run (and don't use up the others' tries)
-let need = Object.values(B).filter((b) => !b.matured && !b.mat && (b.tries || 0) < 5);
-if (master.probe) need = need.slice(0, 3);
+const need = Object.values(B).filter((b) => !b.matured && !b.mat && (b.tries || 0) < 5);
 log(`policy bank master: ${Object.keys(B).length} bonds on file, ${need.length} to look up`);
 let done = 0, fail = 0;
 async function lookup(b) {
   try {
     if (!b.def) {
-      const j = await post("BondMarketInfoListEN", `pageNo=1&pageSize=15&bondName=&bondCode=${encodeURIComponent(b.code)}&issueEnty=&bondType=&bondSpclPrjctVrty=&couponType=&issueYear=&entyDefinedCode=&rtngShrt=`);
+      const j = await post("BondMarketInfoListEN", `pageNo=1&pageSize=15&bondName=&bondCode=${encodeURIComponent(b.code)}&issueEnty=&bondType=100003&bondSpclPrjctVrty=&couponType=&issueYear=&entyDefinedCode=&rtngShrt=`);
       const r = (j?.data?.resultList || []).find((x) => x.bondCode === b.code);
       if (!r) throw new Error("not in the CFETS list");
       b.def = r.bondDefinedCode;
