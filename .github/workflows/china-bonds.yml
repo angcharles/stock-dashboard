@@ -38,6 +38,9 @@ jobs:
       - name: Update the CGB master list (code, ISIN, coupon, maturity)
         run: node scripts/fetch-cgb-master.mjs ${{ inputs.full && '--full' || '' }} || echo "master update failed; keeping the committed list"
 
+      - name: Update the policy bank bond list (CDB, ADBC, EXIM bonds seen trading; ISIN, coupon, maturity)
+        run: node scripts/fetch-pb-master.mjs || echo "policy bank master update failed; keeping the committed list"
+
       - name: CCDC curve, history and CFETS bond yields
         run: node scripts/fetch-china.mjs
 
@@ -48,6 +51,7 @@ jobs:
         id: commit
         run: |
           git add data/cgb-master.json data/china.json data/bond-lending.json
+          if [ -f data/pb-master.json ]; then git add data/pb-master.json; fi
           if git diff --cached --quiet; then
             echo "No changes."; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
           fi

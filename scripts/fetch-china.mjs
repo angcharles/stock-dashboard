@@ -28,6 +28,7 @@ const PB = [
   { k: "adbc", id: "2c9081e50a2f9606010a306abdde0003", short: "ADBC", name: "Agricultural Development Bank of China", cn: "中债农发行债收益率曲线", re: /农发|农业发展银行/ },
   { k: "exim", id: "8a8b2ca0567e033b01567ea9c1d96af8", short: "EXIM", name: "Export-Import Bank of China", cn: "中债进出口行债收益率曲线", re: /进出|进出口银行/ },
 ];
+const CAPITAL = /二级资本|资本债|资本补充|永续/;
 async function post(url, headers, body = "", ms = 30000) {
   const r = await fetch(url, { method: "POST", headers, body, signal: AbortSignal.timeout(ms) });
   if (!r.ok) throw new Error(`HTTP ${r.status} ${url.split("?")[0]}`);
@@ -122,8 +123,10 @@ try {
       if (r.showDate && (!tradeTime || r.showDate > tradeTime)) tradeTime = r.showDate;
       continue;
     }
-    const p = PB.find((x) => x.re.test(`${r.abdAssetEncdShrtDesc || ""} ${r.abdAssetEncdFullDescByRmb || ""}`));
-    if (!p || rec.last == null) continue;
+    const nm = `${r.abdAssetEncdShrtDesc || ""} ${r.abdAssetEncdFullDescByRmb || ""}`;
+    const p = PB.find((x) => x.re.test(nm));
+    // policy financial bonds only: a policy bank's own capital bonds (二级资本债, 永续债) price off other curves
+    if (!p || rec.last == null || CAPITAL.test(nm)) continue;
     pbTrades[r.bondcode] = { ...rec, short: r.abdAssetEncdShrtDesc || name, issuer: p.k };
     if (r.showDate && (!pbTradeTime || r.showDate > pbTradeTime)) pbTradeTime = r.showDate;
   }
@@ -134,16 +137,38 @@ if (!Object.keys(trades).length && prev.tradeDay === today) { // keep this sessi
   tradeTime = prev.tradeTime;
 }
 const pbFresh = Object.keys(pbTrades).length > 0;
+// Exact maturity, coupon and ISIN from data/pb-master.json (fetch-pb-master.mjs, CFETS bond info). A bond not
+// looked up yet gets a maturity estimated from CFETS's remaining term (quoted to 0.01 year), marked est.
+let pbm = {};
+try { pbm = JSON.parse(readFileSync("data/pb-master.json", "utf8")).bonds || {}; } catch { log("no data/pb-master.json yet"); }
+const yrs = (mat) => (Date.parse(mat) - Date.parse(today)) / (365.25 * 864e5);
 for (const p of PB) {
+  const c = pb[p.k].curve?.pts;
   if (pbFresh) {
-    const c = pb[p.k].curve?.pts;
     pb[p.k].bonds = Object.entries(pbTrades).filter(([, b]) => b.issuer === p.k).map(([code, b]) => {
-      const m = String(b.ttm || "").match(/([\d.]+)\s*([YD])/i), ttm = m ? (m[2].toUpperCase() === "D" ? +m[1] / 365 : +m[1]) : null;
+      const m = String(b.ttm || "").match(/([\d.]+)\s*([YD])/i), quoted = m ? (m[2].toUpperCase() === "D" ? +m[1] / 365 : +m[1]) : null;
+      const mm = pbm[code], base = String(b.t || today).slice(0, 10);
+      const mat = mm?.mat || (quoted > 0 ? shDate(Date.parse(base + "T12:00:00+08:00") + quoted * 365.25 * 864e5) : null);
+      const ttm = mm?.mat ? yrs(mm.mat) : quoted;
       if (ttm == null || !(ttm > 0)) return null;
       const cy = c ? interp(c, ttm) : null;
-      return { code, isin: b.isin, name: b.short, full: b.name, ttm: +ttm.toFixed(3), last: b.last, wavg: b.wavg, chg: b.chg, curve: cy == null ? null : +cy.toFixed(4), vs: cy == null ? null : +((b.last - cy) * 100).toFixed(1) };
+      return { code, isin: mm?.isin || b.isin, name: b.short, full: b.name, coupon: mm?.coupon ?? null, issue: mm?.issue || null, mat, est: !mm?.mat || undefined, ttm: +ttm.toFixed(3), last: b.last, wavg: b.wavg, chg: b.chg, curve: cy == null ? null : +cy.toFixed(4), vs: cy == null ? null : +((b.last - cy) * 100).toFixed(1) };
     }).filter(Boolean).sort((a, b) => a.ttm - b.ttm);
-  } else if (prev.pbTradeDay === today) pb[p.k].bonds = prev.pb?.[p.k]?.bonds || []; // keep this session's earlier read
+  } else if (prev.pbTradeDay === today) // keep this session's earlier read
+    pb[p.k].bonds = (prev.pb?.[p.k]?.bonds || []).filter((b) => !CAPITAL.test(b.name || "")).map((b) => b.mat ? b : { ...b, mat: shDate(Date.parse(today + "T12:00:00+08:00") + b.ttm * 365.25 * 864e5), est: true });
+  // Register: every outstanding bond of this issuer seen trading on CFETS (carried from the previous file, the
+  // master list and today's trades), for the futures tab's cash comparison. Exact maturities win over estimates.
+  const reg = new Map();
+  const put = (b) => {
+    if (!b?.code || !b.mat || b.mat <= today || CAPITAL.test(b.name || "")) return;
+    const old = reg.get(b.code);
+    if (old && !old.est && b.est) return;
+    reg.set(b.code, { code: b.code, name: b.name || old?.name || null, isin: b.isin || old?.isin || null, coupon: b.coupon ?? old?.coupon ?? null, issue: b.issue || old?.issue || null, mat: b.mat, ...(b.est ? { est: true } : {}) });
+  };
+  (prev.pb?.[p.k]?.reg || []).forEach(put);
+  pb[p.k].bonds.forEach(put);
+  Object.values(pbm).filter((b) => b.issuer === p.k && b.mat).forEach((b) => put({ ...b, name: b.name || reg.get(b.code)?.name }));
+  pb[p.k].reg = [...reg.values()].map((b) => ({ ...b, ttm: +yrs(b.mat).toFixed(3) })).sort((a, b) => a.ttm - b.ttm);
 }
 
 // 4. Bonds: outstanding CGBs from the master list, plus anything traded that the list does not have yet
@@ -187,6 +212,6 @@ const out = {
 };
 mkdirSync("data", { recursive: true });
 writeFileSync("data/china.json", JSON.stringify(out));
-const msg = `China: CCDC curve ${curve?.date ?? "none"}, 10Y ${tenors[10]?.at(-1)?.[1] ?? "–"}; ${bonds.length} bonds (${bonds.filter((b) => b.isin).length} with ISIN, ${bonds.filter((b) => b.last != null).length} traded today); policy banks: ${PB.map((p) => `${p.short} ${pb[p.k].curve?.date ?? "none"} 10Y ${pb[p.k].tenors[10]?.at(-1)?.[1] ?? "–"} (${pb[p.k].bonds.length} traded)`).join(", ")}`;
+const msg = `China: CCDC curve ${curve?.date ?? "none"}, 10Y ${tenors[10]?.at(-1)?.[1] ?? "–"}; ${bonds.length} bonds (${bonds.filter((b) => b.isin).length} with ISIN, ${bonds.filter((b) => b.last != null).length} traded today); policy banks: ${PB.map((p) => `${p.short} ${pb[p.k].curve?.date ?? "none"} 10Y ${pb[p.k].tenors[10]?.at(-1)?.[1] ?? "–"} (${pb[p.k].bonds.length} traded, ${pb[p.k].reg.length} on register, ${pb[p.k].reg.filter((b) => b.est).length} estimated maturity)`).join(", ")}`;
 log(msg); summary(`- ${msg}`);
 if (!curve && !bonds.length) process.exit(1);
