@@ -148,15 +148,23 @@
   }
 
   // ---------- history ----------
-  // Line A / Line B: "t:<tenor>" for a CCDC standard tenor, "b:<code>" for a single CGB. CCDC publishes the curve by
-  // tenor only, so a bond's history is the CCDC curve on each day read (linear interpolation) at the bond's remaining
-  // maturity that day, from its issue date. The tenor buttons set Line A; Line B adds a second line and a B − A chart.
+  // Line keys: "t:<tenor>" a CCDC CGB standard tenor, "b:<code>" a single CGB, "q:<bank>:<tenor>" a policy bank's
+  // CCDC standard tenor, "p:<bank>:<code>" a single policy bank bond (bank = cdb / adbc / exim). CCDC publishes
+  // curves by tenor only, so a bond's history is its issuer's CCDC curve on each day read (linear interpolation) at
+  // the bond's remaining maturity that day, from its issue date. The tenor buttons set Line A; B–D add lines and a
+  // spread-to-A chart.
   const bondCache = {};
-  function bondSer(code) {
-    if (bondCache[code]) return bondCache[code];
-    const b = (D.bonds || []).find((x) => x.code === code); if (!b || !b.mat) return [];
-    const ts = TEN.slice(), maps = ts.map((t) => new Map(ser(t))), mat = Date.parse(b.mat), out = [];
-    for (const [d] of ser(10)) {
+  const pbTen = (k, t) => D?.pb?.[k]?.tenors?.[t] || [];
+  // policy bank bonds: the register (every bond seen trading on CFETS) with today's CFETS last yield where traded
+  const pbList = (k) => { const p = D?.pb?.[k]; if (!p) return []; const last = new Map((p.bonds || []).map((b) => [b.code, b.last])); return (p.reg?.length ? p.reg : p.bonds || []).map((b) => ({ ...b, last: last.get(b.code) ?? null })); };
+  const findB = (k, code) => k ? pbList(k).find((x) => x.code === code) : (D.bonds || []).find((x) => x.code === code);
+  function bondSer(code, k = null) {
+    const key = `${k || "cgb"}:${code}`;
+    if (bondCache[key]) return bondCache[key];
+    const b = findB(k, code); if (!b || !b.mat) return [];
+    const get = (t) => k ? pbTen(k, t) : ser(t);
+    const ts = TEN.filter((t) => get(t).length), maps = ts.map((t) => new Map(get(t))), mat = Date.parse(b.mat), out = [];
+    for (const [d] of get(10)) {
       if (b.issue && d < b.issue) continue;
       const ttm = (mat - Date.parse(d)) / (365.25 * 864e5);
       const pts = ts.map((t, i) => [t, maps[i].get(d)]).filter(([, y]) => y != null);
@@ -165,21 +173,39 @@
       else for (let i = 0; i < pts.length - 1; i++) if (ttm >= pts[i][0] && ttm <= pts[i + 1][0]) { const [t0, y0] = pts[i], [t1, y1] = pts[i + 1]; y = y0 + (y1 - y0) * (ttm - t0) / (t1 - t0); break; }
       if (y != null) out.push([d, +y.toFixed(4)]);
     }
-    return (bondCache[code] = out);
+    return (bondCache[key] = out);
   }
-  const legSer = (k) => !k ? [] : k.startsWith("t:") ? ser(+k.slice(2)) : bondSer(k.slice(2));
-  const legName = (k) => { if (!k) return ""; if (k.startsWith("t:")) return `CGB ${lab(+k.slice(2))}`; const b = (D.bonds || []).find((x) => x.code === k.slice(2)); return b ? `${b.code} ${b.name}` : k.slice(2); };
-  const legShort = (k) => k.startsWith("t:") ? lab(+k.slice(2)) : k.slice(2);
+  const parts = (k) => k.split(":"); // [kind, a, b]
+  const bank = (k) => D?.pb?.[k]?.short || k.toUpperCase();
+  const legSer = (k) => {
+    if (!k) return [];
+    const [x, a, c] = parts(k);
+    return x === "t" ? ser(+a) : x === "b" ? bondSer(a) : x === "q" ? pbTen(a, c) : x === "p" ? bondSer(c, a) : [];
+  };
+  const legName = (k) => {
+    if (!k) return "";
+    const [x, a, c] = parts(k);
+    if (x === "t") return `CGB ${lab(+a)}`;
+    if (x === "q") return `${bank(a)} ${lab(+c)}`;
+    const b = x === "p" ? findB(a, c) : findB(null, a), code = x === "p" ? c : a;
+    return b ? `${x === "p" ? bank(a) + " " : ""}${b.code} ${b.name || ""}`.trim() : code;
+  };
+  const legShort = (k) => { const [x, a, c] = parts(k); return x === "t" ? `CGB ${lab(+a)}` : x === "b" ? a : x === "q" ? `${bank(a)} ${lab(+c)}` : `${bank(a)} ${c}`; };
+  const isTraded = (k) => { const [x, a, c] = parts(k); return x === "b" ? findB(null, a)?.last != null : x === "p" ? findB(a, c)?.last != null : true; };
   function legOptions(sel, none, tradedOnly) {
     const grp = [[0, 2, "less than 2Y"], [2, 5, "2Y – 5Y"], [5, 10, "5Y – 10Y"], [10, 20, "10Y – 20Y"], [20, 30, "20Y – 30Y"], [30, 999, "more than 30Y"]];
     const bonds = (D.bonds || []).filter((b) => b.mat && (!tradedOnly || b.last != null)).sort((a, b) => a.ttm - b.ttm);
     const o = (v, t) => `<option value="${esc(v)}"${v === sel ? " selected" : ""}>${esc(t)}</option>`;
+    const row = (b, pre) => `${pre}${b.code} · ${b.name || "–"} · ${b.coupon != null ? f2(b.coupon, 2) + "%" : b.type || "–"} · ${b.mat}${b.est ? " (est.)" : ""} · ${f2(b.ttm, 2)}Y${b.last != null ? ` · CFETS last ${f2(b.last, 4)}%` : ""}`;
+    const banks = ["cdb", "adbc", "exim"].filter((k) => D?.pb?.[k]?.curve);
     return (none ? o("", "None") : "") +
-      `<optgroup label="CCDC standard tenors">${TEN.map((t) => o(`t:${t}`, `CGB ${lab(t)} (CCDC curve)`)).join("")}</optgroup>` +
-      grp.map(([lo, hi, l]) => { const g = bonds.filter((b) => b.ttm >= lo && b.ttm < hi); return g.length ? `<optgroup label="${tradedOnly ? "Traded on CFETS" : "Bonds"}: ${l}">${g.map((b) => o(`b:${b.code}`, `${b.code} · ${b.name} · ${b.coupon != null ? f2(b.coupon, 2) + "%" : b.type} · ${b.mat} · ${f2(b.ttm, 2)}Y${b.last != null ? ` · CFETS last ${f2(b.last, 4)}%` : ""}`)).join("")}</optgroup>` : ""; }).join("");
+      `<optgroup label="CGB · CCDC standard tenors">${TEN.map((t) => o(`t:${t}`, `CGB ${lab(t)} (CCDC curve)`)).join("")}</optgroup>` +
+      banks.map((k) => { const ts = TEN.filter((t) => pbTen(k, t).length); return ts.length ? `<optgroup label="${esc(bank(k))} · CCDC ${esc(bank(k))} curve standard tenors">${ts.map((t) => o(`q:${k}:${t}`, `${bank(k)} ${lab(t)} (CCDC ${bank(k)} curve)`)).join("")}</optgroup>` : ""; }).join("") +
+      grp.map(([lo, hi, l]) => { const g = bonds.filter((b) => b.ttm >= lo && b.ttm < hi); return g.length ? `<optgroup label="CGB ${tradedOnly ? "traded on CFETS" : "bonds"}: ${l}">${g.map((b) => o(`b:${b.code}`, row(b, ""))).join("")}</optgroup>` : ""; }).join("") +
+      banks.map((k) => { const g = pbList(k).filter((b) => b.mat && b.ttm > 0 && (!tradedOnly || b.last != null)).sort((a, b) => a.ttm - b.ttm); return g.length ? `<optgroup label="${esc(bank(k))} ${tradedOnly ? "traded on CFETS" : "bonds (seen trading on CFETS)"}">${g.map((b) => o(`p:${k}:${b.code}`, row(b, bank(k) + " "))).join("")}</optgroup>` : ""; }).join("");
   }
   const tkey = (p) => { if (p?.time == null) return null; const t = p.time; return typeof t === "object" ? `${t.year}-${String(t.month).padStart(2, "0")}-${String(t.day).padStart(2, "0")}` : t; };
-  // Lines: A (set by tenor buttons/tiles), B, C, D. C and D list tenors plus only the CGBs with a CFETS last yield today.
+  // Lines: A (set by tenor buttons/tiles), B, C, D. C and D list tenors plus only the bonds with a CFETS last yield today.
   const LEGS = [["hA", "A", "--c1"], ["hB", "B", "--c2"], ["hC", "C", "--c4"], ["hD", "D", "--c5"]];
   let ch = null, dc = null, dpad = null, mser = [], dser = [], hl = [], dl = [];
   const chartOpts = () => ({ layout: { background: { color: "transparent" }, textColor: css("--muted"), fontFamily: css("--f-mono") }, grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") }, timeScale: { borderColor: css("--line") }, crosshair: { mode: 1 } });
@@ -197,8 +223,7 @@
   function hist(fit) {
     const k = String(st.hT), isS = k.startsWith("s");
     if (!isS && k !== "bond") st.hA = `t:${k}`; // tenor buttons and tiles drive Line A
-    const traded = new Set((D.bonds || []).filter((b) => b.last != null).map((b) => `b:${b.code}`));
-    for (const id of ["hC", "hD"]) if (st[id].startsWith("b:") && !traded.has(st[id])) st[id] = ""; // no longer traded today
+    for (const id of ["hC", "hD"]) if (st[id] && !isTraded(st[id])) st[id] = ""; // no longer traded today
     const days = { "1M": 31, "3M": 92, "6M": 183, "1Y": 366 }[st.hR];
     // legs actually drawn: A always; B/C/D when set and different from A
     const legs = isS ? [{ id: "hA", L: "A", col: css("--accent"), key: k, s: k === "s10_1" ? spread(10, 1) : spread(30, 10) }]
@@ -344,7 +369,7 @@
       if (!r.ok) throw new Error(r.status);
       const j = await r.json();
       if (!first && D && j.updated === D.updated) return;
-      D = j; render(first);
+      D = j; for (const key in bondCache) delete bondCache[key]; render(first);
     } catch (e) { if (first) $("lede").textContent = "China bond data is not available yet. It is fetched with each dashboard refresh; check back in a few minutes."; }
   }
   let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => D && (curveChart(), pbPanel()), 120); });
