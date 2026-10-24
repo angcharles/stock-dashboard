@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>China · Stock Dashboards</title>
-<meta name="description" content="China government bond yields: the ChinaBond (CCDC) curve by tenor, tenor history, and every outstanding CGB by bond code and ISIN with CFETS traded yields, plus CFETS interbank bond lending fees by tenor over time, and CFFEX CGB bond futures (TS, TF, T, TL) with implied yields.">
+<meta name="description" content="China government bond yields: the ChinaBond (CCDC) CGB curve by tenor, the CCDC policy bank curves (CDB, ADBC, EXIM), tenor history, and every outstanding CGB by bond code and ISIN with CFETS traded yields, plus CFETS interbank bond lending fees by tenor over time, and CFFEX CGB bond futures (TS, TF, T, TL) with implied yields.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
@@ -45,8 +45,8 @@ section{margin-top:40px}
 .curve{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
 @media (max-width:820px){.curve{grid-template-columns:minmax(0,1fr)}}
 .cwrap{position:relative}
-#cv{display:block;width:100%;height:320px;touch-action:pan-y}
-#cv text{font:500 10.5px var(--f-mono);fill:var(--muted)}
+#cv,#pbcv{display:block;width:100%;height:320px;touch-action:pan-y}
+#cv text,#pbcv text{font:500 10.5px var(--f-mono);fill:var(--muted)}
 .tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:6px 8px;font:500 11.5px var(--f-mono);font-variant-numeric:tabular-nums;box-shadow:0 4px 14px rgba(0,0,0,.12);white-space:nowrap;z-index:2}
 .tip[hidden]{display:none}
 .fcard{white-space:normal;width:min(560px,calc(100% - 16px));padding:8px 10px}
@@ -129,7 +129,7 @@ footer a{color:var(--accent)}
 
   <section aria-labelledby="cvH">
     <div class="panel">
-      <div class="chead"><h3 id="cvH">CCDC yield curve</h3><div class="btns" id="cvRng" role="group" aria-label="Curve range"></div></div>
+      <div class="chead"><h3 id="cvH">CCDC CGB yield curve</h3><div class="btns" id="cvRng" role="group" aria-label="Curve range"></div></div>
       <div class="curve">
         <div>
           <div class="cwrap"><svg id="cv" role="img" aria-label="China government bond yield curve"></svg><div class="tip" id="cvTip" hidden></div></div>
@@ -138,6 +138,20 @@ footer a{color:var(--accent)}
         <table class="ctab" aria-label="Yield by tenor"><thead><tr><th>Tenor</th><th>Yield %</th><th>1D bp</th><th>1W bp</th><th>1M bp</th><th>1Y bp</th></tr></thead><tbody id="cvTab"></tbody></table>
       </div>
       <p class="note" id="cvNote"></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="pbH" id="policy-bank-curve" style="margin-top:16px">
+    <div class="panel">
+      <div class="chead"><h3 id="pbH">CCDC policy bank yield curve</h3><div class="ctl" style="margin:0;gap:8px"><div class="btns" id="pbIss" role="group" aria-label="Policy bank"></div><div class="btns" id="pbRng" role="group" aria-label="Curve range"></div></div></div>
+      <div class="curve">
+        <div>
+          <div class="cwrap"><svg id="pbcv" role="img" aria-label="China policy bank bond yield curve"></svg><div class="tip" id="pbTip" hidden></div></div>
+          <div class="leg"><span><i style="background:var(--c1);height:2.5px"></i><b id="pbNow">Latest</b></span><span><i style="background:var(--c2)"></i>1 week ago</span><span><i style="background:var(--c3)"></i>1 month ago</span><span><i class="dot" style="background:var(--ink)"></i>Bonds traded today (CFETS last yield)</span></div>
+        </div>
+        <table class="ctab" aria-label="Policy bank yield by tenor"><thead><tr><th>Tenor</th><th>Yield %</th><th>1D bp</th><th>1W bp</th><th>1M bp</th><th>1Y bp</th></tr></thead><tbody id="pbTab"></tbody></table>
+      </div>
+      <p class="note" id="pbNote"></p>
     </div>
   </section>
 
@@ -243,10 +257,10 @@ footer a{color:var(--accent)}
     <p class="note" id="bNote"></p>
   </section>
 
-  <footer id="foot">Curve and tenor history: ChinaBond (CCDC) 中债国债收益率曲线, yield to maturity, published for each business day after the Beijing close. Bond list, ISINs, coupons and maturities: CFETS bond information (chinamoney.com.cn). Traded yields: CFETS interbank cash-bond deals, intraday. Bond lending: CFETS 债券借贷日报 (daily, by tenor, published ~22:00 Beijing) and 债券借贷月报 (monthly, by tenor and bond type). Coupon shown is the bond's fixed coupon; discount bills have none. Yields in percent; changes in basis points. CGB futures (TS, TF, T, TL): delayed quotes, daily and 5-minute history from Sina Finance; official settlement prices from CFFEX daily statistics; implied yields computed by the dashboard from the cheapest-to-deliver bond and CFFEX conversion factors. Indicative, not an offer to trade.</footer>
+  <footer id="foot">Curve and tenor history: ChinaBond (CCDC) 中债国债收益率曲线, yield to maturity, published for each business day after the Beijing close. Policy bank curve: ChinaBond (CCDC) 中债政策性金融债收益率曲线 for China Development Bank (国开), Agricultural Development Bank of China (农发) and Export-Import Bank of China (进出口), yield to maturity; dots are each issuer's bonds traded on CFETS today. Bond list, ISINs, coupons and maturities: CFETS bond information (chinamoney.com.cn). Traded yields: CFETS interbank cash-bond deals, intraday. Bond lending: CFETS 债券借贷日报 (daily, by tenor, published ~22:00 Beijing) and 债券借贷月报 (monthly, by tenor and bond type). Coupon shown is the bond's fixed coupon; discount bills have none. Yields in percent; changes in basis points. CGB futures (TS, TF, T, TL): delayed quotes, daily and 5-minute history from Sina Finance; official settlement prices from CFFEX daily statistics; implied yields computed by the dashboard from the cheapest-to-deliver bond and CFFEX conversion factors. Indicative, not an offer to trade.</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
-<script src="../assets/china.js?v=5"></script>
+<script src="../assets/china.js?v=6"></script>
 <script src="../assets/china-lending.js?v=1"></script>
 <script src="../assets/china-futures.js?v=7"></script>
 </body>

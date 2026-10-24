@@ -1,4 +1,4 @@
-// China tab: CCDC China government bond curve, tenor history, and outstanding CGBs by bond code and ISIN.
+// China tab: CCDC China government bond curve, CCDC policy bank curves (CDB / ADBC / EXIM), tenor history, and outstanding CGBs by bond code and ISIN.
 // Reads ../data/china.json (written by scripts/fetch-china.mjs) and re-checks it every minute.
 (() => {
   const SRC = "../data/china.json";
@@ -11,7 +11,7 @@
   const bp = (v, n = 1) => v == null || !isFinite(v) ? "–" : `${v > 0 ? "+" : ""}${(+v).toFixed(n)}`;
   const cls = (v) => v == null || !isFinite(v) || Math.abs(v) < 0.05 ? "" : v > 0 ? "up" : "down"; // yields up = green, as on the Macro tab
   let D = null;
-  const st = { cvMax: 30, hT: 10, hR: "6M", hA: "t:10", hB: "", hC: "", hD: "", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
+  const st = { cvMax: 30, pbMax: 30, pbK: "cdb", hT: 10, hR: "6M", hA: "t:10", hB: "", hC: "", hD: "", q: "", type: "All", mat: "", grp: "bucket", traded: false, sort: "ttm", dir: 1 };
 
   // ---------- series helpers ----------
   const ser = (t) => D?.tenors?.[t] || [];
@@ -47,23 +47,29 @@
     $("tiles").querySelectorAll(".tile").forEach((b) => b.onclick = () => { st.hT = b.dataset.k; tiles(); hist(true); $("hH").scrollIntoView({ behavior: "smooth", block: "start" }); });
   }
 
-  // ---------- curve ----------
-  function curveTable() {
-    $("cvTab").innerHTML = TEN.map((t) => {
-      const s = ser(t); if (!s.length) return "";
+  // ---------- curves ----------
+  // One drawing routine for both curve panels. `c` describes a curve:
+  //   { svg, tip, tab, now: legend <b> id, note, max, pts, ser(t), bonds (traded, with ttm/last/code/isin/name/curve/vs) }
+  // CGB panel: CCDC government bond curve with CGB dots. Policy bank panel: the chosen issuer's CCDC curve with its bonds.
+  function curveTable(c) {
+    $(c.tab).innerHTML = TEN.map((t) => {
+      const s = c.ser(t); if (!s.length) return "";
       const td = (v) => `<td class="${cls(v)}">${bp(v)}</td>`;
       return `<tr><td>${lab(t)}</td><td>${f2(s.at(-1)[1], 4)}</td>${td(chg(s, 1))}${td(chg(s, 7))}${td(chg(s, 30))}${td(chg(s, 365))}</tr>`;
     }).join("");
   }
-  function curveChart() {
-    const svg = $("cv"), W = Math.max(300, svg.clientWidth || 600), Hh = 320, P = { l: 44, r: 12, t: 12, b: 28 };
+  function cgbCurve() {
+    return { svg: "cv", tip: "cvTip", tab: "cvTab", max: st.cvMax, pts: D.curve?.pts || [], ser, bonds: (D.bonds || []).filter((b) => b.last != null) };
+  }
+  function curveChart(c = cgbCurve()) {
+    const svg = $(c.svg), W = Math.max(300, svg.clientWidth || 600), Hh = 320, P = { l: 44, r: 12, t: 12, b: 28 };
     svg.setAttribute("viewBox", `0 0 ${W} ${Hh}`);
-    const max = st.cvMax, now = (D.curve?.pts || []).filter(([t]) => t <= max + 1e-9);
-    const old = (days) => TEN.filter((t) => t <= max).map((t) => [t, back(ser(t), days)]).filter(([, y]) => y != null);
+    const max = c.max, now = (c.pts || []).filter(([t]) => t <= max + 1e-9);
+    const old = (days) => TEN.filter((t) => t <= max).map((t) => [t, back(c.ser(t), days)]).filter(([, y]) => y != null);
     const w1 = old(7), m1 = old(30);
-    const dots = (D.bonds || []).filter((b) => b.last != null && b.ttm <= max);
+    const dots = (c.bonds || []).filter((b) => b.last != null && b.ttm <= max);
     const ys = [...now, ...w1, ...m1].map((p) => p[1]).concat(dots.map((b) => b.last));
-    if (!ys.length) { svg.innerHTML = ""; return; }
+    if (!ys.length) { svg.innerHTML = ""; return dots; }
     let lo = Math.min(...ys), hi = Math.max(...ys); const pad = (hi - lo) * 0.08 || 0.1; lo -= pad; hi += pad;
     const X = (t) => P.l + t / max * (W - P.l - P.r), Y = (y) => P.t + (hi - y) / (hi - lo) * (Hh - P.t - P.b);
     const line = (pts, col, w, dash = "") => pts.length > 1 ? `<polyline points="${pts.map(([t, y]) => `${X(t).toFixed(1)},${Y(y).toFixed(1)}`).join(" ")}" fill="none" stroke="${col}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} stroke-linejoin="round"/>` : "";
@@ -74,9 +80,9 @@
     for (const t of xt) g += `<text x="${X(t)}" y="${Hh - 8}" text-anchor="middle">${t ? t + "Y" : "0"}</text>`;
     g += line(m1, "var(--c3)", 1.4, "4 3") + line(w1, "var(--c2)", 1.4, "4 3") + line(now, "var(--c1)", 2.4);
     g += dots.map((b, i) => `<circle cx="${X(b.ttm).toFixed(1)}" cy="${Y(b.last).toFixed(1)}" r="3" fill="var(--ink)" fill-opacity=".55" data-i="${i}"/>`).join("");
-    g += `<line id="cvX" y1="${P.t}" y2="${Hh - P.b}" stroke="var(--muted)" stroke-dasharray="2 3" visibility="hidden"/><circle id="cvP" r="4" fill="var(--c1)" visibility="hidden"/>`;
+    g += `<line id="${c.svg}X" y1="${P.t}" y2="${Hh - P.b}" stroke="var(--muted)" stroke-dasharray="2 3" visibility="hidden"/><circle id="${c.svg}P" r="4" fill="var(--c1)" visibility="hidden"/>`;
     svg.innerHTML = g;
-    const tip = $("cvTip"), vx = svg.querySelector("#cvX"), vp = svg.querySelector("#cvP");
+    const tip = $(c.tip), vx = svg.querySelector(`#${c.svg}X`), vp = svg.querySelector(`#${c.svg}P`);
     const move = (ev) => {
       const r = svg.getBoundingClientRect(), sx = (ev.clientX - r.left) * W / r.width, sy = (ev.clientY - r.top) * Hh / r.height;
       if (sx < P.l || sx > W - P.r) { leave(); return; }
@@ -102,8 +108,43 @@
     };
     const leave = () => { tip.hidden = true; vx.setAttribute("visibility", "hidden"); vp.setAttribute("visibility", "hidden"); };
     svg.onpointermove = move; svg.onpointerdown = move; svg.onpointerleave = leave;
-    $("lgNow").textContent = D.curve?.date ? `CCDC ${D.curve.date}` : "Latest";
-    $("cvNote").textContent = `CCDC curve dated ${D.curve?.date || "–"} (Beijing business day). Dashed lines use CCDC's closes at the standard tenors a week and a month earlier. Dots: ${dots.length} CGBs traded on CFETS ${D.tradeDay || "today"}${D.tradeTime ? ` (as of ${D.tradeTime} Beijing)` : ""}; hover or tap for code, ISIN and spread to the curve.`;
+    return dots;
+  }
+  function cgbPanel() {
+    curveTable(cgbCurve());
+    const dots = curveChart();
+    $("lgNow").textContent = D.curve?.date ? `CCDC CGB ${D.curve.date}` : "Latest";
+    $("cvNote").textContent = `CCDC CGB curve dated ${D.curve?.date || "–"} (Beijing business day). Dashed lines use CCDC's closes at the standard tenors a week and a month earlier. Dots: ${dots.length} CGBs traded on CFETS ${D.tradeDay || "today"}${D.tradeTime ? ` (as of ${D.tradeTime} Beijing)` : ""}; hover or tap for code, ISIN and spread to the curve.`;
+  }
+
+  // ---------- policy bank curve (CDB / ADBC / EXIM) ----------
+  const PBK = ["cdb", "adbc", "exim"];
+  const pbOk = (k) => !!D?.pb?.[k]?.curve?.pts?.length;
+  function pbCurve() {
+    const p = D.pb[st.pbK];
+    return { svg: "pbcv", tip: "pbTip", tab: "pbTab", max: st.pbMax, pts: p.curve.pts, ser: (t) => p.tenors?.[t] || [], bonds: p.bonds || [] };
+  }
+  function pbPanel() {
+    if (!pbOk(st.pbK)) st.pbK = PBK.find(pbOk) || st.pbK;
+    const p = D?.pb?.[st.pbK], has = pbOk(st.pbK), end = has ? p.curve.pts.at(-1)[0] : 50;
+    // ranges up to the curve's longest point (CCDC's policy bank curves are shorter than the CGB curve)
+    const all = [[10, "0–10Y"], [30, "0–30Y"], [50, "0–50Y"]], cover = all.find(([m]) => m >= end - 1e-9) || all.at(-1);
+    const rngs = all.filter(([m]) => m <= cover[0]);
+    if (!rngs.some(([m]) => m === st.pbMax)) st.pbMax = rngs.at(-1)[0];
+    $("pbRng").innerHTML = rngs.map(([m, l]) => `<button type="button" data-m="${m}" aria-pressed="${m === st.pbMax}"${has ? "" : " disabled"}>${l}</button>`).join("");
+    $("pbRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.pbMax = +b.dataset.m; pbPanel(); });
+    $("pbIss").innerHTML = PBK.map((k) => `<button type="button" data-k="${k}" aria-pressed="${k === st.pbK}"${pbOk(k) ? "" : " disabled"} title="${esc(D?.pb?.[k]?.name || "")}">${esc(D?.pb?.[k]?.short || k.toUpperCase())}</button>`).join("");
+    $("pbIss").querySelectorAll("button").forEach((b) => b.onclick = () => { st.pbK = b.dataset.k; pbPanel(); });
+    if (!has) {
+      $("pbcv").innerHTML = ""; $("pbTab").innerHTML = ""; $("pbNow").textContent = "Latest";
+      $("pbNote").textContent = "The CCDC policy bank curves are not in the data yet. They are fetched with each dashboard refresh after ChinaBond publishes (about 17:30 Beijing); check back shortly.";
+      return;
+    }
+    $("pbH").textContent = `CCDC policy bank yield curve · ${p.short}`;
+    curveTable(pbCurve());
+    const dots = curveChart(pbCurve());
+    $("pbNow").textContent = `CCDC ${p.short} ${p.curve.date}`;
+    $("pbNote").textContent = `CCDC ${p.name} (${p.short}) curve, ${p.cn}, dated ${p.curve.date} (Beijing business day); policy bank bonds are quasi-sovereign, so the gap to the CGB curve above is the policy bank spread. Dashed lines use CCDC's closes at the standard tenors a week and a month earlier. Dots: ${dots.length} ${p.short} bonds traded on CFETS ${D.pbTradeDay || "today"}${D.pbTradeTime ? ` (as of ${D.pbTradeTime} Beijing)` : ""}; hover or tap for code, ISIN and spread to the curve.`;
   }
 
   // ---------- history ----------
@@ -293,9 +334,9 @@
     $("cvRng").querySelectorAll("button").forEach((b) => b.onclick = () => { st.cvMax = +b.dataset.m; rngButtons(); curveChart(); });
   }
   function render(first) {
-    tiles(); rngButtons(); curveTable(); curveChart(); hist(first); table();
+    tiles(); rngButtons(); cgbPanel(); pbPanel(); hist(first); table();
     const upd = D.updated ? new Date(D.updated * 1000).toLocaleString("en-SG", { timeZone: "Asia/Singapore", dateStyle: "medium", timeStyle: "short" }) : "–";
-    $("lede").innerHTML = `China government bond (CGB) yields from ChinaBond (CCDC), the official curve compiled by China Central Depository &amp; Clearing, and every outstanding CGB listed by bond code and ISIN with its CFETS interbank traded yield. Latest CCDC curve: <b>${esc(D.curve?.date || "–")}</b>. Data refreshed ${esc(upd)} Singapore time; the page re-checks every minute.`;
+    $("lede").innerHTML = `China government bond (CGB) yields from ChinaBond (CCDC), the official curve compiled by China Central Depository &amp; Clearing, CCDC's policy bank curves (CDB, ADBC, EXIM), and every outstanding CGB listed by bond code and ISIN with its CFETS interbank traded yield. Latest CCDC curve: <b>${esc(D.curve?.date || "–")}</b>. Data refreshed ${esc(upd)} Singapore time; the page re-checks every minute.`;
   }
   async function load(first) {
     try {
@@ -306,7 +347,7 @@
       D = j; render(first);
     } catch (e) { if (first) $("lede").textContent = "China bond data is not available yet. It is fetched with each dashboard refresh; check back in a few minutes."; }
   }
-  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => D && curveChart(), 120); });
-  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => D && (curveChart(), hist(false)));
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => D && (curveChart(), pbPanel()), 120); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => D && (curveChart(), pbPanel(), hist(false)));
   load(true); setInterval(() => load(false), 60000);
 })();
