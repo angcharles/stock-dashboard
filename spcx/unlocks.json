@@ -1,5 +1,5 @@
 {
-  "asof": "2026-10-11",
+  "asof": "2026-10-24",
   "ipo": "2026-06-12",
   "ipo_price": 135,
   "fallback": { "price": 162.57, "price_date": "2026-10-09", "adv": 95460000, "adv_date": "2026-10-09" },
@@ -19,10 +19,10 @@
     { "date": "2026-09-10", "group": "std", "shares": 59.1, "fixed": true, "en": "Day 91 · Rule 144 affiliates", "zh": "第 91 天 · Rule 144 关联人" },
     { "date": "2026-09-24", "group": "std", "shares": 328.4, "fixed": true, "en": "Day 105 · 7%", "zh": "第 105 天 · 7%" },
     { "date": "2026-10-09", "group": "std", "shares": 328.4, "fixed": true, "en": "Day 120 · 7%", "zh": "第 120 天 · 7%" },
+    { "date": "2026-10-22", "group": "std", "shares": 1300.0, "fixed": true,
+      "en": "Q3 results (Oct 20, after close) + 2 trading days · 28%", "zh": "Q3 财报（10 月 20 日盘后）后第 2 个交易日 · 28%" },
     { "date": "2026-10-26", "group": "std", "shares": 328.4, "fixed": true,
       "en": "Day 135 · 7% (Oct 24 is a Saturday; first trading day Oct 26)", "zh": "第 135 天 · 7%（10 月 24 日为周六，首个交易日 10 月 26 日）" },
-    { "date": "2026-11-06", "group": "std", "shares": 1300.0, "fixed": false, "est": { "en": "Early Nov (est.)", "zh": "11 月初（估）" },
-      "en": "Q3 results + 2 trading days · 28% (results date not yet announced)", "zh": "Q3 财报后第 2 个交易日 · 28%（财报日期未公布）" },
     { "date": "2026-12-08", "group": "std", "shares": 797.6, "fixed": true,
       "en": "Day 180 · 180-day lock-up ends (remaining 17%)", "zh": "第 180 天 · 180 天禁售结束（剩余 17%）" },
     { "date": "2027-02-10", "group": "ext", "shares": 351.9, "fixed": false, "est": { "en": "Feb 2027 (est.)", "zh": "2027 年 2 月（估）" },
@@ -43,6 +43,7 @@
     { "t": "SPCX lock-up calendar (The Financial Sciences)", "u": "https://thefinancialsciences.com/spacex-lockup-calendar" },
     { "t": "Musk can't sell until June 2027 (Motley Fool)", "u": "https://www.fool.com/investing/2026/08/16/elon-musk-cant-sell-spacex-stock-until-june-2027-b/" },
     { "t": "SPCX lock-up schedule, every date (Pure Power Picks)", "u": "https://purepowerpicks.com/spacex-lockup-schedule/" },
+    { "t": "Post-Q3 tranche unlocks Oct 22 (FXStreet)", "u": "https://www.fxstreet.com/analysis/spacexs-earnings-dont-matter-what-they-unlock-does-202610201609" },
     { "t": "Day 90 and day 91 tranches (FinanceFeeds)", "u": "https://financefeeds.com/spacex-spcx-lockup-september-9-319-million-shares" }
   ]
 }

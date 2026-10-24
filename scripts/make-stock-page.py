@@ -27,6 +27,11 @@ def build(spec_path):
     d = S["dir"]
     out = ROOT / d
     (out / "data").mkdir(parents=True, exist_ok=True)
+    # optional per-stock modules: include their script only when the stock folder has the data file,
+    # so a page rebuild never drops a section (the SpaceX unlock schedule was lost this way)
+    extra_js = ""
+    if (out / "unlocks.json").exists():
+        extra_js += '\n<script src="../assets/unlocks.js?v=2"></script>'
 
     zh = {}   # data-i key -> 中文 text
     def tx(key, o, tag="span", attrs="", raw=False):
@@ -226,7 +231,7 @@ const T = {{zh:{json.dumps({**ui_keys, **zh}, ensure_ascii=False)}}};
 <script src="../assets/holders.js?v=3"></script>
 <script src="../assets/options.js?v=1"></script>
 <script src="../assets/analysts.js?v=1"></script>
-<script src="../assets/mgmt.js?v=1"></script>
+<script src="../assets/mgmt.js?v=1"></script>{extra_js}
 <script src="../assets/ext-hours.js?v=1"></script>
 <script src="../assets/stock-picker.js?v=1"></script>
 </body>
